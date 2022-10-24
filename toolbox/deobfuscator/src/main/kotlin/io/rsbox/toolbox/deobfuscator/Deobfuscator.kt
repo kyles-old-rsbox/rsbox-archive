@@ -115,8 +115,10 @@ object Deobfuscator {
 
         var clsIdx = 0
         val classIdxMap = hashMapOf<String, Int>()
-        pool.readJar(inputFile) { entry ->
-            classIdxMap[entry.name.replace(".class", "").replace(".", "/")] = clsIdx++
+        pool.readJar(inputFile) { _, entry ->
+            if(entry.name.endsWith(".class")) {
+                classIdxMap[entry.name.replace(".class", "").replace(".", "/")] = clsIdx++
+            }
         }
 
         pool.allClasses.forEach {

@@ -15,15 +15,22 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+@file:OptIn(ExperimentalSerializationApi::class)
+
 package io.rsbox.toolbox.updater
 
 import io.rsbox.toolbox.asm.ClassPool
 import io.rsbox.toolbox.asm.readJar
 import io.rsbox.toolbox.asm.writeJar
+import io.rsbox.toolbox.updater.asm.obfInfo
+import kotlinx.serialization.ExperimentalSerializationApi
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.decodeFromStream
 import org.tinylog.kotlin.Logger
 import java.io.File
 import java.io.FileNotFoundException
 
+@Suppress("DuplicatedCode")
 object Updater {
 
     private lateinit var oldFile: File
@@ -38,7 +45,7 @@ object Updater {
         if(args.size < 3) throw IllegalArgumentException("Usage: updater.jar <old-refactored-jar> <new-deob-jar> <output-refactored-jar>")
         oldFile = File(args[0])
         newFile = File(args[1])
-        outputFile = File(args[1])
+        outputFile = File(args[2])
 
         if(!oldFile.exists() || !newFile.exists()) throw FileNotFoundException()
 
@@ -47,11 +54,21 @@ object Updater {
          */
         Logger.info("Loading classes from jar files.")
 
-        prevPool.readJar(oldFile)
+        prevPool.readJar(oldFile) { jar, entry ->
+            if(entry.name == "META-INF/obf-info.json") {
+                prevPool.obfInfo = Json.decodeFromStream(jar.getInputStream(entry))
+            }
+        }
+        check(prevPool.obfInfo.toString() != "")
         prevPool.allClasses.filter { it.name.contains("json") || it.name.contains("bouncycastle") }.forEach { prevPool.ignoreClass(it) }
         prevPool.init()
 
-        curPool.readJar(newFile)
+        curPool.readJar(newFile) { jar, entry ->
+            if(entry.name == "META-INF/obf-info.json") {
+                curPool.obfInfo = Json.decodeFromStream(jar.getInputStream(entry))
+            }
+        }
+        check(curPool.obfInfo.toString() != "")
         curPool.allClasses.filter { it.name.contains("json") || it.name.contains("bouncycastle") }.forEach { curPool.ignoreClass(it) }
         curPool.init()
 

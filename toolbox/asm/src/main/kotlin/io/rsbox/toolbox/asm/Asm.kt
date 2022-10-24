@@ -29,14 +29,14 @@ import java.util.jar.JarEntry
 import java.util.jar.JarFile
 import java.util.jar.JarOutputStream
 
-fun ClassPool.readJar(file: File, extraLogic: (JarEntry) -> Unit = {}) {
+fun ClassPool.readJar(file: File, extraLogic: (JarFile, JarEntry) -> Unit = { _, _ -> }) {
     JarFile(file).use { jar ->
         jar.entries().asSequence().forEach { entry ->
             if(entry.name.endsWith(".class")) {
                 val node = readClass(jar.getInputStream(entry).readAllBytes())
                 this.addClass(node)
-                extraLogic(entry)
             }
+            extraLogic(jar, entry)
         }
     }
 }
