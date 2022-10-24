@@ -15,14 +15,19 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.toolbox.deobfuscator.asm
+package io.rsbox.toolbox.asm
 
-import io.rsbox.toolbox.asm.field
-import io.rsbox.toolbox.asm.nullField
-import io.rsbox.toolbox.deobfuscator.FieldObfuscatedInfo
+import org.objectweb.asm.tree.ClassNode
 import org.objectweb.asm.tree.FieldNode
 
-var FieldNode.obfInfo: FieldObfuscatedInfo by field()
-var FieldNode.obfOwner: String? by nullField()
-var FieldNode.obfName: String? by nullField()
-var FieldNode.obfDesc: String? by nullField()
+fun FieldNode.init(owner: ClassNode) {
+    this.owner = owner
+}
+
+fun FieldNode.reset() {}
+fun FieldNode.build() {}
+
+var FieldNode.owner: ClassNode by field()
+val FieldNode.pool get() = owner.pool
+
+val FieldNode.identifier: String get() = "${owner.identifier}.$name"

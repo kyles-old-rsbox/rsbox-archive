@@ -1,8 +1,28 @@
+/*
+ * Copyright (C) 2022 RSBox <Kyle Escobar>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 package io.rsbox.toolbox.deobfuscator.transformer
 
+import io.rsbox.toolbox.asm.ClassPool
+import io.rsbox.toolbox.asm.getField
+import io.rsbox.toolbox.asm.getMethod
+import io.rsbox.toolbox.asm.ignored
+import io.rsbox.toolbox.deobfuscator.Deobfuscator
 import io.rsbox.toolbox.deobfuscator.Transformer
-import io.rsbox.toolbox.deobfuscator.asm.ClassPool
-import io.rsbox.toolbox.deobfuscator.asm.ignored
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.ClassWriter
 import org.objectweb.asm.Type
@@ -20,6 +40,15 @@ class StackFrameFixer : Transformer {
             val reader = ClassReader(writer.toByteArray())
             reader.accept(newNode, ClassReader.SKIP_FRAMES)
             newNode.ignored = cls.ignored
+            Deobfuscator.updateObfInfo(cls, newNode)
+            cls.methods.forEach methodLoop@ { oldMethod ->
+                val newMethod = newNode.getMethod(oldMethod.name, oldMethod.desc)!!
+                Deobfuscator.updateObfInfo(oldMethod, newMethod)
+            }
+            cls.fields.forEach fieldLoop@ { oldField ->
+                val newField = newNode.getField(oldField.name, oldField.desc)!!
+                Deobfuscator.updateObfInfo(oldField, newField)
+            }
             newNodes.add(newNode)
         }
 

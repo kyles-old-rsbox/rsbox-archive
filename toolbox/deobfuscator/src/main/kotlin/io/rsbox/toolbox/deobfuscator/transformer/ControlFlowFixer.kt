@@ -1,8 +1,25 @@
+/*
+ * Copyright (C) 2022 RSBox <Kyle Escobar>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 package io.rsbox.toolbox.deobfuscator.transformer
 
+import io.rsbox.toolbox.asm.ClassPool
+import io.rsbox.toolbox.asm.LabelMap
 import io.rsbox.toolbox.deobfuscator.Transformer
-import io.rsbox.toolbox.deobfuscator.asm.ClassPool
-import io.rsbox.toolbox.deobfuscator.asm.LabelMap
 import org.objectweb.asm.tree.AbstractInsnNode.*
 import org.objectweb.asm.tree.InsnList
 import org.objectweb.asm.tree.LineNumberNode
@@ -11,7 +28,7 @@ import org.objectweb.asm.tree.analysis.Analyzer
 import org.objectweb.asm.tree.analysis.BasicInterpreter
 import org.objectweb.asm.tree.analysis.BasicValue
 import org.tinylog.kotlin.Logger
-import java.util.Stack
+import java.util.*
 
 class ControlFlowFixer : Transformer {
 

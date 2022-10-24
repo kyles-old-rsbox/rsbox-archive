@@ -15,14 +15,29 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.toolbox.deobfuscator.asm
+package io.rsbox.toolbox.asm
 
-import io.rsbox.toolbox.asm.field
-import io.rsbox.toolbox.asm.nullField
-import io.rsbox.toolbox.deobfuscator.FieldObfuscatedInfo
-import org.objectweb.asm.tree.FieldNode
+import org.objectweb.asm.tree.AbstractInsnNode
+import org.objectweb.asm.tree.InsnList
 
-var FieldNode.obfInfo: FieldObfuscatedInfo by field()
-var FieldNode.obfOwner: String? by nullField()
-var FieldNode.obfName: String? by nullField()
-var FieldNode.obfDesc: String? by nullField()
+fun InsnList.append(previous: AbstractInsnNode, vararg insns: AbstractInsnNode) {
+    check(contains(previous))
+    insns.reversed().forEach { insert(previous, it) }
+}
+
+fun InsnList.prepend(next: AbstractInsnNode, vararg insns: AbstractInsnNode) {
+    check(contains(next))
+    insns.forEach { insertBefore(next, it) }
+}
+
+fun InsnList.delete(vararg insns: AbstractInsnNode) {
+    insns.forEach {
+        check(contains(it))
+        remove(it)
+    }
+}
+
+fun InsnList.replace(old: AbstractInsnNode, replacement: AbstractInsnNode) {
+    check(contains(old))
+    set(old, replacement)
+}

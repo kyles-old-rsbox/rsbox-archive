@@ -19,27 +19,23 @@ package io.rsbox.toolbox.command
 
 import com.github.ajalt.clikt.core.CliktCommand
 import com.github.ajalt.clikt.parameters.arguments.argument
-import com.github.ajalt.clikt.parameters.options.flag
-import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.types.file
-import io.rsbox.toolbox.deobfuscator.Deobfuscator
+import io.rsbox.toolbox.updater.Updater
 
-class DeobfuscateCommand : CliktCommand(
-    name = "deobfuscate",
-    help = "Deobfuscates a vanilla Jagex gamepack for Old School RuneScape."
+class UpdateCommand : CliktCommand(
+    name = "update",
+    help = "Updates class,method,field and variable names from a previous refactored jar file."
 ) {
 
-    private val inputFile by argument("input-jar", help = "File path to the input jar").file(mustExist = true, canBeDir = false)
-    private val outputFile by argument("output-jar", help = "File path to output deobfuscated jar.").file(canBeDir = false)
-    private val runTestClient by option("--test", "-t", help = "Enable running a test client using output jar.").flag(default = false)
+    private val prevJarFile by argument("prev-jar", help = "File path to the previous refactored jar.").file(mustExist = true, canBeDir = false)
+    private val curJarFile by argument("cur-jar", help = "File path to the current/latest deobbed jar.").file(mustExist = true, canBeDir = false)
+    private val outputJarFile by argument("output-jar", help = "File path to save the new updated jar.").file(canBeDir = false)
 
     override fun run() {
         val args = mutableListOf<String>()
-        args.add(inputFile.absolutePath)
-        args.add(outputFile.absolutePath)
-        if(runTestClient) {
-            args.add("--test")
-        }
-        Deobfuscator.main(args.toTypedArray())
+        args.add(prevJarFile.absolutePath)
+        args.add(curJarFile.absolutePath)
+        args.add(outputJarFile.absolutePath)
+        Updater.main(args.toTypedArray())
     }
 }

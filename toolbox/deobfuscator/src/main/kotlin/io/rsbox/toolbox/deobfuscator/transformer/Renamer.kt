@@ -1,7 +1,25 @@
+/*
+ * Copyright (C) 2022 RSBox <Kyle Escobar>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 package io.rsbox.toolbox.deobfuscator.transformer
 
+import io.rsbox.toolbox.asm.*
+import io.rsbox.toolbox.deobfuscator.Deobfuscator
 import io.rsbox.toolbox.deobfuscator.Transformer
-import io.rsbox.toolbox.deobfuscator.asm.*
 import org.objectweb.asm.commons.ClassRemapper
 import org.objectweb.asm.commons.SimpleRemapper
 import org.objectweb.asm.tree.ClassNode
@@ -67,6 +85,17 @@ class Renamer : Transformer {
             val node = ClassNode()
             cls.accept(ClassRemapper(node, remapper))
             node.ignored = cls.ignored
+            Deobfuscator.updateObfInfo(cls, node)
+            cls.methods.forEach methodLoop@ { oldMethod ->
+                val newMethodName = mappings[oldMethod.identifier] ?: return@methodLoop
+                val newMethod = node.methods.first { it.name == newMethodName }
+                Deobfuscator.updateObfInfo(oldMethod, newMethod)
+            }
+            cls.fields.forEach fieldLoop@ { oldField ->
+                val newFieldName = mappings[oldField.identifier] ?: return@fieldLoop
+                val newField = node.fields.first { it.name == newFieldName }
+                Deobfuscator.updateObfInfo(oldField, newField)
+            }
             classes.add(node)
         }
         pool.clear()

@@ -1,15 +1,31 @@
+/*
+ * Copyright (C) 2022 RSBox <Kyle Escobar>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 @file:Suppress("SafeCastWithReturn")
 
 package io.rsbox.toolbox.deobfuscator.transformer
 
 import com.google.common.collect.MultimapBuilder
+import io.rsbox.toolbox.asm.*
 import io.rsbox.toolbox.deobfuscator.Transformer
-import io.rsbox.toolbox.deobfuscator.asm.*
+import io.rsbox.toolbox.deobfuscator.asm.opaque
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type
-import org.objectweb.asm.Type.BYTE_TYPE
-import org.objectweb.asm.Type.SHORT_TYPE
-import org.objectweb.asm.Type.INT_TYPE
+import org.objectweb.asm.Type.*
 import org.objectweb.asm.tree.*
 import org.tinylog.kotlin.Logger
 import java.lang.reflect.Modifier
@@ -32,11 +48,17 @@ class OpaquePredicateRemover : Transformer {
                 listOf(EXCEPTION_PATTERN, RETURN_PATTERN).forEach { pattern ->
                     InstructionMatcher(method.instructions).search(pattern).forEach matchLoop@ { insns ->
                         insns.firstOrNull { it is VarInsnNode && it.`var` == method.lastArgIndex } as? VarInsnNode ?: return@matchLoop
-                        insns.firstOrNull { it is IntInsnNode || (it is LdcInsnNode && it.cst is Number) || it.opcode in ICONST_M1..ICONST_5 } ?: return@matchLoop
+                        val intInsn = insns.firstOrNull { it is IntInsnNode || (it is LdcInsnNode && it.cst is Number) || it.opcode in ICONST_M1..ICONST_5 } ?: return@matchLoop
                         val cmpInsn = insns.firstOrNull { it is JumpInsnNode && it.opcode != GOTO } as? JumpInsnNode ?: return@matchLoop
                         val methodInsn = insns.firstOrNull { it is MethodInsnNode } as? MethodInsnNode
                         if(methodInsn != null && methodInsn.owner != Type.getInternalName(java.lang.IllegalStateException::class.java)) return@matchLoop
                         val gotoInsn = JumpInsnNode(GOTO, LabelNode(cmpInsn.label.label))
+                        method.opaque = when(cmpInsn.opcode) {
+                            IF_ICMPEQ -> intInsn.intValue
+                            IF_ICMPGE, IF_ICMPGT -> intInsn.intValue + 1
+                            IF_ICMPLE, IF_ICMPLT, IF_ICMPNE -> intInsn.intValue - 1
+                            else -> throw RuntimeException()
+                        }
                         modifier.append(insns.last(), gotoInsn)
                         modifier.removeAll(insns)
                         checkCount++
@@ -135,6 +157,13 @@ class OpaquePredicateRemover : Transformer {
         LDC -> (this as LdcInsnNode).cst is Int
         SIPUSH, BIPUSH, ICONST_M1, ICONST_0, ICONST_1, ICONST_2, ICONST_3, ICONST_4, ICONST_5 -> true
         else -> false
+    }
+
+    private val AbstractInsnNode.intValue: Int get() {
+        if(opcode in 2..8) return opcode - 3
+        if(opcode == BIPUSH || opcode == SIPUSH) return (this as IntInsnNode).opcode
+        if(this is LdcInsnNode && cst is Int) return cst as Int
+        throw IllegalArgumentException()
     }
 
     private fun findSupers(cls: ClassNode, classNames: Map<String, ClassNode>): Collection<ClassNode> {
