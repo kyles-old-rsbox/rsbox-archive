@@ -116,7 +116,7 @@ object Deobfuscator {
         var clsIdx = 0
         val classIdxMap = hashMapOf<String, Int>()
         pool.readJar(inputFile) { _, entry ->
-            if(entry.name.endsWith(".class")) {
+            if(entry.name.endsWith(".class") && !entry.name.contains("bouncycastle") && !entry.name.contains("json")) {
                 classIdxMap[entry.name.replace(".class", "").replace(".", "/")] = clsIdx++
             }
         }
@@ -134,7 +134,7 @@ object Deobfuscator {
          */
         pool.allClasses.forEach { cls ->
             cls.obfName = cls.name
-            cls.jarIndex = classIdxMap[cls.name] ?: throw RuntimeException("Failed to find jar index for class: ${cls.name}.")
+            cls.jarIndex = classIdxMap[cls.name] ?: -1
 
             cls.methods.forEach { method ->
                 method.obfOwner = cls.name

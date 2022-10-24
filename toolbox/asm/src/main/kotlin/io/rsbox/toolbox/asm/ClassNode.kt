@@ -17,6 +17,7 @@
 
 package io.rsbox.toolbox.asm
 
+import org.objectweb.asm.Type
 import org.objectweb.asm.tree.ClassNode
 
 fun ClassNode.init(pool: ClassPool) {
@@ -58,6 +59,7 @@ val ClassNode.interfaceClasses: MutableList<ClassNode>  by field { mutableListOf
 val ClassNode.implementers: MutableList<ClassNode>  by field { mutableListOf() }
 
 val ClassNode.identifier: String get() = name
+val ClassNode.type: Type get() = Type.getObjectType(name)
 
 fun ClassNode.getMethod(name: String, desc: String) = methods.firstOrNull { it.name == name && it.desc == desc }
 fun ClassNode.getField(name: String, desc: String) = fields.firstOrNull { it.name == name && it.desc == desc }

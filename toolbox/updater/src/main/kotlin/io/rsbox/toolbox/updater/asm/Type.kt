@@ -17,19 +17,13 @@
 
 package io.rsbox.toolbox.updater.asm
 
-import io.rsbox.toolbox.asm.field
-import io.rsbox.toolbox.asm.nullField
-import io.rsbox.toolbox.updater.FieldObfuscatedInfo
-import org.objectweb.asm.tree.FieldNode
-import org.objectweb.asm.tree.MethodNode
+import org.objectweb.asm.Type
+import org.objectweb.asm.Type.*
 
-var FieldNode.obfInfo: FieldObfuscatedInfo by field()
-var FieldNode.obfOwner: String? by nullField()
-var FieldNode.obfName: String? by nullField()
-var FieldNode.obfDesc: String? by nullField()
+fun Type.isPrimitive(): Boolean {
+    return this in listOf(BOOLEAN_TYPE, BYTE_TYPE, SHORT_TYPE, CHAR_TYPE, INT_TYPE, VOID_TYPE, LONG_TYPE, FLOAT_TYPE, DOUBLE_TYPE)
+}
 
-var FieldNode.mapping: FieldNode? by nullField()
-fun FieldNode.isMapped() = mapping != null
-
-val FieldNode.readRefs: MutableList<MethodNode> by field { mutableListOf() }
-val FieldNode.writeRefs: MutableList<MethodNode> by field { mutableListOf() }
+fun Type.isObject(): Boolean {
+    return sort == OBJECT
+}

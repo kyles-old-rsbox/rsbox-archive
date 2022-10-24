@@ -35,6 +35,8 @@ val MethodNode.pool get() = owner.pool
 
 val MethodNode.identifier: String get() = "${owner.identifier}.$name$desc"
 val MethodNode.type get() = Type.getMethodType(desc)
+val MethodNode.returnTypeClass get() = type.returnType.let { pool.findClass(it.internalName) }
+val MethodNode.argumentTypeClasses get() = type.argumentTypes.mapNotNull { pool.findClass(it.internalName) }
 
 val MethodNode.overrides: List<MethodNode> get() {
     val ret = mutableListOf<MethodNode>()

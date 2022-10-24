@@ -22,7 +22,10 @@ package io.rsbox.toolbox.updater
 import io.rsbox.toolbox.asm.ClassPool
 import io.rsbox.toolbox.asm.readJar
 import io.rsbox.toolbox.asm.writeJar
+import io.rsbox.toolbox.updater.asm.extractFeatures
 import io.rsbox.toolbox.updater.asm.obfInfo
+import io.rsbox.toolbox.updater.mapper.MethodMapper
+import io.rsbox.toolbox.updater.mapper.StaticMethodMapper
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.decodeFromStream
@@ -37,8 +40,10 @@ object Updater {
     private lateinit var newFile: File
     private lateinit var outputFile: File
 
-    val prevPool = ClassPool()
-    val curPool = ClassPool()
+    private val prevPool = ClassPool()
+    private val curPool = ClassPool()
+
+    private lateinit var rootMapping: NodeMapping
 
     @JvmStatic
     fun main(args: Array<String>) {
@@ -52,25 +57,25 @@ object Updater {
         /*
          * Load the classes from the jar files into the class pools.
          */
-        Logger.info("Loading classes from jar files.")
-
+        Logger.info("Loading classes from jar: ${oldFile.path}.")
         prevPool.readJar(oldFile) { jar, entry ->
             if(entry.name == "META-INF/obf-info.json") {
                 prevPool.obfInfo = Json.decodeFromStream(jar.getInputStream(entry))
             }
         }
-        check(prevPool.obfInfo.toString() != "")
         prevPool.allClasses.filter { it.name.contains("json") || it.name.contains("bouncycastle") }.forEach { prevPool.ignoreClass(it) }
         prevPool.init()
+        prevPool.extractFeatures()
 
+        Logger.info("Loading classes from jar: ${newFile.path}.")
         curPool.readJar(newFile) { jar, entry ->
             if(entry.name == "META-INF/obf-info.json") {
                 curPool.obfInfo = Json.decodeFromStream(jar.getInputStream(entry))
             }
         }
-        check(curPool.obfInfo.toString() != "")
         curPool.allClasses.filter { it.name.contains("json") || it.name.contains("bouncycastle") }.forEach { curPool.ignoreClass(it) }
         curPool.init()
+        curPool.extractFeatures()
 
         Logger.info("Successfully loaded classes. [Prev Pool: ${prevPool.classes.size}, Current Pool: ${curPool.classes.size}].")
 
@@ -90,6 +95,29 @@ object Updater {
     private fun run() {
         Logger.info("Running RSBox updater.")
 
+        /*
+         * Run mapping methods.
+         */
+        rootMapping = NodeMapping(prevPool, curPool)
 
+        mapStaticMethods()
+        mapMethods()
+        rootMapping.reduce()
+
+        println()
+    }
+
+    /**
+     * ===== MAPPING METHODS =====
+     */
+
+    private fun mapStaticMethods() {
+        val staticMethodMapper = StaticMethodMapper(prevPool, curPool)
+        rootMapping.merge(staticMethodMapper.map())
+    }
+
+    private fun mapMethods() {
+        val methodMapper = MethodMapper(prevPool, curPool)
+        rootMapping.merge(methodMapper.map())
     }
 }

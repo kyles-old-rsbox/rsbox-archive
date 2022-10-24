@@ -17,6 +17,7 @@
 
 package io.rsbox.toolbox.asm
 
+import org.objectweb.asm.Type
 import org.objectweb.asm.tree.ClassNode
 import org.objectweb.asm.tree.FieldNode
 
@@ -31,3 +32,4 @@ var FieldNode.owner: ClassNode by field()
 val FieldNode.pool get() = owner.pool
 
 val FieldNode.identifier: String get() = "${owner.identifier}.$name"
+val FieldNode.type: Type get() = Type.getType(desc)
