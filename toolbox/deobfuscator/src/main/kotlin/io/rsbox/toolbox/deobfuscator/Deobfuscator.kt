@@ -1,10 +1,10 @@
 package io.rsbox.toolbox.deobfuscator
 
 import io.rsbox.toolbox.deobfuscator.asm.ClassPool
+import io.rsbox.toolbox.deobfuscator.asm.readJar
+import io.rsbox.toolbox.deobfuscator.asm.writeJar
 import io.rsbox.toolbox.deobfuscator.transformer.*
 import org.tinylog.kotlin.Logger
-import readJar
-import writeJar
 import java.io.File
 import kotlin.reflect.full.createInstance
 
@@ -65,11 +65,13 @@ object Deobfuscator {
         register<UnusedMethodRemover>()
         register<OpaquePredicateRemover>()
         register<RedundantGotoRemover>()
+        register<LocalVariableFixer>()
         register<StackFrameFixer>()
         register<MultiplierRemover>()
         register<ExprOrderFixer>()
         register<FieldSorter>()
         register<MethodSorter>()
+        register<StackFrameFixer>()
     }
 
     private fun run() {
@@ -85,7 +87,7 @@ object Deobfuscator {
         pool.clear()
         pool.readJar(inputFile)
         pool.allClasses.forEach {
-            if(it.name.contains("/")) {
+            if(it.name.contains("bouncycastle") || it.name.contains("json")) {
                 pool.ignoreClass(it)
             }
         }

@@ -1,7 +1,9 @@
-import io.rsbox.toolbox.deobfuscator.asm.ClassPool
+package io.rsbox.toolbox.deobfuscator.asm
+
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.ClassWriter
 import org.objectweb.asm.Opcodes
+import org.objectweb.asm.Type
 import org.objectweb.asm.tree.*
 import java.io.File
 import java.io.FileOutputStream
@@ -38,7 +40,7 @@ fun ClassPool.writeJar(file: File) {
 fun readClass(data: ByteArray): ClassNode {
     val node = ClassNode()
     val reader = ClassReader(data)
-    reader.accept(node, ClassReader.SKIP_FRAMES)
+    reader.accept(node, 0)
     return node
 }
 
@@ -115,4 +117,41 @@ class LabelMap : AbstractMap<LabelNode, LabelNode>() {
     private val map = hashMapOf<LabelNode, LabelNode>()
     override val entries get() = throw IllegalStateException()
     override fun get(key: LabelNode) = map.getOrPut(key) { LabelNode() }
+}
+
+fun isJdkMethod(owner: String, name: String, desc: String): Boolean {
+    try {
+        var classes = listOf(Class.forName(Type.getObjectType(owner).className))
+        while(classes.isNotEmpty()) {
+            for(cls in classes) {
+                if(cls.declaredMethods.any { it.name == name && Type.getMethodDescriptor(it) == desc }) {
+                    return true
+                }
+            }
+            classes = classes.flatMap {
+                mutableListOf<Class<*>>().apply {
+                    addAll(it.interfaces)
+                    if(it.superclass != null) {
+                        add(it.superclass)
+                    }
+                }
+            }
+        }
+    } catch(e: Exception) { /* Do Nothing */ }
+    return false
+}
+
+fun InsnList.createLabel(insn: AbstractInsnNode, forceCreate: Boolean = false): LabelNode {
+    if(insn is LabelNode) return insn
+    val idx = this.indexOf(insn)
+    if(idx > 0) {
+        val before = this[idx - 1]
+        if(!forceCreate && before is LabelNode) {
+            return before
+        }
+    }
+    val labelMap = LabelMap()
+    val label = LabelNode()
+    this.insert(this[idx], label)
+    return label
 }

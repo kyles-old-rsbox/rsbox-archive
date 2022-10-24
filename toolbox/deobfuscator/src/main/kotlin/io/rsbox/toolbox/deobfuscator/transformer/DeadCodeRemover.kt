@@ -16,10 +16,10 @@ class DeadCodeRemover : Transformer {
                 val insns = method.instructions.toArray()
                 val frames = Analyzer(BasicInterpreter()).analyze(cls.name, method)
                 for(i in frames.indices) {
-                    if(frames[i] == null) {
-                        method.instructions.remove(insns[i])
-                        count++
-                    }
+                   if(frames[i] == null) {
+                       method.instructions.remove(insns[i])
+                       count++
+                   }
                 }
             }
         }

@@ -5,6 +5,7 @@ import com.google.common.collect.MultimapBuilder
 import io.rsbox.toolbox.deobfuscator.Transformer
 import io.rsbox.toolbox.deobfuscator.asm.ClassPool
 import io.rsbox.toolbox.deobfuscator.asm.identifier
+import io.rsbox.toolbox.deobfuscator.asm.isJdkMethod
 import io.rsbox.toolbox.deobfuscator.asm.owner
 import org.objectweb.asm.Type
 import org.objectweb.asm.tree.ClassNode
@@ -77,28 +78,6 @@ class UnusedMethodRemover : Transformer {
             }
             subs = subs.flatMap { subClasses[classNames.getValue(it)] }
         }
-        return false
-    }
-
-    private fun isJdkMethod(owner: String, name: String, desc: String): Boolean {
-        try {
-            var classes = listOf(Class.forName(Type.getObjectType(owner).className))
-            while(classes.isNotEmpty()) {
-                for(cls in classes) {
-                    if(cls.declaredMethods.any { it.name == name && Type.getMethodDescriptor(it) == desc }) {
-                        return true
-                    }
-                }
-                classes = classes.flatMap {
-                    mutableListOf<Class<*>>().apply {
-                        addAll(it.interfaces)
-                        if(it.superclass != null) {
-                            add(it.superclass)
-                        }
-                    }
-                }
-            }
-        } catch(e: Exception) { /* Do Nothing */ }
         return false
     }
 }

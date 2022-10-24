@@ -1,9 +1,8 @@
 package io.rsbox.toolbox.deobfuscator.transformer
 
-import LabelMap
 import io.rsbox.toolbox.deobfuscator.Transformer
 import io.rsbox.toolbox.deobfuscator.asm.ClassPool
-import io.rsbox.toolbox.deobfuscator.asm.owner
+import io.rsbox.toolbox.deobfuscator.asm.LabelMap
 import org.objectweb.asm.tree.AbstractInsnNode.*
 import org.objectweb.asm.tree.InsnList
 import org.objectweb.asm.tree.LineNumberNode

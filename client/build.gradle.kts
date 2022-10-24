@@ -33,8 +33,16 @@ tasks {
         with(jar.get())
     }
 
+    java {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+        disableAutoTargetJvm()
+    }
+
     compileJava {
-        sourceCompatibility = "1.8"
-        targetCompatibility = "1.8"
+        sourceCompatibility = JavaVersion.VERSION_1_8.toString()
+        targetCompatibility = JavaVersion.VERSION_1_8.toString()
+        options.compilerArgs.addAll(arrayOf("-g:source,vars,lines"))
+        options.encoding = "UTF-8"
     }
 }

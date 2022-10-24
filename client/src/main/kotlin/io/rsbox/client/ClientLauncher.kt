@@ -1,7 +1,7 @@
 package io.rsbox.client
 
-import client
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubDarkContrastIJTheme
+import org.bouncycastle.crypto.tls.ConnectionEnd.client
 import java.applet.Applet
 import java.applet.AppletContext
 import java.applet.AppletStub
@@ -17,7 +17,7 @@ import javax.swing.JFrame
  * Development client launcher.
  * @author Kyle Escobar
  */
-object ClientLauncher {
+/* object ClientLauncher {
 
     /**
      * === DEVELOPMENT SETTINGS ===
@@ -89,6 +89,7 @@ object ClientLauncher {
         applet.setStub(applet.createStub())
         applet.isVisible = true
         applet.init()
+        applet.start()
 
         JFrame.setDefaultLookAndFeelDecorated(true)
         JDialog.setDefaultLookAndFeelDecorated(true)
@@ -116,4 +117,4 @@ object ClientLauncher {
             this@createStub.setSize(width, height)
         }
     }
-}
+}*/

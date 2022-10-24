@@ -2,11 +2,16 @@ package io.rsbox.toolbox.deobfuscator.transformer
 
 import io.rsbox.toolbox.deobfuscator.Transformer
 import io.rsbox.toolbox.deobfuscator.asm.ClassPool
-import io.rsbox.toolbox.deobfuscator.asm.InstructionMatcher
+import io.rsbox.toolbox.deobfuscator.asm.LabelMap
+import io.rsbox.toolbox.deobfuscator.asm.createLabel
+import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type
-import org.objectweb.asm.tree.InsnList
-import org.objectweb.asm.tree.MethodNode
+import org.objectweb.asm.tree.InsnNode
+import org.objectweb.asm.tree.JumpInsnNode
+import org.objectweb.asm.tree.MethodInsnNode
+import org.objectweb.asm.tree.VarInsnNode
 import org.tinylog.kotlin.Logger
+import java.lang.reflect.Modifier
 
 class ErrorConstructorRemover : Transformer {
 
@@ -14,34 +19,31 @@ class ErrorConstructorRemover : Transformer {
 
     override fun run(pool: ClassPool) {
         pool.classes.forEach { cls ->
-            val methods = cls.methods.iterator()
-            while(methods.hasNext()) {
-                val method = methods.next()
-                if(method.isErrorConstructor()) {
-                    methods.remove()
-                    count++
+            cls.methods.forEach methodLoop@ { method ->
+                if(!Modifier.isStatic(method.access) || Type.getArgumentTypes(method.desc).size != 2
+                    || Type.getArgumentTypes(method.desc)[0].descriptor != "Ljava/lang/String;"
+                    || Type.getArgumentTypes(method.desc)[1].descriptor != "Ljava/lang/Throwable;") {
+                    return@methodLoop
                 }
+
+                val insns = method.instructions
+                val labelMap = LabelMap()
+
+                val aload0 = VarInsnNode(ALOAD, 1)
+                val ifNull = JumpInsnNode(IFNULL, insns.createLabel(insns.first))
+                val aload1 = VarInsnNode(ALOAD, 1)
+                val printStackTrace = MethodInsnNode(INVOKEVIRTUAL, "java/lang/Throwable", "printStackTrace", "()V")
+                val ret = InsnNode(RETURN)
+
+                method.instructions.insert(insns[0], aload0)
+                method.instructions.insert(insns[1], ifNull)
+                method.instructions.insert(insns[2], aload1)
+                method.instructions.insert(insns[3], printStackTrace)
+                method.instructions.insert(insns[4], ret)
+                count++
             }
         }
 
         Logger.info("Removed $count error constructor methods.")
     }
-
-    private fun MethodNode.isErrorConstructor(): Boolean {
-        if(name != "<init>") return false
-        if(Type.getArgumentTypes(desc).isNotEmpty()) return false
-        if(exceptions != listOf(Type.getType(Throwable::class.java).internalName)) return false
-        val insns = instructions.toArray().filter { it.opcode > 0 }
-        val insnsList = InsnList().also { insnsList -> insns.forEach { insnsList.add(it) } }
-        val matcher = InstructionMatcher(insnsList)
-        val matches = matcher.search(ERROR_CONSTRUCTOR_PATTERN)
-        return matches.isNotEmpty()
-    }
-
-    private val ERROR_CONSTRUCTOR_PATTERN = "(aload) " +
-            "(invokespecial) " +
-            "(new) " +
-            "(dup) " +
-            "(invokespecial)" +
-            "(athrow)"
 }

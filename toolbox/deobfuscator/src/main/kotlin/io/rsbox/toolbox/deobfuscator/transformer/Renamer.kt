@@ -75,6 +75,6 @@ class Renamer : Transformer {
     }
 
     private fun String.isObfuscatedName(): Boolean {
-        return this.length <= 2 || (this.length == 3 && listOf("aa", "ab", "ac", "ad", "ae", "af", "ag").any { this.startsWith(it) })
+        return (this.length <= 3 && this != "run" && this != "add") || listOf("class", "method", "field", "__").any { this.startsWith(it) }
     }
 }

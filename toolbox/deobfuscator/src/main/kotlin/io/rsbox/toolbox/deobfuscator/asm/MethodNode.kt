@@ -5,7 +5,11 @@ import org.objectweb.asm.Opcodes.ACC_ABSTRACT
 import org.objectweb.asm.Opcodes.ACC_STATIC
 import org.objectweb.asm.Type
 import org.objectweb.asm.tree.ClassNode
+import org.objectweb.asm.tree.LocalVariableNode
 import org.objectweb.asm.tree.MethodNode
+import org.objectweb.asm.tree.ParameterNode
+import org.objectweb.asm.tree.VarInsnNode
+import java.lang.reflect.Modifier
 
 internal fun MethodNode.init(owner: ClassNode) {
     this.owner = owner
