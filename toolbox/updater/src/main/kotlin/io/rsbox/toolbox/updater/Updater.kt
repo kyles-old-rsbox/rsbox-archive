@@ -25,6 +25,7 @@ import io.rsbox.toolbox.asm.writeJar
 import io.rsbox.toolbox.updater.asm.extractFeatures
 import io.rsbox.toolbox.updater.asm.obfInfo
 import io.rsbox.toolbox.updater.mapper.MethodMapper
+import io.rsbox.toolbox.updater.mapper.SandboxMapper
 import io.rsbox.toolbox.updater.mapper.StaticMethodMapper
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
@@ -102,6 +103,8 @@ object Updater {
 
         mapStaticMethods()
         mapMethods()
+        SandboxMapper().map(rootMapping)
+
         rootMapping.reduce()
 
         println()

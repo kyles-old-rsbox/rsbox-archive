@@ -19,6 +19,7 @@ package io.rsbox.toolbox.updater.asm
 
 import io.rsbox.toolbox.asm.*
 import io.rsbox.toolbox.updater.ObfuscatedInfo
+import me.coley.analysis.util.InheritanceGraph
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.tree.AbstractInsnNode.*
 import org.objectweb.asm.tree.FieldInsnNode
@@ -27,6 +28,8 @@ import org.objectweb.asm.tree.MethodInsnNode
 import org.objectweb.asm.tree.TypeInsnNode
 
 var ClassPool.obfInfo: ObfuscatedInfo by field()
+
+var ClassPool.inheritanceGraph: InheritanceGraph by field { InheritanceGraph() }
 
 private var ClassPool._rootMethods: HashSet<String>? by nullField()
 internal val ClassPool.rootMethods: Set<String> get() {
@@ -68,6 +71,12 @@ internal fun ClassPool.extractFeatures() {
 }
 
 private fun ClassPool.extractFeaturesA() {
+    inheritanceGraph.addClasspath()
+    inheritanceGraph.addModulePath()
+    allClasses.forEach { cls ->
+        inheritanceGraph.add(cls.name, cls.interfaces.plus(cls.superName))
+    }
+
     classes.forEach { cls ->
         cls.methods.forEach { method ->
             method.instructions.forEach insnLoop@ { insn ->
