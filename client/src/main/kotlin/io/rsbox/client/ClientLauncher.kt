@@ -1,7 +1,7 @@
 package io.rsbox.client
 
+import client
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubDarkContrastIJTheme
-import org.bouncycastle.crypto.tls.ConnectionEnd.client
 import java.applet.Applet
 import java.applet.AppletContext
 import java.applet.AppletStub
@@ -17,7 +17,7 @@ import javax.swing.JFrame
  * Development client launcher.
  * @author Kyle Escobar
  */
-/* object ClientLauncher {
+object ClientLauncher {
 
     /**
      * === DEVELOPMENT SETTINGS ===
@@ -26,7 +26,7 @@ import javax.swing.JFrame
     const val SERVER_IP = "oldschool1.runescape.com"
     const val DEFAULT_WORLD = "301"
     const val RSA_MODULUS = "a65afc7b11a18da1a1bd0e144ea1883463fa040a57341006cec6556954e275446d8b0a222076a68fb0cb6d1fcaa9e7969affe6d5c42ccdba314e465d6dcf69a2bce2c6c70abc884349a2e31bf334ba712e4f7cda455562a80f3ceb1134e6459974780798ef38221e2fa1b9bd6560e120258f366e732b75bd7a385f07a5f5330d"
-    const val CACHE_DIR = "rsbox"
+    const val CACHE_DIR = "oldschool"
 
     /**
      * === CLIENT PARAMS ===
@@ -60,7 +60,7 @@ import javax.swing.JFrame
         "14" to "0",
         "15" to "0",
         "16" to "false",
-        "17" to "http://${SERVER_IP}/world_list.ws", // World HTTP Server
+        "17" to "http://www.runescape.com/g=oldscape/slr.ws?order=LPWM", // World HTTP Server
         "18" to "",
         "19" to "196515767263-1oo20deqm6edn7ujlihl6rpadk9drhva.apps.googleusercontent.com",
         "20" to "https://social.auth.jagex.com/",
@@ -117,4 +117,4 @@ import javax.swing.JFrame
             this@createStub.setSize(width, height)
         }
     }
-}*/
+}

@@ -71,6 +71,7 @@ object Deobfuscator {
         register<ExprOrderFixer>()
         register<FieldSorter>()
         register<MethodSorter>()
+        register<GetPathFixer>()
         register<StackFrameFixer>()
     }
 

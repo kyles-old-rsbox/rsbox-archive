@@ -1,0 +1,65 @@
+public final class class449 {
+	boolean[] field4804;
+	boolean[] field4825;
+	byte field4814;
+	byte[] field4807;
+	byte[] field4821;
+	byte[] field4829;
+	byte[] field4831;
+	byte[] field4832;
+	byte[] field4837;
+	byte[][] field4808;
+	int field4801;
+	int field4802;
+	int field4809;
+	int field4811;
+	int field4812;
+	int field4813;
+	int field4816;
+	int field4817;
+	int field4818;
+	int field4819;
+	int field4820;
+	int field4823;
+	int field4827;
+	int field4828;
+	int field4838;
+	int[] field4815;
+	int[] field4822;
+	int[] field4824;
+	int[] field4830;
+	int[][] field4810;
+	int[][] field4834;
+	int[][] field4836;
+	final int field4803;
+	final int field4805;
+	final int field4806;
+	final int field4826;
+	final int field4833;
+	final int field4835;
+
+	class449() {
+		this.field4826 = 4096;
+		this.field4835 = 16;
+		this.field4803 = 258;
+		this.field4833 = 6;
+		this.field4805 = 50;
+		this.field4806 = 18002;
+		this.field4811 = 0;
+		this.field4827 = 0;
+		this.field4822 = new int[256];
+		this.field4824 = new int[257];
+		this.field4825 = new boolean[256];
+		this.field4804 = new boolean[16];
+		this.field4832 = new byte[256];
+		this.field4829 = new byte[4096];
+		this.field4830 = new int[16];
+		this.field4831 = new byte[18002];
+		this.field4837 = new byte[18002];
+		this.field4808 = new byte[6][258];
+		this.field4834 = new int[6][258];
+		this.field4810 = new int[6][258];
+		this.field4836 = new int[6][258];
+		this.field4815 = new int[6];
+	}
+}
