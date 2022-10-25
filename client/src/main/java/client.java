@@ -255,9 +255,9 @@ public final class client extends class31 implements class375, OAuthApi {
 	static int[] field1774;
 	static int[] field1780;
 	static int[] field1782;
-	static int[] field1787;
-	static int[] field1788;
-	static int[] field1789;
+	static int[] menuArguments2;
+	static int[] menuActionOpcodes;
+	static int[] menuIdentifiers;
 	static int[] field1790;
 	static int[] field1808;
 	static int[] field1817;
@@ -266,7 +266,7 @@ public final class client extends class31 implements class375, OAuthApi {
 	static int[] field1837;
 	static int[] field1839;
 	static int[] field1841;
-	static int[] field1851;
+	static int[] menuArguments1;
 	static int[] field1863;
 	static int[] field1864;
 	static int[] field1870;
@@ -289,8 +289,8 @@ public final class client extends class31 implements class375, OAuthApi {
 	static String field1873;
 	static String[] field1743;
 	static String[] field1772;
-	static String[] field1791;
-	static String[] field1923;
+	static String[] menuActions;
+	static String[] menuTargets;
 	static ArrayList field1930;
 	static HashMap field1934;
 	static long field1632;
@@ -323,6 +323,7 @@ public final class client extends class31 implements class375, OAuthApi {
 	Future field1677;
 	Future field1681;
 	long field1688;
+	private int var9;
 
 	public client() {
 		this.field1835 = false;
@@ -505,13 +506,13 @@ public final class client extends class31 implements class375, OAuthApi {
 		field1862 = false;
 		field1784 = false;
 		field1695 = 0;
-		field1851 = new int[500];
-		field1787 = new int[500];
-		field1788 = new int[500];
-		field1789 = new int[500];
+		menuArguments1 = new int[500];
+		menuArguments2 = new int[500];
+		menuActionOpcodes = new int[500];
+		menuIdentifiers = new int[500];
 		field1790 = new int[500];
-		field1791 = new String[500];
-		field1923 = new String[500];
+		menuActions = new String[500];
+		menuTargets = new String[500];
 		field1916 = new boolean[500];
 		field1794 = false;
 		field1648 = false;
@@ -3305,7 +3306,7 @@ public final class client extends class31 implements class375, OAuthApi {
 																				var5 = field1757;
 																				class73 var51 = class101.field1005;
 																				if (null != var51) {
-																					class263.method5159(var51.field600, var51.field595, var51.field594, var51.field597, var51.field598, var51.field599, var51.field604, var4, var5);
+																					class263.menuAction(var51.field600, var51.field595, var51.field594, var51.field597, var51.field598, var51.field599, var51.field604, var4, var5);
 																				}
 
 																				class101.field1005 = null;
@@ -5836,9 +5837,9 @@ public final class client extends class31 implements class375, OAuthApi {
 	static void method5557() {
 		field1695 = 0;
 		field1784 = false;
-		field1791[0] = class338.field4149;
-		field1923[0] = "";
-		field1788[0] = 1006;
+		menuActions[0] = class338.field4149;
+		menuTargets[0] = "";
+		menuActionOpcodes[0] = 1006;
 		field1916[0] = false;
 		field1695 = 1;
 	}
@@ -5856,25 +5857,25 @@ public final class client extends class31 implements class375, OAuthApi {
 			var2 = true;
 
 			for (var3 = 0; var3 < field1695 - 1; ++var3) {
-				if (field1788[var3] < 1000 && field1788[1 + var3] > 1000) {
-					String var4 = field1923[var3];
-					field1923[var3] = field1923[var3 + 1];
-					field1923[1 + var3] = var4;
-					String var5 = field1791[var3];
-					field1791[var3] = field1791[1 + var3];
-					field1791[var3 + 1] = var5;
-					var6 = field1788[var3];
-					field1788[var3] = field1788[1 + var3];
-					field1788[var3 + 1] = var6;
-					var6 = field1851[var3];
-					field1851[var3] = field1851[1 + var3];
-					field1851[var3 + 1] = var6;
-					var6 = field1787[var3];
-					field1787[var3] = field1787[var3 + 1];
-					field1787[1 + var3] = var6;
-					var6 = field1789[var3];
-					field1789[var3] = field1789[var3 + 1];
-					field1789[var3 + 1] = var6;
+				if (menuActionOpcodes[var3] < 1000 && menuActionOpcodes[1 + var3] > 1000) {
+					String var4 = menuTargets[var3];
+					menuTargets[var3] = menuTargets[var3 + 1];
+					menuTargets[1 + var3] = var4;
+					String var5 = menuActions[var3];
+					menuActions[var3] = menuActions[1 + var3];
+					menuActions[var3 + 1] = var5;
+					var6 = menuActionOpcodes[var3];
+					menuActionOpcodes[var3] = menuActionOpcodes[1 + var3];
+					menuActionOpcodes[var3 + 1] = var6;
+					var6 = menuArguments1[var3];
+					menuArguments1[var3] = menuArguments1[1 + var3];
+					menuArguments1[var3 + 1] = var6;
+					var6 = menuArguments2[var3];
+					menuArguments2[var3] = menuArguments2[var3 + 1];
+					menuArguments2[1 + var3] = var6;
+					var6 = menuIdentifiers[var3];
+					menuIdentifiers[var3] = menuIdentifiers[var3 + 1];
+					menuIdentifiers[var3 + 1] = var6;
 					var6 = field1790[var3];
 					field1790[var3] = field1790[var3 + 1];
 					field1790[var3 + 1] = var6;
@@ -5923,14 +5924,14 @@ public final class client extends class31 implements class375, OAuthApi {
 							}
 
 							if (var24 != -1 && var24 >= 0) {
-								var9 = field1851[var24];
-								var25 = field1787[var24];
-								var11 = field1788[var24];
-								int var12 = field1789[var24];
-								int var13 = field1790[var24];
-								String var14 = field1791[var24];
-								String var15 = field1923[var24];
-								class263.method5159(var9, var25, var11, var12, var13, var14, var15, class42.field283, class42.field293);
+								int arg1 = menuArguments1[var24];
+								int arg2 = menuArguments2[var24];
+								int actionOpcode = menuActionOpcodes[var24];
+								int identifier = menuIdentifiers[var24];
+								int something = field1790[var24];
+								String var14 = menuActions[var24];
+								String var15 = menuTargets[var24];
+								class263.menuAction(arg1, arg2, actionOpcode, identifier, something, var14, var15, class42.field283, class42.field293);
 							}
 
 							field1784 = false;
@@ -5939,10 +5940,10 @@ public final class client extends class31 implements class375, OAuthApi {
 					} else {
 						var3 = method5125();
 						if ((1 == var22 || !class95.field944 && var22 == 4) && var3 >= 0) {
-							var16 = field1788[var3];
+							var16 = menuActionOpcodes[var3];
 							if (39 == var16 || 40 == var16 || var16 == 41 || var16 == 42 || 43 == var16 || var16 == 33 || var16 == 34 || 35 == var16 || var16 == 36 || var16 == 37 || 38 == var16 || 1005 == var16) {
-								var17 = field1851[var3];
-								var6 = field1787[var3];
+								var17 = menuArguments1[var3];
+								var6 = menuArguments2[var3];
 								class300 var18 = class282.method5426(var6);
 								var9 = class190.method3528(var18);
 								boolean var8 = (var9 >> 28 & 1) != 0;
@@ -5963,14 +5964,14 @@ public final class client extends class31 implements class375, OAuthApi {
 						}
 
 						if ((1 == var22 || !class95.field944 && var22 == 4) && field1695 > 0 && var3 >= 0) {
-							var16 = field1851[var3];
-							var17 = field1787[var3];
-							var6 = field1788[var3];
-							var23 = field1789[var3];
+							var16 = menuArguments1[var3];
+							var17 = menuArguments2[var3];
+							var6 = menuActionOpcodes[var3];
+							var23 = menuIdentifiers[var3];
 							var24 = field1790[var3];
-							String var19 = field1791[var3];
-							String var20 = field1923[var3];
-							class263.method5159(var16, var17, var6, var23, var24, var19, var20, class42.field283, class42.field293);
+							String var19 = menuActions[var3];
+							String var20 = menuTargets[var3];
+							class263.menuAction(var16, var17, var6, var23, var24, var19, var20, class42.field283, class42.field293);
 						}
 
 						if (var22 == 2 && field1695 > 0) {
@@ -5986,7 +5987,7 @@ public final class client extends class31 implements class375, OAuthApi {
 					var11 = field1757;
 					class73 var21 = class101.field1005;
 					if (null != var21) {
-						class263.method5159(var21.field600, var21.field595, var21.field594, var21.field597, var21.field598, var21.field599, var21.field604, var25, var11);
+						class263.menuAction(var21.field600, var21.field595, var21.field594, var21.field597, var21.field598, var21.field599, var21.field604, var25, var11);
 					}
 
 					class101.field1005 = null;
@@ -6250,7 +6251,7 @@ public final class client extends class31 implements class375, OAuthApi {
 					int var18 = field1832 + field1825;
 					class73 var16 = class101.field1005;
 					if (var16 != null) {
-						class263.method5159(var16.field600, var16.field595, var16.field594, var16.field597, var16.field598, var16.field599, var16.field604, var17, var18);
+						class263.menuAction(var16.field600, var16.field595, var16.field594, var16.field597, var16.field598, var16.field599, var16.field604, var17, var18);
 					}
 
 					class101.field1005 = null;
@@ -6266,7 +6267,7 @@ public final class client extends class31 implements class375, OAuthApi {
 					var3 = field1825 + field1832;
 					class73 var4 = class101.field1005;
 					if (var4 != null) {
-						class263.method5159(var4.field600, var4.field595, var4.field594, var4.field597, var4.field598, var4.field599, var4.field604, var2, var3);
+						class263.menuAction(var4.field600, var4.field595, var4.field594, var4.field597, var4.field598, var4.field599, var4.field604, var2, var3);
 					}
 
 					class101.field1005 = null;
@@ -6280,13 +6281,13 @@ public final class client extends class31 implements class375, OAuthApi {
 
 	static void method102(int var0) {
 		class101.field1005 = new class73();
-		class101.field1005.field600 = field1851[var0];
-		class101.field1005.field595 = field1787[var0];
-		class101.field1005.field594 = field1788[var0];
-		class101.field1005.field597 = field1789[var0];
+		class101.field1005.field600 = menuArguments1[var0];
+		class101.field1005.field595 = menuArguments2[var0];
+		class101.field1005.field594 = menuActionOpcodes[var0];
+		class101.field1005.field597 = menuIdentifiers[var0];
 		class101.field1005.field598 = field1790[var0];
-		class101.field1005.field599 = field1791[var0];
-		class101.field1005.field604 = field1923[var0];
+		class101.field1005.field599 = menuActions[var0];
+		class101.field1005.field604 = menuTargets[var0];
 	}
 
 	static final void method4524(int var0) {

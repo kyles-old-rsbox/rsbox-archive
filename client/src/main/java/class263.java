@@ -28,7 +28,7 @@ public class class263 extends class427 {
 		}
 	}
 
-	static final void method5159(int var0, int var1, int var2, int var3, int var4, String var5, String var6, int var7, int var8) {
+	static final void menuAction(int var0, int var1, int var2, int var3, int var4, String var5, String var6, int var7, int var8) {
 		if (var2 >= 2000) {
 			var2 -= 2000;
 		}

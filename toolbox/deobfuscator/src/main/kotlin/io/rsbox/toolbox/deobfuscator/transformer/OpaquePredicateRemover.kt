@@ -161,7 +161,7 @@ class OpaquePredicateRemover : Transformer {
 
     private val AbstractInsnNode.intValue: Int get() {
         if(opcode in 2..8) return opcode - 3
-        if(opcode == BIPUSH || opcode == SIPUSH) return (this as IntInsnNode).opcode
+        if(opcode == BIPUSH || opcode == SIPUSH) return (this as IntInsnNode).operand
         if(this is LdcInsnNode && cst is Int) return cst as Int
         throw IllegalArgumentException()
     }

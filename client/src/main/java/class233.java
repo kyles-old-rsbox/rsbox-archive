@@ -65,7 +65,7 @@ public class class233 {
 		if (var0 < 0) {
 			return "";
 		} else {
-			return client.field1923[var0].length() > 0 ? client.field1791[var0] + class338.field4064 + client.field1923[var0] : client.field1791[var0];
+			return client.menuTargets[var0].length() > 0 ? client.menuActions[var0] + class338.field4064 + client.menuTargets[var0] : client.menuActions[var0];
 		}
 	}
 }

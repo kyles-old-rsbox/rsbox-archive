@@ -30,7 +30,7 @@ import org.tinylog.kotlin.Logger
 import java.math.BigInteger
 import kotlin.math.absoluteValue
 
-class ExprOrderFixer : Transformer {
+class TempMultiplierRemover : Transformer {
 
     private var count = 0
 

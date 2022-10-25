@@ -31,7 +31,6 @@ import org.objectweb.asm.tree.MethodNode
 import org.tinylog.kotlin.Logger
 import java.io.File
 import java.util.jar.JarEntry
-import java.util.jar.JarFile
 import kotlin.reflect.full.createInstance
 
 object Deobfuscator {
@@ -94,10 +93,11 @@ object Deobfuscator {
         register<LocalVariableFixer>()
         register<StackFrameFixer>()
         register<MultiplierRemover>()
-        register<ExprOrderFixer>()
+        register<TempMultiplierRemover>()
         register<FieldSorter>()
         register<MethodSorter>()
         register<GetPathFixer>()
+        register<ScriptInterpreterOptimizer>()
         register<StackFrameFixer>()
     }
 
@@ -174,7 +174,7 @@ object Deobfuscator {
             cls.obfInfo = ClassObfuscatedInfo(
                 name = cls.name,
                 obfName = cls.obfName,
-                jarIndex = cls.jarIndex
+                jarIndex = cls.jarIndex ?: -1
             ).also { classInfos.add(it) }
 
             cls.methods.forEach { method ->

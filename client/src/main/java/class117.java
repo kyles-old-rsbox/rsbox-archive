@@ -94,8 +94,8 @@ public class class117 extends class393 {
 				}
 
 				for (var11 = 0; var11 < client.field1695; ++var11) {
-					if (client.field1788[var11] == 23) {
-						client.field1923[var11] = class96.method4510(16777215) + var5;
+					if (client.menuActionOpcodes[var11] == 23) {
+						client.menuTargets[var11] = class96.method4510(16777215) + var5;
 						break;
 					}
 				}

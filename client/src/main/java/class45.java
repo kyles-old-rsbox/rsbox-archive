@@ -206,7 +206,7 @@ public class class45 {
 		if (var0 < 0) {
 			return false;
 		} else {
-			int var2 = client.field1788[var0];
+			int var2 = client.menuActionOpcodes[var0];
 			if (var2 >= 2000) {
 				var2 -= 2000;
 			}

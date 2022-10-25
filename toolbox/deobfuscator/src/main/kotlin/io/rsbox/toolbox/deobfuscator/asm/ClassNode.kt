@@ -24,4 +24,4 @@ import org.objectweb.asm.tree.ClassNode
 
 var ClassNode.obfInfo: ClassObfuscatedInfo by field()
 var ClassNode.obfName: String? by nullField()
-var ClassNode.jarIndex: Int by field()
+var ClassNode.jarIndex: Int? by nullField()
