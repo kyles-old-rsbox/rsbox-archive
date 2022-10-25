@@ -19,26 +19,27 @@ package io.rsbox.toolbox.updater.mapper
 
 import com.google.common.collect.LinkedHashMultimap
 import io.rsbox.toolbox.asm.ClassPool
+import io.rsbox.toolbox.asm.owner
 import io.rsbox.toolbox.updater.MappingUtil
-import io.rsbox.toolbox.updater.NodeMapping
-import io.rsbox.toolbox.updater.classifier.classifyMethod
 import org.objectweb.asm.tree.MethodNode
 import java.lang.reflect.Modifier
 
-class MethodMapper(private val fromPool: ClassPool, private val toPool: ClassPool) {
+class MethodMapper {
 
-    private val mappings = LinkedHashMultimap.create<MethodNode, MethodNode>()
+    val mappings = LinkedHashMultimap.create<MethodNode, MethodNode>()
 
-    private fun ClassPool.getMethods() = classes.flatMap { it.methods }.filter { !Modifier.isStatic(it.access) }.toList()
-    private fun ClassPool.getPossibleMatches(method: MethodNode) = getMethods().filter { MappingUtil.isMaybeEqual(it, method) }.toList()
+    private fun methods(pool: ClassPool) = pool.classes.flatMap { it.methods }.filter {
+        !Modifier.isStatic(it.access) && it.name != "<init>" && it.instructions.size() > 0
+    }.toList()
 
-    fun map(): NodeMapping {
-        val mapping = NodeMapping(fromPool, toPool)
-        mappings.keySet().forEach { toMethod ->
-            mappings.get(toMethod).forEach { fromMethod ->
-                mapping.map(null, fromMethod, toMethod).also { it.classifyMethod() }
-            }
+    private fun getPossibleMatches(pool: ClassPool, method: MethodNode) = methods(pool)
+        .filter { MappingUtil.isMaybeEqual(method.owner, it.owner) }
+        .filter { MappingUtil.isMaybeEqual(method.desc, it.desc) }
+        .toList()
+
+    fun map(fromPool: ClassPool, toPool: ClassPool) {
+        methods(toPool).forEach { toMethod ->
+            mappings.putAll(toMethod, getPossibleMatches(fromPool, toMethod))
         }
-        return mapping
     }
 }

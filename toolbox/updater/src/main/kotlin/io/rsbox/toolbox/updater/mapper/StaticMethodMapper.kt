@@ -18,31 +18,28 @@
 package io.rsbox.toolbox.updater.mapper
 
 import com.google.common.collect.LinkedHashMultimap
-import io.rsbox.toolbox.asm.*
+import io.rsbox.toolbox.asm.ClassPool
 import io.rsbox.toolbox.updater.MappingUtil
-import io.rsbox.toolbox.updater.NodeMapping
-import io.rsbox.toolbox.updater.classifier.classifyMethod
 import org.objectweb.asm.tree.MethodNode
 import java.lang.reflect.Modifier
 
-class StaticMethodMapper(private val fromPool: ClassPool, private val toPool: ClassPool, ) {
+class StaticMethodMapper {
 
-    private val mappings = LinkedHashMultimap.create<MethodNode, MethodNode>()
+    /**
+     * Key: To Method
+     * Values: From Methods
+     */
+    val mappings = LinkedHashMultimap.create<MethodNode, MethodNode>()
 
-    private fun ClassPool.getStaticMethods() = this.classes.flatMap { it.methods }.filter { Modifier.isStatic(it.access) }.toList()
-    private fun ClassPool.getPossibleMatches(method: MethodNode) = getStaticMethods().filter { MappingUtil.isMaybeEqual(it, method) }.toList()
+    private fun staticMethods(pool: ClassPool): List<MethodNode> = pool.classes.flatMap { it.methods }
+        .filter { Modifier.isStatic(it.access) }.toList()
 
-    fun map(): NodeMapping {
-        val mapping = NodeMapping(fromPool, toPool)
-        toPool.getStaticMethods().forEach { toMethod ->
-            mappings.putAll(toMethod, fromPool.getPossibleMatches(toMethod))
+    private fun getPossibleMatches(pool: ClassPool, methodNode: MethodNode): List<MethodNode> =
+        staticMethods(pool).filter { MappingUtil.isMaybeEqual(it, methodNode) }.toList()
+
+    fun map(fromPool: ClassPool, toPool: ClassPool) {
+        staticMethods(toPool).forEach { toMethod ->
+            mappings.putAll(toMethod, getPossibleMatches(fromPool, toMethod))
         }
-        mappings.keySet().forEach { toMethod ->
-            val fromMethods = mappings.get(toMethod)
-            fromMethods.forEach { fromMethod ->
-                mapping.map(null, toMethod, fromMethod).also { it.classifyMethod() }
-            }
-        }
-        return mapping
     }
 }

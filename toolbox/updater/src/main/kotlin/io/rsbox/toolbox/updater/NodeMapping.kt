@@ -25,11 +25,14 @@ import org.objectweb.asm.tree.ClassNode
 import org.objectweb.asm.tree.FieldNode
 import org.objectweb.asm.tree.MethodNode
 
-class NodeMapping(private val fromPool: ClassPool, private val toPool: ClassPool) {
+class NodeMapping {
 
     private var mappings = HashMultimap.create<Any, Mapping>()
 
     var same: Int = 0
+
+    lateinit var fromMethod: MethodNode
+    lateinit var toMethod: MethodNode
 
     private fun getMapping(from: Any, to: Any): Mapping {
         mappings.get(from).forEach { mapping ->
@@ -81,17 +84,13 @@ class NodeMapping(private val fromPool: ClassPool, private val toPool: ClassPool
         return mapping
     }
 
-    private fun mapClass() {
-
-    }
-
     fun reduce() {
         val sorted = mutableListOf<Mapping>().also { it.addAll(mappings.values()) }
         sorted.sortWith { a, b ->
             val i = a.count.compareTo(b.count)
-            if(i != 0) i
-            if(a.weight != b.weight) a.weight.compareTo(b.weight)
-            getName(a.from)!!.compareTo(getName(b.from)!!)
+            if(i != 0) return@sortWith i
+            if(a.weight != b.weight) return@sortWith a.weight.compareTo(b.weight)
+            return@sortWith getName(a.from)!!.compareTo(getName(b.from)!!)
         }
         sorted.reverse()
 

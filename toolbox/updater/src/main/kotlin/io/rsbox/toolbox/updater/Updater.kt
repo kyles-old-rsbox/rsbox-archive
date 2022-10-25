@@ -25,14 +25,15 @@ import io.rsbox.toolbox.asm.writeJar
 import io.rsbox.toolbox.updater.asm.extractFeatures
 import io.rsbox.toolbox.updater.asm.obfInfo
 import io.rsbox.toolbox.updater.mapper.MethodMapper
-import io.rsbox.toolbox.updater.mapper.SandboxMapper
 import io.rsbox.toolbox.updater.mapper.StaticMethodMapper
+import io.rsbox.toolbox.updater.mapper.SandboxMapper
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.decodeFromStream
 import org.tinylog.kotlin.Logger
 import java.io.File
 import java.io.FileNotFoundException
+import kotlin.math.max
 
 @Suppress("DuplicatedCode")
 object Updater {
@@ -44,21 +45,23 @@ object Updater {
     private val prevPool = ClassPool()
     private val curPool = ClassPool()
 
-    private lateinit var rootMapping: NodeMapping
+    private lateinit var topMapping: NodeMapping
 
     @JvmStatic
     fun main(args: Array<String>) {
         if(args.size < 3) throw IllegalArgumentException("Usage: updater.jar <old-refactored-jar> <new-deob-jar> <output-refactored-jar>")
+
         oldFile = File(args[0])
         newFile = File(args[1])
         outputFile = File(args[2])
 
         if(!oldFile.exists() || !newFile.exists()) throw FileNotFoundException()
 
+        Logger.info("Loading classes from input jar files...")
+
         /*
          * Load the classes from the jar files into the class pools.
          */
-        Logger.info("Loading classes from jar: ${oldFile.path}.")
         prevPool.readJar(oldFile) { jar, entry ->
             if(entry.name == "META-INF/obf-info.json") {
                 prevPool.obfInfo = Json.decodeFromStream(jar.getInputStream(entry))
@@ -68,7 +71,6 @@ object Updater {
         prevPool.init()
         prevPool.extractFeatures()
 
-        Logger.info("Loading classes from jar: ${newFile.path}.")
         curPool.readJar(newFile) { jar, entry ->
             if(entry.name == "META-INF/obf-info.json") {
                 curPool.obfInfo = Json.decodeFromStream(jar.getInputStream(entry))
@@ -78,7 +80,7 @@ object Updater {
         curPool.init()
         curPool.extractFeatures()
 
-        Logger.info("Successfully loaded classes. [Prev Pool: ${prevPool.classes.size}, Current Pool: ${curPool.classes.size}].")
+        Logger.info("Successfully loaded classes from input jar files. [Old-Classes: ${prevPool.classes.size}, New-Class: ${curPool.classes.size}].")
 
         /*
          * Run the updater
@@ -88,39 +90,89 @@ object Updater {
         /*
          * Export the updated classes to output jar file.
          */
-        Logger.info("Saving updated classes to jar: ${outputFile.path}.")
+        Logger.info("Saving updated classes to output jar.")
         if(outputFile.exists()) outputFile.deleteRecursively()
         curPool.writeJar(outputFile)
+
+        Logger.info("Updater has completed successfully.")
     }
 
     private fun run() {
-        Logger.info("Running RSBox updater.")
+        Logger.info("Updating classes from previous name mappings...")
 
         /*
          * Run mapping methods.
          */
-        rootMapping = NodeMapping(prevPool, curPool)
+        topMapping = NodeMapping()
+        topMapping.merge(mapStaticMethods())
+        topMapping.merge(mapMethods())
+        topMapping.reduce()
 
-        mapStaticMethods()
-        mapMethods()
-        SandboxMapper().map(rootMapping)
-
-        rootMapping.reduce()
-
-        println()
+        Logger.info("Finished updating classes.")
+        val total = max(prevPool.classes.size, curPool.classes.size) +
+                max(prevPool.classes.flatMap { it.methods }.size, curPool.classes.flatMap { it.methods }.size) +
+                max(prevPool.classes.flatMap { it.fields }.size, curPool.classes.flatMap { it.fields }.size)
+        val count = topMapping.mappings().keys.size
+        val percentage = (count.toDouble() / total.toDouble()) * 100.0
+        Logger.info("Successfully updated: $count / $total ($percentage%).")
     }
 
     /**
      * ===== MAPPING METHODS =====
      */
 
-    private fun mapStaticMethods() {
-        val staticMethodMapper = StaticMethodMapper(prevPool, curPool)
-        rootMapping.merge(staticMethodMapper.map())
+    private fun mapStaticMethods(): NodeMapping {
+        Logger.info("Matching static methods...")
+
+        val mapper = StaticMethodMapper()
+        mapper.map(prevPool, curPool)
+
+        val toMerge = mutableListOf<NodeMapping>()
+        mapper.mappings.keySet().forEach { toMethod ->
+            val fromMethods = mapper.mappings.get(toMethod)
+
+            val sandboxMapper = SandboxMapper(fromMethods.toList(), toMethod)
+            val sandboxMapping = sandboxMapper.run() ?: return@forEach
+
+            sandboxMapping.map(null, sandboxMapping.fromMethod, sandboxMapping.toMethod).also {
+                it.weight = sandboxMapping.same
+            }
+
+            toMerge.add(sandboxMapping)
+        }
+
+        val resultMapping = NodeMapping()
+        toMerge.forEach { mapping ->
+            resultMapping.merge(mapping)
+        }
+
+        Logger.info("Finished matching static methods.")
+
+        return resultMapping
     }
 
-    private fun mapMethods() {
-        val methodMapper = MethodMapper(prevPool, curPool)
-        rootMapping.merge(methodMapper.map())
+    private fun mapMethods(): NodeMapping {
+        Logger.info("Matching non-static methods.")
+
+        val mapper = MethodMapper()
+        mapper.map(prevPool, curPool)
+
+        val toMerge = mutableListOf<NodeMapping>()
+        mapper.mappings.keySet().forEach { toMethod ->
+            val fromMethods = mapper.mappings.get(toMethod)
+            val sandboxMapper = SandboxMapper(fromMethods.toList(), toMethod)
+            val sandboxMapping = sandboxMapper.run() ?: return@forEach
+            sandboxMapping.map(null, sandboxMapping.fromMethod, sandboxMapping.toMethod)
+            toMerge.add(sandboxMapping)
+        }
+
+        val resultMapping = NodeMapping()
+        toMerge.forEach { mapping ->
+            resultMapping.merge(mapping)
+        }
+
+        Logger.info("Finished matching non-static methods.")
+
+        return resultMapping
     }
 }

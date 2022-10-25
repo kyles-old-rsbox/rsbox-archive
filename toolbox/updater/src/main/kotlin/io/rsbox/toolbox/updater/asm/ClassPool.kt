@@ -124,7 +124,7 @@ private fun ClassPool.extractFeaturesB() {
                             method.fieldWriteRefs.add(dst)
                         }
 
-                        dst.owner.methodTypeRefs.add(method)
+                        dst.owner.fieldTypeRefs.add(method)
                         method.classRefs.add(dst.owner)
                     }
                     TYPE_INSN -> {

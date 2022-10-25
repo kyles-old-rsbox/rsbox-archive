@@ -17,108 +17,127 @@
 
 package io.rsbox.toolbox.updater.mapper
 
-import io.rsbox.toolbox.asm.identifier
+import io.rsbox.toolbox.asm.ClassPool
+import io.rsbox.toolbox.asm.field
 import io.rsbox.toolbox.asm.owner
 import io.rsbox.toolbox.asm.pool
+import io.rsbox.toolbox.updater.MappingUtil
 import io.rsbox.toolbox.updater.NodeMapping
 import io.rsbox.toolbox.updater.asm.inheritanceGraph
 import me.coley.analysis.SimAnalyzer
 import me.coley.analysis.SimFrame
 import me.coley.analysis.SimInterpreter
 import me.coley.analysis.TypeResolver
-import me.coley.analysis.util.TypeUtil
+import me.coley.analysis.util.TypeUtil.EXCEPTION_TYPE
+import me.coley.analysis.util.TypeUtil.OBJECT_TYPE
 import org.objectweb.asm.Type
-import org.objectweb.asm.tree.AbstractInsnNode
-import org.objectweb.asm.tree.LdcInsnNode
 import org.objectweb.asm.tree.MethodNode
-import org.tinylog.kotlin.Logger
 
-class SandboxMapper {
+class SandboxMapper(private val fromMethods: List<MethodNode>, private val toMethod: MethodNode) {
 
-    fun map(mapping: NodeMapping) {
-        mapping.mappings().forEach { (fromMethod, toMethod) ->
-            if(fromMethod is MethodNode && toMethod is MethodNode) {
-                if(mapping.isSame(fromMethod, toMethod)) {
-                    mapping.map(null, fromMethod, toMethod)
-                    Logger.info("Mapped 100% methods: [from: ${fromMethod.identifier}, to: ${toMethod.identifier}].")
-                }
+    fun run(): NodeMapping? {
+        var highest: NodeMapping? = null
+        var multiple = false
+
+        fromMethods.forEach { fromMethod ->
+            val mapping = this.execute(fromMethod, toMethod)
+            if(highest == null || mapping.same > highest!!.same) {
+                highest = mapping
+                multiple = true
+            } else if(mapping.same == highest!!.same) {
+                multiple = false
             }
         }
+        return if(multiple) null else highest
     }
 
-    private fun MethodNode.execute(): Array<SimFrame> = try { SimAnalyzer(object : SimInterpreter() {}.also {
-        it.setTypeChecker { parent, child -> parent.internalName in this.pool.inheritanceGraph.getAllParents(child.internalName) }
-        it.typeResolver = object : TypeResolver {
-            override fun common(type1: Type, type2: Type): Type =
-                this@execute.pool.inheritanceGraph.getCommon(type1.internalName, type2.internalName)?.let { Type.getObjectType(it) } ?: TypeUtil.OBJECT_TYPE
-            override fun commonException(type1: Type, type2: Type) =
-                this@execute.pool.inheritanceGraph.getCommon(type1.internalName, type2.internalName)?.let { Type.getObjectType(it) } ?: TypeUtil.EXCEPTION_TYPE
-        }
-    }).also {
-        it.setSkipDeadCodeBlocks(true)
-        it.setThrowUnresolvedAnalyzerErrors(false)
-    }.analyze(owner.name, this) } catch(e: Exception) { emptyArray() }
+    private fun execute(fromMethod: MethodNode, toMethod: MethodNode): NodeMapping {
+        fromMethod.pool.initAnalyzer()
+        toMethod.pool.initAnalyzer()
 
-    private fun NodeMapping.isSame(fromMethod: MethodNode, toMethod: MethodNode): Boolean {
-        val fromFrames = fromMethod.execute()
-        val toFrames = toMethod.execute()
+        val mapping = NodeMapping()
+        mapping.fromMethod = fromMethod
+        mapping.toMethod = toMethod
 
-        var terminated = false
-        var same = true
+        val fromExecutor = MethodExecutor(fromMethod)
+        val toExecutor = MethodExecutor(toMethod)
 
-        var fromPaused = false
-        var fromIdx = 0
-        var fromFrame: SimFrame? = null
+        fromExecutor.initialize()
+        toExecutor.initialize()
 
-        var toPaused = false
-        var toIdx = 0
-        var toFrame: SimFrame? = null
-
+        var sameFrameCount = 0
         while(true) {
-            if(fromPaused && toPaused) {
-                if(isSame(fromFrame!!.instruction, toFrame!!.instruction)) {
-                    this.map(fromFrame.instruction, fromMethod, toMethod)
-                    fromPaused = false
-                    toPaused = false
-                } else {
-                    same = false
-                    terminated = true
-                    break
-                }
-            } else {
-                if(fromIdx >= fromFrames.size || toIdx >= toFrames.size) {
+            val fromFrame = fromExecutor.step()
+            val toFrame = toExecutor.step()
+            if(fromFrame == null && toFrame == null) break
+            if(fromFrame == null || toFrame == null) continue
+            if(!MappingUtil.isSame(mapping, fromMethod, toMethod, fromFrame, toFrame)) continue
+            sameFrameCount++
+            MappingUtil.map(mapping, fromMethod, toMethod, fromFrame, toFrame)
+        }
+        mapping.same = sameFrameCount
+        return mapping
+    }
+
+    private val ClassPool.interpreter: SimInterpreter by field { SimInterpreter() }
+    private var ClassPool.analyzer: SimAnalyzer by field()
+    private var ClassPool.initializedAnalyzer: Boolean by field { false }
+
+    private fun ClassPool.initAnalyzer() {
+        if(initializedAnalyzer) return
+        interpreter.setTypeChecker { parent, child -> parent.internalName in inheritanceGraph.getAllParents(child.internalName) }
+        interpreter.typeResolver = object : TypeResolver {
+            override fun common(type1: Type, type2: Type) = inheritanceGraph.getCommon(type1.internalName, type2.internalName)?.let {
+                Type.getObjectType(it)
+            } ?: OBJECT_TYPE
+
+            override fun commonException(type1: Type, type2: Type) = inheritanceGraph.getCommon(type1.internalName, type2.internalName)?.let {
+                Type.getObjectType(it)
+            } ?: EXCEPTION_TYPE
+        }
+        analyzer = SimAnalyzer(interpreter)
+        analyzer.setSkipDeadCodeBlocks(true)
+        analyzer.setThrowUnresolvedAnalyzerErrors(false)
+        initializedAnalyzer = true
+    }
+
+    private inner class MethodExecutor(private val method: MethodNode) {
+
+        private var frameIdx = 0
+        private lateinit var frames: Array<SimFrame>
+
+        var curFrame: SimFrame? = null
+            private set
+
+        private var initialized = false
+        private var paused = true
+        private var terminated = false
+
+        fun initialize() {
+            frames = try { method.pool.analyzer.analyze(method.owner.name, method) } catch(e: Exception) { emptyArray() }
+            frameIdx = 0
+            paused = false
+            initialized = true
+        }
+
+        fun step(): SimFrame? {
+            if(!initialized) throw IllegalStateException("Method Executor must be initialized first.")
+
+            paused = false
+            while(!paused) {
+                if(frameIdx >= frames.size) {
                     terminated = true
                     break
                 }
 
-                if(!fromPaused) {
-                    fromFrame = fromFrames[fromIdx++]
-                    fromPaused = fromFrame.isMappable()
-                }
-                if(!toPaused) {
-                    toFrame = toFrames[toIdx++]
-                    toPaused = toFrame.isMappable()
+                curFrame = frames[frameIdx++]
+                if(curFrame != null) {
+                    paused = true
                 }
             }
-        }
 
-        return same
-    }
-
-    private fun SimFrame?.isMappable(): Boolean {
-        return if(this == null) false
-        else when(this.instruction) {
-            is LdcInsnNode -> true
-            else -> false
+            return if(paused) curFrame
+            else null
         }
-    }
-
-    private fun isSame(fromInsn: AbstractInsnNode, toInsn: AbstractInsnNode) = when {
-        fromInsn is LdcInsnNode && toInsn is LdcInsnNode -> {
-            val fromCst = fromInsn.cst
-            val toCst = toInsn.cst
-            fromCst == toCst
-        }
-        else -> false
     }
 }

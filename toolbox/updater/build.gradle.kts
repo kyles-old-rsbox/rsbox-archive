@@ -25,7 +25,7 @@ tasks {
         archiveClassifier.set("shaded")
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
         manifest {
-            attributes["Main-Class"] = (run as JavaExec).mainClass.get()
+            attributes["Main-Class"] = (run.get() as JavaExec).mainClass.get()
         }
         from(configurations.runtimeClasspath.get().map {
             if(it.isDirectory) it
