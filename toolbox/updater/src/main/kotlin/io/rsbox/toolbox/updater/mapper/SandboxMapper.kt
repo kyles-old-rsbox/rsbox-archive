@@ -69,9 +69,8 @@ class SandboxMapper(private val fromMethods: List<MethodNode>, private val toMet
         while(true) {
             val fromFrame = fromExecutor.step()
             val toFrame = toExecutor.step()
-            if(fromFrame == null && toFrame == null) break
-            if(fromFrame == null || toFrame == null) continue
-            if(!MappingUtil.isSame(mapping, fromMethod, toMethod, fromFrame, toFrame)) continue
+            if(fromFrame == null || toFrame == null) break
+            if(!MappingUtil.isSame(mapping, fromMethod, toMethod, fromFrame, toFrame)) break
             sameFrameCount++
             MappingUtil.map(mapping, fromMethod, toMethod, fromFrame, toFrame)
         }
