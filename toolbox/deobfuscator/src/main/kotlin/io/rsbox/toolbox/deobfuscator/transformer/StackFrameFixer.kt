@@ -27,6 +27,7 @@ import org.objectweb.asm.ClassReader
 import org.objectweb.asm.ClassWriter
 import org.objectweb.asm.Type
 import org.objectweb.asm.tree.ClassNode
+import org.objectweb.asm.util.CheckClassAdapter
 import org.tinylog.kotlin.Logger
 
 class StackFrameFixer : Transformer {
@@ -37,8 +38,12 @@ class StackFrameFixer : Transformer {
             val newNode = ClassNode()
             val writer = Writer(pool)
             cls.accept(writer)
+
+            checkDataFlow(cls.name, writer.toByteArray())
+
             val reader = ClassReader(writer.toByteArray())
             reader.accept(newNode, ClassReader.SKIP_FRAMES)
+
             newNode.ignored = cls.ignored
             Deobfuscator.updateObfInfo(cls, newNode)
             cls.methods.forEach methodLoop@ { oldMethod ->
@@ -49,6 +54,7 @@ class StackFrameFixer : Transformer {
                 val newField = newNode.getField(oldField.name, oldField.desc)!!
                 Deobfuscator.updateObfInfo(oldField, newField)
             }
+
             newNodes.add(newNode)
         }
 
@@ -59,7 +65,18 @@ class StackFrameFixer : Transformer {
         Logger.info("Fixed method stack frames for ${pool.allClasses.size} classes.")
     }
 
-    private class Writer(private val pool: ClassPool) : ClassWriter(COMPUTE_FRAMES) {
+    private fun checkDataFlow(className: String, data: ByteArray) {
+        try {
+            val reader = ClassReader(data)
+            val writer = ClassWriter(reader, 0)
+            val checker = CheckClassAdapter(writer, true)
+            reader.accept(checker, 0)
+        } catch(e: Exception) {
+            Logger.warn(e, "Class $className data-flow validation failed.")
+        }
+    }
+
+    private class Writer(private val pool: ClassPool) : ClassWriter(COMPUTE_FRAMES or COMPUTE_MAXS) {
 
         companion object {
             val OBJECT_INTERNAL_NAME = Type.getInternalName(Any::class.java)

@@ -70,19 +70,17 @@ class InstructionModifier {
     }
 
     fun replace(originalInsns: InsnList, insns: InsnList) {
-        for(idx in 0 until originalInsns.size()) {
-            val original = originalInsns[idx]!!
-            val insn = insns[idx]
-            if(insn == null) {
-                remove(original)
-            } else {
-                replace(original, insn)
-            }
-        }
+        val originalFirst = originalInsns.first
+        prepend(originalFirst, insns)
+        originalInsns.forEach { remove(it) }
     }
 
     fun remove(original: AbstractInsnNode) {
         replacements[original] = EMPTY_LIST
+    }
+
+    fun removeAll(insns: InsnList) {
+        removeAll(insns.toList())
     }
 
     fun removeAll(insns: List<AbstractInsnNode>) {

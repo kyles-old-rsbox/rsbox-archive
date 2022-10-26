@@ -17,14 +17,12 @@
 
 package io.rsbox.toolbox.deobfuscator
 
-import io.rsbox.toolbox.asm.ClassPool
-import io.rsbox.toolbox.asm.owner
-import io.rsbox.toolbox.asm.readJar
-import io.rsbox.toolbox.asm.writeJar
+import io.rsbox.toolbox.asm.*
 import io.rsbox.toolbox.deobfuscator.asm.*
 import io.rsbox.toolbox.deobfuscator.transformer.*
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import me.coley.analysis.util.InheritanceGraph
 import org.objectweb.asm.tree.ClassNode
 import org.objectweb.asm.tree.FieldNode
 import org.objectweb.asm.tree.MethodNode
@@ -92,12 +90,13 @@ object Deobfuscator {
         register<RedundantGotoRemover>()
         register<LocalVariableFixer>()
         register<StackFrameFixer>()
+        register<ExprOrderOptimizer>()
         register<MultiplierRemover>()
         register<TempMultiplierRemover>()
+        register<ScriptInterpreterOptimizer>()
         register<FieldSorter>()
         register<MethodSorter>()
         register<GetPathFixer>()
-        register<ScriptInterpreterOptimizer>()
         register<StackFrameFixer>()
     }
 
@@ -127,6 +126,15 @@ object Deobfuscator {
             }
         }
         pool.init()
+
+        val graph = InheritanceGraph()
+        graph.addClasspath()
+        graph.addModulePath()
+        pool.allClasses.forEach { cls ->
+            graph.add(cls.name, cls.interfaces.plus(cls.superName))
+        }
+        pool.inheritanceGraph = graph
+
         Logger.info("Loaded ${pool.classes.size} classes. (Ignored ${pool.ignoredClasses.size} classes).")
 
         /*

@@ -46,7 +46,32 @@ class TempMultiplierRemover : Transformer {
                 m.cancelOutMultipliers(decoders)
                 m.solveConstantMath()
                 m.maxStack -= 2
-                count++
+            }
+        }
+
+        pool.allClasses.forEach { c ->
+            c.methods.forEach { m ->
+                val insns = m.instructions.iterator()
+                while(insns.hasNext()) {
+                    val insn = insns.next()
+                    if(insn is LdcInsnNode) {
+                        if(insn.next.opcode == IMUL &&
+                                insn.next.next.opcode == LDC &&
+                                insn.next.next.next.opcode == IMUL) {
+                            val ldc1 = insn.ldcNum!!
+                            val ldc2 = (insn.next.next as LdcInsnNode).ldcNum!!
+                            val product = ldc1 * ldc2
+                            if(product == 1) {
+                                insns.remove()
+                                repeat(3) {
+                                    insns.next()
+                                    insns.remove()
+                                }
+                                count++
+                            }
+                        }
+                    }
+                }
             }
         }
 
@@ -72,6 +97,7 @@ class TempMultiplierRemover : Transformer {
                         LONG_TYPE.descriptor -> insnList.append(insn, LdcInsnNode(Inversion.invert(decoder)), InsnNode(LMUL))
                         else -> error(insn)
                     }
+                    count++
                 }
                 PUTFIELD -> {
                     when (insn.desc) {
@@ -97,6 +123,7 @@ class TempMultiplierRemover : Transformer {
                         }
                         else -> error(insn)
                     }
+                    count++
                 }
                 PUTSTATIC -> {
                     when (insn.desc) {
@@ -122,10 +149,14 @@ class TempMultiplierRemover : Transformer {
                         }
                         else -> error(insn)
                     }
+                    count++
                 }
             }
         }
     }
+
+    private fun isMultiplier(n: Number) = Inversion.isInvertible(n) && Inversion.invert(n) != n
+    private val LdcInsnNode.ldcNum: Int? get() = if(this.cst is Int) this.cst as Int else null
 
     private fun MethodNode.solveConstantMath() {
         val insnList = instructions
@@ -488,6 +519,7 @@ class TempMultiplierRemover : Transformer {
             private val Valu.isAdd get() = v.insn.let { it != null && (it.opcode == IADD || it.opcode == LADD || it.opcode == ISUB || it.opcode == LSUB) }
 
             private data class FieldMul(val f: Valu, val ldc: Valu)
+            private data class LdcMul(val ldcA: Valu, val ldcB: Valu)
         }
 
         private open class Valu(val v: SourceValue) : Value {
