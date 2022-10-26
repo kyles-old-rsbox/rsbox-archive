@@ -31,7 +31,8 @@ class DeadCodeRemover : Transformer {
         pool.classes.forEach { cls ->
             cls.methods.forEach { method ->
                 val insns = method.instructions.toArray()
-                val frames = Analyzer(BasicInterpreter()).analyze(cls.name, method)
+                val frames = Analyzer(BasicInterpreter())
+                    .analyze(cls.name, method)
                 for(i in frames.indices) {
                    if(frames[i] == null) {
                        method.instructions.remove(insns[i])

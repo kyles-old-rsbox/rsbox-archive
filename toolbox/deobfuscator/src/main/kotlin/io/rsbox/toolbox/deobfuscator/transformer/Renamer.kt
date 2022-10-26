@@ -49,7 +49,7 @@ class Renamer : Transformer {
         // Generate class mappings
         pool.classes.forEach classLoop@ { cls ->
             if(!cls.name.isObfuscatedName()) return@classLoop
-            val newName = "class${++classCount}"
+            val newName = "old_class${++classCount}"
             mappings[cls.identifier] = newName
         }
 
@@ -57,7 +57,7 @@ class Renamer : Transformer {
         pool.classes.forEach { cls ->
             cls.methods.forEach methodLoop@ { method ->
                 if(!method.name.isObfuscatedName() || mappings.containsKey(method.identifier)) return@methodLoop
-                val newName = "method${++methodCount}"
+                val newName = "old_method${++methodCount}"
                 mappings[method.identifier] = newName
                 inheritanceGraph[method.owner.name]!!.children.forEach { relative ->
                     mappings["${relative.name}.${method.name}${method.desc}"] = newName
@@ -69,7 +69,7 @@ class Renamer : Transformer {
         pool.classes.forEach { cls ->
             cls.fields.forEach fieldLoop@ { field ->
                 if(!field.name.isObfuscatedName() || mappings.containsKey(field.identifier)) return@fieldLoop
-                val newName = "field${++fieldCount}"
+                val newName = "old_field${++fieldCount}"
                 mappings[field.identifier] = newName
                 inheritanceGraph[field.owner.name]!!.children.forEach { relative ->
                     mappings["${relative.name}.${field.name}"] = newName

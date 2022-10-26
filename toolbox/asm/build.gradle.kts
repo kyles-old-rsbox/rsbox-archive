@@ -1,3 +1,7 @@
+plugins {
+    java
+}
+
 dependencies {
     api("org.ow2.asm:asm:_")
     api("org.ow2.asm:asm-util:_")

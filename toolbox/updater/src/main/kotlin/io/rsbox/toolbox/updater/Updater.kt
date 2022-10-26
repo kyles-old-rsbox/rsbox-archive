@@ -20,13 +20,11 @@
 package io.rsbox.toolbox.updater
 
 import io.rsbox.toolbox.asm.ClassPool
+import io.rsbox.toolbox.asm.getMethod
 import io.rsbox.toolbox.asm.readJar
 import io.rsbox.toolbox.asm.writeJar
 import io.rsbox.toolbox.updater.asm.extractFeatures
 import io.rsbox.toolbox.updater.asm.obfInfo
-import io.rsbox.toolbox.updater.mapper.MethodMapper
-import io.rsbox.toolbox.updater.mapper.StaticMethodMapper
-import io.rsbox.toolbox.updater.mapper.SandboxMapper
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.decodeFromStream
@@ -42,10 +40,8 @@ object Updater {
     private lateinit var newFile: File
     private lateinit var outputFile: File
 
-    private val prevPool = ClassPool()
-    private val curPool = ClassPool()
-
-    private lateinit var topMapping: NodeMapping
+    private val fromPool = ClassPool()
+    private val toPool = ClassPool()
 
     @JvmStatic
     fun main(args: Array<String>) {
@@ -62,25 +58,25 @@ object Updater {
         /*
          * Load the classes from the jar files into the class pools.
          */
-        prevPool.readJar(oldFile) { jar, entry ->
+        fromPool.readJar(oldFile) { jar, entry ->
             if(entry.name == "META-INF/obf-info.json") {
-                prevPool.obfInfo = Json.decodeFromStream(jar.getInputStream(entry))
+                fromPool.obfInfo = Json.decodeFromStream(jar.getInputStream(entry))
             }
         }
-        prevPool.allClasses.filter { it.name.contains("json") || it.name.contains("bouncycastle") }.forEach { prevPool.ignoreClass(it) }
-        prevPool.init()
-        prevPool.extractFeatures()
+        fromPool.allClasses.filter { it.name.contains("json") || it.name.contains("bouncycastle") }.forEach { fromPool.ignoreClass(it) }
+        fromPool.init()
+        fromPool.extractFeatures()
 
-        curPool.readJar(newFile) { jar, entry ->
+        toPool.readJar(newFile) { jar, entry ->
             if(entry.name == "META-INF/obf-info.json") {
-                curPool.obfInfo = Json.decodeFromStream(jar.getInputStream(entry))
+                toPool.obfInfo = Json.decodeFromStream(jar.getInputStream(entry))
             }
         }
-        curPool.allClasses.filter { it.name.contains("json") || it.name.contains("bouncycastle") }.forEach { curPool.ignoreClass(it) }
-        curPool.init()
-        curPool.extractFeatures()
+        toPool.allClasses.filter { it.name.contains("json") || it.name.contains("bouncycastle") }.forEach { toPool.ignoreClass(it) }
+        toPool.init()
+        toPool.extractFeatures()
 
-        Logger.info("Successfully loaded classes from input jar files. [Old-Classes: ${prevPool.classes.size}, New-Class: ${curPool.classes.size}].")
+        Logger.info("Successfully loaded classes from input jar files. [Old-Classes: ${fromPool.classes.size}, New-Class: ${toPool.classes.size}].")
 
         /*
          * Run the updater
@@ -92,7 +88,7 @@ object Updater {
          */
         Logger.info("Saving updated classes to output jar.")
         if(outputFile.exists()) outputFile.deleteRecursively()
-        curPool.writeJar(outputFile)
+        toPool.writeJar(outputFile)
 
         Logger.info("Updater has completed successfully.")
     }
@@ -100,79 +96,23 @@ object Updater {
     private fun run() {
         Logger.info("Updating classes from previous name mappings...")
 
-        /*
-         * Run mapping methods.
-         */
-        topMapping = NodeMapping()
-        topMapping.merge(mapStaticMethods())
-        topMapping.merge(mapMethods())
-        topMapping.reduce()
+        val fromInsns = fromPool.findClass("client")!!.getMethod("init", "()V")!!.instructions.toList()
+        val toInsns = toPool.findClass("client")!!.getMethod("init", "()V")!!.instructions.toList()
 
-        Logger.info("Finished updating classes.")
-        val total = max(prevPool.classes.size, curPool.classes.size) +
-                max(prevPool.classes.flatMap { it.methods }.size, curPool.classes.flatMap { it.methods }.size) +
-                max(prevPool.classes.flatMap { it.fields }.size, curPool.classes.flatMap { it.fields }.size)
-        val count = topMapping.mappings().keys.size
-        val percentage = (count.toDouble() / total.toDouble()) * 100.0
-        Logger.info("Successfully updated: $count / $total ($percentage%).")
-    }
-
-    /**
-     * ===== MAPPING METHODS =====
-     */
-
-    private fun mapStaticMethods(): NodeMapping {
-        Logger.info("Matching static methods...")
-
-        val mapper = StaticMethodMapper()
-        mapper.map(prevPool, curPool)
-
-        val toMerge = mutableListOf<NodeMapping>()
-        mapper.mappings.keySet().forEach { toMethod ->
-            val fromMethods = mapper.mappings.get(toMethod)
-
-            val sandboxMapper = SandboxMapper(fromMethods.toList(), toMethod)
-            val sandboxMapping = sandboxMapper.run() ?: return@forEach
-
-            sandboxMapping.map(null, sandboxMapping.fromMethod, sandboxMapping.toMethod).also {
-                it.weight = sandboxMapping.same
-            }
-
-            toMerge.add(sandboxMapping)
+        val score = MappingUtil.compareLists(fromInsns, toInsns) { a, b ->
+            1
         }
 
-        val resultMapping = NodeMapping()
-        toMerge.forEach { mapping ->
-            resultMapping.merge(mapping)
+        println("Score: $score")
+
+        val fromList = listOf("Hello", "World", "my", "name", "is", "kyle")
+        val toList = listOf("Hello", "kyle", "world", "is", "my")
+
+        val score2 = MappingUtil.compareLists(fromList, toList) { a, b ->
+            if(a == b) 0
+            else 2
         }
 
-        Logger.info("Finished matching static methods.")
-
-        return resultMapping
-    }
-
-    private fun mapMethods(): NodeMapping {
-        Logger.info("Matching non-static methods.")
-
-        val mapper = MethodMapper()
-        mapper.map(prevPool, curPool)
-
-        val toMerge = mutableListOf<NodeMapping>()
-        mapper.mappings.keySet().forEach { toMethod ->
-            val fromMethods = mapper.mappings.get(toMethod)
-            val sandboxMapper = SandboxMapper(fromMethods.toList(), toMethod)
-            val sandboxMapping = sandboxMapper.run() ?: return@forEach
-            sandboxMapping.map(null, sandboxMapping.fromMethod, sandboxMapping.toMethod)
-            toMerge.add(sandboxMapping)
-        }
-
-        val resultMapping = NodeMapping()
-        toMerge.forEach { mapping ->
-            resultMapping.merge(mapping)
-        }
-
-        Logger.info("Finished matching non-static methods.")
-
-        return resultMapping
+        println("Score2: $score2")
     }
 }
