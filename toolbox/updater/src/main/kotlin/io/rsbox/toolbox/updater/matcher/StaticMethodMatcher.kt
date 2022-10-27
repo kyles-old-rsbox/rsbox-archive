@@ -47,7 +47,7 @@ class StaticMethodMatcher {
             matches.putAll(toMethod, fromPool.findPotentialMatches(toMethod))
         }
 
-        ConsoleProgressBar.start("Matching", "Methods", matches.size().toLong())
+        ConsoleProgressBar.start("Matching Static Methods", "Methods", matches.size().toLong())
 
         val toMerge = mutableListOf<NodeMappings>()
         matches.keySet().forEach { toMethod ->

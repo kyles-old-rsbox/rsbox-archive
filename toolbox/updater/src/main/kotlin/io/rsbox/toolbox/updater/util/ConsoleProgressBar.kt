@@ -21,7 +21,10 @@ import me.tongfei.progressbar.ProgressBar
 import me.tongfei.progressbar.ProgressBarBuilder
 import me.tongfei.progressbar.ProgressBarStyle
 import me.tongfei.progressbar.TerminalUtils
+import java.time.Duration
 import java.time.temporal.ChronoUnit
+import java.time.temporal.TemporalUnit
+import java.util.*
 
 object ConsoleProgressBar {
 
@@ -30,12 +33,11 @@ object ConsoleProgressBar {
     fun start(taskName: String, unitName: String, initialMax: Long) {
         progressBar = ProgressBarBuilder()
             .setTaskName(taskName)
-            .setUnit(" $unitName", 1L)
             .setInitialMax(initialMax)
-            .setStyle(ProgressBarStyle.ASCII)
-            .showSpeed()
             .setSpeedUnit(ChronoUnit.SECONDS)
-            .setMaxRenderedLength(125)
+            .setStyle(ProgressBarStyle.COLORFUL_UNICODE_BAR)
+            .showSpeed()
+            .setMaxRenderedLength(175)
             .setUpdateIntervalMillis(100)
             .build()
     }
