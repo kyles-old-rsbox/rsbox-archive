@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     kotlin("plugin.serialization") version "1.7.10"
 }
@@ -12,6 +14,10 @@ dependencies {
 }
 
 tasks {
+    withType<JavaCompile> {
+        options.encoding = "UTF-8"
+    }
+
     val run = register<JavaExec>("run") {
         dependsOn(build.get())
         group = "application"

@@ -24,6 +24,7 @@ import io.rsbox.toolbox.asm.readJar
 import io.rsbox.toolbox.asm.writeJar
 import io.rsbox.toolbox.updater.asm.extractFeatures
 import io.rsbox.toolbox.updater.asm.obfInfo
+import io.rsbox.toolbox.updater.matcher.ClassMatcher
 import io.rsbox.toolbox.updater.matcher.MethodMatcher
 import io.rsbox.toolbox.updater.matcher.StaticMethodMatcher
 import io.rsbox.toolbox.updater.sandbox.Execution
@@ -114,6 +115,9 @@ object Updater {
 
         Logger.info("Matching unsandboxed methods.")
         while(matchUnsandboxedMethods(mappings)) { /* Do Nothing */ }
+
+        Logger.info("Matching classes.")
+        ClassMatcher(fromPool, toPool).match(mappings)
 
         Logger.info("Reducing matches.")
         mappings.reduce()

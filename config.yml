@@ -1,0 +1,13 @@
+input: C:\Users\Kyle\hdos\code\client-main.jar
+output: client-main.jar
+path: ["C:\\Users\\Kyle\\hdos\\code\\AppleJavaExtensions-1.4.jar", "C:\\Users\\Kyle\\hdos\\code\\bcprov-jdk15on-1.51.jar", "C:\\Users\\Kyle\\hdos\\code\\client-main.jar", "C:\\Users\\Kyle\\hdos\\code\\discord-rpc-release-v3.3.0.jar", "C:\\Users\\Kyle\\hdos\\code\\flatlaf-2.3.jar", "C:\\Users\\Kyle\\hdos\\code\\gson-2.8.9.jar", "C:\\Users\\Kyle\\hdos\\code\\java-discord-rpc-2.0.1.jar", "C:\\Users\\Kyle\\hdos\\code\\jna-5.11.0.jar", "C:\\Users\\Kyle\\hdos\\code\\jna-platform-5.11.0.jar", "C:\\Users\\Kyle\\hdos\\code\\lwjgl-3.3.1-natives-linux-arm32.jar", "C:\\Users\\Kyle\\hdos\\code\\lwjgl-3.3.1-natives-linux-arm64.jar", "C:\\Users\\Kyle\\hdos\\code\\lwjgl-3.3.1-natives-linux.jar", "C:\\Users\\Kyle\\hdos\\code\\lwjgl-3.3.1-natives-macos-arm64.jar", "C:\\Users\\Kyle\\hdos\\code\\lwjgl-3.3.1-natives-macos.jar", "C:\\Users\\Kyle\\hdos\\code\\lwjgl-3.3.1-natives-windows.jar", "C:\\Users\\Kyle\\hdos\\code\\lwjgl-3.3.1.jar", "C:\\Users\\Kyle\\hdos\\code\\lwjgl-jawt-3.3.1.jar", "C:\\Users\\Kyle\\hdos\\code\\lwjgl-opengl-3.3.1-natives-linux-arm32.jar", "C:\\Users\\Kyle\\hdos\\code\\lwjgl-opengl-3.3.1-natives-linux-arm64.jar", "C:\\Users\\Kyle\\hdos\\code\\lwjgl-opengl-3.3.1-natives-linux.jar", "C:\\Users\\Kyle\\hdos\\code\\lwjgl-opengl-3.3.1-natives-macos.jar", "C:\\Users\\Kyle\\hdos\\code\\lwjgl-opengl-3.3.1-natives-windows.jar", "C:\\Users\\Kyle\\hdos\\code\\lwjgl-opengl-3.3.1.jar", "C:\\Users\\Kyle\\hdos\\code\\lwjgl3-awt-0.1.9-SNAPSHOT.jar", "C:\\Users\\Kyle\\hdos\\code\\reflection.jar"]
+transformers:
+  - com.javadeobfuscator.deobfuscator.transformers.general.removers.IllegalSignatureRemover
+  - com.javadeobfuscator.deobfuscator.transformers.general.removers.LineNumberRemover
+  - com.javadeobfuscator.deobfuscator.transformers.general.removers.LocalVariableRemover
+  - com.javadeobfuscator.deobfuscator.transformers.general.removers.SyntheticBridgeRemover
+  - com.javadeobfuscator.deobfuscator.transformers.normalizer.PackageNormalizer
+  - com.javadeobfuscator.deobfuscator.transformers.normalizer.ClassNormalizer
+  - com.javadeobfuscator.deobfuscator.transformers.normalizer.FieldNormalizer
+  - com.javadeobfuscator.deobfuscator.transformers.normalizer.MethodNormalizer
+  - com.javadeobfuscator.deobfuscator.transformers.general.peephole.PeepholeOptimizer

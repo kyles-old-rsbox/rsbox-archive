@@ -38,7 +38,7 @@ object ConsoleProgressBar {
             .setStyle(ProgressBarStyle.COLORFUL_UNICODE_BAR)
             .showSpeed()
             .setMaxRenderedLength(175)
-            .setUpdateIntervalMillis(100)
+            .setUpdateIntervalMillis(1)
             .build()
     }
 

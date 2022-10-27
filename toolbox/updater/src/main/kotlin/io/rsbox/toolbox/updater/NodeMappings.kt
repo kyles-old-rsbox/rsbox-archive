@@ -1,6 +1,7 @@
 package io.rsbox.toolbox.updater
 
 import com.google.common.collect.HashMultimap
+import com.google.common.collect.Multimap
 import io.rsbox.toolbox.asm.identifier
 import org.objectweb.asm.tree.ClassNode
 import org.objectweb.asm.tree.FieldNode
@@ -9,14 +10,14 @@ import java.util.*
 
 class NodeMappings {
 
-    private var mappings = HashMultimap.create<Any, Mapping>()
+    var mappings = HashMultimap.create<Any, Mapping>()
 
     var score = 0
 
     lateinit var fromMethod: MethodNode
     lateinit var toMethod: MethodNode
 
-    private fun getMapping(from: Any, to: Any): Mapping {
+    fun getMapping(from: Any, to: Any): Mapping {
         mappings.get(from).forEach { mapping ->
             if(mapping.to == to) {
                 return mapping
