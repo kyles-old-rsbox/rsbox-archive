@@ -20,19 +20,22 @@
 package io.rsbox.toolbox.updater
 
 import io.rsbox.toolbox.asm.ClassPool
-import io.rsbox.toolbox.asm.getMethod
 import io.rsbox.toolbox.asm.readJar
 import io.rsbox.toolbox.asm.writeJar
 import io.rsbox.toolbox.updater.asm.extractFeatures
 import io.rsbox.toolbox.updater.asm.obfInfo
+import io.rsbox.toolbox.updater.matcher.MethodMatcher
 import io.rsbox.toolbox.updater.matcher.StaticMethodMatcher
+import io.rsbox.toolbox.updater.sandbox.Execution
+import io.rsbox.toolbox.updater.sandbox.SandboxMethodMatcher
+import io.rsbox.toolbox.updater.util.ConsoleProgressBar
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.decodeFromStream
+import org.objectweb.asm.tree.MethodNode
 import org.tinylog.kotlin.Logger
 import java.io.File
 import java.io.FileNotFoundException
-import kotlin.math.max
 
 @Suppress("DuplicatedCode")
 object Updater {
@@ -98,17 +101,46 @@ object Updater {
 
     private fun run() {
         Logger.info("Starting RSBox updater.")
-
         mappings = NodeMappings()
 
         Logger.info("Matching static methods.")
         mappings.merge(StaticMethodMatcher().match(fromPool, toPool))
-        Logger.info("Finished matching static method. [Total Matches: ${mappings.asMappingMap().size}]")
 
-        Logger.info("Reducing matched methods.")
+        Logger.info("Matching non-static methods.")
+        mappings.merge(MethodMatcher().match(fromPool, toPool))
+
+        Logger.info("Reducing matches.")
         mappings.reduce()
-        Logger.info("Finished reducing. [Total Matches: ${mappings.asMappingMap().size}]")
+
+        Logger.info("Matching unsandboxed methods.")
+        while(matchUnsandboxedMethods(mappings)) { /* Do Nothing */ }
+
+        Logger.info("Reducing matches.")
+        mappings.reduce()
 
         Logger.info("RSBox updater completed successfully.")
+    }
+
+    private fun matchUnsandboxedMethods(mappings: NodeMappings): Boolean {
+        ConsoleProgressBar.start("Matching UnSandboxed Methods", "", mappings.asMappingMap().size.toLong())
+        var matched = false
+        mappings.asMappingMap().keys.forEach { toNode ->
+            ConsoleProgressBar.step()
+            val match = mappings.getMappings(toNode).iterator().next()
+            if(match.executed || match.from !is MethodNode) return@forEach
+            val fromMethod = match.from
+            val toMethod = match.to as MethodNode
+            if(fromMethod.instructions.size() == 0 || toMethod.instructions.size() == 0) return@forEach
+
+            val sandboxMapping = Execution.match(fromMethod, toMethod)
+            sandboxMapping.map(sandboxMapping.fromMethod, sandboxMapping.toMethod).also {
+                it.executed = true
+            }
+
+            matched = true
+            mappings.merge(sandboxMapping)
+        }
+        ConsoleProgressBar.stop()
+        return matched
     }
 }
