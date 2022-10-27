@@ -18,6 +18,6 @@ dependencies {
 tasks {
     named<JavaCompile>("compileJava") {
         options.encoding = "UTF-8"
-        options.compilerArgs.addAll(listOf("--add-exports", "java.base/jdk.internal.misc=ALL-UNNAMED"))
+        options.compilerArgs.addAll(listOf("--add-exports", "java.base/jdk.internal.misc=ALL-UNNAMED", "--add-opens", "java.base/jdk.internal.misc=ALL-UNNAMED"))
     }
 }
