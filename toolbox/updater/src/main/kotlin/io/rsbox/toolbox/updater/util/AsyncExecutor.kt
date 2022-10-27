@@ -15,22 +15,28 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.toolbox.asm
+package io.rsbox.toolbox.updater.util
 
-import org.objectweb.asm.Type
-import org.objectweb.asm.tree.ClassNode
-import org.objectweb.asm.tree.FieldNode
+import java.util.concurrent.ConcurrentLinkedQueue
+import java.util.concurrent.Executors
 
-fun FieldNode.init(owner: ClassNode) {
-    this.owner = owner
+class AsyncExecutor(private val threads: Int = Runtime.getRuntime().availableProcessors() - 3) {
+
+    private val taskQueue = ConcurrentLinkedQueue<() -> Unit>()
+    private val executor = Executors.newFixedThreadPool(threads)
+
+    fun queueTask(block: () -> Unit) {
+        taskQueue.add(block)
+    }
+
+    fun runTasks() {
+        while(taskQueue.isNotEmpty()) {
+            executor.execute {
+                val task = taskQueue.poll() ?: return@execute
+                task()
+            }
+        }
+        executor.shutdown()
+    }
+
 }
-
-fun FieldNode.reset() {}
-fun FieldNode.build() {}
-
-var FieldNode.owner: ClassNode by field()
-val FieldNode.pool get() = owner.pool
-
-val FieldNode.identifier: String get() = "${owner.identifier}.$name"
-val FieldNode.type: Type get() = Type.getType(desc)
-val FieldNode.typeClass: ClassNode? get() = pool.findClass(type.internalName)

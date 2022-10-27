@@ -25,6 +25,7 @@ import io.rsbox.toolbox.asm.readJar
 import io.rsbox.toolbox.asm.writeJar
 import io.rsbox.toolbox.updater.asm.extractFeatures
 import io.rsbox.toolbox.updater.asm.obfInfo
+import io.rsbox.toolbox.updater.matcher.StaticMethodMatcher
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.decodeFromStream
@@ -42,6 +43,8 @@ object Updater {
 
     private val fromPool = ClassPool()
     private val toPool = ClassPool()
+
+    private lateinit var mappings: NodeMappings
 
     @JvmStatic
     fun main(args: Array<String>) {
@@ -94,25 +97,18 @@ object Updater {
     }
 
     private fun run() {
-        Logger.info("Updating classes from previous name mappings...")
+        Logger.info("Starting RSBox updater.")
 
-        val fromInsns = fromPool.findClass("client")!!.getMethod("init", "()V")!!.instructions.toList()
-        val toInsns = toPool.findClass("client")!!.getMethod("init", "()V")!!.instructions.toList()
+        mappings = NodeMappings()
 
-        val score = MappingUtil.compareLists(fromInsns, toInsns) { a, b ->
-            1
-        }
+        Logger.info("Matching static methods.")
+        mappings.merge(StaticMethodMatcher().match(fromPool, toPool))
+        Logger.info("Finished matching static method. [Total Matches: ${mappings.asMappingMap().size}]")
 
-        println("Score: $score")
+        Logger.info("Reducing matched methods.")
+        mappings.reduce()
+        Logger.info("Finished reducing. [Total Matches: ${mappings.asMappingMap().size}]")
 
-        val fromList = listOf("Hello", "World", "my", "name", "is", "kyle")
-        val toList = listOf("Hello", "kyle", "world", "is", "my")
-
-        val score2 = MappingUtil.compareLists(fromList, toList) { a, b ->
-            if(a == b) 0
-            else 2
-        }
-
-        println("Score2: $score2")
+        Logger.info("RSBox updater completed successfully.")
     }
 }
