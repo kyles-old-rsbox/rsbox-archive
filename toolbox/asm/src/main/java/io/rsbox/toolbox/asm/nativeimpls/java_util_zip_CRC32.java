@@ -17,7 +17,6 @@
 
 package io.rsbox.toolbox.asm.nativeimpls;
 
-import com.jcraft.jzlib.CRC32;
 import io.rsbox.toolbox.asm.Cause;
 import io.rsbox.toolbox.asm.Effect;
 import io.rsbox.toolbox.asm.VirtualMachine;
@@ -25,6 +24,7 @@ import io.rsbox.toolbox.asm.hooks.HookGenerator;
 import io.rsbox.toolbox.asm.utils.ArrayConversionHelper;
 import io.rsbox.toolbox.asm.values.JavaArray;
 import io.rsbox.toolbox.asm.values.JavaWrapper;
+import com.jcraft.jzlib.CRC32;
 
 public class java_util_zip_CRC32 {
     private static final String THIS = "java/util/zip/CRC32";

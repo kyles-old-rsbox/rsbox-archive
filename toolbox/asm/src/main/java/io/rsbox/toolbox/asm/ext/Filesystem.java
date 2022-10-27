@@ -21,7 +21,7 @@ import io.rsbox.toolbox.asm.VirtualMachine;
 import io.rsbox.toolbox.asm.exceptions.ExecutionException;
 import io.rsbox.toolbox.asm.mirrors.JavaClass;
 import io.rsbox.toolbox.asm.values.JavaWrapper;
-import sun.misc.SharedSecrets;
+import jdk.internal.misc.SharedSecrets;
 
 import java.io.File;
 import java.io.IOException;

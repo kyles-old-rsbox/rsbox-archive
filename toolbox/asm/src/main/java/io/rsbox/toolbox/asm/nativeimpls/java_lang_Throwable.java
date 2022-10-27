@@ -17,6 +17,10 @@
 
 package io.rsbox.toolbox.asm.nativeimpls;
 
+import io.rsbox.toolbox.asm.*;
+import io.rsbox.toolbox.asm.hooks.*;
+import io.rsbox.toolbox.asm.mirrors.*;
+import io.rsbox.toolbox.asm.values.*;
 import io.rsbox.toolbox.asm.Cause;
 import io.rsbox.toolbox.asm.Effect;
 import io.rsbox.toolbox.asm.StackTraceHolder;
@@ -24,14 +28,10 @@ import io.rsbox.toolbox.asm.VirtualMachine;
 import io.rsbox.toolbox.asm.hooks.HookGenerator;
 import io.rsbox.toolbox.asm.mirrors.JavaClass;
 import io.rsbox.toolbox.asm.values.JavaWrapper;
-import org.objectweb.asm.tree.AbstractInsnNode;
-import org.objectweb.asm.tree.LabelNode;
-import org.objectweb.asm.tree.LineNumberNode;
-import org.objectweb.asm.tree.MethodNode;
+import org.objectweb.asm.tree.*;
 
-import java.lang.reflect.Modifier;
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.reflect.*;
+import java.util.*;
 
 /*
  * Throwables are interesting. Calling fillInStackTrace() will cause the VM to generate the backtrace,

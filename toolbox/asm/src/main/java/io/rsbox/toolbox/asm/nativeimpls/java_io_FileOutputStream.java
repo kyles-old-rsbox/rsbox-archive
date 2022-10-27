@@ -28,8 +28,7 @@ import io.rsbox.toolbox.asm.utils.ExecutionUtils;
 import io.rsbox.toolbox.asm.values.JavaArray;
 import io.rsbox.toolbox.asm.values.JavaObject;
 import io.rsbox.toolbox.asm.values.JavaWrapper;
-
-import javax.xml.bind.DatatypeConverter;
+import jakarta.xml.bind.DatatypeConverter;
 import java.io.FileDescriptor;
 import java.io.FileOutputStream;
 import java.io.IOException;

@@ -11,6 +11,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:_")
     implementation("com.github.Col-E:SimAnalyzer:1.9.2")
     implementation("me.tongfei:progressbar:_")
+
 }
 
 tasks {

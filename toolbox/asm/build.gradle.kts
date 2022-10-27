@@ -11,5 +11,13 @@ dependencies {
     api("com.google.guava:guava:_")
     implementation("org.apache.commons:commons-lang3:_")
     implementation("commons-io:commons-io:_")
-    implementation("com.jcraft:jzlib:1.1.3")
+    implementation("com.jcraft:jzlib:_")
+    implementation("org.glassfish.jaxb:jaxb-runtime:_")
+}
+
+tasks {
+    named<JavaCompile>("compileJava") {
+        options.encoding = "UTF-8"
+        options.compilerArgs.addAll(listOf("--add-exports", "java.base/jdk.internal.misc=ALL-UNNAMED"))
+    }
 }

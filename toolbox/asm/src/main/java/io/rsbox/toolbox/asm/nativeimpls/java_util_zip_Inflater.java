@@ -17,9 +17,6 @@
 
 package io.rsbox.toolbox.asm.nativeimpls;
 
-import com.jcraft.jzlib.Inflater;
-import com.jcraft.jzlib.JZlib;
-import com.jcraft.jzlib.ZStream;
 import io.rsbox.toolbox.asm.Cause;
 import io.rsbox.toolbox.asm.Effect;
 import io.rsbox.toolbox.asm.VirtualMachine;
@@ -29,6 +26,9 @@ import io.rsbox.toolbox.asm.utils.ArrayConversionHelper;
 import io.rsbox.toolbox.asm.values.JavaArray;
 import io.rsbox.toolbox.asm.values.JavaObject;
 import io.rsbox.toolbox.asm.values.JavaWrapper;
+import com.jcraft.jzlib.Inflater;
+import com.jcraft.jzlib.JZlib;
+import com.jcraft.jzlib.ZStream;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

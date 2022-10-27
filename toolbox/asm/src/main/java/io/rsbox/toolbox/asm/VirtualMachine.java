@@ -17,9 +17,21 @@
 
 package io.rsbox.toolbox.asm;
 
+import io.rsbox.toolbox.asm.exceptions.*;
+import io.rsbox.toolbox.asm.exceptions.ExecutionException;
+import io.rsbox.toolbox.asm.ext.*;
+import io.rsbox.toolbox.asm.ext.net.*;
+import io.rsbox.toolbox.asm.hooks.*;
+import io.rsbox.toolbox.asm.instructions.*;
+import io.rsbox.toolbox.asm.internals.*;
+import io.rsbox.toolbox.asm.mirrors.*;
+import io.rsbox.toolbox.asm.nativeimpls.*;
+import io.rsbox.toolbox.asm.oops.*;
+import io.rsbox.toolbox.asm.utils.*;
+import io.rsbox.toolbox.asm.values.*;
+import io.rsbox.toolbox.asm.values.prim.*;
 import io.rsbox.toolbox.asm.exceptions.AbortException;
 import io.rsbox.toolbox.asm.exceptions.ConvertedException;
-import io.rsbox.toolbox.asm.exceptions.ExecutionException;
 import io.rsbox.toolbox.asm.exceptions.VMException;
 import io.rsbox.toolbox.asm.ext.Filesystem;
 import io.rsbox.toolbox.asm.ext.Memory;
@@ -43,25 +55,18 @@ import io.rsbox.toolbox.asm.values.prim.JDouble;
 import io.rsbox.toolbox.asm.values.prim.JFloat;
 import io.rsbox.toolbox.asm.values.prim.JInteger;
 import io.rsbox.toolbox.asm.values.prim.JLong;
-import org.apache.commons.lang3.StringEscapeUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.tuple.Pair;
-import org.objectweb.asm.ClassReader;
-import org.objectweb.asm.Opcodes;
+import org.apache.commons.lang3.*;
+import org.apache.commons.lang3.tuple.*;
+import org.objectweb.asm.*;
 import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.*;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
+import java.lang.reflect.*;
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReadWriteLock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
+import java.util.concurrent.*;
+import java.util.concurrent.locks.*;
+import java.util.function.*;
+import java.util.stream.*;
 
 import static org.objectweb.asm.Opcodes.*;
 
@@ -138,6 +143,10 @@ public class VirtualMachine {
     private Filesystem filesystem = new Filesystem(this);
     private Memory memory = new Memory(this);
     private Network network = new Network(this);
+
+    private boolean paused = false;
+
+    private AbstractInsnNode pausedInstruction;
 
     {
         Map<Class<?>, JavaClass> primitiveToJavaClass = new HashMap<>();
@@ -1291,7 +1300,7 @@ public class VirtualMachine {
                                         && (DEBUG_CLASSES.isEmpty() || DEBUG_CLASSES.contains(classNode.name))
                                         && (DEBUG_METHODS_WITH_DESC.isEmpty() || DEBUG_METHODS_WITH_DESC.contains(method.name + method.desc)))
                                         || false
-                                ) {
+                        ) {
                             System.out.println("\tStack: " + stack);
                             System.out.println("\tLocals: " + locals);
                             System.out.println();
@@ -1849,6 +1858,8 @@ public class VirtualMachine {
         }
     }
 
+
+
     public ClassNode lookupClass(String internalName) {
         if (internalName == null) {
             return null;
@@ -1966,5 +1977,9 @@ public class VirtualMachine {
         }
 
         return root;
+    }
+
+    public void setInstructionHandler(Integer opcode, Instruction handler) {
+        INSTRUCTION_HANDLERS[opcode] = handler;
     }
 }

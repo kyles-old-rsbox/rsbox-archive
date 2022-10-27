@@ -25,7 +25,7 @@ import io.rsbox.toolbox.asm.values.prim.JFloat;
 import io.rsbox.toolbox.asm.values.prim.JInteger;
 import io.rsbox.toolbox.asm.values.prim.JPrimitive;
 
-import java.util.Map;
+import java.util.*;
 
 public class JavaWrapper extends JavaValue {
 
