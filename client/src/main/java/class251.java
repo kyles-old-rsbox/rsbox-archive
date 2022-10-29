@@ -49,10 +49,11 @@ public abstract class class251 {
 
 			switch(var4.field1484.field1941) {
 			case 0:
-				if (var2 <= this.field2914 - var6 || var2 > this.field2914) {
-					return false;
+				if (var2 > this.field2914 - var6 && var2 <= this.field2914) {
+					break;
 				}
-				break;
+
+				return false;
 			case 1:
 				if (var2 < this.field2914 - var6 / 2 || var2 > this.field2914 + var6 / 2) {
 					return false;

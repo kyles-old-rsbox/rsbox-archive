@@ -14,7 +14,7 @@ public class class351 {
 		}
 
 		for (var0 = 26; var0 < 52; ++var0) {
-			field4277[var0] = (char)(97 + var0 - 26);
+			field4277[var0] = (char)(var0 + 97 - 26);
 		}
 
 		for (var0 = 52; var0 < 62; ++var0) {
@@ -26,7 +26,7 @@ public class class351 {
 		field4275 = new char[64];
 
 		for (var0 = 0; var0 < 26; ++var0) {
-			field4275[var0] = (char)(65 + var0);
+			field4275[var0] = (char)(var0 + 65);
 		}
 
 		for (var0 = 26; var0 < 52; ++var0) {
@@ -34,7 +34,7 @@ public class class351 {
 		}
 
 		for (var0 = 52; var0 < 62; ++var0) {
-			field4275[var0] = (char)(48 + var0 - 52);
+			field4275[var0] = (char)(var0 + 48 - 52);
 		}
 
 		field4275[62] = '*';
@@ -42,11 +42,11 @@ public class class351 {
 		field4276 = new char[64];
 
 		for (var0 = 0; var0 < 26; ++var0) {
-			field4276[var0] = (char)(65 + var0);
+			field4276[var0] = (char)(var0 + 65);
 		}
 
 		for (var0 = 26; var0 < 52; ++var0) {
-			field4276[var0] = (char)(97 + var0 - 26);
+			field4276[var0] = (char)(var0 + 97 - 26);
 		}
 
 		for (var0 = 52; var0 < 62; ++var0) {

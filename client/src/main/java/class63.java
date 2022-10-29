@@ -69,7 +69,7 @@ public class class63 extends class437 {
 	}
 
 	static int method1365(int var0, class78 var1, boolean var2) {
-		if (var0 == 6754) {
+		if (var0 == CS2Opcodes.NC_NAME) {
 			int var4 = class57.field404[--class387.field4452];
 			class203 var5 = class158.method2632(var4);
 			class57.field405[++class126.field1220 - 1] = var5 != null ? var5.field2261 : "";
@@ -123,7 +123,7 @@ public class class63 extends class437 {
 						var8 += var0.field3531[var18];
 					}
 
-					if (var1 >= var7 && var2 >= var8 && var1 < var7 + 32 && var2 < 32 + var8) {
+					if (var1 >= var7 && var2 >= var8 && var1 < var7 + 32 && var2 < var8 + 32) {
 						client.field1892 = var18;
 						class165.field1523 = var0;
 						if (var0.field3461[var18] > 0) {
@@ -198,15 +198,15 @@ public class class63 extends class437 {
 												var17 = 39;
 											}
 
-											if (1 == var16) {
+											if (var16 == 1) {
 												var17 = 40;
 											}
 
-											if (2 == var16) {
+											if (var16 == 2) {
 												var17 = 41;
 											}
 
-											if (3 == var16) {
+											if (var16 == 3) {
 												var17 = 42;
 											}
 
@@ -240,7 +240,7 @@ public class class63 extends class437 {
 				for (var18 = 9; var18 >= 5; --var18) {
 					String var20 = class374.method6782(var0, var18);
 					if (var20 != null) {
-						client.method1556(var20, var0.field3545, 1007, 1 + var18, var0.field3484, var0.field3517, var0.field3445);
+						client.method1556(var20, var0.field3545, 1007, var18 + 1, var0.field3484, var0.field3517, var0.field3445);
 					}
 				}
 
@@ -252,7 +252,7 @@ public class class63 extends class437 {
 				for (var5 = 4; var5 >= 0; --var5) {
 					String var21 = class374.method6782(var0, var5);
 					if (null != var21) {
-						class105.method2042(var21, var0.field3545, 57, 1 + var5, var0.field3484, var0.field3517, var0.field3445, var0.field3614);
+						class105.method2042(var21, var0.field3545, 57, var5 + 1, var0.field3484, var0.field3517, var0.field3445, var0.field3614);
 					}
 				}
 

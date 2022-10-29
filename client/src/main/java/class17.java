@@ -63,7 +63,7 @@ public class class17 implements Callable {
 			if (class413.field4575.method1716() == 0 && -1 != client.field1748) {
 				class279.method332(class43.field311, client.field1748, 0, var0, false);
 				client.field1781 = false;
-			} else if (0 == var0) {
+			} else if (var0 == 0) {
 				class279.field3201.method5365();
 				class279.field3202 = 1;
 				class7.field29 = null;

@@ -172,16 +172,16 @@ public class class243 {
 
 			while (true) {
 				var8 = client.field1932 < 209 ? var0.method8141() : var0.method8122();
-				if (0 == var8) {
-					if (0 == var1) {
-						class82.field719[0][var2][var3] = -class8.method53(932731 + var2 + var4, var5 + 556238 + var3) * 8;
+				if (var8 == 0) {
+					if (var1 == 0) {
+						class82.field719[0][var2][var3] = -class8.method53(var2 + 932731 + var4, var5 + var3 + 556238) * 8;
 					} else {
 						class82.field719[var1][var2][var3] = class82.field719[var1 - 1][var2][var3] - 240;
 					}
 					break;
 				}
 
-				if (1 == var8) {
+				if (var8 == 1) {
 					int var9 = var0.method8141();
 					if (var9 == 1) {
 						var9 = 0;
@@ -190,7 +190,7 @@ public class class243 {
 					if (var1 == 0) {
 						class82.field719[0][var2][var3] = -var9 * 8;
 					} else {
-						class82.field719[var1][var2][var3] = class82.field719[var1 - 1][var2][var3] - 8 * var9;
+						class82.field719[var1][var2][var3] = class82.field719[var1 - 1][var2][var3] - var9 * 8;
 					}
 					break;
 				}
@@ -212,7 +212,7 @@ public class class243 {
 					break;
 				}
 
-				if (1 == var8) {
+				if (var8 == 1) {
 					var0.method8141();
 					break;
 				}
@@ -386,13 +386,13 @@ public class class243 {
 	void method4786(int var1, int var2, class239 var3, class240 var4, class241 var5) {
 		int var7 = var3.field2816[0][var1][var2] - 1;
 		int var8 = var3.field2808[0][var1][var2] - 1;
-		if (var7 == -1 && -1 == var8) {
+		if (var7 == -1 && var8 == -1) {
 			class481.method8660(this.field2849 * var1, (63 - var2) * this.field2849, this.field2849, this.field2849, this.field2853);
 		}
 
 		int var9 = 16711935;
 		int var10;
-		if (-1 != var8) {
+		if (var8 != -1) {
 			int var11 = this.field2853;
 			class199 var13 = (class199)class199.field2183.method5439((long)var8);
 			class199 var12;
@@ -421,7 +421,7 @@ public class class243 {
 					var15 = class221.field2629.method4372(var12.field2185);
 					byte var16 = 96;
 					int var14;
-					if (-2 == var15) {
+					if (var15 == -2) {
 						var14 = 12345678;
 					} else if (var15 == -1) {
 						if (var16 < 0) {
@@ -473,7 +473,7 @@ public class class243 {
 						var19 = 12345678;
 					} else {
 						int var24;
-						if (-1 == var18) {
+						if (var18 == -1) {
 							if (var20 < 0) {
 								var20 = 0;
 							} else if (var20 > 127) {
@@ -546,9 +546,9 @@ public class class243 {
 						var13 = class221.field2629.method4372(var10.field2185);
 						byte var14 = 96;
 						int var12;
-						if (-2 == var13) {
+						if (var13 == -2) {
 							var12 = 12345678;
-						} else if (-1 == var13) {
+						} else if (var13 == -1) {
 							if (var14 < 0) {
 								var14 = 0;
 							} else if (var14 > 127) {
@@ -594,7 +594,7 @@ public class class243 {
 						int var16 = (var22 / 32 << 7) + (var13 / 4 << 10) + var15 / 2;
 						byte var18 = 96;
 						int var17;
-						if (-2 == var16) {
+						if (var16 == -2) {
 							var17 = 12345678;
 						} else {
 							int var23;
@@ -917,7 +917,7 @@ public class class243 {
 
 	void method4767(int var1, int var2, int var3, int var4) {
 		var3 %= 4;
-		if (0 == var3) {
+		if (var3 == 0) {
 			class481.method8667(var1 * this.field2849, this.field2849 * (63 - var2), this.field2849, var4);
 		}
 
@@ -925,7 +925,7 @@ public class class243 {
 			class481.method8666(this.field2849 * var1, (63 - var2) * this.field2849, this.field2849, var4);
 		}
 
-		if (2 == var3) {
+		if (var3 == 2) {
 			class481.method8667(this.field2849 + this.field2849 * var1 - 1, this.field2849 * (63 - var2), this.field2849, var4);
 		}
 

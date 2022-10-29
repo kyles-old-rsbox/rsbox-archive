@@ -1,4 +1,7 @@
 final class class465 implements class443 {
+	class465() {
+	}
+
 	void method8390(Long var1, class460 var2) {
 		var2.method8109(var1);
 	}

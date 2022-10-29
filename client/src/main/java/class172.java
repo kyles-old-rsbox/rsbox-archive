@@ -74,7 +74,7 @@ public class class172 implements Runnable {
 				int var5 = var1.field1618;
 				if (var5 == 1) {
 					var1.field1612 = new Socket(InetAddress.getByName((String)var1.field1617), var1.field1611);
-				} else if (2 == var5) {
+				} else if (var5 == 2) {
 					Thread var3 = new Thread((Runnable)var1.field1617);
 					var3.setDaemon(true);
 					var3.start();
@@ -136,7 +136,7 @@ public class class172 implements Runnable {
 						var10000[var4] = (byte)(var10000[var4] | 2);
 					} else {
 						var5 = var0.method8014(1);
-						if (0 == var5) {
+						if (var5 == 0) {
 							var2 = class57.method1273(var0);
 							var10000 = class102.field1019;
 							var10000[var4] = (byte)(var10000[var4] | 2);
@@ -162,7 +162,7 @@ public class class172 implements Runnable {
 							var10000[var4] = (byte)(var10000[var4] | 2);
 						} else {
 							var5 = var0.method8014(1);
-							if (0 == var5) {
+							if (var5 == 0) {
 								var2 = class57.method1273(var0);
 								var10000 = class102.field1019;
 								var10000[var4] = (byte)(var10000[var4] | 2);
@@ -175,7 +175,7 @@ public class class172 implements Runnable {
 				}
 
 				var0.method8010();
-				if (0 != var2) {
+				if (var2 != 0) {
 					throw new RuntimeException();
 				} else {
 					var0.method8013();
@@ -202,7 +202,7 @@ public class class172 implements Runnable {
 					}
 
 					var0.method8010();
-					if (0 != var2) {
+					if (var2 != 0) {
 						throw new RuntimeException();
 					} else {
 						class102.field1012 = 0;
@@ -239,9 +239,8 @@ public class class172 implements Runnable {
 			}
 
 			this.notify();
+			return var6;
 		}
-
-		return var6;
 	}
 
 	public final class181 method2723(String var1, int var2) {

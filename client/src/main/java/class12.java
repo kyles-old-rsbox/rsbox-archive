@@ -145,7 +145,7 @@ public class class12 {
 						} else if (1 == var3[var11]) {
 							var12 = var0[var7].field593;
 							var13 = var9.field593;
-							if (-1 == var12 && 1 == var4[var11]) {
+							if (var12 == -1 && 1 == var4[var11]) {
 								var12 = 2001;
 							}
 
@@ -185,7 +185,7 @@ public class class12 {
 						} else if (var3[var11] == 1) {
 							var12 = var0[var6].field593;
 							var13 = var9.field593;
-							if (-1 == var12 && var4[var11] == 1) {
+							if (var12 == -1 && var4[var11] == 1) {
 								var12 = 2001;
 							}
 
@@ -207,7 +207,7 @@ public class class12 {
 							break;
 						}
 
-						if (3 == var11) {
+						if (var11 == 3) {
 							var10 = false;
 						}
 					}
@@ -221,7 +221,7 @@ public class class12 {
 			}
 
 			method91(var0, var1, var7, var3, var4);
-			method91(var0, 1 + var7, var2, var3, var4);
+			method91(var0, var7 + 1, var2, var3, var4);
 		}
 
 	}
@@ -238,8 +238,7 @@ public class class12 {
 	class9 method92() {
 		try {
 			if (!this.field54 || this.field52.getResponseCode() == -1) {
-				class9 var10000 = new class9("No REST response has been received yet.");
-				return var10000;
+				return new class9("No REST response has been received yet.");
 			}
 		} catch (IOException var11) {
 			this.field52.disconnect();

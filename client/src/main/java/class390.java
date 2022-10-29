@@ -137,7 +137,7 @@ public class class390 {
 			for (var10 = -1; var7 < var1.length() && this.field4478.size() < var3; ++var6) {
 				class383 var12 = new class383();
 				var12.field4428 = var1.charAt(var7++);
-				if ('\n' == var12.field4428) {
+				if (var12.field4428 == '\n') {
 					var12.field4424 = var8.field4424 + this.method7051();
 					var11 = 0;
 				} else {
@@ -161,7 +161,7 @@ public class class390 {
 
 			var11 = var10 == -1 ? var6 : var10;
 			this.method7110(var11, this.field4478.size(), true);
-			if (0 != var4 && this.method7052() > var4) {
+			if (var4 != 0 && this.method7052() > var4) {
 				while (var2 != var6) {
 					--var6;
 					this.method7045(var6);
@@ -243,14 +243,14 @@ public class class390 {
 								return var4 > 0 ? var4 - 1 : 0;
 							}
 
-							if (var4 + 1 != this.field4478.size() && ((class383)this.field4478.get(1 + var4)).field4424 != var5.field4424) {
+							if (var4 + 1 != this.field4478.size() && ((class383)this.field4478.get(var4 + 1)).field4424 != var5.field4424) {
 								int var6 = this.method7061((class383)this.field4478.get(var4), false);
 								if (var1 < var5.field4422 + var6) {
 									return var4;
 								}
 
 								if (var2 <= var5.field4424 + this.method7051()) {
-									return 1 + var4;
+									return var4 + 1;
 								}
 							}
 						}
@@ -415,7 +415,7 @@ public class class390 {
 									break;
 								}
 
-								if (' ' == var18.field4428 || '\t' == var18.field4428) {
+								if (var18.field4428 == ' ' || var18.field4428 == '\t') {
 									class383 var13 = (class383)this.field4478.get(var11);
 									int var14 = var13.field4422;
 									int var15 = var13.field4424 + this.method7051();
@@ -473,8 +473,8 @@ public class class390 {
 			return this.field4477.field4430[42];
 		} else {
 			int var4 = this.field4477.field4430[var1.field4428];
-			if (0 == var4) {
-				return '\t' == var1.field4428 ? 3 * this.field4477.field4430[32] : this.field4477.field4430[32];
+			if (var4 == 0) {
+				return var1.field4428 == '\t' ? 3 * this.field4477.field4430[32] : this.field4477.field4430[32];
 			} else {
 				return var4;
 			}

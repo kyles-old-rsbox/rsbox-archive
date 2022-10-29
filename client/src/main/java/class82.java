@@ -70,7 +70,7 @@ public final class class82 {
 
 		while (true) {
 			int var12 = var10.method8138();
-			if (0 == var12) {
+			if (var12 == 0) {
 				return;
 			}
 
@@ -79,7 +79,7 @@ public final class class82 {
 
 			while (true) {
 				int var14 = var10.method8207();
-				if (0 == var14) {
+				if (var14 == 0) {
 					break;
 				}
 
@@ -118,10 +118,10 @@ public final class class82 {
 		int var6 = var1 / var2;
 		int var7 = var1 & var2 - 1;
 		int var8 = method431(var4, var6);
-		int var9 = method431(1 + var4, var6);
-		int var10 = method431(var4, 1 + var6);
-		int var11 = method431(1 + var4, 1 + var6);
-		int var13 = 65536 - class221.field2645[1024 * var5 / var2] >> 1;
+		int var9 = method431(var4 + 1, var6);
+		int var10 = method431(var4, var6 + 1);
+		int var11 = method431(var4 + 1, var6 + 1);
+		int var13 = 65536 - class221.field2645[var5 * 1024 / var2] >> 1;
 		int var12 = (var8 * (65536 - var13) >> 16) + (var9 * var13 >> 16);
 		int var15 = 65536 - class221.field2645[var5 * 1024 / var2] >> 1;
 		int var14 = ((65536 - var15) * var10 >> 16) + (var11 * var15 >> 16);
@@ -131,8 +131,8 @@ public final class class82 {
 	}
 
 	static final int method431(int var0, int var1) {
-		int var3 = method4727(var0 - 1, var1 - 1) + method4727(var0 + 1, var1 - 1) + method4727(var0 - 1, var1 + 1) + method4727(1 + var0, var1 + 1);
-		int var4 = method4727(var0 - 1, var1) + method4727(1 + var0, var1) + method4727(var0, var1 - 1) + method4727(var0, var1 + 1);
+		int var3 = method4727(var0 - 1, var1 - 1) + method4727(var0 + 1, var1 - 1) + method4727(var0 - 1, var1 + 1) + method4727(var0 + 1, var1 + 1);
+		int var4 = method4727(var0 - 1, var1) + method4727(var0 + 1, var1) + method4727(var0, var1 - 1) + method4727(var0, var1 + 1);
 		int var5 = method4727(var0, var1);
 		return var5 / 4 + var4 / 8 + var3 / 16;
 	}

@@ -45,7 +45,7 @@ public final class class8 {
 	}
 
 	static final int method53(int var0, int var1) {
-		int var3 = class82.method6259(var0 + 45365, var1 + 91923, 4) - 128 + (class82.method6259(10294 + var0, 37821 + var1, 2) - 128 >> 1) + (class82.method6259(var0, var1, 1) - 128 >> 2);
+		int var3 = class82.method6259(var0 + 45365, var1 + 91923, 4) - 128 + (class82.method6259(var0 + 10294, var1 + 37821, 2) - 128 >> 1) + (class82.method6259(var0, var1, 1) - 128 >> 2);
 		var3 = 35 + (int)((double)var3 * 0.3D);
 		if (var3 < 10) {
 			var3 = 10;

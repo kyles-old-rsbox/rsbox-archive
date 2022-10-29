@@ -41,14 +41,11 @@ public class class126 implements class360 {
 			if (!var5) {
 				return null;
 			} else {
-				class112 var10000;
 				try {
-					var10000 = new class112(var0, var1, var2, var3);
+					return new class112(var0, var1, var2, var3);
 				} catch (Exception var10) {
 					return null;
 				}
-
-				return var10000;
 			}
 		}
 	}

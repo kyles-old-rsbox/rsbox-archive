@@ -65,10 +65,10 @@ public class class389 extends class404 {
 
 							for (class369 var14 = (class369)this.field4466.method6384(); var14 != null; var14 = (class369)this.field4466.method6381()) {
 								if (var14.field4359.equals(var5)) {
-									if (var7 != 0 && 0 == var14.field4360) {
+									if (var7 != 0 && var14.field4360 == 0) {
 										var14.method7811();
 										var15 = false;
-									} else if (var7 == 0 && 0 != var14.field4360) {
+									} else if (var7 == 0 && var14.field4360 != 0) {
 										var14.method7811();
 										var15 = false;
 									}
@@ -89,7 +89,7 @@ public class class389 extends class404 {
 
 					if (var7 != var12.field4491) {
 						var12.field4490 = ++this.field4462 - 1;
-						if (var12.field4491 == -1 && 0 == var7) {
+						if (var12.field4491 == -1 && var7 == 0) {
 							var12.field4490 = -(var12.field4490 * 765902219) * 1732968995;
 						}
 

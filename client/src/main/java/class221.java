@@ -120,12 +120,12 @@ public class class221 extends class481 {
 				if (var8 != 0.0D) {
 					double var19;
 					if (var11 < 0.5D) {
-						var19 = var11 * (1.0D + var8);
+						var19 = var11 * (var8 + 1.0D);
 					} else {
 						var19 = var11 + var8 - var11 * var8;
 					}
 
-					double var21 = 2.0D * var11 - var19;
+					double var21 = var11 * 2.0D - var19;
 					double var23 = var6 + 0.3333333333333333D;
 					if (var23 > 1.0D) {
 						--var23;
@@ -136,31 +136,31 @@ public class class221 extends class481 {
 						++var27;
 					}
 
-					if (6.0D * var23 < 1.0D) {
+					if (var23 * 6.0D < 1.0D) {
 						var13 = var21 + (var19 - var21) * 6.0D * var23;
-					} else if (2.0D * var23 < 1.0D) {
+					} else if (var23 * 2.0D < 1.0D) {
 						var13 = var19;
-					} else if (3.0D * var23 < 2.0D) {
+					} else if (var23 * 3.0D < 2.0D) {
 						var13 = var21 + (var19 - var21) * (0.6666666666666666D - var23) * 6.0D;
 					} else {
 						var13 = var21;
 					}
 
-					if (6.0D * var6 < 1.0D) {
+					if (var6 * 6.0D < 1.0D) {
 						var15 = var21 + (var19 - var21) * 6.0D * var6;
-					} else if (2.0D * var6 < 1.0D) {
+					} else if (var6 * 2.0D < 1.0D) {
 						var15 = var19;
-					} else if (3.0D * var6 < 2.0D) {
+					} else if (var6 * 3.0D < 2.0D) {
 						var15 = var21 + (var19 - var21) * (0.6666666666666666D - var6) * 6.0D;
 					} else {
 						var15 = var21;
 					}
 
-					if (6.0D * var27 < 1.0D) {
+					if (var27 * 6.0D < 1.0D) {
 						var17 = var21 + (var19 - var21) * 6.0D * var27;
-					} else if (2.0D * var27 < 1.0D) {
+					} else if (var27 * 2.0D < 1.0D) {
 						var17 = var19;
-					} else if (3.0D * var27 < 2.0D) {
+					} else if (var27 * 3.0D < 2.0D) {
 						var17 = var21 + (var19 - var21) * (0.6666666666666666D - var27) * 6.0D;
 					} else {
 						var17 = var21;

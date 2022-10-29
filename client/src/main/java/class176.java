@@ -39,19 +39,16 @@ public class class176 {
 			} else {
 				this.method2793();
 
-				boolean var10000;
 				try {
 					this.field1583 = var1;
 					this.field1577 = var2.method2222(new URL(this.field1583));
 					this.field1575 = 0;
-					var10000 = true;
+					return true;
 				} catch (MalformedURLException var5) {
 					this.method2793();
 					this.field1575 = 100;
 					return false;
 				}
-
-				return var10000;
 			}
 		} else {
 			return false;
@@ -364,7 +361,7 @@ public class class176 {
 				}
 
 				long var10 = class207.method3982(var0, var1, 3, false, 0);
-				class145.field1333.method4129(class55.field396, var0, var1, class144.method2498(128 * var0 + 64, 128 * var1 + 64, class55.field396), var6, var10, var13, var12);
+				class145.field1333.method4129(class55.field396, var0, var1, class144.method2498(var0 * 128 + 64, var1 * 128 + 64, class55.field396), var6, var10, var13, var12);
 			}
 		}
 	}

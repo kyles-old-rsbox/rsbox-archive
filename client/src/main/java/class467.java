@@ -1,6 +1,9 @@
 final class class467 implements class443 {
 	static int[] field4921;
 
+	class467() {
+	}
+
 	void method8416(Integer var1, class460 var2) {
 		var2.method8241(var1);
 	}

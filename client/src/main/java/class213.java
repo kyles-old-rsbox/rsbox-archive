@@ -7,12 +7,12 @@ public class class213 {
 
 	public static class451 method4117(int var0) {
 		int var2 = class450.field4841[var0];
-		if (1 == var2) {
+		if (var2 == 1) {
 			return class451.field4848;
 		} else if (var2 == 2) {
 			return class451.field4850;
 		} else {
-			return 3 == var2 ? class451.field4842 : null;
+			return var2 == 3 ? class451.field4842 : null;
 		}
 	}
 
@@ -41,12 +41,12 @@ public class class213 {
 		}
 
 		var2 &= 3;
-		if (0 == var2) {
+		if (var2 == 0) {
 			return var1;
-		} else if (1 == var2) {
+		} else if (var2 == 1) {
 			return 7 - var0 - (var3 - 1);
 		} else {
-			return 2 == var2 ? 7 - var1 - (var4 - 1) : var0;
+			return var2 == 2 ? 7 - var1 - (var4 - 1) : var0;
 		}
 	}
 

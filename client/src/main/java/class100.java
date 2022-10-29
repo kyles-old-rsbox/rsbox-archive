@@ -27,12 +27,12 @@ final class class100 implements class301 {
 		}
 
 		class136.method2438(var4);
-		if (var0 != 1200 && var0 != 1205 && 1212 != var0) {
-			if (1201 == var0) {
+		if (var0 != CS2Opcodes.CC_SETOBJECT && var0 != CS2Opcodes.CC_SETOBJECT_NONUM && var0 != CS2Opcodes.CC_SETOBJECT_ALWAYS_NUM) {
+			if (var0 == CS2Opcodes.CC_SETNPCHEAD) {
 				var4.field3504 = 2;
 				var4.field3505 = class57.field404[--class387.field4452];
 				return 1;
-			} else if (1202 == var0) {
+			} else if (var0 == CS2Opcodes.CC_SETPLAYERHEAD_SELF) {
 				var4.field3504 = 3;
 				var4.field3505 = class291.field3364.field911.method6029();
 				return 1;
@@ -52,9 +52,9 @@ final class class100 implements class301 {
 			var4.field3510 = var7.field2140;
 			var4.field3548 = var7.field2128;
 			var4.field3562 = var7.field2144;
-			if (var0 == 1205) {
+			if (var0 == CS2Opcodes.CC_SETOBJECT_NONUM) {
 				var4.field3520 = 0;
-			} else if (1212 == var0 | var7.field2142 == 1) {
+			} else if (var0 == CS2Opcodes.CC_SETOBJECT_ALWAYS_NUM | var7.field2142 == 1) {
 				var4.field3520 = 1;
 			} else {
 				var4.field3520 = 2;
@@ -71,7 +71,7 @@ final class class100 implements class301 {
 	}
 
 	static void method1993(int var0, int var1, int var2) {
-		if (0 != var0) {
+		if (var0 != 0) {
 			int var4 = var0 >> 8;
 			int var5 = var0 >> 4 & 7;
 			int var6 = var0 & 15;

@@ -35,12 +35,12 @@ public class class105 extends class393 {
 	static final void method2042(String var0, String var1, int var2, int var3, int var4, int var5, int var6, boolean var7) {
 		if (!client.field1784) {
 			if (client.field1695 < 500) {
-				client.menuActions[client.field1695] = var0;
-				client.menuTargets[client.field1695] = var1;
-				client.menuActionOpcodes[client.field1695] = var2;
-				client.menuIdentifiers[client.field1695] = var3;
-				client.menuArguments1[client.field1695] = var4;
-				client.menuArguments2[client.field1695] = var5;
+				client.field1791[client.field1695] = var0;
+				client.field1923[client.field1695] = var1;
+				client.field1788[client.field1695] = var2;
+				client.field1789[client.field1695] = var3;
+				client.field1851[client.field1695] = var4;
+				client.field1787[client.field1695] = var5;
 				client.field1790[client.field1695] = var6;
 				client.field1916[client.field1695] = var7;
 				++client.field1695;

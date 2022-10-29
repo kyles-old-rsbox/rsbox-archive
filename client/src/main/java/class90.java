@@ -169,28 +169,14 @@ public abstract class class90 extends class212 {
 		int var11 = -1;
 		int var12 = 0;
 		if (var1 >= 0) {
-			//class206 var13 = class169.method2715(var1);
-			class206 var13;
-			class206 var2 = (class206)class206.field2330.method5439((long)var0);
-			if (var2 != null) {
-				return var2;
-			} else {
-				byte[] var3 = class206.field2346.method6175(32, var0);
-				var2 = new class206();
-				if (var3 != null) {
-					var2.method3930(new class460(var3));
-				}
-
-				class206.field2330.method5434(var2, (long)var0);
-				return var2;
-			}
+			class206 var13 = class169.method2715(var1);
 			var11 = var13.field2338;
 			var12 = var13.field2327;
 		}
 
 		int var15;
 		if (var9) {
-			if (-1 == var11) {
+			if (var11 == -1) {
 				return;
 			}
 
@@ -224,7 +210,7 @@ public abstract class class90 extends class212 {
 
 			for (var15 = 0; var15 < 4; ++var15) {
 				byte var16 = this.field828;
-				this.field828 = (byte)((1 + this.field828) % 4);
+				this.field828 = (byte)((this.field828 + 1) % 4);
 				if (this.field831[var16] <= var5) {
 					var10 = var16;
 					break;
@@ -297,35 +283,35 @@ public abstract class class90 extends class212 {
 	static int method1884(int var0, class78 var1, boolean var2) {
 		int var4;
 		int var5;
-		if (4000 == var0) {
+		if (var0 == CS2Opcodes.ADD) {
 			class387.field4452 -= 2;
 			var4 = class57.field404[class387.field4452];
 			var5 = class57.field404[class387.field4452 + 1];
 			class57.field404[++class387.field4452 - 1] = var4 + var5;
 			return 1;
-		} else if (4001 == var0) {
+		} else if (var0 == CS2Opcodes.SUB) {
 			class387.field4452 -= 2;
 			var4 = class57.field404[class387.field4452];
 			var5 = class57.field404[class387.field4452 + 1];
 			class57.field404[++class387.field4452 - 1] = var4 - var5;
 			return 1;
-		} else if (4002 == var0) {
+		} else if (var0 == CS2Opcodes.MULTIPLY) {
 			class387.field4452 -= 2;
 			var4 = class57.field404[class387.field4452];
 			var5 = class57.field404[class387.field4452 + 1];
 			class57.field404[++class387.field4452 - 1] = var5 * var4;
 			return 1;
-		} else if (var0 == 4003) {
+		} else if (var0 == CS2Opcodes.DIV) {
 			class387.field4452 -= 2;
 			var4 = class57.field404[class387.field4452];
 			var5 = class57.field404[class387.field4452 + 1];
 			class57.field404[++class387.field4452 - 1] = var4 / var5;
 			return 1;
-		} else if (4004 == var0) {
+		} else if (var0 == CS2Opcodes.RANDOM) {
 			var4 = class57.field404[--class387.field4452];
 			class57.field404[++class387.field4452 - 1] = (int)(Math.random() * (double)var4);
 			return 1;
-		} else if (var0 == 4005) {
+		} else if (var0 == CS2Opcodes.RANDOMINC) {
 			var4 = class57.field404[--class387.field4452];
 			class57.field404[++class387.field4452 - 1] = (int)(Math.random() * (double)(var4 + 1));
 			return 1;
@@ -333,7 +319,7 @@ public abstract class class90 extends class212 {
 			int var6;
 			int var7;
 			int var8;
-			if (var0 == 4006) {
+			if (var0 == CS2Opcodes.INTERPOLATE) {
 				class387.field4452 -= 5;
 				var4 = class57.field404[class387.field4452];
 				var5 = class57.field404[1 + class387.field4452];
@@ -342,48 +328,48 @@ public abstract class class90 extends class212 {
 				var8 = class57.field404[class387.field4452 + 4];
 				class57.field404[++class387.field4452 - 1] = var4 + (var5 - var4) * (var8 - var6) / (var7 - var6);
 				return 1;
-			} else if (var0 == 4007) {
+			} else if (var0 == CS2Opcodes.ADDPERCENT) {
 				class387.field4452 -= 2;
 				var4 = class57.field404[class387.field4452];
 				var5 = class57.field404[1 + class387.field4452];
 				class57.field404[++class387.field4452 - 1] = var4 * var5 / 100 + var4;
 				return 1;
-			} else if (4008 == var0) {
+			} else if (var0 == CS2Opcodes.SETBIT) {
 				class387.field4452 -= 2;
 				var4 = class57.field404[class387.field4452];
 				var5 = class57.field404[class387.field4452 + 1];
 				class57.field404[++class387.field4452 - 1] = var4 | 1 << var5;
 				return 1;
-			} else if (var0 == 4009) {
+			} else if (var0 == CS2Opcodes.CLEARBIT) {
 				class387.field4452 -= 2;
 				var4 = class57.field404[class387.field4452];
 				var5 = class57.field404[1 + class387.field4452];
 				class57.field404[++class387.field4452 - 1] = var4 & -1 - (1 << var5);
 				return 1;
-			} else if (4010 == var0) {
+			} else if (var0 == CS2Opcodes.TESTBIT) {
 				class387.field4452 -= 2;
 				var4 = class57.field404[class387.field4452];
 				var5 = class57.field404[class387.field4452 + 1];
 				class57.field404[++class387.field4452 - 1] = (var4 & 1 << var5) != 0 ? 1 : 0;
 				return 1;
-			} else if (var0 == 4011) {
+			} else if (var0 == CS2Opcodes.MOD) {
 				class387.field4452 -= 2;
 				var4 = class57.field404[class387.field4452];
 				var5 = class57.field404[class387.field4452 + 1];
 				class57.field404[++class387.field4452 - 1] = var4 % var5;
 				return 1;
-			} else if (4012 == var0) {
+			} else if (var0 == CS2Opcodes.POW) {
 				class387.field4452 -= 2;
 				var4 = class57.field404[class387.field4452];
 				var5 = class57.field404[1 + class387.field4452];
-				if (0 == var4) {
+				if (var4 == 0) {
 					class57.field404[++class387.field4452 - 1] = 0;
 				} else {
 					class57.field404[++class387.field4452 - 1] = (int)Math.pow((double)var4, (double)var5);
 				}
 
 				return 1;
-			} else if (4013 == var0) {
+			} else if (var0 == CS2Opcodes.INVPOW) {
 				class387.field4452 -= 2;
 				var4 = class57.field404[class387.field4452];
 				var5 = class57.field404[1 + class387.field4452];
@@ -413,50 +399,50 @@ public abstract class class90 extends class212 {
 
 					return 1;
 				}
-			} else if (4014 == var0) {
+			} else if (var0 == CS2Opcodes.AND) {
 				class387.field4452 -= 2;
 				var4 = class57.field404[class387.field4452];
 				var5 = class57.field404[1 + class387.field4452];
 				class57.field404[++class387.field4452 - 1] = var4 & var5;
 				return 1;
-			} else if (4015 == var0) {
+			} else if (var0 == CS2Opcodes.OR) {
 				class387.field4452 -= 2;
 				var4 = class57.field404[class387.field4452];
 				var5 = class57.field404[class387.field4452 + 1];
 				class57.field404[++class387.field4452 - 1] = var4 | var5;
 				return 1;
-			} else if (4018 == var0) {
+			} else if (var0 == CS2Opcodes.SCALE) {
 				class387.field4452 -= 3;
 				long var10 = (long)class57.field404[class387.field4452];
 				long var12 = (long)class57.field404[1 + class387.field4452];
 				long var14 = (long)class57.field404[2 + class387.field4452];
 				class57.field404[++class387.field4452 - 1] = (int)(var14 * var10 / var12);
 				return 1;
-			} else if (var0 == 4025) {
+			} else if (var0 == CS2Opcodes.BITCOUNT) {
 				var4 = class282.method4111(class57.field404[--class387.field4452]);
 				class57.field404[++class387.field4452 - 1] = var4;
 				return 1;
-			} else if (var0 == 4026) {
+			} else if (var0 == CS2Opcodes.TOGGLEBIT) {
 				class387.field4452 -= 2;
 				var4 = class57.field404[class387.field4452];
 				var5 = class57.field404[class387.field4452 + 1];
 				class57.field404[++class387.field4452 - 1] = var4 ^ 1 << var5;
 				return 1;
-			} else if (4027 == var0) {
+			} else if (var0 == CS2Opcodes.SETBIT_RANGE) {
 				class387.field4452 -= 3;
 				var4 = class57.field404[class387.field4452];
 				var5 = class57.field404[class387.field4452 + 1];
 				var6 = class57.field404[class387.field4452 + 2];
 				class57.field404[++class387.field4452 - 1] = class282.method5041(var4, var5, var6);
 				return 1;
-			} else if (var0 == 4028) {
+			} else if (var0 == CS2Opcodes.CLEARBIT_RANGE) {
 				class387.field4452 -= 3;
 				var4 = class57.field404[class387.field4452];
 				var5 = class57.field404[1 + class387.field4452];
 				var6 = class57.field404[2 + class387.field4452];
 				class57.field404[++class387.field4452 - 1] = class282.method651(var4, var5, var6);
 				return 1;
-			} else if (4029 == var0) {
+			} else if (var0 == CS2Opcodes.GETBIT_RANGE) {
 				class387.field4452 -= 3;
 				var4 = class57.field404[class387.field4452];
 				var5 = class57.field404[1 + class387.field4452];
@@ -464,7 +450,7 @@ public abstract class class90 extends class212 {
 				var7 = 31 - var6;
 				class57.field404[++class387.field4452 - 1] = var4 << var7 >>> var5 + var7;
 				return 1;
-			} else if (var0 == 4030) {
+			} else if (var0 == CS2Opcodes.SETBIT_RANGE_TOINT) {
 				class387.field4452 -= 4;
 				var4 = class57.field404[class387.field4452];
 				var5 = class57.field404[1 + class387.field4452];
@@ -478,20 +464,20 @@ public abstract class class90 extends class212 {
 
 				class57.field404[++class387.field4452 - 1] = var4 | var5 << var6;
 				return 1;
-			} else if (var0 == 4032) {
+			} else if (var0 == CS2Opcodes.SIN_DEG) {
 				class57.field404[class387.field4452 - 1] = class422.method6182(class57.field404[class387.field4452 - 1]);
 				return 1;
-			} else if (4033 == var0) {
+			} else if (var0 == CS2Opcodes.COS_DEG) {
 				class57.field404[class387.field4452 - 1] = class422.method2841(class57.field404[class387.field4452 - 1]);
 				return 1;
-			} else if (var0 == 4034) {
+			} else if (var0 == CS2Opcodes.ATAN2_DEG) {
 				class387.field4452 -= 2;
 				var4 = class57.field404[class387.field4452];
 				var5 = class57.field404[1 + class387.field4452];
 				var6 = class422.method4672(var4, var5);
 				class57.field404[++class387.field4452 - 1] = var6;
 				return 1;
-			} else if (4035 == var0) {
+			} else if (var0 == CS2Opcodes.ABS) {
 				class57.field404[class387.field4452 - 1] = Math.abs(class57.field404[class387.field4452 - 1]);
 				return 1;
 			} else {
@@ -503,32 +489,32 @@ public abstract class class90 extends class212 {
 	static int method1886(int var0, class78 var1, boolean var2) {
 		String var4;
 		int var5;
-		if (var0 == 4100) {
+		if (var0 == CS2Opcodes.APPEND_NUM) {
 			var4 = class57.field405[--class126.field1220];
 			var5 = class57.field404[--class387.field4452];
 			class57.field405[++class126.field1220 - 1] = var4 + var5;
 			return 1;
 		} else {
 			String var10;
-			if (var0 == 4101) {
+			if (var0 == CS2Opcodes.APPEND) {
 				class126.field1220 -= 2;
 				var4 = class57.field405[class126.field1220];
 				var10 = class57.field405[class126.field1220 + 1];
 				class57.field405[++class126.field1220 - 1] = var4 + var10;
 				return 1;
-			} else if (4102 == var0) {
+			} else if (var0 == CS2Opcodes.APPEND_SIGNNUM) {
 				var4 = class57.field405[--class126.field1220];
 				var5 = class57.field404[--class387.field4452];
 				class57.field405[++class126.field1220 - 1] = var4 + class11.method86(var5, true);
 				return 1;
-			} else if (var0 == 4103) {
+			} else if (var0 == CS2Opcodes.LOWERCASE) {
 				var4 = class57.field405[--class126.field1220];
 				class57.field405[++class126.field1220 - 1] = var4.toLowerCase();
 				return 1;
 			} else {
 				int var7;
 				int var11;
-				if (4104 == var0) {
+				if (var0 == CS2Opcodes.FROMDATE) {
 					var11 = class57.field404[--class387.field4452];
 					long var12 = ((long)var11 + 11745L) * 86400000L;
 					class57.field416.setTime(new Date(var12));
@@ -537,12 +523,12 @@ public abstract class class90 extends class212 {
 					int var9 = class57.field416.get(1);
 					class57.field405[++class126.field1220 - 1] = var7 + "-" + class57.field409[var18] + "-" + var9;
 					return 1;
-				} else if (4105 != var0) {
-					if (4106 == var0) {
+				} else if (var0 != CS2Opcodes.TEXT_BODYTYPE) {
+					if (var0 == CS2Opcodes.TOSTRING) {
 						var11 = class57.field404[--class387.field4452];
 						class57.field405[++class126.field1220 - 1] = Integer.toString(var11);
 						return 1;
-					} else if (4107 == var0) {
+					} else if (var0 == CS2Opcodes.COMPARE) {
 						class126.field1220 -= 2;
 						class57.field404[++class387.field4452 - 1] = class312.method6062(class57.method1274(class57.field405[class126.field1220], class57.field405[1 + class126.field1220], class94.field940));
 						return 1;
@@ -550,7 +536,7 @@ public abstract class class90 extends class212 {
 						int var6;
 						byte[] var14;
 						class376 var15;
-						if (var0 == 4108) {
+						if (var0 == CS2Opcodes.PARAHEIGHT) {
 							var4 = class57.field405[--class126.field1220];
 							class387.field4452 -= 2;
 							var5 = class57.field404[class387.field4452];
@@ -559,7 +545,7 @@ public abstract class class90 extends class212 {
 							var15 = new class376(var14);
 							class57.field404[++class387.field4452 - 1] = var15.method6869(var4, var5);
 							return 1;
-						} else if (var0 == 4109) {
+						} else if (var0 == CS2Opcodes.PARAWIDTH) {
 							var4 = class57.field405[--class126.field1220];
 							class387.field4452 -= 2;
 							var5 = class57.field404[class387.field4452];
@@ -568,7 +554,7 @@ public abstract class class90 extends class212 {
 							var15 = new class376(var14);
 							class57.field404[++class387.field4452 - 1] = var15.method6862(var4, var5);
 							return 1;
-						} else if (var0 == 4110) {
+						} else if (var0 == CS2Opcodes.TEXT_SWITCH) {
 							class126.field1220 -= 2;
 							var4 = class57.field405[class126.field1220];
 							var10 = class57.field405[class126.field1220 + 1];
@@ -579,32 +565,32 @@ public abstract class class90 extends class212 {
 							}
 
 							return 1;
-						} else if (var0 == 4111) {
+						} else if (var0 == CS2Opcodes.ESCAPE) {
 							var4 = class57.field405[--class126.field1220];
 							class57.field405[++class126.field1220 - 1] = class384.method6864(var4);
 							return 1;
-						} else if (var0 == 4112) {
+						} else if (var0 == CS2Opcodes.APPEND_CHAR) {
 							var4 = class57.field405[--class126.field1220];
 							var5 = class57.field404[--class387.field4452];
 							class57.field405[++class126.field1220 - 1] = var4 + (char)var5;
 							return 1;
-						} else if (4113 == var0) {
+						} else if (var0 == CS2Opcodes.CHAR_ISPRINTABLE) {
 							var11 = class57.field404[--class387.field4452];
 							class57.field404[++class387.field4452 - 1] = class348.method6446((char)var11) ? 1 : 0;
 							return 1;
-						} else if (4114 == var0) {
+						} else if (var0 == CS2Opcodes.CHAR_ISALPHANUMERIC) {
 							var11 = class57.field404[--class387.field4452];
 							class57.field404[++class387.field4452 - 1] = class148.method2543((char)var11) ? 1 : 0;
 							return 1;
-						} else if (4115 == var0) {
+						} else if (var0 == CS2Opcodes.CHAR_ISALPHA) {
 							var11 = class57.field404[--class387.field4452];
 							class57.field404[++class387.field4452 - 1] = class122.method2302((char)var11) ? 1 : 0;
 							return 1;
-						} else if (var0 == 4116) {
+						} else if (var0 == CS2Opcodes.CHAR_ISNUMERIC) {
 							var11 = class57.field404[--class387.field4452];
 							class57.field404[++class387.field4452 - 1] = class347.method6422((char)var11) ? 1 : 0;
 							return 1;
-						} else if (var0 == 4117) {
+						} else if (var0 == CS2Opcodes.STRING_LENGTH) {
 							var4 = class57.field405[--class126.field1220];
 							if (var4 != null) {
 								class57.field404[++class387.field4452 - 1] = var4.length();
@@ -613,14 +599,14 @@ public abstract class class90 extends class212 {
 							}
 
 							return 1;
-						} else if (4118 == var0) {
+						} else if (var0 == CS2Opcodes.SUBSTRING) {
 							var4 = class57.field405[--class126.field1220];
 							class387.field4452 -= 2;
 							var5 = class57.field404[class387.field4452];
 							var6 = class57.field404[class387.field4452 + 1];
 							class57.field405[++class126.field1220 - 1] = var4.substring(var5, var6);
 							return 1;
-						} else if (4119 == var0) {
+						} else if (var0 == CS2Opcodes.REMOVETAGS) {
 							var4 = class57.field405[--class126.field1220];
 							StringBuilder var19 = new StringBuilder(var4.length());
 							boolean var17 = false;
@@ -638,23 +624,23 @@ public abstract class class90 extends class212 {
 
 							class57.field405[++class126.field1220 - 1] = var19.toString();
 							return 1;
-						} else if (var0 == 4120) {
+						} else if (var0 == CS2Opcodes.STRING_INDEXOF_CHAR) {
 							var4 = class57.field405[--class126.field1220];
 							var5 = class57.field404[--class387.field4452];
 							class57.field404[++class387.field4452 - 1] = var4.indexOf(var5);
 							return 1;
-						} else if (4121 == var0) {
+						} else if (var0 == CS2Opcodes.STRING_INDEXOF_STRING) {
 							class126.field1220 -= 2;
 							var4 = class57.field405[class126.field1220];
 							var10 = class57.field405[1 + class126.field1220];
 							var6 = class57.field404[--class387.field4452];
 							class57.field404[++class387.field4452 - 1] = var4.indexOf(var10, var6);
 							return 1;
-						} else if (4122 == var0) {
+						} else if (var0 == CS2Opcodes.UPPERCASE) {
 							var4 = class57.field405[--class126.field1220];
 							class57.field405[++class126.field1220 - 1] = var4.toUpperCase();
 							return 1;
-						} else if (var0 == 4123) {
+						} else if (var0 == CS2Opcodes.TEXT_GENDER) {
 							class126.field1220 -= 3;
 							var4 = class57.field405[class126.field1220];
 							var10 = class57.field405[1 + class126.field1220];

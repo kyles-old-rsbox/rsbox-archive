@@ -53,22 +53,22 @@ public final class class227 {
 
 	static int method4511(int var0, class78 var1, boolean var2) {
 		class300 var4 = var2 ? class138.field1284 : class153.field1414;
-		if (1500 == var0) {
+		if (var0 == CS2Opcodes.CC_GETX) {
 			class57.field404[++class387.field4452 - 1] = var4.field3473;
 			return 1;
-		} else if (var0 == 1501) {
+		} else if (var0 == CS2Opcodes.CC_GETY) {
 			class57.field404[++class387.field4452 - 1] = var4.field3551;
 			return 1;
-		} else if (1502 == var0) {
+		} else if (var0 == CS2Opcodes.CC_GETWIDTH) {
 			class57.field404[++class387.field4452 - 1] = var4.field3448;
 			return 1;
-		} else if (1503 == var0) {
+		} else if (var0 == CS2Opcodes.CC_GETHEIGHT) {
 			class57.field404[++class387.field4452 - 1] = var4.field3476;
 			return 1;
-		} else if (var0 == 1504) {
+		} else if (var0 == CS2Opcodes.CC_GETHIDE) {
 			class57.field404[++class387.field4452 - 1] = var4.field3480 ? 1 : 0;
 			return 1;
-		} else if (1505 == var0) {
+		} else if (var0 == CS2Opcodes.CC_GETLAYER) {
 			class57.field404[++class387.field4452 - 1] = var4.field3596;
 			return 1;
 		} else {

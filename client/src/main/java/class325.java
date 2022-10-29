@@ -13,14 +13,14 @@ public class class325 {
 
 	static int method6221(int var0, class78 var1, boolean var2) {
 		int var4;
-		if (4200 == var0) {
+		if (var0 == CS2Opcodes.OC_NAME) {
 			var4 = class57.field404[--class387.field4452];
 			class57.field405[++class126.field1220 - 1] = class278.method5388(var4).field2131;
 			return 1;
 		} else {
 			int var5;
 			class198 var6;
-			if (4201 == var0) {
+			if (var0 == CS2Opcodes.OC_OP) {
 				class387.field4452 -= 2;
 				var4 = class57.field404[class387.field4452];
 				var5 = class57.field404[1 + class387.field4452];
@@ -32,7 +32,7 @@ public class class325 {
 				}
 
 				return 1;
-			} else if (var0 == 4202) {
+			} else if (var0 == CS2Opcodes.OC_IOP) {
 				class387.field4452 -= 2;
 				var4 = class57.field404[class387.field4452];
 				var5 = class57.field404[1 + class387.field4452];
@@ -44,17 +44,17 @@ public class class325 {
 				}
 
 				return 1;
-			} else if (var0 == 4203) {
+			} else if (var0 == CS2Opcodes.OC_COST) {
 				var4 = class57.field404[--class387.field4452];
 				class57.field404[++class387.field4452 - 1] = class278.method5388(var4).field2143;
 				return 1;
-			} else if (var0 == 4204) {
+			} else if (var0 == CS2Opcodes.OC_STACKABLE) {
 				var4 = class57.field404[--class387.field4452];
 				class57.field404[++class387.field4452 - 1] = class278.method5388(var4).field2142 == 1 ? 1 : 0;
 				return 1;
 			} else {
 				class198 var7;
-				if (var0 == 4205) {
+				if (var0 == CS2Opcodes.OC_CERT) {
 					var4 = class57.field404[--class387.field4452];
 					var7 = class278.method5388(var4);
 					if (-1 == var7.field2166 && var7.field2165 >= 0) {
@@ -64,7 +64,7 @@ public class class325 {
 					}
 
 					return 1;
-				} else if (4206 == var0) {
+				} else if (var0 == CS2Opcodes.OC_UNCERT) {
 					var4 = class57.field404[--class387.field4452];
 					var7 = class278.method5388(var4);
 					if (var7.field2166 >= 0 && var7.field2165 >= 0) {
@@ -74,11 +74,11 @@ public class class325 {
 					}
 
 					return 1;
-				} else if (4207 == var0) {
+				} else if (var0 == CS2Opcodes.OC_MEMBERS) {
 					var4 = class57.field404[--class387.field4452];
 					class57.field404[++class387.field4452 - 1] = class278.method5388(var4).field2162 ? 1 : 0;
 					return 1;
-				} else if (4208 == var0) {
+				} else if (var0 == CS2Opcodes.OC_PLACEHOLDER) {
 					var4 = class57.field404[--class387.field4452];
 					var7 = class278.method5388(var4);
 					if (-1 == var7.field2179 && var7.field2152 >= 0) {
@@ -88,7 +88,7 @@ public class class325 {
 					}
 
 					return 1;
-				} else if (4209 == var0) {
+				} else if (var0 == CS2Opcodes.OC_UNPLACEHOLDER) {
 					var4 = class57.field404[--class387.field4452];
 					var7 = class278.method5388(var4);
 					if (var7.field2179 >= 0 && var7.field2152 >= 0) {
@@ -98,39 +98,39 @@ public class class325 {
 					}
 
 					return 1;
-				} else if (4210 == var0) {
+				} else if (var0 == CS2Opcodes.OC_FIND) {
 					String var8 = class57.field405[--class126.field1220];
 					var5 = class57.field404[--class387.field4452];
 					class312.method6063(var8, var5 == 1);
 					class57.field404[++class387.field4452 - 1] = class157.field1437;
 					return 1;
-				} else if (var0 != 4211) {
-					if (4212 == var0) {
+				} else if (var0 != CS2Opcodes.OC_FINDNEXT) {
+					if (var0 == CS2Opcodes.OC_FINDRESET) {
 						class369.field4362 = 0;
 						return 1;
-					} else if (var0 == 4213) {
+					} else if (var0 == CS2Opcodes.OC_SHIFTCLICKOP) {
 						var4 = class57.field404[--class387.field4452];
 						var5 = class278.method5388(var4).method3658();
 						if (var5 == -1) {
 							class57.field404[++class387.field4452 - 1] = var5;
 						} else {
-							class57.field404[++class387.field4452 - 1] = 1 + var5;
+							class57.field404[++class387.field4452 - 1] = var5 + 1;
 						}
 
 						return 1;
-					} else if (4214 == var0) {
+					} else if (var0 == CS2Opcodes.OC_WEARPOS) {
 						var4 = class57.field404[--class387.field4452];
 						class57.field404[++class387.field4452 - 1] = class278.method5388(var4).field2130;
 						return 1;
-					} else if (4215 == var0) {
+					} else if (var0 == CS2Opcodes.OC_WEARPOS2) {
 						var4 = class57.field404[--class387.field4452];
 						class57.field404[++class387.field4452 - 1] = class278.method5388(var4).field2145;
 						return 1;
-					} else if (var0 == 4216) {
+					} else if (var0 == CS2Opcodes.OC_WEARPOS3) {
 						var4 = class57.field404[--class387.field4452];
 						class57.field404[++class387.field4452 - 1] = class278.method5388(var4).field2146;
 						return 1;
-					} else if (4217 == var0) {
+					} else if (var0 == CS2Opcodes.OC_WEIGHT) {
 						var4 = class57.field404[--class387.field4452];
 						var7 = class278.method5388(var4);
 						class57.field404[++class387.field4452 - 1] = var7.field2170;

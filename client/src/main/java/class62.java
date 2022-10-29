@@ -21,7 +21,7 @@ public class class62 {
 
 		int var4 = var0.method8014(2);
 		class93 var5 = client.field1763[var1];
-		if (0 == var4) {
+		if (var4 == 0) {
 			if (var3) {
 				var5.field919 = false;
 			} else if (var1 == client.field1764) {
@@ -45,28 +45,28 @@ public class class62 {
 			int var6;
 			int var7;
 			int var8;
-			if (1 == var4) {
+			if (var4 == 1) {
 				var6 = var0.method8014(3);
 				var7 = var5.field861[0];
 				var8 = var5.field873[0];
-				if (0 == var6) {
+				if (var6 == 0) {
 					--var7;
 					--var8;
-				} else if (1 == var6) {
+				} else if (var6 == 1) {
 					--var8;
 				} else if (var6 == 2) {
 					++var7;
 					--var8;
 				} else if (var6 == 3) {
 					--var7;
-				} else if (4 == var6) {
+				} else if (var6 == 4) {
 					++var7;
 				} else if (var6 == 5) {
 					--var7;
 					++var8;
 				} else if (var6 == 6) {
 					++var8;
-				} else if (7 == var6) {
+				} else if (var6 == 7) {
 					++var7;
 					++var8;
 				}
@@ -89,40 +89,40 @@ public class class62 {
 				var6 = var0.method8014(4);
 				var7 = var5.field861[0];
 				var8 = var5.field873[0];
-				if (0 == var6) {
+				if (var6 == 0) {
 					var7 -= 2;
 					var8 -= 2;
 				} else if (var6 == 1) {
 					--var7;
 					var8 -= 2;
-				} else if (2 == var6) {
+				} else if (var6 == 2) {
 					var8 -= 2;
-				} else if (3 == var6) {
+				} else if (var6 == 3) {
 					++var7;
 					var8 -= 2;
 				} else if (var6 == 4) {
 					var7 += 2;
 					var8 -= 2;
-				} else if (5 == var6) {
+				} else if (var6 == 5) {
 					var7 -= 2;
 					--var8;
-				} else if (6 == var6) {
+				} else if (var6 == 6) {
 					var7 += 2;
 					--var8;
-				} else if (7 == var6) {
+				} else if (var6 == 7) {
 					var7 -= 2;
-				} else if (8 == var6) {
+				} else if (var6 == 8) {
 					var7 += 2;
-				} else if (9 == var6) {
+				} else if (var6 == 9) {
 					var7 -= 2;
 					++var8;
-				} else if (10 == var6) {
+				} else if (var6 == 10) {
 					var7 += 2;
 					++var8;
-				} else if (11 == var6) {
+				} else if (var6 == 11) {
 					var7 -= 2;
 					var8 += 2;
-				} else if (12 == var6) {
+				} else if (var6 == 12) {
 					--var7;
 					var8 += 2;
 				} else if (var6 == 13) {

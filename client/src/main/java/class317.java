@@ -56,7 +56,7 @@ public class class317 {
 			class451.field4844[var4] = var8;
 			int var9 = var2.method8141();
 			int var10;
-			if (0 == var9) {
+			if (var9 == 0) {
 				for (var10 = 0; var10 < var7; ++var10) {
 					var8[var10] = var2.method8287();
 				}

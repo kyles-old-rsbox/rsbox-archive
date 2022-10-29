@@ -40,7 +40,7 @@ public class class233 {
 
 		if (var5.field779.length <= var1) {
 			int[] var6 = new int[var1 + 1];
-			int[] var7 = new int[1 + var1];
+			int[] var7 = new int[var1 + 1];
 
 			int var8;
 			for (var8 = 0; var8 < var5.field779.length; ++var8) {
@@ -65,7 +65,7 @@ public class class233 {
 		if (var0 < 0) {
 			return "";
 		} else {
-			return client.menuTargets[var0].length() > 0 ? client.menuActions[var0] + class338.field4064 + client.menuTargets[var0] : client.menuActions[var0];
+			return client.field1923[var0].length() > 0 ? client.field1791[var0] + class338.field4064 + client.field1923[var0] : client.field1791[var0];
 		}
 	}
 }

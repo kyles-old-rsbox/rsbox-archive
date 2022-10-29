@@ -138,7 +138,7 @@ public class class278 extends class51 {
 				}
 
 				for (var4 = 0; var4 < var2.field2149.length; ++var4) {
-					if (4 != var4) {
+					if (var4 != 4) {
 						var2.field2149[var4] = null;
 					}
 				}
@@ -436,7 +436,7 @@ public class class278 extends class51 {
 		int var4;
 		int var5;
 		int var6;
-		if (128 == var3) {
+		if (var3 == 128) {
 			var4 = var1 & 15;
 			var5 = var1 >> 8 & 127;
 			var6 = var1 >> 16 & 127;
@@ -451,7 +451,7 @@ public class class278 extends class51 {
 				this.method5282(var4, var5, 64);
 			}
 
-		} else if (160 == var3) {
+		} else if (var3 == 160) {
 			var4 = var1 & 15;
 			var5 = var1 >> 8 & 127;
 			var6 = var1 >> 16 & 127;
@@ -460,11 +460,11 @@ public class class278 extends class51 {
 			var4 = var1 & 15;
 			var5 = var1 >> 8 & 127;
 			var6 = var1 >> 16 & 127;
-			if (0 == var5) {
+			if (var5 == 0) {
 				this.field3191[var4] = (var6 << 14) + (this.field3191[var4] & -2080769);
 			}
 
-			if (32 == var5) {
+			if (var5 == 32) {
 				this.field3191[var4] = (this.field3191[var4] & -16257) + (var6 << 7);
 			}
 
@@ -472,7 +472,7 @@ public class class278 extends class51 {
 				this.field3179[var4] = (var6 << 7) + (this.field3179[var4] & -16257);
 			}
 
-			if (33 == var5) {
+			if (var5 == 33) {
 				this.field3179[var4] = (this.field3179[var4] & -128) + var6;
 			}
 
@@ -480,7 +480,7 @@ public class class278 extends class51 {
 				this.field3180[var4] = (this.field3180[var4] & -16257) + (var6 << 7);
 			}
 
-			if (37 == var5) {
+			if (var5 == 37) {
 				this.field3180[var4] = (this.field3180[var4] & -128) + var6;
 			}
 
@@ -488,7 +488,7 @@ public class class278 extends class51 {
 				this.field3172[var4] = (var6 << 7) + (this.field3172[var4] & -16257);
 			}
 
-			if (39 == var5) {
+			if (var5 == 39) {
 				this.field3172[var4] = (this.field3172[var4] & -128) + var6;
 			}
 
@@ -519,7 +519,7 @@ public class class278 extends class51 {
 				}
 			}
 
-			if (65 == var5) {
+			if (var5 == 65) {
 				if (var6 >= 64) {
 					var10000 = this.field3181;
 					var10000[var4] |= 2;
@@ -530,11 +530,11 @@ public class class278 extends class51 {
 				}
 			}
 
-			if (99 == var5) {
+			if (var5 == 99) {
 				this.field3182[var4] = (this.field3182[var4] & 127) + (var6 << 7);
 			}
 
-			if (98 == var5) {
+			if (var5 == 98) {
 				this.field3182[var4] = var6 + (this.field3182[var4] & 16256);
 			}
 
@@ -554,26 +554,26 @@ public class class278 extends class51 {
 				this.method5287(var4);
 			}
 
-			if (123 == var5) {
+			if (var5 == 123) {
 				this.method5291(var4);
 			}
 
 			int var7;
-			if (6 == var5) {
+			if (var5 == 6) {
 				var7 = this.field3182[var4];
-				if (16384 == var7) {
+				if (var7 == 16384) {
 					this.field3174[var4] = (var6 << 7) + (this.field3174[var4] & -16257);
 				}
 			}
 
-			if (38 == var5) {
+			if (var5 == 38) {
 				var7 = this.field3182[var4];
-				if (16384 == var7) {
+				if (var7 == 16384) {
 					this.field3174[var4] = var6 + (this.field3174[var4] & -128);
 				}
 			}
 
-			if (16 == var5) {
+			if (var5 == 16) {
 				this.field3196[var4] = (this.field3196[var4] & -16257) + (var6 << 7);
 			}
 
@@ -592,7 +592,7 @@ public class class278 extends class51 {
 				}
 			}
 
-			if (17 == var5) {
+			if (var5 == 17) {
 				this.method5292(var4, (var6 << 7) + (this.field3185[var4] & -16257));
 			}
 
@@ -608,7 +608,7 @@ public class class278 extends class51 {
 			var4 = var1 & 15;
 			var5 = var1 >> 8 & 127;
 			this.method5284(var4, var5);
-		} else if (224 == var3) {
+		} else if (var3 == 224) {
 			var4 = var1 & 15;
 			var5 = (var1 >> 8 & 127) + (var1 >> 9 & 16256);
 			this.method5285(var4, var5);
@@ -762,7 +762,7 @@ public class class278 extends class51 {
 					this.field3189.method5254();
 					this.field3189.method5231(var2);
 					if (this.field3189.method5239()) {
-						if (!this.field3184 || 0 == var3) {
+						if (!this.field3184 || var3 == 0) {
 							this.method5289();
 							this.field3189.method5256();
 							return;

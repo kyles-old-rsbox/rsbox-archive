@@ -76,7 +76,7 @@ public class class160 extends class437 {
 	void method2663(class460 var1, int var2) {
 		if (var2 == 1) {
 			this.field1468 = var1.method8140();
-		} else if (2 == var2) {
+		} else if (var2 == 2) {
 			this.field1478 = var1.method8140();
 		} else if (var2 == 3) {
 			this.field1470 = var1.method8131();
@@ -88,7 +88,7 @@ public class class160 extends class437 {
 			this.field1472 = var1.method8141();
 		} else {
 			int var4;
-			if (7 == var2) {
+			if (var2 == 7) {
 				var4 = var1.method8141();
 				if ((var4 & 1) == 0) {
 					this.field1471 = false;
@@ -97,7 +97,7 @@ public class class160 extends class437 {
 				if ((var4 & 2) == 2) {
 					this.field1463 = true;
 				}
-			} else if (8 == var2) {
+			} else if (var2 == 8) {
 				var1.method8141();
 			} else if (var2 >= 10 && var2 <= 14) {
 				this.field1476[var2 - 10] = var1.method8131();
@@ -133,20 +133,20 @@ public class class160 extends class437 {
 					this.field1487 = var1.method8122();
 				} else if (var2 == 21) {
 					var1.method8126();
-				} else if (22 == var2) {
+				} else if (var2 == 22) {
 					var1.method8126();
-				} else if (23 == var2) {
+				} else if (var2 == 23) {
 					var1.method8141();
 					var1.method8141();
 					var1.method8141();
-				} else if (24 == var2) {
+				} else if (var2 == 24) {
 					var1.method8204();
 					var1.method8204();
 				} else if (var2 == 25) {
 					var1.method8140();
 				} else if (var2 == 28) {
 					var1.method8141();
-				} else if (29 == var2) {
+				} else if (var2 == 29) {
 					this.field1483 = (class194)class217.method4362(class194.method1991(), var1.method8141());
 				} else if (var2 == 30) {
 					this.field1484 = (class183)class217.method4362(class183.method2270(), var1.method8141());
@@ -165,10 +165,10 @@ public class class160 extends class437 {
 					this.field1465 = this.field1474[var2];
 				}
 
-				if (this.field1474[1 + var2] < this.field1480) {
-					this.field1480 = this.field1474[1 + var2];
-				} else if (this.field1474[1 + var2] > this.field1482) {
-					this.field1482 = this.field1474[1 + var2];
+				if (this.field1474[var2 + 1] < this.field1480) {
+					this.field1480 = this.field1474[var2 + 1];
+				} else if (this.field1474[var2 + 1] > this.field1482) {
+					this.field1482 = this.field1474[var2 + 1];
 				}
 			}
 		}
@@ -176,7 +176,7 @@ public class class160 extends class437 {
 	}
 
 	public class473 method2644(boolean var1) {
-		int var3 = var1 ? 748178793 * this.field1478 * -1842539815 : -1983314433 * this.field1468 * 840104447;
+		int var3 = var1 ? this.field1478 : this.field1468;
 		return this.method2645(var3);
 	}
 

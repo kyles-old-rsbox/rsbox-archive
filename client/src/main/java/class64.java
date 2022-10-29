@@ -14,7 +14,7 @@ public class class64 {
 				var5 = var1;
 			}
 
-			while (0 != var5) {
+			while (var5 != 0) {
 				int var6 = var4 % var5;
 				var4 = var5;
 				var5 = var6;
@@ -47,7 +47,7 @@ public class class64 {
 					}
 
 					var17 *= 0.54D + 0.46D * Math.cos(((double)var11 - var9) * 0.2243994752564138D);
-					var8[var11] = (int)Math.floor(0.5D + 65536.0D * var17);
+					var8[var11] = (int)Math.floor(0.5D + var17 * 65536.0D);
 				}
 			}
 

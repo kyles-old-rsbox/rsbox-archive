@@ -92,7 +92,7 @@ public class class96 {
 					var9.field2984.method8152(0);
 					var9.field2984.method8161(var4[var7]);
 					client.field1778.method2078(var9);
-				} else if (4 == var0) {
+				} else if (var0 == 4) {
 					var9 = class185.method3435(class274.field3042, client.field1778.field1071);
 					var9.field2984.method8152(0);
 					var9.field2984.method8159(var4[var7]);
@@ -102,7 +102,7 @@ public class class96 {
 					var9.field2984.method8161(var4[var7]);
 					var9.field2984.method8152(0);
 					client.field1778.method2078(var9);
-				} else if (7 == var0) {
+				} else if (var0 == 7) {
 					var9 = class185.method3435(class274.field3089, client.field1778.field1071);
 					var9.field2984.method8181(var4[var7]);
 					var9.field2984.method8104(0);

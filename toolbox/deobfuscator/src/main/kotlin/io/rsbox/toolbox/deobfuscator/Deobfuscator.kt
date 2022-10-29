@@ -99,7 +99,7 @@ object Deobfuscator {
         register<FieldSorter>()
         register<MethodSorter>()
         register<GetPathFixer>()
-        register<StaticMethodMover>()
+        register<ControlFlowFixer>()
         register<StackFrameFixer>()
     }
 

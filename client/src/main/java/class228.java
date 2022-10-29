@@ -114,7 +114,7 @@ public class class228 extends class239 {
 					var4 = var4 + class96.method4510(16777215) + " " + '/' + " " + (client.field1695 - 2) + class338.field4058;
 				}
 
-				class114.field1127.method6860(var4, 4 + var0, var1 + 15, 16777215, 0, client.field1645 / 1000);
+				class114.field1127.method6860(var4, var0 + 4, var1 + 15, 16777215, 0, client.field1645 / 1000);
 			}
 		}
 	}

@@ -58,14 +58,11 @@ public class class10 implements class3 {
 	}
 
 	MessageDigest method69() {
-		MessageDigest var10000;
 		try {
-			var10000 = MessageDigest.getInstance("SHA-256");
+			return MessageDigest.getInstance("SHA-256");
 		} catch (NoSuchAlgorithmException var2) {
 			var2.printStackTrace();
 			return null;
 		}
-
-		return var10000;
 	}
 }

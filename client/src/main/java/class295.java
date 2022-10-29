@@ -10,7 +10,7 @@ public class class295 {
 	}
 
 	public static String method5540(CharSequence[] var0, int var1, int var2) {
-		if (0 == var2) {
+		if (var2 == 0) {
 			return "";
 		} else if (var2 == 1) {
 			CharSequence var4 = var0[var1];
@@ -50,7 +50,7 @@ public class class295 {
 	}
 
 	public class295(int var1) {
-		if (-1 == var1) {
+		if (var1 == -1) {
 			this.field3374 = -1;
 		} else {
 			this.field3374 = var1 >> 28 & 3;
@@ -61,18 +61,14 @@ public class class295 {
 	}
 
 	public static class412 method5542() {
-		class412 var10000;
 		synchronized(class412.field4560) {
 			if (class412.field4562 == 0) {
-				var10000 = new class412();
-				return var10000;
+				return new class412();
+			} else {
+				class412.field4560[--class412.field4562].method7420();
+				return class412.field4560[class412.field4562];
 			}
-
-			class412.field4560[--class412.field4562].method7420();
-			var10000 = class412.field4560[class412.field4562];
 		}
-
-		return var10000;
 	}
 
 	public int method5522() {
@@ -103,7 +99,6 @@ public class class295 {
 
 			class322.field3761 = 600;
 		}
-
 	}
 
 	public boolean equals(Object var1) {
@@ -150,7 +145,7 @@ public class class295 {
 						int var7;
 						int var10;
 						if (0 != var5.field2291 && 0 != var0.field877) {
-							var7 = -1 != var0.field877 ? 1419553213 * var0.field877 * -5187179 : var5.field2291 * -1190723395 * -1102775659;
+							var7 = -1 != var0.field877 ? var0.field877 : var5.field2291;
 							var10 = class291.field3364.field905;
 							int var11 = var10 - var7;
 							String var9;
@@ -195,24 +190,24 @@ public class class295 {
 								for (var12 = 4; var12 >= 0; --var12) {
 									if (var0.method1639(var12) && var8[var12] != null && !var8[var12].equalsIgnoreCase(class338.field4056)) {
 										var10 = 0;
-										if (0 == var12) {
-											var10 = 9 + var7;
+										if (var12 == 0) {
+											var10 = var7 + 9;
 										}
 
 										if (var12 == 1) {
 											var10 = var7 + 10;
 										}
 
-										if (2 == var12) {
+										if (var12 == 2) {
 											var10 = var7 + 11;
 										}
 
-										if (3 == var12) {
+										if (var12 == 3) {
 											var10 = var7 + 12;
 										}
 
 										if (var12 == 4) {
-											var10 = 13 + var7;
+											var10 = var7 + 13;
 										}
 
 										client.method351(var8[var12], class96.method4510(16776960) + var6, var10, var1, var2, var3);
@@ -230,24 +225,24 @@ public class class295 {
 											}
 
 											var10 = 0;
-											if (0 == var12) {
-												var10 = 9 + var13;
+											if (var12 == 0) {
+												var10 = var13 + 9;
 											}
 
-											if (1 == var12) {
-												var10 = 10 + var13;
+											if (var12 == 1) {
+												var10 = var13 + 10;
 											}
 
-											if (2 == var12) {
-												var10 = 11 + var13;
+											if (var12 == 2) {
+												var10 = var13 + 11;
 											}
 
-											if (3 == var12) {
-												var10 = 12 + var13;
+											if (var12 == 3) {
+												var10 = var13 + 12;
 											}
 
-											if (4 == var12) {
-												var10 = 13 + var13;
+											if (var12 == 4) {
+												var10 = var13 + 13;
 											}
 
 											client.method351(var8[var12], class96.method4510(16776960) + var6, var10, var1, var2, var3);

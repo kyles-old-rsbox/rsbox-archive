@@ -50,11 +50,11 @@ public class class199 extends class437 {
 	}
 
 	void method3719(class460 var1, int var2, int var3) {
-		if (1 == var2) {
+		if (var2 == 1) {
 			this.field2184 = var1.method8312();
 		} else if (var2 == 2) {
 			this.field2185 = var1.method8141();
-		} else if (5 == var2) {
+		} else if (var2 == 5) {
 			this.field2186 = false;
 		} else if (var2 == 7) {
 			this.field2187 = var1.method8312();
@@ -109,7 +109,7 @@ public class class199 extends class437 {
 		var13 /= 6.0D;
 		this.field2194 = (int)(var13 * 256.0D);
 		this.field2182 = (int)(var15 * 256.0D);
-		this.field2190 = (int)(256.0D * var17);
+		this.field2190 = (int)(var17 * 256.0D);
 		if (this.field2182 < 0) {
 			this.field2182 = 0;
 		} else if (this.field2182 > 255) {
@@ -131,7 +131,7 @@ public class class199 extends class437 {
 			var3 = (var0 << 4) + 1;
 		}
 
-		if (241 == var0 && class353.field4292 == var1) {
+		if (var0 == 241 && class353.field4292 == var1) {
 			var3 = 1762;
 		}
 

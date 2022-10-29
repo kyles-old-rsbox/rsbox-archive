@@ -50,14 +50,14 @@ public class class67 {
 			return 0;
 		} else {
 			var3 = this.method1398(var1, 0, var2);
-			field544[var1][0] = -2.0F * var3 * (float)Math.cos((double)this.method1396(var1, 0, var2));
+			field544[var1][0] = var3 * -2.0F * (float)Math.cos((double)this.method1396(var1, 0, var2));
 			field544[var1][1] = var3 * var3;
 
 			float[] var10000;
 			int var4;
 			for (var4 = 1; var4 < this.field550[var1]; ++var4) {
 				var3 = this.method1398(var1, var4, var2);
-				float var5 = -2.0F * var3 * (float)Math.cos((double)this.method1396(var1, var4, var2));
+				float var5 = var3 * -2.0F * (float)Math.cos((double)this.method1396(var1, var4, var2));
 				float var6 = var3 * var3;
 				field544[var1][var4 * 2 + 1] = field544[var1][var4 * 2 - 1] * var6;
 				field544[var1][var4 * 2] = field544[var1][var4 * 2 - 1] * var5 + field544[var1][var4 * 2 - 2] * var6;

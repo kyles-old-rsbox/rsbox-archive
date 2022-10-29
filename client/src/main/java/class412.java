@@ -20,8 +20,8 @@ public final class class412 {
 			if (field4562 < field4561 - 1) {
 				field4560[++field4562 - 1] = this;
 			}
-		}
 
+		}
 	}
 
 	public class412() {
@@ -315,7 +315,7 @@ public final class class412 {
 					var1.append("\t");
 				}
 
-				float var4 = this.field4563[var3 + 4 * var2];
+				float var4 = this.field4563[var3 + var2 * 4];
 				if (Math.sqrt((double)(var4 * var4)) < 9.999999747378752E-5D) {
 					var4 = 0.0F;
 				}

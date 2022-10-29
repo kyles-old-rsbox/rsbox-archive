@@ -18,12 +18,12 @@ public class class80 implements class360 {
 		}
 
 		var2 &= 3;
-		if (0 == var2) {
+		if (var2 == 0) {
 			return var0;
 		} else if (var2 == 1) {
 			return var1;
 		} else {
-			return 2 == var2 ? 7 - var0 - (var3 - 1) : 7 - var1 - (var4 - 1);
+			return var2 == 2 ? 7 - var0 - (var3 - 1) : 7 - var1 - (var4 - 1);
 		}
 	}
 

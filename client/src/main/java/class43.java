@@ -148,7 +148,7 @@ public class class43 extends class427 {
 
 									for (int var13 = 0; var13 < class204.field2302.length; ++var13) {
 										if (class204.field2302[var13] == var12 && null != class74.field612[var13]) {
-											class206.method3968(class74.field612[var13], var14, 8 * var4, 8 * var5, var8, 8 * (var10 & 7), 8 * (var11 & 7), var9, client.field1884);
+											class206.method3968(class74.field612[var13], var14, var4 * 8, var5 * 8, var8, 8 * (var10 & 7), 8 * (var11 & 7), var9, client.field1884);
 											var18 = true;
 											break;
 										}
@@ -156,7 +156,7 @@ public class class43 extends class427 {
 								}
 
 								if (!var18) {
-									class61.method1337(var14, var4 * 8, 8 * var5);
+									class61.method1337(var14, var4 * 8, var5 * 8);
 								}
 							}
 						}
@@ -166,7 +166,7 @@ public class class43 extends class427 {
 						for (var4 = 0; var4 < 13; ++var4) {
 							var5 = client.field1707[0][var14][var4];
 							if (var5 == -1) {
-								class242.method4732(var14 * 8, 8 * var4, 8, 8);
+								class242.method4732(var14 * 8, var4 * 8, 8, 8);
 							}
 						}
 					}
@@ -188,7 +188,7 @@ public class class43 extends class427 {
 
 									for (var12 = 0; var12 < class204.field2302.length; ++var12) {
 										if (class204.field2302[var12] == var11 && null != class18.field92[var12]) {
-											class82.method1668(class18.field92[var12], var14, var4 * 8, 8 * var5, var7, (var9 & 7) * 8, (var10 & 7) * 8, var8, class145.field1333, client.field1884);
+											class82.method1668(class18.field92[var12], var14, var4 * 8, var5 * 8, var7, (var9 & 7) * 8, (var10 & 7) * 8, var8, class145.field1333, client.field1884);
 											break;
 										}
 									}
@@ -239,7 +239,7 @@ public class class43 extends class427 {
 					var16 = (class283.field3216 - 6) / 8;
 					var7 = (class283.field3216 + 6) / 8;
 
-					for (var8 = var4 - 1; var8 <= 1 + var5; ++var8) {
+					for (var8 = var4 - 1; var8 <= var5 + 1; ++var8) {
 						for (var9 = var16 - 1; var9 <= var7 + 1; ++var9) {
 							if (var8 < var4 || var8 > var5 || var9 < var16 || var9 > var7) {
 								class58.field417.method6106("m" + var8 + "_" + var9);

@@ -28,7 +28,7 @@ public class class133 {
 				int var4 = client.field1692[var3];
 				class81 var5 = client.field1902[var4];
 				int var6 = var1.method8014(1);
-				if (0 == var6) {
+				if (var6 == 0) {
 					client.field1692[++client.field1691 - 1] = var4;
 					var5.field847 = client.field1645;
 				} else {

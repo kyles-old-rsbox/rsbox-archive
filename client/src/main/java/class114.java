@@ -20,7 +20,7 @@ public class class114 extends class393 {
 
 	static int method2219(int var0, class78 var1, boolean var2) {
 		int var4;
-		if (5504 == var0) {
+		if (var0 == CS2Opcodes.CAM_FORCEANGLE) {
 			class387.field4452 -= 2;
 			var4 = class57.field404[class387.field4452];
 			int var5 = class57.field404[1 + class387.field4452];
@@ -30,13 +30,13 @@ public class class114 extends class393 {
 			}
 
 			return 1;
-		} else if (5505 == var0) {
+		} else if (var0 == CS2Opcodes.CAM_GETANGLE_XA) {
 			class57.field404[++class387.field4452 - 1] = client.field1761;
 			return 1;
-		} else if (5506 == var0) {
+		} else if (var0 == CS2Opcodes.CAM_GETANGLE_YA) {
 			class57.field404[++class387.field4452 - 1] = client.field1672;
 			return 1;
-		} else if (5530 == var0) {
+		} else if (var0 == CS2Opcodes.CAM_SETFOLLOWHEIGHT) {
 			var4 = class57.field404[--class387.field4452];
 			if (var4 < 0) {
 				var4 = 0;
@@ -44,7 +44,7 @@ public class class114 extends class393 {
 
 			client.field1723 = var4;
 			return 1;
-		} else if (var0 == 5531) {
+		} else if (var0 == CS2Opcodes.CAM_GETFOLLOWHEIGHT) {
 			class57.field404[++class387.field4452 - 1] = client.field1723;
 			return 1;
 		} else {

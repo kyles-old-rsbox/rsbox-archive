@@ -13,13 +13,13 @@ public class class143 {
 		this.field1321 = var1.method8127();
 		this.field1324 = var1.method8127();
 
-		for (int var3 = var1.method8141(); 0 != var3; var3 = var1.method8141()) {
+		for (int var3 = var1.method8141(); var3 != 0; var3 = var1.method8141()) {
 			Object var4;
-			if (1 == var3) {
+			if (var3 == 1) {
 				var4 = new class134(this);
 			} else if (var3 == 4) {
 				var4 = new class169(this);
-			} else if (3 == var3) {
+			} else if (var3 == 3) {
 				var4 = new class136(this);
 			} else if (var3 == 2) {
 				var4 = new class150(this);
@@ -112,23 +112,23 @@ public class class143 {
 	}
 
 	static int method2496(int var0, class78 var1, boolean var2) {
-		if (var0 == 5306) {
+		if (var0 == CS2Opcodes.GETWINDOWMODE) {
 			class57.field404[++class387.field4452 - 1] = class2.method11();
 			return 1;
 		} else {
 			int var4;
-			if (5307 == var0) {
+			if (var0 == CS2Opcodes.SETWINDOWMODE) {
 				var4 = class57.field404[--class387.field4452];
-				if (1 == var4 || var4 == 2) {
+				if (var4 == 1 || var4 == 2) {
 					class164.method2692(var4);
 				}
 
 				return 1;
-			} else if (5308 == var0) {
+			} else if (var0 == CS2Opcodes.GETDEFAULTWINDOWMODE) {
 				class57.field404[++class387.field4452 - 1] = class413.field4575.method1726();
 				return 1;
-			} else if (var0 != 5309) {
-				if (var0 == 5310) {
+			} else if (var0 != CS2Opcodes.SETDEFAULTWINDOWMODE) {
+				if (var0 == CS2Opcodes._5310) {
 					--class387.field4452;
 					return 1;
 				} else {

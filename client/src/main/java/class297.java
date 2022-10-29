@@ -734,7 +734,7 @@ public class class297 {
 		int var5 = (Integer)var3.field4727 - 10;
 		int var6 = var5 + 20;
 		int var7 = (Integer)var3.field4728 - 3;
-		int var8 = 6 + var7 + var4;
+		int var8 = var7 + 6 + var4;
 		int var9 = this.field3427;
 		int var10 = this.field3425 + var9;
 		int var11 = this.field3428;
@@ -757,7 +757,7 @@ public class class297 {
 	}
 
 	boolean method5768(int var1) {
-		return 32 == var1 || var1 == 10 || 9 == var1;
+		return var1 == 32 || var1 == 10 || var1 == 9;
 	}
 
 	void method5637() {
@@ -780,7 +780,7 @@ public class class297 {
 			if (class347.method6422(var3)) {
 				return true;
 			} else {
-				if ('k' != var3 && var3 != 'K' && var3 != 'm' && var3 != 'M' && var3 != 'b' && var3 != 'B') {
+				if (var3 != 'k' && var3 != 'K' && var3 != 'm' && var3 != 'M' && var3 != 'b' && var3 != 'B') {
 					return false;
 				}
 

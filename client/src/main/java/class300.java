@@ -345,17 +345,17 @@ public class class300 extends class427 {
 			this.field3461 = new int[this.field3486 * this.field3472];
 			this.field3456 = new int[this.field3472 * this.field3486];
 			var5 = var1.method8141();
-			if (1 == var5) {
+			if (var5 == 1) {
 				this.field3527 |= 268435456;
 			}
 
 			var6 = var1.method8141();
-			if (1 == var6) {
+			if (var6 == 1) {
 				this.field3527 |= 1073741824;
 			}
 
 			var7 = var1.method8141();
-			if (1 == var7) {
+			if (var7 == 1) {
 				this.field3527 |= Integer.MIN_VALUE;
 			}
 
@@ -481,7 +481,7 @@ public class class300 extends class427 {
 				String var12 = var1.method8131();
 				if (var12.length() > 0) {
 					this.field3533[var6] = var12;
-					this.field3527 |= 1 << 23 + var6;
+					this.field3527 |= 1 << var6 + 23;
 				}
 			}
 		}
@@ -666,14 +666,14 @@ public class class300 extends class427 {
 
 	Object[] method5945(class460 var1) {
 		int var3 = var1.method8141();
-		if (0 == var3) {
+		if (var3 == 0) {
 			return null;
 		} else {
 			Object[] var4 = new Object[var3];
 
 			for (int var5 = 0; var5 < var3; ++var5) {
 				int var6 = var1.method8141();
-				if (0 == var6) {
+				if (var6 == 0) {
 					var4[var5] = new Integer(var1.method8126());
 				} else if (var6 == 1) {
 					var4[var5] = var1.method8131();
@@ -687,7 +687,7 @@ public class class300 extends class427 {
 
 	int[] method5850(class460 var1) {
 		int var3 = var1.method8141();
-		if (0 == var3) {
+		if (var3 == 0) {
 			return null;
 		} else {
 			int[] var4 = new int[var3];
@@ -725,7 +725,7 @@ public class class300 extends class427 {
 			var8 = this.field3560;
 		}
 
-		if (-1 == var8) {
+		if (var8 == -1) {
 			return null;
 		} else {
 			long var5 = ((this.field3467 ? 1L : 0L) << 38) + ((long)this.field3500 << 36) + (long)var8 + ((this.field3503 ? 1L : 0L) << 39) + ((long)this.field3501 << 40);
@@ -835,7 +835,7 @@ public class class300 extends class427 {
 		field3458 = false;
 		if (var1 >= 0 && var1 < this.field3526.length) {
 			int var3 = this.field3526[var1];
-			if (-1 == var3) {
+			if (var3 == -1) {
 				return null;
 			} else {
 				class473 var4 = (class473)field3554.method5439((long)var3);
@@ -869,9 +869,9 @@ public class class300 extends class427 {
 			var7 = this.field3505;
 		}
 
-		if (0 == var6) {
+		if (var6 == 0) {
 			return null;
-		} else if (var6 == 1 && -1 == var7) {
+		} else if (var6 == 1 && var7 == -1) {
 			return null;
 		} else {
 			class209 var8 = (class209)field3453.method5439((long)((var6 << 16) + var7));
@@ -911,7 +911,7 @@ public class class300 extends class427 {
 					var8 = var9.method3796(64, 768, -50, -10, -50);
 				}
 
-				if (4 == var6) {
+				if (var6 == 4) {
 					class198 var10 = class278.method5388(var7);
 					var9 = var10.method3665(10);
 					if (null == var9) {
@@ -938,8 +938,8 @@ public class class300 extends class427 {
 			var1 = false;
 		}
 
-		int var3 = var1 ? -455779275 * this.field3496 * 1934104093 : this.field3560 * -787225125 * -784888237;
-		if (-1 == var3) {
+		int var3 = var1 ? this.field3496 : this.field3560;
+		if (var3 == -1) {
 			return null;
 		} else {
 			long var4 = ((long)this.field3501 << 40) + ((long)this.field3500 << 36) + (long)var3 + ((this.field3467 ? 1L : 0L) << 38) + ((this.field3503 ? 1L : 0L) << 39);
@@ -969,7 +969,7 @@ public class class300 extends class427 {
 
 						for (var14 = var8.field4959 - 1; var14 >= var12; --var14) {
 							if (var8.field4952[var11 * var8.field4959 + var14] == 0) {
-								var13 = 1 + var14;
+								var13 = var14 + 1;
 								break;
 							}
 						}

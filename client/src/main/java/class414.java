@@ -101,7 +101,7 @@ public class class414 {
 		class147 var3 = var0 >= 0 ? client.field1883[var0] : class188.field1982;
 		if (null != var3 && var1 >= 0 && var1 < var3.method2512()) {
 			class133 var4 = (class133)var3.field1347.get(var1);
-			if (-1 == var4.field1256) {
+			if (var4.field1256 == -1) {
 				String var5 = var4.field1254.method8451();
 				class263 var6 = class185.method3435(class274.field3082, client.field1778.field1071);
 				var6.field2984.method8104(3 + class460.method1887(var5));

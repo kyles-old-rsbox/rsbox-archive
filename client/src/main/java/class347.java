@@ -30,13 +30,13 @@ public class class347 {
 					break;
 				}
 
-				if (0 != var6) {
+				if (var6 != 0) {
 					throw new IllegalStateException("");
 				}
 
 				while (true) {
 					int var7 = var1.method8141();
-					if (255 == var7) {
+					if (var7 == 255) {
 						break;
 					}
 

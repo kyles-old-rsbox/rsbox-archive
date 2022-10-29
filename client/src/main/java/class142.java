@@ -31,35 +31,35 @@ public class class142 {
 		this.field1311 = var1.method8127();
 		this.field1310 = var1.method8126();
 
-		for (int var3 = var1.method8141(); 0 != var3; var3 = var1.method8141()) {
+		for (int var3 = var1.method8141(); var3 != 0; var3 = var1.method8141()) {
 			Object var4;
-			if (3 == var3) {
+			if (var3 == 3) {
 				var4 = new class174(this);
-			} else if (1 == var3) {
+			} else if (var3 == 1) {
 				var4 = new class132(this);
 			} else if (var3 == 13) {
 				var4 = new class139(this);
-			} else if (4 == var3) {
+			} else if (var3 == 4) {
 				var4 = new class155(this);
-			} else if (6 == var3) {
+			} else if (var3 == 6) {
 				var4 = new class151(this);
-			} else if (5 == var3) {
+			} else if (var3 == 5) {
 				var4 = new class146(this);
-			} else if (2 == var3) {
+			} else if (var3 == 2) {
 				var4 = new class145(this);
 			} else if (var3 == 7) {
 				var4 = new class144(this);
-			} else if (14 == var3) {
+			} else if (var3 == 14) {
 				var4 = new class153(this);
 			} else if (var3 == 8) {
 				var4 = new class154(this);
-			} else if (9 == var3) {
+			} else if (var3 == 9) {
 				var4 = new class180(this);
 			} else if (var3 == 10) {
 				var4 = new class131(this);
 			} else if (var3 == 11) {
 				var4 = new class138(this);
-			} else if (12 == var3) {
+			} else if (var3 == 12) {
 				var4 = new class152(this);
 			} else {
 				if (var3 != 15) {
@@ -137,7 +137,7 @@ public class class142 {
 								var17 = var13.field1444;
 							}
 
-							var16 = var15.field4959 - 2 * var17;
+							var16 = var15.field4959 - var17 * 2;
 						} else {
 							var16 = var13.field1453;
 						}
@@ -311,7 +311,7 @@ public class class142 {
 						client.method2451(var0, var0.field809 / 2);
 						if (client.field1809 > -1) {
 							boolean var93 = true;
-							if (1 == var79) {
+							if (var79 == 1) {
 								client.field1747 -= 20;
 							}
 
@@ -320,7 +320,7 @@ public class class142 {
 								client.field1747 -= 10;
 							}
 
-							if (3 == var79) {
+							if (var79 == 3) {
 								client.field1809 += 15;
 								client.field1747 -= 10;
 							}
@@ -555,7 +555,7 @@ public class class142 {
 							int var67 = var3 + client.field1747 - 12 + var65;
 							int var68 = var67;
 							int var69 = var67 + var43;
-							int var70 = var92.field2339 + 15 + var67;
+							int var70 = var92.field2339 + var67 + 15;
 							int var71 = var70 - var87.field4436;
 							int var72 = var70 + var87.field4437;
 							if (var71 < var67) {
@@ -570,7 +570,7 @@ public class class142 {
 							int var74;
 							int var75;
 							if (var82 != null) {
-								var73 = var82.field2339 + 15 + var67;
+								var73 = var82.field2339 + var67 + 15;
 								var74 = var73 - var45.field4436;
 								var75 = var73 + var45.field4437;
 								if (var74 < var68) {

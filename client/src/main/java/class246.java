@@ -51,13 +51,13 @@ public final class class246 {
 
 			label85: {
 				char var8 = var0.charAt(var7);
-				if (0 == var7) {
-					if ('-' == var8) {
+				if (var7 == 0) {
+					if (var8 == '-') {
 						var3 = true;
 						break label85;
 					}
 
-					if ('+' == var8) {
+					if (var8 == '+') {
 						break label85;
 					}
 				}
@@ -85,7 +85,7 @@ public final class class246 {
 					var10 = -var10;
 				}
 
-				int var9 = 10 * var5 + var10;
+				int var9 = var5 * 10 + var10;
 				if (var9 / 10 != var5) {
 					var2 = false;
 					break;
@@ -283,7 +283,7 @@ public final class class246 {
 		} else {
 			class235 var13 = this.method4898(var1, var2, var3, var4);
 			float var14 = this.method4902(var7, var3 - var1);
-			int var15 = (int)(64.0F * var14);
+			int var15 = (int)(var14 * 64.0F);
 			int var16 = var1 + this.field2864;
 			int var17 = var2 + this.field2876;
 
@@ -344,7 +344,7 @@ public final class class246 {
 			return false;
 		} else {
 			int var2 = class105.field1044.method6099(var0);
-			if (0 == var2) {
+			if (var2 == 0) {
 				class299.field3442[var0] = true;
 				return true;
 			} else {

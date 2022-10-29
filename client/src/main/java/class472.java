@@ -17,7 +17,7 @@ public class class472 implements Comparable {
 				char var8;
 				for (var6 = var1.length(); var5 < var6; ++var5) {
 					var8 = var1.charAt(var5);
-					var7 = var8 == 160 || var8 == ' ' || var8 == '_' || '-' == var8;
+					var7 = var8 == 160 || var8 == ' ' || var8 == '_' || var8 == '-';
 					if (!var7) {
 						break;
 					}
@@ -25,7 +25,7 @@ public class class472 implements Comparable {
 
 				while (var6 > var5) {
 					var8 = var1.charAt(var6 - 1);
-					var7 = var8 == 160 || var8 == ' ' || '_' == var8 || '-' == var8;
+					var7 = var8 == 160 || var8 == ' ' || var8 == '_' || var8 == '-';
 					if (!var7) {
 						break;
 					}
@@ -128,7 +128,7 @@ public class class472 implements Comparable {
 				char var15;
 				for (var6 = var1.length(); var5 < var6; ++var5) {
 					var15 = var1.charAt(var5);
-					var7 = 160 == var15 || ' ' == var15 || var15 == '_' || '-' == var15;
+					var7 = var15 == 160 || var15 == ' ' || var15 == '_' || var15 == '-';
 					if (!var7) {
 						break;
 					}
@@ -136,7 +136,7 @@ public class class472 implements Comparable {
 
 				while (var6 > var5) {
 					var15 = var1.charAt(var6 - 1);
-					var7 = var15 == 160 || var15 == ' ' || '_' == var15 || var15 == '-';
+					var7 = var15 == 160 || var15 == ' ' || var15 == '_' || var15 == '-';
 					if (!var7) {
 						break;
 					}
@@ -203,7 +203,7 @@ public class class472 implements Comparable {
 
 							if (var11) {
 								char var12 = class462.method687(var10);
-								if (0 != var12) {
+								if (var12 != 0) {
 									var8.append(var12);
 								}
 							}

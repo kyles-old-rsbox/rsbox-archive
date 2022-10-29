@@ -13,16 +13,15 @@ public class class448 extends class399 implements class281 {
 	}
 
 	protected class416 method7224(int var1) {
-		class391 var3;
 		synchronized(this.field4799) {
-			var3 = (class391)this.field4799.method5177((long)var1);
+			class391 var3 = (class391)this.field4799.method5177((long)var1);
 			if (var3 == null) {
 				var3 = this.method7959(var1);
 				this.field4799.method5174(var3, (long)var1);
 			}
-		}
 
-		return var3;
+			return var3;
+		}
 	}
 
 	class391 method7959(int var1) {
@@ -39,7 +38,6 @@ public class class448 extends class399 implements class281 {
 		synchronized(this.field4799) {
 			this.field4799.method5185();
 		}
-
 	}
 
 	public Iterator iterator() {

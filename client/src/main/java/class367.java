@@ -36,7 +36,7 @@ public class class367 extends class404 {
 			} else if (var10 >= 'a' && var10 <= 'z') {
 				var6 += (long)(var10 + 1 - 97);
 			} else if (var10 >= '0' && var10 <= '9') {
-				var6 += (long)(27 + var10 - 48);
+				var6 += (long)(var10 + 27 - 48);
 			}
 
 			if (var6 >= 177917621779460413L) {
@@ -66,9 +66,9 @@ public class class367 extends class404 {
 			if (var10 >= 'A' && var10 <= 'Z') {
 				var6 += (long)(var10 + 1 - 65);
 			} else if (var10 >= 'a' && var10 <= 'z') {
-				var6 += (long)(1 + var10 - 97);
+				var6 += (long)(var10 + 1 - 97);
 			} else if (var10 >= '0' && var10 <= '9') {
-				var6 += (long)(27 + var10 - 48);
+				var6 += (long)(var10 + 27 - 48);
 			}
 
 			if (var6 >= 177917621779460413L) {
@@ -109,7 +109,7 @@ public class class367 extends class404 {
 				while (0L != var7) {
 					long var18 = var7;
 					var7 /= 37L;
-					var17.append(class363.field4323[(int)(var18 - 37L * var7)]);
+					var17.append(class363.field4323[(int)(var18 - var7 * 37L)]);
 				}
 
 				var6 = var17.reverse().toString();
@@ -121,7 +121,7 @@ public class class367 extends class404 {
 		this.method6712(var6);
 		this.field4350 = var1.method8287();
 		short var10;
-		if (1 == var2) {
+		if (var2 == 1) {
 			var9 = var1.method8141();
 			var10 = 255;
 		} else {
@@ -154,7 +154,7 @@ public class class367 extends class404 {
 		int var4 = var1.method8122();
 		byte var5 = var1.method8287();
 		boolean var6 = false;
-		if (-128 == var5) {
+		if (var5 == -128) {
 			var6 = true;
 		}
 

@@ -23,7 +23,7 @@ public class class193 extends class437 {
 	void method3553(class460 var1) {
 		while (true) {
 			int var3 = var1.method8141();
-			if (0 == var3) {
+			if (var3 == 0) {
 				return;
 			}
 
@@ -32,7 +32,7 @@ public class class193 extends class437 {
 	}
 
 	void method3564(class460 var1, int var2) {
-		if (1 == var2) {
+		if (var2 == 1) {
 			byte var5 = var1.method8287();
 			int var6 = var5 & 255;
 			if (var6 == 0) {
@@ -41,7 +41,7 @@ public class class193 extends class437 {
 
 			if (var6 >= 128 && var6 < 160) {
 				char var7 = class349.field4270[var6 - 128];
-				if (0 == var7) {
+				if (var7 == 0) {
 					var7 = '?';
 				}
 
@@ -50,11 +50,11 @@ public class class193 extends class437 {
 
 			char var4 = (char)var6;
 			this.field2042 = var4;
-		} else if (2 == var2) {
+		} else if (var2 == 2) {
 			this.field2043 = var1.method8126();
 		} else if (var2 == 4) {
 			this.field2039 = false;
-		} else if (5 == var2) {
+		} else if (var2 == 5) {
 			this.field2041 = var1.method8131();
 		}
 

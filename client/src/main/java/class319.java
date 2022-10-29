@@ -65,14 +65,14 @@ public abstract class class319 {
 				}
 			}
 
-			this.field3737 = new int[1 + var9];
+			this.field3737 = new int[var9 + 1];
 			this.field3738 = new int[var9 + 1];
-			this.field3733 = new int[1 + var9];
+			this.field3733 = new int[var9 + 1];
 			this.field3740 = new int[var9 + 1][];
 			this.field3743 = new Object[var9 + 1];
 			this.field3747 = new Object[var9 + 1][];
-			if (0 != var7) {
-				this.field3735 = new int[1 + var9];
+			if (var7 != 0) {
+				this.field3735 = new int[var9 + 1];
 
 				for (var10 = 0; var10 < this.field3739; ++var10) {
 					this.field3735[this.field3734[var10]] = var5.method8126();
@@ -113,7 +113,7 @@ public abstract class class319 {
 						}
 					}
 
-					this.field3747[var11] = new Object[1 + var13];
+					this.field3747[var11] = new Object[var13 + 1];
 				}
 			} else {
 				for (var10 = 0; var10 < this.field3739; ++var10) {
@@ -130,12 +130,12 @@ public abstract class class319 {
 						}
 					}
 
-					this.field3747[var11] = new Object[1 + var13];
+					this.field3747[var11] = new Object[var13 + 1];
 				}
 			}
 
 			if (var7 != 0) {
-				this.field3741 = new int[1 + var9][];
+				this.field3741 = new int[var9 + 1][];
 				this.field3742 = new class476[var9 + 1];
 
 				for (var10 = 0; var10 < this.field3739; ++var10) {

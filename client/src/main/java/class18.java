@@ -33,7 +33,7 @@ public class class18 implements class360 {
 				var12 = var4 + var2 - var2 * var4;
 			}
 
-			double var14 = 2.0D * var4 - var12;
+			double var14 = var4 * 2.0D - var12;
 			double var16 = var0 + 0.3333333333333333D;
 			if (var16 > 1.0D) {
 				--var16;
@@ -44,11 +44,11 @@ public class class18 implements class360 {
 				++var20;
 			}
 
-			if (6.0D * var16 < 1.0D) {
+			if (var16 * 6.0D < 1.0D) {
 				var6 = var14 + var16 * (var12 - var14) * 6.0D;
-			} else if (2.0D * var16 < 1.0D) {
+			} else if (var16 * 2.0D < 1.0D) {
 				var6 = var12;
-			} else if (3.0D * var16 < 2.0D) {
+			} else if (var16 * 3.0D < 2.0D) {
 				var6 = 6.0D * (var12 - var14) * (0.6666666666666666D - var16) + var14;
 			} else {
 				var6 = var14;
@@ -64,9 +64,9 @@ public class class18 implements class360 {
 				var8 = var14;
 			}
 
-			if (6.0D * var20 < 1.0D) {
+			if (var20 * 6.0D < 1.0D) {
 				var10 = var20 * 6.0D * (var12 - var14) + var14;
-			} else if (2.0D * var20 < 1.0D) {
+			} else if (var20 * 2.0D < 1.0D) {
 				var10 = var12;
 			} else if (var20 * 3.0D < 2.0D) {
 				var10 = (0.6666666666666666D - var20) * (var12 - var14) * 6.0D + var14;
@@ -75,8 +75,8 @@ public class class18 implements class360 {
 			}
 		}
 
-		int var22 = (int)(256.0D * var6);
-		int var13 = (int)(256.0D * var8);
+		int var22 = (int)(var6 * 256.0D);
+		int var13 = (int)(var8 * 256.0D);
 		int var23 = (int)(var10 * 256.0D);
 		int var15 = (var13 << 8) + (var22 << 16) + var23;
 		return var15;
@@ -133,11 +133,11 @@ public class class18 implements class360 {
 
 	static int method221(int var0, class78 var1, boolean var2) {
 		class300 var4 = var2 ? class138.field1284 : class153.field1414;
-		if (var0 == 1800) {
+		if (var0 == CS2Opcodes.CC_GETTARGETMASK) {
 			class57.field404[++class387.field4452 - 1] = class290.method2693(class190.method3528(var4));
 			return 1;
-		} else if (var0 != 1801) {
-			if (var0 == 1802) {
+		} else if (var0 != CS2Opcodes.CC_GETOP) {
+			if (var0 == CS2Opcodes.CC_GETOPBASE) {
 				if (null == var4.field3545) {
 					class57.field405[++class126.field1220 - 1] = "";
 				} else {

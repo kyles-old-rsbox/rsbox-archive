@@ -121,7 +121,7 @@ public class class73 {
 						class343 var15 = client.field1865[class55.field396][var9][var10];
 						if (null != var15) {
 							var12 = var9 * 4 + 2 - class291.field3364.field827 / 32;
-							var13 = 2 + 4 * var10 - class291.field3364.field802 / 32;
+							var13 = 2 + var10 * 4 - class291.field3364.field802 / 32;
 							class275.method5224(var1, var2, var12, var13, class64.field505[0], var5);
 						}
 					}

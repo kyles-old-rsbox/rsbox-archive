@@ -37,7 +37,7 @@ public class class157 extends class175 {
 			this.field1438 = var4;
 			this.field1433 = var5;
 		} else if (this.field1434 > this.field1436[this.field1432]) {
-			this.field1438 = (int)((long)(2560 * var1) / (this.field1434 - this.field1436[this.field1432]));
+			this.field1438 = (int)((long)(var1 * 2560) / (this.field1434 - this.field1436[this.field1432]));
 		}
 
 		if (this.field1438 < 25) {
@@ -89,20 +89,20 @@ public class class157 extends class175 {
 			if (var2 >= 300 && var2 <= 313) {
 				var3 = (var2 - 300) / 2;
 				var4 = var2 & 1;
-				client.field1920.method6000(var3, 1 == var4);
+				client.field1920.method6000(var3, var4 == 1);
 			}
 
 			if (var2 >= 314 && var2 <= 323) {
 				var3 = (var2 - 314) / 2;
 				var4 = var2 & 1;
-				client.field1920.method6012(var3, 1 == var4);
+				client.field1920.method6012(var3, var4 == 1);
 			}
 
 			if (var2 == 324) {
 				client.field1920.method5999(0);
 			}
 
-			if (325 == var2) {
+			if (var2 == 325) {
 				client.field1920.method5999(1);
 			}
 

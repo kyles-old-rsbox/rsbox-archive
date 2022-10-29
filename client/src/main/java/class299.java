@@ -130,7 +130,7 @@ public class class299 extends class51 {
 	void method5844(class296 var1, int var2) {
 		if (0 != (this.field3443.field3181[var1.field3381] & 4) && var1.field3393 < 0) {
 			int var4 = this.field3443.field3186[var1.field3381] / class49.field348;
-			int var5 = (1048575 + var4 - var1.field3382) / var4;
+			int var5 = (var4 + 1048575 - var1.field3382) / var4;
 			var1.field3382 = var2 * var4 + var1.field3382 & 1048575;
 			if (var5 <= var2) {
 				if (0 == this.field3443.field3196[var1.field3381]) {

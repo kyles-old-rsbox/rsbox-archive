@@ -43,7 +43,7 @@ public final class class66 extends class212 {
 		this.field521 = var11;
 		this.field524 = false;
 		int var12 = class207.method803(this.field535).field2359;
-		if (-1 != var12) {
+		if (var12 != -1) {
 			this.field534 = class160.method2660(var12);
 		} else {
 			this.field534 = null;
@@ -77,7 +77,7 @@ public final class class66 extends class212 {
 		this.field524 = true;
 		this.field525 += this.field518 * (double)var1;
 		this.field514 += this.field529 * (double)var1;
-		this.field527 += this.field531 * (double)var1 + (double)var1 * 0.5D * this.field532 * (double)var1;
+		this.field527 += this.field531 * (double)var1 + (double)var1 * this.field532 * 0.5D * (double)var1;
 		this.field531 += this.field532 * (double)var1;
 		this.field519 = (int)(Math.atan2(this.field518, this.field529) * 325.949D) + 1024 & 2047;
 		this.field516 = (int)(Math.atan2(this.field531, this.field530) * 325.949D) & 2047;

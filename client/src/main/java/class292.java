@@ -63,7 +63,7 @@ public class class292 extends class427 {
 			}
 		}
 
-		var4 += 5 * var5;
+		var4 += var5 * 5;
 		var4 += 2 * (var7 + var8 + var6 + var9 + var11);
 		var4 += var10 + var12;
 		var13 = var1.field4878;
@@ -223,7 +223,7 @@ public class class292 extends class427 {
 						var52 ^= var64 >> 4;
 						if (var62 == 0) {
 							if (var65) {
-								var51.method8104(144 + var52);
+								var51.method8104(var52 + 144);
 							}
 
 							var53 += var1.field4881[var37++];
@@ -232,7 +232,7 @@ public class class292 extends class427 {
 							var51.method8104(var54 & 127);
 						} else if (var62 == 1) {
 							if (var65) {
-								var51.method8104(128 + var52);
+								var51.method8104(var52 + 128);
 							}
 
 							var53 += var1.field4881[var37++];
@@ -241,7 +241,7 @@ public class class292 extends class427 {
 							var51.method8104(var55 & 127);
 						} else if (var62 == 2) {
 							if (var65) {
-								var51.method8104(176 + var52);
+								var51.method8104(var52 + 176);
 							}
 
 							var28 = var28 + var1.field4881[var15++] & 127;
@@ -282,7 +282,7 @@ public class class292 extends class427 {
 							var51.method8104(var67 & 127);
 						} else if (var62 == 3) {
 							if (var65) {
-								var51.method8104(224 + var52);
+								var51.method8104(var52 + 224);
 							}
 
 							var56 += var1.field4881[var45++];
@@ -291,14 +291,14 @@ public class class292 extends class427 {
 							var51.method8104(var56 >> 7 & 127);
 						} else if (var62 == 4) {
 							if (var65) {
-								var51.method8104(208 + var52);
+								var51.method8104(var52 + 208);
 							}
 
 							var57 += var1.field4881[var32++];
 							var51.method8104(var57 & 127);
 						} else if (var62 == 5) {
 							if (var65) {
-								var51.method8104(160 + var52);
+								var51.method8104(var52 + 160);
 							}
 
 							var53 += var1.field4881[var37++];
@@ -311,7 +311,7 @@ public class class292 extends class427 {
 							}
 
 							if (var65) {
-								var51.method8104(192 + var52);
+								var51.method8104(var52 + 192);
 							}
 
 							var51.method8104(var1.field4881[var44++]);

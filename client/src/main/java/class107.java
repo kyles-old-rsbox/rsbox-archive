@@ -22,15 +22,15 @@ public class class107 {
 			var2 = (byte)var0;
 		} else if (var0 == 8364) {
 			var2 = -128;
-		} else if (8218 == var0) {
+		} else if (var0 == 8218) {
 			var2 = -126;
-		} else if (402 == var0) {
+		} else if (var0 == 402) {
 			var2 = -125;
-		} else if (8222 == var0) {
+		} else if (var0 == 8222) {
 			var2 = -124;
-		} else if (8230 == var0) {
+		} else if (var0 == 8230) {
 			var2 = -123;
-		} else if (8224 == var0) {
+		} else if (var0 == 8224) {
 			var2 = -122;
 		} else if (var0 == 8225) {
 			var2 = -121;
@@ -44,13 +44,13 @@ public class class107 {
 			var2 = -117;
 		} else if (var0 == 338) {
 			var2 = -116;
-		} else if (381 == var0) {
+		} else if (var0 == 381) {
 			var2 = -114;
 		} else if (var0 == 8216) {
 			var2 = -111;
-		} else if (8217 == var0) {
+		} else if (var0 == 8217) {
 			var2 = -110;
-		} else if (8220 == var0) {
+		} else if (var0 == 8220) {
 			var2 = -109;
 		} else if (var0 == 8221) {
 			var2 = -108;
@@ -60,19 +60,19 @@ public class class107 {
 			var2 = -106;
 		} else if (var0 == 8212) {
 			var2 = -105;
-		} else if (732 == var0) {
+		} else if (var0 == 732) {
 			var2 = -104;
 		} else if (var0 == 8482) {
 			var2 = -103;
 		} else if (var0 == 353) {
 			var2 = -102;
-		} else if (8250 == var0) {
+		} else if (var0 == 8250) {
 			var2 = -101;
-		} else if (339 == var0) {
+		} else if (var0 == 339) {
 			var2 = -100;
 		} else if (var0 == 382) {
 			var2 = -98;
-		} else if (376 == var0) {
+		} else if (var0 == 376) {
 			var2 = -97;
 		} else {
 			var2 = 63;

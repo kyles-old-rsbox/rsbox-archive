@@ -70,9 +70,9 @@ public class class348 {
 	}
 
 	public final void method6429(int var1, int var2, class473 var3, float var4) {
-		int var6 = (int)(18.0F * var4);
+		int var6 = (int)(var4 * 18.0F);
 		class473 var7 = this.method6430(var6);
-		int var8 = 2 * var6 + 1;
+		int var8 = var6 * 2 + 1;
 		class407 var9 = new class407(0, 0, var3.field4959, var3.field4951);
 		class407 var10 = new class407(0, 0);
 		this.field4263.method7374(var8, var8);
@@ -150,7 +150,7 @@ public class class348 {
 		} else if (var0 >= 160 && var0 <= 255) {
 			return true;
 		} else {
-			return var0 == 8364 || 338 == var0 || 8212 == var0 || 339 == var0 || var0 == 376;
+			return var0 == 8364 || var0 == 338 || var0 == 8212 || var0 == 339 || var0 == 376;
 		}
 	}
 }

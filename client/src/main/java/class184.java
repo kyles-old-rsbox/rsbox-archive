@@ -36,7 +36,7 @@ public class class184 extends class437 {
 	}
 
 	void method3403(class460 var1, int var2) {
-		if (1 == var2) {
+		if (var2 == 1) {
 			this.field1945 = var1.method8122();
 			this.field1946 = var1.method8141();
 			this.field1948 = var1.method8141();

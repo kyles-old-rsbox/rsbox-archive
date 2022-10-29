@@ -54,7 +54,7 @@ public class class335 extends class437 {
 				int var8;
 				int var9;
 				if (var6 > var7) {
-					var8 = 65536 * var7 / var6;
+					var8 = var7 * 65536 / var6;
 					var9 = 32768;
 
 					while (var2 != var4) {

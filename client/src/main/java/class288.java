@@ -72,7 +72,7 @@ public class class288 extends class427 {
 
 			for (var14 = 2; var14 < var9; ++var14) {
 				int var15 = var2.method8141();
-				if (0 == var15) {
+				if (var15 == 0) {
 					var13 = var12++;
 				} else {
 					if (var15 <= var13) {
@@ -95,7 +95,7 @@ public class class288 extends class427 {
 			var38 = var37[var14] = new class286();
 			int var16 = var2.method8141();
 			if (var16 > 0) {
-				var38.field3341 = new byte[2 * var16];
+				var38.field3341 = new byte[var16 * 2];
 			}
 
 			var16 = var2.method8141();
@@ -106,9 +106,9 @@ public class class288 extends class427 {
 		}
 
 		var14 = var2.method8141();
-		byte[] var45 = var14 > 0 ? new byte[2 * var14] : null;
+		byte[] var45 = var14 > 0 ? new byte[var14 * 2] : null;
 		var14 = var2.method8141();
-		byte[] var39 = var14 > 0 ? new byte[2 * var14] : null;
+		byte[] var39 = var14 > 0 ? new byte[var14 * 2] : null;
 
 		int var17;
 		for (var17 = 0; var2.field4881[var17 + var2.field4878] != 0; ++var17) {
@@ -146,7 +146,7 @@ public class class288 extends class427 {
 
 		int var23;
 		for (var23 = 0; var23 < 128; ++var23) {
-			if (0 == var20) {
+			if (var20 == 0) {
 				if (var21 < var18.length) {
 					var20 = var18[var21++];
 				} else {
@@ -232,7 +232,7 @@ public class class288 extends class427 {
 
 		int var27;
 		for (var27 = 0; var27 < 128; ++var27) {
-			if (0 == var20) {
+			if (var20 == 0) {
 				if (var21 < var18.length) {
 					var20 = var18[var21++];
 				} else {
@@ -285,7 +285,7 @@ public class class288 extends class427 {
 				var19 = 0;
 
 				for (var29 = 2; var29 < var28.field3339.length; var29 += 2) {
-					var19 = 1 + var19 + var2.method8141();
+					var19 = var19 + 1 + var2.method8141();
 					var28.field3339[var29] = (byte)var19;
 				}
 			}
@@ -297,7 +297,7 @@ public class class288 extends class427 {
 				var19 = 0;
 
 				for (var29 = 2; var29 < var28.field3341.length; var29 += 2) {
-					var19 = 1 + var19 + var2.method8141();
+					var19 = var19 + 1 + var2.method8141();
 					var28.field3341[var29] = (byte)var19;
 				}
 			}
@@ -327,7 +327,7 @@ public class class288 extends class427 {
 
 			for (var29 = 2; var29 < var45.length; var29 += 2) {
 				var30 = var45[var29];
-				byte var31 = var45[1 + var29];
+				byte var31 = var45[var29 + 1];
 				var32 = (var30 - var44) * var41 + (var30 - var44) / 2;
 
 				for (var33 = var44; var33 < var30; ++var33) {
@@ -375,7 +375,7 @@ public class class288 extends class427 {
 			int var43;
 			for (var29 = 2; var29 < var39.length; var29 += 2) {
 				var30 = var39[var29];
-				var43 = var39[1 + var29] << 1;
+				var43 = var39[var29 + 1] << 1;
 				var32 = (var30 - var44) / 2 + var47 * (var30 - var44);
 
 				for (var33 = var44; var33 < var30; ++var33) {

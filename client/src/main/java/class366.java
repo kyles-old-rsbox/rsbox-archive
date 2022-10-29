@@ -41,7 +41,6 @@ public final class class366 {
 	}
 
 	public Object method6684(Object var1) {
-		Object var10000;
 		synchronized(this) {
 			if (this.field4340 != -1L) {
 				this.method6687();
@@ -49,19 +48,15 @@ public final class class366 {
 
 			class371 var4 = (class371)this.field4338.get(var1);
 			if (var4 == null) {
-				var10000 = null;
-				return var10000;
+				return null;
+			} else {
+				this.method6691(var4, false);
+				return var4.field4374;
 			}
-
-			this.method6691(var4, false);
-			var10000 = var4.field4374;
 		}
-
-		return var10000;
 	}
 
 	public Object method6685(Object var1, Object var2) {
-		Object var10000;
 		synchronized(this) {
 			if (this.field4340 != -1L) {
 				this.method6687();
@@ -72,24 +67,21 @@ public final class class366 {
 				Object var9 = var5.field4374;
 				var5.field4374 = var2;
 				this.method6691(var5, false);
-				var10000 = var9;
-				return var10000;
-			}
+				return var9;
+			} else {
+				class371 var6;
+				if (this.method6690() && this.field4338.size() == this.field4343) {
+					var6 = (class371)this.field4339.remove();
+					this.field4338.remove(var6.field4370);
+					this.field4337.remove(var6);
+				}
 
-			class371 var6;
-			if (this.method6690() && this.field4338.size() == this.field4343) {
-				var6 = (class371)this.field4339.remove();
-				this.field4338.remove(var6.field4370);
-				this.field4337.remove(var6);
+				var6 = new class371(var2, var1);
+				this.field4338.put(var1, var6);
+				this.method6691(var6, true);
+				return null;
 			}
-
-			var6 = new class371(var2, var1);
-			this.field4338.put(var1, var6);
-			this.method6691(var6, true);
-			var10000 = null;
 		}
-
-		return var10000;
 	}
 
 	void method6691(class371 var1, boolean var2) {

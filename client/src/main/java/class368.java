@@ -8,7 +8,7 @@ public class class368 {
 	public static int method6733(float[] var0, int var1, float var2, boolean var3, float var4, boolean var5, float[] var6) {
 		float var8 = 0.0F;
 
-		for (int var9 = 0; var9 < 1 + var1; ++var9) {
+		for (int var9 = 0; var9 < var1 + 1; ++var9) {
 			var8 += Math.abs(var0[var9]);
 		}
 
@@ -46,7 +46,7 @@ public class class368 {
 				return var11;
 			} else {
 				class405 var22 = new class405(var10, var1);
-				float[] var23 = new float[1 + var1];
+				float[] var23 = new float[var1 + 1];
 
 				for (int var14 = 1; var14 <= var1; ++var14) {
 					var23[var14 - 1] = var10[var14] * (float)var14;
@@ -54,7 +54,7 @@ public class class368 {
 
 				float[] var24 = new float[var1 + 1];
 				int var15 = method6733(var23, var1 - 1, var2, false, var4, false, var24);
-				if (-1 == var15) {
+				if (var15 == -1) {
 					return 0;
 				} else {
 					boolean var16 = false;
@@ -68,7 +68,7 @@ public class class368 {
 						}
 
 						float var17;
-						if (0 == var21) {
+						if (var21 == 0) {
 							var17 = var2;
 							var19 = class405.method45(var10, var1, var2);
 							if (Math.abs(var19) <= var25 && var3) {

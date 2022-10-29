@@ -16,15 +16,15 @@ public class class61 extends class212 {
 
 		for (int var4 = 0; var4 < var2; ++var4) {
 			char var5 = var0.charAt(var4);
-			if ((var5 < 'a' || var5 > 'z') && (var5 < 'A' || var5 > 'Z') && (var5 < '0' || var5 > '9') && var5 != '.' && var5 != '-' && var5 != '*' && '_' != var5) {
-				if (' ' == var5) {
+			if ((var5 < 'a' || var5 > 'z') && (var5 < 'A' || var5 > 'Z') && (var5 < '0' || var5 > '9') && var5 != '.' && var5 != '-' && var5 != '*' && var5 != '_') {
+				if (var5 == ' ') {
 					var3.append('+');
 				} else {
 					byte var6 = class107.method2099(var5);
 					var3.append('%');
 					int var7 = var6 >> 4 & 15;
 					if (var7 >= 10) {
-						var3.append((char)(55 + var7));
+						var3.append((char)(var7 + 55));
 					} else {
 						var3.append((char)(var7 + 48));
 					}
@@ -33,7 +33,7 @@ public class class61 extends class212 {
 					if (var7 >= 10) {
 						var3.append((char)(var7 + 55));
 					} else {
-						var3.append((char)(48 + var7));
+						var3.append((char)(var7 + 48));
 					}
 				}
 			} else {
@@ -136,7 +136,7 @@ public class class61 extends class212 {
 			int var5 = this.field485 + (var3 >> 1);
 			int var6 = this.field485 + (var3 + 1 >> 1);
 			int var7 = (var4 >> 1) + this.field486;
-			int var8 = this.field486 + (1 + var4 >> 1);
+			int var8 = this.field486 + (var4 + 1 >> 1);
 			int[][] var9 = class82.field719[this.field487];
 			int var10 = var9[var6][var7] + var9[var5][var7] + var9[var5][var8] + var9[var6][var8] >> 2;
 			int var11 = (this.field485 << 7) + (var3 << 6);

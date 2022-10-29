@@ -44,17 +44,14 @@ public class class13 {
 		} else if (!this.method107()) {
 			return null;
 		} else {
-			class9 var10000;
 			try {
-				var10000 = (class9)this.field63.get();
+				return (class9)this.field63.get();
 			} catch (Exception var4) {
 				String var3 = "Error retrieving REST request reply";
 				System.err.println(var3 + "\r\n" + var4);
 				this.method105(var3);
 				return new class9(var3);
 			}
-
-			return var10000;
 		}
 	}
 
@@ -67,8 +64,8 @@ public class class13 {
 
 			for (int var8 = 0; var8 < var7; ++var8) {
 				char var9 = var0.charAt(var8);
-				if (0 == var8) {
-					if ('-' == var9) {
+				if (var8 == 0) {
+					if (var9 == '-') {
 						var4 = true;
 						continue;
 					}

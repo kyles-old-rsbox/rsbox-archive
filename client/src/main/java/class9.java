@@ -115,7 +115,7 @@ public class class9 {
 				class460 var9 = new class460(var8);
 				var0.method8333(var8, 0, var7);
 				class102.field1011[var3] = var9;
-				var4.decodeAppearance(var9);
+				var4.method1906(var9);
 			}
 
 			if ((var5 & 4096) != 0) {
@@ -125,7 +125,7 @@ public class class9 {
 			int var15;
 			if (0 != (var5 & 8)) {
 				var7 = var0.method8202();
-				if (65535 == var7) {
+				if (var7 == 65535) {
 					var7 = -1;
 				}
 
@@ -189,7 +189,7 @@ public class class9 {
 						var11 = -1;
 						var12 = -1;
 						var16 = var0.method8207();
-						if (32767 == var16) {
+						if (var16 == 32767) {
 							var16 = var0.method8207();
 							var11 = var0.method8207();
 							var10 = var0.method8207();
@@ -210,7 +210,7 @@ public class class9 {
 					for (var16 = 0; var16 < var15; ++var16) {
 						var10 = var0.method8207();
 						var11 = var0.method8207();
-						if (32767 != var11) {
+						if (var11 != 32767) {
 							var12 = var0.method8207();
 							var13 = var0.method8341();
 							var14 = var11 > 0 ? var0.method8141() : var13;
@@ -316,17 +316,17 @@ public class class9 {
 				class133.field1257.method472();
 			}
 
-			if (20 == var0 || 40 == var0 || 45 == var0 || var0 == 50) {
+			if (var0 == 20 || var0 == 40 || var0 == 45 || var0 == 50) {
 				class43.method801(0);
 				client.field1668 = 0;
 				client.field1669 = 0;
 				client.field1698.method6843(var0);
-				if (20 != var0) {
+				if (var0 != 20) {
 					class49.method996(false);
 				}
 			}
 
-			if (20 != var0 && var0 != 40 && null != class218.field2589) {
+			if (var0 != 20 && var0 != 40 && null != class218.field2589) {
 				class218.field2589.method7259();
 				class218.field2589 = null;
 			}
@@ -340,12 +340,12 @@ public class class9 {
 			}
 
 			if (var0 != 5 && var0 != 10) {
-				if (20 == var0) {
+				if (var0 == 20) {
 					int var4 = 11 == client.field1766 ? 4 : 0;
 					class404.method7362(class243.field2846, class155.field1425, false, var4);
 				} else if (var0 == 11) {
 					class404.method7362(class243.field2846, class155.field1425, false, 4);
-				} else if (50 == var0) {
+				} else if (var0 == 50) {
 					class75.method5452("", "Updating date of birth...", "");
 					class404.method7362(class243.field2846, class155.field1425, false, 7);
 				} else {
@@ -421,15 +421,15 @@ public class class9 {
 		for (var13 = 0; var13 < 5; ++var13) {
 			if (client.field1699[var13]) {
 				var14 = (int)(Math.random() * (double)(1 + 2 * client.field1903[var13]) - (double)client.field1903[var13] + Math.sin((double)client.field1905[var13] / 100.0D * (double)client.field1906[var13]) * (double)client.field1808[var13]);
-				if (0 == var13) {
+				if (var13 == 0) {
 					class215.field2568 += var14;
 				}
 
-				if (1 == var13) {
+				if (var13 == 1) {
 					class32.field204 += var14;
 				}
 
-				if (2 == var13) {
+				if (var13 == 2) {
 					class323.field3766 += var14;
 				}
 
@@ -437,7 +437,7 @@ public class class9 {
 					class237.field2807 = var14 + class237.field2807 & 2047;
 				}
 
-				if (4 == var13) {
+				if (var13 == 4) {
 					class414.field4588 += var14;
 					if (class414.field4588 < 128) {
 						class414.field4588 = 128;
@@ -498,7 +498,7 @@ public class class9 {
 		if (client.field1828) {
 			byte var17 = 0;
 			int var19 = var17 + class324.field3780 + class324.field3778;
-			if (0 == var19) {
+			if (var19 == 0) {
 				client.field1828 = false;
 			}
 		}

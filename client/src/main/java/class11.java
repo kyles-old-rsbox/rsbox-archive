@@ -27,7 +27,7 @@ public final class class11 extends Canvas {
 			if (var1 && var0 >= 0) {
 				int var5 = 2;
 
-				for (int var6 = var0 / 10; 0 != var6; ++var5) {
+				for (int var6 = var0 / 10; var6 != 0; ++var5) {
 					var6 /= 10;
 				}
 
@@ -59,21 +59,21 @@ public final class class11 extends Canvas {
 	static int method84(int var0, class78 var1, boolean var2) {
 		int var4;
 		int var5;
-		if (var0 == 100) {
+		if (var0 == CS2Opcodes.CC_CREATE) {
 			class387.field4452 -= 3;
 			var4 = class57.field404[class387.field4452];
 			var5 = class57.field404[1 + class387.field4452];
 			int var6 = class57.field404[class387.field4452 + 2];
-			if (0 == var5) {
+			if (var5 == 0) {
 				throw new RuntimeException();
 			} else {
 				class300 var7 = class282.method5426(var4);
 				if (null == var7.field3602) {
-					var7.field3602 = new class300[1 + var6];
+					var7.field3602 = new class300[var6 + 1];
 				}
 
 				if (var7.field3602.length <= var6) {
-					class300[] var8 = new class300[1 + var6];
+					class300[] var8 = new class300[var6 + 1];
 
 					for (int var9 = 0; var9 < var7.field3602.length; ++var9) {
 						var8[var9] = var7.field3602[var9];
@@ -109,19 +109,19 @@ public final class class11 extends Canvas {
 			}
 		} else {
 			class300 var10;
-			if (var0 == 101) {
+			if (var0 == CS2Opcodes.CC_DELETE) {
 				var10 = var2 ? class138.field1284 : class153.field1414;
 				class300 var11 = class282.method5426(var10.field3517);
 				var11.field3602[var10.field3484] = null;
 				class136.method2438(var11);
 				return 1;
-			} else if (var0 == 102) {
+			} else if (var0 == CS2Opcodes.CC_DELETEALL) {
 				var10 = class282.method5426(class57.field404[--class387.field4452]);
 				var10.field3602 = null;
 				class136.method2438(var10);
 				return 1;
-			} else if (var0 != 200) {
-				if (var0 == 201) {
+			} else if (var0 != CS2Opcodes.CC_FIND) {
+				if (var0 == CS2Opcodes.IF_FIND) {
 					var10 = class282.method5426(class57.field404[--class387.field4452]);
 					if (null != var10) {
 						class57.field404[++class387.field4452 - 1] = 1;
@@ -143,7 +143,7 @@ public final class class11 extends Canvas {
 				var4 = class57.field404[class387.field4452];
 				var5 = class57.field404[1 + class387.field4452];
 				class300 var12 = class253.method5043(var4, var5);
-				if (var12 != null && -1 != var5) {
+				if (var12 != null && var5 != -1) {
 					class57.field404[++class387.field4452 - 1] = 1;
 					if (var2) {
 						class138.field1284 = var12;
@@ -168,7 +168,7 @@ public final class class11 extends Canvas {
 						break;
 					}
 
-					var0 = var0.substring(0, var4) + class176.method2812(class262.method5150(var1, var3 - 1)) + var0.substring(2 + var4);
+					var0 = var0.substring(0, var4) + class176.method2812(class262.method5150(var1, var3 - 1)) + var0.substring(var4 + 2);
 				}
 			}
 		}

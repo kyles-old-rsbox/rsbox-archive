@@ -60,15 +60,15 @@ public class class306 implements class360 {
 
 	static int method6032(int var0, class78 var1, boolean var2) {
 		int var4;
-		if (var0 == 3500) {
+		if (var0 == CS2Opcodes.KEYHELD) {
 			var4 = class57.field404[--class387.field4452];
 			class57.field404[++class387.field4452 - 1] = client.field1876.method3895(var4) ? 1 : 0;
 			return 1;
-		} else if (var0 == 3501) {
+		} else if (var0 == CS2Opcodes.KEYPRESSED) {
 			var4 = class57.field404[--class387.field4452];
 			class57.field404[++class387.field4452 - 1] = client.field1876.method3919(var4) ? 1 : 0;
 			return 1;
-		} else if (3502 == var0) {
+		} else if (var0 == CS2Opcodes.KEYRELEASED) {
 			var4 = class57.field404[--class387.field4452];
 			class57.field404[++class387.field4452 - 1] = client.field1876.method3900(var4) ? 1 : 0;
 			return 1;

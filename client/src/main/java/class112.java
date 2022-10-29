@@ -199,21 +199,21 @@ public class class112 extends class437 {
 			class75.method5452(class338.field4096, class338.field3940, class338.field3968);
 		} else if (var0 == -1) {
 			class75.method5452(class338.field4084, class338.field3919, class338.field3944);
-		} else if (3 == var0) {
+		} else if (var0 == 3) {
 			class74.method1490(3);
 			class75.field646 = 1;
-		} else if (4 == var0) {
+		} else if (var0 == 4) {
 			class74.method1490(14);
 			class75.field628 = 0;
-		} else if (5 == var0) {
+		} else if (var0 == 5) {
 			class75.field646 = 2;
 			class75.method5452(class338.field3948, class338.field4194, class338.field4100);
-		} else if (var0 != 68 && (client.field1640 || 6 != var0)) {
-			if (7 == var0) {
+		} else if (var0 != 68 && (client.field1640 || var0 != 6)) {
+			if (var0 == 7) {
 				class75.method5452(class338.field3954, class338.field3955, class338.field3956);
 			} else if (var0 == 8) {
 				class75.method5452(class338.field3957, class338.field3958, class338.field3959);
-			} else if (9 == var0) {
+			} else if (var0 == 9) {
 				class75.method5452(class338.field4051, class338.field4091, class338.field4170);
 			} else if (var0 == 10) {
 				class75.method5452(class338.field4116, class338.field3964, class338.field4168);
@@ -221,20 +221,20 @@ public class class112 extends class437 {
 				class75.method5452(class338.field4212, class338.field3967, class338.field4122);
 			} else if (var0 == 12) {
 				class75.method5452(class338.field3969, class338.field3970, class338.field3971);
-			} else if (13 == var0) {
+			} else if (var0 == 13) {
 				class75.method5452(class338.field3904, class338.field4002, class338.field3974);
-			} else if (14 == var0) {
+			} else if (var0 == 14) {
 				class75.method5452(class338.field3975, class338.field3906, class338.field3977);
 			} else if (var0 == 16) {
 				class75.method5452(class338.field3978, class338.field3979, class338.field3980);
-			} else if (17 == var0) {
+			} else if (var0 == 17) {
 				class75.method5452(class338.field4073, class338.field4018, class338.field3983);
-			} else if (18 == var0) {
+			} else if (var0 == 18) {
 				class74.method1490(14);
 				class75.field628 = 1;
 			} else if (var0 == 19) {
 				class75.method5452(class338.field4016, class338.field3962, class338.field3989);
-			} else if (20 == var0) {
+			} else if (var0 == 20) {
 				class75.method5452(class338.field3990, class338.field4179, class338.field3972);
 			} else if (var0 == 22) {
 				class75.method5452(class338.field4145, class338.field3994, class338.field3995);
@@ -244,9 +244,9 @@ public class class112 extends class437 {
 				class75.method5452(class338.field3999, class338.field4000, class338.field4001);
 			} else if (var0 == 25) {
 				class75.method5452(class338.field4023, class338.field4003, class338.field4209);
-			} else if (26 == var0) {
+			} else if (var0 == 26) {
 				class75.method5452(class338.field4005, class338.field4006, class338.field4007);
-			} else if (27 == var0) {
+			} else if (var0 == 27) {
 				class75.method5452(class338.field3920, class338.field4009, class338.field4141);
 			} else if (var0 == 31) {
 				class75.method5452(class338.field4017, class338.field3941, class338.field4164);
@@ -257,22 +257,22 @@ public class class112 extends class437 {
 				class75.method5452(class338.field4008, class338.field4024, class338.field4025);
 			} else if (var0 == 38) {
 				class75.method5452(class338.field4026, class338.field4027, class338.field4127);
-			} else if (55 == var0) {
+			} else if (var0 == 55) {
 				class74.method1490(8);
 			} else {
-				if (56 == var0) {
+				if (var0 == 56) {
 					class75.method5452(class338.field4161, class338.field4034, class338.field3976);
 					class9.method64(11);
 					return;
 				}
 
-				if (57 == var0) {
+				if (var0 == 57) {
 					class75.method5452(class338.field4085, class338.field4191, class338.field4038);
 					class9.method64(11);
 					return;
 				}
 
-				if (61 == var0) {
+				if (var0 == 61) {
 					class75.method5452("", "Please enter your date of birth (DD/MM/YYYY)", "");
 					class74.method1490(7);
 				} else {
@@ -283,14 +283,14 @@ public class class112 extends class437 {
 						return;
 					}
 
-					if (63 == var0) {
+					if (var0 == 63) {
 						class9.method64(10);
 						class74.method1490(9);
 						class75.method5452(class338.field4042, class338.field4043, class338.field4044);
 						return;
 					}
 
-					if (var0 == 65 || 67 == var0) {
+					if (var0 == 65 || var0 == 67) {
 						class9.method64(10);
 						class74.method1490(9);
 						class75.method5452(class338.field4045, class338.field4046, class338.field4047);

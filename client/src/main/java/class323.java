@@ -24,7 +24,7 @@ public class class323 {
 			var5 = var2 ? class138.field1284 : class153.field1414;
 		}
 
-		if (var0 == 1000) {
+		if (var0 == CS2Opcodes.CC_SETPOSITION) {
 			class387.field4452 -= 4;
 			var5.field3469 = class57.field404[class387.field4452];
 			var5.field3470 = class57.field404[class387.field4452 + 1];
@@ -37,7 +37,7 @@ public class class323 {
 			}
 
 			return 1;
-		} else if (var0 == 1001) {
+		} else if (var0 == CS2Opcodes.CC_SETSIZE) {
 			class387.field4452 -= 4;
 			var5.field3486 = class57.field404[class387.field4452];
 			var5.field3472 = class57.field404[1 + class387.field4452];
@@ -45,12 +45,12 @@ public class class323 {
 			var5.field3468 = class57.field404[3 + class387.field4452];
 			class136.method2438(var5);
 			class133.field1257.method2893(var5);
-			if (-1 != var4 && 0 == var5.field3462) {
+			if (var4 != -1 && 0 == var5.field3462) {
 				class26.method349(class300.field3593[var4 >> 16], var5, false);
 			}
 
 			return 1;
-		} else if (1003 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETHIDE) {
 			boolean var6 = class57.field404[--class387.field4452] == 1;
 			if (var6 != var5.field3480) {
 				var5.field3480 = var6;
@@ -58,10 +58,10 @@ public class class323 {
 			}
 
 			return 1;
-		} else if (var0 == 1005) {
+		} else if (var0 == CS2Opcodes.CC_SETNOCLICKTHROUGH) {
 			var5.field3539 = class57.field404[--class387.field4452] == 1;
 			return 1;
-		} else if (1006 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETNOSCROLLTHROUGH) {
 			var5.field3449 = class57.field404[--class387.field4452] == 1;
 			return 1;
 		} else {

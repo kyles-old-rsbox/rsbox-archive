@@ -23,8 +23,8 @@ public class class26 implements ThreadFactory {
 	}
 
 	static void method349(class300[] var0, class300 var1, boolean var2) {
-		int var4 = 0 != var1.field3483 ? -26574507 * var1.field3483 * -1710132227 : 1582083079 * var1.field3448 * -904724041;
-		int var5 = 0 != var1.field3492 ? 1173980451 * var1.field3492 * -1403334005 : var1.field3476 * 1629686099 * 1708008155;
+		int var4 = 0 != var1.field3483 ? var1.field3483 : var1.field3448;
+		int var5 = 0 != var1.field3492 ? var1.field3492 : var1.field3476;
 		class256.method5126(var0, var1.field3517, var4, var5, var2);
 		if (null != var1.field3602) {
 			class256.method5126(var1.field3602, var1.field3517, var4, var5, var2);

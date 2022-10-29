@@ -32,7 +32,7 @@ public class class252 implements class360 {
 		int var3 = class190.method3528(var0);
 		int var2 = var3 >> 17 & 7;
 		int var4 = var2;
-		if (0 == var2) {
+		if (var2 == 0) {
 			return null;
 		} else {
 			for (int var5 = 0; var5 < var4; ++var5) {

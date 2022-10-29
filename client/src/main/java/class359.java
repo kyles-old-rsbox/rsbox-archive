@@ -68,11 +68,11 @@ public final class class359 {
 		StringBuilder var15 = new StringBuilder();
 
 		int var18;
-		for (int var16 = 0; var16 < 0 + var14; var16 += 3) {
+		for (int var16 = 0; var16 < var14 + 0; var16 += 3) {
 			int var17 = var12[var16] & 255;
 			var15.append(class351.field4277[var17 >>> 2]);
 			if (var16 < var14 - 1) {
-				var18 = var12[1 + var16] & 255;
+				var18 = var12[var16 + 1] & 255;
 				var15.append(class351.field4277[(var17 & 3) << 4 | var18 >>> 4]);
 				if (var16 < var14 - 2) {
 					int var19 = var12[var16 + 2] & 255;
@@ -100,7 +100,6 @@ public final class class359 {
 			InputStream var22 = var25.getInputStream();
 			var10 = new class460(new byte[1000]);
 
-			byte var10000;
 			do {
 				var18 = var22.read(var10.field4881, var10.field4878, 1000 - var10.field4878);
 				if (var18 == -1) {
@@ -108,47 +107,34 @@ public final class class359 {
 					var22.close();
 					String var23 = new String(var10.field4881);
 					if (var23.startsWith("OFFLINE")) {
-						var10000 = 4;
-						return var10000;
+						return 4;
+					} else if (var23.startsWith("WRONG")) {
+						return 7;
+					} else if (var23.startsWith("RELOAD")) {
+						return 3;
+					} else if (var23.startsWith("Not permitted for social network accounts.")) {
+						return 6;
+					} else {
+						var10.method8144(var7);
+
+						while (var10.field4878 > 0 && 0 == var10.field4881[var10.field4878 - 1]) {
+							--var10.field4878;
+						}
+
+						var23 = new String(var10.field4881, 0, var10.field4878);
+						if (class81.method1622(var23)) {
+							class115.method2229(var23, true, false);
+							return 2;
+						} else {
+							return 5;
+						}
 					}
-
-					if (var23.startsWith("WRONG")) {
-						var10000 = 7;
-						return var10000;
-					}
-
-					if (var23.startsWith("RELOAD")) {
-						var10000 = 3;
-						return var10000;
-					}
-
-					if (var23.startsWith("Not permitted for social network accounts.")) {
-						var10000 = 6;
-						return var10000;
-					}
-
-					var10.method8144(var7);
-
-					while (var10.field4878 > 0 && 0 == var10.field4881[var10.field4878 - 1]) {
-						--var10.field4878;
-					}
-
-					var23 = new String(var10.field4881, 0, var10.field4878);
-					if (class81.method1622(var23)) {
-						class115.method2229(var23, true, false);
-						var10000 = 2;
-						return var10000;
-					}
-
-					var10000 = 5;
-					return var10000;
 				}
 
 				var10.field4878 += var18;
 			} while(var10.field4878 < 1000);
 
-			var10000 = 5;
-			return var10000;
+			return 5;
 		} catch (Throwable var24) {
 			var24.printStackTrace();
 			return 5;

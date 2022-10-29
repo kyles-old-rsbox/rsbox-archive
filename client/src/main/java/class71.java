@@ -12,7 +12,7 @@ public class class71 {
 		class63 var6 = this.field579[99];
 
 		for (int var7 = this.field576; var7 > 0; --var7) {
-			if (100 != var7) {
+			if (var7 != 100) {
 				this.field579[var7] = this.field579[var7 - 1];
 			}
 		}
@@ -44,7 +44,7 @@ public class class71 {
 	public static final class473 method1436(int var0, int var1, int var2, int var3, int var4, boolean var5) {
 		if (var1 == -1) {
 			var4 = 0;
-		} else if (2 == var4 && var1 != 1) {
+		} else if (var4 == 2 && var1 != 1) {
 			var4 = 1;
 		}
 
@@ -67,7 +67,7 @@ public class class71 {
 				}
 			}
 
-			if (-1 != var11) {
+			if (var11 != -1) {
 				var10 = class278.method5388(var11);
 			}
 		}
@@ -112,7 +112,7 @@ public class class71 {
 			int var17 = var10.field2144;
 			if (var5) {
 				var17 = (int)((double)var17 * 1.5D);
-			} else if (2 == var2) {
+			} else if (var2 == 2) {
 				var17 = (int)((double)var17 * 1.04D);
 			}
 
@@ -132,7 +132,7 @@ public class class71 {
 				var9.method8518(16777215);
 			}
 
-			if (0 != var3) {
+			if (var3 != 0) {
 				var9.method8482(var3);
 			}
 
@@ -141,7 +141,7 @@ public class class71 {
 				var23.method8526(0, 0);
 			}
 
-			if (1 == var4 || 2 == var4 && var10.field2142 == 1) {
+			if (var4 == 1 || var4 == 2 && var10.field2142 == 1) {
 				class376 var20 = class145.field1336;
 				String var21;
 				if (var1 < 100000) {

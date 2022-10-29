@@ -15,18 +15,14 @@ public class class53 {
 	}
 
 	public static class415 method1114() {
-		class415 var10000;
 		synchronized(class415.field4595) {
 			if (class415.field4594 == 0) {
-				var10000 = new class415();
-				return var10000;
+				return new class415();
+			} else {
+				class415.field4595[--class415.field4594].method7545();
+				return class415.field4595[class415.field4594];
 			}
-
-			class415.field4595[--class415.field4594].method7545();
-			var10000 = class415.field4595[class415.field4594];
 		}
-
-		return var10000;
 	}
 
 	boolean method1085() {
@@ -66,7 +62,7 @@ public class class53 {
 					class42.method773(5, "", var2.field4359 + class338.field3942);
 				}
 
-				if (0 == var2.field4360) {
+				if (var2.field4360 == 0) {
 					class42.method773(5, "", var2.field4359 + class338.field4052);
 				}
 

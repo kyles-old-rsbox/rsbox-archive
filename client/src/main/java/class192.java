@@ -22,7 +22,7 @@ public class class192 extends class437 {
 	void method3538(class460 var1) {
 		while (true) {
 			int var3 = var1.method8141();
-			if (0 == var3) {
+			if (var3 == 0) {
 				return;
 			}
 
@@ -31,17 +31,17 @@ public class class192 extends class437 {
 	}
 
 	void method3539(class460 var1, int var2) {
-		if (1 == var2) {
+		if (var2 == 1) {
 			this.field2037 = (char)var1.method8141();
-		} else if (2 == var2) {
+		} else if (var2 == 2) {
 			this.field2030 = (char)var1.method8141();
-		} else if (3 == var2) {
+		} else if (var2 == 3) {
 			this.field2031 = var1.method8131();
-		} else if (4 == var2) {
+		} else if (var2 == 4) {
 			this.field2029 = var1.method8126();
 		} else {
 			int var4;
-			if (5 == var2) {
+			if (var2 == 5) {
 				this.field2033 = var1.method8122();
 				this.field2036 = new int[this.field2033];
 				this.field2027 = new String[this.field2033];
@@ -50,7 +50,7 @@ public class class192 extends class437 {
 					this.field2036[var4] = var1.method8126();
 					this.field2027[var4] = var1.method8131();
 				}
-			} else if (6 == var2) {
+			} else if (var2 == 6) {
 				this.field2033 = var1.method8122();
 				this.field2036 = new int[this.field2033];
 				this.field2035 = new int[this.field2033];

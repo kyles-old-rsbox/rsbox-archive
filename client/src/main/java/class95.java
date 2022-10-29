@@ -8,11 +8,11 @@ public class class95 {
 
 		for (int var5 = 0; var5 < var0.length(); ++var5) {
 			char var6 = var0.charAt(var5);
-			if ('<' == var6) {
+			if (var6 == '<') {
 				var2.append(var0.substring(var3, var5));
 				var4 = var5;
-			} else if ('>' == var6 && var4 != -1) {
-				String var7 = var0.substring(1 + var4, var5);
+			} else if (var6 == '>' && var4 != -1) {
+				String var7 = var0.substring(var4 + 1, var5);
 				var4 = -1;
 				if (var7.equals("lt")) {
 					var2.append("<");
@@ -22,7 +22,7 @@ public class class95 {
 					var2.append("\n");
 				}
 
-				var3 = 1 + var5;
+				var3 = var5 + 1;
 			}
 		}
 

@@ -204,14 +204,14 @@ public class class307 {
 			int var21;
 			for (var12 = 1; var12 < 103; ++var12) {
 				for (var13 = 1; var13 < 103; ++var13) {
-					var14 = class82.field719[var3][1 + var13][var12] - class82.field719[var3][var13 - 1][var12];
+					var14 = class82.field719[var3][var13 + 1][var12] - class82.field719[var3][var13 - 1][var12];
 					var15 = class82.field719[var3][var13][var12 + 1] - class82.field719[var3][var13][var12 - 1];
 					var16 = (int)Math.sqrt((double)(var15 * var15 + 65536 + var14 * var14));
 					var17 = (var14 << 8) / var16;
 					var18 = 65536 / var16;
 					var19 = (var15 << 8) / var16;
-					var20 = 96 + (-50 * var19 + var17 * -50 + -10 * var18) / var11;
-					var21 = (var46[1 + var13][var12] >> 3) + (var46[var13 - 1][var12] >> 2) + (var46[var13][var12 - 1] >> 2) + (var46[var13][var12 + 1] >> 3) + (var46[var13][var12] >> 1);
+					var20 = 96 + (var19 * -50 + var17 * -50 + var18 * -10) / var11;
+					var21 = (var46[var13 + 1][var12] >> 3) + (var46[var13 - 1][var12] >> 2) + (var46[var13][var12 - 1] >> 2) + (var46[var13][var12 + 1] >> 3) + (var46[var13][var12] >> 1);
 					class82.field717[var13][var12] = var20 - var21;
 				}
 			}
@@ -226,7 +226,7 @@ public class class307 {
 
 			for (var12 = -5; var12 < 109; ++var12) {
 				for (var13 = 0; var13 < 104; ++var13) {
-					var14 = 5 + var12;
+					var14 = var12 + 5;
 					int var10002;
 					if (var14 >= 0 && var14 < 104) {
 						var15 = client.field1932 < 209 ? (int)class150.method2591(8) : (int)class150.method2591(15);
@@ -304,7 +304,7 @@ public class class307 {
 					var17 = 0;
 
 					for (var18 = -5; var18 < 109; ++var18) {
-						var19 = 5 + var18;
+						var19 = var18 + 5;
 						if (var19 >= 0 && var19 < 104) {
 							var13 += class30.field162[var19];
 							var14 += class53.field381[var19];
@@ -333,8 +333,8 @@ public class class307 {
 							if (var22 > 0 || var23 > 0) {
 								int var24 = class82.field719[var3][var12][var18];
 								int var25 = class82.field719[var3][var12 + 1][var18];
-								int var26 = class82.field719[var3][1 + var12][1 + var18];
-								int var27 = class82.field719[var3][var12][1 + var18];
+								int var26 = class82.field719[var3][var12 + 1][var18 + 1];
+								int var27 = class82.field719[var3][var12][var18 + 1];
 								int var28 = class82.field717[var12][var18];
 								int var29 = class82.field717[var12 + 1][var18];
 								int var30 = class82.field717[var12 + 1][var18 + 1];
@@ -345,7 +345,7 @@ public class class307 {
 								int var35;
 								int var36;
 								if (var22 > 0) {
-									var34 = 256 * var13 / var16;
+									var34 = var13 * 256 / var16;
 									var35 = var14 / var17;
 									var36 = var15 / var17;
 									var32 = class111.method2142(var34, var35, var36);
@@ -397,7 +397,7 @@ public class class307 {
 								}
 
 								var34 = 0;
-								if (-1 != var33) {
+								if (var33 != -1) {
 									var34 = class221.field2640[class293.method5502(var33, 96)];
 								}
 
@@ -558,7 +558,7 @@ public class class307 {
 								var61 = 240;
 								var16 = class82.field719[var13][var60][var10] - var61;
 								var17 = class82.field719[var12][var60][var10];
-								class214.method4210(var6, 1, 128 * var60, var60 * 128, 128 * var10, 128 * var11 + 128, var16, var17);
+								class214.method4210(var6, 1, var60 * 128, var60 * 128, var10 * 128, var11 * 128 + 128, var16, var17);
 
 								for (var18 = var12; var18 <= var13; ++var18) {
 									for (var19 = var10; var19 <= var11; ++var19) {
@@ -603,12 +603,12 @@ public class class307 {
 								++var13;
 							}
 
-							var14 = (1 + var13 - var12) * (var11 - var10 + 1);
+							var14 = (var13 + 1 - var12) * (var11 - var10 + 1);
 							if (var14 >= 8) {
 								var61 = 240;
 								var16 = class82.field719[var13][var10][var59] - var61;
 								var17 = class82.field719[var12][var10][var59];
-								class214.method4210(var6, 2, 128 * var10, var11 * 128 + 128, var59 * 128, 128 * var59, var16, var17);
+								class214.method4210(var6, 2, var10 * 128, var11 * 128 + 128, var59 * 128, var59 * 128, var16, var17);
 
 								for (var18 = var12; var18 <= var13; ++var18) {
 									for (var19 = var10; var19 <= var11; ++var19) {
@@ -627,7 +627,7 @@ public class class307 {
 							for (var13 = var59; var12 > 0 && 0 != (class128.field1231[var58][var60][var12 - 1] & var5); --var12) {
 							}
 
-							while (var13 < 104 && 0 != (class128.field1231[var58][var60][1 + var13] & var5)) {
+							while (var13 < 104 && 0 != (class128.field1231[var58][var60][var13 + 1] & var5)) {
 								++var13;
 							}
 
@@ -655,7 +655,7 @@ public class class307 {
 
 							if ((1 + (var11 - var10)) * (1 + (var13 - var12)) >= 4) {
 								var14 = class82.field719[var58][var10][var12];
-								class214.method4210(var6, 4, 128 * var10, var11 * 128 + 128, var12 * 128, 128 * var13 + 128, var14, var14);
+								class214.method4210(var6, 4, var10 * 128, var11 * 128 + 128, var12 * 128, var13 * 128 + 128, var14, var14);
 
 								for (var15 = var10; var15 <= var11; ++var15) {
 									for (var16 = var12; var16 <= var13; ++var16) {
@@ -705,80 +705,80 @@ public class class307 {
 		}
 
 		var8 = class57.field404[--class387.field4452];
-		if (-1 != var8) {
+		if (var8 != -1) {
 			var10[0] = new Integer(var8);
 		} else {
 			var10 = null;
 		}
 
-		if (var0 == 1400) {
+		if (var0 == CS2Opcodes.CC_SETONCLICK) {
 			var4.field3611 = var10;
-		} else if (var0 == 1401) {
+		} else if (var0 == CS2Opcodes.CC_SETONHOLD) {
 			var4.field3557 = var10;
-		} else if (1402 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETONRELEASE) {
 			var4.field3556 = var10;
-		} else if (var0 == 1403) {
+		} else if (var0 == CS2Opcodes.CC_SETONMOUSEOVER) {
 			var4.field3558 = var10;
-		} else if (var0 == 1404) {
+		} else if (var0 == CS2Opcodes.CC_SETONMOUSELEAVE) {
 			var4.field3454 = var10;
-		} else if (1405 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETONDRAG) {
 			var4.field3478 = var10;
-		} else if (1406 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETONTARGETLEAVE) {
 			var4.field3598 = var10;
-		} else if (var0 == 1407) {
+		} else if (var0 == CS2Opcodes.CC_SETONVARTRANSMIT) {
 			var4.field3565 = var10;
 			var4.field3566 = var6;
-		} else if (1408 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETONTIMER) {
 			var4.field3571 = var10;
-		} else if (1409 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETONOP) {
 			var4.field3549 = var10;
-		} else if (var0 == 1410) {
+		} else if (var0 == CS2Opcodes.CC_SETONDRAGCOMPLETE) {
 			var4.field3537 = var10;
-		} else if (var0 == 1411) {
+		} else if (var0 == CS2Opcodes.CC_SETONCLICKREPEAT) {
 			var4.field3555 = var10;
-		} else if (1412 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETONMOUSEREPEAT) {
 			var4.field3559 = var10;
-		} else if (var0 == 1414) {
+		} else if (var0 == CS2Opcodes.CC_SETONINVTRANSMIT) {
 			var4.field3585 = var10;
 			var4.field3568 = var6;
-		} else if (1415 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETONSTATTRANSMIT) {
 			var4.field3569 = var10;
 			var4.field3570 = var6;
-		} else if (1416 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETONTARGETENTER) {
 			var4.field3563 = var10;
-		} else if (1417 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETONSCROLLWHEEL) {
 			var4.field3574 = var10;
-		} else if (1418 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETONCHATTRANSMIT) {
 			var4.field3502 = var10;
-		} else if (var0 == 1419) {
+		} else if (var0 == CS2Opcodes.CC_SETONKEY) {
 			var4.field3576 = var10;
-		} else if (1420 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETONFRIENDTRANSMIT) {
 			var4.field3579 = var10;
-		} else if (var0 == 1421) {
+		} else if (var0 == CS2Opcodes.CC_SETONCLANTRANSMIT) {
 			var4.field3580 = var10;
-		} else if (1422 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETONMISCTRANSMIT) {
 			var4.field3583 = var10;
-		} else if (1423 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETONDIALOGABORT) {
 			var4.field3584 = var10;
-		} else if (var0 == 1424) {
+		} else if (var0 == CS2Opcodes.CC_SETONSUBCHANGE) {
 			var4.field3479 = var10;
-		} else if (var0 == 1425) {
+		} else if (var0 == CS2Opcodes.CC_SETONSTOCKTRANSMIT) {
 			var4.field3587 = var10;
-		} else if (1426 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETONTRADINGPOSTTRANSMIT) {
 			var4.field3561 = var10;
-		} else if (1427 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETONRESIZE) {
 			var4.field3586 = var10;
-		} else if (var0 == 1428) {
+		} else if (var0 == CS2Opcodes.CC_SETONCLANSETTINGSTRANSMIT) {
 			var4.field3581 = var10;
-		} else if (var0 == 1429) {
+		} else if (var0 == CS2Opcodes.CC_SETONCLANCHANNELTRANSMIT) {
 			var4.field3452 = var10;
-		} else if (1430 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETONKEYDOWN) {
 			var4.field3577 = var10;
-		} else if (var0 == 1431) {
+		} else if (var0 == CS2Opcodes.CC_SETONKEYUP) {
 			var4.field3578 = var10;
-		} else if (1434 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETONCRMVIEWLOAD) {
 			var4.field3589 = var10;
-		} else if (1435 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETONOPT) {
 			var4.field3573 = var10;
 		} else {
 			if (var0 < 1436 || var0 > 1439) {
@@ -787,13 +787,13 @@ public class class307 {
 
 			class310 var9 = var4.method5880();
 			if (null != var9) {
-				if (var0 == 1436) {
+				if (var0 == CS2Opcodes.CC_SETONINPUT_1) {
 					var9.field3684 = var10;
-				} else if (1437 == var0) {
+				} else if (var0 == CS2Opcodes.CC_SETONINPUT_2) {
 					var9.field3685 = var10;
-				} else if (var0 == 1438) {
+				} else if (var0 == CS2Opcodes.CC_SETONINPUT_3) {
 					var9.field3687 = var10;
-				} else if (var0 == 1439) {
+				} else if (var0 == CS2Opcodes.CC_SETONINPUT_4) {
 					var9.field3686 = var10;
 				}
 			}

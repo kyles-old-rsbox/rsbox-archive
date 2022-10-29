@@ -79,7 +79,7 @@ public class class28 {
 				}
 
 				int var5 = this.field142 + this.field141;
-				if (256 + var5 > 16384) {
+				if (var5 + 256 > 16384) {
 					var5 = 16128;
 				}
 
@@ -99,37 +99,34 @@ public class class28 {
 					}
 				}
 
-				while (true) {
-					if (var4 >= var5) {
-						if (var2 > this.field135) {
-							if (!this.field137) {
-								if (this.field144 == 0 && this.field145 == 0) {
-									this.method369();
-									this.field143 = 2000L + var2;
-									return;
-								}
-
-								this.field142 = Math.min(this.field145, this.field144);
-								this.field145 = this.field144;
-							} else {
-								this.field137 = false;
-							}
-
-							this.field144 = 0;
-							this.field135 = 2000L + var2;
-						}
-
-						this.field146 = var4;
-						break;
-					}
-
+				while (var4 < var5) {
 					this.method363(this.field136, 256);
 					this.method368();
 					var4 += 256;
 				}
+
+				if (var2 > this.field135) {
+					if (!this.field137) {
+						if (this.field144 == 0 && this.field145 == 0) {
+							this.method369();
+							this.field143 = var2 + 2000L;
+							return;
+						}
+
+						this.field142 = Math.min(this.field145, this.field144);
+						this.field145 = this.field144;
+					} else {
+						this.field137 = false;
+					}
+
+					this.field144 = 0;
+					this.field135 = var2 + 2000L;
+				}
+
+				this.field146 = var4;
 			} catch (Exception var8) {
 				this.method369();
-				this.field143 = 2000L + var2;
+				this.field143 = var2 + 2000L;
 			}
 
 			try {
@@ -365,7 +362,7 @@ public class class28 {
 				var1 += ((class97)client.field1930.get(var2)).field970;
 			}
 
-			return 10000 * var1 / client.field1731;
+			return var1 * 10000 / client.field1731;
 		} else {
 			return 10000;
 		}

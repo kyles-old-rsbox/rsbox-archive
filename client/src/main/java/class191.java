@@ -37,10 +37,10 @@ public class class191 {
 
 	static int method3535(int var0, class78 var1, boolean var2) {
 		class300 var4 = var2 ? class138.field1284 : class153.field1414;
-		if (1700 == var0) {
+		if (var0 == CS2Opcodes.CC_GETINVOBJECT) {
 			class57.field404[++class387.field4452 - 1] = var4.field3445;
 			return 1;
-		} else if (1701 == var0) {
+		} else if (var0 == CS2Opcodes.CC_GETINVCOUNT) {
 			if (-1 != var4.field3445) {
 				class57.field404[++class387.field4452 - 1] = var4.field3599;
 			} else {
@@ -48,16 +48,16 @@ public class class191 {
 			}
 
 			return 1;
-		} else if (1702 == var0) {
+		} else if (var0 == CS2Opcodes.CC_GETID) {
 			class57.field404[++class387.field4452 - 1] = var4.field3484;
 			return 1;
-		} else if (var0 == 1707) {
+		} else if (var0 == CS2Opcodes.CC_GETCRM_HASRESPONSE) {
 			class57.field404[++class387.field4452 - 1] = var4.method5876() ? 1 : 0;
 			return 1;
-		} else if (1708 == var0) {
+		} else if (var0 == CS2Opcodes.CC_GETCRM_INT) {
 			return class405.method7368(var4);
 		} else {
-			return var0 == 1709 ? class112.method2170(var4) : 2;
+			return var0 == CS2Opcodes.CC_GETCRM_STRING ? class112.method2170(var4) : 2;
 		}
 	}
 

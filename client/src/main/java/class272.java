@@ -71,7 +71,7 @@ public final class class272 {
 						client.field1778.method2078(var11);
 					}
 
-					if (5 == var0) {
+					if (var0 == 5) {
 						var11 = class185.method3435(class274.field3068, client.field1778.field1071);
 						var11.field2984.method8241(var1);
 						var11.field2984.method8181(var2);
@@ -95,7 +95,7 @@ public final class class272 {
 						client.field1778.method2078(var11);
 					}
 
-					if (8 == var0) {
+					if (var0 == 8) {
 						var11 = class185.method3435(class274.field3062, client.field1778.field1071);
 						var11.field2984.method8241(var1);
 						var11.field2984.method8181(var2);
@@ -111,7 +111,7 @@ public final class class272 {
 						client.field1778.method2078(var11);
 					}
 
-					if (10 == var0) {
+					if (var0 == 10) {
 						var11 = class185.method3435(class274.field3045, client.field1778.field1071);
 						var11.field2984.method8241(var1);
 						var11.field2984.method8181(var2);

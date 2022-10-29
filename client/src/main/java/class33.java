@@ -26,7 +26,7 @@ public class class33 {
 
 	public class39 method605() {
 		byte[] var1 = this.method607();
-		return new class39(22050, var1, 22050 * this.field210 / 1000, 22050 * this.field213 / 1000);
+		return new class39(22050, var1, this.field210 * 22050 / 1000, this.field213 * 22050 / 1000);
 	}
 
 	public final int method606() {
@@ -75,7 +75,7 @@ public class class33 {
 		if (var1 == 0) {
 			return new byte[0];
 		} else {
-			var2 = 22050 * var1 / 1000;
+			var2 = var1 * 22050 / 1000;
 			byte[] var3 = new byte[var2];
 
 			for (int var4 = 0; var4 < 10; ++var4) {

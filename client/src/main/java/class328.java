@@ -31,8 +31,7 @@ public class class328 {
 
 				class12.method91(class399.field4502, 0, class399.field4502.length - 1, class72.field585, class72.field584);
 				class96.field962 = null;
-				boolean var10000 = true;
-				return var10000;
+				return true;
 			}
 		} catch (Exception var5) {
 			var5.printStackTrace();

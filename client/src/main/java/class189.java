@@ -33,10 +33,10 @@ public class class189 extends class437 {
 		var2 &= 3;
 		if (var2 == 0) {
 			return var1;
-		} else if (1 == var2) {
+		} else if (var2 == 1) {
 			return 7 - var0;
 		} else {
-			return 2 == var2 ? 7 - var1 : var0;
+			return var2 == 2 ? 7 - var1 : var0;
 		}
 	}
 
@@ -66,7 +66,7 @@ public class class189 extends class437 {
 	void method3467(class460 var1) {
 		while (true) {
 			int var3 = var1.method8141();
-			if (0 == var3) {
+			if (var3 == 0) {
 				return;
 			}
 
@@ -94,33 +94,33 @@ public class class189 extends class437 {
 			for (var5 = 0; var5 < var4; ++var5) {
 				this.field1998[var5] += var1.method8122() << 16;
 			}
-		} else if (2 == var2) {
+		} else if (var2 == 2) {
 			this.field2012 = var1.method8122();
 		} else if (var2 == 3) {
 			var4 = var1.method8141();
-			this.field2003 = new int[1 + var4];
+			this.field2003 = new int[var4 + 1];
 
 			for (var5 = 0; var5 < var4; ++var5) {
 				this.field2003[var5] = var1.method8141();
 			}
 
 			this.field2003[var4] = 9999999;
-		} else if (4 == var2) {
+		} else if (var2 == 4) {
 			this.field2005 = true;
 		} else if (var2 == 5) {
 			this.field2006 = var1.method8141();
 		} else if (var2 == 6) {
 			this.field1996 = var1.method8122();
-		} else if (7 == var2) {
+		} else if (var2 == 7) {
 			this.field1990 = var1.method8122();
 		} else if (var2 == 8) {
 			this.field2009 = var1.method8141();
 			this.field2008 = true;
-		} else if (9 == var2) {
+		} else if (var2 == 9) {
 			this.field2002 = var1.method8141();
 		} else if (var2 == 10) {
 			this.field1992 = var1.method8141();
-		} else if (11 == var2) {
+		} else if (var2 == 11) {
 			this.field2013 = var1.method8141();
 		} else if (var2 == 12) {
 			var4 = var1.method8141();
@@ -133,7 +133,7 @@ public class class189 extends class437 {
 			for (var5 = 0; var5 < var4; ++var5) {
 				this.field1999[var5] += var1.method8122() << 16;
 			}
-		} else if (13 == var2) {
+		} else if (var2 == 13) {
 			var4 = var1.method8141();
 			this.field2007 = new int[var4];
 
@@ -151,10 +151,10 @@ public class class189 extends class437 {
 				int var7 = var1.method8312();
 				this.field1995.put(var6, var7);
 			}
-		} else if (16 == var2) {
+		} else if (var2 == 16) {
 			this.field1988 = var1.method8122();
 			this.field1997 = var1.method8122();
-		} else if (17 == var2) {
+		} else if (var2 == 17) {
 			this.field2004 = new boolean[256];
 
 			for (var4 = 0; var4 < this.field2004.length; ++var4) {
@@ -227,9 +227,9 @@ public class class189 extends class437 {
 				var3 &= 3;
 				if (var3 == 1) {
 					var6.method4006();
-				} else if (2 == var3) {
+				} else if (var3 == 2) {
 					var6.method4005();
-				} else if (3 == var3) {
+				} else if (var3 == 3) {
 					var6.method4083();
 				}
 
@@ -255,12 +255,12 @@ public class class189 extends class437 {
 					var6.method4006();
 				} else if (var3 == 2) {
 					var6.method4005();
-				} else if (3 == var3) {
+				} else if (var3 == 3) {
 					var6.method4083();
 				}
 
 				var6.method4057(var5, var2);
-				if (1 == var3) {
+				if (var3 == 1) {
 					var6.method4083();
 				} else if (var3 == 2) {
 					var6.method4005();
@@ -328,7 +328,7 @@ public class class189 extends class437 {
 					return var3.method3479(var1, var4);
 				}
 
-				if (!var3.method3486() && (null == this.field2003 || -1 == var4)) {
+				if (!var3.method3486() && (null == this.field2003 || var4 == -1)) {
 					var6.method4033(var8, var2);
 					return var6;
 				}
@@ -450,14 +450,14 @@ public class class189 extends class437 {
 	}
 
 	static int method3490(int var0, class78 var1, boolean var2) {
-		if (3200 == var0) {
+		if (var0 == CS2Opcodes.SOUND_SYNTH) {
 			class387.field4452 -= 3;
 			class271.method5212(class57.field404[class387.field4452], class57.field404[1 + class387.field4452], class57.field404[2 + class387.field4452]);
 			return 1;
-		} else if (3201 == var0) {
+		} else if (var0 == CS2Opcodes.SOUND_SONG) {
 			class45.method943(class57.field404[--class387.field4452]);
 			return 1;
-		} else if (3202 == var0) {
+		} else if (var0 == CS2Opcodes.SOUND_JINGLE) {
 			class387.field4452 -= 2;
 			class196.method3635(class57.field404[class387.field4452], class57.field404[class387.field4452 + 1]);
 			return 1;
@@ -467,14 +467,14 @@ public class class189 extends class437 {
 			int var6;
 			int var7;
 			String var8;
-			if (var0 != 3212 && var0 != 3213 && 3209 != var0 && 3181 != var0 && 3203 != var0 && 3205 != var0 && var0 != 3207) {
-				if (var0 != 3214 && 3215 != var0 && var0 != 3210 && 3182 != var0 && 3204 != var0 && var0 != 3206 && 3208 != var0) {
-					return 3211 == var0 ? 1 : 2;
+			if (var0 != CS2Opcodes.SETDEVICEOPTION && var0 != CS2Opcodes.SETGAMEOPTION && var0 != CS2Opcodes.SETCLIENTOPTION && var0 != CS2Opcodes.SETBRIGHTNESS && var0 != CS2Opcodes.SETVOLUMEMUSIC && var0 != CS2Opcodes.SETVOLUMESOUNDS && var0 != CS2Opcodes.SETVOLUMEAREASOUNDS) {
+				if (var0 != CS2Opcodes.GETDEVICEOPTION && var0 != CS2Opcodes.GETGAMEOPTION && var0 != CS2Opcodes.GETCLIENTOPTION && var0 != CS2Opcodes.GETBRIGHTNESS && var0 != CS2Opcodes.GETVOLUMEMUSIC && var0 != CS2Opcodes.GETVOLUMESOUNDS && var0 != CS2Opcodes.GETVOLUMEAREASOUNDS) {
+					return var0 == CS2Opcodes._3211 ? 1 : 2;
 				} else {
 					var4 = class103.field1032;
 					var5 = class88.field786;
 					boolean var9 = false;
-					if (3214 == var0) {
+					if (var0 == CS2Opcodes.GETDEVICEOPTION) {
 						var7 = class57.field404[--class387.field4452];
 						var4 = (class103)class217.method4362(class103.method2745(), var7);
 						if (var4 == null) {
@@ -482,7 +482,7 @@ public class class189 extends class437 {
 						}
 					}
 
-					if (var0 == 3215) {
+					if (var0 == CS2Opcodes.GETGAMEOPTION) {
 						var7 = class57.field404[--class387.field4452];
 						var5 = (class88)class217.method4362(class88.method1283(), var7);
 						if (var5 == null) {
@@ -490,7 +490,7 @@ public class class189 extends class437 {
 						}
 					}
 
-					if (var0 == 3210) {
+					if (var0 == CS2Opcodes.GETCLIENTOPTION) {
 						var7 = class57.field404[--class387.field4452];
 						var4 = (class103)class217.method4362(class103.method2745(), var7);
 						if (var4 == null) {
@@ -499,13 +499,13 @@ public class class189 extends class437 {
 								throw new RuntimeException(String.format("Unrecognized client option %d", var7));
 							}
 						}
-					} else if (3182 == var0) {
+					} else if (var0 == CS2Opcodes.GETBRIGHTNESS) {
 						var4 = class103.field1025;
-					} else if (var0 == 3204) {
+					} else if (var0 == CS2Opcodes.GETVOLUMEMUSIC) {
 						var5 = class88.field793;
-					} else if (3206 == var0) {
+					} else if (var0 == CS2Opcodes.GETVOLUMESOUNDS) {
 						var5 = class88.field787;
-					} else if (var0 == 3208) {
+					} else if (var0 == CS2Opcodes.GETVOLUMEAREASOUNDS) {
 						var5 = class88.field788;
 					}
 
@@ -541,7 +541,7 @@ public class class189 extends class437 {
 							break;
 						case 3:
 							var7 = class413.field4575.method1752();
-							var6 = Math.round((float)(100 * var7) / 127.0F);
+							var6 = Math.round((float)(var7 * 100) / 127.0F);
 							break;
 						case 4:
 							var7 = class413.field4575.method1736();
@@ -560,7 +560,7 @@ public class class189 extends class437 {
 				var4 = class103.field1032;
 				var5 = class88.field786;
 				var6 = class57.field404[--class387.field4452];
-				if (var0 == 3212) {
+				if (var0 == CS2Opcodes.SETDEVICEOPTION) {
 					var7 = class57.field404[--class387.field4452];
 					var4 = (class103)class217.method4362(class103.method2745(), var7);
 					if (null == var4) {
@@ -568,7 +568,7 @@ public class class189 extends class437 {
 					}
 				}
 
-				if (3213 == var0) {
+				if (var0 == CS2Opcodes.SETGAMEOPTION) {
 					var7 = class57.field404[--class387.field4452];
 					var5 = (class88)class217.method4362(class88.method1283(), var7);
 					if (var5 == null) {
@@ -576,7 +576,7 @@ public class class189 extends class437 {
 					}
 				}
 
-				if (3209 == var0) {
+				if (var0 == CS2Opcodes.SETCLIENTOPTION) {
 					var7 = class57.field404[--class387.field4452];
 					var4 = (class103)class217.method4362(class103.method2745(), var7);
 					if (null == var4) {
@@ -585,26 +585,26 @@ public class class189 extends class437 {
 							throw new RuntimeException(String.format("Unrecognized client option %d", var7));
 						}
 					}
-				} else if (3181 == var0) {
+				} else if (var0 == CS2Opcodes.SETBRIGHTNESS) {
 					var4 = class103.field1025;
-				} else if (var0 == 3203) {
+				} else if (var0 == CS2Opcodes.SETVOLUMEMUSIC) {
 					var5 = class88.field793;
-				} else if (3205 == var0) {
+				} else if (var0 == CS2Opcodes.SETVOLUMESOUNDS) {
 					var5 = class88.field787;
-				} else if (var0 == 3207) {
+				} else if (var0 == CS2Opcodes.SETVOLUMEAREASOUNDS) {
 					var5 = class88.field788;
 				}
 
 				if (var5 == class88.field786) {
 					switch(var4.field1027) {
 					case 1:
-						class413.field4575.method1755(1 == var6);
+						class413.field4575.method1755(var6 == 1);
 						break;
 					case 2:
 						class413.field4575.method1707(var6 == 1);
 						break;
 					case 3:
-						class413.field4575.method1709(1 == var6);
+						class413.field4575.method1709(var6 == 1);
 						break;
 					case 4:
 						if (var6 < 0) {
@@ -623,7 +623,7 @@ public class class189 extends class437 {
 				} else {
 					switch(var5.field789) {
 					case 1:
-						class413.field4575.method1703(1 == var6);
+						class413.field4575.method1703(var6 == 1);
 						break;
 					case 2:
 						var6 = Math.min(Math.max(var6, 0), 100);
@@ -637,7 +637,7 @@ public class class189 extends class437 {
 						break;
 					case 4:
 						var6 = Math.min(Math.max(var6, 0), 100);
-						var7 = Math.round((float)(127 * var6) / 100.0F);
+						var7 = Math.round((float)(var6 * 127) / 100.0F);
 						client.method6049(var7);
 						break;
 					default:

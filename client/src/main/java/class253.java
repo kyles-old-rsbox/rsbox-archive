@@ -20,7 +20,7 @@ public class class253 {
 
 	public static class300 method5043(int var0, int var1) {
 		class300 var3 = class282.method5426(var0);
-		if (-1 == var1) {
+		if (var1 == -1) {
 			return var3;
 		} else {
 			return null != var3 && null != var3.field3602 && var1 < var3.field3602.length ? var3.field3602[var1] : null;

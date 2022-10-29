@@ -194,11 +194,11 @@ public class class148 {
 				this.field1370 = -1;
 			} else {
 				System.arraycopy(this.field1381, var1 + 1, this.field1381, var1, this.field1369 - var1);
-				System.arraycopy(this.field1365, 1 + var1, this.field1365, var1, this.field1369 - var1);
-				System.arraycopy(this.field1374, 1 + var1, this.field1374, var1, this.field1369 - var1);
+				System.arraycopy(this.field1365, var1 + 1, this.field1365, var1, this.field1369 - var1);
+				System.arraycopy(this.field1374, var1 + 1, this.field1374, var1, this.field1369 - var1);
 				System.arraycopy(this.field1375, var1 + 1, this.field1375, var1, this.field1369 - var1);
 				if (null != this.field1380) {
-					System.arraycopy(this.field1380, 1 + var1, this.field1380, var1, this.field1369 - var1);
+					System.arraycopy(this.field1380, var1 + 1, this.field1380, var1, this.field1369 - var1);
 				}
 
 				if (this.field1373 != null) {
@@ -281,18 +281,18 @@ public class class148 {
 			this.field1371 = null;
 		} else {
 			if (null != this.field1379) {
-				System.arraycopy(this.field1379, 1 + var1, this.field1379, var1, this.field1378 - var1);
+				System.arraycopy(this.field1379, var1 + 1, this.field1379, var1, this.field1378 - var1);
 			}
 
 			if (null != this.field1371) {
-				System.arraycopy(this.field1371, 1 + var1, this.field1371, var1, this.field1378 - var1);
+				System.arraycopy(this.field1371, var1 + 1, this.field1371, var1, this.field1378 - var1);
 			}
 		}
 
 	}
 
 	int method2534(int var1, byte var2) {
-		if (126 != var2 && 127 != var2) {
+		if (var2 != 126 && var2 != 127) {
 			if (this.field1376 == var1 && (-1 == this.field1370 || this.field1381[this.field1370] < 125)) {
 				return -1;
 			} else if (this.field1381[var1] == var2) {
@@ -370,7 +370,7 @@ public class class148 {
 
 	boolean method2539(int var1, int var2, int var3, int var4) {
 		int var6 = (1 << var3) - 1;
-		int var7 = var4 == 31 ? -1 : (1 << 1 + var4) - 1;
+		int var7 = var4 == 31 ? -1 : (1 << var4 + 1) - 1;
 		int var8 = var7 ^ var6;
 		var2 <<= var3;
 		var2 &= var8;
@@ -586,7 +586,7 @@ public class class148 {
 						} else if (var8 == 1) {
 							long var11 = var1.method8127();
 							this.field1382.method7781(new class424(var11), (long)var7);
-						} else if (2 == var8) {
+						} else if (var8 == 2) {
 							String var13 = var1.method8131();
 							this.field1382.method7781(new class418(var13), (long)var7);
 						}
@@ -601,11 +601,11 @@ public class class148 {
 
 	static int method2527(int var0, class78 var1, boolean var2) {
 		class300 var4 = class282.method5426(class57.field404[--class387.field4452]);
-		if (var0 == 2800) {
+		if (var0 == CS2Opcodes.IF_GETTARGETMASK) {
 			class57.field404[++class387.field4452 - 1] = class290.method2693(class190.method3528(var4));
 			return 1;
-		} else if (var0 != 2801) {
-			if (2802 == var0) {
+		} else if (var0 != CS2Opcodes.IF_GETOP) {
+			if (var0 == CS2Opcodes.IF_GETOPBASE) {
 				if (null == var4.field3545) {
 					class57.field405[++class126.field1220 - 1] = "";
 				} else {

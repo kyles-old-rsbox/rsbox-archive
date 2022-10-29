@@ -33,11 +33,11 @@ public class class86 {
 
 		int var2;
 		for (var2 = 0; var2 < 64; ++var2) {
-			this.field765[var2] = 262144 * var2;
+			this.field765[var2] = var2 * 262144;
 		}
 
 		for (var2 = 0; var2 < 64; ++var2) {
-			this.field765[var2 + 64] = 16711680 + 1024 * var2;
+			this.field765[var2 + 64] = 16711680 + var2 * 1024;
 		}
 
 		for (var2 = 0; var2 < 64; ++var2) {
@@ -51,7 +51,7 @@ public class class86 {
 		this.field775 = new int[256];
 
 		for (var2 = 0; var2 < 64; ++var2) {
-			this.field775[var2] = 1024 * var2;
+			this.field775[var2] = var2 * 1024;
 		}
 
 		for (var2 = 0; var2 < 64; ++var2) {
@@ -59,7 +59,7 @@ public class class86 {
 		}
 
 		for (var2 = 0; var2 < 64; ++var2) {
-			this.field775[128 + var2] = 65535 + var2 * 262144;
+			this.field775[var2 + 128] = 65535 + var2 * 262144;
 		}
 
 		for (var2 = 0; var2 < 64; ++var2) {
@@ -69,11 +69,11 @@ public class class86 {
 		this.field759 = new int[256];
 
 		for (var2 = 0; var2 < 64; ++var2) {
-			this.field759[var2] = 4 * var2;
+			this.field759[var2] = var2 * 4;
 		}
 
 		for (var2 = 0; var2 < 64; ++var2) {
-			this.field759[64 + var2] = 262144 * var2 + 255;
+			this.field759[var2 + 64] = var2 * 262144 + 255;
 		}
 
 		for (var2 = 0; var2 < 64; ++var2) {
@@ -170,7 +170,7 @@ public class class86 {
 		}
 
 		if (this.field764 > 0) {
-			this.field764 -= 4 * var1;
+			this.field764 -= var1 * 4;
 		}
 
 		if (this.field769 > 0) {
@@ -183,7 +183,7 @@ public class class86 {
 				this.field764 = 1024;
 			}
 
-			if (1 == var8) {
+			if (var8 == 1) {
 				this.field769 = 1024;
 			}
 		}
@@ -218,19 +218,19 @@ public class class86 {
 			int var15;
 			for (var12 = 0; var12 < 256; ++var12) {
 				var13 = 0;
-				var14 = 128 * var12;
+				var14 = var12 * 128;
 
 				for (var15 = -var8; var15 < 128; ++var15) {
 					if (var8 + var15 < 128) {
 						var13 += this.field763[var8 + var15 + var14];
 					}
 
-					if (var15 - (1 + var8) >= 0) {
-						var13 -= this.field763[var15 + var14 - (1 + var8)];
+					if (var15 - (var8 + 1) >= 0) {
+						var13 -= this.field763[var15 + var14 - (var8 + 1)];
 					}
 
 					if (var15 >= 0) {
-						this.field771[var15 + var14] = var13 / (1 + 2 * var8);
+						this.field771[var15 + var14] = var13 / (1 + var8 * 2);
 					}
 				}
 			}
@@ -245,11 +245,11 @@ public class class86 {
 					}
 
 					if (var14 - (var8 + 1) >= 0) {
-						var13 -= this.field771[var12 + var15 - 128 * (1 + var8)];
+						var13 -= this.field771[var12 + var15 - 128 * (var8 + 1)];
 					}
 
 					if (var14 >= 0) {
-						this.field763[var15 + var12] = var13 / (1 + 2 * var8);
+						this.field763[var15 + var12] = var13 / (1 + var8 * 2);
 					}
 				}
 			}
@@ -315,7 +315,7 @@ public class class86 {
 			for (int var10 = var7; var10 < var8; ++var10) {
 				int var11 = this.field763[var3++];
 				int var12 = var9 % class481.field4993;
-				if (0 != var11 && var12 >= class481.field4997 && var12 < class481.field4996) {
+				if (var11 != 0 && var12 >= class481.field4997 && var12 < class481.field4996) {
 					int var13 = var11;
 					int var14 = 256 - var11;
 					var11 = this.field770[var11];
@@ -371,7 +371,7 @@ public class class86 {
 			for (var4 = 1; var4 < 255; ++var4) {
 				for (var5 = 1; var5 < 127; ++var5) {
 					var6 = (var4 << 7) + var5;
-					this.field773[var6] = (this.field772[128 + var6] + this.field772[1 + var6] + this.field772[var6 - 1] + this.field772[var6 - 128]) / 4;
+					this.field773[var6] = (this.field772[var6 + 128] + this.field772[var6 + 1] + this.field772[var6 - 1] + this.field772[var6 - 128]) / 4;
 				}
 			}
 
@@ -387,7 +387,7 @@ public class class86 {
 				for (var5 = 0; var5 < var1.field5017; ++var5) {
 					if (var1.field5022[var3++] != 0) {
 						var6 = var5 + 16 + var1.field5020;
-						int var7 = 16 + var4 + var1.field5021;
+						int var7 = var4 + 16 + var1.field5021;
 						int var8 = (var7 << 7) + var6;
 						this.field772[var8] = 0;
 					}

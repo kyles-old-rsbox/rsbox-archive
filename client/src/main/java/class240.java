@@ -21,19 +21,19 @@ public class class240 {
 		}
 
 		if (var2 == 10) {
-			var1 = 3 + var1 & 3;
+			var1 = var1 + 3 & 3;
 		}
 
 		if (var2 == 11) {
-			var1 = 3 + var1 & 3;
+			var1 = var1 + 3 & 3;
 		}
 
 		return var1;
 	}
 
 	int method4696(int var1) {
-		if (var1 != 9 && 10 != var1) {
-			return 11 == var1 ? 8 : var1;
+		if (var1 != 9 && var1 != 10) {
+			return var1 == 11 ? 8 : var1;
 		} else {
 			return 1;
 		}

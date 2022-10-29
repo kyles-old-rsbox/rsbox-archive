@@ -32,10 +32,10 @@ public class class425 implements class419 {
 				this.field4677 = new JSONObject();
 				this.field4677.put("arrayValues", (Object)var3);
 			}
+
 		} catch (JSONException var4) {
 			throw new UnsupportedEncodingException(var4.getMessage());
 		}
-
 	}
 
 	public JSONObject method7816() {

@@ -3,6 +3,9 @@ public class class428 implements class436 {
 	int field4687;
 	int field4688;
 
+	public class428() {
+	}
+
 	public class439 method7886() {
 		byte var2;
 		if (class20.field100.startsWith("win")) {
@@ -46,7 +49,7 @@ public class class428 implements class436 {
 		}
 
 		byte var8 = 0;
-		if (1 == var2) {
+		if (var2 == 1) {
 			if (var4.indexOf("4.0") != -1) {
 				var8 = 1;
 			} else if (var4.indexOf("4.1") != -1) {
@@ -70,7 +73,7 @@ public class class428 implements class436 {
 			} else if (var4.indexOf("10.0") != -1) {
 				var8 = 11;
 			}
-		} else if (2 == var2) {
+		} else if (var2 == 2) {
 			if (var4.indexOf("10.4") != -1) {
 				var8 = 20;
 			} else if (var4.indexOf("10.5") != -1) {

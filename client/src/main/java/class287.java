@@ -12,13 +12,13 @@ public class class287 {
 			char var8 = var0.charAt(var1 + var7);
 			if (var8 > 0 && var8 < 128 || var8 >= 160 && var8 <= 255) {
 				var3[var4 + var7] = (byte)var8;
-			} else if (8364 == var8) {
+			} else if (var8 == 8364) {
 				var3[var4 + var7] = -128;
-			} else if (8218 == var8) {
+			} else if (var8 == 8218) {
 				var3[var7 + var4] = -126;
-			} else if (402 == var8) {
+			} else if (var8 == 402) {
 				var3[var7 + var4] = -125;
-			} else if (8222 == var8) {
+			} else if (var8 == 8222) {
 				var3[var7 + var4] = -124;
 			} else if (var8 == 8230) {
 				var3[var7 + var4] = -123;
@@ -30,41 +30,41 @@ public class class287 {
 				var3[var7 + var4] = -120;
 			} else if (var8 == 8240) {
 				var3[var7 + var4] = -119;
-			} else if (352 == var8) {
+			} else if (var8 == 352) {
 				var3[var7 + var4] = -118;
-			} else if (8249 == var8) {
+			} else if (var8 == 8249) {
 				var3[var7 + var4] = -117;
 			} else if (var8 == 338) {
 				var3[var4 + var7] = -116;
 			} else if (var8 == 381) {
 				var3[var7 + var4] = -114;
-			} else if (8216 == var8) {
+			} else if (var8 == 8216) {
 				var3[var7 + var4] = -111;
-			} else if (8217 == var8) {
+			} else if (var8 == 8217) {
 				var3[var7 + var4] = -110;
 			} else if (var8 == 8220) {
 				var3[var7 + var4] = -109;
-			} else if (8221 == var8) {
+			} else if (var8 == 8221) {
 				var3[var4 + var7] = -108;
 			} else if (var8 == 8226) {
 				var3[var4 + var7] = -107;
 			} else if (var8 == 8211) {
 				var3[var7 + var4] = -106;
-			} else if (8212 == var8) {
+			} else if (var8 == 8212) {
 				var3[var7 + var4] = -105;
 			} else if (var8 == 732) {
 				var3[var4 + var7] = -104;
-			} else if (8482 == var8) {
+			} else if (var8 == 8482) {
 				var3[var7 + var4] = -103;
 			} else if (var8 == 353) {
 				var3[var7 + var4] = -102;
 			} else if (var8 == 8250) {
 				var3[var7 + var4] = -101;
-			} else if (339 == var8) {
+			} else if (var8 == 339) {
 				var3[var4 + var7] = -100;
-			} else if (382 == var8) {
+			} else if (var8 == 382) {
 				var3[var7 + var4] = -98;
-			} else if (376 == var8) {
+			} else if (var8 == 376) {
 				var3[var7 + var4] = -97;
 			} else {
 				var3[var7 + var4] = 63;

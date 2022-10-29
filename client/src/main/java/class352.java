@@ -60,7 +60,7 @@ public class class352 implements Iterator {
 
 				while (true) {
 					int var9 = var7.read(var8.field4881, var8.field4878, 1000 - var8.field4878);
-					if (-1 == var9) {
+					if (var9 == -1) {
 						var8.field4878 = 0;
 						long var11 = var8.method8127();
 						var2 = var11;

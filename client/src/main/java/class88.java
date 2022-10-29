@@ -50,7 +50,6 @@ public class class88 implements class360 {
 
 			class322.field3761 = 600;
 		}
-
 	}
 
 	class88(int var1, int var2) {
@@ -81,11 +80,11 @@ public class class88 implements class360 {
 							var7 = var6.getInt((Object)null);
 							var0.method8104(0);
 							var0.method8241(var7);
-						} else if (1 == var5) {
+						} else if (var5 == 1) {
 							var6 = var2.field303[var4];
 							var6.setInt((Object)null, var2.field304[var4]);
 							var0.method8104(0);
-						} else if (2 == var5) {
+						} else if (var5 == 2) {
 							var6 = var2.field303[var4];
 							var7 = var6.getModifiers();
 							var0.method8104(0);
@@ -157,12 +156,12 @@ public class class88 implements class360 {
 	}
 
 	static int method1864(int var0, class78 var1, boolean var2) {
-		if (6500 == var0) {
+		if (var0 == CS2Opcodes.WORLDLIST_FETCH) {
 			class57.field404[++class387.field4452 - 1] = class328.method6247() ? 1 : 0;
 			return 1;
 		} else {
 			class72 var4;
-			if (var0 == 6501) {
+			if (var0 == CS2Opcodes.WORLDLIST_START) {
 				var4 = class72.method524();
 				if (var4 != null) {
 					class57.field404[++class387.field4452 - 1] = var4.field590;
@@ -181,7 +180,7 @@ public class class88 implements class360 {
 				}
 
 				return 1;
-			} else if (6502 == var0) {
+			} else if (var0 == CS2Opcodes.WORLDLIST_NEXT) {
 				var4 = class215.method4335();
 				if (null != var4) {
 					class57.field404[++class387.field4452 - 1] = var4.field590;
@@ -204,7 +203,7 @@ public class class88 implements class360 {
 				class72 var5;
 				int var6;
 				int var8;
-				if (var0 == 6506) {
+				if (var0 == CS2Opcodes.WORLDLIST_SPECIFIC) {
 					var8 = class57.field404[--class387.field4452];
 					var5 = null;
 
@@ -232,7 +231,7 @@ public class class88 implements class360 {
 					}
 
 					return 1;
-				} else if (var0 == 6507) {
+				} else if (var0 == CS2Opcodes.WORLDLIST_SORT) {
 					class387.field4452 -= 4;
 					var8 = class57.field404[class387.field4452];
 					boolean var11 = class57.field404[1 + class387.field4452] == 1;
@@ -240,14 +239,14 @@ public class class88 implements class360 {
 					boolean var7 = 1 == class57.field404[class387.field4452 + 3];
 					class166.method2701(var8, var11, var6, var7);
 					return 1;
-				} else if (var0 != 6511) {
-					if (6512 == var0) {
+				} else if (var0 != CS2Opcodes._6511) {
+					if (var0 == CS2Opcodes.SETFOLLOWEROPSLOWPRIORITY) {
 						client.field1794 = class57.field404[--class387.field4452] == 1;
 						return 1;
 					} else {
 						int var9;
 						class193 var10;
-						if (6513 == var0) {
+						if (var0 == CS2Opcodes.NC_PARAM) {
 							class387.field4452 -= 2;
 							var8 = class57.field404[class387.field4452];
 							var9 = class57.field404[class387.field4452 + 1];
@@ -259,7 +258,7 @@ public class class88 implements class360 {
 							}
 
 							return 1;
-						} else if (6514 == var0) {
+						} else if (var0 == CS2Opcodes.LC_PARAM) {
 							class387.field4452 -= 2;
 							var8 = class57.field404[class387.field4452];
 							var9 = class57.field404[class387.field4452 + 1];
@@ -271,7 +270,7 @@ public class class88 implements class360 {
 							}
 
 							return 1;
-						} else if (var0 == 6515) {
+						} else if (var0 == CS2Opcodes.OC_PARAM) {
 							class387.field4452 -= 2;
 							var8 = class57.field404[class387.field4452];
 							var9 = class57.field404[class387.field4452 + 1];
@@ -283,7 +282,7 @@ public class class88 implements class360 {
 							}
 
 							return 1;
-						} else if (6516 == var0) {
+						} else if (var0 == CS2Opcodes.STRUCT_PARAM) {
 							class387.field4452 -= 2;
 							var8 = class57.field404[class387.field4452];
 							var9 = class57.field404[class387.field4452 + 1];
@@ -295,34 +294,34 @@ public class class88 implements class360 {
 							}
 
 							return 1;
-						} else if (var0 == 6518) {
+						} else if (var0 == CS2Opcodes.ON_MOBILE) {
 							class57.field404[++class387.field4452 - 1] = client.field1640 ? 1 : 0;
 							return 1;
-						} else if (var0 == 6519) {
+						} else if (var0 == CS2Opcodes.CLIENTTYPE) {
 							class57.field404[++class387.field4452 - 1] = client.field1704;
 							return 1;
-						} else if (6520 == var0) {
+						} else if (var0 == CS2Opcodes._6520) {
 							return 1;
-						} else if (var0 == 6521) {
+						} else if (var0 == CS2Opcodes.MOBILE_KEYBOARDHIDE) {
 							return 1;
-						} else if (var0 == 6522) {
+						} else if (var0 == CS2Opcodes._6522) {
 							--class126.field1220;
 							--class387.field4452;
 							return 1;
-						} else if (6523 == var0) {
+						} else if (var0 == CS2Opcodes._6523) {
 							--class126.field1220;
 							--class387.field4452;
 							return 1;
-						} else if (6524 == var0) {
+						} else if (var0 == CS2Opcodes.MOBILE_BATTERYLEVEL) {
 							class57.field404[++class387.field4452 - 1] = -1;
 							return 1;
-						} else if (6525 == var0) {
+						} else if (var0 == CS2Opcodes.MOBILE_BATTERYCHARGING) {
 							class57.field404[++class387.field4452 - 1] = 1;
 							return 1;
-						} else if (var0 == 6526) {
+						} else if (var0 == CS2Opcodes.MOBILE_WIFIAVAILABLE) {
 							class57.field404[++class387.field4452 - 1] = 1;
 							return 1;
-						} else if (var0 == 6527) {
+						} else if (var0 == CS2Opcodes.PLATFORMTYPE) {
 							class57.field404[++class387.field4452 - 1] = client.field1716;
 							return 1;
 						} else {

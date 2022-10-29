@@ -53,13 +53,13 @@ public class class388 {
 			return 0;
 		} else {
 			class383 var2 = this.field4459.method7029(this.field4461 - 1);
-			if ('\n' == var2.field4428) {
+			if (var2.field4428 == '\n') {
 				return 0;
 			} else if (this.method6995(var2)) {
 				return this.field4459.field4477.field4430[42];
 			} else {
 				int var3 = this.field4459.field4477.field4430[var2.field4428];
-				if (0 == var3) {
+				if (var3 == 0) {
 					return var2.field4428 == '\t' ? 3 * this.field4459.field4477.field4430[32] : this.field4459.field4477.field4430[32];
 				} else {
 					return var3;

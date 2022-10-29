@@ -14,7 +14,7 @@ public class class173 extends class437 {
 	public void method2738(class460 var1) {
 		while (true) {
 			int var3 = var1.method8141();
-			if (0 == var3) {
+			if (var3 == 0) {
 				return;
 			}
 

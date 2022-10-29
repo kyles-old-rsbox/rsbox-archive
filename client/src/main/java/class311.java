@@ -79,7 +79,7 @@ public class class311 {
 
 				this.field3693[var10] = ~var5;
 				if (var10 >= var4) {
-					var4 = 1 + var10;
+					var4 = var10 + 1;
 				}
 			}
 		}
@@ -94,7 +94,7 @@ public class class311 {
 			int var9 = var1[var2] & 255;
 			int var10 = this.field3692[var9];
 			byte var11 = this.field3691[var9];
-			if (0 == var11) {
+			if (var11 == 0) {
 				throw new RuntimeException("" + var9);
 			}
 
@@ -128,7 +128,7 @@ public class class311 {
 			var8 += var11;
 		}
 
-		return (7 + var8 >> 3) - var5;
+		return (var8 + 7 >> 3) - var5;
 	}
 
 	int method6057(byte[] var1, int var2, byte[] var3, int var4, int var5) {
@@ -265,7 +265,7 @@ public class class311 {
 				++var8;
 			}
 
-			return 1 + var8 - var2;
+			return var8 + 1 - var2;
 		}
 	}
 
@@ -315,7 +315,7 @@ public class class311 {
 					class78.field684 = 0;
 					client.field1833 = false;
 					int var12 = client.method5125();
-					if (-1 != var12) {
+					if (var12 != -1) {
 						client.method102(var12);
 					}
 

@@ -19,7 +19,7 @@ public abstract class class399 extends class259 implements class482 {
 		class416 var4 = this.method7224(var3);
 		class474 var5 = new class474(var3);
 		Class var6 = var4.field4599.field4847;
-		if (Integer.class == var6) {
+		if (var6 == Integer.class) {
 			var5.field4963 = var1.method8126();
 		} else if (var6 == Long.class) {
 			var5.field4963 = var1.method8127();
@@ -50,7 +50,7 @@ public abstract class class399 extends class259 implements class482 {
 		int var9;
 		int var10;
 		int var11;
-		if (0 == var3) {
+		if (var3 == 0) {
 			if (var0.method8014(1) != 0) {
 				method7221(var0, var1);
 			}
@@ -68,7 +68,7 @@ public abstract class class399 extends class259 implements class482 {
 				class93 var7 = client.field1763[var1] = new class93();
 				var7.field915 = var1;
 				if (null != class102.field1011[var1]) {
-					var7.decodeAppearance(class102.field1011[var1]);
+					var7.method1906(class102.field1011[var1]);
 				}
 
 				var7.field860 = class102.field1014[var1];
@@ -83,7 +83,7 @@ public abstract class class399 extends class259 implements class482 {
 				var7.field919 = false;
 				return true;
 			}
-		} else if (1 == var3) {
+		} else if (var3 == 1) {
 			var4 = var0.method8014(2);
 			var5 = class102.field1016[var1];
 			class102.field1016[var1] = (((var5 >> 28) + var4 & 3) << 28) + (var5 & 268435455);
@@ -91,7 +91,7 @@ public abstract class class399 extends class259 implements class482 {
 		} else {
 			int var6;
 			int var12;
-			if (2 == var3) {
+			if (var3 == 2) {
 				var4 = var0.method8014(5);
 				var5 = var4 >> 3;
 				var6 = var4 & 7;
@@ -99,7 +99,7 @@ public abstract class class399 extends class259 implements class482 {
 				var8 = (var12 >> 28) + var5 & 3;
 				var9 = var12 >> 14 & 255;
 				var10 = var12 & 255;
-				if (0 == var6) {
+				if (var6 == 0) {
 					--var9;
 					--var10;
 				}
@@ -117,7 +117,7 @@ public abstract class class399 extends class259 implements class482 {
 					--var9;
 				}
 
-				if (4 == var6) {
+				if (var6 == 4) {
 					++var9;
 				}
 

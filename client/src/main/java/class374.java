@@ -27,7 +27,7 @@ class class374 implements Comparator {
 
 	static String method6782(class300 var0, int var1) {
 		int var4 = class190.method3528(var0);
-		boolean var3 = 0 != (var4 >> 1 + var1 & 1);
+		boolean var3 = 0 != (var4 >> var1 + 1 & 1);
 		if (!var3 && var0.field3549 == null) {
 			return null;
 		} else {

@@ -10,9 +10,9 @@ public abstract class class204 {
 
 	static int method3891(int var0, class78 var1, boolean var2) {
 		class300 var4;
-		if (var0 != 1927 && 2927 != var0) {
+		if (var0 != CS2Opcodes.CC_CALLONRESIZE && var0 != CS2Opcodes.IF_CALLONRESIZE) {
 			int var8;
-			if (var0 == 1928) {
+			if (var0 == CS2Opcodes.CC_TRIGGEROP) {
 				var4 = var2 ? class138.field1284 : class153.field1414;
 				var8 = class57.field404[--class387.field4452];
 				if (var8 >= 1 && var8 <= 10) {
@@ -22,7 +22,7 @@ public abstract class class204 {
 				} else {
 					throw new RuntimeException();
 				}
-			} else if (var0 == 2928) {
+			} else if (var0 == CS2Opcodes.IF_TRIGGEROP) {
 				class387.field4452 -= 3;
 				int var9 = class57.field404[class387.field4452];
 				var8 = class57.field404[1 + class387.field4452];

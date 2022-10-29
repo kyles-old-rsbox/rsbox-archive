@@ -10,7 +10,7 @@ public final class class241 {
 	}
 
 	final int method4726(int var1, int var2) {
-		return this.field2828[64 * var2 + var1];
+		return this.field2828[var2 * 64 + var1];
 	}
 
 	public static int method4729(byte[] var0, int var1, int var2) {

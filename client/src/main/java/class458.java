@@ -14,7 +14,7 @@ public class class458 extends class437 {
 	void method8079(class460 var1) {
 		while (true) {
 			int var3 = var1.method8141();
-			if (0 == var3) {
+			if (var3 == 0) {
 				return;
 			}
 
@@ -23,7 +23,7 @@ public class class458 extends class437 {
 	}
 
 	void method8082(class460 var1, int var2) {
-		if (1 == var2) {
+		if (var2 == 1) {
 			int var4 = var1.method8141();
 			if (null == this.field4872) {
 				this.field4872 = new int[var4][];
@@ -75,7 +75,7 @@ public class class458 extends class437 {
 			class195 var9 = class89.method1866(var3);
 			int var10;
 			int var11;
-			if (var4 != 1 && 3 != var4) {
+			if (var4 != 1 && var4 != 3) {
 				var10 = var9.field2100;
 				var11 = var9.field2069;
 			} else {
@@ -118,7 +118,7 @@ public class class458 extends class437 {
 			if (var9.method3578()) {
 				class70 var23 = new class70();
 				var23.field558 = var0;
-				var23.field559 = 128 * var1;
+				var23.field559 = var1 * 128;
 				var23.field570 = var2 * 128;
 				var24 = var9.field2100;
 				var25 = var9.field2069;
@@ -146,7 +146,7 @@ public class class458 extends class437 {
 			}
 
 			Object var35;
-			if (22 == var5) {
+			if (var5 == 22) {
 				if (!client.field1636 || 0 != var9.field2072 || var9.field2070 == 1 || var9.field2068) {
 					if (var9.field2076 == -1 && null == var9.field2094) {
 						var35 = var9.method3584(22, var4, var16, var18, var17, var19);
@@ -160,7 +160,7 @@ public class class458 extends class437 {
 					}
 
 				}
-			} else if (var5 != 10 && 11 != var5) {
+			} else if (var5 != 10 && var5 != 11) {
 				int[] var10000;
 				if (var5 >= 12) {
 					if (var9.field2076 == -1 && null == var9.field2094) {
@@ -170,7 +170,7 @@ public class class458 extends class437 {
 					}
 
 					var6.method4166(var0, var1, var2, var17, 1, 1, (class212)var35, 0, var20, var22);
-					if (var5 >= 12 && var5 <= 17 && 13 != var5 && var0 > 0) {
+					if (var5 >= 12 && var5 <= 17 && var5 != 13 && var0 > 0) {
 						var10000 = class128.field1231[var0][var1];
 						var10000[var2] |= 2340;
 					}
@@ -187,7 +187,7 @@ public class class458 extends class437 {
 					}
 
 					var6.method4228(var0, var1, var2, var17, (class212)var35, (class212)null, class82.field721[var4], 0, var20, var22);
-					if (0 == var4) {
+					if (var4 == 0) {
 						if (var9.field2084) {
 							class30.field160[var0][var1][var2] = 50;
 							class30.field160[var0][var1][var2 + 1] = 50;
@@ -197,30 +197,30 @@ public class class458 extends class437 {
 							var10000 = class128.field1231[var0][var1];
 							var10000[var2] |= 585;
 						}
-					} else if (1 == var4) {
+					} else if (var4 == 1) {
 						if (var9.field2084) {
 							class30.field160[var0][var1][var2 + 1] = 50;
-							class30.field160[var0][var1 + 1][1 + var2] = 50;
+							class30.field160[var0][var1 + 1][var2 + 1] = 50;
 						}
 
 						if (var9.field2091) {
 							var10000 = class128.field1231[var0][var1];
-							var10000[1 + var2] |= 1170;
+							var10000[var2 + 1] |= 1170;
 						}
-					} else if (2 == var4) {
+					} else if (var4 == 2) {
 						if (var9.field2084) {
-							class30.field160[var0][1 + var1][var2] = 50;
-							class30.field160[var0][var1 + 1][1 + var2] = 50;
+							class30.field160[var0][var1 + 1][var2] = 50;
+							class30.field160[var0][var1 + 1][var2 + 1] = 50;
 						}
 
 						if (var9.field2091) {
 							var10000 = class128.field1231[var0][var1 + 1];
 							var10000[var2] |= 585;
 						}
-					} else if (3 == var4) {
+					} else if (var4 == 3) {
 						if (var9.field2084) {
 							class30.field160[var0][var1][var2] = 50;
-							class30.field160[var0][1 + var1][var2] = 50;
+							class30.field160[var0][var1 + 1][var2] = 50;
 						}
 
 						if (var9.field2091) {
@@ -237,7 +237,7 @@ public class class458 extends class437 {
 						var6.method4138(var0, var1, var2, var9.field2077);
 					}
 
-				} else if (1 == var5) {
+				} else if (var5 == 1) {
 					if (-1 == var9.field2076 && null == var9.field2094) {
 						var35 = var9.method3584(1, var4, var16, var18, var17, var19);
 					} else {
@@ -246,13 +246,13 @@ public class class458 extends class437 {
 
 					var6.method4228(var0, var1, var2, var17, (class212)var35, (class212)null, class82.field722[var4], 0, var20, var22);
 					if (var9.field2084) {
-						if (0 == var4) {
-							class30.field160[var0][var1][1 + var2] = 50;
-						} else if (1 == var4) {
+						if (var4 == 0) {
+							class30.field160[var0][var1][var2 + 1] = 50;
+						} else if (var4 == 1) {
 							class30.field160[var0][var1 + 1][var2 + 1] = 50;
-						} else if (2 == var4) {
-							class30.field160[var0][1 + var1][var2] = 50;
-						} else if (3 == var4) {
+						} else if (var4 == 2) {
+							class30.field160[var0][var1 + 1][var2] = 50;
+						} else if (var4 == 3) {
 							class30.field160[var0][var1][var2] = 50;
 						}
 					}
@@ -263,12 +263,12 @@ public class class458 extends class437 {
 
 				} else {
 					int var29;
-					if (2 == var5) {
-						var29 = 1 + var4 & 3;
+					if (var5 == 2) {
+						var29 = var4 + 1 & 3;
 						Object var30;
 						Object var31;
 						if (var9.field2076 == -1 && var9.field2094 == null) {
-							var30 = var9.method3584(2, 4 + var4, var16, var18, var17, var19);
+							var30 = var9.method3584(2, var4 + 4, var16, var18, var17, var19);
 							var31 = var9.method3584(2, var29, var16, var18, var17, var19);
 						} else {
 							var30 = new class61(var3, 2, var4 + 4, var0, var1, var2, var9.field2076, var9.field2099, (class212)null);
@@ -281,14 +281,14 @@ public class class458 extends class437 {
 								var10000 = class128.field1231[var0][var1];
 								var10000[var2] |= 585;
 								var10000 = class128.field1231[var0][var1];
-								var10000[1 + var2] |= 1170;
-							} else if (1 == var4) {
+								var10000[var2 + 1] |= 1170;
+							} else if (var4 == 1) {
 								var10000 = class128.field1231[var0][var1];
 								var10000[var2 + 1] |= 1170;
 								var10000 = class128.field1231[var0][var1 + 1];
 								var10000[var2] |= 585;
-							} else if (2 == var4) {
-								var10000 = class128.field1231[var0][1 + var1];
+							} else if (var4 == 2) {
+								var10000 = class128.field1231[var0][var1 + 1];
 								var10000[var2] |= 585;
 								var10000 = class128.field1231[var0][var1];
 								var10000[var2] |= 1170;
@@ -319,11 +319,11 @@ public class class458 extends class437 {
 						if (var9.field2084) {
 							if (var4 == 0) {
 								class30.field160[var0][var1][var2 + 1] = 50;
-							} else if (1 == var4) {
-								class30.field160[var0][1 + var1][var2 + 1] = 50;
-							} else if (2 == var4) {
+							} else if (var4 == 1) {
+								class30.field160[var0][var1 + 1][var2 + 1] = 50;
+							} else if (var4 == 2) {
 								class30.field160[var0][var1 + 1][var2] = 50;
-							} else if (3 == var4) {
+							} else if (var4 == 3) {
 								class30.field160[var0][var1][var2] = 50;
 							}
 						}
@@ -332,7 +332,7 @@ public class class458 extends class437 {
 							var7.method3736(var1, var2, var5, var4, var9.field2071);
 						}
 
-					} else if (9 == var5) {
+					} else if (var5 == 9) {
 						if (-1 == var9.field2076 && null == var9.field2094) {
 							var35 = var9.method3584(var5, var4, var16, var18, var17, var19);
 						} else {
@@ -348,7 +348,7 @@ public class class458 extends class437 {
 							var6.method4138(var0, var1, var2, var9.field2077);
 						}
 
-					} else if (4 == var5) {
+					} else if (var5 == 4) {
 						if (-1 == var9.field2076 && var9.field2094 == null) {
 							var35 = var9.method3584(4, var4, var16, var18, var17, var19);
 						} else {
@@ -373,7 +373,7 @@ public class class458 extends class437 {
 							}
 
 							var6.method4141(var0, var1, var2, var17, (class212)var34, (class212)null, class82.field721[var4], 0, class82.field713[var4] * var29, var29 * class82.field725[var4], var20, var22);
-						} else if (6 == var5) {
+						} else if (var5 == 6) {
 							var29 = 8;
 							var32 = var6.method4185(var0, var1, var2);
 							if (var32 != 0L) {
@@ -383,7 +383,7 @@ public class class458 extends class437 {
 							if (var9.field2076 == -1 && null == var9.field2094) {
 								var34 = var9.method3584(4, var4 + 4, var16, var18, var17, var19);
 							} else {
-								var34 = new class61(var3, 4, 4 + var4, var0, var1, var2, var9.field2076, var9.field2099, (class212)null);
+								var34 = new class61(var3, 4, var4 + 4, var0, var1, var2, var9.field2076, var9.field2099, (class212)null);
 							}
 
 							var6.method4141(var0, var1, var2, var17, (class212)var34, (class212)null, 256, var4, var29 * class82.field715[var4], var29 * class82.field726[var4], var20, var22);
@@ -392,11 +392,11 @@ public class class458 extends class437 {
 							if (var9.field2076 == -1 && null == var9.field2094) {
 								var35 = var9.method3584(4, var24 + 4, var16, var18, var17, var19);
 							} else {
-								var35 = new class61(var3, 4, 4 + var24, var0, var1, var2, var9.field2076, var9.field2099, (class212)null);
+								var35 = new class61(var3, 4, var24 + 4, var0, var1, var2, var9.field2076, var9.field2099, (class212)null);
 							}
 
 							var6.method4141(var0, var1, var2, var17, (class212)var35, (class212)null, 256, var24, 0, 0, var20, var22);
-						} else if (8 == var5) {
+						} else if (var5 == 8) {
 							var29 = 8;
 							var32 = var6.method4185(var0, var1, var2);
 							if (var32 != 0L) {
@@ -407,7 +407,7 @@ public class class458 extends class437 {
 							Object var27;
 							if (-1 == var9.field2076 && null == var9.field2094) {
 								var34 = var9.method3584(4, var4 + 4, var16, var18, var17, var19);
-								var27 = var9.method3584(4, 4 + var28, var16, var18, var17, var19);
+								var27 = var9.method3584(4, var28 + 4, var16, var18, var17, var19);
 							} else {
 								var34 = new class61(var3, 4, var4 + 4, var0, var1, var2, var9.field2076, var9.field2099, (class212)null);
 								var27 = new class61(var3, 4, var28 + 4, var0, var1, var2, var9.field2076, var9.field2099, (class212)null);
@@ -424,7 +424,7 @@ public class class458 extends class437 {
 					var35 = new class61(var3, 10, var4, var0, var1, var2, var9.field2076, var9.field2099, (class212)null);
 				}
 
-				if (var35 != null && var6.method4166(var0, var1, var2, var17, var10, var11, (class212)var35, 11 == var5 ? 256 : 0, var20, var22) && var9.field2084) {
+				if (var35 != null && var6.method4166(var0, var1, var2, var17, var10, var11, (class212)var35, var5 == 11 ? 256 : 0, var20, var22) && var9.field2084) {
 					var24 = 15;
 					if (var35 instanceof class209) {
 						var24 = ((class209)var35).method3994() / 4;

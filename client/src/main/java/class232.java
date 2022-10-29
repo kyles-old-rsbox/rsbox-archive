@@ -38,7 +38,7 @@ public class class232 extends class251 {
 			var0 *= var0;
 		}
 
-		if (1 == var1) {
+		if (var1 == 1) {
 			return var0 * var3;
 		} else {
 			return var3;

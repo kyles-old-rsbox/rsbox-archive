@@ -67,7 +67,7 @@ public abstract class class404 {
 
 	final void method7293(class400 var1) {
 		int var3 = this.method7337(var1);
-		if (-1 != var3) {
+		if (var3 != -1) {
 			this.method7360(var3);
 			this.method7300(var1);
 		}
@@ -171,12 +171,12 @@ public abstract class class404 {
 
 	static void method7362(class319 var0, class319 var1, boolean var2, int var3) {
 		if (class75.field617) {
-			if (4 == var3) {
+			if (var3 == 4) {
 				class74.method1490(4);
 			}
 
 		} else {
-			if (0 == var3) {
+			if (var3 == 0) {
 				class337.method6314(var2);
 			} else {
 				class74.method1490(var3);

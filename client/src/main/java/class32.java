@@ -33,8 +33,7 @@ public class class32 {
 			int[] var5 = new int[var8 * var7];
 			PixelGrabber var6 = new PixelGrabber(var2, 0, 0, var7, var8, var5, 0, var7);
 			var6.grabPixels();
-			class473 var10000 = new class473(var5, var7, var8);
-			return var10000;
+			return new class473(var5, var7, var8);
 		} catch (IOException var10) {
 		} catch (InterruptedException var11) {
 		}
@@ -43,7 +42,6 @@ public class class32 {
 	}
 
 	public static boolean method601(File var0, boolean var1) {
-		boolean var10000;
 		try {
 			RandomAccessFile var3 = new RandomAccessFile(var0, "rw");
 			int var4 = var3.read();
@@ -55,11 +53,9 @@ public class class32 {
 				var0.delete();
 			}
 
-			var10000 = true;
+			return true;
 		} catch (Exception var5) {
 			return false;
 		}
-
-		return var10000;
 	}
 }

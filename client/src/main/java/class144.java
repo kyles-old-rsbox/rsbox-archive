@@ -31,8 +31,8 @@ public class class144 extends class140 {
 							float[] var7 = new float[4];
 							var6[0] = (float)var3.field1153;
 							var7[0] = var3.field1150;
-							var6[1] = var6[0] + 0.33333334F * var3.field1154;
-							var7[1] = 0.33333334F * var3.field1155 + var7[0];
+							var6[1] = var6[0] + var3.field1154 * 0.33333334F;
+							var7[1] = var3.field1155 * 0.33333334F + var7[0];
 							var6[3] = (float)var3.field1156.field1153;
 							var7[3] = var3.field1156.field1150;
 							var6[2] = var6[3] - var3.field1156.field1152 * 0.33333334F;
@@ -171,7 +171,7 @@ public class class144 extends class140 {
 			int var7 = var0 & 127;
 			int var8 = var1 & 127;
 			int var9 = class82.field719[var6][var4][var5] * (128 - var7) + var7 * class82.field719[var6][var4 + 1][var5] >> 7;
-			int var10 = class82.field719[var6][1 + var4][1 + var5] * var7 + class82.field719[var6][var4][1 + var5] * (128 - var7) >> 7;
+			int var10 = class82.field719[var6][var4 + 1][var5 + 1] * var7 + class82.field719[var6][var4][var5 + 1] * (128 - var7) >> 7;
 			return var10 * var8 + var9 * (128 - var8) >> 7;
 		} else {
 			return 0;

@@ -17,18 +17,26 @@
 
 package io.rsbox.toolbox.deobfuscator.transformer
 
-import io.rsbox.toolbox.asm.tree.ClassPool
 import io.rsbox.toolbox.asm.LabelMap
+import io.rsbox.toolbox.asm.clone
+import io.rsbox.toolbox.asm.tree.ClassPool
+import io.rsbox.toolbox.asm.tree.getMethod
+import io.rsbox.toolbox.asm.tree.identifier
+import io.rsbox.toolbox.asm.tree.owner
 import io.rsbox.toolbox.deobfuscator.Transformer
+import org.objectweb.asm.Opcodes.GOTO
+import org.objectweb.asm.tree.AbstractInsnNode
 import org.objectweb.asm.tree.AbstractInsnNode.*
 import org.objectweb.asm.tree.InsnList
+import org.objectweb.asm.tree.JumpInsnNode
+import org.objectweb.asm.tree.LabelNode
 import org.objectweb.asm.tree.LineNumberNode
 import org.objectweb.asm.tree.MethodNode
 import org.objectweb.asm.tree.analysis.Analyzer
 import org.objectweb.asm.tree.analysis.BasicInterpreter
 import org.objectweb.asm.tree.analysis.BasicValue
 import org.tinylog.kotlin.Logger
-import java.util.*
+import java.util.Stack
 
 class ControlFlowFixer : Transformer {
 
@@ -36,140 +44,161 @@ class ControlFlowFixer : Transformer {
 
     override fun run(pool: ClassPool) {
         pool.classes.forEach { cls ->
-            cls.methods.forEach methodLoop@{ method ->
-                if(method.tryCatchBlocks.isEmpty()) {
-                    val cfg = ControlFlowGraph()
-                    cfg.build(cls.name, method)
-                    val newInsns = InsnList()
-                    if(cfg.blocks.isNotEmpty()) {
-                        val labelMap = LabelMap()
-                        val queue = Stack<Block>()
-                        val visited = hashSetOf<Block>()
-                        queue.add(cfg.blocks.first())
-                        while(queue.isNotEmpty()) {
-                            val block = queue.pop()
-                            if(block in visited) continue
-                            visited.add(block)
-                            block.branches.forEach { queue.add(it.head) }
-                            block.next?.let { queue.add(it) }
-                            for(i in block.start until block.end) {
-                                newInsns.add(method.instructions[i].clone(labelMap))
-                            }
+            cls.methods.forEach methodLoop@ { method ->
+                if(method.tryCatchBlocks.isNotEmpty()) return@methodLoop
+                val cfg = ControlFlowGraph(method).also { it.build() }
+                val newInsns = InsnList()
+                if(cfg.blocks.isNotEmpty()) {
+                    val labelMap = LabelMap()
+                    val queue = Stack<Block>()
+                    val done = hashSetOf<Block>()
+                    queue.add(cfg.blocks.first())
+                    while(queue.isNotEmpty()) {
+                        val block = queue.pop()
+                        if(block in done) continue
+                        done.add(block)
+                        block.branches.forEach { queue.add(it.head) }
+                        block.next?.let { queue.add(it) }
+                        for(i in block.startIndex until block.endIndex) {
+                            newInsns.add(method.instructions[i].clone(labelMap))
                         }
                     }
-                    method.instructions = newInsns
-                    count += cfg.blocks.size
                 }
+                method.instructions = newInsns
+                count += cfg.blocks.size
             }
         }
 
-        Logger.info("Reordered $count control-flow blocks.")
+        Logger.info("Fixed $count control-flow blocks in methods.")
     }
 
-    private class Block : Comparable<Block> {
-        var start = 0
-        var end = 0
-
-        var prev: Block? = null
-        var next: Block? = null
-
-        val branches = mutableListOf<Block>()
-        val instructions = InsnList()
-
-        val head: Block get() {
-            var cur = this
-            var last = cur.prev
-            while(last != null) {
-                cur = last
-                last = cur.prev
-            }
-            return cur
-        }
-
-        val lineNumber: Int get() {
-            instructions.forEach { insn ->
-                if(insn is LineNumberNode) {
-                    return insn.line
-                }
-            }
-            return -1
-        }
-
-        override fun compareTo(other: Block): Int {
-            val l1 = this.lineNumber
-            val l2 = other.lineNumber
-            if(l1 == l2 || l1 == -1 || l2 == -1) {
-                return 0
-            }
-            return l1.compareTo(l2)
-        }
-    }
-
-    private class ControlFlowGraph {
+    private class ControlFlowGraph(private val method: MethodNode) : Analyzer<BasicValue>(BasicInterpreter()) {
 
         val blocks = mutableListOf<Block>()
 
-        private lateinit var head: Block
+        private val head = Block()
 
-        private val analyzer = object : Analyzer<BasicValue>(BasicInterpreter()) {
-
-            override fun init(owner: String, method: MethodNode) {
-                val insns = method.instructions
-                var cur = Block()
-                head = cur
-                blocks.add(cur)
-                for(i in 0 until insns.size()) {
-                    val insn = insns[i]
-                    cur.end++
-                    if(insn.next == null) break
-                    if(insn.next.type == LABEL || insn.type == JUMP_INSN || insn.type == LOOKUPSWITCH_INSN || insn.type == TABLESWITCH_INSN) {
-                        cur = Block()
-                        cur.start = i + 1
-                        cur.end = i + 1
-                        blocks.add(cur)
+        fun build() {
+            analyze(method.owner.name, method)
+            var id = 0
+            blocks.forEach { block ->
+                block.id = id++
+                for(i in block.startIndex until block.endIndex) {
+                    val insn = method.instructions[i]
+                    block.instructions.add(insn)
+                    if(insn is LineNumberNode) {
+                        block.lineNumber = insn.line
                     }
                 }
             }
 
-            override fun newControlFlowEdge(insnIndex: Int, successorIndex: Int) {
-                val cur = blocks.first { insnIndex in it.start until it.end }
-                val next = blocks.first { successorIndex in it.start until it.end }
-                if(cur != next) {
-                    if(insnIndex + 1 == successorIndex) {
-                        cur.next = next
-                        next.prev = cur
-                    } else {
-                        cur.branches.add(next)
-                    }
-                }
-            }
-        }
-
-        fun build(owner: String, method: MethodNode) {
-            analyzer.analyze(owner, method)
-        }
-
-        private fun sorted() {
-            val ret = mutableListOf<Block>()
-            walk(head, ret, mutableListOf())
-            val reverse = ret.asReversed()
+            val orderedBlocks = orderedBlocks()
             blocks.clear()
-            blocks.addAll(reverse)
+            blocks.addAll(orderedBlocks)
         }
 
-        private fun walk(cur: Block, ordered: MutableList<Block>, visited: MutableList<Block>) {
+        override fun init(owner: String, method: MethodNode) {
+            val insns = method.instructions.toArray()
+
+            var cur = head
+            blocks.add(cur)
+            for(i in insns.indices) {
+                val insn = insns[i]
+                cur.endIndex++
+                if(insn.next == null) break
+                if(insn.next.type == LABEL ||
+                        insn.type == JUMP_INSN ||
+                        insn.type == LOOKUPSWITCH_INSN ||
+                        insn.type == TABLESWITCH_INSN) {
+                    cur = Block()
+                    cur.startIndex = i + 1
+                    cur.endIndex = i + 1
+                    blocks.add(cur)
+                }
+            }
+        }
+
+        override fun newControlFlowEdge(insnIndex: Int, successorIndex: Int) {
+            val block1 = blocks.first { insnIndex in it.startIndex until it.endIndex }
+            val block2 = blocks.first { successorIndex in it.startIndex until it.endIndex }
+            if(block1 != block2) {
+                if(insnIndex + 1 == successorIndex) {
+                    block1.next = block2
+                    block2.prev = block1
+                } else {
+                    block1.branches.add(block2)
+                }
+            }
+        }
+
+        private fun orderedBlocks(): List<Block> {
+            val results = mutableListOf<Block>()
+            walk(head, results, hashSetOf())
+            return results.asReversed()
+        }
+
+        private fun walk(cur: Block, ordered: MutableList<Block>, done: MutableSet<Block>) {
             val next = cur.next
-            if(next != null && visited.add(next)) {
-                walk(next, ordered, visited)
+            if (next != null && done.add(next)) {
+                walk(cur.next!!, ordered, done)
             }
             val branches = cur.branches
             branches.sort()
             branches.forEach { branch ->
-                if(visited.add(branch)) {
-                    walk(branch, ordered, visited)
+                if(done.add(branch)) {
+                    walk(branch, ordered, done)
                 }
             }
             ordered.add(cur)
+        }
+
+        override fun toString(): String {
+            val str = StringBuilder()
+            str.append("CFG: ${method.identifier}\n")
+            blocks.forEach { block ->
+                str.append("\tBLOCK: $block\n")
+                block.branches.forEach { branch ->
+                    str.append("\t\tBLOCK: $block\n")
+                }
+            }
+            return str.toString()
+        }
+    }
+
+    private class Block : Comparable<Block> {
+
+        var id = -1
+        var prev: Block? = null
+        var next: Block? = null
+
+        val branches = mutableListOf<Block>()
+
+        var startIndex: Int = 0
+        var endIndex: Int = 0
+        var lineNumber = -1
+
+        val instructions = mutableListOf<AbstractInsnNode>()
+
+        val head: Block get() {
+            var cur = this
+            while(true) {
+                if(cur.prev == null) {
+                    return cur
+                } else {
+                    cur = cur.prev!!
+                }
+            }
+        }
+
+        override fun compareTo(other: Block): Int {
+            if(lineNumber == other.lineNumber || lineNumber == -1 || other.lineNumber == -1) {
+                return 0
+            }
+            return lineNumber.compareTo(other.lineNumber)
+        }
+
+        override fun toString(): String {
+            return "$id - LINE: $lineNumber"
         }
     }
 }

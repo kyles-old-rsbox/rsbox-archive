@@ -17,7 +17,7 @@ public class class459 extends class437 {
 	}
 
 	public class459(class319 var1, int var2, int var3) {
-		byte[] var4 = var1.method6175(var2, 1 + var3);
+		byte[] var4 = var1.method6175(var2, var3 + 1);
 		this.method8092(new class460(var4));
 	}
 

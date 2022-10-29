@@ -19,7 +19,7 @@ public class class332 {
 	}
 
 	static int method6264(int var0, class78 var1, boolean var2) {
-		if (7108 == var0) {
+		if (var0 == CS2Opcodes.ISMENUOPEN) {
 			class57.field404[++class387.field4452 - 1] = client.method5007() ? 1 : 0;
 			return 1;
 		} else {

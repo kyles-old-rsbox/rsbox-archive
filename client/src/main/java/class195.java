@@ -133,7 +133,7 @@ public class class195 extends class437 {
 	void method3581(class460 var1, int var2) {
 		int var4;
 		int var5;
-		if (1 == var2) {
+		if (var2 == 1) {
 			var4 = var1.method8141();
 			if (var4 > 0) {
 				if (null != this.field2057 && !field2082) {
@@ -150,11 +150,11 @@ public class class195 extends class437 {
 			}
 		} else if (var2 == 2) {
 			this.field2063 = var1.method8131();
-		} else if (5 == var2) {
+		} else if (var2 == 5) {
 			var4 = var1.method8141();
 			if (var4 > 0) {
 				if (null != this.field2057 && !field2082) {
-					var1.field4878 += 2 * var4;
+					var1.field4878 += var4 * 2;
 				} else {
 					this.field2079 = null;
 					this.field2057 = new int[var4];
@@ -164,7 +164,7 @@ public class class195 extends class437 {
 					}
 				}
 			}
-		} else if (14 == var2) {
+		} else if (var2 == 14) {
 			this.field2100 = var1.method8141();
 		} else if (var2 == 15) {
 			this.field2069 = var1.method8141();
@@ -173,24 +173,24 @@ public class class195 extends class437 {
 			this.field2071 = false;
 		} else if (var2 == 18) {
 			this.field2071 = false;
-		} else if (19 == var2) {
+		} else if (var2 == 19) {
 			this.field2072 = var1.method8141();
 		} else if (var2 == 21) {
 			this.field2073 = 0;
-		} else if (22 == var2) {
+		} else if (var2 == 22) {
 			this.field2065 = true;
-		} else if (23 == var2) {
+		} else if (var2 == 23) {
 			this.field2091 = true;
 		} else if (var2 == 24) {
 			this.field2076 = var1.method8122();
 			if (this.field2076 == 65535) {
 				this.field2076 = -1;
 			}
-		} else if (27 == var2) {
+		} else if (var2 == 27) {
 			this.field2070 = 1;
-		} else if (28 == var2) {
+		} else if (var2 == 28) {
 			this.field2077 = var1.method8141();
-		} else if (29 == var2) {
+		} else if (var2 == 29) {
 			this.field2061 = var1.method8287();
 		} else if (var2 == 39) {
 			this.field2078 = var1.method8287() * 25;
@@ -199,7 +199,7 @@ public class class195 extends class437 {
 			if (this.field2060[var2 - 30].equalsIgnoreCase(class338.field3894)) {
 				this.field2060[var2 - 30] = null;
 			}
-		} else if (40 == var2) {
+		} else if (var2 == 40) {
 			var4 = var1.method8141();
 			this.field2064 = new short[var4];
 			this.field2092 = new short[var4];
@@ -225,11 +225,11 @@ public class class195 extends class437 {
 			this.field2084 = false;
 		} else if (var2 == 65) {
 			this.field2080 = var1.method8122();
-		} else if (66 == var2) {
+		} else if (var2 == 66) {
 			this.field2062 = var1.method8122();
 		} else if (var2 == 67) {
 			this.field2087 = var1.method8122();
-		} else if (68 == var2) {
+		} else if (var2 == 68) {
 			this.field2075 = var1.method8122();
 		} else if (var2 == 69) {
 			var1.method8141();
@@ -237,19 +237,19 @@ public class class195 extends class437 {
 			this.field2088 = var1.method8204();
 		} else if (var2 == 71) {
 			this.field2089 = var1.method8204();
-		} else if (72 == var2) {
+		} else if (var2 == 72) {
 			this.field2090 = var1.method8204();
 		} else if (var2 == 73) {
 			this.field2068 = true;
-		} else if (74 == var2) {
+		} else if (var2 == 74) {
 			this.field2085 = true;
-		} else if (75 == var2) {
+		} else if (var2 == 75) {
 			this.field2093 = var1.method8141();
-		} else if (var2 != 77 && 92 != var2) {
-			if (78 == var2) {
+		} else if (var2 != 77 && var2 != 92) {
+			if (var2 == 78) {
 				this.field2097 = var1.method8122();
 				this.field2098 = var1.method8141();
-			} else if (79 == var2) {
+			} else if (var2 == 79) {
 				this.field2086 = var1.method8122();
 				this.field2102 = var1.method8122();
 				this.field2098 = var1.method8141();
@@ -263,9 +263,9 @@ public class class195 extends class437 {
 				this.field2073 = var1.method8141() * 256;
 			} else if (var2 == 82) {
 				this.field2081 = var1.method8122();
-			} else if (89 == var2) {
+			} else if (var2 == 89) {
 				this.field2099 = false;
-			} else if (249 == var2) {
+			} else if (var2 == 249) {
 				this.field2103 = class233.method4559(var1, this.field2103);
 			}
 		} else {
@@ -282,13 +282,13 @@ public class class195 extends class437 {
 			var4 = -1;
 			if (var2 == 92) {
 				var4 = var1.method8122();
-				if (65535 == var4) {
+				if (var4 == 65535) {
 					var4 = -1;
 				}
 			}
 
 			var5 = var1.method8141();
-			this.field2094 = new int[2 + var5];
+			this.field2094 = new int[var5 + 2];
 
 			for (int var6 = 0; var6 <= var5; ++var6) {
 				this.field2094[var6] = var1.method8122();
@@ -297,7 +297,7 @@ public class class195 extends class437 {
 				}
 			}
 
-			this.field2094[1 + var5] = var4;
+			this.field2094[var5 + 1] = var4;
 		}
 
 	}
@@ -459,7 +459,7 @@ public class class195 extends class437 {
 			}
 
 			var5 = this.field2083;
-			if (2 == var1 && var2 > 3) {
+			if (var1 == 2 && var2 > 3) {
 				var5 = !var5;
 			}
 
@@ -503,7 +503,7 @@ public class class195 extends class437 {
 				}
 			}
 
-			if (-1 == var10) {
+			if (var10 == -1) {
 				return null;
 			}
 
@@ -541,8 +541,8 @@ public class class195 extends class437 {
 			var12 = true;
 		}
 
-		class201 var9 = new class201(var4, 0 == var2 && !var5 && !var12, this.field2064 == null, this.field2066 == null, true);
-		if (4 == var1 && var2 > 3) {
+		class201 var9 = new class201(var4, var2 == 0 && !var5 && !var12, this.field2064 == null, this.field2066 == null, true);
+		if (var1 == 4 && var2 > 3) {
 			var9.method3788(256);
 			var9.method3822(45, 0, -45);
 		}
@@ -550,9 +550,9 @@ public class class195 extends class437 {
 		var2 &= 3;
 		if (var2 == 1) {
 			var9.method3821();
-		} else if (2 == var2) {
+		} else if (var2 == 2) {
 			var9.method3786();
-		} else if (3 == var2) {
+		} else if (var2 == 3) {
 			var9.method3787();
 		}
 

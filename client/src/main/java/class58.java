@@ -23,14 +23,11 @@ public class class58 {
 	}
 
 	SecureRandom method1289() {
-		SecureRandom var10000;
 		try {
-			var10000 = (SecureRandom)this.field418.get();
+			return (SecureRandom)this.field418.get();
 		} catch (Exception var3) {
 			return class18.method219();
 		}
-
-		return var10000;
 	}
 
 	static final void method1276(class51 var0) {

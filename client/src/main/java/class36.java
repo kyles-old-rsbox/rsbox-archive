@@ -46,7 +46,6 @@ public class class36 implements KeyListener, FocusListener {
 		synchronized(this) {
 			this.field243.add(new class37(4, 0));
 		}
-
 	}
 
 	void method674() {
@@ -119,11 +118,11 @@ public class class36 implements KeyListener, FocusListener {
 
 	public final synchronized void keyTyped(KeyEvent var1) {
 		char var2 = var1.getKeyChar();
-		if (0 != var2 && '\uffff' != var2) {
+		if (var2 != 0 && var2 != '\uffff') {
 			boolean var3;
 			if ((var2 <= 0 || var2 >= 128) && (var2 < 160 || var2 > 255)) {
 				label47: {
-					if (0 != var2) {
+					if (var2 != 0) {
 						char[] var4 = class349.field4270;
 
 						for (int var5 = 0; var5 < var4.length; ++var5) {
@@ -176,11 +175,11 @@ public class class36 implements KeyListener, FocusListener {
 		int var6;
 		class459 var7;
 		int var8;
-		if (var0 != 7500 && 7508 != var0) {
-			if (7501 != var0) {
+		if (var0 != CS2Opcodes.DB_FIND_WITH_COUNT && var0 != CS2Opcodes.DB_FIND) {
+			if (var0 != CS2Opcodes.DB_FINDNEXT) {
 				int var20;
 				int var21;
-				if (var0 == 7502) {
+				if (var0 == CS2Opcodes.DB_GETFIELD) {
 					class387.field4452 -= 3;
 					var4 = class57.field404[class387.field4452];
 					var20 = class57.field404[class387.field4452 + 1];
@@ -199,7 +198,7 @@ public class class36 implements KeyListener, FocusListener {
 						}
 
 						var13 = var9;
-						var14 = 1 + var9;
+						var14 = var9 + 1;
 					}
 
 					Object[] var15 = var26.method7989(var8);
@@ -239,7 +238,7 @@ public class class36 implements KeyListener, FocusListener {
 							throw new RuntimeException();
 						}
 					}
-				} else if (var0 == 7503) {
+				} else if (var0 == CS2Opcodes.DB_GETFIELDCOUNT) {
 					class387.field4452 -= 2;
 					var4 = class57.field404[class387.field4452];
 					var20 = class57.field404[1 + class387.field4452];
@@ -260,13 +259,13 @@ public class class36 implements KeyListener, FocusListener {
 
 					class57.field404[++class387.field4452 - 1] = var6;
 					return 1;
-				} else if (var0 != 7504 && 7510 != var0) {
-					if (var0 == 7505) {
+				} else if (var0 != CS2Opcodes.DB_FINDALL_WITH_COUNT && var0 != CS2Opcodes.DB_FIND_FILTER) {
+					if (var0 == CS2Opcodes.DB_GETROWTABLE) {
 						var4 = class57.field404[--class387.field4452];
 						class452 var25 = class154.method2596(var4);
 						class57.field404[++class387.field4452 - 1] = var25.field4855;
 						return 1;
-					} else if (7506 == var0) {
+					} else if (var0 == CS2Opcodes.DB_GETROW) {
 						var4 = class57.field404[--class387.field4452];
 						var20 = -1;
 						if (null != class73.field605 && var4 >= 0 && var4 < class73.field605.size()) {
@@ -275,7 +274,7 @@ public class class36 implements KeyListener, FocusListener {
 
 						class57.field404[++class387.field4452 - 1] = var20;
 						return 1;
-					} else if (var0 != 7507 && 7509 != var0) {
+					} else if (var0 != CS2Opcodes.DB_FIND_FILTER_WITH_COUNT && var0 != CS2Opcodes.DB_FINDALL) {
 						return 2;
 					} else {
 						var4 = class57.field404[--class387.field4452];
@@ -299,7 +298,7 @@ public class class36 implements KeyListener, FocusListener {
 							}
 
 							class92.field890 = class73.field605.iterator();
-							if (var0 == 7507) {
+							if (var0 == CS2Opcodes.DB_FIND_FILTER_WITH_COUNT) {
 								class57.field404[++class387.field4452 - 1] = class73.field605.size();
 							}
 
@@ -321,7 +320,7 @@ public class class36 implements KeyListener, FocusListener {
 							var6 = class73.field605.size();
 						}
 
-						if (var0 == 7504) {
+						if (var0 == CS2Opcodes.DB_FINDALL_WITH_COUNT) {
 							class57.field404[++class387.field4452 - 1] = var6;
 						}
 
@@ -350,13 +349,13 @@ public class class36 implements KeyListener, FocusListener {
 				if (class73.field605 != null) {
 					client.field1928 = class444.method7142(var6);
 					class92.field890 = class73.field605.iterator();
-					if (var0 == 7500) {
+					if (var0 == CS2Opcodes.DB_FIND_WITH_COUNT) {
 						class57.field404[++class387.field4452 - 1] = class73.field605.size();
 					}
 				} else {
 					client.field1928 = -1;
 					class92.field890 = null;
-					if (var0 == 7500) {
+					if (var0 == CS2Opcodes.DB_FIND_WITH_COUNT) {
 						class57.field404[++class387.field4452 - 1] = 0;
 					}
 				}

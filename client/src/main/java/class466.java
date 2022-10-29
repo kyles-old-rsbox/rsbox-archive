@@ -190,7 +190,20 @@ public class class466 {
 				this.method8399();
 			}
 
-			if (var3 > this.field4907.length) {
+			if (var3 <= this.field4907.length) {
+				if (var3 > 0) {
+					if (this.field4913 == -1L) {
+						this.field4913 = this.field4915;
+					}
+
+					System.arraycopy(var1, var2, this.field4907, (int)(this.field4915 - this.field4913), var3);
+					this.field4915 += (long)var3;
+					if (this.field4915 - this.field4913 > (long)this.field4917) {
+						this.field4917 = (int)(this.field4915 - this.field4913);
+					}
+
+				}
+			} else {
 				if (this.field4915 != this.field4918) {
 					this.field4914.method8379(this.field4915);
 					this.field4918 = this.field4915;
@@ -222,27 +235,11 @@ public class class466 {
 				}
 
 				this.field4915 += (long)var3;
-				return;
-			}
-
-			if (var3 > 0) {
-				if (this.field4913 == -1L) {
-					this.field4913 = this.field4915;
-				}
-
-				System.arraycopy(var1, var2, this.field4907, (int)(this.field4915 - this.field4913), var3);
-				this.field4915 += (long)var3;
-				if (this.field4915 - this.field4913 > (long)this.field4917) {
-					this.field4917 = (int)(this.field4915 - this.field4913);
-				}
-
-				return;
 			}
 		} catch (IOException var13) {
 			this.field4918 = -1L;
 			throw var13;
 		}
-
 	}
 
 	void method8399() throws IOException {

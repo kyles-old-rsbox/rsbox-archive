@@ -156,7 +156,7 @@ public class class214 {
 					class227 var7 = var5.field2671[var6];
 					long var9 = var7.field2719;
 					int var11 = (int)(var9 >>> 14 & 3L);
-					boolean var8 = 2 == var11;
+					boolean var8 = var11 == 2;
 					if (var8 && var7.field2713 == var1 && var7.field2715 == var2) {
 						--var7.field2717;
 					}
@@ -331,8 +331,8 @@ public class class214 {
 		if (var7 == null) {
 			return true;
 		} else {
-			int var12 = var2 * 128 + 64 * var5;
-			int var13 = var3 * 128 + 64 * var6;
+			int var12 = var2 * 128 + var5 * 64;
+			int var13 = var3 * 128 + var6 * 64;
 			return this.method4135(var1, var2, var3, var5, var6, var12, var13, var4, var7, var8, false, var9, var11);
 		}
 	}

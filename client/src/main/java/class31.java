@@ -113,7 +113,7 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 
 		for (var8 = 0; var3.field4878 < var5; var2.field674[var8++] = var9) {
 			var9 = var3.method8122();
-			if (3 == var9) {
+			if (var9 == 3) {
 				var2.field676[var8] = var3.method8131();
 			} else if (var9 < 100 && var9 != 21 && var9 != 38 && var9 != 39) {
 				var2.field680[var8] = var3.method8126();
@@ -679,7 +679,7 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 				var7.fillRect(2, 2, var1 * 3, 30);
 				var7.setColor(Color.black);
 				var7.drawRect(1, 1, 301, 31);
-				var7.fillRect(3 * var1 + 2, 2, 300 - 3 * var1, 30);
+				var7.fillRect(var1 * 3 + 2, 2, 300 - var1 * 3, 30);
 				var7.setFont(class121.field1167);
 				var7.setColor(Color.white);
 				var7.drawString(var2, (304 - class12.field59.stringWidth(var2)) / 2, 22);
@@ -689,13 +689,13 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 				int var9 = class12.field57 / 2 - 18;
 				var5.setColor(var6);
 				var5.drawRect(var8, var9, 303, 33);
-				var5.fillRect(var8 + 2, var9 + 2, 3 * var1, 30);
+				var5.fillRect(var8 + 2, var9 + 2, var1 * 3, 30);
 				var5.setColor(Color.black);
-				var5.drawRect(1 + var8, var9 + 1, 301, 31);
-				var5.fillRect(2 + var8 + var1 * 3, var9 + 2, 300 - var1 * 3, 30);
+				var5.drawRect(var8 + 1, var9 + 1, 301, 31);
+				var5.fillRect(var8 + 2 + var1 * 3, var9 + 2, 300 - var1 * 3, 30);
 				var5.setFont(class121.field1167);
 				var5.setColor(Color.white);
-				var5.drawString(var2, var8 + (304 - class12.field59.stringWidth(var2)) / 2, 22 + var9);
+				var5.drawString(var2, var8 + (304 - class12.field59.stringWidth(var2)) / 2, var9 + 22);
 			}
 		} catch (Exception var11) {
 			this.field190.repaint();

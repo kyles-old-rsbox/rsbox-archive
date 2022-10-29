@@ -31,7 +31,7 @@ public class class408 {
 
 		while (true) {
 			int var5 = var4.method8141();
-			if (0 == var5) {
+			if (var5 == 0) {
 				return;
 			}
 

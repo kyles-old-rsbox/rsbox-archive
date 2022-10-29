@@ -13,7 +13,7 @@ public final class class357 {
 
 		while (true) {
 			int var8 = var6.method8138();
-			if (0 == var8) {
+			if (var8 == 0) {
 				return;
 			}
 

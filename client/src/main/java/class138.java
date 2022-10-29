@@ -51,62 +51,62 @@ public class class138 extends class140 {
 					var16.method8755(48 + var1 * 4 + var17, var18 + 48 + 4 * (104 - var2 - var15.field2069));
 				}
 			} else {
-				if (0 == var10 || 2 == var10) {
+				if (var10 == 0 || var10 == 2) {
 					if (var9 == 0) {
 						var12[var13] = var11;
 						var12[var13 + 512] = var11;
-						var12[1024 + var13] = var11;
+						var12[var13 + 1024] = var11;
 						var12[var13 + 1536] = var11;
 					} else if (var9 == 1) {
 						var12[var13] = var11;
-						var12[1 + var13] = var11;
-						var12[2 + var13] = var11;
-						var12[3 + var13] = var11;
+						var12[var13 + 1] = var11;
+						var12[var13 + 2] = var11;
+						var12[var13 + 3] = var11;
 					} else if (var9 == 2) {
-						var12[3 + var13] = var11;
+						var12[var13 + 3] = var11;
 						var12[var13 + 3 + 512] = var11;
 						var12[var13 + 3 + 1024] = var11;
 						var12[1536 + var13 + 3] = var11;
-					} else if (3 == var9) {
-						var12[1536 + var13] = var11;
+					} else if (var9 == 3) {
+						var12[var13 + 1536] = var11;
 						var12[1 + var13 + 1536] = var11;
-						var12[2 + 1536 + var13] = var11;
-						var12[1536 + var13 + 3] = var11;
+						var12[2 + var13 + 1536] = var11;
+						var12[var13 + 1536 + 3] = var11;
 					}
 				}
 
-				if (3 == var10) {
+				if (var10 == 3) {
 					if (var9 == 0) {
 						var12[var13] = var11;
-					} else if (1 == var9) {
+					} else if (var9 == 1) {
 						var12[var13 + 3] = var11;
-					} else if (2 == var9) {
-						var12[3 + var13 + 1536] = var11;
-					} else if (3 == var9) {
-						var12[1536 + var13] = var11;
+					} else if (var9 == 2) {
+						var12[var13 + 3 + 1536] = var11;
+					} else if (var9 == 3) {
+						var12[var13 + 1536] = var11;
 					}
 				}
 
 				if (var10 == 2) {
-					if (3 == var9) {
+					if (var9 == 3) {
 						var12[var13] = var11;
-						var12[512 + var13] = var11;
-						var12[1024 + var13] = var11;
-						var12[1536 + var13] = var11;
+						var12[var13 + 512] = var11;
+						var12[var13 + 1024] = var11;
+						var12[var13 + 1536] = var11;
 					} else if (var9 == 0) {
 						var12[var13] = var11;
 						var12[var13 + 1] = var11;
 						var12[var13 + 2] = var11;
-						var12[3 + var13] = var11;
-					} else if (1 == var9) {
 						var12[var13 + 3] = var11;
-						var12[512 + 3 + var13] = var11;
-						var12[3 + var13 + 1024] = var11;
-						var12[3 + var13 + 1536] = var11;
-					} else if (2 == var9) {
+					} else if (var9 == 1) {
+						var12[var13 + 3] = var11;
+						var12[512 + var13 + 3] = var11;
+						var12[var13 + 3 + 1024] = var11;
+						var12[var13 + 3 + 1536] = var11;
+					} else if (var9 == 2) {
 						var12[var13 + 1536] = var11;
-						var12[1 + 1536 + var13] = var11;
-						var12[2 + 1536 + var13] = var11;
+						var12[1 + var13 + 1536] = var11;
+						var12[2 + var13 + 1536] = var11;
 						var12[3 + var13 + 1536] = var11;
 					}
 				}
@@ -128,7 +128,7 @@ public class class138 extends class140 {
 					var20 = (var25.field2069 * 4 - var19.field5019) / 2;
 					var19.method8755(48 + var1 * 4 + var14, var20 + (104 - var2 - var25.field2069) * 4 + 48);
 				}
-			} else if (9 == var10) {
+			} else if (var10 == 9) {
 				var13 = 15658734;
 				if (class234.method5519(var6)) {
 					var13 = 15597568;
@@ -136,15 +136,15 @@ public class class138 extends class140 {
 
 				int[] var21 = class309.field3678.field4952;
 				var20 = 2048 * (103 - var2) + var1 * 4 + 24624;
-				if (0 != var9 && 2 != var9) {
+				if (var9 != 0 && var9 != 2) {
 					var21[var20] = var13;
 					var21[1 + var20 + 512] = var13;
-					var21[1024 + var20 + 2] = var13;
-					var21[3 + 1536 + var20] = var13;
+					var21[var20 + 1024 + 2] = var13;
+					var21[3 + var20 + 1536] = var13;
 				} else {
-					var21[1536 + var20] = var13;
+					var21[var20 + 1536] = var13;
 					var21[1 + var20 + 1024] = var13;
-					var21[512 + var20 + 2] = var13;
+					var21[var20 + 512 + 2] = var13;
 					var21[var20 + 3] = var13;
 				}
 			}

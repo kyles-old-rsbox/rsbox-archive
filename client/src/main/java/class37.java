@@ -106,7 +106,7 @@ public class class37 {
 										if (var18 >= var2 - 1) {
 											class191.field2017[var21] = var6 + 1;
 											class191.field2021[var21] = var7;
-											var21 = 1 + var21 & 4095;
+											var21 = var21 + 1 & 4095;
 											class191.field2023[var19 + 1][var20] = 8;
 											class191.field2020[var19 + 1][var20] = var17;
 											break;
@@ -127,7 +127,7 @@ public class class37 {
 										if (var18 >= var2 - 1) {
 											class191.field2017[var21] = var6;
 											class191.field2021[var21] = var7 - 1;
-											var21 = 1 + var21 & 4095;
+											var21 = var21 + 1 & 4095;
 											class191.field2023[var19][var20 - 1] = 1;
 											class191.field2020[var19][var20 - 1] = var17;
 											break;
@@ -147,9 +147,9 @@ public class class37 {
 									while (true) {
 										if (var18 >= var2 - 1) {
 											class191.field2017[var21] = var6;
-											class191.field2021[var21] = 1 + var7;
+											class191.field2021[var21] = var7 + 1;
 											var21 = var21 + 1 & 4095;
-											class191.field2023[var19][1 + var20] = 4;
+											class191.field2023[var19][var20 + 1] = 4;
 											class191.field2020[var19][var20 + 1] = var17;
 											break;
 										}
@@ -169,7 +169,7 @@ public class class37 {
 										if (var18 >= var2) {
 											class191.field2017[var21] = var6 - 1;
 											class191.field2021[var21] = var7 - 1;
-											var21 = 1 + var21 & 4095;
+											var21 = var21 + 1 & 4095;
 											class191.field2023[var19 - 1][var20 - 1] = 3;
 											class191.field2020[var19 - 1][var20 - 1] = var17;
 											break;
@@ -183,15 +183,15 @@ public class class37 {
 									}
 								}
 
-								if (var19 < 128 - var2 && var20 > 0 && 0 == class191.field2023[1 + var19][var20 - 1] && 0 == (var14[var2 + var15][var16 - 1] & 19136899)) {
+								if (var19 < 128 - var2 && var20 > 0 && 0 == class191.field2023[var19 + 1][var20 - 1] && 0 == (var14[var2 + var15][var16 - 1] & 19136899)) {
 									var18 = 1;
 
 									while (true) {
 										if (var18 >= var2) {
-											class191.field2017[var21] = 1 + var6;
+											class191.field2017[var21] = var6 + 1;
 											class191.field2021[var21] = var7 - 1;
-											var21 = 1 + var21 & 4095;
-											class191.field2023[1 + var19][var20 - 1] = 9;
+											var21 = var21 + 1 & 4095;
+											class191.field2023[var19 + 1][var20 - 1] = 9;
 											class191.field2020[var19 + 1][var20 - 1] = var17;
 											break;
 										}
@@ -212,14 +212,14 @@ public class class37 {
 									}
 
 									class191.field2017[var21] = var6 - 1;
-									class191.field2021[var21] = 1 + var7;
-									var21 = 1 + var21 & 4095;
+									class191.field2021[var21] = var7 + 1;
+									var21 = var21 + 1 & 4095;
 									class191.field2023[var19 - 1][var20 + 1] = 6;
 									class191.field2020[var19 - 1][var20 + 1] = var17;
 								}
 							} while(var19 >= 128 - var2);
 						} while(var20 >= 128 - var2);
-					} while(class191.field2023[1 + var19][var20 + 1] != 0);
+					} while(class191.field2023[var19 + 1][var20 + 1] != 0);
 				} while((var14[var15 + var2][var2 + var16] & 19136992) != 0);
 
 				for (var18 = 1; var18 < var2; ++var18) {

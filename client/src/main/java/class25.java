@@ -88,7 +88,7 @@ public class class25 implements class360 {
 							var9 = var0.field812;
 						}
 
-						if (-1 == var9) {
+						if (var9 == -1) {
 							var9 = var0.field810;
 						}
 
@@ -236,7 +236,7 @@ public class class25 implements class360 {
 				if (null != var14) {
 					var5 = var0.field827 - ((class90)var14).field827;
 					var6 = var0.field802 - ((class90)var14).field802;
-					if (0 != var5 || var6 != 0) {
+					if (var5 != 0 || var6 != 0) {
 						var0.field860 = (int)(Math.atan2((double)var5, (double)var6) * 325.949D) & 2047;
 					}
 				} else if (var0.field836) {
@@ -256,11 +256,11 @@ public class class25 implements class360 {
 				var0.field836 = false;
 			}
 
-			if (0 != var12) {
+			if (var12 != 0) {
 				++var0.field869;
 				boolean var15;
 				if (var12 > 1024) {
-					var0.field826 -= var0.field838 ? var12 : var0.field870 * 172401361 * 1831269937;
+					var0.field826 -= var0.field838 ? var12 : var0.field870;
 					var15 = true;
 					if (var12 < var0.field870 || var12 > 2048 - var0.field870) {
 						var0.field826 = var0.field860;
@@ -275,7 +275,7 @@ public class class25 implements class360 {
 						}
 					}
 				} else {
-					var0.field826 += var0.field838 ? var12 : 1831269937 * var0.field870 * 172401361;
+					var0.field826 += var0.field838 ? var12 : var0.field870;
 					var15 = true;
 					if (var12 < var0.field870 || var12 > 2048 - var0.field870) {
 						var0.field826 = var0.field860;
@@ -327,8 +327,8 @@ public class class25 implements class360 {
 			class18.field92 = new byte[var5][];
 			var5 = 0;
 
-			for (var6 = (var3 - 6) / 8; var6 <= (6 + var3) / 8; ++var6) {
-				for (var7 = (var4 - 6) / 8; var7 <= (6 + var4) / 8; ++var7) {
+			for (var6 = (var3 - 6) / 8; var6 <= (var3 + 6) / 8; ++var6) {
+				for (var7 = (var4 - 6) / 8; var7 <= (var4 + 6) / 8; ++var7) {
 					var8 = var7 + (var6 << 8);
 					class204.field2302[var5] = var8;
 					class136.field1271[var5] = class58.field417.method6124("m" + var6 + "_" + var7);
@@ -393,7 +393,7 @@ public class class25 implements class360 {
 								}
 							}
 
-							if (-1 != var13) {
+							if (var13 != -1) {
 								class204.field2302[var6] = var13;
 								var14 = var13 >> 8 & 255;
 								int var15 = var13 & 255;

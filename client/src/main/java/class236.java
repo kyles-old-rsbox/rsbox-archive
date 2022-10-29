@@ -196,7 +196,7 @@ public class class236 implements class248 {
 				}
 
 				var18 = var1.method8014(1);
-				if (1 == var18) {
+				if (var18 == 1) {
 					client.field1694[++client.field1693 - 1] = var15;
 				}
 
@@ -271,7 +271,7 @@ public class class236 implements class248 {
 							var11 = var1.method8207();
 							var10 = var1.method8207();
 							var18 = var1.method8207();
-						} else if (32766 != var9) {
+						} else if (var9 != 32766) {
 							var11 = var1.method8207();
 						} else {
 							var9 = -1;
@@ -287,7 +287,7 @@ public class class236 implements class248 {
 					for (var9 = 0; var9 < var8; ++var9) {
 						var10 = var1.method8207();
 						var11 = var1.method8207();
-						if (32767 != var11) {
+						if (var11 != 32767) {
 							var18 = var1.method8207();
 							var13 = var1.method8341();
 							int var14 = var11 > 0 ? var1.method8153() : var13;
@@ -313,7 +313,7 @@ public class class236 implements class248 {
 				var5.field838 = var1.method8153() == 1;
 				var9 = var5.field827 - (var7 - class36.field241 - class36.field241) * 64;
 				var10 = var5.field802 - 64 * (var8 - class169.field1536 - class169.field1536);
-				if (0 != var9 || 0 != var10) {
+				if (var9 != 0 || var10 != 0) {
 					var5.field868 = (int)(Math.atan2((double)var9, (double)var10) * 325.949D) & 2047;
 				}
 			}
@@ -325,16 +325,16 @@ public class class236 implements class248 {
 				}
 
 				var8 = var1.method8341();
-				if (var5.field852 == var7 && -1 != var7) {
+				if (var5.field852 == var7 && var7 != -1) {
 					var9 = class160.method2660(var7).field2013;
-					if (1 == var9) {
+					if (var9 == 1) {
 						var5.field844 = 0;
 						var5.field845 = 0;
 						var5.field804 = var8;
 						var5.field875 = 0;
 					}
 
-					if (2 == var9) {
+					if (var9 == 2) {
 						var5.field875 = 0;
 					}
 				} else if (var7 == -1 || -1 == var5.field852 || class160.method2660(var7).field2006 >= class160.method2660(var5.field852).field2006) {

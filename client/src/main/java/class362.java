@@ -14,6 +14,6 @@ public class class362 {
 	}
 
 	public static int method6671(int var0) {
-		return 0 != var0 && var0 != 1 ? -1 : 0;
+		return var0 != 0 && var0 != 1 ? -1 : 0;
 	}
 }

@@ -49,7 +49,7 @@ public class class102 {
 		var3.field802 = (var3.field873[0] << 7) + (var3.method1916() << 6);
 		class55.field396 = var3.field914 = var5;
 		if (null != field1011[var2]) {
-			var3.decodeAppearance(field1011[var2]);
+			var3.method1906(field1011[var2]);
 		}
 
 		field1012 = 0;

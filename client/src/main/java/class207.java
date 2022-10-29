@@ -51,7 +51,7 @@ public class class207 extends class437 {
 	void method3970(class460 var1) {
 		while (true) {
 			int var3 = var1.method8141();
-			if (0 == var3) {
+			if (var3 == 0) {
 				return;
 			}
 
@@ -60,13 +60,13 @@ public class class207 extends class437 {
 	}
 
 	void method3971(class460 var1, int var2) {
-		if (1 == var2) {
+		if (var2 == 1) {
 			this.field2356 = var1.method8122();
 		} else if (var2 == 2) {
 			this.field2359 = var1.method8122();
 		} else if (var2 == 4) {
 			this.field2362 = var1.method8122();
-		} else if (5 == var2) {
+		} else if (var2 == 5) {
 			this.field2364 = var1.method8122();
 		} else if (var2 == 6) {
 			this.field2360 = var1.method8122();
@@ -77,7 +77,7 @@ public class class207 extends class437 {
 		} else {
 			int var4;
 			int var5;
-			if (40 == var2) {
+			if (var2 == 40) {
 				var4 = var1.method8141();
 				this.field2358 = new short[var4];
 				this.field2357 = new short[var4];
@@ -86,7 +86,7 @@ public class class207 extends class437 {
 					this.field2358[var5] = (short)var1.method8122();
 					this.field2357[var5] = (short)var1.method8122();
 				}
-			} else if (41 == var2) {
+			} else if (var2 == 41) {
 				var4 = var1.method8141();
 				this.field2351 = new short[var4];
 				this.field2361 = new short[var4];
@@ -172,7 +172,7 @@ public class class207 extends class437 {
 
 	static int method3983(class72 var0, class72 var1, int var2, boolean var3, int var4, boolean var5) {
 		int var7 = class270.method5208(var0, var1, var2, var3);
-		if (0 != var7) {
+		if (var7 != 0) {
 			return var3 ? -var7 : var7;
 		} else if (var4 == -1) {
 			return 0;

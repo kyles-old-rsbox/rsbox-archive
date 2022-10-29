@@ -5,16 +5,16 @@ public class class413 implements Runnable {
 	static class83 field4575;
 	boolean field4573;
 	byte[] field4569;
-	int position;
+	int field4566;
 	int field4568;
-	int limit;
-	IOException exception;
+	int field4571;
+	IOException field4572;
 	OutputStream field4567;
 	Thread field4574;
 
 	class413(OutputStream var1, int var2) {
-		this.position = 0;
-		this.limit = 0;
+		this.field4566 = 0;
+		this.field4571 = 0;
 		this.field4567 = var1;
 		this.field4568 = var2 + 1;
 		this.field4569 = new byte[this.field4568];
@@ -23,16 +23,16 @@ public class class413 implements Runnable {
 		this.field4574.start();
 	}
 
-	boolean isClosed() {
+	boolean method7484() {
 		if (this.field4573) {
 			try {
 				this.field4567.close();
-				if (null == this.exception) {
-					this.exception = new IOException("");
+				if (null == this.field4572) {
+					this.field4572 = new IOException("");
 				}
 			} catch (IOException var3) {
-				if (this.exception == null) {
-					this.exception = new IOException(var3);
+				if (this.field4572 == null) {
+					this.field4572 = new IOException(var3);
 				}
 			}
 
@@ -47,14 +47,14 @@ public class class413 implements Runnable {
 			int var1;
 			synchronized(this) {
 				while (true) {
-					if (this.exception != null) {
+					if (this.field4572 != null) {
 						return;
 					}
 
-					if (this.position <= this.limit) {
-						var1 = this.limit - this.position;
+					if (this.field4566 <= this.field4571) {
+						var1 = this.field4571 - this.field4566;
 					} else {
-						var1 = this.limit + (this.field4568 - this.position);
+						var1 = this.field4571 + (this.field4568 - this.field4566);
 					}
 
 					if (var1 > 0) {
@@ -63,75 +63,74 @@ public class class413 implements Runnable {
 
 					try {
 						this.field4567.flush();
-					} catch (IOException var19) {
-						this.exception = var19;
+					} catch (IOException var11) {
+						this.field4572 = var11;
 						return;
 					}
 
-					if (this.isClosed()) {
+					if (this.method7484()) {
 						return;
 					}
 
 					try {
 						this.wait();
-					} catch (InterruptedException var18) {
+					} catch (InterruptedException var12) {
 					}
 				}
 			}
 
 			try {
-				if (var1 + this.position <= this.field4568) {
-					this.field4567.write(this.field4569, this.position, var1);
+				if (var1 + this.field4566 <= this.field4568) {
+					this.field4567.write(this.field4569, this.field4566, var1);
 				} else {
-					int var7 = this.field4568 - this.position;
-					this.field4567.write(this.field4569, this.position, var7);
+					int var7 = this.field4568 - this.field4566;
+					this.field4567.write(this.field4569, this.field4566, var7);
 					this.field4567.write(this.field4569, 0, var1 - var7);
 				}
-			} catch (IOException var17) {
-				IOException var2 = var17;
+			} catch (IOException var10) {
+				IOException var2 = var10;
 				synchronized(this) {
-					this.exception = var2;
+					this.field4572 = var2;
+					return;
 				}
-
-				return;
 			}
 
 			synchronized(this) {
-				this.position = (var1 + this.position) % this.field4568;
+				this.field4566 = (var1 + this.field4566) % this.field4568;
 			}
-		} while(!this.isClosed());
+		} while(!this.method7484());
+
 	}
 
 	void method7494(byte[] var1, int var2, int var3) throws IOException {
 		if (var3 >= 0 && var2 >= 0 && var3 + var2 <= var1.length) {
 			synchronized(this) {
-				if (this.exception != null) {
-					throw new IOException(this.exception.toString());
-				}
-
-				int var6;
-				if (this.position <= this.limit) {
-					var6 = this.field4568 - this.limit + this.position - 1;
+				if (this.field4572 != null) {
+					throw new IOException(this.field4572.toString());
 				} else {
-					var6 = this.position - this.limit - 1;
-				}
+					int var6;
+					if (this.field4566 <= this.field4571) {
+						var6 = this.field4568 - this.field4571 + this.field4566 - 1;
+					} else {
+						var6 = this.field4566 - this.field4571 - 1;
+					}
 
-				if (var6 < var3) {
-					throw new IOException("");
-				}
+					if (var6 < var3) {
+						throw new IOException("");
+					} else {
+						if (this.field4571 + var3 <= this.field4568) {
+							System.arraycopy(var1, var2, this.field4569, this.field4571, var3);
+						} else {
+							int var7 = this.field4568 - this.field4571;
+							System.arraycopy(var1, var2, this.field4569, this.field4571, var7);
+							System.arraycopy(var1, var2 + var7, this.field4569, 0, var3 - var7);
+						}
 
-				if (this.limit + var3 <= this.field4568) {
-					System.arraycopy(var1, var2, this.field4569, this.limit, var3);
-				} else {
-					int var7 = this.field4568 - this.limit;
-					System.arraycopy(var1, var2, this.field4569, this.limit, var7);
-					System.arraycopy(var1, var2 + var7, this.field4569, 0, var3 - var7);
+						this.field4571 = (var3 + this.field4571) % this.field4568;
+						this.notifyAll();
+					}
 				}
-
-				this.limit = (var3 + this.limit) % this.field4568;
-				this.notifyAll();
 			}
-
 		} else {
 			throw new IOException();
 		}

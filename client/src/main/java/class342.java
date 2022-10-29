@@ -43,7 +43,7 @@ public class class342 extends AbstractQueue {
 			}
 
 			++this.field4224;
-			if (0 == var2) {
+			if (var2 == 0) {
 				this.field4227[0] = new class357(var1, 0);
 				this.field4222.put(var1, this.field4227[0]);
 			} else {
@@ -219,9 +219,9 @@ public class class342 extends AbstractQueue {
 			var42 = var13 + var41;
 			if (var11 >= 0 && var41 >= 0 && var11 < 104 && var41 < 104 && var5 >= 0 && var42 >= 0 && var5 < 104 && var42 < 104 && var6 != 65535) {
 				var11 = var11 * 128 + 64;
-				var41 = 64 + 128 * var41;
+				var41 = 64 + var41 * 128;
 				var5 = var5 * 128 + 64;
-				var42 = 128 * var42 + 64;
+				var42 = var42 * 128 + 64;
 				var16 = new class66(var6, class55.field396, var11, var41, class144.method2498(var11, var41, class55.field396) - var43, client.field1645 + var3, var15 + client.field1645, var7, var8, var9, var4);
 				var16.method1380(var5, var42, class144.method2498(var5, var42, class55.field396) - var4, client.field1645 + var3);
 				client.field1853.method6355(var16);
@@ -304,7 +304,7 @@ public class class342 extends AbstractQueue {
 						class195 var19 = class89.method1866(var17);
 						int var20;
 						int var21;
-						if (1 != var7 && var7 != 3) {
+						if (var7 != 1 && var7 != 3) {
 							var20 = var19.field2100;
 							var21 = var19.field2069;
 						} else {
@@ -315,7 +315,7 @@ public class class342 extends AbstractQueue {
 						int var22 = (var20 >> 1) + var10;
 						int var23 = var10 + (var20 + 1 >> 1);
 						int var24 = (var21 >> 1) + var11;
-						int var25 = (1 + var21 >> 1) + var11;
+						int var25 = (var21 + 1 >> 1) + var11;
 						int[][] var26 = class82.field719[class55.field396];
 						int var27 = var26[var23][var25] + var26[var22][var24] + var26[var23][var24] + var26[var22][var25] >> 2;
 						int var28 = (var20 << 6) + (var10 << 7);
@@ -327,7 +327,7 @@ public class class342 extends AbstractQueue {
 							var18.field902 = var15 + client.field1645;
 							var18.field906 = var30;
 							var18.field898 = var20 * 64 + var10 * 128;
-							var18.field903 = 64 * var21 + 128 * var11;
+							var18.field903 = var21 * 64 + var11 * 128;
 							var18.field904 = var27;
 							byte var31;
 							if (var12 > var13) {
@@ -366,10 +366,10 @@ public class class342 extends AbstractQueue {
 					var15 = var2.method8141();
 					var10 = var40 + var41;
 					var4 = var38 + var42;
-					if (var41 >= 0 && var42 >= 0 && var41 < 104 && var42 < 104 && var10 >= 0 && var4 >= 0 && var10 < 104 && var4 < 104 && 65535 != var5) {
-						var41 = 64 + 128 * var41;
+					if (var41 >= 0 && var42 >= 0 && var41 < 104 && var42 < 104 && var10 >= 0 && var4 >= 0 && var10 < 104 && var4 < 104 && var5 != 65535) {
+						var41 = 64 + var41 * 128;
 						var42 = 64 + var42 * 128;
-						var10 = 64 + 128 * var10;
+						var10 = 64 + var10 * 128;
 						var4 = var4 * 128 + 64;
 						var16 = new class66(var5, class55.field396, var41, var42, class144.method2498(var41, var42, class55.field396) - var3, var7 + client.field1645, client.field1645 + var6, var15, var8, var43, var9);
 						var16.method1380(var10, var4, class144.method2498(var10, var4, class55.field396) - var9, client.field1645 + var7);
@@ -385,7 +385,7 @@ public class class342 extends AbstractQueue {
 					var8 = var2.method8202();
 					if (var6 >= 0 && var7 >= 0 && var6 < 104 && var7 < 104) {
 						var6 = 64 + var6 * 128;
-						var7 = 64 + 128 * var7;
+						var7 = 64 + var7 * 128;
 						class77 var46 = new class77(var8, class55.field396, var6, var7, class144.method2498(var6, var7, class55.field396) - var3, var4, client.field1645);
 						client.field1779.method6355(var46);
 					}
@@ -435,9 +435,9 @@ public class class342 extends AbstractQueue {
 							class229 var36 = class145.field1333.method4144(class55.field396, var4, var5);
 							if (var36 != null) {
 								var41 = class234.method1610(var36.field2735);
-								if (2 == var8) {
-									var36.field2728 = new class61(var41, 2, 4 + var9, class55.field396, var4, var5, var6, false, var36.field2728);
-									var36.field2734 = new class61(var41, 2, 1 + var9 & 3, class55.field396, var4, var5, var6, false, var36.field2734);
+								if (var8 == 2) {
+									var36.field2728 = new class61(var41, 2, var9 + 4, class55.field396, var4, var5, var6, false, var36.field2728);
+									var36.field2734 = new class61(var41, 2, var9 + 1 & 3, class55.field396, var4, var5, var6, false, var36.field2734);
 								} else {
 									var36.field2728 = new class61(var41, var8, var9, class55.field396, var4, var5, var6, false, var36.field2728);
 								}
@@ -448,9 +448,9 @@ public class class342 extends AbstractQueue {
 							class217 var47 = class145.field1333.method4145(class55.field396, var4, var5);
 							if (null != var47) {
 								var41 = class234.method1610(var47.field2584);
-								if (4 != var8 && 5 != var8) {
-									if (6 == var8) {
-										var47.field2582 = new class61(var41, 4, 4 + var9, class55.field396, var4, var5, var6, false, var47.field2582);
+								if (var8 != 4 && var8 != 5) {
+									if (var8 == 6) {
+										var47.field2582 = new class61(var41, 4, var9 + 4, class55.field396, var4, var5, var6, false, var47.field2582);
 									} else if (var8 == 7) {
 										var47.field2582 = new class61(var41, 4, (var9 + 2 & 3) + 4, class55.field396, var4, var5, var6, false, var47.field2582);
 									} else if (var8 == 8) {
@@ -474,7 +474,7 @@ public class class342 extends AbstractQueue {
 							}
 						}
 
-						if (3 == var10) {
+						if (var10 == 3) {
 							class196 var49 = class145.field1333.method4147(class55.field396, var4, var5);
 							if (null != var49) {
 								var49.field2108 = new class61(class234.method1610(var49.field2109), 22, var9, class55.field396, var4, var5, var6, false, var49.field2108);

@@ -99,7 +99,7 @@ public class class353 implements class360 {
 			class399.field4502[var1] = class399.field4502[var8];
 			class399.field4502[var8] = var9;
 			method6567(var0, var8 - 1, var2, var3, var4, var5);
-			method6567(1 + var8, var1, var2, var3, var4, var5);
+			method6567(var8 + 1, var1, var2, var3, var4, var5);
 		}
 
 	}

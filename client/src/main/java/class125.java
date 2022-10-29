@@ -16,23 +16,20 @@ public class class125 extends class115 {
 		URLConnection var3 = null;
 
 		try {
-			try {
-				String var4 = var1.field1087.getProtocol();
-				if (var4.equals("http")) {
-					var3 = this.method2360(var1);
-				} else {
-					if (!var4.equals("https")) {
-						var1.field1084 = true;
-						return;
-					}
-
-					var3 = this.method2357(var1);
+			String var4 = var1.field1087.getProtocol();
+			if (var4.equals("http")) {
+				var3 = this.method2360(var1);
+			} else {
+				if (!var4.equals("https")) {
+					var1.field1084 = true;
+					return;
 				}
 
-				this.method2224(var3, var1);
-			} catch (IOException var8) {
+				var3 = this.method2357(var1);
 			}
 
+			this.method2224(var3, var1);
+		} catch (IOException var8) {
 		} finally {
 			var1.field1084 = true;
 			if (null != var3) {
@@ -44,6 +41,7 @@ public class class125 extends class115 {
 			}
 
 		}
+
 	}
 
 	URLConnection method2360(class109 var1) throws IOException {

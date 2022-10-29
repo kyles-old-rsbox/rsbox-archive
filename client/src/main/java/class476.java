@@ -15,7 +15,7 @@ public class class476 {
 
 		int var4;
 		for (var3 = 0; var3 < var1.length; this.field4972[1 + var4 + var4] = var3++) {
-			for (var4 = var1[var3] & var2 - 1; -1 != this.field4972[var4 + var4 + 1]; var4 = 1 + var4 & var2 - 1) {
+			for (var4 = var1[var3] & var2 - 1; -1 != this.field4972[var4 + var4 + 1]; var4 = var4 + 1 & var2 - 1) {
 			}
 
 			this.field4972[var4 + var4] = var1[var3];

@@ -100,13 +100,13 @@ public final class class479 {
 
 		for (var2 = 0; var2 < 256; var2 += 8) {
 			var3 += this.field4986[var2];
-			var4 += this.field4986[1 + var2];
+			var4 += this.field4986[var2 + 1];
 			var5 += this.field4986[var2 + 2];
 			var6 += this.field4986[var2 + 3];
 			var7 += this.field4986[var2 + 4];
 			var8 += this.field4986[var2 + 5];
-			var9 += this.field4986[6 + var2];
-			var10 += this.field4986[7 + var2];
+			var9 += this.field4986[var2 + 6];
+			var10 += this.field4986[var2 + 7];
 			var3 ^= var4 << 11;
 			var6 += var3;
 			var4 += var5;
@@ -132,21 +132,21 @@ public final class class479 {
 			var5 += var10;
 			var3 += var4;
 			this.field4990[var2] = var3;
-			this.field4990[1 + var2] = var4;
-			this.field4990[2 + var2] = var5;
+			this.field4990[var2 + 1] = var4;
+			this.field4990[var2 + 2] = var5;
 			this.field4990[var2 + 3] = var6;
 			this.field4990[var2 + 4] = var7;
 			this.field4990[var2 + 5] = var8;
 			this.field4990[var2 + 6] = var9;
-			this.field4990[7 + var2] = var10;
+			this.field4990[var2 + 7] = var10;
 		}
 
 		for (var2 = 0; var2 < 256; var2 += 8) {
 			var3 += this.field4990[var2];
-			var4 += this.field4990[1 + var2];
+			var4 += this.field4990[var2 + 1];
 			var5 += this.field4990[var2 + 2];
 			var6 += this.field4990[var2 + 3];
-			var7 += this.field4990[4 + var2];
+			var7 += this.field4990[var2 + 4];
 			var8 += this.field4990[var2 + 5];
 			var9 += this.field4990[var2 + 6];
 			var10 += this.field4990[var2 + 7];
@@ -177,11 +177,11 @@ public final class class479 {
 			this.field4990[var2] = var3;
 			this.field4990[var2 + 1] = var4;
 			this.field4990[var2 + 2] = var5;
-			this.field4990[3 + var2] = var6;
-			this.field4990[4 + var2] = var7;
-			this.field4990[5 + var2] = var8;
+			this.field4990[var2 + 3] = var6;
+			this.field4990[var2 + 4] = var7;
+			this.field4990[var2 + 5] = var8;
 			this.field4990[var2 + 6] = var9;
-			this.field4990[7 + var2] = var10;
+			this.field4990[var2 + 7] = var10;
 		}
 
 		this.method8633();

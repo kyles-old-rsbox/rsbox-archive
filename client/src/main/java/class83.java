@@ -127,7 +127,7 @@ public class class83 {
 
 		var2.method8111(this.field742 != null ? this.field742 : "");
 		var2.method8110(this.field733);
-		var2.method8104((int)(100.0D * this.field737));
+		var2.method8104((int)(this.field737 * 100.0D));
 		var2.method8104(this.field731);
 		var2.method8104(this.field738);
 		var2.method8104(this.field740);
@@ -251,127 +251,127 @@ public class class83 {
 
 	static int method1796(int var0, class78 var1, boolean var2) {
 		class300 var4 = class282.method5426(class57.field404[--class387.field4452]);
-		if (var0 == 2600) {
+		if (var0 == CS2Opcodes.IF_GETSCROLLX) {
 			class57.field404[++class387.field4452 - 1] = var4.field3481;
 			return 1;
-		} else if (2601 == var0) {
+		} else if (var0 == CS2Opcodes.IF_GETSCROLLY) {
 			class57.field404[++class387.field4452 - 1] = var4.field3482;
 			return 1;
-		} else if (var0 == 2602) {
+		} else if (var0 == CS2Opcodes.IF_GETTEXT) {
 			class57.field405[++class126.field1220 - 1] = var4.field3522;
 			return 1;
-		} else if (var0 == 2603) {
+		} else if (var0 == CS2Opcodes.IF_GETSCROLLWIDTH) {
 			class57.field404[++class387.field4452 - 1] = var4.field3483;
 			return 1;
-		} else if (var0 == 2604) {
+		} else if (var0 == CS2Opcodes.IF_GETSCROLLHEIGHT) {
 			class57.field404[++class387.field4452 - 1] = var4.field3492;
 			return 1;
-		} else if (2605 == var0) {
+		} else if (var0 == CS2Opcodes.IF_GETMODELZOOM) {
 			class57.field404[++class387.field4452 - 1] = var4.field3562;
 			return 1;
-		} else if (var0 == 2606) {
+		} else if (var0 == CS2Opcodes.IF_GETMODELANGLE_X) {
 			class57.field404[++class387.field4452 - 1] = var4.field3601;
 			return 1;
-		} else if (2607 == var0) {
+		} else if (var0 == CS2Opcodes.IF_GETMODELANGLE_Z) {
 			class57.field404[++class387.field4452 - 1] = var4.field3514;
 			return 1;
-		} else if (var0 == 2608) {
+		} else if (var0 == CS2Opcodes.IF_GETMODELANGLE_Y) {
 			class57.field404[++class387.field4452 - 1] = var4.field3513;
 			return 1;
-		} else if (2609 == var0) {
+		} else if (var0 == CS2Opcodes.IF_GETTRANS) {
 			class57.field404[++class387.field4452 - 1] = var4.field3612;
 			return 1;
-		} else if (2610 == var0) {
+		} else if (var0 == CS2Opcodes._2610) {
 			class57.field404[++class387.field4452 - 1] = var4.field3588;
 			return 1;
-		} else if (2611 == var0) {
+		} else if (var0 == CS2Opcodes.IF_GETCOLOUR) {
 			class57.field404[++class387.field4452 - 1] = var4.field3485;
 			return 1;
-		} else if (var0 == 2612) {
+		} else if (var0 == CS2Opcodes.IF_GETFILLCOLOUR) {
 			class57.field404[++class387.field4452 - 1] = var4.field3495;
 			return 1;
-		} else if (2613 == var0) {
+		} else if (var0 == CS2Opcodes._2613) {
 			class57.field404[++class387.field4452 - 1] = var4.field3490.method6663();
 			return 1;
-		} else if (var0 == 2614) {
+		} else if (var0 == CS2Opcodes.IF_GETMODELTRANSPARENT) {
 			class57.field404[++class387.field4452 - 1] = var4.field3519 ? 1 : 0;
 			return 1;
 		} else {
 			class302 var5;
-			if (var0 == 2617) {
+			if (var0 == CS2Opcodes.IF_INPUTUNK1) {
 				var5 = var4.method5954();
-				class57.field404[++class387.field4452 - 1] = null != var5 ? var5.field3617 * -1249433437 * -374813941 : 0;
+				class57.field404[++class387.field4452 - 1] = null != var5 ? var5.field3617 : 0;
 			}
 
-			if (var0 == 2618) {
+			if (var0 == CS2Opcodes.IF_INPUTUNK2) {
 				var5 = var4.method5954();
-				class57.field404[++class387.field4452 - 1] = null != var5 ? var5.field3619 * 482449691 * 971643155 : 0;
+				class57.field404[++class387.field4452 - 1] = null != var5 ? var5.field3619 : 0;
 				return 1;
 			} else {
 				class297 var8;
-				if (var0 == 2619) {
+				if (var0 == CS2Opcodes.IF_INPUTFIELDUNK1) {
 					var8 = var4.method5877();
 					class57.field405[++class126.field1220 - 1] = var8 != null ? var8.method5609().method7028() : "";
 					return 1;
-				} else if (var0 == 2620) {
+				} else if (var0 == CS2Opcodes.IF_INPUTFIELDUNK2) {
 					var5 = var4.method5954();
-					class57.field404[++class387.field4452 - 1] = null != var5 ? 942829249 * var5.field3618 * 1084956993 : 0;
+					class57.field404[++class387.field4452 - 1] = null != var5 ? var5.field3618 : 0;
 					return 1;
-				} else if (2621 == var0) {
+				} else if (var0 == CS2Opcodes.IF_INPUTFIELDUNK3) {
 					var8 = var4.method5877();
 					class57.field404[++class387.field4452 - 1] = var8 != null ? var8.method5619() : 0;
 					return 1;
-				} else if (2622 == var0) {
+				} else if (var0 == CS2Opcodes.IF_INPUTFIELDUNK4) {
 					var8 = var4.method5877();
 					class57.field404[++class387.field4452 - 1] = var8 != null ? var8.method5620() : 0;
 					return 1;
-				} else if (var0 == 2623) {
+				} else if (var0 == CS2Opcodes.IF_INPUTFIELDUNK5) {
 					var8 = var4.method5877();
 					class57.field404[++class387.field4452 - 1] = var8 != null ? var8.method5621() : 0;
 					return 1;
-				} else if (var0 == 2624) {
+				} else if (var0 == CS2Opcodes.IF_INPUTFIELDUNK6) {
 					var8 = var4.method5877();
 					class57.field404[++class387.field4452 - 1] = null != var8 && var8.method5593() ? 1 : 0;
 					return 1;
-				} else if (2625 != var0) {
-					if (var0 == 2626) {
+				} else if (var0 != CS2Opcodes.IF_INPUTFIELDUNK7) {
+					if (var0 == CS2Opcodes.IF_INPUTFIELDUNK8) {
 						var8 = var4.method5877();
 						class57.field405[++class126.field1220 - 1] = null != var8 ? var8.method5610().method7012() : "";
 						return 1;
-					} else if (2627 == var0) {
+					} else if (var0 == CS2Opcodes.IF_INPUTFIELDUNK9) {
 						var8 = var4.method5877();
 						int var6 = var8 != null ? var8.method5691() : 0;
 						int var7 = null != var8 ? var8.method5614() : 0;
 						class57.field404[++class387.field4452 - 1] = Math.min(var6, var7);
 						class57.field404[++class387.field4452 - 1] = Math.max(var6, var7);
 						return 1;
-					} else if (var0 == 2628) {
+					} else if (var0 == CS2Opcodes.IF_INPUTFIELDUNK10) {
 						var8 = var4.method5877();
 						class57.field404[++class387.field4452 - 1] = null != var8 ? var8.method5614() : 0;
 						return 1;
-					} else if (2629 == var0) {
+					} else if (var0 == CS2Opcodes.IF_INPUTFIELDUNK11) {
 						var8 = var4.method5877();
 						class57.field404[++class387.field4452 - 1] = null != var8 ? var8.method5823() : 0;
 						return 1;
-					} else if (var0 == 2630) {
+					} else if (var0 == CS2Opcodes.IF_INPUTFIELDUNK12) {
 						var8 = var4.method5877();
 						class57.field404[++class387.field4452 - 1] = var8 != null ? var8.method5622() : 0;
 						return 1;
-					} else if (2631 == var0) {
+					} else if (var0 == CS2Opcodes.IF_INPUTFIELDUNK13) {
 						var8 = var4.method5877();
 						class57.field404[++class387.field4452 - 1] = null != var8 ? var8.method5747() : 0;
 						return 1;
-					} else if (2632 == var0) {
+					} else if (var0 == CS2Opcodes.IF_INPUTFIELDUNK14) {
 						var8 = var4.method5877();
 						class57.field404[++class387.field4452 - 1] = var8 != null ? var8.method5625() : 0;
 						return 1;
 					} else {
 						class34 var9;
-						if (var0 == 2633) {
+						if (var0 == CS2Opcodes.IF_INPUTFIELDUNK15) {
 							var9 = var4.method5879();
 							class57.field404[class387.field4452 - 1] = null != var9 ? var9.method617(class57.field404[class387.field4452 - 1]) : 0;
 							return 1;
-						} else if (2634 == var0) {
+						} else if (var0 == CS2Opcodes.IF_INPUTFIELDUNK16) {
 							var9 = var4.method5879();
 							class57.field404[class387.field4452 - 1] = null != var9 ? var9.method618((char)class57.field404[class387.field4452 - 1]) : 0;
 							return 1;
@@ -406,7 +406,7 @@ public class class83 {
 		int var14;
 		int var15;
 		int var16;
-		if (0 != var9) {
+		if (var9 != 0) {
 			var14 = class221.field2644[var9];
 			var15 = class221.field2645[var9];
 			var16 = var15 * var12 - var14 * var8 >> 16;
@@ -461,7 +461,7 @@ public class class83 {
 				}
 
 				class79 var6;
-				if (0 == var1 && var4.field3584 != null) {
+				if (var1 == 0 && var4.field3584 != null) {
 					var6 = new class79();
 					var6.field694 = var4;
 					var6.field686 = var4.field3584;

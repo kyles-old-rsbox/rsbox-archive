@@ -21,7 +21,7 @@ public class class231 {
 		int var4 = var2.method8126();
 		if (var4 < 0 || class319.field3744 != 0 && var4 > class319.field3744) {
 			throw new RuntimeException();
-		} else if (0 == var3) {
+		} else if (var3 == 0) {
 			byte[] var5 = new byte[var4];
 			var2.method8333(var5, 0, var4);
 			return var5;
@@ -29,7 +29,7 @@ public class class231 {
 			int var7 = var2.method8126();
 			if (var7 >= 0 && (class319.field3744 == 0 || var7 <= class319.field3744)) {
 				byte[] var6 = new byte[var7];
-				if (1 == var3) {
+				if (var3 == 1) {
 					class455.method8049(var6, var7, var0, var4, 9);
 				} else {
 					class319.field3745.method8735(var2, var6);

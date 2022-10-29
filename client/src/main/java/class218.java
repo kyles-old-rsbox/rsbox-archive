@@ -43,88 +43,88 @@ public class class218 extends class437 {
 	}
 
 	static int method4369(int var0, class78 var1, boolean var2) {
-		if (3300 == var0) {
+		if (var0 == CS2Opcodes.CLIENTCLOCK) {
 			class57.field404[++class387.field4452 - 1] = client.field1645;
 			return 1;
 		} else {
 			int var4;
 			int var5;
-			if (var0 == 3301) {
+			if (var0 == CS2Opcodes.INV_GETOBJ) {
 				class387.field4452 -= 2;
 				var4 = class57.field404[class387.field4452];
 				var5 = class57.field404[1 + class387.field4452];
 				class57.field404[++class387.field4452 - 1] = class459.method8101(var4, var5);
 				return 1;
-			} else if (3302 == var0) {
+			} else if (var0 == CS2Opcodes.INV_GETNUM) {
 				class387.field4452 -= 2;
 				var4 = class57.field404[class387.field4452];
 				var5 = class57.field404[class387.field4452 + 1];
 				class57.field404[++class387.field4452 - 1] = class145.method2500(var4, var5);
 				return 1;
-			} else if (var0 == 3303) {
+			} else if (var0 == CS2Opcodes.INV_TOTAL) {
 				class387.field4452 -= 2;
 				var4 = class57.field404[class387.field4452];
 				var5 = class57.field404[class387.field4452 + 1];
 				class57.field404[++class387.field4452 - 1] = class257.method5139(var4, var5);
 				return 1;
-			} else if (3304 == var0) {
+			} else if (var0 == CS2Opcodes.INV_SIZE) {
 				var4 = class57.field404[--class387.field4452];
 				class57.field404[++class387.field4452 - 1] = class55.method1123(var4).field1586;
 				return 1;
-			} else if (var0 == 3305) {
+			} else if (var0 == CS2Opcodes.STAT) {
 				var4 = class57.field404[--class387.field4452];
 				class57.field404[++class387.field4452 - 1] = client.field1780[var4];
 				return 1;
-			} else if (var0 == 3306) {
+			} else if (var0 == CS2Opcodes.STAT_BASE) {
 				var4 = class57.field404[--class387.field4452];
 				class57.field404[++class387.field4452 - 1] = client.field1817[var4];
 				return 1;
-			} else if (var0 == 3307) {
+			} else if (var0 == CS2Opcodes.STAT_XP) {
 				var4 = class57.field404[--class387.field4452];
 				class57.field404[++class387.field4452 - 1] = client.field1782[var4];
 				return 1;
 			} else {
 				int var6;
-				if (var0 == 3308) {
+				if (var0 == CS2Opcodes.COORD) {
 					var4 = class55.field396;
 					var5 = class36.field241 + (class291.field3364.field827 >> 7);
 					var6 = class169.field1536 + (class291.field3364.field802 >> 7);
 					class57.field404[++class387.field4452 - 1] = (var5 << 14) + (var4 << 28) + var6;
 					return 1;
-				} else if (3309 == var0) {
+				} else if (var0 == CS2Opcodes.COORDX) {
 					var4 = class57.field404[--class387.field4452];
 					class57.field404[++class387.field4452 - 1] = var4 >> 14 & 16383;
 					return 1;
-				} else if (3310 == var0) {
+				} else if (var0 == CS2Opcodes.COORDY) {
 					var4 = class57.field404[--class387.field4452];
 					class57.field404[++class387.field4452 - 1] = var4 >> 28;
 					return 1;
-				} else if (var0 == 3311) {
+				} else if (var0 == CS2Opcodes.COORDZ) {
 					var4 = class57.field404[--class387.field4452];
 					class57.field404[++class387.field4452 - 1] = var4 & 16383;
 					return 1;
-				} else if (3312 == var0) {
+				} else if (var0 == CS2Opcodes.MAP_MEMBERS) {
 					class57.field404[++class387.field4452 - 1] = client.field1635 ? 1 : 0;
 					return 1;
-				} else if (3313 == var0) {
+				} else if (var0 == CS2Opcodes.INVOTHER_GETOBJ) {
 					class387.field4452 -= 2;
 					var4 = 32768 + class57.field404[class387.field4452];
 					var5 = class57.field404[1 + class387.field4452];
 					class57.field404[++class387.field4452 - 1] = class459.method8101(var4, var5);
 					return 1;
-				} else if (var0 == 3314) {
+				} else if (var0 == CS2Opcodes.INVOTHER_GETNUM) {
 					class387.field4452 -= 2;
 					var4 = class57.field404[class387.field4452] + 32768;
 					var5 = class57.field404[1 + class387.field4452];
 					class57.field404[++class387.field4452 - 1] = class145.method2500(var4, var5);
 					return 1;
-				} else if (3315 == var0) {
+				} else if (var0 == CS2Opcodes.INVOTHER_TOTAL) {
 					class387.field4452 -= 2;
 					var4 = 32768 + class57.field404[class387.field4452];
 					var5 = class57.field404[1 + class387.field4452];
 					class57.field404[++class387.field4452 - 1] = class257.method5139(var4, var5);
 					return 1;
-				} else if (var0 == 3316) {
+				} else if (var0 == CS2Opcodes.STAFFMODLEVEL) {
 					if (client.field1750 >= 2) {
 						class57.field404[++class387.field4452 - 1] = client.field1750;
 					} else {
@@ -132,19 +132,19 @@ public class class218 extends class437 {
 					}
 
 					return 1;
-				} else if (3317 == var0) {
+				} else if (var0 == CS2Opcodes.REBOOTTIMER) {
 					class57.field404[++class387.field4452 - 1] = client.field1651;
 					return 1;
-				} else if (var0 == 3318) {
+				} else if (var0 == CS2Opcodes.MAP_WORLD) {
 					class57.field404[++class387.field4452 - 1] = client.field1868;
 					return 1;
-				} else if (var0 == 3321) {
+				} else if (var0 == CS2Opcodes.RUNENERGY_VISIBLE) {
 					class57.field404[++class387.field4452 - 1] = client.field1816;
 					return 1;
-				} else if (var0 == 3322) {
+				} else if (var0 == CS2Opcodes.RUNWEIGHT_VISIBLE) {
 					class57.field404[++class387.field4452 - 1] = client.field1859;
 					return 1;
-				} else if (3323 == var0) {
+				} else if (var0 == CS2Opcodes.PLAYERMOD) {
 					if (client.field1820) {
 						class57.field404[++class387.field4452 - 1] = 1;
 					} else {
@@ -152,10 +152,10 @@ public class class218 extends class437 {
 					}
 
 					return 1;
-				} else if (var0 == 3324) {
+				} else if (var0 == CS2Opcodes.WORLDFLAGS) {
 					class57.field404[++class387.field4452 - 1] = client.field1633;
 					return 1;
-				} else if (var0 == 3325) {
+				} else if (var0 == CS2Opcodes.MOVECOORD) {
 					class387.field4452 -= 4;
 					var4 = class57.field404[class387.field4452];
 					var5 = class57.field404[1 + class387.field4452];
@@ -166,10 +166,10 @@ public class class218 extends class437 {
 					var4 += var7;
 					class57.field404[++class387.field4452 - 1] = var4;
 					return 1;
-				} else if (var0 == 3326) {
+				} else if (var0 == CS2Opcodes.MOUSE_GETX) {
 					class57.field404[++class387.field4452 - 1] = client.field1647;
 					return 1;
-				} else if (3327 == var0) {
+				} else if (var0 == CS2Opcodes.MOUSE_GETY) {
 					class57.field404[++class387.field4452 - 1] = client.field1773;
 					return 1;
 				} else {

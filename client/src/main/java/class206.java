@@ -66,31 +66,31 @@ public class class206 extends class437 {
 	void method3934(class460 var1, int var2) {
 		if (var2 == 1) {
 			this.field2335 = var1.method8140();
-		} else if (2 == var2) {
+		} else if (var2 == 2) {
 			this.field2336 = var1.method8312();
-		} else if (3 == var2) {
+		} else if (var2 == 3) {
 			this.field2343 = var1.method8140();
-		} else if (4 == var2) {
+		} else if (var2 == 4) {
 			this.field2347 = var1.method8140();
 		} else if (var2 == 5) {
 			this.field2337 = var1.method8140();
-		} else if (6 == var2) {
+		} else if (var2 == 6) {
 			this.field2341 = var1.method8140();
-		} else if (7 == var2) {
+		} else if (var2 == 7) {
 			this.field2345 = var1.method8204();
-		} else if (8 == var2) {
+		} else if (var2 == 8) {
 			this.field2342 = var1.method8132();
-		} else if (9 == var2) {
+		} else if (var2 == 9) {
 			this.field2327 = var1.method8122();
 		} else if (var2 == 10) {
 			this.field2350 = var1.method8204();
-		} else if (11 == var2) {
+		} else if (var2 == 11) {
 			this.field2344 = 0;
-		} else if (12 == var2) {
+		} else if (var2 == 12) {
 			this.field2338 = var1.method8141();
-		} else if (13 == var2) {
+		} else if (var2 == 13) {
 			this.field2339 = var1.method8204();
-		} else if (14 == var2) {
+		} else if (var2 == 14) {
 			this.field2344 = var1.method8122();
 		} else if (var2 == 17 || var2 == 18) {
 			this.field2349 = var1.method8122();
@@ -106,7 +106,7 @@ public class class206 extends class437 {
 			int var4 = -1;
 			if (var2 == 18) {
 				var4 = var1.method8122();
-				if (65535 == var4) {
+				if (var4 == 65535) {
 					var4 = -1;
 				}
 			}
@@ -121,7 +121,7 @@ public class class206 extends class437 {
 				}
 			}
 
-			this.field2348[1 + var5] = var4;
+			this.field2348[var5 + 1] = var4;
 		}
 
 	}
@@ -141,7 +141,7 @@ public class class206 extends class437 {
 			var3 = this.field2348[this.field2348.length - 1];
 		}
 
-		return -1 != var3 ? class169.method2715(var3) : null;
+		return var3 != -1 ? class169.method2715(var3) : null;
 	}
 
 	static final void method3968(byte[] var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, class200[] var8) {
@@ -160,16 +160,16 @@ public class class206 extends class437 {
 		for (var11 = 0; var11 < 4; ++var11) {
 			for (int var12 = 0; var12 < 64; ++var12) {
 				for (int var13 = 0; var13 < 64; ++var13) {
-					if (var11 == var4 && var12 >= var5 && var12 < 8 + var5 && var13 >= var6 && var13 < 8 + var6) {
+					if (var11 == var4 && var12 >= var5 && var12 < var5 + 8 && var13 >= var6 && var13 < var6 + 8) {
 						int var18 = var12 & 7;
 						int var19 = var13 & 7;
 						int var20 = var7 & 3;
 						int var17;
-						if (0 == var20) {
+						if (var20 == 0) {
 							var17 = var18;
-						} else if (1 == var20) {
+						} else if (var20 == 1) {
 							var17 = var19;
-						} else if (2 == var20) {
+						} else if (var20 == 2) {
 							var17 = 7 - var18;
 						} else {
 							var17 = 7 - var19;

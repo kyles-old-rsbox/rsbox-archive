@@ -3,6 +3,9 @@ public class class427 {
 	public class427 field4683;
 	public long field4681;
 
+	public class427() {
+	}
+
 	public void method7825() {
 		if (this.field4683 != null) {
 			this.field4683.field4682 = this.field4682;

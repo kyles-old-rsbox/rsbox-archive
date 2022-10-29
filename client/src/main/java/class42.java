@@ -88,13 +88,12 @@ public class class42 implements MouseListener, MouseMotionListener, FocusListene
 			field279 = field290;
 			field287 = 0;
 		}
-
 	}
 
 	final int method772(MouseEvent var1) {
 		int var3 = var1.getButton();
-		if (!var1.isAltDown() && 2 != var3) {
-			return !var1.isMetaDown() && 3 != var3 ? 1 : 2;
+		if (!var1.isAltDown() && var3 != 2) {
+			return !var1.isMetaDown() && var3 != 3 ? 1 : 2;
 		} else {
 			return 4;
 		}
@@ -212,14 +211,14 @@ public class class42 implements MouseListener, MouseMotionListener, FocusListene
 				}
 
 				var0 += var10;
-				var2 -= 2 * var10;
+				var2 -= var10 * 2;
 			}
 		} else if (var8 > client.field1914) {
 			var11 = client.field1914;
-			var7 = 334 * var2 * var11 / (512 * var3);
+			var7 = 334 * var2 * var11 / (var3 * 512);
 			if (var7 < client.field1744) {
 				var7 = client.field1744;
-				var9 = var11 * var2 * 334 / (512 * var7);
+				var9 = var11 * var2 * 334 / (var7 * 512);
 				var10 = (var3 - var9) / 2;
 				if (var4) {
 					class481.method8715();
@@ -228,7 +227,7 @@ public class class42 implements MouseListener, MouseMotionListener, FocusListene
 				}
 
 				var1 += var10;
-				var3 -= 2 * var10;
+				var3 -= var10 * 2;
 			}
 		}
 
@@ -295,7 +294,7 @@ public class class42 implements MouseListener, MouseMotionListener, FocusListene
 							for (var24 = 4; var24 >= 0; --var24) {
 								if ((var22 == null || var22.method1996(var24)) && var36[var24] != null) {
 									short var30 = 0;
-									if (0 == var24) {
+									if (var24 == 0) {
 										var30 = 3;
 									}
 
@@ -356,7 +355,7 @@ public class class42 implements MouseListener, MouseMotionListener, FocusListene
 					class295.method5541(var32, var20, var15, var16);
 				}
 
-				if (0 == var18) {
+				if (var18 == 0) {
 					class93 var33 = client.field1763[var20];
 					if (null == var33) {
 						continue;
@@ -388,7 +387,7 @@ public class class42 implements MouseListener, MouseMotionListener, FocusListene
 					}
 				}
 
-				if (3 == var18) {
+				if (var18 == 3) {
 					class343 var34 = client.field1865[class55.field396][var15][var16];
 					if (var34 != null) {
 						for (class104 var35 = (class104)var34.method6363(); var35 != null; var35 = (class104)var34.method6378()) {
@@ -422,12 +421,12 @@ public class class42 implements MouseListener, MouseMotionListener, FocusListene
 												var26 = 21;
 											}
 
-											if (4 == var40) {
+											if (var40 == 4) {
 												var26 = 22;
 											}
 
 											client.method351(var29[var40], class96.method4510(16748608) + var39.field2131, var26, var35.field1043, var15, var16);
-										} else if (2 == var40) {
+										} else if (var40 == 2) {
 											client.method351(class338.field3949, class96.method4510(16748608) + var39.field2131, 20, var35.field1043, var15, var16);
 										}
 									}

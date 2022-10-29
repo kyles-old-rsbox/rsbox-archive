@@ -102,9 +102,8 @@ public class class397 implements Runnable {
 				IOException var3 = var11;
 				synchronized(this) {
 					this.field4499 = var3;
+					return;
 				}
-
-				return;
 			}
 
 			synchronized(this) {
@@ -114,10 +113,9 @@ public class class397 implements Runnable {
 	}
 
 	boolean method7186(int var1) throws IOException {
-		if (0 == var1) {
+		if (var1 == 0) {
 			return true;
 		} else if (var1 > 0 && var1 < this.field4495) {
-			boolean var10000;
 			synchronized(this) {
 				int var4;
 				if (this.field4498 <= this.field4497) {
@@ -129,24 +127,20 @@ public class class397 implements Runnable {
 				if (var4 < var1) {
 					if (null != this.field4499) {
 						throw new IOException(this.field4499.toString());
+					} else {
+						this.notifyAll();
+						return false;
 					}
-
-					this.notifyAll();
-					var10000 = false;
-					return var10000;
+				} else {
+					return true;
 				}
-
-				var10000 = true;
 			}
-
-			return var10000;
 		} else {
 			throw new IOException();
 		}
 	}
 
 	int method7187() throws IOException {
-		int var10000;
 		synchronized(this) {
 			int var3;
 			if (this.field4498 <= this.field4497) {
@@ -157,39 +151,32 @@ public class class397 implements Runnable {
 
 			if (var3 <= 0 && this.field4499 != null) {
 				throw new IOException(this.field4499.toString());
+			} else {
+				this.notifyAll();
+				return var3;
 			}
-
-			this.notifyAll();
-			var10000 = var3;
 		}
-
-		return var10000;
 	}
 
 	int method7203() throws IOException {
-		int var10000;
 		synchronized(this) {
 			if (this.field4497 == this.field4498) {
 				if (this.field4499 != null) {
 					throw new IOException(this.field4499.toString());
+				} else {
+					return -1;
 				}
-
-				byte var6 = -1;
-				return var6;
+			} else {
+				int var3 = this.field4496[this.field4498] & 255;
+				this.field4498 = (1 + this.field4498) % this.field4495;
+				this.notifyAll();
+				return var3;
 			}
-
-			int var3 = this.field4496[this.field4498] & 255;
-			this.field4498 = (1 + this.field4498) % this.field4495;
-			this.notifyAll();
-			var10000 = var3;
 		}
-
-		return var10000;
 	}
 
 	int method7189(byte[] var1, int var2, int var3) throws IOException {
 		if (var3 >= 0 && var2 >= 0 && var3 + var2 <= var1.length) {
-			int var10000;
 			synchronized(this) {
 				int var6;
 				if (this.field4498 <= this.field4497) {
@@ -202,24 +189,22 @@ public class class397 implements Runnable {
 					var3 = var6;
 				}
 
-				if (0 == var3 && null != this.field4499) {
+				if (var3 == 0 && null != this.field4499) {
 					throw new IOException(this.field4499.toString());
-				}
-
-				if (this.field4498 + var3 <= this.field4495) {
-					System.arraycopy(this.field4496, this.field4498, var1, var2, var3);
 				} else {
-					int var7 = this.field4495 - this.field4498;
-					System.arraycopy(this.field4496, this.field4498, var1, var2, var7);
-					System.arraycopy(this.field4496, 0, var1, var2 + var7, var3 - var7);
+					if (this.field4498 + var3 <= this.field4495) {
+						System.arraycopy(this.field4496, this.field4498, var1, var2, var3);
+					} else {
+						int var7 = this.field4495 - this.field4498;
+						System.arraycopy(this.field4496, this.field4498, var1, var2, var7);
+						System.arraycopy(this.field4496, 0, var1, var2 + var7, var3 - var7);
+					}
+
+					this.field4498 = (var3 + this.field4498) % this.field4495;
+					this.notifyAll();
+					return var3;
 				}
-
-				this.field4498 = (var3 + this.field4498) % this.field4495;
-				this.notifyAll();
-				var10000 = var3;
 			}
-
-			return var10000;
 		} else {
 			throw new IOException();
 		}

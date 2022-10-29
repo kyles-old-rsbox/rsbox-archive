@@ -24,8 +24,8 @@ public class class131 extends class140 {
 				String var6;
 				String var7;
 				int var8;
-				if (var5 != 0 && 1 != var5 && var5 != 2) {
-					if (3 == var5 || var5 == 4) {
+				if (var5 != 0 && var5 != 1 && var5 != 2) {
+					if (var5 == 3 || var5 == 4) {
 						var6 = var0.method8131();
 						var7 = var0.method8131();
 						var8 = var0.method8141();
@@ -38,7 +38,7 @@ public class class131 extends class140 {
 						String var21 = var0.method8131();
 						byte[][] var11 = new byte[var8][];
 						int var13;
-						if (3 == var5) {
+						if (var5 == 3) {
 							for (int var12 = 0; var12 < var8; ++var12) {
 								var13 = var0.method8126();
 								var11[var12] = new byte[var13];
@@ -132,8 +132,8 @@ public class class131 extends class140 {
 	static final void method2399(String var0, boolean var1) {
 		if (client.field1762) {
 			byte var3 = 4;
-			int var4 = 6 + var3;
-			int var5 = 6 + var3;
+			int var4 = var3 + 6;
+			int var5 = var3 + 6;
 			int var6 = class353.field4289.method6862(var0, 250);
 			int var7 = class353.field4289.method6869(var0, 250) * 13;
 			class481.method8660(var4 - var3, var5 - var3, var3 + var3 + var6, var3 + var7 + var3, 0);

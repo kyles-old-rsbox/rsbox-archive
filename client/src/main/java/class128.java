@@ -198,7 +198,7 @@ public class class128 extends class393 {
 											}
 
 											byte var26 = var10.field3542[var21][var24];
-											if (0 == var26 || ((var26 & 8) == 0 || !client.field1876.method3895(86) && !client.field1876.method3895(82) && !client.field1876.method3895(81)) && (0 == (var26 & 2) || client.field1876.method3895(86)) && ((var26 & 1) == 0 || client.field1876.method3895(82)) && ((var26 & 4) == 0 || client.field1876.method3895(81))) {
+											if (var26 == 0 || ((var26 & 8) == 0 || !client.field1876.method3895(86) && !client.field1876.method3895(82) && !client.field1876.method3895(81)) && (0 == (var26 & 2) || client.field1876.method3895(86)) && ((var26 & 1) == 0 || client.field1876.method3895(82)) && ((var26 & 4) == 0 || client.field1876.method3895(81))) {
 												var23 = true;
 												break;
 											}
@@ -229,7 +229,7 @@ public class class128 extends class393 {
 										var10.field3544 = new int[var10.field3541.length];
 									}
 
-									if (0 != var24) {
+									if (var24 != 0) {
 										if (0 == var10.field3543[var21]) {
 											var10.field3543[var21] = client.field1645 + var24 + var10.field3544[var21];
 										} else {

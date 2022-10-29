@@ -23,12 +23,12 @@ public class class153 extends class140 {
 		int var4;
 		int var5;
 		int var7;
-		if (3400 == var0) {
+		if (var0 == CS2Opcodes.ENUM_STRING) {
 			class387.field4452 -= 2;
 			var4 = class57.field404[class387.field4452];
 			var5 = class57.field404[class387.field4452 + 1];
 			class192 var6 = class175.method2755(var4);
-			if ('s' != var6.field2030) {
+			if (var6.field2030 != 's') {
 			}
 
 			for (var7 = 0; var7 < var6.field2033; ++var7) {
@@ -44,8 +44,8 @@ public class class153 extends class140 {
 			}
 
 			return 1;
-		} else if (var0 != 3408) {
-			if (3411 == var0) {
+		} else if (var0 != CS2Opcodes.ENUM) {
+			if (var0 == CS2Opcodes.ENUM_GETOUTPUTCOUNT) {
 				var4 = class57.field404[--class387.field4452];
 				class192 var11 = class175.method2755(var4);
 				class57.field404[++class387.field4452 - 1] = var11.method3548();
@@ -84,7 +84,7 @@ public class class153 extends class140 {
 
 				return 1;
 			} else {
-				if (115 == var5) {
+				if (var5 == 115) {
 					class57.field405[++class126.field1220 - 1] = class338.field3899;
 				} else {
 					class57.field404[++class387.field4452 - 1] = 0;
@@ -106,19 +106,19 @@ public class class153 extends class140 {
 				var7 = 34;
 			} else if (var3 == 2) {
 				var7 = 35;
-			} else if (3 == var3) {
+			} else if (var3 == 3) {
 				var7 = 36;
 			} else {
 				var7 = 37;
 			}
 
 			var8 = var6[var3];
-		} else if (4 == var3) {
+		} else if (var3 == 4) {
 			var7 = 37;
 			var8 = class338.field3893;
 		}
 
-		if (-1 != var7 && null != var8) {
+		if (var7 != -1 && null != var8) {
 			class105.method2042(var8, class96.method4510(16748608) + var1.field2131, var7, 0, var2, var0.field3517, var1.field2129, var4);
 		}
 

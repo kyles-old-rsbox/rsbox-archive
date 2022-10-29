@@ -39,11 +39,11 @@ class class2 extends DefaultTlsClient {
 
 	static int method15(int var0, class78 var1, boolean var2) {
 		class300 var4;
-		if (2700 == var0) {
+		if (var0 == CS2Opcodes.IF_GETINVOBJECT) {
 			var4 = class282.method5426(class57.field404[--class387.field4452]);
 			class57.field404[++class387.field4452 - 1] = var4.field3445;
 			return 1;
-		} else if (var0 == 2701) {
+		} else if (var0 == CS2Opcodes.IF_GETINVCOUNT) {
 			var4 = class282.method5426(class57.field404[--class387.field4452]);
 			if (var4.field3445 != -1) {
 				class57.field404[++class387.field4452 - 1] = var4.field3599;
@@ -52,7 +52,7 @@ class class2 extends DefaultTlsClient {
 			}
 
 			return 1;
-		} else if (var0 == 2702) {
+		} else if (var0 == CS2Opcodes.IF_HASSUB) {
 			int var6 = class57.field404[--class387.field4452];
 			class89 var5 = (class89)client.field1810.method7855((long)var6);
 			if (var5 != null) {
@@ -62,17 +62,17 @@ class class2 extends DefaultTlsClient {
 			}
 
 			return 1;
-		} else if (2706 == var0) {
+		} else if (var0 == CS2Opcodes.IF_GETTOP) {
 			class57.field404[++class387.field4452 - 1] = client.field1893;
 			return 1;
-		} else if (var0 == 2707) {
+		} else if (var0 == CS2Opcodes.IF_GETCRM_HASRESPONSE) {
 			var4 = class282.method5426(class57.field404[--class387.field4452]);
 			class57.field404[++class387.field4452 - 1] = var4.method5876() ? 1 : 0;
 			return 1;
-		} else if (2708 == var0) {
+		} else if (var0 == CS2Opcodes.IF_GETCRM_INT) {
 			var4 = class282.method5426(class57.field404[--class387.field4452]);
 			return class405.method7368(var4);
-		} else if (2709 == var0) {
+		} else if (var0 == CS2Opcodes.IF_GETCRM_STRING) {
 			var4 = class282.method5426(class57.field404[--class387.field4452]);
 			return class112.method2170(var4);
 		} else {

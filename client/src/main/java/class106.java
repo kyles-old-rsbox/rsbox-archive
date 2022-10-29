@@ -33,21 +33,20 @@ public class class106 {
 				File var3 = new File(class170.field1539, var0);
 				RandomAccessFile var4 = null;
 
-				File var10000;
 				try {
 					File var5 = new File(var3.getParent());
 					if (!var5.exists()) {
 						throw new RuntimeException("");
+					} else {
+						var4 = new RandomAccessFile(var3, "rw");
+						int var6 = var4.read();
+						var4.seek(0L);
+						var4.write(var6);
+						var4.seek(0L);
+						var4.close();
+						class170.field1538.put(var0, var3);
+						return var3;
 					}
-
-					var4 = new RandomAccessFile(var3, "rw");
-					int var6 = var4.read();
-					var4.seek(0L);
-					var4.write(var6);
-					var4.seek(0L);
-					var4.close();
-					class170.field1538.put(var0, var3);
-					var10000 = var3;
 				} catch (Exception var9) {
 					try {
 						if (null != var4) {
@@ -59,8 +58,6 @@ public class class106 {
 
 					throw new RuntimeException();
 				}
-
-				return var10000;
 			}
 		}
 	}

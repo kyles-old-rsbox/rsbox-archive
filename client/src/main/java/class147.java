@@ -119,14 +119,14 @@ public class class147 extends class427 {
 		class198.method3654();
 		class72.method1475();
 		int var2 = class274.method5221(var0).field1591;
-		if (0 != var2) {
+		if (var2 != 0) {
 			int var3 = class293.field3370[var0];
 			if (var2 == 1) {
-				if (1 == var3) {
+				if (var3 == 1) {
 					client.method3634(0.9D);
 				}
 
-				if (2 == var3) {
+				if (var3 == 2) {
 					client.method3634(0.8D);
 				}
 
@@ -134,34 +134,34 @@ public class class147 extends class427 {
 					client.method3634(0.7D);
 				}
 
-				if (4 == var3) {
+				if (var3 == 4) {
 					client.method3634(0.6D);
 				}
 			}
 
-			if (3 == var2) {
-				if (0 == var3) {
+			if (var2 == 3) {
+				if (var3 == 0) {
 					class17.method198(255);
 				}
 
-				if (1 == var3) {
+				if (var3 == 1) {
 					class17.method198(192);
 				}
 
-				if (2 == var3) {
+				if (var3 == 2) {
 					class17.method198(128);
 				}
 
-				if (3 == var3) {
+				if (var3 == 3) {
 					class17.method198(64);
 				}
 
-				if (4 == var3) {
+				if (var3 == 4) {
 					class17.method198(0);
 				}
 			}
 
-			if (4 == var2) {
+			if (var2 == 4) {
 				if (var3 == 0) {
 					client.method1354(127);
 				}
@@ -170,7 +170,7 @@ public class class147 extends class427 {
 					client.method1354(96);
 				}
 
-				if (2 == var3) {
+				if (var3 == 2) {
 					client.method1354(64);
 				}
 
@@ -178,25 +178,25 @@ public class class147 extends class427 {
 					client.method1354(32);
 				}
 
-				if (4 == var3) {
+				if (var3 == 4) {
 					client.method1354(0);
 				}
 			}
 
 			if (var2 == 5) {
-				client.field1862 = 1 == var3;
+				client.field1862 = var3 == 1;
 			}
 
 			if (var2 == 6) {
 				client.field1753 = var3;
 			}
 
-			if (9 == var2) {
+			if (var2 == 9) {
 				client.field1814 = var3;
 			}
 
 			if (var2 == 10) {
-				if (0 == var3) {
+				if (var3 == 0) {
 					client.method6049(127);
 				}
 
@@ -204,7 +204,7 @@ public class class147 extends class427 {
 					client.method6049(96);
 				}
 
-				if (2 == var3) {
+				if (var3 == 2) {
 					client.method6049(64);
 				}
 
@@ -217,19 +217,19 @@ public class class147 extends class427 {
 				}
 			}
 
-			if (17 == var2) {
+			if (var2 == 17) {
 				client.field1819 = var3 & 65535;
 			}
 
-			if (18 == var2) {
+			if (var2 == 18) {
 				client.field1812 = (class80)class217.method4362(class80.method1045(), var3);
 				if (client.field1812 == null) {
 					client.field1812 = class80.field705;
 				}
 			}
 
-			if (19 == var2) {
-				if (-1 == var3) {
+			if (var2 == 19) {
+				if (var3 == -1) {
 					client.field1775 = -1;
 				} else {
 					client.field1775 = var3 & 2047;

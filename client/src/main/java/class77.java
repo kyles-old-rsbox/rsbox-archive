@@ -24,7 +24,7 @@ public final class class77 extends class212 {
 		this.field671 = var5;
 		this.field659 = var6 + var7;
 		int var8 = class207.method803(this.field665).field2359;
-		if (-1 != var8) {
+		if (var8 != -1) {
 			this.field667 = false;
 			this.field664 = class160.method2660(var8);
 		} else {

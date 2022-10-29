@@ -48,7 +48,7 @@ public class class378 {
 
 	static synchronized byte[] method6793(int var0, boolean var1) {
 		byte[] var3;
-		if ((100 == var0 || var0 < 100 && var1) && field4390 > 0) {
+		if ((var0 == 100 || var0 < 100 && var1) && field4390 > 0) {
 			var3 = field4398[--field4390];
 			field4398[field4390] = null;
 			return var3;
@@ -60,7 +60,7 @@ public class class378 {
 			var3 = field4403[--field4392];
 			field4403[field4392] = null;
 			return var3;
-		} else if ((30000 == var0 || var0 < 30000 && var1) && field4393 > 0) {
+		} else if ((var0 == 30000 || var0 < 30000 && var1) && field4393 > 0) {
 			var3 = field4399[--field4393];
 			field4399[field4393] = null;
 			return var3;

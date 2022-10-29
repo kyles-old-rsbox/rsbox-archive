@@ -1,6 +1,9 @@
 import java.util.Comparator;
 
 final class class327 implements Comparator {
+	class327() {
+	}
+
 	int method6235(class328 var1, class328 var2) {
 		return var1.field3805 < var2.field3805 ? -1 : (var1.field3805 == var2.field3805 ? 0 : 1);
 	}

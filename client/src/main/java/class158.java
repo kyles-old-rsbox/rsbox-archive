@@ -41,7 +41,7 @@ public class class158 extends class437 {
 	void method2623(class460 var1) {
 		while (true) {
 			int var3 = var1.method8141();
-			if (0 == var3) {
+			if (var3 == 0) {
 				return;
 			}
 
@@ -50,27 +50,27 @@ public class class158 extends class437 {
 	}
 
 	void method2609(class460 var1, int var2) {
-		if (1 == var2) {
+		if (var2 == 1) {
 			var1.method8122();
 		} else if (var2 == 2) {
 			this.field1446 = var1.method8141();
-		} else if (3 == var2) {
+		} else if (var2 == 3) {
 			this.field1447 = var1.method8141();
 		} else if (var2 == 4) {
 			this.field1448 = 0;
-		} else if (5 == var2) {
+		} else if (var2 == 5) {
 			this.field1450 = var1.method8122();
-		} else if (6 == var2) {
+		} else if (var2 == 6) {
 			var1.method8141();
-		} else if (7 == var2) {
+		} else if (var2 == 7) {
 			this.field1449 = var1.method8140();
-		} else if (8 == var2) {
+		} else if (var2 == 8) {
 			this.field1442 = var1.method8140();
 		} else if (var2 == 11) {
 			this.field1448 = var1.method8122();
-		} else if (14 == var2) {
+		} else if (var2 == 14) {
 			this.field1453 = var1.method8141();
-		} else if (15 == var2) {
+		} else if (var2 == 15) {
 			this.field1444 = var1.method8141();
 		}
 
@@ -137,7 +137,7 @@ public class class158 extends class437 {
 
 		for (int var5 = 0; var5 < var2; ++var5) {
 			char var6 = var0.charAt(var5);
-			if (0 == var4) {
+			if (var4 == 0) {
 				var6 = Character.toLowerCase(var6);
 			} else if (var4 == 2 || Character.isUpperCase(var6)) {
 				var6 = class159.method2639(var6);
@@ -145,9 +145,9 @@ public class class158 extends class437 {
 
 			if (Character.isLetter(var6)) {
 				var4 = 0;
-			} else if (var6 != '.' && '?' != var6 && var6 != '!') {
+			} else if (var6 != '.' && var6 != '?' && var6 != '!') {
 				if (Character.isSpaceChar(var6)) {
-					if (2 != var4) {
+					if (var4 != 2) {
 						var4 = 1;
 					}
 				} else {
@@ -166,7 +166,7 @@ public class class158 extends class437 {
 	static final int method2633(int var0, int var1) {
 		if (var0 == -2) {
 			return 12345678;
-		} else if (-1 == var0) {
+		} else if (var0 == -1) {
 			if (var1 < 2) {
 				var1 = 2;
 			} else if (var1 > 126) {

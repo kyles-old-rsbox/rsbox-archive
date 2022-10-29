@@ -72,6 +72,6 @@ public class class453 extends class460 {
 	}
 
 	public int method8044(int var1) {
-		return 8 * var1 - this.field4858;
+		return var1 * 8 - this.field4858;
 	}
 }

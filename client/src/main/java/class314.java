@@ -1,6 +1,9 @@
 import java.util.Comparator;
 
 final class class314 implements Comparator {
+	class314() {
+	}
+
 	int method6064(class328 var1, class328 var2) {
 		return var1.method6244().compareTo(var2.method6244());
 	}

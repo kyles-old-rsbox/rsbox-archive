@@ -1182,7 +1182,7 @@ public final class class473 extends class481 {
 										var34 = var23 + var32;
 									}
 
-									if ((var32 = (1 + var36 - (this.field4951 << 12) - var26) / var26) > var37) {
+									if ((var32 = (var36 + 1 - (this.field4951 << 12) - var26) / var26) > var37) {
 										var37 = var32;
 									}
 
@@ -1311,7 +1311,7 @@ public final class class473 extends class481 {
 									var34 += var32;
 								}
 
-								if ((var32 = (1 + var36 - (this.field4951 << 12) - var26) / var26) > var37) {
+								if ((var32 = (var36 + 1 - (this.field4951 << 12) - var26) / var26) > var37) {
 									var37 = var32;
 								}
 
@@ -1347,7 +1347,7 @@ public final class class473 extends class481 {
 									var34 = var23 + var32;
 								}
 
-								if ((var32 = (1 + var35 - (this.field4959 << 12) - var27) / var27) > var37) {
+								if ((var32 = (var35 + 1 - (this.field4959 << 12) - var27) / var27) > var37) {
 									var37 = var32;
 								}
 
@@ -1381,7 +1381,7 @@ public final class class473 extends class481 {
 								var34 = var23 + var32;
 							}
 
-							if ((var32 = (1 + var35 - (this.field4959 << 12) - var27) / var27) > var37) {
+							if ((var32 = (var35 + 1 - (this.field4959 << 12) - var27) / var27) > var37) {
 								var37 = var32;
 							}
 
@@ -1428,7 +1428,7 @@ public final class class473 extends class481 {
 								var34 = var23 + var32;
 							}
 
-							if ((var32 = (1 + var35 - (this.field4959 << 12) - var27) / var27) > var37) {
+							if ((var32 = (var35 + 1 - (this.field4959 << 12) - var27) / var27) > var37) {
 								var37 = var32;
 							}
 
@@ -1440,7 +1440,7 @@ public final class class473 extends class481 {
 								var34 += var32;
 							}
 
-							if ((var32 = (1 + var36 - (this.field4951 << 12) - var26) / var26) > var37) {
+							if ((var32 = (var36 + 1 - (this.field4951 << 12) - var26) / var26) > var37) {
 								var37 = var32;
 							}
 

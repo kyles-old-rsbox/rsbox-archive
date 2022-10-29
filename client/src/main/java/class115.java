@@ -119,9 +119,8 @@ public abstract class class115 implements Runnable {
 		synchronized(this) {
 			this.field1133.add(var3);
 			this.notify();
+			return var3;
 		}
-
-		return var3;
 	}
 
 	public void method2236() {

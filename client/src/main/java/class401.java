@@ -8,7 +8,7 @@ public abstract class class401 {
 		if (client.field1894 < 50 && class413.field4575.method1736() != 0) {
 			if (var0.field1995 != null && var0.field1995.containsKey(var1)) {
 				int var5 = (Integer)var0.field1995.get(var1);
-				if (0 != var5) {
+				if (var5 != 0) {
 					int var8 = var5 >> 8;
 					int var9 = var5 >> 4 & 7;
 					int var10 = var5 & 15;

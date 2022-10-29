@@ -33,47 +33,44 @@ public class class322 implements Runnable {
 	public void run() {
 		try {
 			while (true) {
-				while (true) {
-					class334 var1;
-					synchronized(field3759) {
-						var1 = (class334)field3759.method6364();
-					}
+				class334 var1;
+				synchronized(field3759) {
+					var1 = (class334)field3759.method6364();
+				}
 
-					if (null != var1) {
-						if (0 == var1.field3860) {
-							var1.field3862.method7145((int)var1.field4681, var1.field3861, var1.field3861.length);
-							synchronized(field3759) {
-								var1.method7825();
-							}
-						} else if (1 == var1.field3860) {
-							var1.field3861 = var1.field3862.method7144((int)var1.field4681);
-							synchronized(field3759) {
-								field3760.method6355(var1);
-							}
+				if (null != var1) {
+					if (0 == var1.field3860) {
+						var1.field3862.method7145((int)var1.field4681, var1.field3861, var1.field3861.length);
+						synchronized(field3759) {
+							var1.method7825();
 						}
-						break;
+					} else if (1 == var1.field3860) {
+						var1.field3861 = var1.field3862.method7144((int)var1.field4681);
+						synchronized(field3759) {
+							field3760.method6355(var1);
+						}
 					}
 
-					class266.method3531(100L);
 					synchronized(field3762) {
-						if (field3761 > 1) {
-							--field3761;
-						} else {
+						if (field3761 <= 1) {
 							field3761 = 0;
 							field3762.notifyAll();
 							return;
 						}
-					}
-				}
 
-				synchronized(field3762) {
-					if (field3761 <= 1) {
-						field3761 = 0;
-						field3762.notifyAll();
-						return;
+						field3761 = 600;
 					}
+				} else {
+					class266.method3531(100L);
+					synchronized(field3762) {
+						if (field3761 <= 1) {
+							field3761 = 0;
+							field3762.notifyAll();
+							return;
+						}
 
-					field3761 = 600;
+						--field3761;
+					}
 				}
 			}
 		} catch (Exception var13) {
@@ -101,8 +98,8 @@ public class class322 implements Runnable {
 				} catch (InterruptedException var4) {
 				}
 			}
-		}
 
+		}
 	}
 
 	static void method6198(class189 var0, int var1, int var2, int var3) {

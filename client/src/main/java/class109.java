@@ -39,7 +39,7 @@ public class class109 {
 				var5 = 253 - var4;
 				class481.method8664(class75.field627 + 180 - 152, var5, 304, 34, 9179409);
 				class481.method8664(180 + class75.field627 - 151, var5 + 1, 302, 32, 0);
-				class481.method8660(class75.field627 + 180 - 150, 2 + var5, class75.field622 * 3, 30, 9179409);
+				class481.method8660(class75.field627 + 180 - 150, var5 + 2, class75.field622 * 3, 30, 9179409);
 				class481.method8660(180 + class75.field627 - 150 + class75.field622 * 3, var5 + 2, 300 - class75.field622 * 3, 30, 0);
 				var0.method6955(class75.field623, class75.field627 + 180, 276 - var4, 16777215, -1);
 			}
@@ -105,10 +105,10 @@ public class class109 {
 					var5 = class75.field627 + 180 - 80;
 					var19 = 321;
 					class136.field1272.method8755(var5 - 73, var19 - 20);
-					var0.method6955(class338.field3897, var5, 5 + var19, 16777215, 0);
+					var0.method6955(class338.field3897, var5, var19 + 5, 16777215, 0);
 					var5 = 180 + class75.field627 + 80;
 					class136.field1272.method8755(var5 - 73, var19 - 20);
-					var0.method6955(class338.field4149, var5, 5 + var19, 16777215, 0);
+					var0.method6955(class338.field4149, var5, var19 + 5, 16777215, 0);
 				} else if (2 == class75.field619) {
 					var24 = 201;
 					var0.method6955(class75.field624, class11.field47, var24, 16776960, 0);
@@ -139,14 +139,14 @@ public class class109 {
 					boolean var12 = class75.field637;
 					class488 var10 = var11 ? (var12 ? class362.field4317 : class166.field1525) : (var12 ? class84.field749 : class75.field629);
 					var10.method8755(var9, var24);
-					var9 += 5 + var10.field5017;
+					var9 += var10.field5017 + 5;
 					var1.method6875(class338.field4150, var9, var24 + 13, 16776960, 0);
 					var9 = 24 + class11.field47;
 					boolean var15 = class413.field4575.method1706();
 					boolean var16 = class75.field638;
 					class488 var14 = var15 ? (var16 ? class362.field4317 : class166.field1525) : (var16 ? class84.field749 : class75.field629);
 					var14.method8755(var9, var24);
-					var9 += 5 + var14.field5017;
+					var9 += var14.field5017 + 5;
 					var1.method6875(class338.field4151, var9, var24 + 13, 16776960, 0);
 					var25 = var24 + 15;
 					int var17 = class11.field47 - 80;
@@ -155,7 +155,7 @@ public class class109 {
 					var0.method6955(class338.field4148, var17, var18 + 5, 16777215, 0);
 					var17 = class11.field47 + 80;
 					class136.field1272.method8755(var17 - 73, var18 - 20);
-					var0.method6955(class338.field4149, var17, 5 + var18, 16777215, 0);
+					var0.method6955(class338.field4149, var17, var18 + 5, 16777215, 0);
 					var24 = 357;
 					switch(class75.field646) {
 					case 2:
@@ -183,7 +183,7 @@ public class class109 {
 					var5 = class75.field627 + 180;
 					var19 = 326;
 					class136.field1272.method8755(var5 - 73, var19 - 20);
-					var2.method6955(class338.field4036, var5, 5 + var19, 16777215, 0);
+					var2.method6955(class338.field4036, var5, var19 + 5, 16777215, 0);
 				} else {
 					int var22;
 					short var28;
@@ -216,10 +216,10 @@ public class class109 {
 						var22 = 180 + class75.field627 - 80;
 						var28 = 321;
 						class136.field1272.method8755(var22 - 73, var28 - 20);
-						var0.method6955(class338.field3897, var22, 5 + var28, 16777215, 0);
+						var0.method6955(class338.field3897, var22, var28 + 5, 16777215, 0);
 						var22 = 80 + 180 + class75.field627;
 						class136.field1272.method8755(var22 - 73, var28 - 20);
-						var0.method6955(class338.field4149, var22, 5 + var28, 16777215, 0);
+						var0.method6955(class338.field4149, var22, var28 + 5, 16777215, 0);
 						var1.method6955(class338.field4132, class75.field627 + 180, var28 + 36, 255, 0);
 					} else if (5 == class75.field619) {
 						var0.method6955(class338.field4157, 180 + class75.field627, 201, 16776960, 0);
@@ -260,7 +260,7 @@ public class class109 {
 						var5 = class75.field627 + 180;
 						var19 = 321;
 						class136.field1272.method8755(var5 - 73, var19 - 20);
-						var0.method6955(class338.field4160, var5, 5 + var19, 16777215, 0);
+						var0.method6955(class338.field4160, var5, var19 + 5, 16777215, 0);
 					} else if (7 == class75.field619) {
 						if (class87.field781 && !client.field1640) {
 							var24 = 201;
@@ -275,8 +275,8 @@ public class class109 {
 							for (var29 = 0; var29 < 8; ++var29) {
 								class136.field1272.method8757(var5, var25, 30, 40);
 								boolean var21 = var29 == class75.field634 & client.field1645 % 40 < 20;
-								var0.method6875((class75.field635[var29] == null ? "" : class75.field635[var29]) + (var21 ? class96.method4510(16776960) + class96.field960 : ""), 10 + var5, 27 + var25, 16777215, 0);
-								if (1 != var29 && var29 != 3) {
+								var0.method6875((class75.field635[var29] == null ? "" : class75.field635[var29]) + (var21 ? class96.method4510(16776960) + class96.field960 : ""), var5 + 10, var25 + 27, 16777215, 0);
+								if (var29 != 1 && var29 != 3) {
 									var5 += 35;
 								} else {
 									var5 += 50;
@@ -287,10 +287,10 @@ public class class109 {
 							var29 = class11.field47 - 80;
 							short var30 = 321;
 							class136.field1272.method8755(var29 - 73, var30 - 20);
-							var0.method6955("Submit", var29, 5 + var30, 16777215, 0);
+							var0.method6955("Submit", var29, var30 + 5, 16777215, 0);
 							var29 = 80 + class11.field47;
 							class136.field1272.method8755(var29 - 73, var30 - 20);
-							var0.method6955(class338.field4149, var29, 5 + var30, 16777215, 0);
+							var0.method6955(class338.field4149, var29, var30 + 5, 16777215, 0);
 						} else {
 							var24 = 216;
 							var0.method6955(class338.field4188, class75.field627 + 180, var24, 16776960, 0);
@@ -302,7 +302,7 @@ public class class109 {
 							var5 = 180 + class75.field627 - 80;
 							var19 = 321;
 							class136.field1272.method8755(var5 - 73, var19 - 20);
-							var0.method6955(class338.field4211, var5, 5 + var19, 16777215, 0);
+							var0.method6955(class338.field4211, var5, var19 + 5, 16777215, 0);
 							var5 = 80 + class75.field627 + 180;
 							class136.field1272.method8755(var5 - 73, var19 - 20);
 							var0.method6955(class338.field4160, var5, var19 + 5, 16777215, 0);
@@ -318,10 +318,10 @@ public class class109 {
 						var5 = 180 + class75.field627 - 80;
 						var19 = 321;
 						class136.field1272.method8755(var5 - 73, var19 - 20);
-						var0.method6955(class338.field4032, var5, 5 + var19, 16777215, 0);
+						var0.method6955(class338.field4032, var5, var19 + 5, 16777215, 0);
 						var5 = class75.field627 + 180 + 80;
 						class136.field1272.method8755(var5 - 73, var19 - 20);
-						var0.method6955(class338.field4160, var5, 5 + var19, 16777215, 0);
+						var0.method6955(class338.field4160, var5, var19 + 5, 16777215, 0);
 					} else if (9 == class75.field619) {
 						var24 = 221;
 						var0.method6955(class75.field624, 180 + class75.field627, var24, 16776960, 0);
@@ -356,7 +356,7 @@ public class class109 {
 						var0.method6955(class338.field4201, var25, var26 + 5, 16777215, 0);
 						var25 = 80 + class11.field47;
 						class136.field1272.method8755(var25 - 73, var26 - 20);
-						var0.method6955(class338.field3993, var25, 5 + var26, 16777215, 0);
+						var0.method6955(class338.field3993, var25, var26 + 5, 16777215, 0);
 					} else if (13 == class75.field619) {
 						var24 = 231;
 						var2.method6955(class338.field4199, 180 + class75.field627, var24, 16777215, 0);
@@ -365,7 +365,7 @@ public class class109 {
 						var5 = 180 + class75.field627;
 						var24 = 311;
 						class136.field1272.method8755(var5 - 73, var24 - 20);
-						var0.method6955(class338.field4160, var5, 5 + var24, 16777215, 0);
+						var0.method6955(class338.field4160, var5, var24 + 5, 16777215, 0);
 					} else if (class75.field619 == 14) {
 						var24 = 201;
 						String var23 = "";
@@ -399,11 +399,11 @@ public class class109 {
 						var22 = class75.field627 + 180;
 						var28 = 276;
 						class136.field1272.method8755(var22 - 73, var28 - 20);
-						var0.method6955(class338.field3929, var22, 5 + var28, 16777215, 0);
+						var0.method6955(class338.field3929, var22, var28 + 5, 16777215, 0);
 						var22 = class75.field627 + 180;
 						var28 = 326;
 						class136.field1272.method8755(var22 - 73, var28 - 20);
-						var0.method6955(class338.field4160, var22, 5 + var28, 16777215, 0);
+						var0.method6955(class338.field4160, var22, var28 + 5, 16777215, 0);
 					} else if (class75.field619 == 24) {
 						var24 = 221;
 						var0.method6955(class75.field624, class75.field627 + 180, var24, 16777215, 0);
@@ -415,7 +415,7 @@ public class class109 {
 						var5 = class75.field627 + 180;
 						var19 = 301;
 						class136.field1272.method8755(var5 - 73, var19 - 20);
-						var0.method6955(class338.field3895, var5, 5 + var19, 16777215, 0);
+						var0.method6955(class338.field3895, var5, var19 + 5, 16777215, 0);
 					} else if (class75.field619 == 26) {
 						var24 = 216;
 						var0.method6955(class338.field4188, 180 + class75.field627, var24, 16776960, 0);
@@ -427,10 +427,10 @@ public class class109 {
 						var5 = class75.field627 + 180 - 80;
 						var19 = 321;
 						class136.field1272.method8755(var5 - 73, var19 - 20);
-						var0.method6955(class338.field4211, var5, 5 + var19, 16777215, 0);
+						var0.method6955(class338.field4211, var5, var19 + 5, 16777215, 0);
 						var5 = class75.field627 + 180 + 80;
 						class136.field1272.method8755(var5 - 73, var19 - 20);
-						var0.method6955(class338.field4160, var5, 5 + var19, 16777215, 0);
+						var0.method6955(class338.field4160, var5, var19 + 5, 16777215, 0);
 					}
 				}
 			}

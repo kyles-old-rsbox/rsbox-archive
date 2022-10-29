@@ -89,7 +89,7 @@ public class class470 {
 				var17 = var22 - var5;
 				class481.method8670(var15, var22, var15, var17, this.field4942);
 				if (this.field4935 != -1) {
-					class481.method8670(1 + var15, 1 + var22, 1 + var15, var17 + 1, this.field4935);
+					class481.method8670(var15 + 1, var22 + 1, var15 + 1, var17 + 1, this.field4935);
 				}
 			}
 

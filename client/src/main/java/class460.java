@@ -316,12 +316,12 @@ public class class460 extends class427 {
 		}
 
 		int var3 = this.field4878 - var2 - 1;
-		return 0 == var3 ? "" : class126.method2371(this.field4881, var2, var3);
+		return var3 == 0 ? "" : class126.method2371(this.field4881, var2, var3);
 	}
 
 	public String method8132() {
 		byte var2 = this.field4881[++this.field4878 - 1];
-		if (0 != var2) {
+		if (var2 != 0) {
 			throw new IllegalStateException("");
 		} else {
 			int var3 = this.field4878;
@@ -353,7 +353,7 @@ public class class460 extends class427 {
 				for (int var10 = var6 + var3; var9 < var10; var7[var8++] = (char)var12) {
 					int var11 = var5[var9++] & 255;
 					if (var11 < 128) {
-						if (0 == var11) {
+						if (var11 == 0) {
 							var12 = 65533;
 						} else {
 							var12 = var11;
@@ -370,7 +370,7 @@ public class class460 extends class427 {
 							var12 = 65533;
 						}
 					} else if (var11 < 240) {
-						if (var9 + 1 < var10 && (var5[var9] & 192) == 128 && (var5[1 + var9] & 192) == 128) {
+						if (var9 + 1 < var10 && (var5[var9] & 192) == 128 && (var5[var9 + 1] & 192) == 128) {
 							var12 = (var11 & 15) << 12 | (var5[var9++] & 63) << 6 | var5[var9++] & 63;
 							if (var12 < 2048) {
 								var12 = 65533;
@@ -379,7 +379,7 @@ public class class460 extends class427 {
 							var12 = 65533;
 						}
 					} else if (var11 < 248) {
-						if (2 + var9 < var10 && 128 == (var5[var9] & 192) && (var5[1 + var9] & 192) == 128 && 128 == (var5[var9 + 2] & 192)) {
+						if (var9 + 2 < var10 && 128 == (var5[var9] & 192) && (var5[var9 + 1] & 192) == 128 && 128 == (var5[var9 + 2] & 192)) {
 							var12 = (var11 & 7) << 18 | (var5[var9++] & 63) << 12 | (var5[var9++] & 63) << 6 | var5[var9++] & 63;
 							if (var12 >= 65536 && var12 <= 1114111) {
 								var12 = 65533;
@@ -444,7 +444,7 @@ public class class460 extends class427 {
 			return this.method8126() & Integer.MAX_VALUE;
 		} else {
 			int var2 = this.method8122();
-			return 32767 == var2 ? -1 : var2;
+			return var2 == 32767 ? -1 : var2;
 		}
 	}
 
@@ -638,7 +638,7 @@ public class class460 extends class427 {
 	}
 
 	public void method8161(int var1) {
-		this.field4881[++this.field4878 - 1] = (byte)(128 + var1);
+		this.field4881[++this.field4878 - 1] = (byte)(var1 + 128);
 		this.field4881[++this.field4878 - 1] = (byte)(var1 >> 8);
 	}
 

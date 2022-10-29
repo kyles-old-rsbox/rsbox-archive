@@ -52,7 +52,7 @@ public class class185 extends class437 {
 	public void method3414(class460 var1, int var2) {
 		while (true) {
 			int var4 = var1.method8141();
-			if (0 == var4) {
+			if (var4 == 0) {
 				return;
 			}
 
@@ -61,7 +61,7 @@ public class class185 extends class437 {
 	}
 
 	void method3415(class460 var1, int var2, int var3) {
-		if (1 == var2) {
+		if (var2 == 1) {
 			this.field1955 = var1.method8312();
 		}
 

@@ -40,7 +40,7 @@ public class class260 {
 				long var6 = var4 - class31.field199;
 				long var8 = var10 - class31.field200;
 				if (0L != var8) {
-					var1 = (int)(100L * var6 / var8);
+					var1 = (int)(var6 * 100L / var8);
 				}
 			}
 

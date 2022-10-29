@@ -158,25 +158,25 @@ public class class123 {
 	void method2313() {
 		class464 var2 = this.method2311(false);
 
-		label212: {
+		label224: {
 			try {
 				byte[] var3 = new byte[(int)var2.method8373()];
 
 				int var5;
 				for (int var4 = 0; var4 < var3.length; var4 += var5) {
 					var5 = var2.method8369(var3, var4, var3.length - var4);
-					if (-1 == var5) {
+					if (var5 == -1) {
 						throw new EOFException();
 					}
 				}
 
 				class460 var15 = new class460(var3);
-				if (var15.field4881.length - var15.field4878 >= 1) {
-					int var16 = var15.method8141();
-					if (var16 < 0 || var16 > 2) {
-						return;
-					}
+				if (var15.field4881.length - var15.field4878 < 1) {
+					return;
+				}
 
+				int var16 = var15.method8141();
+				if (var16 >= 0 && var16 <= 2) {
 					int var8;
 					int var9;
 					int var10;
@@ -187,7 +187,7 @@ public class class123 {
 
 						while (true) {
 							if (var8 >= var17) {
-								break label212;
+								break label224;
 							}
 
 							var9 = var15.method8122();
@@ -216,7 +216,7 @@ public class class123 {
 
 						while (true) {
 							if (var9 >= var8) {
-								break label212;
+								break label224;
 							}
 
 							var15.method8122();
@@ -226,7 +226,7 @@ public class class123 {
 					}
 				}
 			} catch (Exception var26) {
-				break label212;
+				break label224;
 			} finally {
 				try {
 					var2.method8374();
@@ -282,7 +282,7 @@ public class class123 {
 			class142.method2486((class90)var11, var10, var0, var1, var2, var3);
 		}
 
-		if (client.field1739 && -1 != var7) {
+		if (client.field1739 && var7 != -1) {
 			class142.method2486(class291.field3364, var7, var0, var1, var2, var3);
 		}
 
@@ -333,7 +333,7 @@ public class class123 {
 				if (9 == client.field1740[var10]) {
 					var18 = 150 - client.field1649[var10];
 					if (var18 < 50) {
-						var17 = 1280 * var18 + 16711680;
+						var17 = var18 * 1280 + 16711680;
 					} else if (var18 < 100) {
 						var17 = 16776960 - 327680 * (var18 - 50);
 					} else if (var18 < 150) {
@@ -344,7 +344,7 @@ public class class123 {
 				if (client.field1740[var10] == 10) {
 					var18 = 150 - client.field1649[var10];
 					if (var18 < 50) {
-						var17 = 16711680 + 5 * var18;
+						var17 = 16711680 + var18 * 5;
 					} else if (var18 < 100) {
 						var17 = 16711935 - (var18 - 50) * 327680;
 					} else if (var18 < 150) {
@@ -355,7 +355,7 @@ public class class123 {
 				if (11 == client.field1740[var10]) {
 					var18 = 150 - client.field1649[var10];
 					if (var18 < 50) {
-						var17 = 16777215 - 327685 * var18;
+						var17 = 16777215 - var18 * 327685;
 					} else if (var18 < 100) {
 						var17 = 327685 * (var18 - 50) + 65280;
 					} else if (var18 < 150) {

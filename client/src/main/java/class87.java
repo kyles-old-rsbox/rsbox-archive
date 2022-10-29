@@ -42,7 +42,7 @@ public class class87 extends class427 {
 		}
 
 		int var12;
-		if (var0 == 1300) {
+		if (var0 == CS2Opcodes.CC_SETOP) {
 			var12 = class57.field404[--class387.field4452] - 1;
 			if (var12 >= 0 && var12 <= 9) {
 				var5.method5860(var12, class57.field405[--class126.field1220]);
@@ -53,49 +53,49 @@ public class class87 extends class427 {
 			}
 		} else {
 			int var7;
-			if (1301 == var0) {
+			if (var0 == CS2Opcodes.CC_SETDRAGGABLE) {
 				class387.field4452 -= 2;
 				var12 = class57.field404[class387.field4452];
 				var7 = class57.field404[1 + class387.field4452];
 				var5.field3547 = class253.method5043(var12, var7);
 				return 1;
-			} else if (1302 == var0) {
+			} else if (var0 == CS2Opcodes.CC_SETDRAGGABLEBEHAVIOR) {
 				var5.field3550 = class57.field404[--class387.field4452] == 1;
 				return 1;
-			} else if (1303 == var0) {
+			} else if (var0 == CS2Opcodes.CC_SETDRAGDEADZONE) {
 				var5.field3600 = class57.field404[--class387.field4452];
 				return 1;
-			} else if (var0 == 1304) {
+			} else if (var0 == CS2Opcodes.CC_SETDRAGDEADTIME) {
 				var5.field3604 = class57.field404[--class387.field4452];
 				return 1;
-			} else if (var0 == 1305) {
+			} else if (var0 == CS2Opcodes.CC_SETOPBASE) {
 				var5.field3545 = class57.field405[--class126.field1220];
 				return 1;
-			} else if (1306 == var0) {
+			} else if (var0 == CS2Opcodes.CC_SETTARGETVERB) {
 				var5.field3515 = class57.field405[--class126.field1220];
 				return 1;
-			} else if (var0 == 1307) {
+			} else if (var0 == CS2Opcodes.CC_CLEAROPS) {
 				var5.field3546 = null;
 				return 1;
-			} else if (1308 == var0) {
+			} else if (var0 == CS2Opcodes.CC_SETSHIFTCLICKOP) {
 				var5.field3614 = class57.field404[--class387.field4452] == 1;
 				return 1;
-			} else if (var0 == 1309) {
+			} else if (var0 == CS2Opcodes._1309) {
 				--class387.field4452;
 				return 1;
 			} else {
 				int var8;
 				byte[] var10;
-				if (var0 != 1350) {
+				if (var0 != CS2Opcodes.CC_SETOPKEY) {
 					byte var6;
-					if (1351 == var0) {
+					if (var0 == CS2Opcodes.CC_SETOPTKEY) {
 						class387.field4452 -= 2;
 						var6 = 10;
 						var10 = new byte[]{(byte)class57.field404[class387.field4452]};
 						byte[] var11 = new byte[]{(byte)class57.field404[1 + class387.field4452]};
 						class227.method4512(var5, var6, var10, var11);
 						return 1;
-					} else if (1352 == var0) {
+					} else if (var0 == CS2Opcodes.CC_SETOPKEYRATE) {
 						class387.field4452 -= 3;
 						var12 = class57.field404[class387.field4452] - 1;
 						var7 = class57.field404[class387.field4452 + 1];
@@ -106,13 +106,13 @@ public class class87 extends class427 {
 						} else {
 							throw new RuntimeException();
 						}
-					} else if (var0 == 1353) {
+					} else if (var0 == CS2Opcodes.CC_SETOPTKEYRATE) {
 						var6 = 10;
 						var7 = class57.field404[--class387.field4452];
 						var8 = class57.field404[--class387.field4452];
 						class57.method2259(var5, var6, var7, var8);
 						return 1;
-					} else if (var0 == 1354) {
+					} else if (var0 == CS2Opcodes.CC_SETOPKEYIGNOREHELD) {
 						--class387.field4452;
 						var12 = class57.field404[class387.field4452] - 1;
 						if (var12 >= 0 && var12 <= 9) {
@@ -121,7 +121,7 @@ public class class87 extends class427 {
 						} else {
 							throw new RuntimeException();
 						}
-					} else if (1355 == var0) {
+					} else if (var0 == CS2Opcodes.CC_SETOPTKEYIGNOREHELD) {
 						var6 = 10;
 						class57.method6459(var5, var6);
 						return 1;

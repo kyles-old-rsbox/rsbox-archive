@@ -19,7 +19,7 @@ public class class41 {
 			}
 
 		} else {
-			if (-1 != var7) {
+			if (var7 != -1) {
 				client.field1860[var7] = true;
 			} else {
 				for (int var9 = 0; var9 < 100; ++var9) {

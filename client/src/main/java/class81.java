@@ -51,7 +51,7 @@ public final class class81 extends class90 {
 			++var5;
 		}
 
-		if (1 == var1) {
+		if (var1 == 1) {
 			++var5;
 		}
 
@@ -60,11 +60,11 @@ public final class class81 extends class90 {
 			++var5;
 		}
 
-		if (3 == var1) {
+		if (var1 == 3) {
 			--var4;
 		}
 
-		if (4 == var1) {
+		if (var1 == 4) {
 			++var4;
 		}
 
@@ -187,11 +187,10 @@ public final class class81 extends class90 {
 		} else {
 			try {
 				new URL(var0);
+				return true;
 			} catch (MalformedURLException var3) {
 				return false;
 			}
-
-			return true;
 		}
 	}
 }

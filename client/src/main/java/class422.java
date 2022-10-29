@@ -71,10 +71,10 @@ public class class422 {
 					int var13 = var12.indexOf(40);
 					int var14 = var12.indexOf(41, var13 + 1);
 					if (var13 >= 0 && var14 >= 0) {
-						String var15 = var12.substring(1 + var13, var14);
+						String var15 = var12.substring(var13 + 1, var14);
 						int var16 = var15.indexOf(".java:");
 						if (var16 >= 0) {
-							var15 = var15.substring(0, var16) + var15.substring(5 + var16);
+							var15 = var15.substring(0, var16) + var15.substring(var16 + 5);
 							var6 = var6 + var15 + ' ';
 							continue;
 						}
@@ -102,15 +102,15 @@ public class class422 {
 			var3 = var3.replace('@', '_');
 			var3 = var3.replace('&', '_');
 			var3 = var3.replace('#', '_');
-			if (class487.field5015 != null) {
-				URL var4 = new URL(class487.field5015.getCodeBase(), "clienterror.ws?cv=" + class487.field5012 + "&cs=" + class487.field5010 + "&u=" + class487.field5013 + "&v1=" + class172.field1559 + "&v2=" + class172.field1552 + "&ct=" + class460.field4885 + "&e=" + var3);
-				DataInputStream var18 = new DataInputStream(var4.openStream());
-				var18.read();
-				var18.close();
+			if (class487.field5015 == null) {
 				return;
 			}
+
+			URL var4 = new URL(class487.field5015.getCodeBase(), "clienterror.ws?cv=" + class487.field5012 + "&cs=" + class487.field5010 + "&u=" + class487.field5013 + "&v1=" + class172.field1559 + "&v2=" + class172.field1552 + "&ct=" + class460.field4885 + "&e=" + var3);
+			DataInputStream var18 = new DataInputStream(var4.openStream());
+			var18.read();
+			var18.close();
 		} catch (Exception var17) {
-			return;
 		}
 
 	}

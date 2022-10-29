@@ -22,22 +22,22 @@ public class class396 extends class400 {
 
 	static int method7176(int var0, class78 var1, boolean var2) {
 		class300 var4 = class282.method5426(class57.field404[--class387.field4452]);
-		if (var0 == 2500) {
+		if (var0 == CS2Opcodes.IF_GETX) {
 			class57.field404[++class387.field4452 - 1] = var4.field3473;
 			return 1;
-		} else if (2501 == var0) {
+		} else if (var0 == CS2Opcodes.IF_GETY) {
 			class57.field404[++class387.field4452 - 1] = var4.field3551;
 			return 1;
-		} else if (var0 == 2502) {
+		} else if (var0 == CS2Opcodes.IF_GETWIDTH) {
 			class57.field404[++class387.field4452 - 1] = var4.field3448;
 			return 1;
-		} else if (2503 == var0) {
+		} else if (var0 == CS2Opcodes.IF_GETHEIGHT) {
 			class57.field404[++class387.field4452 - 1] = var4.field3476;
 			return 1;
-		} else if (2504 == var0) {
+		} else if (var0 == CS2Opcodes.IF_GETHIDE) {
 			class57.field404[++class387.field4452 - 1] = var4.field3480 ? 1 : 0;
 			return 1;
-		} else if (var0 == 2505) {
+		} else if (var0 == CS2Opcodes.IF_GETLAYER) {
 			class57.field404[++class387.field4452 - 1] = var4.field3596;
 			return 1;
 		} else {

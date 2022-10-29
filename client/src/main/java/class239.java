@@ -62,7 +62,7 @@ public abstract class class239 {
 
 	void method4656(int var1, int var2, class460 var3) {
 		int var5 = var3.method8141();
-		if (0 != var5) {
+		if (var5 != 0) {
 			if ((var5 & 1) != 0) {
 				this.method4653(var1, var2, var3, var5);
 			} else {
@@ -117,7 +117,7 @@ public abstract class class239 {
 		if (var8) {
 			for (var9 = 0; var9 < var6; ++var9) {
 				var10 = var3.method8141();
-				if (0 != var10) {
+				if (var10 != 0) {
 					class253[] var15 = this.field2812[var9][var1][var2] = new class253[var10];
 
 					for (var12 = 0; var12 < var10; ++var12) {

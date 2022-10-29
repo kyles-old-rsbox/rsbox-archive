@@ -10,7 +10,6 @@ public final class class455 {
 	}
 
 	public static int method8049(byte[] var0, int var1, byte[] var2, int var3, int var4) {
-		int var10000;
 		synchronized(field4865) {
 			field4865.field4807 = var2;
 			field4865.field4811 = var4;
@@ -25,10 +24,8 @@ public final class class455 {
 			var1 -= field4865.field4828;
 			field4865.field4807 = null;
 			field4865.field4821 = null;
-			var10000 = var1;
+			return var1;
 		}
-
-		return var10000;
 	}
 
 	static void method8070(class449 var0) {
@@ -443,7 +440,7 @@ public final class class455 {
 								if (var46 == 0) {
 									var48 += var49;
 								} else if (var46 == 1) {
-									var48 += 2 * var49;
+									var48 += var49 * 2;
 								}
 
 								var49 *= 2;

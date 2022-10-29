@@ -22,7 +22,7 @@ public final class class464 {
 		this.field4902 = var3;
 		this.field4903 = 0L;
 		int var5 = this.field4901.read();
-		if (-1 != var5 && !var2.equals("r")) {
+		if (var5 != -1 && !var2.equals("r")) {
 			this.field4901.seek(0L);
 			this.field4901.write(var5);
 		}

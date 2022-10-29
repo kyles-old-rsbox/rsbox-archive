@@ -25,7 +25,7 @@ public class class182 extends class437 {
 	void method2846(class460 var1) {
 		while (true) {
 			int var3 = var1.method8141();
-			if (0 == var3) {
+			if (var3 == 0) {
 				return;
 			}
 
@@ -34,7 +34,7 @@ public class class182 extends class437 {
 	}
 
 	void method2849(class460 var1, int var2) {
-		if (1 == var2) {
+		if (var2 == 1) {
 			this.field1623 = var1.method8141();
 		} else {
 			int var4;
@@ -48,7 +48,7 @@ public class class182 extends class437 {
 				}
 			} else if (var2 == 3) {
 				this.field1630 = true;
-			} else if (40 == var2) {
+			} else if (var2 == 40) {
 				var4 = var1.method8141();
 				this.field1625 = new short[var4];
 				this.field1620 = new short[var4];
@@ -57,7 +57,7 @@ public class class182 extends class437 {
 					this.field1625[var5] = (short)var1.method8122();
 					this.field1620[var5] = (short)var1.method8122();
 				}
-			} else if (41 == var2) {
+			} else if (var2 == 41) {
 				var4 = var1.method8141();
 				this.field1621 = new short[var4];
 				this.field1628 = new short[var4];
@@ -75,12 +75,18 @@ public class class182 extends class437 {
 
 	public static void method2856() {
 		try {
-			if (1 != class279.field3202) {
-				return;
-			}
+			if (1 == class279.field3202) {
+				int var1 = class279.field3201.method5382();
+				if (var1 > 0 && class279.field3201.method5278()) {
+					var1 -= class13.field67;
+					if (var1 < 0) {
+						var1 = 0;
+					}
 
-			int var1 = class279.field3201.method5382();
-			if (var1 <= 0 || !class279.field3201.method5278()) {
+					class279.field3201.method5271(var1);
+					return;
+				}
+
 				class279.field3201.method5365();
 				class279.field3201.method5275();
 				if (null != class7.field29) {
@@ -91,15 +97,7 @@ public class class182 extends class437 {
 
 				class141.field1300 = null;
 				class370.field4368 = null;
-				return;
 			}
-
-			var1 -= class13.field67;
-			if (var1 < 0) {
-				var1 = 0;
-			}
-
-			class279.field3201.method5271(var1);
 		} catch (Exception var3) {
 			var3.printStackTrace();
 			class279.field3201.method5365();
@@ -107,7 +105,6 @@ public class class182 extends class437 {
 			class141.field1300 = null;
 			class370.field4368 = null;
 			class7.field29 = null;
-			return;
 		}
 
 	}

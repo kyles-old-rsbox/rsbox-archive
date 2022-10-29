@@ -20,8 +20,8 @@ public final class class415 {
 			if (field4594 < field4590 - 1) {
 				field4595[++field4594 - 1] = this;
 			}
-		}
 
+		}
 	}
 
 	class415() {
@@ -69,7 +69,7 @@ public final class class415 {
 		float var2 = 1.0F;
 		var2 = var2 * 31.0F + this.field4592;
 		var2 = var2 * 31.0F + this.field4589;
-		var2 = this.field4593 + 31.0F * var2;
+		var2 = this.field4593 + var2 * 31.0F;
 		var2 = var2 * 31.0F + this.field4591;
 		return (int)var2;
 	}
@@ -139,7 +139,7 @@ public final class class415 {
 
 							var13 = var9;
 							var9 = var8;
-							if (2.0F * var10 < var11 * var18 * 3.0F - Math.abs(var17 * var11) && var10 < Math.abs(var11 * var13 * 0.5F)) {
+							if (var10 * 2.0F < var11 * var18 * 3.0F - Math.abs(var17 * var11) && var10 < Math.abs(var11 * var13 * 0.5F)) {
 								var8 = var10 / var11;
 							} else {
 								var8 = var18;

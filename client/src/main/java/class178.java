@@ -36,7 +36,7 @@ public class class178 extends class437 {
 			var1[var3] = var1[var6];
 			var1[var6] = var8;
 			method2835(var0, var1, var2, var6 - 1);
-			method2835(var0, var1, 1 + var6, var3);
+			method2835(var0, var1, var6 + 1, var3);
 		}
 
 	}
@@ -57,7 +57,7 @@ public class class178 extends class437 {
 	}
 
 	void method2828(class460 var1, int var2) {
-		if (5 == var2) {
+		if (var2 == 5) {
 			this.field1591 = var1.method8122();
 		}
 

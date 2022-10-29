@@ -28,13 +28,11 @@ public class class22 extends class28 {
 		} catch (LineUnavailableException var4) {
 			if (class282.method4111(var1) != 1) {
 				this.method366(class282.method953(var1));
-				return;
+			} else {
+				this.field112 = null;
+				throw var4;
 			}
-
-			this.field112 = null;
-			throw var4;
 		}
-
 	}
 
 	protected int method367() {
@@ -53,8 +51,8 @@ public class class22 extends class28 {
 				var3 = 8388607 ^ var3 >> 31;
 			}
 
-			this.field111[2 * var2] = (byte)(var3 >> 8);
-			this.field111[2 * var2 + 1] = (byte)(var3 >> 16);
+			this.field111[var2 * 2] = (byte)(var3 >> 8);
+			this.field111[var2 * 2 + 1] = (byte)(var3 >> 16);
 		}
 
 		this.field112.write(this.field111, 0, var1 << 1);

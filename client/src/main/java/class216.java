@@ -64,7 +64,7 @@ public class class216 {
 				return 'A';
 			}
 
-			if (199 == var0) {
+			if (var0 == 199) {
 				return 'C';
 			}
 
@@ -76,7 +76,7 @@ public class class216 {
 				return 'I';
 			}
 
-			if (209 == var0 && var1 != class353.field4292) {
+			if (var0 == 209 && var1 != class353.field4292) {
 				return 'N';
 			}
 
@@ -88,11 +88,11 @@ public class class216 {
 				return 'U';
 			}
 
-			if (221 == var0) {
+			if (var0 == 221) {
 				return 'Y';
 			}
 
-			if (223 == var0) {
+			if (var0 == 223) {
 				return 's';
 			}
 
@@ -112,7 +112,7 @@ public class class216 {
 				return 'i';
 			}
 
-			if (241 == var0 && class353.field4292 != var1) {
+			if (var0 == 241 && class353.field4292 != var1) {
 				return 'n';
 			}
 
@@ -124,16 +124,16 @@ public class class216 {
 				return 'u';
 			}
 
-			if (253 == var0 || var0 == 255) {
+			if (var0 == 253 || var0 == 255) {
 				return 'y';
 			}
 		}
 
-		if (338 == var0) {
+		if (var0 == 338) {
 			return 'O';
 		} else if (var0 == 339) {
 			return 'o';
-		} else if (376 == var0) {
+		} else if (var0 == 376) {
 			return 'Y';
 		} else {
 			return var0;

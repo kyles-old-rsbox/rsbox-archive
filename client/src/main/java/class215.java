@@ -52,7 +52,7 @@ public class class215 implements class220 {
 			}
 		}
 
-		if (0 == var2) {
+		if (var2 == 0) {
 			return 0;
 		} else {
 			return var3 * 100 / var2;
@@ -67,7 +67,6 @@ public class class215 implements class220 {
 				var2 = 256;
 			}
 
-			class28 var10000;
 			try {
 				class28 var4 = class30.field164.method354();
 				var4.field136 = new int[256 * (class174.field1566 ? 2 : 1)];
@@ -93,12 +92,10 @@ public class class215 implements class220 {
 					class28.field154.field339[var1] = var4;
 				}
 
-				var10000 = var4;
+				return var4;
 			} catch (Throwable var5) {
 				return new class28();
 			}
-
-			return var10000;
 		} else {
 			throw new IllegalArgumentException();
 		}
@@ -162,7 +159,7 @@ public class class215 implements class220 {
 	public void method4313(int var1) {
 		for (int var3 = 0; var3 < this.field2563.length; ++var3) {
 			class186 var4 = this.field2563[var3];
-			if (null != var4 && 0 != var4.field1971 && var4.field1974) {
+			if (null != var4 && var4.field1971 != 0 && var4.field1974) {
 				var4.method3439(var1);
 				var4.field1974 = false;
 			}

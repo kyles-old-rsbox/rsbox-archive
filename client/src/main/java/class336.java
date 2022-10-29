@@ -161,7 +161,7 @@ public class class336 extends class319 {
 				} else {
 					class460 var7 = new class460(class231.method4537(var3));
 					int var8 = var7.method8141();
-					if (5 != var8 && var8 != 6) {
+					if (var8 != 5 && var8 != 6) {
 						throw new RuntimeException(var8 + "," + this.field3875 + "," + var2);
 					} else {
 						int var9 = 0;
@@ -293,6 +293,6 @@ public class class336 extends class319 {
 			var3[var4] = var7 * var8 >> 16;
 		}
 
-		class214.method4157(var3, 500, 800, 334 * var0 / var1, 334);
+		class214.method4157(var3, 500, 800, var0 * 334 / var1, 334);
 	}
 }

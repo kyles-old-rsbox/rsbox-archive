@@ -30,14 +30,11 @@ public class class4 {
 	}
 
 	public class460 method19() {
-		class460 var10000;
 		try {
-			var10000 = (class460)this.field13.get();
+			return (class460)this.field13.get();
 		} catch (Exception var3) {
 			return null;
 		}
-
-		return var10000;
 	}
 
 	void method30() {
@@ -59,7 +56,7 @@ public class class4 {
 				int var10;
 				for (var9 = new class460((int)var8.method8373()); var9.field4878 < var9.field4881.length; var9.field4878 += var10) {
 					var10 = var8.method8369(var9.field4881, var9.field4878, var9.field4881.length - var9.field4878);
-					if (-1 == var10) {
+					if (var10 == -1) {
 						throw new IOException();
 					}
 				}
@@ -107,7 +104,7 @@ public class class4 {
 			}
 		}
 
-		if (var5 == null && 0 == var2) {
+		if (var5 == null && var2 == 0) {
 			label147:
 			for (int var16 = 0; var16 < class251.field2908.length; ++var16) {
 				for (int var17 = 0; var17 < class347.field4261.length; ++var17) {
@@ -202,13 +199,13 @@ public class class4 {
 		client.field1714 = false;
 		int var8;
 		if (class42.field289 == 1 || !class95.field944 && 4 == class42.field289) {
-			if (var5 >= var1 && var5 < 16 + var1 && var6 >= var2 && var6 < var2 + 16) {
+			if (var5 >= var1 && var5 < var1 + 16 && var6 >= var2 && var6 < var2 + 16) {
 				var0.field3482 -= 4;
 				class136.method2438(var0);
-			} else if (var5 >= var1 && var5 < 16 + var1 && var6 >= var2 + var3 - 16 && var6 < var2 + var3) {
+			} else if (var5 >= var1 && var5 < var1 + 16 && var6 >= var2 + var3 - 16 && var6 < var2 + var3) {
 				var0.field3482 += 4;
 				class136.method2438(var0);
-			} else if (var5 >= var1 - client.field1715 && var5 < var1 + 16 + client.field1715 && var6 >= 16 + var2 && var6 < var2 + var3 - 16) {
+			} else if (var5 >= var1 - client.field1715 && var5 < var1 + 16 + client.field1715 && var6 >= var2 + 16 && var6 < var2 + var3 - 16) {
 				var8 = (var3 - 32) * var3 / var4;
 				if (var8 < 8) {
 					var8 = 8;
@@ -224,7 +221,7 @@ public class class4 {
 
 		if (client.field1639 != 0) {
 			var8 = var0.field3448;
-			if (var5 >= var1 - var8 && var6 >= var2 && var5 < 16 + var1 && var6 <= var2 + var3) {
+			if (var5 >= var1 - var8 && var6 >= var2 && var5 < var1 + 16 && var6 <= var2 + var3) {
 				var0.field3482 += client.field1639 * 45;
 				class136.method2438(var0);
 			}

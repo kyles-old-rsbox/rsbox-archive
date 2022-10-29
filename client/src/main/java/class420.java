@@ -261,7 +261,7 @@ public class class420 {
 		if (this.method7734()) {
 			int var2 = this.field4608 - this.field4634;
 			int var3 = this.field4659 - this.field4622;
-			if (0 != var2) {
+			if (var2 != 0) {
 				var2 /= Math.min(8, Math.abs(var2));
 			}
 
@@ -443,7 +443,7 @@ public class class420 {
 
 			this.method7595(var1, var2, var3, var4, var9, var10);
 			if (class114.method2218() && this.field4655 && this.field4654 != null) {
-				this.field4611.method6875("Coord: " + this.field4654, class481.field4997 + 10, 20 + class481.field4995, 16776960, -1);
+				this.field4611.method6875("Coord: " + this.field4654, class481.field4997 + 10, class481.field4995 + 20, 16776960, -1);
 			}
 
 			this.field4626 = var9;
@@ -475,7 +475,7 @@ public class class420 {
 	void method7595(int var1, int var2, int var3, int var4, int var5, int var6) {
 		if (class335.field3867 != null) {
 			int var8 = 512 / (this.field4618.field2875 * 2);
-			int var9 = 512 + var3;
+			int var9 = var3 + 512;
 			int var10 = var4 + 512;
 			float var11 = 1.0F;
 			var9 = (int)((float)var9 / var11);
@@ -533,7 +533,7 @@ public class class420 {
 		int var9 = var4 / 2 + var2 - 18 - var7;
 		class481.method8660(var1, var2, var3, var4, -16777216);
 		class481.method8664(var8 - 152, var9, 304, 34, -65536);
-		class481.method8660(var8 - 150, var9 + 2, 3 * var5, 30, -65536);
+		class481.method8660(var8 - 150, var9 + 2, var5 * 3, 30, -65536);
 		this.field4611.method6955(class338.field3961, var8, var9 + var7, -1, -1);
 	}
 

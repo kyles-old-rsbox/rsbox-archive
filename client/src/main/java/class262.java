@@ -11,53 +11,53 @@ public class class262 {
 			char var5 = var0.charAt(var4);
 			if (var5 > 0 && var5 < 128 || var5 >= 160 && var5 <= 255) {
 				var3[var4] = (byte)var5;
-			} else if (8364 == var5) {
+			} else if (var5 == 8364) {
 				var3[var4] = -128;
 			} else if (var5 == 8218) {
 				var3[var4] = -126;
-			} else if (402 == var5) {
+			} else if (var5 == 402) {
 				var3[var4] = -125;
-			} else if (8222 == var5) {
+			} else if (var5 == 8222) {
 				var3[var4] = -124;
-			} else if (8230 == var5) {
+			} else if (var5 == 8230) {
 				var3[var4] = -123;
 			} else if (var5 == 8224) {
 				var3[var4] = -122;
-			} else if (8225 == var5) {
+			} else if (var5 == 8225) {
 				var3[var4] = -121;
 			} else if (var5 == 710) {
 				var3[var4] = -120;
-			} else if (8240 == var5) {
+			} else if (var5 == 8240) {
 				var3[var4] = -119;
 			} else if (var5 == 352) {
 				var3[var4] = -118;
 			} else if (var5 == 8249) {
 				var3[var4] = -117;
-			} else if (338 == var5) {
+			} else if (var5 == 338) {
 				var3[var4] = -116;
 			} else if (var5 == 381) {
 				var3[var4] = -114;
-			} else if (8216 == var5) {
+			} else if (var5 == 8216) {
 				var3[var4] = -111;
-			} else if (8217 == var5) {
+			} else if (var5 == 8217) {
 				var3[var4] = -110;
 			} else if (var5 == 8220) {
 				var3[var4] = -109;
-			} else if (8221 == var5) {
+			} else if (var5 == 8221) {
 				var3[var4] = -108;
-			} else if (8226 == var5) {
+			} else if (var5 == 8226) {
 				var3[var4] = -107;
 			} else if (var5 == 8211) {
 				var3[var4] = -106;
-			} else if (8212 == var5) {
+			} else if (var5 == 8212) {
 				var3[var4] = -105;
-			} else if (732 == var5) {
+			} else if (var5 == 732) {
 				var3[var4] = -104;
 			} else if (var5 == 8482) {
 				var3[var4] = -103;
 			} else if (var5 == 353) {
 				var3[var4] = -102;
-			} else if (8250 == var5) {
+			} else if (var5 == 8250) {
 				var3[var4] = -101;
 			} else if (var5 == 339) {
 				var3[var4] = -100;
@@ -92,7 +92,7 @@ public class class262 {
 					class145.field1333.method4248(var2, var5, 512, var0, var6, var4);
 				}
 
-				if (var0 < 3 && 0 != (class82.field714[1 + var0][var6][var4] & 8)) {
+				if (var0 < 3 && 0 != (class82.field714[var0 + 1][var6][var4] & 8)) {
 					class145.field1333.method4248(var2, var5, 512, var0 + 1, var6, var4);
 				}
 
@@ -111,8 +111,8 @@ public class class262 {
 					class138.method2457(var0, var7, var6, var4, var5);
 				}
 
-				if (var0 < 3 && 0 != (class82.field714[1 + var0][var7][var6] & 8)) {
-					class138.method2457(1 + var0, var7, var6, var4, var5);
+				if (var0 < 3 && 0 != (class82.field714[var0 + 1][var7][var6] & 8)) {
+					class138.method2457(var0 + 1, var7, var6, var4, var5);
 				}
 			}
 		}
@@ -150,20 +150,19 @@ public class class262 {
 					int var7 = var3[var5++];
 					int var8 = 0;
 					byte var9 = 0;
-					if (0 == var7) {
-						int var10000 = var4;
-						return var10000;
+					if (var7 == 0) {
+						return var4;
 					}
 
-					if (1 == var7) {
+					if (var7 == 1) {
 						var8 = client.field1780[var3[var5++]];
 					}
 
-					if (2 == var7) {
+					if (var7 == 2) {
 						var8 = client.field1817[var3[var5++]];
 					}
 
-					if (3 == var7) {
+					if (var7 == 3) {
 						var8 = client.field1782[var3[var5++]];
 					}
 
@@ -178,7 +177,7 @@ public class class262 {
 						var12 = var3[var5++];
 						if (var12 != -1 && (!class278.method5388(var12).field2162 || client.field1635)) {
 							for (var13 = 0; var13 < var11.field3461.length; ++var13) {
-								if (var11.field3461[var13] == 1 + var12) {
+								if (var11.field3461[var13] == var12 + 1) {
 									var8 += var11.field3456[var13];
 								}
 							}
@@ -193,7 +192,7 @@ public class class262 {
 						var8 = class321.field3756[client.field1817[var3[var5++]] - 1];
 					}
 
-					if (7 == var7) {
+					if (var7 == 7) {
 						var8 = class293.field3370[var3[var5++]] * 100 / 46875;
 					}
 
@@ -228,11 +227,11 @@ public class class262 {
 						var8 = client.field1816;
 					}
 
-					if (12 == var7) {
+					if (var7 == 12) {
 						var8 = client.field1859;
 					}
 
-					if (13 == var7) {
+					if (var7 == 13) {
 						var10 = class293.field3370[var3[var5++]];
 						int var14 = var3[var5++];
 						var8 = (var10 & 1 << var14) != 0 ? 1 : 0;
@@ -247,19 +246,19 @@ public class class262 {
 						var9 = 1;
 					}
 
-					if (16 == var7) {
+					if (var7 == 16) {
 						var9 = 2;
 					}
 
-					if (17 == var7) {
+					if (var7 == 17) {
 						var9 = 3;
 					}
 
-					if (18 == var7) {
+					if (var7 == 18) {
 						var8 = (class291.field3364.field827 >> 7) + class36.field241;
 					}
 
-					if (19 == var7) {
+					if (var7 == 19) {
 						var8 = class169.field1536 + (class291.field3364.field802 >> 7);
 					}
 
@@ -267,16 +266,16 @@ public class class262 {
 						var8 = var3[var5++];
 					}
 
-					if (0 == var9) {
-						if (0 == var6) {
+					if (var9 == 0) {
+						if (var6 == 0) {
 							var4 += var8;
 						}
 
-						if (1 == var6) {
+						if (var6 == 1) {
 							var4 -= var8;
 						}
 
-						if (2 == var6 && 0 != var8) {
+						if (var6 == 2 && var8 != 0) {
 							var4 /= var8;
 						}
 

@@ -83,7 +83,7 @@ public class class74 implements Comparator {
 			}
 
 			int var5 = class207.method803(var0.field848).field2359;
-			if (-1 != var5) {
+			if (var5 != -1) {
 				class189 var3 = class160.method2660(var5);
 				if (var3 != null && null != var3.field1998 && !var3.method3486()) {
 					++var0.field807;

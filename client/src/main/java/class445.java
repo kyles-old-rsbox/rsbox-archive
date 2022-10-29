@@ -42,7 +42,7 @@ public class class445 implements class360 {
 		}
 
 		int var11;
-		if (var0 == 1100) {
+		if (var0 == CS2Opcodes.CC_SETSCROLLPOS) {
 			class387.field4452 -= 2;
 			var11 = class57.field404[class387.field4452];
 			int var7 = class57.field404[class387.field4452 + 1];
@@ -74,40 +74,40 @@ public class class445 implements class360 {
 			}
 
 			return 1;
-		} else if (var0 == 1101) {
+		} else if (var0 == CS2Opcodes.CC_SETCOLOUR) {
 			var4.field3485 = class57.field404[--class387.field4452];
 			class136.method2438(var4);
 			return 1;
-		} else if (1102 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETFILL) {
 			var4.field3489 = class57.field404[--class387.field4452] == 1;
 			class136.method2438(var4);
 			return 1;
-		} else if (1103 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETTRANS) {
 			var4.field3612 = class57.field404[--class387.field4452];
 			class136.method2438(var4);
 			return 1;
-		} else if (1104 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETLINEWID) {
 			var4.field3493 = class57.field404[--class387.field4452];
 			class136.method2438(var4);
 			return 1;
-		} else if (1105 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETGRAPHIC) {
 			var4.field3560 = class57.field404[--class387.field4452];
 			class136.method2438(var4);
 			return 1;
-		} else if (1106 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SET2DANGLE) {
 			var4.field3498 = class57.field404[--class387.field4452];
 			class136.method2438(var4);
 			return 1;
-		} else if (var0 == 1107) {
+		} else if (var0 == CS2Opcodes.CC_SETTILING) {
 			var4.field3499 = class57.field404[--class387.field4452] == 1;
 			class136.method2438(var4);
 			return 1;
-		} else if (1108 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETMODEL) {
 			var4.field3504 = 1;
 			var4.field3505 = class57.field404[--class387.field4452];
 			class136.method2438(var4);
 			return 1;
-		} else if (var0 == 1109) {
+		} else if (var0 == CS2Opcodes.CC_SETMODELANGLE) {
 			class387.field4452 -= 6;
 			var4.field3510 = class57.field404[class387.field4452];
 			var4.field3548 = class57.field404[1 + class387.field4452];
@@ -117,7 +117,7 @@ public class class445 implements class360 {
 			var4.field3562 = class57.field404[5 + class387.field4452];
 			class136.method2438(var4);
 			return 1;
-		} else if (var0 == 1110) {
+		} else if (var0 == CS2Opcodes.CC_SETMODELANIM) {
 			var11 = class57.field404[--class387.field4452];
 			if (var4.field3575 != var11) {
 				var4.field3575 = var11;
@@ -127,11 +127,11 @@ public class class445 implements class360 {
 			}
 
 			return 1;
-		} else if (1111 == var0) {
+		} else if (var0 == CS2Opcodes.CC_SETMODELORTHOG) {
 			var4.field3534 = class57.field404[--class387.field4452] == 1;
 			class136.method2438(var4);
 			return 1;
-		} else if (var0 == 1112) {
+		} else if (var0 == CS2Opcodes.CC_SETTEXT) {
 			String var15 = class57.field405[--class126.field1220];
 			if (!var15.equals(var4.field3522)) {
 				var4.field3522 = var15;
@@ -141,7 +141,7 @@ public class class445 implements class360 {
 			return 1;
 		} else {
 			class297 var12;
-			if (var0 == 1113) {
+			if (var0 == CS2Opcodes.CC_SETTEXTFONT) {
 				var4.field3521 = class57.field404[--class387.field4452];
 				if (var4.field3462 == 12) {
 					var12 = var4.method5877();
@@ -152,7 +152,7 @@ public class class445 implements class360 {
 
 				class136.method2438(var4);
 				return 1;
-			} else if (1114 == var0) {
+			} else if (var0 == CS2Opcodes.CC_SETTEXTALIGN) {
 				class387.field4452 -= 3;
 				if (var4.field3462 == 12) {
 					var12 = var4.method5877();
@@ -168,54 +168,54 @@ public class class445 implements class360 {
 
 				class136.method2438(var4);
 				return 1;
-			} else if (1115 == var0) {
+			} else if (var0 == CS2Opcodes.CC_SETTEXTSHADOW) {
 				var4.field3488 = class57.field404[--class387.field4452] == 1;
 				class136.method2438(var4);
 				return 1;
-			} else if (var0 == 1116) {
+			} else if (var0 == CS2Opcodes.CC_SETOUTLINE) {
 				var4.field3500 = class57.field404[--class387.field4452];
 				class136.method2438(var4);
 				return 1;
-			} else if (var0 == 1117) {
+			} else if (var0 == CS2Opcodes.CC_SETGRAPHICSHADOW) {
 				var4.field3501 = class57.field404[--class387.field4452];
 				class136.method2438(var4);
 				return 1;
-			} else if (var0 == 1118) {
+			} else if (var0 == CS2Opcodes.CC_SETVFLIP) {
 				var4.field3467 = class57.field404[--class387.field4452] == 1;
 				class136.method2438(var4);
 				return 1;
-			} else if (var0 == 1119) {
+			} else if (var0 == CS2Opcodes.CC_SETHFLIP) {
 				var4.field3503 = class57.field404[--class387.field4452] == 1;
 				class136.method2438(var4);
 				return 1;
-			} else if (1120 == var0) {
+			} else if (var0 == CS2Opcodes.CC_SETSCROLLSIZE) {
 				class387.field4452 -= 2;
 				var4.field3483 = class57.field404[class387.field4452];
 				var4.field3492 = class57.field404[1 + class387.field4452];
 				class136.method2438(var4);
-				if (-1 != var5 && var4.field3462 == 0) {
+				if (var5 != -1 && var4.field3462 == 0) {
 					class26.method349(class300.field3593[var5 >> 16], var4, false);
 				}
 
 				return 1;
-			} else if (1121 == var0) {
+			} else if (var0 == CS2Opcodes.CC_RESUME_PAUSEBUTTON) {
 				client.method7985(var4.field3517, var4.field3484);
 				client.field1641 = var4;
 				class136.method2438(var4);
 				return 1;
-			} else if (var0 == 1122) {
+			} else if (var0 == CS2Opcodes.CC_SETCLICKMASK) {
 				var4.field3496 = class57.field404[--class387.field4452];
 				class136.method2438(var4);
 				return 1;
-			} else if (1123 == var0) {
+			} else if (var0 == CS2Opcodes.CC_SETFILLCOLOUR) {
 				var4.field3495 = class57.field404[--class387.field4452];
 				class136.method2438(var4);
 				return 1;
-			} else if (1124 == var0) {
+			} else if (var0 == CS2Opcodes.CC_SETFILLGRADIENT) {
 				var4.field3588 = class57.field404[--class387.field4452];
 				class136.method2438(var4);
 				return 1;
-			} else if (1125 == var0) {
+			} else if (var0 == CS2Opcodes.CC_SETFILLMODE) {
 				var11 = class57.field404[--class387.field4452];
 				class469 var13 = (class469)class217.method4362(class469.method6570(), var11);
 				if (var13 != null) {
@@ -226,26 +226,26 @@ public class class445 implements class360 {
 				return 1;
 			} else {
 				boolean var6;
-				if (1126 == var0) {
+				if (var0 == CS2Opcodes.CC_SETLINEDIRECTION) {
 					var6 = class57.field404[--class387.field4452] == 1;
 					var4.field3494 = var6;
 					return 1;
-				} else if (var0 == 1127) {
+				} else if (var0 == CS2Opcodes.CC_SETMODELTRANSPARENT) {
 					var6 = class57.field404[--class387.field4452] == 1;
 					var4.field3519 = var6;
 					return 1;
-				} else if (var0 == 1129) {
+				} else if (var0 == CS2Opcodes.CC_SETHTTPSPRITE) {
 					var4.field3497 = class57.field405[--class126.field1220];
 					class136.method2438(var4);
 					return 1;
-				} else if (1130 == var0) {
+				} else if (var0 == CS2Opcodes.CC_SETCRM_URL) {
 					var4.method5863(class57.field405[--class126.field1220], class28.field155, client.method2417());
 					return 1;
-				} else if (1131 == var0) {
+				} else if (var0 == CS2Opcodes.CC_SETCRM_TEXTFONT) {
 					class387.field4452 -= 2;
 					var4.method5875(class57.field404[class387.field4452], class57.field404[class387.field4452 + 1]);
 					return 1;
-				} else if (1132 == var0) {
+				} else if (var0 == CS2Opcodes.CC_SETCRM_SERVERTARGETS) {
 					var4.method5866(class57.field405[--class126.field1220], class57.field404[--class387.field4452]);
 					return 1;
 				} else {
@@ -259,7 +259,7 @@ public class class445 implements class360 {
 						}
 
 						return 1;
-					} else if (1134 == var0) {
+					} else if (var0 == 1134) {
 						--class387.field4452;
 						var14 = var4.method5954();
 						if (var14 != null) {
@@ -285,7 +285,7 @@ public class class445 implements class360 {
 						}
 
 						return 1;
-					} else if (1137 == var0) {
+					} else if (var0 == 1137) {
 						--class387.field4452;
 						var12 = var4.method5877();
 						if (null != var12 && var12.method5566(class57.field404[class387.field4452])) {
@@ -293,7 +293,7 @@ public class class445 implements class360 {
 						}
 
 						return 1;
-					} else if (1138 == var0) {
+					} else if (var0 == 1138) {
 						--class387.field4452;
 						var12 = var4.method5877();
 						if (null != var12 && var12.method5567(class57.field404[class387.field4452])) {
@@ -324,7 +324,7 @@ public class class445 implements class360 {
 							}
 
 							return 1;
-						} else if (1141 == var0) {
+						} else if (var0 == 1141) {
 							var6 = class57.field404[--class387.field4452] == 1;
 							if (!var6 && client.field1877.method3516() == var4) {
 								client.field1877.method3521();
@@ -353,7 +353,7 @@ public class class445 implements class360 {
 							}
 
 							return 1;
-						} else if (1144 == var0) {
+						} else if (var0 == 1144) {
 							--class387.field4452;
 							var12 = var4.method5877();
 							if (var12 != null) {
