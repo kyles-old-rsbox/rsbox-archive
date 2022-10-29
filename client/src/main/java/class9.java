@@ -115,7 +115,7 @@ public class class9 {
 				class460 var9 = new class460(var8);
 				var0.method8333(var8, 0, var7);
 				class102.field1011[var3] = var9;
-				var4.method1906(var9);
+				var4.decodeAppearance(var9);
 			}
 
 			if ((var5 & 4096) != 0) {

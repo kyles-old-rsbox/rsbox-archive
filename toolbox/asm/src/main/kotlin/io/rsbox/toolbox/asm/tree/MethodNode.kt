@@ -15,8 +15,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.toolbox.asm
+package io.rsbox.toolbox.asm.tree
 
+import io.rsbox.toolbox.asm.util.field
+import io.rsbox.toolbox.deobfuscator.asm.init
 import org.objectweb.asm.Opcodes.ACC_ABSTRACT
 import org.objectweb.asm.Opcodes.ACC_STATIC
 import org.objectweb.asm.Type
@@ -25,6 +27,7 @@ import org.objectweb.asm.tree.MethodNode
 
 fun MethodNode.init(owner: ClassNode) {
     this.owner = owner
+    this.instructions.forEach { it.init(this) }
 }
 
 fun MethodNode.reset() {}

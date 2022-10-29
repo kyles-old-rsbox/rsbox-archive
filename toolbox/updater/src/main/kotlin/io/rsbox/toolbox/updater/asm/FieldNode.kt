@@ -17,19 +17,7 @@
 
 package io.rsbox.toolbox.updater.asm
 
-import io.rsbox.toolbox.asm.field
-import io.rsbox.toolbox.asm.nullField
-import io.rsbox.toolbox.updater.FieldObfuscatedInfo
+import io.rsbox.toolbox.asm.util.nullField
 import org.objectweb.asm.tree.FieldNode
-import org.objectweb.asm.tree.MethodNode
 
-var FieldNode.obfInfo: FieldObfuscatedInfo by field()
-var FieldNode.obfOwner: String? by nullField()
-var FieldNode.obfName: String? by nullField()
-var FieldNode.obfDesc: String? by nullField()
-
-var FieldNode.mapping: FieldNode? by nullField()
-fun FieldNode.isMapped() = mapping != null
-
-val FieldNode.readRefs: MutableList<MethodNode> by field { mutableListOf() }
-val FieldNode.writeRefs: MutableList<MethodNode> by field { mutableListOf() }
+var FieldNode.match: FieldNode? by nullField()

@@ -15,136 +15,103 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-@file:OptIn(ExperimentalSerializationApi::class)
-
 package io.rsbox.toolbox.updater
 
-import io.rsbox.toolbox.asm.ClassPool
 import io.rsbox.toolbox.asm.readJar
+import io.rsbox.toolbox.asm.tree.*
 import io.rsbox.toolbox.asm.writeJar
-import io.rsbox.toolbox.updater.asm.extractFeatures
-import io.rsbox.toolbox.updater.asm.obfInfo
-import io.rsbox.toolbox.updater.matcher.ClassMatcher
-import io.rsbox.toolbox.updater.matcher.MethodMatcher
-import io.rsbox.toolbox.updater.matcher.StaticMethodMatcher
-import io.rsbox.toolbox.updater.sandbox.Execution
-import io.rsbox.toolbox.updater.sandbox.SandboxMethodMatcher
-import io.rsbox.toolbox.updater.util.ConsoleProgressBar
-import kotlinx.serialization.ExperimentalSerializationApi
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.decodeFromStream
-import org.objectweb.asm.tree.MethodNode
+import io.rsbox.toolbox.updater.asm.setup
+import org.objectweb.asm.Opcodes.*
 import org.tinylog.kotlin.Logger
 import java.io.File
 import java.io.FileNotFoundException
 
-@Suppress("DuplicatedCode")
 object Updater {
 
-    private lateinit var oldFile: File
-    private lateinit var newFile: File
-    private lateinit var outputFile: File
+    /**
+     * Represents the class pool loaded from the old/previous
+     * jar file with the names you want applied to a new rev.
+     */
+    private lateinit var fromPool: ClassPool
 
-    private val fromPool = ClassPool()
-    private val toPool = ClassPool()
+    /**
+     * Represents the class pool which names will be updated from the
+     * fromPool.
+     */
+    private lateinit var toPool: ClassPool
 
-    private lateinit var mappings: NodeMappings
+    private lateinit var fromJar: File
+    private lateinit var toJar: File
+    private lateinit var outJar: File
+
+    private var exportMappings = false
 
     @JvmStatic
     fun main(args: Array<String>) {
-        if(args.size < 3) throw IllegalArgumentException("Usage: updater.jar <old-refactored-jar> <new-deob-jar> <output-refactored-jar>")
+        if(args.size < 3) throw IllegalArgumentException()
 
-        oldFile = File(args[0])
-        newFile = File(args[1])
-        outputFile = File(args[2])
+        fromJar = File(args[0])
+        toJar = File(args[1])
+        outJar = File(args[2])
 
-        if(!oldFile.exists() || !newFile.exists()) throw FileNotFoundException()
-
-        Logger.info("Loading classes from input jar files...")
-
-        /*
-         * Load the classes from the jar files into the class pools.
-         */
-        fromPool.readJar(oldFile) { jar, entry ->
-            if(entry.name == "META-INF/obf-info.json") {
-                fromPool.obfInfo = Json.decodeFromStream(jar.getInputStream(entry))
-            }
+        if(args.size == 4 && args[3] in listOf("--export-mappings", "-e", "--export")) {
+            exportMappings = true
         }
-        fromPool.allClasses.filter { it.name.contains("json") || it.name.contains("bouncycastle") }.forEach { fromPool.ignoreClass(it) }
-        fromPool.init()
-        fromPool.extractFeatures()
 
-        toPool.readJar(newFile) { jar, entry ->
-            if(entry.name == "META-INF/obf-info.json") {
-                toPool.obfInfo = Json.decodeFromStream(jar.getInputStream(entry))
-            }
-        }
-        toPool.allClasses.filter { it.name.contains("json") || it.name.contains("bouncycastle") }.forEach { toPool.ignoreClass(it) }
-        toPool.init()
-        toPool.extractFeatures()
+        Logger.info("RSBox : RuneScape Client Updater. Developed by Kyle Escobar <https://github.com/kyleescobar>.")
 
-        Logger.info("Successfully loaded classes from input jar files. [Old-Classes: ${fromPool.classes.size}, New-Class: ${toPool.classes.size}].")
-
-        /*
-         * Run the updater
-         */
+        init()
         run()
+        save()
+    }
+
+    private fun init() {
+        Logger.info("Initializing Updater.")
 
         /*
-         * Export the updated classes to output jar file.
+         * Load classes from jars into respective pools.
          */
-        Logger.info("Saving updated classes to output jar.")
-        if(outputFile.exists()) outputFile.deleteRecursively()
-        toPool.writeJar(outputFile)
+        if(!fromJar.exists() || !toJar.exists()) throw FileNotFoundException("Invalid program arguments.")
 
-        Logger.info("Updater has completed successfully.")
+        fromPool = ClassPool()
+        fromPool.readJar(fromJar)
+        fromPool.allClasses.forEach { cls ->
+            if(cls.name.contains("bouncycastle") || cls.name.contains("json")) {
+                fromPool.ignoreClass(cls)
+            }
+        }
+        fromPool.init()
+        fromPool.setup()
+
+        toPool = ClassPool()
+        toPool.readJar(toJar)
+        toPool.allClasses.forEach { cls ->
+            if(cls.name.contains("bouncycastle") || cls.name.contains("json")) {
+                toPool.ignoreClass(cls)
+            }
+        }
+        toPool.init()
+        toPool.setup()
+
+        Logger.info("Successfully loaded classes from input jar files.")
     }
 
     private fun run() {
-        Logger.info("Starting RSBox updater.")
-        mappings = NodeMappings()
+        Logger.info("Running Updater.")
 
-        Logger.info("Matching static methods.")
-        mappings.merge(StaticMethodMatcher().match(fromPool, toPool))
-
-        Logger.info("Matching non-static methods.")
-        mappings.merge(MethodMatcher().match(fromPool, toPool))
-
-        Logger.info("Reducing matches.")
-        mappings.reduce()
-
-        Logger.info("Matching unsandboxed methods.")
-        while(matchUnsandboxedMethods(mappings)) { /* Do Nothing */ }
-
-        Logger.info("Matching classes.")
-        ClassMatcher(fromPool, toPool).match(mappings)
-
-        Logger.info("Reducing matches.")
-        mappings.reduce()
-
-        Logger.info("RSBox updater completed successfully.")
+        val mask = ACC_ENUM or ACC_INTERFACE or ACC_ANNOTATION or ACC_RECORD or ACC_ABSTRACT
+        val accessA = ACC_INTERFACE and mask
+        val accessB = (ACC_INTERFACE or ACC_ENUM or ACC_ABSTRACT) and mask
+        val result = 1 - Integer.bitCount(accessA xor accessB) / 5.0
+        println(result)
     }
 
-    private fun matchUnsandboxedMethods(mappings: NodeMappings): Boolean {
-        ConsoleProgressBar.start("Matching UnSandboxed Methods", "", mappings.asMappingMap().size.toLong())
-        var matched = false
-        mappings.asMappingMap().keys.forEach { toNode ->
-            ConsoleProgressBar.step()
-            val match = mappings.getMappings(toNode).iterator().next()
-            if(match.executed || match.from !is MethodNode) return@forEach
-            val fromMethod = match.from
-            val toMethod = match.to as MethodNode
-            if(fromMethod.instructions.size() == 0 || toMethod.instructions.size() == 0) return@forEach
-
-            val sandboxMapping = Execution.match(fromMethod, toMethod)
-            sandboxMapping.map(sandboxMapping.fromMethod, sandboxMapping.toMethod).also {
-                it.executed = true
-            }
-
-            matched = true
-            mappings.merge(sandboxMapping)
+    private fun save() {
+        if(outJar.exists()) {
+            outJar.deleteRecursively()
         }
-        ConsoleProgressBar.stop()
-        return matched
+        toPool.writeJar(outJar)
+
+        Logger.info("Saved updated classes to output jar: ${outJar.path}.")
     }
 }

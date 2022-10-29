@@ -17,8 +17,7 @@
 
 package io.rsbox.toolbox.deobfuscator.transformer
 
-import io.rsbox.toolbox.asm.ClassPool
-import io.rsbox.toolbox.asm.LabelMap
+import io.rsbox.toolbox.asm.tree.ClassPool
 import io.rsbox.toolbox.asm.createLabel
 import io.rsbox.toolbox.deobfuscator.Transformer
 import org.objectweb.asm.Opcodes.*

@@ -17,7 +17,7 @@
 
 package io.rsbox.toolbox.deobfuscator.transformer
 
-import io.rsbox.toolbox.asm.ClassPool
+import io.rsbox.toolbox.asm.tree.ClassPool
 import io.rsbox.toolbox.deobfuscator.Transformer
 import org.objectweb.asm.tree.analysis.Analyzer
 import org.objectweb.asm.tree.analysis.BasicInterpreter

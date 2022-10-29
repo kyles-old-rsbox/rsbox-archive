@@ -15,14 +15,17 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.toolbox.asm
+package io.rsbox.toolbox.asm.tree
 
+import org.objectweb.asm.ClassReader
 import org.objectweb.asm.tree.ClassNode
 
 class ClassPool {
 
     private val classMap = hashMapOf<String, ClassNode>()
     private val ignoredClassMap = hashMapOf<String, ClassNode>()
+
+    private val readers = hashMapOf<String, ClassReader>()
 
     val classes get() = classMap.values.toList()
     val ignoredClasses get() = ignoredClassMap.values.toList()
@@ -39,6 +42,11 @@ class ClassPool {
             ignoredClassMap[node.name] = node
         }
         node.ignored = ignore
+    }
+
+    fun addClass(node: ClassNode, reader: ClassReader, ignore: Boolean = false) {
+        addClass(node, ignore)
+        readers[node.name] = reader
     }
 
     fun removeClass(node: ClassNode) {
@@ -59,6 +67,8 @@ class ClassPool {
     fun getClass(name: String) = classMap[name]
     fun getIgnoredClass(name: String) = ignoredClassMap[name]
     fun findClass(name: String) = getClass(name) ?: getIgnoredClass(name)
+
+    fun getClassReader(name: String) = readers[name]
 
     fun init() {
         allClasses.forEach { it.init(this) }

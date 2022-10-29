@@ -18,6 +18,8 @@
 package io.rsbox.toolbox.deobfuscator
 
 import io.rsbox.toolbox.asm.*
+import io.rsbox.toolbox.asm.tree.ClassPool
+import io.rsbox.toolbox.asm.tree.owner
 import io.rsbox.toolbox.deobfuscator.asm.*
 import io.rsbox.toolbox.deobfuscator.transformer.*
 import kotlinx.serialization.encodeToString
@@ -97,6 +99,7 @@ object Deobfuscator {
         register<FieldSorter>()
         register<MethodSorter>()
         register<GetPathFixer>()
+        register<StaticMethodMover>()
         register<StackFrameFixer>()
     }
 

@@ -15,8 +15,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.toolbox.asm
+package io.rsbox.toolbox.asm.tree
 
+import io.rsbox.toolbox.asm.util.field
+import io.rsbox.toolbox.asm.util.nullField
 import org.objectweb.asm.Type
 import org.objectweb.asm.tree.ClassNode
 

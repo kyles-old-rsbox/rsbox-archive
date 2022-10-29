@@ -17,8 +17,8 @@
 
 package io.rsbox.toolbox.deobfuscator.asm
 
-import io.rsbox.toolbox.asm.ClassPool
-import io.rsbox.toolbox.asm.field
+import io.rsbox.toolbox.asm.tree.ClassPool
+import io.rsbox.toolbox.asm.util.field
 import me.coley.analysis.util.InheritanceGraph
 
 var ClassPool.inheritanceGraph: InheritanceGraph by field()

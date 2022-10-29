@@ -51,7 +51,7 @@ public final class class93 extends class90 {
 		this.field919 = false;
 	}
 
-	final void method1906(class460 var1) {
+	final void decodeAppearance(class460 var1) {
 		var1.field4878 = 0;
 		int var3 = var1.method8141();
 		int var4 = -1;

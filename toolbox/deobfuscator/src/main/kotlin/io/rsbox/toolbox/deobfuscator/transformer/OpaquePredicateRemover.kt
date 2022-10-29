@@ -20,7 +20,12 @@
 package io.rsbox.toolbox.deobfuscator.transformer
 
 import com.google.common.collect.MultimapBuilder
-import io.rsbox.toolbox.asm.*
+import io.rsbox.toolbox.asm.tree.ClassPool
+import io.rsbox.toolbox.asm.tree.getMethod
+import io.rsbox.toolbox.asm.tree.identifier
+import io.rsbox.toolbox.asm.tree.owner
+import io.rsbox.toolbox.asm.util.InstructionMatcher
+import io.rsbox.toolbox.asm.util.InstructionModifier
 import io.rsbox.toolbox.deobfuscator.Transformer
 import io.rsbox.toolbox.deobfuscator.asm.opaque
 import org.objectweb.asm.Opcodes.*

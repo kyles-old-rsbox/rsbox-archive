@@ -19,10 +19,10 @@ package io.rsbox.toolbox.deobfuscator.transformer
 
 import com.google.common.collect.Multimap
 import com.google.common.collect.MultimapBuilder
-import io.rsbox.toolbox.asm.ClassPool
-import io.rsbox.toolbox.asm.identifier
+import io.rsbox.toolbox.asm.tree.ClassPool
+import io.rsbox.toolbox.asm.tree.identifier
 import io.rsbox.toolbox.asm.isJdkMethod
-import io.rsbox.toolbox.asm.owner
+import io.rsbox.toolbox.asm.tree.owner
 import io.rsbox.toolbox.deobfuscator.Transformer
 import org.objectweb.asm.tree.ClassNode
 import org.objectweb.asm.tree.MethodInsnNode

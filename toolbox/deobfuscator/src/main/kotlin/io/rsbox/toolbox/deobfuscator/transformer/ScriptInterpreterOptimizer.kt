@@ -20,6 +20,7 @@
 package io.rsbox.toolbox.deobfuscator.transformer
 
 import io.rsbox.toolbox.asm.*
+import io.rsbox.toolbox.asm.tree.*
 import io.rsbox.toolbox.deobfuscator.Transformer
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type

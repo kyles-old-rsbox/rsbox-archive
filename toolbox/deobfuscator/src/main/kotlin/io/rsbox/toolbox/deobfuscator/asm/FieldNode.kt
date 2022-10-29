@@ -17,8 +17,8 @@
 
 package io.rsbox.toolbox.deobfuscator.asm
 
-import io.rsbox.toolbox.asm.field
-import io.rsbox.toolbox.asm.nullField
+import io.rsbox.toolbox.asm.util.field
+import io.rsbox.toolbox.asm.util.nullField
 import io.rsbox.toolbox.deobfuscator.FieldObfuscatedInfo
 import org.objectweb.asm.tree.FieldNode
 

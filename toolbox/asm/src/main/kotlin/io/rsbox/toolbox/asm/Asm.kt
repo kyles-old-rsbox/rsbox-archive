@@ -17,6 +17,7 @@
 
 package io.rsbox.toolbox.asm
 
+import io.rsbox.toolbox.asm.tree.ClassPool
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.ClassWriter
 import org.objectweb.asm.Opcodes
@@ -33,8 +34,8 @@ fun ClassPool.readJar(file: File, extraLogic: (JarFile, JarEntry) -> Unit = { _,
     JarFile(file).use { jar ->
         jar.entries().asSequence().forEach { entry ->
             if(entry.name.endsWith(".class")) {
-                val node = readClass(jar.getInputStream(entry).readAllBytes())
-                this.addClass(node)
+                val node = readClassWithReader(jar.getInputStream(entry).readAllBytes())
+                this.addClass(node.first, node.second)
             }
             extraLogic(jar, entry)
         }
@@ -61,6 +62,13 @@ fun readClass(data: ByteArray): ClassNode {
     val reader = ClassReader(data)
     reader.accept(node, 0)
     return node
+}
+
+fun readClassWithReader(data: ByteArray): Pair<ClassNode, ClassReader> {
+    val node = ClassNode()
+    val reader = ClassReader(data)
+    reader.accept(node, 0)
+    return node to reader
 }
 
 fun OutputStream.writeClass(node: ClassNode) {

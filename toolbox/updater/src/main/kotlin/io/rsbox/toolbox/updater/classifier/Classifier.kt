@@ -15,22 +15,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.toolbox.asm
+package io.rsbox.toolbox.updater.classifier
 
-import org.objectweb.asm.Type
-import org.objectweb.asm.tree.ClassNode
-import org.objectweb.asm.tree.FieldNode
-
-fun FieldNode.init(owner: ClassNode) {
-    this.owner = owner
+interface Classifier {
 }
-
-fun FieldNode.reset() {}
-fun FieldNode.build() {}
-
-var FieldNode.owner: ClassNode by field()
-val FieldNode.pool get() = owner.pool
-
-val FieldNode.identifier: String get() = "${owner.identifier}.$name"
-val FieldNode.type: Type get() = Type.getType(desc)
-val FieldNode.typeClass: ClassNode? get() = pool.findClass(type.internalName)

@@ -15,7 +15,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.toolbox.asm
+package io.rsbox.toolbox.asm.util
+
+import io.rsbox.toolbox.asm.tree.ClassPool
 
 class InheritanceGraph(pool: ClassPool) {
 

@@ -169,7 +169,21 @@ public abstract class class90 extends class212 {
 		int var11 = -1;
 		int var12 = 0;
 		if (var1 >= 0) {
-			class206 var13 = class169.method2715(var1);
+			//class206 var13 = class169.method2715(var1);
+			class206 var13;
+			class206 var2 = (class206)class206.field2330.method5439((long)var0);
+			if (var2 != null) {
+				return var2;
+			} else {
+				byte[] var3 = class206.field2346.method6175(32, var0);
+				var2 = new class206();
+				if (var3 != null) {
+					var2.method3930(new class460(var3));
+				}
+
+				class206.field2330.method5434(var2, (long)var0);
+				return var2;
+			}
 			var11 = var13.field2338;
 			var12 = var13.field2327;
 		}

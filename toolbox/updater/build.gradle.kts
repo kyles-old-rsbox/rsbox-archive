@@ -4,14 +4,18 @@ plugins {
     kotlin("plugin.serialization") version "1.7.10"
 }
 
+fun DependencyHandlerScope.externalLib(libraryName: String) {
+    implementation(files("${rootProject.rootDir}/$libraryName"))
+}
+
 dependencies {
     implementation(project(":toolbox:asm"))
     implementation("org.tinylog:tinylog-api-kotlin:_")
     implementation("org.tinylog:tinylog-impl:_")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:_")
-    implementation("com.github.Col-E:SimAnalyzer:1.9.2")
     implementation("me.tongfei:progressbar:_")
-
+    implementation("org.jgrapht:jgrapht-core:_")
+    implementation("com.github.Col-E:SimAnalyzer:_")
 }
 
 tasks {

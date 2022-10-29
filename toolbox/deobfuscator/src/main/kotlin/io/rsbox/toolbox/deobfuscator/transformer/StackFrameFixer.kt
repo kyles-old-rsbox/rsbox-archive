@@ -17,10 +17,10 @@
 
 package io.rsbox.toolbox.deobfuscator.transformer
 
-import io.rsbox.toolbox.asm.ClassPool
-import io.rsbox.toolbox.asm.getField
-import io.rsbox.toolbox.asm.getMethod
-import io.rsbox.toolbox.asm.ignored
+import io.rsbox.toolbox.asm.tree.ClassPool
+import io.rsbox.toolbox.asm.tree.getField
+import io.rsbox.toolbox.asm.tree.getMethod
+import io.rsbox.toolbox.asm.tree.ignored
 import io.rsbox.toolbox.deobfuscator.Deobfuscator
 import io.rsbox.toolbox.deobfuscator.Transformer
 import org.objectweb.asm.ClassReader
@@ -39,7 +39,7 @@ class StackFrameFixer : Transformer {
             val writer = Writer(pool)
             cls.accept(writer)
 
-            checkDataFlow(cls.name, writer.toByteArray())
+            //checkDataFlow(cls.name, writer.toByteArray())
 
             val reader = ClassReader(writer.toByteArray())
             reader.accept(newNode, ClassReader.SKIP_FRAMES)
@@ -68,7 +68,7 @@ class StackFrameFixer : Transformer {
     private fun checkDataFlow(className: String, data: ByteArray) {
         try {
             val reader = ClassReader(data)
-            val writer = ClassWriter(reader, 0)
+            val writer = ClassWriter(reader, ClassWriter.COMPUTE_MAXS)
             val checker = CheckClassAdapter(writer, true)
             reader.accept(checker, 0)
         } catch(e: Exception) {

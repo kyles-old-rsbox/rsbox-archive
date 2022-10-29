@@ -15,7 +15,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.toolbox.asm
+package io.rsbox.toolbox.asm.util
 
 import java.lang.ref.ReferenceQueue
 import java.lang.ref.WeakReference

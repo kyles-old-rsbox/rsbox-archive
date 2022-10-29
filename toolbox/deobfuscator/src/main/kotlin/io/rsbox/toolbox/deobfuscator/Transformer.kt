@@ -17,7 +17,7 @@
 
 package io.rsbox.toolbox.deobfuscator
 
-import io.rsbox.toolbox.asm.ClassPool
+import io.rsbox.toolbox.asm.tree.ClassPool
 
 interface Transformer {
     fun run(pool: ClassPool)

@@ -2,6 +2,15 @@ plugins {
     java
 }
 
+repositories {
+    mavenLocal()
+    maven(url = "https://jitpack.io")
+}
+
+fun DependencyHandlerScope.externalLib(libraryName: String) {
+    api(files("${rootProject.rootDir}/$libraryName.jar"))
+}
+
 dependencies {
     api("org.ow2.asm:asm:_")
     api("org.ow2.asm:asm-util:_")

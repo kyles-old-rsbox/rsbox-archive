@@ -18,10 +18,10 @@
 package io.rsbox.toolbox.deobfuscator.transformer
 
 import com.google.common.collect.MultimapBuilder
-import io.rsbox.toolbox.asm.ClassPool
-import io.rsbox.toolbox.asm.append
-import io.rsbox.toolbox.asm.identifier
-import io.rsbox.toolbox.asm.prepend
+import io.rsbox.toolbox.asm.tree.ClassPool
+import io.rsbox.toolbox.asm.tree.append
+import io.rsbox.toolbox.asm.tree.identifier
+import io.rsbox.toolbox.asm.tree.prepend
 import io.rsbox.toolbox.deobfuscator.Transformer
 import io.rsbox.toolbox.deobfuscator.transformer.MultiplierRemover.MulMath.isFactor
 import io.rsbox.toolbox.deobfuscator.transformer.MultiplierRemover.MulMath.isMultiplier

@@ -19,7 +19,7 @@ package io.rsbox.toolbox.deobfuscator.transformer
 
 import com.google.common.collect.Iterables
 import com.google.common.collect.TreeMultimap
-import io.rsbox.toolbox.asm.*
+import io.rsbox.toolbox.asm.tree.*
 import io.rsbox.toolbox.deobfuscator.Transformer
 import org.objectweb.asm.Type
 import org.objectweb.asm.tree.*
@@ -70,6 +70,7 @@ class StaticMethodOwnerOptimizer : Transformer {
             movedMethod.init(origCls)
             movedMethod.reset()
             movedMethod.build()
+            placedMethods.add(movedMethod.identifier)
 
             movedMethods.add(movedMethod)
             count++
@@ -118,4 +119,8 @@ class StaticMethodOwnerOptimizer : Transformer {
             else -> null
         }
     }.toSet().hashCode()
+
+    companion object {
+        internal val placedMethods = hashSetOf<String>()
+    }
 }

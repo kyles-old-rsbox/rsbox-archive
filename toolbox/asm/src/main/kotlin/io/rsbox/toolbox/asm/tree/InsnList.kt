@@ -15,12 +15,29 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.toolbox.updater.sandbox
+package io.rsbox.toolbox.asm.tree
 
-import io.rsbox.toolbox.asm.field
-import io.rsbox.toolbox.asm.nullField
 import org.objectweb.asm.tree.AbstractInsnNode
-import org.objectweb.asm.tree.analysis.Frame
-import org.objectweb.asm.tree.analysis.SourceValue
+import org.objectweb.asm.tree.InsnList
 
-var Frame<SourceValue>.instruction: AbstractInsnNode by field()
+fun InsnList.append(previous: AbstractInsnNode, vararg insns: AbstractInsnNode) {
+    check(contains(previous))
+    insns.reversed().forEach { insert(previous, it) }
+}
+
+fun InsnList.prepend(next: AbstractInsnNode, vararg insns: AbstractInsnNode) {
+    check(contains(next))
+    insns.forEach { insertBefore(next, it) }
+}
+
+fun InsnList.delete(vararg insns: AbstractInsnNode) {
+    insns.forEach {
+        check(contains(it))
+        remove(it)
+    }
+}
+
+fun InsnList.replace(old: AbstractInsnNode, replacement: AbstractInsnNode) {
+    check(contains(old))
+    set(old, replacement)
+}

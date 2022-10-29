@@ -68,7 +68,7 @@ public abstract class class399 extends class259 implements class482 {
 				class93 var7 = client.field1763[var1] = new class93();
 				var7.field915 = var1;
 				if (null != class102.field1011[var1]) {
-					var7.method1906(class102.field1011[var1]);
+					var7.decodeAppearance(class102.field1011[var1]);
 				}
 
 				var7.field860 = class102.field1014[var1];

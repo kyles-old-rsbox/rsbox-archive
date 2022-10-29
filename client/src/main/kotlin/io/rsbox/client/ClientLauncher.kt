@@ -8,7 +8,9 @@ import java.applet.AppletStub
 import java.awt.Color
 import java.awt.Dimension
 import java.awt.GridLayout
+import java.io.File
 import java.net.URL
+import java.net.URLClassLoader
 import javax.swing.ImageIcon
 import javax.swing.JDialog
 import javax.swing.JFrame
