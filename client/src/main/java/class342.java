@@ -13,7 +13,7 @@ public class class342 extends AbstractQueue {
 	final Comparator field4225;
 
 	public class342(int var1) {
-		this(var1, (Comparator)null);
+		this(var1, null);
 	}
 
 	public class342(int var1, Comparator var2) {
@@ -25,7 +25,7 @@ public class class342 extends AbstractQueue {
 
 	void method6327() {
 		int var2 = 1 + (this.field4227.length << 1);
-		this.field4227 = (class357[])((class357[])Arrays.copyOf(this.field4227, var2));
+		this.field4227 = Arrays.copyOf(this.field4227, var2);
 	}
 
 	public int size() {

@@ -15,35 +15,15 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-plugins {
-    id("de.fayard.refreshVersions") version "0.50.2"
+package io.rsbox.server.common
+
+import java.io.File
+
+object PathConstants {
+
+    val DATA_DIR = File("data/")
+    val CONFIG_DIR = DATA_DIR.resolve("config/")
+
+    val SERVER_CONFIG_PATH = CONFIG_DIR.resolve("server.toml")
+
 }
-
-rootProject.name = "rsbox"
-
-/**
- * ===== TOOLBOX =====
- */
-include(":toolbox")
-include(":toolbox:asm")
-include(":toolbox:deobfuscator")
-include(":toolbox:updater")
-
-/**
- * ===== CLIENT =====
- */
-include(":client")
-
-/**
- * ===== SERVER =====
- */
-include(":server")
-include(":server:launcher")
-include(":server:common")
-include(":server:logger")
-include(":server:util")
-include(":server:engine")
-include(":server:api")
-include(":server:content")
-include(":server:cache")
-include(":server:config")

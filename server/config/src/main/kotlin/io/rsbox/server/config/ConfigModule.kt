@@ -15,35 +15,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-plugins {
-    id("de.fayard.refreshVersions") version "0.50.2"
+package io.rsbox.server.config
+
+import org.koin.dsl.module
+
+val CONFIG_MODULE = module {
+    single { ServerConfig.loadConfig() }
 }
-
-rootProject.name = "rsbox"
-
-/**
- * ===== TOOLBOX =====
- */
-include(":toolbox")
-include(":toolbox:asm")
-include(":toolbox:deobfuscator")
-include(":toolbox:updater")
-
-/**
- * ===== CLIENT =====
- */
-include(":client")
-
-/**
- * ===== SERVER =====
- */
-include(":server")
-include(":server:launcher")
-include(":server:common")
-include(":server:logger")
-include(":server:util")
-include(":server:engine")
-include(":server:api")
-include(":server:content")
-include(":server:cache")
-include(":server:config")
