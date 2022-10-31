@@ -1,13 +1,11 @@
 package io.rsbox.toolbox.updater.classifier
 
-import io.rsbox.toolbox.asm.tree.isStatic
-import io.rsbox.toolbox.asm.tree.owner
-import io.rsbox.toolbox.asm.tree.parent
-import io.rsbox.toolbox.asm.tree.type
+import io.rsbox.toolbox.asm.tree.*
 import io.rsbox.toolbox.updater.asm.hasMatch
 import io.rsbox.toolbox.updater.asm.match
 import org.objectweb.asm.Type
 import org.objectweb.asm.tree.ClassNode
+import org.objectweb.asm.tree.FieldNode
 import org.objectweb.asm.tree.MethodNode
 import java.lang.reflect.Modifier
 
@@ -32,7 +30,6 @@ object ClassifierUtil {
         if(a.hasMatch()) return a.match == b
         if(b.hasMatch()) return b.match == a
         if(!isMaybeEqual(a.type, b.type)) return false
-        if(!isMaybeEqual(a.parent, b.parent)) return false
         return true
     }
 
@@ -46,5 +43,27 @@ object ClassifierUtil {
         if(!isMaybeEqual(a.type.returnType, b.type.returnType)) return false
         if(a.type.argumentTypes.size != b.type.argumentTypes.size) return false
         return true
+    }
+
+    fun isMaybeEqual(a: FieldNode?, b: FieldNode?): Boolean {
+        if(a == null && b == null) return true
+        if(a == null || b == null) return false
+        if(a.hasMatch()) return a.match == b
+        if(b.hasMatch()) return b.match == a
+        if(!Modifier.isStatic(a.access) && !Modifier.isStatic(b.access)) {
+            if(!isMaybeEqual(a.owner, b.owner)) return false
+        }
+        if(!isMaybeEqual(a.type, b.type)) return false
+        return true
+    }
+
+    fun <T> classifier(score: (from: T, to: T) -> Double): Classifier<T> {
+        return object : Classifier<T> {
+            override var name = ""
+            override var weight = 0.0
+            override fun score(from: T, to: T): Double {
+                return score(from, to)
+            }
+        }
     }
 }

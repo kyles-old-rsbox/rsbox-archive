@@ -4,6 +4,7 @@ import io.rsbox.toolbox.asm.readJar
 import io.rsbox.toolbox.asm.tree.ClassPool
 import io.rsbox.toolbox.asm.writeJar
 import io.rsbox.toolbox.updater.asm.loadInfo
+import io.rsbox.toolbox.updater.classifier.StaticMethodClassifiers
 import org.jline.utils.Log
 import org.tinylog.kotlin.Logger
 import java.io.File
@@ -54,10 +55,19 @@ object Updater {
         toPool.loadInfo()
 
         Logger.info("Successfully loaded classes.")
+
+        /*
+         * Initialize classifiers.
+         */
+        StaticMethodClassifiers.init()
+
     }
 
     private fun run() {
+        Logger.info("Starting updater.")
 
+        StaticMethodClassifiers.match(fromPool, toPool)
+        println()
     }
 
     private fun save() {
