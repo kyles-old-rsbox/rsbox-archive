@@ -17,8 +17,11 @@
 
 package io.rsbox.server.launcher
 
+import io.rsbox.server.cache.GameCache
+import io.rsbox.server.common.get
 import io.rsbox.server.config.ServerConfig
 import io.rsbox.server.config.XteaConfig
+import io.rsbox.server.util.security.RSA
 import org.koin.core.context.startKoin
 import org.tinylog.kotlin.Logger
 import java.io.File
@@ -51,6 +54,7 @@ object ServerLauncher {
         checkDirs()
         loadConfigs()
         loadRSA()
+        loadGameCache()
     }
 
     private fun launch() {
@@ -88,6 +92,11 @@ object ServerLauncher {
 
     private fun loadRSA() {
         Logger.info("Loading RSA encryption keys.")
+        get<RSA>().load()
+    }
 
+    private fun loadGameCache() {
+        Logger.info("Preparing to load game cache files.")
+        get<GameCache>().load()
     }
 }

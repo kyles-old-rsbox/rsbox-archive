@@ -4,6 +4,7 @@ dependencies {
     implementation(project(":server:logger"))
     implementation(project(":server:config"))
     implementation(project(":server:engine"))
+    implementation(project(":server:cache"))
 }
 
 tasks {

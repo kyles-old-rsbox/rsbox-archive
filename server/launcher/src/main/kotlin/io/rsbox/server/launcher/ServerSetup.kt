@@ -17,6 +17,8 @@
 
 package io.rsbox.server.launcher
 
+import io.rsbox.server.cache.GameCache
+import io.rsbox.server.common.get
 import io.rsbox.server.config.ServerConfig
 import io.rsbox.server.config.XteaConfig
 import io.rsbox.server.util.security.RSA
@@ -48,6 +50,7 @@ object ServerSetup {
         extractDataArchive()
         createConfigs()
         createRSAKeyPair()
+        testGameCache()
 
         Logger.info("The RSBox server setup has completed successfully.\n" +
                 " You may now start the server using the 'start server' gradle task.\n" +
@@ -102,5 +105,9 @@ object ServerSetup {
     private fun createRSAKeyPair() {
         Logger.info("Preparing RSA encryption generation.")
         RSA.generateNewKeyPair()
+    }
+
+    private fun testGameCache() {
+        get<GameCache>().load()
     }
 }

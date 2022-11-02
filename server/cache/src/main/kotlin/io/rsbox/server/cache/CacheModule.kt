@@ -15,12 +15,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.server.engine
+package io.rsbox.server.cache
 
-import io.rsbox.server.util.security.RSA
 import org.koin.dsl.module
 
-val EngineModule = module {
-    single { RSA() }
-    single { Engine() }
+val CacheModule = module {
+    single { GameCache() }
 }
