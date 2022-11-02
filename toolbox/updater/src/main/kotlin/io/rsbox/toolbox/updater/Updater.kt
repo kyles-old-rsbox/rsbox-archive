@@ -1,22 +1,47 @@
+/*
+ * Copyright (C) 2022 RSBox <Kyle Escobar>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 package io.rsbox.toolbox.updater
 
 import io.rsbox.toolbox.asm.readJar
-import io.rsbox.toolbox.asm.tree.ClassPool
+import io.rsbox.toolbox.asm.tree.*
 import io.rsbox.toolbox.asm.writeJar
-import io.rsbox.toolbox.updater.asm.loadInfo
-import io.rsbox.toolbox.updater.classifier.StaticMethodClassifiers
-import org.jline.utils.Log
+import org.objectweb.asm.Opcodes.*
 import org.tinylog.kotlin.Logger
 import java.io.File
+import java.io.FileNotFoundException
 
 object Updater {
+
+    /**
+     * Represents the class pool loaded from the old/previous
+     * jar file with the names you want applied to a new rev.
+     */
+    private lateinit var fromPool: ClassPool
+
+    /**
+     * Represents the class pool which names will be updated from the
+     * fromPool.
+     */
+    private lateinit var toPool: ClassPool
 
     private lateinit var fromJar: File
     private lateinit var toJar: File
     private lateinit var outJar: File
-
-    val fromPool = ClassPool()
-    val toPool = ClassPool()
 
     @JvmStatic
     fun main(args: Array<String>) {
@@ -34,7 +59,12 @@ object Updater {
     }
 
     private fun init() {
-        Logger.info("Loading class from input jars.")
+        Logger.info("Initializing Updater.")
+
+        /*
+         * Load classes from jars into respective pools.
+         */
+        if(!fromJar.exists() || !toJar.exists()) throw FileNotFoundException("Invalid program arguments.")
 
         fromPool.readJar(fromJar)
         fromPool.allClasses.forEach {
@@ -43,7 +73,6 @@ object Updater {
             }
         }
         fromPool.init()
-        fromPool.loadInfo()
 
         toPool.readJar(toJar)
         toPool.allClasses.forEach {
@@ -52,22 +81,12 @@ object Updater {
             }
         }
         toPool.init()
-        toPool.loadInfo()
 
         Logger.info("Successfully loaded classes.")
-
-        /*
-         * Initialize classifiers.
-         */
-        StaticMethodClassifiers.init()
-
     }
 
     private fun run() {
         Logger.info("Starting updater.")
-
-        StaticMethodClassifiers.match(fromPool, toPool)
-        println()
     }
 
     private fun save() {

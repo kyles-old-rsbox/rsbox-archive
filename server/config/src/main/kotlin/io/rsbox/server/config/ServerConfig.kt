@@ -17,40 +17,106 @@
 
 package io.rsbox.server.config
 
-import io.rsbox.server.common.PathConstants.SERVER_CONFIG_PATH
-import kotlinx.serialization.Serializable
-import net.peanuuutz.tomlkt.Toml
-import java.io.FileOutputStream
-import java.io.FileWriter
-import java.nio.file.Paths
-import kotlin.io.path.readText
-import kotlin.io.path.writeText
+import com.uchuhimo.konf.Config
+import com.uchuhimo.konf.ConfigSpec
+import com.uchuhimo.konf.Item
+import com.uchuhimo.konf.source.toml
+import com.uchuhimo.konf.source.toml.toToml
+import io.rsbox.server.common.inject
+import java.io.File
 
-@Serializable
-data class ServerConfig(
-    val serverName: String = "RSBox",
-    val revision: Int = 209,
-    val network: Network = Network()
-) {
-    @Serializable
-    data class Network(
-        val address: String = "127.0.0.1",
-        val port: Int = 43594
-    )
+class ServerConfig {
+
+    private var config = Config()
+    private val file = File("data/server.toml")
+
+    fun load() {
+        if(!file.exists()) {
+            config = Config { addSpec(Spec) }
+            save()
+        }
+        config = Config { addSpec(Spec) }.from.toml.file(file)
+        save()
+    }
+
+    fun save() {
+        config.toToml.toFile(file)
+    }
+
+    operator fun <T> get(item: Item<T>): T = config[item]
+
+    operator fun <T> set(item: Item<T>, value: T) {
+        config[item] = value
+    }
+
+    object Spec : ConfigSpec("server") {
+        val serverName by optional("RSBOX", "server-name")
+        val revision by optional(209, "revision")
+        val devMode by optional(true, "dev-mode")
+        val tickRate by optional(600L, "tick-rate")
+        val maxLoginsPerTick by optional(25, "max-logins-per-tick")
+        val maxLogoutsPerTick by optional(10, "max-logouts-per-tick")
+        val maxPacketsPerTick by optional(25, "max-packets-per-tick")
+
+        object Network : ConfigSpec("network") {
+            val address by optional("0.0.0.0", "address")
+            val port by optional(43594, "port")
+        }
+
+        object Defaults : ConfigSpec("defaults") {
+
+            object HomeTile : ConfigSpec("home-tile") {
+                val x by optional(3221, "x")
+                val y by optional(3218, "y")
+                val level by optional(0, "level")
+            }
+
+            object SpawnTile : ConfigSpec("spawn-tile") {
+                val x by optional(3094, "x")
+                val y by optional(3106, "y")
+                val level by optional(0, "level")
+            }
+        }
+    }
 
     companion object {
 
-        internal fun loadConfig(): ServerConfig {
-            if(!SERVER_CONFIG_PATH.exists()) {
-                /*
-                 * Create a default configuration file.
-                 */
-                Toml.encodeToString(serializer(), ServerConfig()).also {
-                    Paths.get(SERVER_CONFIG_PATH.path).writeText(it)
-                }
-            }
-            return Toml.decodeFromString(serializer(), Paths.get(SERVER_CONFIG_PATH.path).readText())
+        private val config: ServerConfig by inject()
+
+        init {
+            config.load()
         }
 
+        val SERVER_NAME get() = config[Spec.serverName]
+        val REVISION get() = config[Spec.revision]
+        val DEV_MODE get() = config[Spec.devMode]
+        val TICK_RATE get() = config[Spec.tickRate]
+        val MAX_LOGINS_PER_TICK get() = config[Spec.maxLoginsPerTick]
+        val MAX_LOGOUTS_PER_TICK get() = config[Spec.maxLogoutsPerTick]
+        val MAX_PACKETS_PER_TICK get() = config[Spec.maxLogoutsPerTick]
+
+        val NETWORK = NetworkCompanion(config)
+        class NetworkCompanion(private val config: ServerConfig) {
+            val ADDRESS get() = config[Spec.Network.address]
+            val PORT get() = config[Spec.Network.port]
+        }
+
+        val DEFAULTS = DefaultsCompanion(config)
+        class DefaultsCompanion(private val config: ServerConfig) {
+
+            val HOME_TILE = HomeTileCompanion(config)
+            class HomeTileCompanion(private val config: ServerConfig) {
+                val X get() = config[Spec.Defaults.HomeTile.x]
+                val Y get() = config[Spec.Defaults.HomeTile.y]
+                val LEVEL get() = config[Spec.Defaults.HomeTile.level]
+            }
+
+            val SPAWN_TILE = SpawnTileCompanion(config)
+            class SpawnTileCompanion(private val config: ServerConfig) {
+                val X get() = config[Spec.Defaults.SpawnTile.x]
+                val Y get() = config[Spec.Defaults.SpawnTile.y]
+                val LEVEL get() = config[Spec.Defaults.SpawnTile.level]
+            }
+        }
     }
 }

@@ -4,5 +4,5 @@ plugins {
 
 dependencies {
     implementation(project(":server:common"))
-    implementation("net.peanuuutz:tomlkt:_")
+    implementation("com.uchuhimo:konf:_")
 }

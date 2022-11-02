@@ -23,10 +23,10 @@ object ClientLauncher {
      * === DEVELOPMENT SETTINGS ===
      */
     const val CLIENT_TITLE = "RSBox Dev Client : v209.1"
-    const val SERVER_IP = "oldschool1.runescape.com"
-    const val DEFAULT_WORLD = "301"
-    const val RSA_MODULUS = "a65afc7b11a18da1a1bd0e144ea1883463fa040a57341006cec6556954e275446d8b0a222076a68fb0cb6d1fcaa9e7969affe6d5c42ccdba314e465d6dcf69a2bce2c6c70abc884349a2e31bf334ba712e4f7cda455562a80f3ceb1134e6459974780798ef38221e2fa1b9bd6560e120258f366e732b75bd7a385f07a5f5330d"
-    const val CACHE_DIR = "oldschool"
+    const val SERVER_IP = "127.0.0.1"
+    const val DEFAULT_WORLD = "1"
+    var RSA_MODULUS = "a65afc7b11a18da1a1bd0e144ea1883463fa040a57341006cec6556954e275446d8b0a222076a68fb0cb6d1fcaa9e7969affe6d5c42ccdba314e465d6dcf69a2bce2c6c70abc884349a2e31bf334ba712e4f7cda455562a80f3ceb1134e6459974780798ef38221e2fa1b9bd6560e120258f366e732b75bd7a385f07a5f5330d"
+    const val CACHE_DIR = "rsbox"
 
     /**
      * === CLIENT PARAMS ===
@@ -60,7 +60,7 @@ object ClientLauncher {
         "14" to "0",
         "15" to "0",
         "16" to "false",
-        "17" to "http://www.runescape.com/g=oldscape/slr.ws?order=LPWM", // World HTTP Server
+        "17" to "http://${SERVER_IP}/world_list.ws", // World HTTP Server
         "18" to "",
         "19" to "196515767263-1oo20deqm6edn7ujlihl6rpadk9drhva.apps.googleusercontent.com",
         "20" to "https://social.auth.jagex.com/",
@@ -77,7 +77,13 @@ object ClientLauncher {
 
     @JvmStatic
     fun main(args: Array<String>) {
+        loadRSA()
         start()
+    }
+
+    private fun loadRSA() {
+        val modulusFile = ClientLauncher::class.java.getResourceAsStream("/modulus.txt") ?: return
+        RSA_MODULUS = modulusFile.bufferedReader().readText()
     }
 
     private fun start() {
