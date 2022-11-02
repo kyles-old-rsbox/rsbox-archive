@@ -17,6 +17,8 @@
 
 package io.rsbox.server.launcher
 
+import io.rsbox.server.config.ServerConfig
+import io.rsbox.server.config.XteaConfig
 import org.koin.core.context.startKoin
 import org.tinylog.kotlin.Logger
 import java.io.File
@@ -39,17 +41,53 @@ object ServerLauncher {
             exitProcess(0)
         }
 
+        Logger.info("Initializing...")
+
         /*
          * Start dependency injector
          */
         startKoin { modules(DI_MODULES) }
 
-        /*
-         * Load configurations.
-         */
+        checkDirs()
+        loadConfigs()
+        loadRSA()
     }
 
     private fun launch() {
+        Logger.info("Launching RSBox server.")
+
+    }
+
+    private fun checkDirs() {
+        Logger.info("Checking required directories.")
+
+        listOf(
+            "data/",
+            "data/cache/",
+            "data/configs/",
+            "data/logs/",
+            "data/saves/",
+            "data/rsa"
+        ).map { File(it) }.forEach { dir ->
+            if(!dir.exists()) {
+                Logger.error("Please run the 'setup server' gradle task before starting the server.")
+                exitProcess(0)
+            }
+        }
+    }
+
+    private fun loadConfigs() {
+        Logger.info("Loading configuration file: server.toml.")
+        ServerConfig.SERVER_NAME
+
+        Logger.info("Loading configuration file: xteas.json.")
+        XteaConfig.xteas.values.size.also {
+            Logger.info("Successfully loaded $it region XTEA keys.")
+        }
+    }
+
+    private fun loadRSA() {
+        Logger.info("Loading RSA encryption keys.")
 
     }
 }

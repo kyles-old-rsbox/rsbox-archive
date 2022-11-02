@@ -3,6 +3,7 @@ dependencies {
     implementation(project(":server:util"))
     implementation(project(":server:logger"))
     implementation(project(":server:config"))
+    implementation(project(":server:engine"))
 }
 
 tasks {
