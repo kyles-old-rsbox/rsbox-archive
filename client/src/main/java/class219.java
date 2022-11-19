@@ -1,3 +1,5 @@
+import client.Client;
+
 public final class class219 {
 	static class300 field2616;
 	static class300 field2617;
@@ -24,7 +26,7 @@ public final class class219 {
 	}
 
 	static final void method4370(class90 var0) {
-		boolean var2 = var0.field858 == client.field1645 || -1 == var0.field852 || 0 != var0.field804;
+		boolean var2 = var0.field858 == Client.field1645 || -1 == var0.field852 || 0 != var0.field804;
 		if (!var2) {
 			class189 var3 = class160.method2660(var0.field852);
 			if (null != var3 && !var3.method3486()) {
@@ -36,7 +38,7 @@ public final class class219 {
 
 		if (var2) {
 			int var9 = var0.field858 - var0.field857;
-			int var4 = client.field1645 - var0.field857;
+			int var4 = Client.field1645 - var0.field857;
 			int var5 = var0.field866 * 64 + var0.field815 * 128;
 			int var6 = var0.field855 * 128 + var0.field866 * 64;
 			int var7 = var0.field854 * 128 + var0.field866 * 64;

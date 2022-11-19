@@ -1,3 +1,5 @@
+import client.Client;
+
 import java.util.Iterator;
 
 final class class92 implements class301 {
@@ -14,7 +16,7 @@ final class class92 implements class301 {
 			class79 var2 = new class79();
 			var2.method1599(this.val$cc);
 			var2.method1602(this.val$cc.method5880().field3685);
-			client.method7851().method6355(var2);
+			Client.method7851().method6355(var2);
 		}
 
 	}

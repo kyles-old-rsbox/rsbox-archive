@@ -1,3 +1,22 @@
+/*
+ * Copyright (C) 2022 RSBox <Kyle Escobar>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+package client;
+
 import com.jagex.oldscape.pub.OAuthApi;
 import com.jagex.oldscape.pub.OtlTokenRequester;
 import com.jagex.oldscape.pub.OtlTokenResponse;
@@ -21,7 +40,7 @@ import java.util.LinkedHashMap;
 import java.util.Map.Entry;
 import java.util.concurrent.Future;
 
-public final class client extends class31 implements class375, OAuthApi {
+public final class Client extends class31 implements class375, OAuthApi {
 	public static boolean field1635;
 	public static class205 field1876;
 	public static int field1868;
@@ -326,7 +345,7 @@ public final class client extends class31 implements class375, OAuthApi {
 	Future field1681;
 	long field1688;
 
-	public client() {
+	public Client() {
 		this.field1835 = false;
 		this.field1688 = -1L;
 	}
@@ -702,7 +721,7 @@ public final class client extends class31 implements class375, OAuthApi {
 						class61.field481 = var2;
 						break;
 					case 10:
-						class368.field4353 = (class329)class217.method4362(class329.method1596(), Integer.parseInt(var2));
+						class368.field4353 = (class329) class217.method4362(class329.method1596(), Integer.parseInt(var2));
 						if (class368.field4353 == class329.field3819) {
 							class234.field2779 = class463.field4894;
 						} else {
@@ -1224,7 +1243,7 @@ public final class client extends class31 implements class375, OAuthApi {
 						class335 var6;
 						class460 var7;
 						while (class324.field3780 < 200 && class324.field3778 > 0) {
-							var6 = (class335)class324.field3794.method7867();
+							var6 = (class335) class324.field3794.method7867();
 							var7 = new class460(4);
 							var7.method8104(1);
 							var7.method8106((int)var6.field4681);
@@ -1235,7 +1254,7 @@ public final class client extends class31 implements class375, OAuthApi {
 						}
 
 						while (class324.field3777 < 200 && class324.field3788 > 0) {
-							var6 = (class335)class324.field3781.method6573();
+							var6 = (class335) class324.field3781.method6573();
 							var7 = new class460(4);
 							var7.method8104(0);
 							var7.method8106((int)var6.field4681);
@@ -1299,10 +1318,10 @@ public final class client extends class31 implements class375, OAuthApi {
 									int var12 = class324.field3776.method8141();
 									var13 = class324.field3776.method8126();
 									long var14 = (long)((var10 << 16) + var11);
-									class335 var16 = (class335)class324.field3779.method7855(var14);
+									class335 var16 = (class335) class324.field3779.method7855(var14);
 									class111.field1097 = true;
 									if (null == var16) {
-										var16 = (class335)class324.field3784.method7855(var14);
+										var16 = (class335) class324.field3784.method7855(var14);
 										class111.field1097 = false;
 									}
 
@@ -1372,7 +1391,7 @@ public final class client extends class31 implements class375, OAuthApi {
 									} else {
 										class324.field3785.reset();
 										class324.field3785.update(class431.field4704.field4881, 0, var9);
-										var11 = (int)class324.field3785.getValue();
+										var11 = (int) class324.field3785.getValue();
 										if (var11 != class116.field1137.field3865) {
 											try {
 												class324.field3787.method7259();
@@ -1468,7 +1487,7 @@ public final class client extends class31 implements class375, OAuthApi {
 
 					class460 var4;
 					if (2 == field1663) {
-						Socket var3 = (Socket)class347.field4257.field1612;
+						Socket var3 = (Socket) class347.field4257.field1612;
 						class409 var2 = new class409(var3, 40000, 5000);
 						class312.field3697 = var2;
 						var4 = new class460(5);
@@ -1514,10 +1533,10 @@ public final class client extends class31 implements class375, OAuthApi {
 						class324.field3790 = 0;
 
 						while (true) {
-							class335 var13 = (class335)class324.field3779.method7867();
+							class335 var13 = (class335) class324.field3779.method7867();
 							if (var13 == null) {
 								while (true) {
-									var13 = (class335)class324.field3784.method7867();
+									var13 = (class335) class324.field3784.method7867();
 									if (null == var13) {
 										if (class324.field3792 != 0) {
 											try {
@@ -2079,7 +2098,7 @@ public final class client extends class31 implements class375, OAuthApi {
 				}
 
 				if (class231.field2748.field1614 == 1) {
-					Socket var30 = (Socket)class231.field2748.field1612;
+					Socket var30 = (Socket) class231.field2748.field1612;
 					class409 var31 = new class409(var30, 40000, 5000);
 					var2 = var31;
 					field1778.method2097(var31);
@@ -2697,7 +2716,7 @@ public final class client extends class31 implements class375, OAuthApi {
 		field1927.method5437();
 		class305.method3577();
 		class300.method5845();
-		((class215)class221.field2629).method4312();
+		((class215) class221.field2629).method4312();
 		class78.field675.method5437();
 		class139.field1286.method6117();
 		class42.field295.method6117();
@@ -2748,7 +2767,7 @@ public final class client extends class31 implements class375, OAuthApi {
 
 			if (30 == field1766) {
 				while (true) {
-					class43 var3 = (class43)class45.field329.method6465();
+					class43 var3 = (class43) class45.field329.method6465();
 					boolean var30;
 					if (var3 == null) {
 						var30 = false;
@@ -3976,7 +3995,7 @@ public final class client extends class31 implements class375, OAuthApi {
 					var22 = var4.method8131();
 					long var24 = (long)var4.method8122();
 					long var9 = (long)var4.method8312();
-					class333 var60 = (class333)class217.method4362(class333.method5480(), var4.method8141());
+					class333 var60 = (class333) class217.method4362(class333.method5480(), var4.method8141());
 					long var12 = var9 + (var24 << 32);
 					boolean var67 = false;
 					var15 = null;
@@ -4454,7 +4473,7 @@ public final class client extends class31 implements class375, OAuthApi {
 					var32 = var4.method8127();
 					var34 = (long)var4.method8122();
 					var10 = (long)var4.method8312();
-					class333 var30 = (class333)class217.method4362(class333.method5480(), var4.method8141());
+					class333 var30 = (class333) class217.method4362(class333.method5480(), var4.method8141());
 					var13 = var10 + (var34 << 32);
 					boolean var85 = false;
 
@@ -5239,7 +5258,7 @@ public final class client extends class31 implements class375, OAuthApi {
 					var48 = var4.method8131();
 					var32 = (long)var4.method8122();
 					var34 = (long)var4.method8312();
-					class333 var42 = (class333)class217.method4362(class333.method5480(), var4.method8141());
+					class333 var42 = (class333) class217.method4362(class333.method5480(), var4.method8141());
 					long var43 = var34 + (var32 << 32);
 					boolean var89 = false;
 
@@ -6151,13 +6170,13 @@ public final class client extends class31 implements class375, OAuthApi {
 	}
 
 	static final int method6543() {
-		float var1 = 200.0F * ((float)class413.field4575.method1717() - 0.5F);
+		float var1 = 200.0F * ((float) class413.field4575.method1717() - 0.5F);
 		return 100 - Math.round(var1);
 	}
 
 	static final void method3634(double var0) {
 		class221.method4394(var0);
-		((class215)class221.field2629).method4329(var0);
+		((class215) class221.field2629).method4329(var0);
 		class198.method716();
 		class413.field4575.method1714(var0);
 	}

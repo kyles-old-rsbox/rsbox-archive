@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class179 {
 	static byte[][][] field1597;
 	static class408 field1602;
@@ -21,22 +23,22 @@ public class class179 {
 
 	static int method2843(int var0, class78 var1, boolean var2) {
 		if (var0 == CS2Opcodes.CHAT_GETFILTER_PUBLIC) {
-			class57.field404[++class387.field4452 - 1] = client.field1871;
+			class57.field404[++class387.field4452 - 1] = Client.field1871;
 			return 1;
 		} else if (var0 == CS2Opcodes.CHAT_SETFILTER) {
 			class387.field4452 -= 3;
-			client.field1871 = class57.field404[class387.field4452];
+			Client.field1871 = class57.field404[class387.field4452];
 			class297.field3431 = class363.method6675(class57.field404[1 + class387.field4452]);
 			if (null == class297.field3431) {
 				class297.field3431 = class486.field5006;
 			}
 
-			client.field1872 = class57.field404[2 + class387.field4452];
-			class263 var12 = class185.method3435(class274.field3142, client.field1778.field1071);
-			var12.field2984.method8104(client.field1871);
+			Client.field1872 = class57.field404[2 + class387.field4452];
+			class263 var12 = class185.method3435(class274.field3142, Client.field1778.field1071);
+			var12.field2984.method8104(Client.field1871);
 			var12.field2984.method8104(class297.field3431.field5005);
-			var12.field2984.method8104(client.field1872);
-			client.field1778.method2078(var12);
+			var12.field2984.method8104(Client.field1872);
+			Client.field1778.method2078(var12);
 			return 1;
 		} else {
 			String var4;
@@ -48,12 +50,12 @@ public class class179 {
 				class387.field4452 -= 2;
 				var5 = class57.field404[class387.field4452];
 				var6 = class57.field404[class387.field4452 + 1];
-				var7 = class185.method3435(class274.field3112, client.field1778.field1071);
+				var7 = class185.method3435(class274.field3112, Client.field1778.field1071);
 				var7.field2984.method8104(class460.method1887(var4) + 2);
 				var7.field2984.method8111(var4);
 				var7.field2984.method8104(var5 - 1);
 				var7.field2984.method8104(var6);
-				client.field1778.method2078(var7);
+				Client.field1778.method2078(var7);
 				return 1;
 			} else {
 				int var8;
@@ -116,19 +118,19 @@ public class class179 {
 							var4 = class57.field405[--class126.field1220];
 							var5 = class57.field404[--class387.field4452];
 							var13 = class307.method6040(var5, var4, class94.field940, -1);
-							client.field1778.method2078(var13);
+							Client.field1778.method2078(var13);
 							return 1;
 						} else if (var0 == CS2Opcodes.CHAT_SENDPRIVATE) {
 							class126.field1220 -= 2;
 							var4 = class57.field405[class126.field1220];
 							String var14 = class57.field405[1 + class126.field1220];
-							var13 = class185.method3435(class274.field3120, client.field1778.field1071);
+							var13 = class185.method3435(class274.field3120, Client.field1778.field1071);
 							var13.field2984.method8181(0);
 							int var11 = var13.field2984.field4878;
 							var13.field2984.method8111(var4);
 							class282.method5406(var13.field2984, var14);
 							var13.field2984.method8117(var13.field2984.field4878 - var11);
-							client.field1778.method2078(var13);
+							Client.field1778.method2078(var13);
 							return 1;
 						} else if (var0 == CS2Opcodes.CHAT_SENDCLAN) {
 							var4 = class57.field405[--class126.field1220];
@@ -136,11 +138,11 @@ public class class179 {
 							var5 = class57.field404[class387.field4452];
 							var6 = class57.field404[1 + class387.field4452];
 							var7 = class307.method6040(var5, var4, class94.field940, var6);
-							client.field1778.method2078(var7);
+							Client.field1778.method2078(var7);
 							return 1;
 						} else if (var0 != CS2Opcodes.CHAT_PLAYERNAME) {
 							if (var0 == CS2Opcodes.CHAT_GETFILTER_TRADE) {
-								class57.field404[++class387.field4452 - 1] = client.field1872;
+								class57.field404[++class387.field4452 - 1] = Client.field1872;
 								return 1;
 							} else if (var0 == CS2Opcodes.CHAT_GETHISTORYLENGTH) {
 								var8 = class57.field404[--class387.field4452];
@@ -159,10 +161,10 @@ public class class179 {
 								class31.method506(var4);
 								return 1;
 							} else if (var0 == CS2Opcodes.CHAT_SETMESSAGEFILTER) {
-								client.field1873 = class57.field405[--class126.field1220].toLowerCase().trim();
+								Client.field1873 = class57.field405[--class126.field1220].toLowerCase().trim();
 								return 1;
 							} else if (var0 == CS2Opcodes.CHAT_GETMESSAGEFILTER) {
-								class57.field405[++class126.field1220 - 1] = client.field1873;
+								class57.field405[++class126.field1220 - 1] = Client.field1873;
 								return 1;
 							} else if (var0 == CS2Opcodes.WRITECONSOLE) {
 								var4 = class57.field405[--class126.field1220];
@@ -238,6 +240,6 @@ public class class179 {
 	}
 
 	static boolean method2842() {
-		return client.field1796 || client.field1876.method3895(81);
+		return Client.field1796 || Client.field1876.method3895(81);
 	}
 }

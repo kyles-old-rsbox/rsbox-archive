@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class61 extends class212 {
 	static String field481;
 	class189 field482;
@@ -54,7 +56,7 @@ public class class61 extends class212 {
 		if (var7 != -1) {
 			this.field482 = class160.method2660(var7);
 			this.field488 = 0;
-			this.field489 = client.field1645 - 1;
+			this.field489 = Client.field1645 - 1;
 			if (0 == this.field482.field2013 && var9 != null && var9 instanceof class61) {
 				class61 var10 = (class61)var9;
 				if (var10.field482 == this.field482) {
@@ -79,7 +81,7 @@ public class class61 extends class212 {
 	protected final class209 method4112() {
 		int var3;
 		if (null != this.field482) {
-			int var2 = client.field1645 - this.field489;
+			int var2 = Client.field1645 - this.field489;
 			if (var2 > 100 && this.field482.field2012 > 0) {
 				var2 = 100;
 			}
@@ -113,7 +115,7 @@ public class class61 extends class212 {
 				}
 			}
 
-			this.field489 = client.field1645 - var2;
+			this.field489 = Client.field1645 - var2;
 		}
 
 		class195 var13 = class89.method1866(this.field490);

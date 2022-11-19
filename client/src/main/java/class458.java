@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class458 extends class437 {
 	public static class284 field4871;
 	public static class319 field4873;
@@ -67,7 +69,7 @@ public class class458 extends class437 {
 	}
 
 	static final void method8090(int var0, int var1, int var2, int var3, int var4, int var5, class214 var6, class200 var7) {
-		if (!client.field1636 || 0 != (class82.field714[0][var1][var2] & 2) || (class82.field714[var0][var1][var2] & 16) == 0) {
+		if (!Client.field1636 || 0 != (class82.field714[0][var1][var2] & 2) || (class82.field714[var0][var1][var2] & 16) == 0) {
 			if (var0 < class82.field724) {
 				class82.field724 = var0;
 			}
@@ -147,7 +149,7 @@ public class class458 extends class437 {
 
 			Object var35;
 			if (var5 == 22) {
-				if (!client.field1636 || 0 != var9.field2072 || var9.field2070 == 1 || var9.field2068) {
+				if (!Client.field1636 || 0 != var9.field2072 || var9.field2070 == 1 || var9.field2068) {
 					if (var9.field2076 == -1 && null == var9.field2094) {
 						var35 = var9.method3584(22, var4, var16, var18, var17, var19);
 					} else {

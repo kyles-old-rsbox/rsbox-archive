@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+
+import client.Client;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -320,7 +322,7 @@ public class class176 {
 	}
 
 	static final void method2802(int var0, int var1) {
-		class343 var3 = client.field1865[class55.field396][var0][var1];
+		class343 var3 = Client.field1865[class55.field396][var0][var1];
 		if (var3 == null) {
 			class145.field1333.method4143(class55.field396, var0, var1);
 		} else {

@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class262 {
 	class262() throws Throwable {
 		throw new Error();
@@ -117,7 +119,7 @@ public class class262 {
 			}
 		}
 
-		client.field1885 = 0;
+		Client.field1885 = 0;
 
 		for (var6 = 0; var6 < 104; ++var6) {
 			for (var7 = 0; var7 < 104; ++var7) {
@@ -126,10 +128,10 @@ public class class262 {
 					int var10 = class234.method1610(var8);
 					int var11 = class89.method1866(var10).field2081;
 					if (var11 >= 0 && class90.method1885(var11).field1463) {
-						client.field1818[client.field1885] = class90.method1885(var11).method2644(false);
-						client.field1834[client.field1885] = var6;
-						client.field1887[client.field1885] = var7;
-						++client.field1885;
+						Client.field1818[Client.field1885] = class90.method1885(var11).method2644(false);
+						Client.field1834[Client.field1885] = var6;
+						Client.field1887[Client.field1885] = var7;
+						++Client.field1885;
 					}
 				}
 			}
@@ -155,15 +157,15 @@ public class class262 {
 					}
 
 					if (var7 == 1) {
-						var8 = client.field1780[var3[var5++]];
+						var8 = Client.field1780[var3[var5++]];
 					}
 
 					if (var7 == 2) {
-						var8 = client.field1817[var3[var5++]];
+						var8 = Client.field1817[var3[var5++]];
 					}
 
 					if (var7 == 3) {
-						var8 = client.field1782[var3[var5++]];
+						var8 = Client.field1782[var3[var5++]];
 					}
 
 					int var10;
@@ -175,7 +177,7 @@ public class class262 {
 						var10 += var3[var5++];
 						var11 = class282.method5426(var10);
 						var12 = var3[var5++];
-						if (var12 != -1 && (!class278.method5388(var12).field2162 || client.field1635)) {
+						if (var12 != -1 && (!class278.method5388(var12).field2162 || Client.field1635)) {
 							for (var13 = 0; var13 < var11.field3461.length; ++var13) {
 								if (var11.field3461[var13] == var12 + 1) {
 									var8 += var11.field3456[var13];
@@ -189,7 +191,7 @@ public class class262 {
 					}
 
 					if (var7 == 6) {
-						var8 = class321.field3756[client.field1817[var3[var5++]] - 1];
+						var8 = class321.field3756[Client.field1817[var3[var5++]] - 1];
 					}
 
 					if (var7 == 7) {
@@ -203,7 +205,7 @@ public class class262 {
 					if (var7 == 9) {
 						for (var10 = 0; var10 < 25; ++var10) {
 							if (class321.field3754[var10]) {
-								var8 += client.field1817[var10];
+								var8 += Client.field1817[var10];
 							}
 						}
 					}
@@ -213,7 +215,7 @@ public class class262 {
 						var10 += var3[var5++];
 						var11 = class282.method5426(var10);
 						var12 = var3[var5++];
-						if (var12 != -1 && (!class278.method5388(var12).field2162 || client.field1635)) {
+						if (var12 != -1 && (!class278.method5388(var12).field2162 || Client.field1635)) {
 							for (var13 = 0; var13 < var11.field3461.length; ++var13) {
 								if (var12 + 1 == var11.field3461[var13]) {
 									var8 = 999999999;
@@ -224,11 +226,11 @@ public class class262 {
 					}
 
 					if (var7 == 11) {
-						var8 = client.field1816;
+						var8 = Client.field1816;
 					}
 
 					if (var7 == 12) {
-						var8 = client.field1859;
+						var8 = Client.field1859;
 					}
 
 					if (var7 == 13) {

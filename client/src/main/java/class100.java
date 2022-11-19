@@ -1,3 +1,5 @@
+import client.Client;
+
 final class class100 implements class301 {
 	static long field987;
 	// $FF: synthetic field
@@ -12,7 +14,7 @@ final class class100 implements class301 {
 			class79 var2 = new class79();
 			var2.method1599(this.val$cc);
 			var2.method1602(this.val$cc.method5880().field3686);
-			client.method7851().method6355(var2);
+			Client.method7851().method6355(var2);
 		}
 
 	}
@@ -75,20 +77,20 @@ final class class100 implements class301 {
 			int var4 = var0 >> 8;
 			int var5 = var0 >> 4 & 7;
 			int var6 = var0 & 15;
-			client.field1895[client.field1894] = var4;
-			client.field1896[client.field1894] = var5;
-			client.field1897[client.field1894] = 0;
-			client.field1899[client.field1894] = null;
+			Client.field1895[Client.field1894] = var4;
+			Client.field1896[Client.field1894] = var5;
+			Client.field1897[Client.field1894] = 0;
+			Client.field1899[Client.field1894] = null;
 			int var7 = (var1 - 64) / 128;
 			int var8 = (var2 - 64) / 128;
-			client.field1734[client.field1894] = var6 + (var7 << 16) + (var8 << 8);
-			++client.field1894;
+			Client.field1734[Client.field1894] = var6 + (var7 << 16) + (var8 << 8);
+			++Client.field1894;
 		}
 	}
 
 	static void method1989() {
-		if (client.field1804) {
-			class300 var1 = class253.method5043(class106.field1066, client.field1805);
+		if (Client.field1804) {
+			class300 var1 = class253.method5043(class106.field1066, Client.field1805);
 			if (null != var1 && null != var1.field3598) {
 				class79 var2 = new class79();
 				var2.field694 = var1;
@@ -96,8 +98,8 @@ final class class100 implements class301 {
 				class57.method5433(var2);
 			}
 
-			client.field1806 = -1;
-			client.field1804 = false;
+			Client.field1806 = -1;
+			Client.field1804 = false;
 			class136.method2438(var1);
 		}
 	}

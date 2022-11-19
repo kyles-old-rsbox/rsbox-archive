@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class275 {
 	class275() throws Throwable {
 		throw new Error();
@@ -5,7 +7,7 @@ public class class275 {
 
 	static final void method5224(int var0, int var1, int var2, int var3, class473 var4, class298 var5) {
 		if (null != var4) {
-			int var7 = client.field1672 & 2047;
+			int var7 = Client.field1672 & 2047;
 			int var8 = var3 * var3 + var2 * var2;
 			if (var8 <= 6400) {
 				int var9 = class221.field2644[var7];

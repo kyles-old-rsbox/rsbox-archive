@@ -1,3 +1,5 @@
+import client.Client;
+
 import java.io.IOException;
 
 public class class296 extends class427 {
@@ -34,8 +36,8 @@ public class class296 extends class427 {
 	}
 
 	static void method5552(class460 var0) {
-		if (null != client.field1689) {
-			var0.method8114(client.field1689, 0, client.field1689.length);
+		if (null != Client.field1689) {
+			var0.method8114(Client.field1689, 0, Client.field1689.length);
 		} else {
 			byte[] var3 = new byte[24];
 

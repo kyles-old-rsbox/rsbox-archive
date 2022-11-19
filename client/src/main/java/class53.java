@@ -1,3 +1,5 @@
+import client.Client;
+
 import java.util.Iterator;
 
 public class class53 {
@@ -38,7 +40,7 @@ public class class53 {
 		this.field377 = 2;
 
 		for (int var4 = 0; var4 < class102.field1012; ++var4) {
-			class93 var5 = client.field1763[class102.field1013[var4]];
+			class93 var5 = Client.field1763[class102.field1013[var4]];
 			var5.method1908();
 		}
 
@@ -171,14 +173,14 @@ public class class53 {
 	}
 
 	static final void method959(String var0) {
-		class263 var2 = class185.method3435(class274.field3074, client.field1778.field1071);
+		class263 var2 = class185.method3435(class274.field3074, Client.field1778.field1071);
 		var2.field2984.method8104(class460.method1887(var0));
 		var2.field2984.method8111(var0);
-		client.field1778.method2078(var2);
+		Client.field1778.method2078(var2);
 	}
 
 	final boolean method1098() {
-		return this.field380.method7329() || this.field380.method7339() >= 200 && 1 != client.field1921;
+		return this.field380.method7329() || this.field380.method7339() >= 200 && 1 != Client.field1921;
 	}
 
 	final void method1052(String var1) {
@@ -194,10 +196,10 @@ public class class53 {
 				} else if (this.method1071(var3, false)) {
 					method1812(var1);
 				} else {
-					class263 var4 = class185.method3435(class274.field3128, client.field1778.field1071);
+					class263 var4 = class185.method3435(class274.field3128, Client.field1778.field1071);
 					var4.field2984.method8104(class460.method1887(var1));
 					var4.field2984.method8111(var1);
-					client.field1778.method2078(var4);
+					Client.field1778.method2078(var4);
 				}
 			}
 		}
@@ -212,7 +214,7 @@ public class class53 {
 	}
 
 	final boolean method1053() {
-		return this.field376.method7329() || this.field376.method7339() >= 100 && 1 != client.field1921;
+		return this.field376.method7329() || this.field376.method7339() >= 100 && 1 != Client.field1921;
 	}
 
 	final void method1069(String var1) {
@@ -220,15 +222,15 @@ public class class53 {
 			class472 var3 = new class472(var1, this.field375);
 			if (var3.method8449()) {
 				if (this.field380.method7292(var3)) {
-					client.field1844 = client.field1878;
-					class263 var4 = class185.method3435(class274.field3129, client.field1778.field1071);
+					Client.field1844 = Client.field1878;
+					class263 var4 = class185.method3435(class274.field3129, Client.field1778.field1071);
 					var4.field2984.method8104(class460.method1887(var1));
 					var4.field2984.method8111(var1);
-					client.field1778.method2078(var4);
+					Client.field1778.method2078(var4);
 				}
 
 				for (int var6 = 0; var6 < class102.field1012; ++var6) {
-					class93 var5 = client.field1763[class102.field1013[var6]];
+					class93 var5 = Client.field1763[class102.field1013[var6]];
 					var5.method1908();
 				}
 
@@ -267,11 +269,11 @@ public class class53 {
 			class472 var3 = new class472(var1, this.field375);
 			if (var3.method8449()) {
 				if (this.field376.method7292(var3)) {
-					client.field1844 = client.field1878;
-					class263 var4 = class185.method3435(class274.field3102, client.field1778.field1071);
+					Client.field1844 = Client.field1878;
+					class263 var4 = class185.method3435(class274.field3102, Client.field1778.field1071);
 					var4.field2984.method8104(class460.method1887(var1));
 					var4.field2984.method8111(var1);
-					client.field1778.method2078(var4);
+					Client.field1778.method2078(var4);
 				}
 
 				class442.method7920();
@@ -280,11 +282,11 @@ public class class53 {
 	}
 
 	static final void method2855(String var0, int var1) {
-		class263 var3 = class185.method3435(class274.field3117, client.field1778.field1071);
+		class263 var3 = class185.method3435(class274.field3117, Client.field1778.field1071);
 		var3.field2984.method8104(class460.method1887(var0) + 1);
 		var3.field2984.method8264(var1);
 		var3.field2984.method8111(var0);
-		client.field1778.method2078(var3);
+		Client.field1778.method2078(var3);
 	}
 
 	final boolean method1056(class472 var1) {

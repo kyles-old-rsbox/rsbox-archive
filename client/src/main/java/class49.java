@@ -1,3 +1,5 @@
+import client.Client;
+
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 
@@ -103,7 +105,7 @@ public class class49 {
 
 	static final void method996(boolean var0) {
 		if (var0) {
-			client.field1671 = class75.field621 ? class141.field1306 : class141.field1303;
+			Client.field1671 = class75.field621 ? class141.field1306 : class141.field1303;
 		} else {
 			LinkedHashMap var2 = class413.field4575.field744;
 			String var4 = class75.field633;
@@ -114,7 +116,7 @@ public class class49 {
 				var6 = (var6 << 5) - var6 + var4.charAt(var7);
 			}
 
-			client.field1671 = var2.containsKey(var6) ? class141.field1302 : class141.field1301;
+			Client.field1671 = var2.containsKey(var6) ? class141.field1302 : class141.field1301;
 		}
 
 	}

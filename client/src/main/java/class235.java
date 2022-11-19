@@ -1,3 +1,5 @@
+import client.Client;
+
 public final class class235 {
 	int field2781;
 	int field2782;
@@ -38,7 +40,7 @@ public final class class235 {
 		}
 
 		if (1337 == var0.field3464) {
-			client.field1821 = var0;
+			Client.field1821 = var0;
 		}
 
 		if (var0.field3462 == 12) {
@@ -49,7 +51,7 @@ public final class class235 {
 			class79 var7 = new class79();
 			var7.field694 = var0;
 			var7.field686 = var0.field3586;
-			client.field1765.method6355(var7);
+			Client.field1765.method6355(var7);
 		}
 
 	}

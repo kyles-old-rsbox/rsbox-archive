@@ -1,3 +1,5 @@
+import client.Client;
+
 import java.applet.Applet;
 
 public class class30 {
@@ -18,7 +20,7 @@ public class class30 {
 
 	static int method438(int var0, class78 var1, boolean var2) {
 		if (var0 == CS2Opcodes.LOGOUT) {
-			client.field1696 = 250;
+			Client.field1696 = 250;
 			return 1;
 		} else {
 			return 2;

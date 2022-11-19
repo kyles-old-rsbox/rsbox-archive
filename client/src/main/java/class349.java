@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class349 {
 	public static final char[] field4270;
 	static String field4269;
@@ -22,16 +24,16 @@ public class class349 {
 	}
 
 	static final void method6447(int var0, int var1, boolean var2) {
-		if (null != client.field1883[var0]) {
-			if (var1 >= 0 && var1 < client.field1883[var0].method2512()) {
-				class133 var4 = (class133)client.field1883[var0].field1347.get(var1);
-				class263 var5 = class185.method3435(class274.field3133, client.field1778.field1071);
+		if (null != Client.field1883[var0]) {
+			if (var1 >= 0 && var1 < Client.field1883[var0].method2512()) {
+				class133 var4 = (class133) Client.field1883[var0].field1347.get(var1);
+				class263 var5 = class185.method3435(class274.field3133, Client.field1778.field1071);
 				var5.field2984.method8104(4 + class460.method1887(var4.field1254.method8451()));
 				var5.field2984.method8104(var0);
 				var5.field2984.method8181(var1);
 				var5.field2984.method8110(var2);
 				var5.field2984.method8111(var4.field1254.method8451());
-				client.field1778.method2078(var5);
+				Client.field1778.method2078(var5);
 			}
 		}
 	}

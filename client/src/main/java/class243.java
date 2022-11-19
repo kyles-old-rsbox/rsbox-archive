@@ -1,3 +1,5 @@
+import client.Client;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -171,7 +173,7 @@ public class class243 {
 			class82.field714[var1][var2][var3] = 0;
 
 			while (true) {
-				var8 = client.field1932 < 209 ? var0.method8141() : var0.method8122();
+				var8 = Client.field1932 < 209 ? var0.method8141() : var0.method8122();
 				if (var8 == 0) {
 					if (var1 == 0) {
 						class82.field719[0][var2][var3] = -class8.method53(var2 + 932731 + var4, var5 + var3 + 556238) * 8;
@@ -196,7 +198,7 @@ public class class243 {
 				}
 
 				if (var8 <= 49) {
-					class82.field723[var1][var2][var3] = client.field1932 < 209 ? (short)var0.method8287() : (short)var0.method8204();
+					class82.field723[var1][var2][var3] = Client.field1932 < 209 ? (short)var0.method8287() : (short)var0.method8204();
 					class82.field718[var1][var2][var3] = (byte)((var8 - 2) / 4);
 					class179.field1597[var1][var2][var3] = (byte)(var6 + (var8 - 2) & 3);
 				} else if (var8 <= 81) {
@@ -207,7 +209,7 @@ public class class243 {
 			}
 		} else {
 			while (true) {
-				var8 = client.field1932 < 209 ? var0.method8141() : var0.method8122();
+				var8 = Client.field1932 < 209 ? var0.method8141() : var0.method8122();
 				if (var8 == 0) {
 					break;
 				}
@@ -218,7 +220,7 @@ public class class243 {
 				}
 
 				if (var8 <= 49) {
-					if (client.field1932 < 209) {
+					if (Client.field1932 < 209) {
 						var0.method8287();
 					} else {
 						var0.method8204();

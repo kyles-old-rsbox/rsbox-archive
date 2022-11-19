@@ -1,3 +1,4 @@
+import client.Client;
 import netscape.javascript.JSObject;
 
 public class class330 {
@@ -29,7 +30,7 @@ public class class330 {
 				var4 = var4 + "; Expires=" + class309.method5991(class272.method2046() + 94608000000L) + "; Max-Age=" + 94608000L;
 			}
 
-			client var5 = class133.field1257;
+			Client var5 = class133.field1257;
 			String var6 = "document.cookie=\"" + var4 + "\"";
 			JSObject.getWindow(var5).eval(var6);
 		} catch (Throwable var7) {

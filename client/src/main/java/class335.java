@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class335 extends class437 {
 	public static class348 field3867;
 	public byte field3868;
@@ -15,7 +17,7 @@ public class class335 extends class437 {
 			if (class414.field4588 < 310) {
 				int var2;
 				int var3;
-				if (client.field1722 == 1) {
+				if (Client.field1722 == 1) {
 					var2 = class32.field203 >> 7;
 					var3 = class101.field1004 >> 7;
 				} else {
@@ -129,7 +131,7 @@ public class class335 extends class437 {
 	static final void method6271(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9) {
 		class101 var11 = null;
 
-		for (class101 var12 = (class101)client.field1777.method6364(); null != var12; var12 = (class101)client.field1777.method6358()) {
+		for (class101 var12 = (class101) Client.field1777.method6364(); null != var12; var12 = (class101) Client.field1777.method6358()) {
 			if (var0 == var12.field993 && var12.field999 == var1 && var2 == var12.field994 && var3 == var12.field992) {
 				var11 = var12;
 				break;
@@ -142,8 +144,8 @@ public class class335 extends class437 {
 			var11.field992 = var3;
 			var11.field999 = var1;
 			var11.field994 = var2;
-			client.method3540(var11);
-			client.field1777.method6355(var11);
+			Client.method3540(var11);
+			Client.field1777.method6355(var11);
 		}
 
 		var11.field998 = var4;

@@ -1,3 +1,5 @@
+import client.Client;
+
 import java.util.zip.CRC32;
 
 public class class336 extends class319 {
@@ -279,7 +281,7 @@ public class class336 extends class319 {
 
 		for (int var4 = 0; var4 < var3.length; ++var4) {
 			int var5 = 15 + 128 + var4 * 32;
-			int var6 = client.method3449(var5);
+			int var6 = Client.method3449(var5);
 			int var7 = class221.field2644[var5];
 			int var9 = var1 - 334;
 			if (var9 < 0) {
@@ -288,7 +290,7 @@ public class class336 extends class319 {
 				var9 = 100;
 			}
 
-			int var10 = (client.field1801 - client.field1909) * var9 / 100 + client.field1909;
+			int var10 = (Client.field1801 - Client.field1909) * var9 / 100 + Client.field1909;
 			int var8 = var10 * var6 / 256;
 			var3[var4] = var7 * var8 >> 16;
 		}

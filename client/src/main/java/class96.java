@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class96 {
 	static class109 field962;
 	static String field958;
@@ -84,29 +86,29 @@ public class class96 {
 		class472 var6 = new class472(var1, class234.field2779);
 
 		for (int var7 = 0; var7 < var3; ++var7) {
-			class93 var8 = client.field1763[var4[var7]];
+			class93 var8 = Client.field1763[var4[var7]];
 			if (null != var8 && class291.field3364 != var8 && null != var8.field910 && var8.field910.equals(var6)) {
 				class263 var9;
 				if (var0 == 1) {
-					var9 = class185.method3435(class274.field3110, client.field1778.field1071);
+					var9 = class185.method3435(class274.field3110, Client.field1778.field1071);
 					var9.field2984.method8152(0);
 					var9.field2984.method8161(var4[var7]);
-					client.field1778.method2078(var9);
+					Client.field1778.method2078(var9);
 				} else if (var0 == 4) {
-					var9 = class185.method3435(class274.field3042, client.field1778.field1071);
+					var9 = class185.method3435(class274.field3042, Client.field1778.field1071);
 					var9.field2984.method8152(0);
 					var9.field2984.method8159(var4[var7]);
-					client.field1778.method2078(var9);
+					Client.field1778.method2078(var9);
 				} else if (var0 == 6) {
-					var9 = class185.method3435(class274.field3070, client.field1778.field1071);
+					var9 = class185.method3435(class274.field3070, Client.field1778.field1071);
 					var9.field2984.method8161(var4[var7]);
 					var9.field2984.method8152(0);
-					client.field1778.method2078(var9);
+					Client.field1778.method2078(var9);
 				} else if (var0 == 7) {
-					var9 = class185.method3435(class274.field3089, client.field1778.field1071);
+					var9 = class185.method3435(class274.field3089, Client.field1778.field1071);
 					var9.field2984.method8181(var4[var7]);
 					var9.field2984.method8104(0);
-					client.field1778.method2078(var9);
+					Client.field1778.method2078(var9);
 				}
 
 				var5 = true;

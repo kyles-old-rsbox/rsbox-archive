@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class28 {
 	static class115 field155;
 	static class448 field148;
@@ -314,9 +316,9 @@ public class class28 {
 		if (null == class75.field633 || class75.field633.length() <= 0) {
 			if (class413.field4575.method1722() != null) {
 				class75.field633 = class413.field4575.method1722();
-				client.field1891 = true;
+				Client.field1891 = true;
 			} else {
-				client.field1891 = false;
+				Client.field1891 = false;
 			}
 
 		}
@@ -355,14 +357,14 @@ public class class28 {
 	}
 
 	static int method399() {
-		if (client.field1930 != null && client.field1910 < client.field1930.size()) {
+		if (Client.field1930 != null && Client.field1910 < Client.field1930.size()) {
 			int var1 = 0;
 
-			for (int var2 = 0; var2 <= client.field1910; ++var2) {
-				var1 += ((class97)client.field1930.get(var2)).field970;
+			for (int var2 = 0; var2 <= Client.field1910; ++var2) {
+				var1 += ((class97) Client.field1930.get(var2)).field970;
 			}
 
-			return var1 * 10000 / client.field1731;
+			return var1 * 10000 / Client.field1731;
 		} else {
 			return 10000;
 		}

@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class247 implements class248 {
 	int field2882;
 	int field2883;
@@ -89,10 +91,10 @@ public class class247 implements class248 {
 			class57.method5433(var6);
 		}
 
-		client.field1806 = var3;
-		client.field1804 = true;
+		Client.field1806 = var3;
+		Client.field1804 = true;
 		class106.field1066 = var0;
-		client.field1805 = var1;
+		Client.field1805 = var1;
 		class120.field1161 = var2;
 		class136.method2438(var5);
 	}

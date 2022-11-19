@@ -7,6 +7,7 @@ dependencies {
     implementation("org.json:json:20220320")
     implementation("com.formdev:flatlaf:_")
     implementation("com.formdev:flatlaf-intellij-themes:_")
+    runtimeOnly(files("lib/gamepack.jar"))
 }
 
 tasks {

@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class41 {
 	static int[] field264;
 
@@ -20,10 +22,10 @@ public class class41 {
 
 		} else {
 			if (var7 != -1) {
-				client.field1860[var7] = true;
+				Client.field1860[var7] = true;
 			} else {
 				for (int var9 = 0; var9 < 100; ++var9) {
-					client.field1860[var9] = true;
+					Client.field1860[var9] = true;
 				}
 			}
 
@@ -33,7 +35,7 @@ public class class41 {
 	static final void method764(int var0, int var1, int var2, int var3, class473 var4, class298 var5) {
 		int var7 = var3 * var3 + var2 * var2;
 		if (var7 > 4225 && var7 < 90000) {
-			int var8 = client.field1672 & 2047;
+			int var8 = Client.field1672 & 2047;
 			int var9 = class221.field2644[var8];
 			int var10 = class221.field2645[var8];
 			int var11 = var3 * var9 + var2 * var10 >> 16;

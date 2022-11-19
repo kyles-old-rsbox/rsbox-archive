@@ -1,3 +1,5 @@
+import client.Client;
+
 import java.nio.ByteBuffer;
 
 public class class289 extends class294 {
@@ -25,48 +27,48 @@ public class class289 extends class294 {
 		int var4;
 		if (var0 == CS2Opcodes.STOCKMARKET_GETOFFERTYPE) {
 			var4 = class57.field404[--class387.field4452];
-			class57.field404[++class387.field4452 - 1] = client.field1924[var4].method6409();
+			class57.field404[++class387.field4452 - 1] = Client.field1924[var4].method6409();
 			return 1;
 		} else if (var0 == CS2Opcodes.STOCKMARKET_GETOFFERITEM) {
 			var4 = class57.field404[--class387.field4452];
-			class57.field404[++class387.field4452 - 1] = client.field1924[var4].field4254;
+			class57.field404[++class387.field4452 - 1] = Client.field1924[var4].field4254;
 			return 1;
 		} else if (var0 == CS2Opcodes.STOCKMARKET_GETOFFERPRICE) {
 			var4 = class57.field404[--class387.field4452];
-			class57.field404[++class387.field4452 - 1] = client.field1924[var4].field4253;
+			class57.field404[++class387.field4452 - 1] = Client.field1924[var4].field4253;
 			return 1;
 		} else if (var0 == CS2Opcodes.STOCKMARKET_GETOFFERCOUNT) {
 			var4 = class57.field404[--class387.field4452];
-			class57.field404[++class387.field4452 - 1] = client.field1924[var4].field4256;
+			class57.field404[++class387.field4452 - 1] = Client.field1924[var4].field4256;
 			return 1;
 		} else if (var0 == CS2Opcodes.STOCKMARKET_GETOFFERCOMPLETEDCOUNT) {
 			var4 = class57.field404[--class387.field4452];
-			class57.field404[++class387.field4452 - 1] = client.field1924[var4].field4255;
+			class57.field404[++class387.field4452 - 1] = Client.field1924[var4].field4255;
 			return 1;
 		} else if (var0 == CS2Opcodes.STOCKMARKET_GETOFFERCOMPLETEDGOLD) {
 			var4 = class57.field404[--class387.field4452];
-			class57.field404[++class387.field4452 - 1] = client.field1924[var4].field4258;
+			class57.field404[++class387.field4452 - 1] = Client.field1924[var4].field4258;
 			return 1;
 		} else {
 			int var13;
 			if (var0 == CS2Opcodes.STOCKMARKET_ISOFFEREMPTY) {
 				var4 = class57.field404[--class387.field4452];
-				var13 = client.field1924[var4].method6407();
+				var13 = Client.field1924[var4].method6407();
 				class57.field404[++class387.field4452 - 1] = var13 == 0 ? 1 : 0;
 				return 1;
 			} else if (var0 == CS2Opcodes.STOCKMARKET_ISOFFERSTABLE) {
 				var4 = class57.field404[--class387.field4452];
-				var13 = client.field1924[var4].method6407();
+				var13 = Client.field1924[var4].method6407();
 				class57.field404[++class387.field4452 - 1] = var13 == 2 ? 1 : 0;
 				return 1;
 			} else if (var0 == CS2Opcodes.STOCKMARKET_ISOFFERFINISHED) {
 				var4 = class57.field404[--class387.field4452];
-				var13 = client.field1924[var4].method6407();
+				var13 = Client.field1924[var4].method6407();
 				class57.field404[++class387.field4452 - 1] = var13 == 5 ? 1 : 0;
 				return 1;
 			} else if (var0 == CS2Opcodes.STOCKMARKET_ISOFFERADDING) {
 				var4 = class57.field404[--class387.field4452];
-				var13 = client.field1924[var4].method6407();
+				var13 = Client.field1924[var4].method6407();
 				class57.field404[++class387.field4452 - 1] = var13 == 1 ? 1 : 0;
 				return 1;
 			} else {
@@ -90,8 +92,8 @@ public class class289 extends class294 {
 					var14 = 1 == class57.field404[class387.field4452];
 					boolean var5 = class57.field404[1 + class387.field4452] == 1;
 					if (class242.field2835 != null) {
-						client.field1925.field614 = var5;
-						class242.field2835.method6309(client.field1925, var14);
+						Client.field1925.field614 = var5;
+						class242.field2835.method6309(Client.field1925, var14);
 					}
 
 					return 1;

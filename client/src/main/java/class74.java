@@ -1,3 +1,5 @@
+import client.Client;
+
 import java.util.Comparator;
 
 public class class74 implements Comparator {
@@ -77,7 +79,7 @@ public class class74 implements Comparator {
 			}
 		}
 
-		if (-1 != var0.field848 && client.field1645 >= var0.field851) {
+		if (-1 != var0.field848 && Client.field1645 >= var0.field851) {
 			if (var0.field856 < 0) {
 				var0.field856 = 0;
 			}
@@ -114,7 +116,7 @@ public class class74 implements Comparator {
 
 		if (-1 != var0.field852 && var0.field804 <= 1) {
 			var2 = class160.method2660(var0.field852);
-			if (1 == var2.field2002 && var0.field876 > 0 && var0.field857 <= client.field1645 && var0.field858 < client.field1645) {
+			if (1 == var2.field2002 && var0.field876 > 0 && var0.field857 <= Client.field1645 && var0.field858 < Client.field1645) {
 				var0.field804 = 1;
 				return;
 			}
@@ -182,11 +184,11 @@ public class class74 implements Comparator {
 			return 0;
 		} else {
 			if (this.field614) {
-				if (var1.field3806 == client.field1868) {
+				if (var1.field3806 == Client.field1868) {
 					return -1;
 				}
 
-				if (client.field1868 == var2.field3806) {
+				if (Client.field1868 == var2.field3806) {
 					return 1;
 				}
 			}

@@ -1,3 +1,5 @@
+import client.Client;
+
 public final class class66 extends class212 {
 	static class123 field538;
 	boolean field524;
@@ -124,10 +126,10 @@ public final class class66 extends class212 {
 	}
 
 	static final void method1392() {
-		for (class101 var1 = (class101)client.field1777.method6364(); var1 != null; var1 = (class101)client.field1777.method6358()) {
+		for (class101 var1 = (class101) Client.field1777.method6364(); var1 != null; var1 = (class101) Client.field1777.method6358()) {
 			if (-1 == var1.field1003) {
 				var1.field1006 = 0;
-				client.method3540(var1);
+				Client.method3540(var1);
 			} else {
 				var1.method7825();
 			}

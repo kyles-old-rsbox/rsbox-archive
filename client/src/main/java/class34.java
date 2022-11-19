@@ -1,3 +1,5 @@
+import client.Client;
+
 import java.util.Arrays;
 
 public class class34 {
@@ -94,47 +96,47 @@ public class class34 {
 
 	static void method649() {
 		int var1;
-		if (client.field1793 == 0) {
+		if (Client.field1793 == 0) {
 			class145.field1333 = new class214(4, 104, 104, class82.field719);
 
 			for (var1 = 0; var1 < 4; ++var1) {
-				client.field1884[var1] = new class200(104, 104);
+				Client.field1884[var1] = new class200(104, 104);
 			}
 
 			class309.field3678 = new class473(512, 512);
 			class75.field623 = class338.field3905;
 			class75.field622 = 5;
-			client.field1793 = 20;
-		} else if (client.field1793 == 20) {
+			Client.field1793 = 20;
+		} else if (Client.field1793 == 20) {
 			class75.field623 = class338.field4119;
 			class75.field622 = 10;
-			client.field1793 = 30;
-		} else if (client.field1793 == 30) {
-			class139.field1286 = client.method5506(0, false, true, true, false);
-			class42.field295 = client.method5506(1, false, true, true, false);
-			class174.field1564 = client.method5506(2, true, false, true, false);
-			class333.field3859 = client.method5506(3, false, true, true, false);
-			class11.field48 = client.method5506(4, false, true, true, false);
-			class58.field417 = client.method5506(5, true, true, true, false);
-			class43.field311 = client.method5506(6, true, true, true, false);
-			class252.field2922 = client.method5506(7, false, true, true, false);
-			class155.field1425 = client.method5506(8, false, true, true, false);
-			client.field1665 = client.method5506(9, false, true, true, false);
-			class243.field2846 = client.method5506(10, false, true, true, false);
-			class4.field12 = client.method5506(11, false, true, true, false);
-			class202.field2255 = client.method5506(12, false, true, true, false);
-			class136.field1275 = client.method5506(13, true, false, true, false);
-			class71.field578 = client.method5506(14, false, true, true, false);
-			class147.field1352 = client.method5506(15, false, true, true, false);
-			class371.field4369 = client.method5506(17, true, true, true, false);
-			class324.field3783 = client.method5506(18, false, true, true, false);
-			class304.field3634 = client.method5506(19, false, true, true, false);
-			class145.field1338 = client.method5506(20, false, true, true, false);
-			class255.field2944 = client.method5506(21, false, true, true, true);
+			Client.field1793 = 30;
+		} else if (Client.field1793 == 30) {
+			class139.field1286 = Client.method5506(0, false, true, true, false);
+			class42.field295 = Client.method5506(1, false, true, true, false);
+			class174.field1564 = Client.method5506(2, true, false, true, false);
+			class333.field3859 = Client.method5506(3, false, true, true, false);
+			class11.field48 = Client.method5506(4, false, true, true, false);
+			class58.field417 = Client.method5506(5, true, true, true, false);
+			class43.field311 = Client.method5506(6, true, true, true, false);
+			class252.field2922 = Client.method5506(7, false, true, true, false);
+			class155.field1425 = Client.method5506(8, false, true, true, false);
+			Client.field1665 = Client.method5506(9, false, true, true, false);
+			class243.field2846 = Client.method5506(10, false, true, true, false);
+			class4.field12 = Client.method5506(11, false, true, true, false);
+			class202.field2255 = Client.method5506(12, false, true, true, false);
+			class136.field1275 = Client.method5506(13, true, false, true, false);
+			class71.field578 = Client.method5506(14, false, true, true, false);
+			class147.field1352 = Client.method5506(15, false, true, true, false);
+			class371.field4369 = Client.method5506(17, true, true, true, false);
+			class324.field3783 = Client.method5506(18, false, true, true, false);
+			class304.field3634 = Client.method5506(19, false, true, true, false);
+			class145.field1338 = Client.method5506(20, false, true, true, false);
+			class255.field2944 = Client.method5506(21, false, true, true, true);
 			class75.field623 = class338.field3907;
 			class75.field622 = 20;
-			client.field1793 = 40;
-		} else if (40 == client.field1793) {
+			Client.field1793 = 40;
+		} else if (40 == Client.field1793) {
 			byte var37 = 0;
 			var1 = var37 + class139.field1286.method6274() * 4 / 100;
 			var1 += class42.field295.method6274() * 4 / 100;
@@ -145,7 +147,7 @@ public class class34 {
 			var1 += class43.field311.method6274() * 2 / 100;
 			var1 += class252.field2922.method6274() * 55 / 100;
 			var1 += class155.field1425.method6274() * 2 / 100;
-			var1 += client.field1665.method6274() * 2 / 100;
+			var1 += Client.field1665.method6274() * 2 / 100;
 			var1 += class243.field2846.method6274() * 2 / 100;
 			var1 += class4.field12.method6274() * 2 / 100;
 			var1 += class202.field2255.method6274() * 2 / 100;
@@ -164,27 +166,27 @@ public class class34 {
 
 				class75.field622 = 30;
 			} else {
-				client.method5128(class139.field1286, "Animations");
-				client.method5128(class42.field295, "Skeletons");
-				client.method5128(class11.field48, "Sound FX");
-				client.method5128(class58.field417, "Maps");
-				client.method5128(class43.field311, "Music Tracks");
-				client.method5128(class252.field2922, "Models");
-				client.method5128(class155.field1425, "Sprites");
-				client.method5128(class4.field12, "Music Jingles");
-				client.method5128(class71.field578, "Music Samples");
-				client.method5128(class147.field1352, "Music Patches");
-				client.method5128(class304.field3634, "World Map");
-				client.method5128(class324.field3783, "World Map Geography");
-				client.method5128(class145.field1338, "World Map Ground");
+				Client.method5128(class139.field1286, "Animations");
+				Client.method5128(class42.field295, "Skeletons");
+				Client.method5128(class11.field48, "Sound FX");
+				Client.method5128(class58.field417, "Maps");
+				Client.method5128(class43.field311, "Music Tracks");
+				Client.method5128(class252.field2922, "Models");
+				Client.method5128(class155.field1425, "Sprites");
+				Client.method5128(class4.field12, "Music Jingles");
+				Client.method5128(class71.field578, "Music Samples");
+				Client.method5128(class147.field1352, "Music Patches");
+				Client.method5128(class304.field3634, "World Map");
+				Client.method5128(class324.field3783, "World Map Geography");
+				Client.method5128(class145.field1338, "World Map Ground");
 				class179.field1602 = new class408();
 				class179.field1602.method7402(class371.field4369);
 				class75.field623 = class338.field3909;
 				class75.field622 = 30;
-				client.field1793 = 45;
+				Client.field1793 = 45;
 			}
-		} else if (45 == client.field1793) {
-			class174.method2744(22050, !client.field1636, 2);
+		} else if (45 == Client.field1793) {
+			class174.method2744(22050, !Client.field1636, 2);
 			class278 var39 = new class278();
 			var39.method5296(9, 128);
 			class91.field886 = class215.method4334(class31.field169, 0, 22050);
@@ -196,29 +198,29 @@ public class class34 {
 			class233.field2759 = new class64(22050, class49.field348);
 			class75.field623 = class338.field3910;
 			class75.field622 = 35;
-			client.field1793 = 50;
+			Client.field1793 = 50;
 			class103.field1034 = new class433(class155.field1425, class136.field1275);
-		} else if (client.field1793 == 50) {
+		} else if (Client.field1793 == 50) {
 			var1 = class442.method7918().length;
-			client.field1934 = class103.field1034.method7853(class442.method7918());
-			if (client.field1934.size() < var1) {
-				class75.field623 = class338.field3911 + client.field1934.size() * 100 / var1 + "%";
+			Client.field1934 = class103.field1034.method7853(class442.method7918());
+			if (Client.field1934.size() < var1) {
+				class75.field623 = class338.field3911 + Client.field1934.size() * 100 / var1 + "%";
 				class75.field622 = 40;
 			} else {
-				class346.field4250 = (class376)client.field1934.get(class442.field4779);
-				class353.field4289 = (class376)client.field1934.get(class442.field4769);
-				class114.field1127 = (class376)client.field1934.get(class442.field4780);
-				class197.field2120 = client.field1807.method7886();
+				class346.field4250 = (class376) Client.field1934.get(class442.field4779);
+				class353.field4289 = (class376) Client.field1934.get(class442.field4769);
+				class114.field1127 = (class376) Client.field1934.get(class442.field4780);
+				class197.field2120 = Client.field1807.method7886();
 				class75.field623 = class338.field4011;
 				class75.field622 = 40;
-				client.field1793 = 60;
+				Client.field1793 = 60;
 			}
 		} else {
 			class336 var2;
 			class336 var3;
 			int var4;
 			int var40;
-			if (client.field1793 == 60) {
+			if (Client.field1793 == 60) {
 				var2 = class243.field2846;
 				var3 = class155.field1425;
 				var4 = 0;
@@ -250,10 +252,10 @@ public class class34 {
 					class75.field623 = class338.field4070;
 					class75.field622 = 50;
 					class9.method64(5);
-					client.field1793 = 70;
+					Client.field1793 = 70;
 				}
-			} else if (client.field1793 != 70) {
-				if (80 == client.field1793) {
+			} else if (Client.field1793 != 70) {
+				if (80 == Client.field1793) {
 					var1 = 0;
 					if (class122.field1185 == null) {
 						class122.field1185 = class389.method7014(class155.field1425, class179.field1602.field4534, 0);
@@ -334,19 +336,19 @@ public class class34 {
 						class91.field883[0].method8754(var34 + var40, var35 + var40, var40 + var4);
 						class75.field623 = class338.field4004;
 						class75.field622 = 70;
-						client.field1793 = 90;
+						Client.field1793 = 90;
 					}
-				} else if (90 == client.field1793) {
-					if (!client.field1665.method6092()) {
+				} else if (90 == Client.field1793) {
+					if (!Client.field1665.method6092()) {
 						class75.field623 = class338.field4012 + "0%";
 						class75.field622 = 90;
 					} else {
-						class25.field123 = new class215(client.field1665, class155.field1425, 20, class413.field4575.method1717(), client.field1636 ? 64 : 128);
+						class25.field123 = new class215(Client.field1665, class155.field1425, 20, class413.field4575.method1717(), Client.field1636 ? 64 : 128);
 						class221.method4393(class25.field123);
 						class221.method4394(class413.field4575.method1717());
-						client.field1793 = 100;
+						Client.field1793 = 100;
 					}
-				} else if (client.field1793 == 100) {
+				} else if (Client.field1793 == 100) {
 					var1 = class25.field123.method4306();
 					if (var1 < 100) {
 						class75.field623 = class338.field4012 + var1 + "%";
@@ -354,15 +356,15 @@ public class class34 {
 					} else {
 						class75.field623 = class338.field4172;
 						class75.field622 = 90;
-						client.field1793 = 110;
+						Client.field1793 = 110;
 					}
-				} else if (110 == client.field1793) {
+				} else if (110 == Client.field1793) {
 					class74.field610 = new class84();
 					class31.field169.method2731(class74.field610, 10);
 					class75.field623 = class338.field3921;
 					class75.field622 = 92;
-					client.field1793 = 120;
-				} else if (client.field1793 == 120) {
+					Client.field1793 = 120;
+				} else if (Client.field1793 == 120) {
 					if (!class243.field2846.method6108("huffman", "")) {
 						class75.field623 = class338.field4019 + 0 + "%";
 						class75.field622 = 94;
@@ -371,9 +373,9 @@ public class class34 {
 						class307.field3673 = var38;
 						class75.field623 = class338.field3923;
 						class75.field622 = 94;
-						client.field1793 = 130;
+						Client.field1793 = 130;
 					}
-				} else if (client.field1793 == 130) {
+				} else if (Client.field1793 == 130) {
 					if (!class333.field3859.method6092()) {
 						class75.field623 = class338.field4021 + class333.field3859.method6303() * 4 / 5 + "%";
 						class75.field622 = 96;
@@ -386,22 +388,22 @@ public class class34 {
 					} else {
 						class75.field623 = class338.field3938;
 						class75.field622 = 98;
-						client.field1793 = 140;
+						Client.field1793 = 140;
 					}
-				} else if (140 == client.field1793) {
+				} else if (140 == Client.field1793) {
 					class75.field622 = 100;
 					if (!class304.field3634.method6110(class242.field2838.field2837)) {
 						class75.field623 = class338.field3926 + class304.field3634.method6111(class242.field2838.field2837) / 10 + "%";
 					} else {
 						if (class4.field10 == null) {
 							class4.field10 = new class420();
-							class4.field10.method7741(class304.field3634, class324.field3783, class145.field1338, class114.field1127, client.field1934, class91.field883);
+							class4.field10.method7741(class304.field3634, class324.field3783, class145.field1338, class114.field1127, Client.field1934, class91.field883);
 						}
 
 						class75.field623 = class338.field3927;
-						client.field1793 = 150;
+						Client.field1793 = 150;
 					}
-				} else if (150 == client.field1793) {
+				} else if (150 == Client.field1793) {
 					class9.method64(10);
 				}
 			} else if (!class174.field1564.method6092()) {
@@ -420,7 +422,7 @@ public class class34 {
 				class182.field1626 = class182.field1622.method6099(3);
 				var3 = class174.field1564;
 				class336 var32 = class252.field2922;
-				boolean var31 = client.field1636;
+				boolean var31 = Client.field1636;
 				class195.field2053 = var3;
 				class195.field2054 = var32;
 				class195.field2082 = var31;
@@ -432,7 +434,7 @@ public class class34 {
 				class187.field1978 = var8;
 				class336 var9 = class174.field1564;
 				class336 var10 = class252.field2922;
-				boolean var11 = client.field1635;
+				boolean var11 = Client.field1635;
 				class376 var12 = class346.field4250;
 				class298.field3438 = var9;
 				class198.field2125 = var10;
@@ -496,7 +498,7 @@ public class class34 {
 
 				class75.field623 = class338.field3916;
 				class75.field622 = 60;
-				client.field1793 = 80;
+				Client.field1793 = 80;
 			}
 		}
 	}
@@ -630,7 +632,7 @@ public class class34 {
 					class190.method3532(var6);
 					return 1;
 				} else if (var0 == CS2Opcodes.CLAN_LEAVECHAT) {
-					client.method2589();
+					Client.method2589();
 					return 1;
 				} else if (var0 == CS2Opcodes.IGNORE_COUNT) {
 					if (!class217.field2588.method1085()) {

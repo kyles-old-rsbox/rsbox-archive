@@ -1,3 +1,5 @@
+import client.Client;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -58,7 +60,7 @@ public class class110 {
 		class63 var6 = var5.method1434(var0, var1, var2, var3);
 		field1089.method7781(var6, (long)var6.field496);
 		field1088.method6599(var6);
-		client.field1843 = client.field1878;
+		Client.field1843 = Client.field1878;
 	}
 
 	static class63 method6313(int var0, int var1) {

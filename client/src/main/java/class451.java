@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class451 implements class360 {
 	public static final class451 field4842;
 	public static final class451 field4848;
@@ -103,6 +105,6 @@ public class class451 implements class360 {
 	}
 
 	static boolean method7972() {
-		return 0 != (client.field1768 & 8);
+		return 0 != (Client.field1768 & 8);
 	}
 }

@@ -1,3 +1,5 @@
+import client.Client;
+
 public abstract class class319 {
 	static class484 field3745;
 	static int field3744;
@@ -472,9 +474,9 @@ public abstract class class319 {
 	}
 
 	static final void method6181(int var0, int var1, int var2, int var3) {
-		for (int var5 = 0; var5 < client.field1858; ++var5) {
-			if (client.field1710[var5] + client.field1863[var5] > var0 && client.field1863[var5] < var2 + var0 && client.field1864[var5] + client.field1658[var5] > var1 && client.field1864[var5] < var3 + var1) {
-				client.field1860[var5] = true;
+		for (int var5 = 0; var5 < Client.field1858; ++var5) {
+			if (Client.field1710[var5] + Client.field1863[var5] > var0 && Client.field1863[var5] < var2 + var0 && Client.field1864[var5] + Client.field1658[var5] > var1 && Client.field1864[var5] < var3 + var1) {
+				Client.field1860[var5] = true;
 			}
 		}
 

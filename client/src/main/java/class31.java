@@ -1,3 +1,4 @@
+import client.Client;
 import io.rsbox.client.ClientLauncher;
 
 import java.applet.Applet;
@@ -760,14 +761,14 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 		}
 
 		if (var0.equalsIgnoreCase("renderself")) {
-			client.field1739 = !client.field1739;
+			Client.field1739 = !Client.field1739;
 		}
 
 		if (var0.equalsIgnoreCase("mouseovertext")) {
-			client.field1797 = !client.field1797;
+			Client.field1797 = !Client.field1797;
 		}
 
-		if (client.field1750 >= 2) {
+		if (Client.field1750 >= 2) {
 			if (var0.equalsIgnoreCase("errortest")) {
 				throw new RuntimeException();
 			}
@@ -789,30 +790,30 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 			}
 
 			if (var0.equalsIgnoreCase("clientdrop")) {
-				client.method4611();
+				Client.method4611();
 			}
 		}
 
-		class263 var2 = class185.method3435(class274.field3063, client.field1778.field1071);
+		class263 var2 = class185.method3435(class274.field3063, Client.field1778.field1071);
 		var2.field2984.method8104(var0.length() + 1);
 		var2.field2984.method8111(var0);
-		client.field1778.method2078(var2);
+		Client.field1778.method2078(var2);
 	}
 
 	static final void method598() {
-		client.field1830 = 0;
+		Client.field1830 = 0;
 		int var1 = class36.field241 + (class291.field3364.field827 >> 7);
 		int var2 = class169.field1536 + (class291.field3364.field802 >> 7);
 		if (var1 >= 3053 && var1 <= 3156 && var2 >= 3056 && var2 <= 3136) {
-			client.field1830 = 1;
+			Client.field1830 = 1;
 		}
 
 		if (var1 >= 3072 && var1 <= 3118 && var2 >= 9492 && var2 <= 9535) {
-			client.field1830 = 1;
+			Client.field1830 = 1;
 		}
 
-		if (client.field1830 == 1 && var1 >= 3139 && var1 <= 3199 && var2 >= 3008 && var2 <= 3062) {
-			client.field1830 = 0;
+		if (Client.field1830 == 1 && var1 >= 3139 && var1 <= 3199 && var2 >= 3008 && var2 <= 3062) {
+			Client.field1830 = 0;
 		}
 
 	}

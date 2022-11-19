@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class445 implements class360 {
 	public static final class445 field4787;
 	public static final class445 field4791;
@@ -199,8 +201,8 @@ public class class445 implements class360 {
 
 				return 1;
 			} else if (var0 == CS2Opcodes.CC_RESUME_PAUSEBUTTON) {
-				client.method7985(var4.field3517, var4.field3484);
-				client.field1641 = var4;
+				Client.method7985(var4.field3517, var4.field3484);
+				Client.field1641 = var4;
 				class136.method2438(var4);
 				return 1;
 			} else if (var0 == CS2Opcodes.CC_SETCLICKMASK) {
@@ -239,7 +241,7 @@ public class class445 implements class360 {
 					class136.method2438(var4);
 					return 1;
 				} else if (var0 == CS2Opcodes.CC_SETCRM_URL) {
-					var4.method5863(class57.field405[--class126.field1220], class28.field155, client.method2417());
+					var4.method5863(class57.field405[--class126.field1220], class28.field155, Client.method2417());
 					return 1;
 				} else if (var0 == CS2Opcodes.CC_SETCRM_TEXTFONT) {
 					class387.field4452 -= 2;
@@ -313,11 +315,11 @@ public class class445 implements class360 {
 						class297 var10;
 						if (var0 == 1140) {
 							var6 = class57.field404[--class387.field4452] == 1;
-							client.field1877.method3521();
+							Client.field1877.method3521();
 							var10 = var4.method5877();
 							if (null != var10 && var10.method5560(var6)) {
 								if (var6) {
-									client.field1877.method3515(var4);
+									Client.field1877.method3515(var4);
 								}
 
 								class136.method2438(var4);
@@ -326,8 +328,8 @@ public class class445 implements class360 {
 							return 1;
 						} else if (var0 == 1141) {
 							var6 = class57.field404[--class387.field4452] == 1;
-							if (!var6 && client.field1877.method3516() == var4) {
-								client.field1877.method3521();
+							if (!var6 && Client.field1877.method3516() == var4) {
+								Client.field1877.method3521();
 								class136.method2438(var4);
 							}
 

@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class141 implements class360 {
 	public static class292 field1300;
 	public static final class141 field1301;
@@ -180,7 +182,7 @@ public class class141 implements class360 {
 	static int method2478(int var0, class78 var1, boolean var2) {
 		if (var0 == CS2Opcodes.CLIENTVARP_MOUSEBUTTONMODE) {
 			boolean var4 = class57.field404[--class387.field4452] == 1;
-			client.method197(var4);
+			Client.method197(var4);
 			return 1;
 		} else {
 			return 2;

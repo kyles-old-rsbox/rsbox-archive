@@ -1,3 +1,4 @@
+import client.Client;
 import io.rsbox.client.ClientLauncher;
 
 import java.math.BigInteger;
@@ -22,11 +23,11 @@ public class class62 {
 		}
 
 		int var4 = var0.method8014(2);
-		class93 var5 = client.field1763[var1];
+		class93 var5 = Client.field1763[var1];
 		if (var4 == 0) {
 			if (var3) {
 				var5.field919 = false;
-			} else if (var1 == client.field1764) {
+			} else if (var1 == Client.field1764) {
 				throw new RuntimeException();
 			} else {
 				class102.field1016[var1] = (class36.field241 + var5.field861[0] >> 13 << 14) + (var5.field914 << 28) + (class169.field1536 + var5.field873[0] >> 13);
@@ -37,7 +38,7 @@ public class class62 {
 				}
 
 				class102.field1018[var1] = var5.field835;
-				client.field1763[var1] = null;
+				Client.field1763[var1] = null;
 				if (var0.method8014(1) != 0) {
 					class399.method7221(var0, var1);
 				}
@@ -73,7 +74,7 @@ public class class62 {
 					++var8;
 				}
 
-				if (var1 != client.field1764 || var5.field827 >= 1536 && var5.field802 >= 1536 && var5.field827 < 11776 && var5.field802 < 11776) {
+				if (var1 != Client.field1764 || var5.field827 >= 1536 && var5.field802 >= 1536 && var5.field827 < 11776 && var5.field802 < 11776) {
 					if (var3) {
 						var5.field919 = true;
 						var5.field920 = var7;
@@ -137,7 +138,7 @@ public class class62 {
 					var8 += 2;
 				}
 
-				if (client.field1764 == var1 && (var5.field827 < 1536 || var5.field802 < 1536 || var5.field827 >= 11776 || var5.field802 >= 11776)) {
+				if (Client.field1764 == var1 && (var5.field827 < 1536 || var5.field802 < 1536 || var5.field827 >= 11776 || var5.field802 >= 11776)) {
 					var5.method1919(var7, var8);
 					var5.field919 = false;
 				} else if (var3) {
@@ -170,7 +171,7 @@ public class class62 {
 
 					var11 = var5.field861[0] + var9;
 					var12 = var5.field873[0] + var10;
-					if (client.field1764 != var1 || var5.field827 >= 1536 && var5.field802 >= 1536 && var5.field827 < 11776 && var5.field802 < 11776) {
+					if (Client.field1764 != var1 || var5.field827 >= 1536 && var5.field802 >= 1536 && var5.field827 < 11776 && var5.field802 < 11776) {
 						if (var3) {
 							var5.field919 = true;
 							var5.field920 = var11;
@@ -185,7 +186,7 @@ public class class62 {
 					}
 
 					var5.field914 = (byte)(var5.field914 + var8 & 3);
-					if (var1 == client.field1764) {
+					if (var1 == Client.field1764) {
 						class55.field396 = var5.field914;
 					}
 
@@ -196,7 +197,7 @@ public class class62 {
 					var10 = var7 & 16383;
 					var11 = (class36.field241 + var5.field861[0] + var9 & 16383) - class36.field241;
 					var12 = (var5.field873[0] + class169.field1536 + var10 & 16383) - class169.field1536;
-					if (var1 != client.field1764 || var5.field827 >= 1536 && var5.field802 >= 1536 && var5.field827 < 11776 && var5.field802 < 11776) {
+					if (var1 != Client.field1764 || var5.field827 >= 1536 && var5.field802 >= 1536 && var5.field827 < 11776 && var5.field802 < 11776) {
 						if (var3) {
 							var5.field919 = true;
 							var5.field920 = var11;
@@ -211,7 +212,7 @@ public class class62 {
 					}
 
 					var5.field914 = (byte)(var8 + var5.field914 & 3);
-					if (var1 == client.field1764) {
+					if (var1 == Client.field1764) {
 						class55.field396 = var5.field914;
 					}
 

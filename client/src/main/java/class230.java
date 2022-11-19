@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class230 extends class427 {
 	class216 field2747;
 	int field2740;
@@ -60,16 +62,16 @@ public class class230 extends class427 {
 			var9 = var4 * var6 - var5 * var1 >> 16;
 			var1 = var6 * var1 + var5 * var4 >> 16;
 			if (var1 >= 50) {
-				client.field1809 = var0 * client.field1919 / var1 + client.field1917 / 2;
-				client.field1747 = client.field1919 * var9 / var1 + client.field1678 / 2;
+				Client.field1809 = var0 * Client.field1919 / var1 + Client.field1917 / 2;
+				Client.field1747 = Client.field1919 * var9 / var1 + Client.field1678 / 2;
 			} else {
-				client.field1809 = -1;
-				client.field1747 = -1;
+				Client.field1809 = -1;
+				Client.field1747 = -1;
 			}
 
 		} else {
-			client.field1809 = -1;
-			client.field1747 = -1;
+			Client.field1809 = -1;
+			Client.field1747 = -1;
 		}
 	}
 }

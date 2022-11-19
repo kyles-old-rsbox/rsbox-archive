@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class332 {
 	static final class332 field3833;
 	static final class332 field3834;
@@ -20,7 +22,7 @@ public class class332 {
 
 	static int method6264(int var0, class78 var1, boolean var2) {
 		if (var0 == CS2Opcodes.ISMENUOPEN) {
-			class57.field404[++class387.field4452 - 1] = client.method5007() ? 1 : 0;
+			class57.field404[++class387.field4452 - 1] = Client.method5007() ? 1 : 0;
 			return 1;
 		} else {
 			return 2;

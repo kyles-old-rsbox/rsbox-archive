@@ -1,3 +1,5 @@
+import client.Client;
+
 import java.util.Locale;
 
 @class356
@@ -105,7 +107,7 @@ public class class353 implements class360 {
 	}
 
 	static void method6566() {
-		if (client.field1739) {
+		if (Client.field1739) {
 			class17.method200(class291.field3364, false);
 		}
 

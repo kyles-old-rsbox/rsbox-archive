@@ -1,3 +1,5 @@
+import client.Client;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -184,7 +186,7 @@ public class class420 {
 	public void method7742(int var1, int var2, boolean var3, boolean var4) {
 		long var6 = class272.method2046();
 		this.method7664(var1, var2, var4, var6);
-		if (!this.method7734() && (var4 || var3) && !client.method5842()) {
+		if (!this.method7734() && (var4 || var3) && !Client.method5842()) {
 			if (var4) {
 				this.field4638 = var1;
 				this.field4624 = var2;
@@ -215,7 +217,7 @@ public class class420 {
 			int var7 = (int)((float)this.field4622 - ((float)(var2 - this.field4629) - (float)this.method7612() * this.field4650 / 2.0F) / this.field4650);
 			this.field4654 = this.field4616.method5100(var6 + this.field4616.method5124() * 64, var7 + this.field4616.method5079() * 64);
 			if (this.field4654 != null && var3) {
-				class205 var8 = client.field1876;
+				class205 var8 = Client.field1876;
 				if (class114.method2218() && var8.method3895(82) && var8.method3895(81)) {
 					class136.method2439(this.field4654.field3376, this.field4654.field3375, this.field4654.field3374, false);
 				} else {
@@ -229,9 +231,9 @@ public class class420 {
 					}
 
 					if (var10) {
-						class263 var13 = class185.method3435(class274.field3081, client.field1778.field1071);
+						class263 var13 = class185.method3435(class274.field3081, Client.field1778.field1071);
 						var13.field2984.method8241(this.field4654.method5522());
-						client.field1778.method2078(var13);
+						Client.field1778.method2078(var13);
 						this.field4640 = 0L;
 					}
 				}
@@ -409,7 +411,7 @@ public class class420 {
 			this.method7662(var1, var2, var3, var4, var8);
 		} else {
 			if (!this.field4618.method4900()) {
-				this.field4618.method4892(this.field4609, this.field4616.method5054(), client.field1635);
+				this.field4618.method4892(this.field4609, this.field4616.method5054(), Client.field1635);
 				if (!this.field4618.method4900()) {
 					return;
 				}
@@ -429,7 +431,7 @@ public class class420 {
 
 			int var9 = (int)Math.ceil((double)((float)var3 / this.field4650));
 			int var10 = (int)Math.ceil((double)((float)var4 / this.field4650));
-			class239.field2817 = client.field1932 >= 209;
+			class239.field2817 = Client.field1932 >= 209;
 			this.field4618.method4894(this.field4634 - var9 / 2, this.field4622 - var10 / 2, var9 / 2 + this.field4634, var10 / 2 + this.field4622, var1, var2, var1 + var3, var4 + var2);
 			if (!this.field4649) {
 				boolean var11 = false;
@@ -460,7 +462,7 @@ public class class420 {
 		} else if (var1 == this.field4656.field4959 && var2 == this.field4656.field4951) {
 			if (this.field4618.field2875 != this.field4651) {
 				return true;
-			} else if (this.field4660 != client.field1936) {
+			} else if (this.field4660 != Client.field1936) {
 				return true;
 			} else if (var3 <= 0 && var4 <= 0) {
 				return var1 + var3 < var5 || var4 + var2 < var6;
@@ -495,7 +497,7 @@ public class class420 {
 				this.field4620 = this.method7609() - var6 / 2 - var8;
 				this.field4651 = this.field4618.field2875;
 				class335.field3867.method6429(this.field4658, this.field4620, this.field4656, (float)this.field4651 / var11);
-				this.field4660 = client.field1936;
+				this.field4660 = Client.field1936;
 				var14 = var1 - (var8 + var12 - this.field4658) * this.field4618.field2875;
 				var15 = var2 - this.field4618.field2875 * (var8 - (var13 - this.field4620));
 			}
@@ -513,7 +515,7 @@ public class class420 {
 	public void method7596(int var1, int var2, int var3, int var4) {
 		if (this.field4619.method7874()) {
 			if (!this.field4618.method4900()) {
-				this.field4618.method4892(this.field4609, this.field4616.method5054(), client.field1635);
+				this.field4618.method4892(this.field4609, this.field4616.method5054(), Client.field1635);
 				if (!this.field4618.method4900()) {
 					return;
 				}
@@ -766,7 +768,7 @@ public class class420 {
 
 					for (int var15 = this.field4636.length - 1; var15 >= 0; --var15) {
 						if (var13.field1476[var15] != null) {
-							client.method351(var13.field1476[var15], var13.field1477, this.field4636[var15], var12.method5024(), var12.field2909.method5522(), var12.field2915.method5522());
+							Client.method351(var13.field1476[var15], var13.field1477, this.field4636[var15], var12.method5024(), var12.field2909.method5522(), var12.field2915.method5522());
 							var14 = true;
 						}
 					}

@@ -1,18 +1,20 @@
+import client.Client;
+
 public abstract class class140 extends class427 {
 	class140() {
 	}
 
 	static String method2473(String var0, boolean var1) {
 		String var3 = var1 ? "https://" : "http://";
-		if (1 == client.field1911) {
+		if (1 == Client.field1911) {
 			var0 = var0 + "-wtrc";
-		} else if (2 == client.field1911) {
+		} else if (2 == Client.field1911) {
 			var0 = var0 + "-wtqa";
-		} else if (3 == client.field1911) {
+		} else if (3 == Client.field1911) {
 			var0 = var0 + "-wtwip";
-		} else if (client.field1911 == 5) {
+		} else if (Client.field1911 == 5) {
 			var0 = var0 + "-wti";
-		} else if (client.field1911 == 4) {
+		} else if (Client.field1911 == 4) {
 			var0 = "local";
 		}
 

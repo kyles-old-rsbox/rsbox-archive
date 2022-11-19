@@ -19,6 +19,7 @@ package io.rsbox.server.cache
 
 import io.guthix.js5.Js5Cache
 import io.guthix.js5.container.Js5Container
+import io.guthix.js5.container.XTEA_ZERO_KEY
 import io.guthix.js5.container.disk.Js5DiskStore
 import org.tinylog.kotlin.Logger
 import java.io.File
@@ -37,6 +38,17 @@ class GameCache {
 
         Logger.info("Successfully loaded ${cache.archiveCount} game cache archives.")
     }
+
+    fun close() {
+        filestore.close()
+        cache.close()
+    }
+
+    fun readArchive(archive: Int) = cache.readArchive(archive)
+
+    fun readGroup(archive: Int, group: Int, xteaKeys: IntArray = XTEA_ZERO_KEY) = readArchive(archive).readGroup(group, xteaKeys)
+
+    fun readContainer(archive: Int, group: Int) = cache.readArchive(archive).readGroup(group).mapValues { it.value.data.retain() }
 
     companion object {
         private val CACHE_DIR = File("data/cache/")

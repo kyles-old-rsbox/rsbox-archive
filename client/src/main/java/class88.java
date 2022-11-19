@@ -1,3 +1,5 @@
+import client.Client;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InvalidClassException;
@@ -241,7 +243,7 @@ public class class88 implements class360 {
 					return 1;
 				} else if (var0 != CS2Opcodes._6511) {
 					if (var0 == CS2Opcodes.SETFOLLOWEROPSLOWPRIORITY) {
-						client.field1794 = class57.field404[--class387.field4452] == 1;
+						Client.field1794 = class57.field404[--class387.field4452] == 1;
 						return 1;
 					} else {
 						int var9;
@@ -295,10 +297,10 @@ public class class88 implements class360 {
 
 							return 1;
 						} else if (var0 == CS2Opcodes.ON_MOBILE) {
-							class57.field404[++class387.field4452 - 1] = client.field1640 ? 1 : 0;
+							class57.field404[++class387.field4452 - 1] = Client.field1640 ? 1 : 0;
 							return 1;
 						} else if (var0 == CS2Opcodes.CLIENTTYPE) {
-							class57.field404[++class387.field4452 - 1] = client.field1704;
+							class57.field404[++class387.field4452 - 1] = Client.field1704;
 							return 1;
 						} else if (var0 == CS2Opcodes._6520) {
 							return 1;
@@ -322,7 +324,7 @@ public class class88 implements class360 {
 							class57.field404[++class387.field4452 - 1] = 1;
 							return 1;
 						} else if (var0 == CS2Opcodes.PLATFORMTYPE) {
-							class57.field404[++class387.field4452 - 1] = client.field1716;
+							class57.field404[++class387.field4452 - 1] = Client.field1716;
 							return 1;
 						} else {
 							return 2;

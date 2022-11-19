@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class405 {
 	float[] field4520;
 	int field4519;
@@ -33,19 +35,19 @@ public class class405 {
 		class89 var4 = new class89();
 		var4.field796 = var1;
 		var4.field797 = var2;
-		client.field1810.method7857(var4, (long)var0);
+		Client.field1810.method7857(var4, (long)var0);
 		class82.method1699(var1);
 		class300 var5 = class282.method5426(var0);
 		class136.method2438(var5);
-		if (null != client.field1641) {
-			class136.method2438(client.field1641);
-			client.field1641 = null;
+		if (null != Client.field1641) {
+			class136.method2438(Client.field1641);
+			Client.field1641 = null;
 		}
 
 		class26.method349(class300.field3593[var0 >> 16], var5, false);
 		class134.method2421(var1);
-		if (-1 != client.field1893) {
-			class217.method4361(client.field1893, 1);
+		if (-1 != Client.field1893) {
+			class217.method4361(Client.field1893, 1);
 		}
 
 		return var4;

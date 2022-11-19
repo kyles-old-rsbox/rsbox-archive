@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class331 {
 	static {
 		int var0 = 0;
@@ -24,7 +26,7 @@ public class class331 {
 
 	static final void method6260(int var0, int var1, int var2, int var3, int var4, int var5, int var6) {
 		if (var2 >= 1 && var3 >= 1 && var2 <= 102 && var3 <= 102) {
-			if (client.field1636 && var0 != class55.field396) {
+			if (Client.field1636 && var0 != class55.field396) {
 				return;
 			}
 
@@ -59,7 +61,7 @@ public class class331 {
 					class145.field1333.method4232(var0, var2, var3);
 					var14 = class89.method1866(var40);
 					if (var14.field2070 != 0) {
-						client.field1884[var0].method3759(var2, var3, var41, var42, var14.field2071);
+						Client.field1884[var0].method3759(var2, var3, var41, var42, var14.field2071);
 					}
 				}
 
@@ -75,7 +77,7 @@ public class class331 {
 					}
 
 					if (var14.field2070 != 0) {
-						client.field1884[var0].method3741(var2, var3, var14.field2100, var14.field2069, var42, var14.field2071);
+						Client.field1884[var0].method3741(var2, var3, var14.field2100, var14.field2069, var42, var14.field2071);
 					}
 				}
 
@@ -83,7 +85,7 @@ public class class331 {
 					class145.field1333.method4142(var0, var2, var3);
 					var14 = class89.method1866(var40);
 					if (var14.field2070 == 1) {
-						client.field1884[var0].method3743(var2, var3);
+						Client.field1884[var0].method3743(var2, var3);
 					}
 				}
 			}
@@ -95,7 +97,7 @@ public class class331 {
 				}
 
 				class214 var43 = class145.field1333;
-				class200 var15 = client.field1884[var0];
+				class200 var15 = Client.field1884[var0];
 				class195 var16 = class89.method1866(var4);
 				int var17;
 				int var18;

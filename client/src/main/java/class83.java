@@ -1,3 +1,5 @@
+import client.Client;
+
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map.Entry;
@@ -396,7 +398,7 @@ public class class83 {
 			var9 = 100;
 		}
 
-		int var10 = client.field1909 + var9 * (client.field1801 - client.field1909) / 100;
+		int var10 = Client.field1909 + var9 * (Client.field1801 - Client.field1909) / 100;
 		int var8 = var5 * var10 / 256;
 		var9 = 2048 - var3 & 2047;
 		var10 = 2048 - var4 & 2047;
@@ -422,7 +424,7 @@ public class class83 {
 			var11 = var16;
 		}
 
-		if (client.field1900) {
+		if (Client.field1900) {
 			class226.field2706 = var0 - var11;
 			class94.field938 = var1 - var12;
 			class302.field3620 = var2 - var13;
@@ -436,7 +438,7 @@ public class class83 {
 			class237.field2807 = var4;
 		}
 
-		if (1 == client.field1722 && client.field1750 >= 2 && 0 == client.field1645 % 50 && (class291.field3364.field827 >> 7 != class32.field203 >> 7 || class101.field1004 >> 7 != class291.field3364.field802 >> 7)) {
+		if (1 == Client.field1722 && Client.field1750 >= 2 && 0 == Client.field1645 % 50 && (class291.field3364.field827 >> 7 != class32.field203 >> 7 || class101.field1004 >> 7 != class291.field3364.field802 >> 7)) {
 			var14 = class291.field3364.field914;
 			var15 = (class32.field203 >> 7) + class36.field241;
 			var16 = class169.field1536 + (class101.field1004 >> 7);
@@ -454,7 +456,7 @@ public class class83 {
 						method1761(var4.field3602, var1);
 					}
 
-					class89 var5 = (class89)client.field1810.method7855((long)var4.field3517);
+					class89 var5 = (class89) Client.field1810.method7855((long)var4.field3517);
 					if (null != var5) {
 						class217.method4361(var5.field796, var1);
 					}

@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class236 implements class248 {
 	int field2787;
 	int field2788;
@@ -89,8 +91,8 @@ public class class236 implements class248 {
 	}
 
 	static final void method4618(boolean var0, class453 var1) {
-		client.field1769 = 0;
-		client.field1693 = 0;
+		Client.field1769 = 0;
+		Client.field1693 = 0;
 		class133.method2411();
 
 		int var3;
@@ -104,7 +106,7 @@ public class class236 implements class248 {
 		while (true) {
 			var3 = class227.field2714 ? 16 : 15;
 			var4 = 1 << var3;
-			if (var1.method8044(client.field1778.field1075) < var3 + 12) {
+			if (var1.method8044(Client.field1778.field1075) < var3 + 12) {
 				break;
 			}
 
@@ -114,18 +116,18 @@ public class class236 implements class248 {
 			}
 
 			boolean var6 = false;
-			if (null == client.field1902[var15]) {
-				client.field1902[var15] = new class81();
+			if (null == Client.field1902[var15]) {
+				Client.field1902[var15] = new class81();
 				var6 = true;
 			}
 
-			class81 var16 = client.field1902[var15];
-			client.field1692[++client.field1691 - 1] = var15;
-			var16.field847 = client.field1645;
+			class81 var16 = Client.field1902[var15];
+			Client.field1692[++Client.field1691 - 1] = var15;
+			var16.field847 = Client.field1645;
 			if (class227.field2714) {
 				var11 = var1.method8014(1);
 				if (var11 == 1) {
-					client.field1694[++client.field1693 - 1] = var15;
+					Client.field1694[++Client.field1693 - 1] = var15;
 				}
 
 				boolean var12 = var1.method8014(1) == 1;
@@ -147,7 +149,7 @@ public class class236 implements class248 {
 					}
 				}
 
-				var13 = client.field1774[var1.method8014(3)];
+				var13 = Client.field1774[var1.method8014(3)];
 				if (var6) {
 					var16.field860 = var16.field826 = var13;
 				}
@@ -190,14 +192,14 @@ public class class236 implements class248 {
 				}
 
 				var8 = var1.method8014(1);
-				var11 = client.field1774[var1.method8014(3)];
+				var11 = Client.field1774[var1.method8014(3)];
 				if (var6) {
 					var16.field860 = var16.field826 = var11;
 				}
 
 				var18 = var1.method8014(1);
 				if (var18 == 1) {
-					client.field1694[++client.field1693 - 1] = var15;
+					Client.field1694[++Client.field1693 - 1] = var15;
 				}
 
 				boolean var19 = var1.method8014(1) == 1;
@@ -232,9 +234,9 @@ public class class236 implements class248 {
 
 		var1.method8010();
 
-		for (var3 = 0; var3 < client.field1693; ++var3) {
-			var4 = client.field1694[var3];
-			class81 var5 = client.field1902[var4];
+		for (var3 = 0; var3 < Client.field1693; ++var3) {
+			var4 = Client.field1694[var3];
+			class81 var5 = Client.field1902[var4];
 			int var17 = var1.method8141();
 			int var7;
 			if (0 != (var17 & 32)) {
@@ -246,10 +248,10 @@ public class class236 implements class248 {
 				var5.field848 = var1.method8162();
 				var7 = var1.method8126();
 				var5.field824 = var7 >> 16;
-				var5.field851 = client.field1645 + (var7 & 65535);
+				var5.field851 = Client.field1645 + (var7 & 65535);
 				var5.field856 = 0;
 				var5.field807 = 0;
-				if (var5.field851 > client.field1645) {
+				if (var5.field851 > Client.field1645) {
 					var5.field856 = -1;
 				}
 
@@ -278,7 +280,7 @@ public class class236 implements class248 {
 						}
 
 						var13 = var1.method8207();
-						var5.method1877(var9, var11, var10, var18, client.field1645, var13);
+						var5.method1877(var9, var11, var10, var18, Client.field1645, var13);
 					}
 				}
 
@@ -291,7 +293,7 @@ public class class236 implements class248 {
 							var18 = var1.method8207();
 							var13 = var1.method8341();
 							int var14 = var11 > 0 ? var1.method8153() : var13;
-							var5.method1867(var10, client.field1645, var11, var18, var13, var14);
+							var5.method1867(var10, Client.field1645, var11, var18, var13, var14);
 						} else {
 							var5.method1872(var10);
 						}
@@ -357,8 +359,8 @@ public class class236 implements class248 {
 				var5.field855 = var1.method8187();
 				var5.field854 = var1.method8335();
 				var5.field853 = var1.method8287();
-				var5.field857 = var1.method8122() + client.field1645;
-				var5.field858 = var1.method8122() + client.field1645;
+				var5.field857 = var1.method8122() + Client.field1645;
+				var5.field858 = var1.method8122() + Client.field1645;
 				var5.field859 = var1.method8164();
 				var5.field871 = 1;
 				var5.field876 = 0;
@@ -369,8 +371,8 @@ public class class236 implements class248 {
 			}
 
 			if (0 != (var17 & 4096)) {
-				var5.field862 = client.field1645 + var1.method8164();
-				var5.field863 = client.field1645 + var1.method8202();
+				var5.field862 = Client.field1645 + var1.method8164();
+				var5.field863 = Client.field1645 + var1.method8202();
 				var5.field864 = var1.method8287();
 				var5.field865 = var1.method8158();
 				var5.field850 = var1.method8287();
@@ -409,20 +411,20 @@ public class class236 implements class248 {
 			}
 		}
 
-		for (var3 = 0; var3 < client.field1769; ++var3) {
-			var4 = client.field1770[var3];
-			if (client.field1902[var4].field847 != client.field1645) {
-				client.field1902[var4].field709 = null;
-				client.field1902[var4] = null;
+		for (var3 = 0; var3 < Client.field1769; ++var3) {
+			var4 = Client.field1770[var3];
+			if (Client.field1902[var4].field847 != Client.field1645) {
+				Client.field1902[var4].field709 = null;
+				Client.field1902[var4] = null;
 			}
 		}
 
-		if (var1.field4878 != client.field1778.field1075) {
-			throw new RuntimeException(var1.field4878 + class96.field959 + client.field1778.field1075);
+		if (var1.field4878 != Client.field1778.field1075) {
+			throw new RuntimeException(var1.field4878 + class96.field959 + Client.field1778.field1075);
 		} else {
-			for (var3 = 0; var3 < client.field1691; ++var3) {
-				if (client.field1902[client.field1692[var3]] == null) {
-					throw new RuntimeException(var3 + class96.field959 + client.field1691);
+			for (var3 = 0; var3 < Client.field1691; ++var3) {
+				if (Client.field1902[Client.field1692[var3]] == null) {
+					throw new RuntimeException(var3 + class96.field959 + Client.field1691);
 				}
 			}
 

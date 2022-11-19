@@ -1,3 +1,5 @@
+import client.Client;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -49,7 +51,7 @@ public class class337 {
 
 	static void method6314(boolean var0) {
 		byte var2 = 0;
-		boolean var3 = class413.field4575.method1797() >= client.field1637;
+		boolean var3 = class413.field4575.method1797() >= Client.field1637;
 		if (!var3) {
 			var2 = 12;
 		} else if (class133.field1257.method2874() || class133.field1257.method3038()) {

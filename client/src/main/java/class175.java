@@ -1,3 +1,5 @@
+import client.Client;
+
 public abstract class class175 {
 	class175() {
 	}
@@ -19,7 +21,7 @@ public abstract class class175 {
 	}
 
 	static class459 method2752(int var0) {
-		class459 var2 = (class459)client.field1927.method5439((long)var0);
+		class459 var2 = (class459) Client.field1927.method5439((long)var0);
 		if (var2 == null) {
 			var2 = new class459(class255.field2944, var0);
 		}

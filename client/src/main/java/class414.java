@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class414 {
 	static int field4588;
 	float field4576;
@@ -98,17 +100,17 @@ public class class414 {
 	}
 
 	static final void method7518(int var0, int var1) {
-		class147 var3 = var0 >= 0 ? client.field1883[var0] : class188.field1982;
+		class147 var3 = var0 >= 0 ? Client.field1883[var0] : class188.field1982;
 		if (null != var3 && var1 >= 0 && var1 < var3.method2512()) {
 			class133 var4 = (class133)var3.field1347.get(var1);
 			if (var4.field1256 == -1) {
 				String var5 = var4.field1254.method8451();
-				class263 var6 = class185.method3435(class274.field3082, client.field1778.field1071);
+				class263 var6 = class185.method3435(class274.field3082, Client.field1778.field1071);
 				var6.field2984.method8104(3 + class460.method1887(var5));
 				var6.field2984.method8104(var0);
 				var6.field2984.method8181(var1);
 				var6.field2984.method8111(var5);
-				client.field1778.method2078(var6);
+				Client.field1778.method2078(var6);
 			}
 		}
 	}

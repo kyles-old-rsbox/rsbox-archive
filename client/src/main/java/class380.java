@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class380 extends class396 {
 	boolean field4407;
 	boolean field4408;
@@ -6,9 +8,9 @@ public class class380 extends class396 {
 	}
 
 	int method6807(class380 var1) {
-		if (client.field1868 == super.field4491 && var1.field4491 != client.field1868) {
+		if (Client.field1868 == super.field4491 && var1.field4491 != Client.field1868) {
 			return -1;
-		} else if (client.field1868 == var1.field4491 && super.field4491 != client.field1868) {
+		} else if (Client.field1868 == var1.field4491 && super.field4491 != Client.field1868) {
 			return 1;
 		} else if (super.field4491 != 0 && 0 == var1.field4491) {
 			return -1;

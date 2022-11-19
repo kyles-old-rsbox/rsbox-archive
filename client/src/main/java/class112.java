@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class112 extends class437 {
 	boolean field1106;
 	class106[][] field1101;
@@ -208,7 +210,7 @@ public class class112 extends class437 {
 		} else if (var0 == 5) {
 			class75.field646 = 2;
 			class75.method5452(class338.field3948, class338.field4194, class338.field4100);
-		} else if (var0 != 68 && (client.field1640 || var0 != 6)) {
+		} else if (var0 != 68 && (Client.field1640 || var0 != 6)) {
 			if (var0 == 7) {
 				class75.method5452(class338.field3954, class338.field3955, class338.field3956);
 			} else if (var0 == 8) {
@@ -320,7 +322,7 @@ public class class112 extends class437 {
 		class9.method64(10);
 		int var5 = class75.field619;
 		boolean var6 = var2 != var5;
-		if (!var6 && client.field1758.method7938()) {
+		if (!var6 && Client.field1758.method7938()) {
 			class74.method1490(9);
 		}
 

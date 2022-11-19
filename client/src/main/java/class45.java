@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class45 {
 	public static class350 field329;
 	public static String field328;
@@ -28,9 +30,9 @@ public class class45 {
 			int var4;
 			if (var0 == CS2Opcodes.ACTIVECLANSETTINGS_FIND_AFFINED) {
 				var4 = class57.field404[--class387.field4452];
-				if (client.field1738[var4] != null) {
+				if (Client.field1738[var4] != null) {
 					class57.field404[++class387.field4452 - 1] = 1;
-					class12.field55 = client.field1738[var4];
+					class12.field55 = Client.field1738[var4];
 				} else {
 					class57.field404[++class387.field4452 - 1] = 0;
 				}
@@ -128,9 +130,9 @@ public class class45 {
 						return 1;
 					} else if (var0 == CS2Opcodes.ACTIVECLANCHANNEL_FIND_AFFINED) {
 						var4 = class57.field404[--class387.field4452];
-						if (null != client.field1883[var4]) {
+						if (null != Client.field1883[var4]) {
 							class57.field404[++class387.field4452 - 1] = 1;
-							class442.field4776 = client.field1883[var4];
+							class442.field4776 = Client.field1883[var4];
 							class115.field1134 = var4;
 						} else {
 							class57.field404[++class387.field4452 - 1] = 0;
@@ -183,11 +185,11 @@ public class class45 {
 	}
 
 	static void method943(int var0) {
-		if (var0 == -1 && !client.field1781) {
+		if (var0 == -1 && !Client.field1781) {
 			class279.field3201.method5365();
 			class279.field3202 = 1;
 			class7.field29 = null;
-		} else if (var0 != -1 && var0 != client.field1748 && class413.field4575.method1716() != 0 && !client.field1781) {
+		} else if (var0 != -1 && var0 != Client.field1748 && class413.field4575.method1716() != 0 && !Client.field1781) {
 			class336 var2 = class43.field311;
 			int var3 = class413.field4575.method1716();
 			class279.field3202 = 1;
@@ -199,14 +201,14 @@ public class class45 {
 			class13.field67 = 2;
 		}
 
-		client.field1748 = var0;
+		Client.field1748 = var0;
 	}
 
 	static final boolean method951(int var0) {
 		if (var0 < 0) {
 			return false;
 		} else {
-			int var2 = client.field1788[var0];
+			int var2 = Client.field1788[var0];
 			if (var2 >= 2000) {
 				var2 -= 2000;
 			}

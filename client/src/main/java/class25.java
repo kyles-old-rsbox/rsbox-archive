@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class25 implements class360 {
 	public static final class25 field122;
 	static class215 field123;
@@ -23,9 +25,9 @@ public class class25 implements class360 {
 		int var5;
 		int var6;
 		int var12;
-		if (var0.field857 >= client.field1645) {
-			client.method6564(var0);
-		} else if (var0.field858 >= client.field1645) {
+		if (var0.field857 >= Client.field1645) {
+			Client.method6564(var0);
+		} else if (var0.field858 >= Client.field1645) {
 			class219.method4370(var0);
 		} else {
 			var0.field839 = var0.field823;
@@ -228,9 +230,9 @@ public class class25 implements class360 {
 				Object var14 = null;
 				var4 = class78.field683 ? 65536 : 32768;
 				if (var0.field835 < var4) {
-					var14 = client.field1902[var0.field835];
+					var14 = Client.field1902[var0.field835];
 				} else if (var0.field835 >= var4) {
-					var14 = client.field1763[var0.field835 - var4];
+					var14 = Client.field1763[var0.field835 - var4];
 				}
 
 				if (null != var14) {
@@ -302,13 +304,13 @@ public class class25 implements class360 {
 	}
 
 	static final void method344(boolean var0, class453 var1) {
-		client.field1706 = var0;
+		Client.field1706 = var0;
 		int var4;
 		int var5;
 		int var6;
 		int var7;
 		int var8;
-		if (!client.field1706) {
+		if (!Client.field1706) {
 			int var3 = var1.method8202();
 			var4 = var1.method8162();
 			var5 = var1.method8122();
@@ -352,9 +354,9 @@ public class class25 implements class360 {
 					for (var9 = 0; var9 < 13; ++var9) {
 						var10 = var1.method8014(1);
 						if (var10 == 1) {
-							client.field1707[var7][var8][var9] = var1.method8014(26);
+							Client.field1707[var7][var8][var9] = var1.method8014(26);
 						} else {
-							client.field1707[var7][var8][var9] = -1;
+							Client.field1707[var7][var8][var9] = -1;
 						}
 					}
 				}
@@ -379,7 +381,7 @@ public class class25 implements class360 {
 			for (var7 = 0; var7 < 4; ++var7) {
 				for (var8 = 0; var8 < 13; ++var8) {
 					for (var9 = 0; var9 < 13; ++var9) {
-						var10 = client.field1707[var7][var8][var9];
+						var10 = Client.field1707[var7][var8][var9];
 						if (var10 != -1) {
 							int var11 = var10 >> 14 & 1023;
 							int var12 = var10 >> 3 & 2047;

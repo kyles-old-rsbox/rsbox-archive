@@ -1,3 +1,5 @@
+import client.Client;
+
 public class class233 {
 	static class64 field2759;
 	int field2760;
@@ -65,7 +67,7 @@ public class class233 {
 		if (var0 < 0) {
 			return "";
 		} else {
-			return client.field1923[var0].length() > 0 ? client.field1791[var0] + class338.field4064 + client.field1923[var0] : client.field1791[var0];
+			return Client.field1923[var0].length() > 0 ? Client.field1791[var0] + class338.field4064 + Client.field1923[var0] : Client.field1791[var0];
 		}
 	}
 }

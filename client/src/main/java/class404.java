@@ -1,3 +1,5 @@
+import client.Client;
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -186,7 +188,7 @@ public abstract class class404 {
 			byte[] var5 = var0.method6148("title.jpg", "");
 			class323.field3774 = class32.method712(var5);
 			class91.field882 = class323.field3774.method8473();
-			int var6 = client.field1633;
+			int var6 = Client.field1633;
 			if (0 != (var6 & 536870912)) {
 				class84.field745 = class393.method7165(var1, "logo_deadman_mode", "");
 			} else if ((var6 & 1073741824) != 0) {
