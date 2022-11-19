@@ -1,5 +1,3 @@
-import client.Client;
-
 public class class271 {
 	public static final class271 field3018;
 	public static final class271 field3019;
@@ -66,25 +64,25 @@ public class class271 {
 					var11 = class359.method1905(var4);
 				}
 
-				class263 var13 = class185.method3435(class274.field3075, Client.field1778.field1071);
+				class263 var13 = class185.method3435(class274.field3075, client.field1778.field1071);
 				var13.field2984.method8241(var11);
-				Client.field1778.method2078(var13);
+				client.field1778.method2078(var13);
 				return 1;
 			} else {
 				class263 var16;
 				if (var0 == CS2Opcodes.RESUME_NAMEDIALOG) {
 					var4 = class57.field405[--class126.field1220];
-					var16 = class185.method3435(class274.field3105, Client.field1778.field1071);
+					var16 = class185.method3435(class274.field3105, client.field1778.field1071);
 					var16.field2984.method8104(var4.length() + 1);
 					var16.field2984.method8111(var4);
-					Client.field1778.method2078(var16);
+					client.field1778.method2078(var16);
 					return 1;
 				} else if (var0 == CS2Opcodes.RESUME_STRINGDIALOG) {
 					var4 = class57.field405[--class126.field1220];
-					var16 = class185.method3435(class274.field3137, Client.field1778.field1071);
+					var16 = class185.method3435(class274.field3137, client.field1778.field1071);
 					var16.field2984.method8104(var4.length() + 1);
 					var16.field2984.method8111(var4);
-					Client.field1778.method2078(var16);
+					client.field1778.method2078(var16);
 					return 1;
 				} else {
 					int var9;
@@ -125,9 +123,9 @@ public class class271 {
 						return 1;
 					} else if (var0 == CS2Opcodes.RESUME_OBJDIALOG) {
 						var9 = class57.field404[--class387.field4452];
-						var16 = class185.method3435(class274.field3124, Client.field1778.field1071);
+						var16 = class185.method3435(class274.field3124, client.field1778.field1071);
 						var16.field2984.method8181(var9);
-						Client.field1778.method2078(var16);
+						client.field1778.method2078(var16);
 						return 1;
 					} else if (var0 == CS2Opcodes.BUG_REPORT) {
 						var9 = class57.field404[--class387.field4452];
@@ -139,74 +137,74 @@ public class class271 {
 						} else if (var6.length() > 500) {
 							return 1;
 						} else {
-							class263 var7 = class185.method3435(class274.field3108, Client.field1778.field1071);
+							class263 var7 = class185.method3435(class274.field3108, client.field1778.field1071);
 							var7.field2984.method8181(1 + class460.method1887(var15) + class460.method1887(var6));
 							var7.field2984.method8111(var6);
 							var7.field2984.method8264(var9);
 							var7.field2984.method8111(var15);
-							Client.field1778.method2078(var7);
+							client.field1778.method2078(var7);
 							return 1;
 						}
 					} else if (var0 == CS2Opcodes.SETSHIFTCLICKDROP) {
-						Client.field1648 = class57.field404[--class387.field4452] == 1;
+						client.field1648 = class57.field404[--class387.field4452] == 1;
 						return 1;
 					} else if (var0 == CS2Opcodes.SETSHOWMOUSEOVERTEXT) {
-						Client.field1797 = class57.field404[--class387.field4452] == 1;
+						client.field1797 = class57.field404[--class387.field4452] == 1;
 						return 1;
 					} else if (var0 == CS2Opcodes.RENDERSELF) {
-						Client.field1739 = class57.field404[--class387.field4452] == 1;
+						client.field1739 = class57.field404[--class387.field4452] == 1;
 						return 1;
 					} else if (var0 == CS2Opcodes._3120) {
 						if (class57.field404[--class387.field4452] == 1) {
-							Client.field1768 |= 1;
+							client.field1768 |= 1;
 						} else {
-							Client.field1768 &= -2;
+							client.field1768 &= -2;
 						}
 
 						return 1;
 					} else if (var0 == CS2Opcodes._3121) {
 						if (class57.field404[--class387.field4452] == 1) {
-							Client.field1768 |= 2;
+							client.field1768 |= 2;
 						} else {
-							Client.field1768 &= -3;
+							client.field1768 &= -3;
 						}
 
 						return 1;
 					} else if (var0 == CS2Opcodes._3122) {
 						if (class57.field404[--class387.field4452] == 1) {
-							Client.field1768 |= 4;
+							client.field1768 |= 4;
 						} else {
-							Client.field1768 &= -5;
+							client.field1768 &= -5;
 						}
 
 						return 1;
 					} else if (var0 == CS2Opcodes._3123) {
 						if (class57.field404[--class387.field4452] == 1) {
-							Client.field1768 |= 8;
+							client.field1768 |= 8;
 						} else {
-							Client.field1768 &= -9;
+							client.field1768 &= -9;
 						}
 
 						return 1;
 					} else if (var0 == CS2Opcodes._3124) {
-						Client.field1768 = 0;
+						client.field1768 = 0;
 						return 1;
 					} else if (var0 == CS2Opcodes.SETSHOWMOUSECROSS) {
-						Client.field1752 = class57.field404[--class387.field4452] == 1;
+						client.field1752 = class57.field404[--class387.field4452] == 1;
 						return 1;
 					} else if (var0 == CS2Opcodes.SETSHOWLOADINGMESSAGES) {
-						Client.field1762 = class57.field404[--class387.field4452] == 1;
+						client.field1762 = class57.field404[--class387.field4452] == 1;
 						return 1;
 					} else if (var0 == CS2Opcodes.SETTAPTODROP) {
-						Client.method8647(class57.field404[--class387.field4452] == 1);
+						client.method8647(class57.field404[--class387.field4452] == 1);
 						return 1;
 					} else if (var0 == CS2Opcodes.GETTAPTODROP) {
-						class57.field404[++class387.field4452 - 1] = Client.method4477() ? 1 : 0;
+						class57.field404[++class387.field4452 - 1] = client.method4477() ? 1 : 0;
 						return 1;
 					} else if (var0 == CS2Opcodes._3129) {
 						class387.field4452 -= 2;
-						Client.field1727 = class57.field404[class387.field4452];
-						Client.field1767 = class57.field404[1 + class387.field4452];
+						client.field1727 = class57.field404[class387.field4452];
+						client.field1767 = class57.field404[1 + class387.field4452];
 						return 1;
 					} else if (var0 == CS2Opcodes._3130) {
 						class387.field4452 -= 2;
@@ -227,22 +225,22 @@ public class class271 {
 						class387.field4452 -= 2;
 						return 1;
 					} else if (var0 == CS2Opcodes._3136) {
-						Client.field1811 = 3;
-						Client.field1898 = class57.field404[--class387.field4452];
+						client.field1811 = 3;
+						client.field1898 = class57.field404[--class387.field4452];
 						return 1;
 					} else if (var0 == CS2Opcodes._3137) {
-						Client.field1811 = 2;
-						Client.field1898 = class57.field404[--class387.field4452];
+						client.field1811 = 2;
+						client.field1898 = class57.field404[--class387.field4452];
 						return 1;
 					} else if (var0 == CS2Opcodes._3138) {
-						Client.field1811 = 0;
+						client.field1811 = 0;
 						return 1;
 					} else if (var0 == CS2Opcodes._3139) {
-						Client.field1811 = 1;
+						client.field1811 = 1;
 						return 1;
 					} else if (var0 == CS2Opcodes._3140) {
-						Client.field1811 = 3;
-						Client.field1898 = var2 ? class138.field1284.field3517 : class153.field1414.field3517;
+						client.field1811 = 3;
+						client.field1898 = var2 ? class138.field1284.field3517 : class153.field1414.field3517;
 						return 1;
 					} else {
 						boolean var17;
@@ -255,14 +253,14 @@ public class class271 {
 							return 1;
 						} else if (var0 == CS2Opcodes.SETREMEMBERUSERNAME) {
 							var17 = class57.field404[--class387.field4452] == 1;
-							Client.field1891 = var17;
+							client.field1891 = var17;
 							if (!var17) {
 								class413.field4575.method1710("");
 							}
 
 							return 1;
 						} else if (var0 == CS2Opcodes.GETREMEMBERUSERNAME) {
-							class57.field404[++class387.field4452 - 1] = Client.field1891 ? 1 : 0;
+							class57.field404[++class387.field4452 - 1] = client.field1891 ? 1 : 0;
 							return 1;
 						} else if (var0 == CS2Opcodes.SHOW_IOS_REVIEW) {
 							return 1;
@@ -384,10 +382,10 @@ public class class271 {
 							--class126.field1220;
 							return 1;
 						} else if (var0 == CS2Opcodes.SETBRIGHTNESS) {
-							Client.method4524(class57.field404[--class387.field4452]);
+							client.method4524(class57.field404[--class387.field4452]);
 							return 1;
 						} else if (var0 == CS2Opcodes.GETBRIGHTNESS) {
-							class57.field404[++class387.field4452 - 1] = Client.method6543();
+							class57.field404[++class387.field4452 - 1] = client.method6543();
 							return 1;
 						} else if (var0 == CS2Opcodes._3189) {
 							var9 = class57.field404[--class387.field4452];
@@ -407,13 +405,13 @@ public class class271 {
 	}
 
 	static void method5212(int var0, int var1, int var2) {
-		if (class413.field4575.method1752() != 0 && var1 != 0 && Client.field1894 < 50) {
-			Client.field1895[Client.field1894] = var0;
-			Client.field1896[Client.field1894] = var1;
-			Client.field1897[Client.field1894] = var2;
-			Client.field1899[Client.field1894] = null;
-			Client.field1734[Client.field1894] = 0;
-			++Client.field1894;
+		if (class413.field4575.method1752() != 0 && var1 != 0 && client.field1894 < 50) {
+			client.field1895[client.field1894] = var0;
+			client.field1896[client.field1894] = var1;
+			client.field1897[client.field1894] = var2;
+			client.field1899[client.field1894] = null;
+			client.field1734[client.field1894] = 0;
+			++client.field1894;
 		}
 
 	}
@@ -421,62 +419,62 @@ public class class271 {
 	static int method5217(int var0, class78 var1, boolean var2) {
 		if (var0 == CS2Opcodes.VIEWPORT_SETFOV) {
 			class387.field4452 -= 2;
-			Client.field1907 = (short)class57.method6050(class57.field404[class387.field4452]);
-			if (Client.field1907 <= 0) {
-				Client.field1907 = 256;
+			client.field1907 = (short)class57.method6050(class57.field404[class387.field4452]);
+			if (client.field1907 <= 0) {
+				client.field1907 = 256;
 			}
 
-			Client.field1792 = (short)class57.method6050(class57.field404[1 + class387.field4452]);
-			if (Client.field1792 <= 0) {
-				Client.field1792 = 256;
+			client.field1792 = (short)class57.method6050(class57.field404[1 + class387.field4452]);
+			if (client.field1792 <= 0) {
+				client.field1792 = 256;
 			}
 
 			return 1;
 		} else if (var0 == CS2Opcodes.VIEWPORT_SETZOOM) {
 			class387.field4452 -= 2;
-			Client.field1909 = (short)class57.field404[class387.field4452];
-			if (Client.field1909 <= 0) {
-				Client.field1909 = 256;
+			client.field1909 = (short)class57.field404[class387.field4452];
+			if (client.field1909 <= 0) {
+				client.field1909 = 256;
 			}
 
-			Client.field1801 = (short)class57.field404[class387.field4452 + 1];
-			if (Client.field1801 <= 0) {
-				Client.field1801 = 320;
+			client.field1801 = (short)class57.field404[class387.field4452 + 1];
+			if (client.field1801 <= 0) {
+				client.field1801 = 320;
 			}
 
 			return 1;
 		} else if (var0 == CS2Opcodes.VIEWPORT_CLAMPFOV) {
 			class387.field4452 -= 4;
-			Client.field1744 = (short)class57.field404[class387.field4452];
-			if (Client.field1744 <= 0) {
-				Client.field1744 = 1;
+			client.field1744 = (short)class57.field404[class387.field4452];
+			if (client.field1744 <= 0) {
+				client.field1744 = 1;
 			}
 
-			Client.field1912 = (short)class57.field404[1 + class387.field4452];
-			if (Client.field1912 <= 0) {
-				Client.field1912 = 32767;
-			} else if (Client.field1912 < Client.field1744) {
-				Client.field1912 = Client.field1744;
+			client.field1912 = (short)class57.field404[1 + class387.field4452];
+			if (client.field1912 <= 0) {
+				client.field1912 = 32767;
+			} else if (client.field1912 < client.field1744) {
+				client.field1912 = client.field1744;
 			}
 
-			Client.field1705 = (short)class57.field404[2 + class387.field4452];
-			if (Client.field1705 <= 0) {
-				Client.field1705 = 1;
+			client.field1705 = (short)class57.field404[2 + class387.field4452];
+			if (client.field1705 <= 0) {
+				client.field1705 = 1;
 			}
 
-			Client.field1914 = (short)class57.field404[class387.field4452 + 3];
-			if (Client.field1914 <= 0) {
-				Client.field1914 = 32767;
-			} else if (Client.field1914 < Client.field1705) {
-				Client.field1914 = Client.field1705;
+			client.field1914 = (short)class57.field404[class387.field4452 + 3];
+			if (client.field1914 <= 0) {
+				client.field1914 = 32767;
+			} else if (client.field1914 < client.field1705) {
+				client.field1914 = client.field1705;
 			}
 
 			return 1;
 		} else if (var0 == CS2Opcodes.VIEWPORT_GETEFFECTIVESIZE) {
-			if (Client.field1821 != null) {
-				class42.method795(0, 0, Client.field1821.field3448, Client.field1821.field3476, false);
-				class57.field404[++class387.field4452 - 1] = Client.field1917;
-				class57.field404[++class387.field4452 - 1] = Client.field1678;
+			if (client.field1821 != null) {
+				class42.method795(0, 0, client.field1821.field3448, client.field1821.field3476, false);
+				class57.field404[++class387.field4452 - 1] = client.field1917;
+				class57.field404[++class387.field4452 - 1] = client.field1678;
 			} else {
 				class57.field404[++class387.field4452 - 1] = -1;
 				class57.field404[++class387.field4452 - 1] = -1;
@@ -484,12 +482,12 @@ public class class271 {
 
 			return 1;
 		} else if (var0 == CS2Opcodes.VIEWPORT_GETZOOM) {
-			class57.field404[++class387.field4452 - 1] = Client.field1909;
-			class57.field404[++class387.field4452 - 1] = Client.field1801;
+			class57.field404[++class387.field4452 - 1] = client.field1909;
+			class57.field404[++class387.field4452 - 1] = client.field1801;
 			return 1;
 		} else if (var0 == CS2Opcodes.VIEWPORT_GETFOV) {
-			class57.field404[++class387.field4452 - 1] = class57.method2667(Client.field1907);
-			class57.field404[++class387.field4452 - 1] = class57.method2667(Client.field1792);
+			class57.field404[++class387.field4452 - 1] = class57.method2667(client.field1907);
+			class57.field404[++class387.field4452 - 1] = class57.method2667(client.field1792);
 			return 1;
 		} else if (var0 == CS2Opcodes.VIEWPORT_GETX) {
 			class57.field404[++class387.field4452 - 1] = 0;

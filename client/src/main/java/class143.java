@@ -1,5 +1,3 @@
-import client.Client;
-
 public class class143 {
 	class350 field1323;
 	long field1321;
@@ -70,8 +68,8 @@ public class class143 {
 	}
 
 	static final void method2492(class300 var0, int var1, int var2) {
-		if (Client.field1709 == 0 || 3 == Client.field1709) {
-			if (!Client.field1784 && (class42.field277 == 1 || !class95.field944 && 4 == class42.field277)) {
+		if (client.field1709 == 0 || 3 == client.field1709) {
+			if (!client.field1784 && (class42.field277 == 1 || !class95.field944 && 4 == class42.field277)) {
 				class298 var4 = var0.method5859(true);
 				if (null == var4) {
 					return;
@@ -82,21 +80,21 @@ public class class143 {
 				if (var4.method5837(var5, var6)) {
 					var5 -= var4.field3435 / 2;
 					var6 -= var4.field3433 / 2;
-					int var7 = Client.field1672 & 2047;
+					int var7 = client.field1672 & 2047;
 					int var8 = class221.field2644[var7];
 					int var9 = class221.field2645[var7];
 					int var10 = var5 * var9 + var8 * var6 >> 11;
 					int var11 = var9 * var6 - var5 * var8 >> 11;
 					int var12 = var10 + class291.field3364.field827 >> 7;
 					int var13 = class291.field3364.field802 - var11 >> 7;
-					class263 var14 = class185.method3435(class274.field3052, Client.field1778.field1071);
+					class263 var14 = class185.method3435(class274.field3052, client.field1778.field1071);
 					var14.field2984.method8104(18);
 					var14.field2984.method8161(var13 + class169.field1536);
-					var14.field2984.method8264(Client.field1876.method3895(82) ? (Client.field1876.method3895(81) ? 2 : 1) : 0);
+					var14.field2984.method8264(client.field1876.method3895(82) ? (client.field1876.method3895(81) ? 2 : 1) : 0);
 					var14.field2984.method8337(class36.field241 + var12);
 					var14.field2984.method8104(var5);
 					var14.field2984.method8104(var6);
-					var14.field2984.method8181(Client.field1672);
+					var14.field2984.method8181(client.field1672);
 					var14.field2984.method8104(57);
 					var14.field2984.method8104(0);
 					var14.field2984.method8104(0);
@@ -104,9 +102,9 @@ public class class143 {
 					var14.field2984.method8181(class291.field3364.field827);
 					var14.field2984.method8181(class291.field3364.field802);
 					var14.field2984.method8104(63);
-					Client.field1778.method2078(var14);
-					Client.field1889 = var12;
-					Client.field1890 = var13;
+					client.field1778.method2078(var14);
+					client.field1889 = var12;
+					client.field1890 = var13;
 				}
 			}
 

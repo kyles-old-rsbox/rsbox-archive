@@ -1,5 +1,3 @@
-import client.Client;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -164,7 +162,7 @@ public final class class81 extends class90 {
 					var4.field2407 = true;
 				}
 
-				if (super.field867 != 0 && Client.field1645 >= super.field862 && Client.field1645 < super.field863) {
+				if (super.field867 != 0 && client.field1645 >= super.field862 && client.field1645 < super.field863) {
 					var4.field2440 = super.field864;
 					var4.field2417 = super.field865;
 					var4.field2453 = super.field850;

@@ -1,5 +1,3 @@
-import client.Client;
-
 public class class311 {
 	byte[] field3691;
 	int[] field3692;
@@ -272,7 +270,7 @@ public class class311 {
 	}
 
 	static final void method6051(class300 var0, int var1, int var2) {
-		if (Client.field1874 == null && !Client.field1784) {
+		if (client.field1874 == null && !client.field1784) {
 			if (var0 != null) {
 				class300 var5 = class252.method5039(var0);
 				if (var5 == null) {
@@ -280,7 +278,7 @@ public class class311 {
 				}
 
 				if (var5 != null) {
-					Client.field1874 = var0;
+					client.field1874 = var0;
 					class300 var6 = var0;
 					int var8 = class190.method3528(var0);
 					int var7 = var8 >> 17 & 7;
@@ -311,14 +309,14 @@ public class class311 {
 						var11 = var0.field3547;
 					}
 
-					Client.field1823 = var11;
-					Client.field1824 = var1;
-					Client.field1825 = var2;
+					client.field1823 = var11;
+					client.field1824 = var1;
+					client.field1825 = var2;
 					class78.field684 = 0;
-					Client.field1833 = false;
-					int var12 = Client.method5125();
+					client.field1833 = false;
+					int var12 = client.method5125();
 					if (var12 != -1) {
-						Client.method102(var12);
+						client.method102(var12);
 					}
 
 					return;

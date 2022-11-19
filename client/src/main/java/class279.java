@@ -1,5 +1,3 @@
-import client.Client;
-
 public class class279 {
 	public static class278 field3201;
 	public static class319 field3199;
@@ -67,7 +65,7 @@ public class class279 {
 	}
 
 	static void method5396() {
-		if (Client.field1891 && class75.field633 != null && class75.field633.length() > 0) {
+		if (client.field1891 && class75.field633 != null && class75.field633.length() > 0) {
 			class75.field640 = 1;
 		} else {
 			class75.field640 = 0;

@@ -35,9 +35,6 @@ final class class326 implements Comparator {
 
 	}
 
-	class326() {
-	}
-
 	int method6226(class328 var1, class328 var2) {
 		return var1.field3807.field4256 < var2.field3807.field4256 ? -1 : (var1.field3807.field4256 == var2.field3807.field4256 ? 0 : 1);
 	}

@@ -1,5 +1,3 @@
-import client.Client;
-
 import java.util.concurrent.ScheduledExecutorService;
 
 public final class class339 {
@@ -25,19 +23,19 @@ public final class class339 {
 	}
 
 	static final void method6316() {
-		class263 var1 = class185.method3435(class274.field3140, Client.field1778.field1071);
-		Client.field1778.method2078(var1);
+		class263 var1 = class185.method3435(class274.field3140, client.field1778.field1071);
+		client.field1778.method2078(var1);
 		class57.field411 = true;
 
-		for (class89 var2 = (class89) Client.field1810.method7867(); var2 != null; var2 = (class89) Client.field1810.method7858()) {
+		for (class89 var2 = (class89)client.field1810.method7867(); var2 != null; var2 = (class89)client.field1810.method7858()) {
 			if (var2.field797 == 0 || 3 == var2.field797) {
 				class4.method32(var2, true);
 			}
 		}
 
-		if (null != Client.field1641) {
-			class136.method2438(Client.field1641);
-			Client.field1641 = null;
+		if (null != client.field1641) {
+			class136.method2438(client.field1641);
+			client.field1641 = null;
 		}
 
 		class57.field411 = false;

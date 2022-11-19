@@ -1,5 +1,3 @@
-import client.Client;
-
 public class class86 {
 	class488[] field758;
 	int field764;
@@ -200,7 +198,7 @@ public class class86 {
 		}
 
 		this.field776 += var1;
-		var8 = (var1 + (Client.field1645 & 1)) / 2;
+		var8 = (var1 + (client.field1645 & 1)) / 2;
 		if (var8 > 0) {
 			short var17 = 128;
 			byte var18 = 2;

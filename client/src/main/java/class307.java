@@ -1,5 +1,3 @@
-import client.Client;
-
 public class class307 {
 	public static class311 field3673;
 
@@ -8,7 +6,7 @@ public class class307 {
 	}
 
 	public static class263 method6040(int var0, String var1, class353 var2, int var3) {
-		class263 var5 = class185.method3435(class274.field3115, Client.field1778.field1071);
+		class263 var5 = class185.method3435(class274.field3115, client.field1778.field1071);
 		var5.field2984.method8104(0);
 		int var6 = var5.field2984.field4878;
 		var5.field2984.method8104(var0);
@@ -231,7 +229,7 @@ public class class307 {
 					var14 = var12 + 5;
 					int var10002;
 					if (var14 >= 0 && var14 < 104) {
-						var15 = Client.field1932 < 209 ? (int)class150.method2591(8) : (int)class150.method2591(15);
+						var15 = client.field1932 < 209 ? (int)class150.method2591(8) : (int)class150.method2591(15);
 						var16 = class82.field716[var3][var14][var13] & var15;
 						if (var16 > 0) {
 							var18 = var16 - 1;
@@ -265,7 +263,7 @@ public class class307 {
 
 					var15 = var12 - 5;
 					if (var15 >= 0 && var15 < 104) {
-						var16 = Client.field1932 < 209 ? (int)class150.method2591(8) : (int)class150.method2591(15);
+						var16 = client.field1932 < 209 ? (int)class150.method2591(8) : (int)class150.method2591(15);
 						var17 = class82.field716[var3][var15][var13] & var16;
 						if (var17 > 0) {
 							var19 = var17 - 1;
@@ -324,12 +322,12 @@ public class class307 {
 							var17 -= class406.field4527[var20];
 						}
 
-						if (var18 >= 1 && var18 < 103 && (!Client.field1636 || 0 != (class82.field714[0][var12][var18] & 2) || 0 == (class82.field714[var3][var12][var18] & 16))) {
+						if (var18 >= 1 && var18 < 103 && (!client.field1636 || 0 != (class82.field714[0][var12][var18] & 2) || 0 == (class82.field714[var3][var12][var18] & 16))) {
 							if (var3 < class82.field724) {
 								class82.field724 = var3;
 							}
 
-							var21 = Client.field1932 < 209 ? (int)class150.method2591(8) : (int)class150.method2591(15);
+							var21 = client.field1932 < 209 ? (int)class150.method2591(8) : (int)class150.method2591(15);
 							int var22 = class82.field716[var3][var12][var18] & var21;
 							int var23 = class82.field723[var3][var12][var18] & var21;
 							if (var22 > 0 || var23 > 0) {

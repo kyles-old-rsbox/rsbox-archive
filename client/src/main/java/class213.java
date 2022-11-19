@@ -1,5 +1,3 @@
-import client.Client;
-
 public class class213 {
 	static int field2493;
 
@@ -53,10 +51,10 @@ public class class213 {
 	}
 
 	static class459 method4118(int var0) {
-		class459 var2 = (class459) Client.field1926.method5439((long)var0);
+		class459 var2 = (class459)client.field1926.method5439((long)var0);
 		if (var2 == null) {
 			var2 = new class459(class255.field2944, class444.method7142(var0), class444.method6199(var0));
-			Client.field1926.method5434(var2, (long)var0);
+			client.field1926.method5434(var2, (long)var0);
 		}
 
 		return var2;

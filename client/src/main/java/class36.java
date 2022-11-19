@@ -1,5 +1,3 @@
-import client.Client;
-
 import java.awt.Component;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -285,7 +283,7 @@ public class class36 implements KeyListener, FocusListener {
 						var7 = class213.method4118(var6);
 						if (null == var7) {
 							throw new RuntimeException();
-						} else if (class444.method7142(var6) != Client.field1928) {
+						} else if (class444.method7142(var6) != client.field1928) {
 							throw new RuntimeException();
 						} else if (class73.field605 == null && class73.field605.isEmpty()) {
 							throw new RuntimeException();
@@ -317,7 +315,7 @@ public class class36 implements KeyListener, FocusListener {
 						class73.field605 = var24.method8098(0, 0);
 						var6 = 0;
 						if (null != class73.field605) {
-							Client.field1928 = var4;
+							client.field1928 = var4;
 							class92.field890 = class73.field605.iterator();
 							var6 = class73.field605.size();
 						}
@@ -349,13 +347,13 @@ public class class36 implements KeyListener, FocusListener {
 				var8 = class444.method1425(var6);
 				class73.field605 = var7.method8098(var5, var8);
 				if (class73.field605 != null) {
-					Client.field1928 = class444.method7142(var6);
+					client.field1928 = class444.method7142(var6);
 					class92.field890 = class73.field605.iterator();
 					if (var0 == CS2Opcodes.DB_FIND_WITH_COUNT) {
 						class57.field404[++class387.field4452 - 1] = class73.field605.size();
 					}
 				} else {
-					Client.field1928 = -1;
+					client.field1928 = -1;
 					class92.field890 = null;
 					if (var0 == CS2Opcodes.DB_FIND_WITH_COUNT) {
 						class57.field404[++class387.field4452 - 1] = 0;

@@ -1,5 +1,3 @@
-import client.Client;
-
 import java.lang.management.GarbageCollectorMXBean;
 import java.lang.management.ManagementFactory;
 import java.util.Iterator;
@@ -62,21 +60,21 @@ public class class260 {
 	}
 
 	static boolean method5147(class93 var0) {
-		if (Client.field1768 == 0) {
+		if (client.field1768 == 0) {
 			return false;
 		} else if (var0 == class291.field3364) {
 			return class451.method7972();
 		} else {
-			boolean var2 = Client.method6201();
+			boolean var2 = client.method6201();
 			boolean var3;
 			if (!var2) {
-				var3 = 0 != (Client.field1768 & 1);
+				var3 = 0 != (client.field1768 & 1);
 				var2 = var3 && var0.method1907();
 			}
 
 			var3 = var2;
 			if (!var2) {
-				boolean var4 = (Client.field1768 & 2) != 0;
+				boolean var4 = (client.field1768 & 2) != 0;
 				var3 = var4 && var0.method1939();
 			}
 

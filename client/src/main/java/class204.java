@@ -1,5 +1,3 @@
-import client.Client;
-
 public abstract class class204 {
 	static int[] field2302;
 	public int field2303;
@@ -55,7 +53,7 @@ public abstract class class204 {
 				var5.field694 = var4;
 				var5.field686 = var4.field3586;
 				var5.field695 = 1 + class57.field400;
-				Client.field1765.method6355(var5);
+				client.field1765.method6355(var5);
 				return 1;
 			}
 		}

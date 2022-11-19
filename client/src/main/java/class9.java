@@ -1,5 +1,3 @@
-import client.Client;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -74,7 +72,7 @@ public class class9 {
 	static final void method56(class453 var0) {
 		for (int var2 = 0; var2 < class102.field1007; ++var2) {
 			int var3 = class102.field1020[var2];
-			class93 var4 = Client.field1763[var3];
+			class93 var4 = client.field1763[var3];
 			int var5 = var0.method8141();
 			if (0 != (var5 & 4)) {
 				var5 += var0.method8141() << 8;
@@ -136,8 +134,8 @@ public class class9 {
 			}
 
 			if (0 != (var5 & 2048)) {
-				var4.field862 = Client.field1645 + var0.method8162();
-				var4.field863 = Client.field1645 + var0.method8164();
+				var4.field862 = client.field1645 + var0.method8162();
+				var4.field863 = client.field1645 + var0.method8164();
 				var4.field864 = var0.method8287();
 				var4.field865 = var0.method8335();
 				var4.field850 = var0.method8287();
@@ -157,8 +155,8 @@ public class class9 {
 				var4.field855 = var0.method8335();
 				var4.field854 = var0.method8335();
 				var4.field853 = var0.method8187();
-				var4.field857 = var0.method8164() + Client.field1645;
-				var4.field858 = var0.method8162() + Client.field1645;
+				var4.field857 = var0.method8164() + client.field1645;
+				var4.field858 = var0.method8162() + client.field1645;
 				var4.field859 = var0.method8122();
 				if (var4.field919) {
 					var4.field815 += var4.field920;
@@ -203,7 +201,7 @@ public class class9 {
 						}
 
 						var13 = var0.method8207();
-						var4.method1877(var16, var11, var10, var12, Client.field1645, var13);
+						var4.method1877(var16, var11, var10, var12, client.field1645, var13);
 					}
 				}
 
@@ -216,7 +214,7 @@ public class class9 {
 							var12 = var0.method8207();
 							var13 = var0.method8341();
 							var14 = var11 > 0 ? var0.method8141() : var13;
-							var4.method1867(var10, Client.field1645, var11, var12, var13, var14);
+							var4.method1867(var10, client.field1645, var11, var12, var13, var14);
 						} else {
 							var4.method1872(var10);
 						}
@@ -228,10 +226,10 @@ public class class9 {
 				var4.field848 = var0.method8164();
 				var7 = var0.method8176();
 				var4.field824 = var7 >> 16;
-				var4.field851 = (var7 & 65535) + Client.field1645;
+				var4.field851 = (var7 & 65535) + client.field1645;
 				var4.field856 = 0;
 				var4.field807 = 0;
-				if (var4.field851 > Client.field1645) {
+				if (var4.field851 > client.field1645) {
 					var4.field856 = -1;
 				}
 
@@ -258,7 +256,7 @@ public class class9 {
 						var20 = true;
 					}
 
-					if (!var20 && Client.field1830 == 0 && !var4.field913) {
+					if (!var20 && client.field1830 == 0 && !var4.field913) {
 						class102.field1021.field4878 = 0;
 						var0.method8195(class102.field1021.field4881, 0, var10);
 						class102.field1021.field4878 = 0;
@@ -268,7 +266,7 @@ public class class9 {
 						var4.field819 = var7 & 255;
 						var4.field843 = 150;
 						var4.field842 = var21;
-						var4.field820 = var4 != class291.field3364 && var19.field3858 && Client.field1873 != "" && var17.toLowerCase().indexOf(Client.field1873) == -1;
+						var4.field820 = var4 != class291.field3364 && var19.field3858 && client.field1873 != "" && var17.toLowerCase().indexOf(client.field1873) == -1;
 						if (var19.field3857) {
 							var14 = var21 ? 91 : 1;
 						} else {
@@ -309,20 +307,20 @@ public class class9 {
 	}
 
 	static void method64(int var0) {
-		if (Client.field1766 != var0) {
-			if (30 == Client.field1766) {
-				Client.field1877.method3521();
+		if (client.field1766 != var0) {
+			if (30 == client.field1766) {
+				client.field1877.method3521();
 			}
 
-			if (Client.field1766 == 0) {
+			if (client.field1766 == 0) {
 				class133.field1257.method472();
 			}
 
 			if (var0 == 20 || var0 == 40 || var0 == 45 || var0 == 50) {
 				class43.method801(0);
-				Client.field1668 = 0;
-				Client.field1669 = 0;
-				Client.field1698.method6843(var0);
+				client.field1668 = 0;
+				client.field1669 = 0;
+				client.field1698.method6843(var0);
 				if (var0 != 20) {
 					class49.method996(false);
 				}
@@ -333,17 +331,17 @@ public class class9 {
 				class218.field2589 = null;
 			}
 
-			if (Client.field1766 == 25) {
-				Client.field1725 = 0;
-				Client.field1700 = 0;
-				Client.field1631 = 1;
-				Client.field1702 = 0;
-				Client.field1703 = 1;
+			if (client.field1766 == 25) {
+				client.field1725 = 0;
+				client.field1700 = 0;
+				client.field1631 = 1;
+				client.field1702 = 0;
+				client.field1703 = 1;
 			}
 
 			if (var0 != 5 && var0 != 10) {
 				if (var0 == 20) {
-					int var4 = 11 == Client.field1766 ? 4 : 0;
+					int var4 = 11 == client.field1766 ? 4 : 0;
 					class404.method7362(class243.field2846, class155.field1425, false, var4);
 				} else if (var0 == 11) {
 					class404.method7362(class243.field2846, class155.field1425, false, 4);
@@ -354,24 +352,24 @@ public class class9 {
 					class333.method6267();
 				}
 			} else {
-				boolean var2 = class413.field4575.method1797() >= Client.field1637;
+				boolean var2 = class413.field4575.method1797() >= client.field1637;
 				int var3 = var2 ? 0 : 12;
 				class404.method7362(class243.field2846, class155.field1425, true, var3);
 			}
 
-			Client.field1766 = var0;
+			client.field1766 = var0;
 		}
 	}
 
 	static final void method63(int var0, int var1, int var2, int var3) {
-		++Client.field1745;
-		if (Client.field1889 == class291.field3364.field827 >> 7 && Client.field1890 == class291.field3364.field802 >> 7) {
-			Client.field1889 = 0;
+		++client.field1745;
+		if (client.field1889 == class291.field3364.field827 >> 7 && client.field1890 == class291.field3364.field802 >> 7) {
+			client.field1889 = 0;
 		}
 
 		class353.method6566();
-		if (Client.field1775 >= 0 && null != Client.field1763[Client.field1775]) {
-			class17.method200(Client.field1763[Client.field1775], false);
+		if (client.field1775 >= 0 && null != client.field1763[client.field1775]) {
+			class17.method200(client.field1763[client.field1775], false);
 		}
 
 		class315.method6071(true);
@@ -380,8 +378,8 @@ public class class9 {
 
 		int var7;
 		for (var7 = 0; var7 < var5; ++var7) {
-			if (Client.field1775 != var6[var7] && var6[var7] != Client.field1764) {
-				class17.method200(Client.field1763[var6[var7]], true);
+			if (client.field1775 != var6[var7] && var6[var7] != client.field1764) {
+				class17.method200(client.field1763[var6[var7]], true);
 			}
 		}
 
@@ -389,24 +387,24 @@ public class class9 {
 		class19.method228();
 		class203.method3865();
 		class42.method795(var0, var1, var2, var3, true);
-		var0 = Client.field1915;
-		var1 = Client.field1634;
-		var2 = Client.field1917;
-		var3 = Client.field1678;
+		var0 = client.field1915;
+		var1 = client.field1634;
+		var2 = client.field1917;
+		var3 = client.field1678;
 		class481.method8653(var0, var1, var2 + var0, var1 + var3);
 		class221.method4389();
-		var5 = Client.field1761;
-		if (Client.field1733 / 256 > var5) {
-			var5 = Client.field1733 / 256;
+		var5 = client.field1761;
+		if (client.field1733 / 256 > var5) {
+			var5 = client.field1733 / 256;
 		}
 
-		if (Client.field1699[4] && 128 + Client.field1808[4] > var5) {
-			var5 = 128 + Client.field1808[4];
+		if (client.field1699[4] && 128 + client.field1808[4] > var5) {
+			var5 = 128 + client.field1808[4];
 		}
 
-		int var18 = Client.field1672 & 2047;
-		class83.method1795(class32.field203, class178.field1595, class101.field1004, var5, var18, Client.method3449(var5), var3);
-		if (!Client.field1900) {
+		int var18 = client.field1672 & 2047;
+		class83.method1795(class32.field203, class178.field1595, class101.field1004, var5, var18, client.method3449(var5), var3);
+		if (!client.field1900) {
 			var7 = class335.method6272();
 		} else {
 			var7 = class222.method4476();
@@ -421,8 +419,8 @@ public class class9 {
 		int var13;
 		int var14;
 		for (var13 = 0; var13 < 5; ++var13) {
-			if (Client.field1699[var13]) {
-				var14 = (int)(Math.random() * (double)(1 + 2 * Client.field1903[var13]) - (double) Client.field1903[var13] + Math.sin((double) Client.field1905[var13] / 100.0D * (double) Client.field1906[var13]) * (double) Client.field1808[var13]);
+			if (client.field1699[var13]) {
+				var14 = (int)(Math.random() * (double)(1 + 2 * client.field1903[var13]) - (double)client.field1903[var13] + Math.sin((double)client.field1905[var13] / 100.0D * (double)client.field1906[var13]) * (double)client.field1808[var13]);
 				if (var13 == 0) {
 					class215.field2568 += var14;
 				}
@@ -477,35 +475,35 @@ public class class9 {
 		class481.method8660(var0, var1, var2, var3, 0);
 		class349.method6457();
 		var15 = class221.field2630;
-		class221.field2630 = Client.field1919;
+		class221.field2630 = client.field1919;
 		class145.field1333.method4297(class215.field2568, class32.field204, class323.field3766, class414.field4588, class237.field2807, var7);
 		class221.field2630 = var15;
 		class349.method6457();
 		class145.field1333.method4136();
 		class123.method2326(var0, var1, var2, var3);
-		if (2 == Client.field1652) {
-			class230.method4536((Client.field1655 - class36.field241 << 7) + Client.field1866, Client.field1684 + (Client.field1656 - class169.field1536 << 7), Client.field1913 * 2);
-			if (Client.field1809 > -1 && Client.field1645 % 20 < 10) {
-				class176.field1585[0].method8526(var0 + Client.field1809 - 12, var1 + Client.field1747 - 28);
+		if (2 == client.field1652) {
+			class230.method4536((client.field1655 - class36.field241 << 7) + client.field1866, client.field1684 + (client.field1656 - class169.field1536 << 7), client.field1913 * 2);
+			if (client.field1809 > -1 && client.field1645 % 20 < 10) {
+				class176.field1585[0].method8526(var0 + client.field1809 - 12, var1 + client.field1747 - 28);
 			}
 		}
 
-		((class215)class221.field2629).method4313(Client.field1701);
+		((class215)class221.field2629).method4313(client.field1701);
 		class31.method598();
 		class215.field2568 = var8;
 		class32.field204 = var9;
 		class323.field3766 = var10;
 		class414.field4588 = var11;
 		class237.field2807 = var12;
-		if (Client.field1828) {
+		if (client.field1828) {
 			byte var17 = 0;
 			int var19 = var17 + class324.field3780 + class324.field3778;
 			if (var19 == 0) {
-				Client.field1828 = false;
+				client.field1828 = false;
 			}
 		}
 
-		if (Client.field1828) {
+		if (client.field1828) {
 			class481.method8660(var0, var1, var2, var3, 0);
 			class131.method2399(class338.field3902, false);
 		}

@@ -1265,24 +1265,7 @@ public class class209 extends class212 {
 					var12 = field2422[var9];
 					var13 = field2422[var10];
 					int var14;
-					if (!var1 || var11 != -5000 && var12 != -5000 && var13 != -5000) {
-						if (var2 && class18.method220(field2435[var8], field2435[var9], field2435[var10], var11, var12, var13, var6)) {
-							class234.field2766[++class234.field2771 - 1] = var4;
-							var2 = false;
-						}
-
-						if ((var11 - var12) * (field2435[var10] - field2435[var9]) - (field2435[var8] - field2435[var9]) * (var13 - var12) > 0) {
-							field2421[var7] = false;
-							if (var11 >= 0 && var12 >= 0 && var13 >= 0 && var11 <= class221.field2633 && var12 <= class221.field2633 && var13 <= class221.field2633) {
-								field2420[var7] = false;
-							} else {
-								field2420[var7] = true;
-							}
-
-							var14 = (field2408[var8] + field2408[var9] + field2408[var10]) / 3 + this.field2447;
-							field2430[var14][field2429[var14]++] = var7;
-						}
-					} else {
+					if (var1 && (var11 == -5000 || var12 == -5000 || var13 == -5000)) {
 						var14 = field2403[var8];
 						var15 = field2403[var9];
 						var16 = field2403[var10];
@@ -1305,6 +1288,23 @@ public class class209 extends class212 {
 							field2421[var7] = true;
 							int var26 = (field2408[var8] + field2408[var9] + field2408[var10]) / 3 + this.field2447;
 							field2430[var26][field2429[var26]++] = var7;
+						}
+					} else {
+						if (var2 && class18.method220(field2435[var8], field2435[var9], field2435[var10], var11, var12, var13, var6)) {
+							class234.field2766[++class234.field2771 - 1] = var4;
+							var2 = false;
+						}
+
+						if ((var11 - var12) * (field2435[var10] - field2435[var9]) - (field2435[var8] - field2435[var9]) * (var13 - var12) > 0) {
+							field2421[var7] = false;
+							if (var11 >= 0 && var12 >= 0 && var13 >= 0 && var11 <= class221.field2633 && var12 <= class221.field2633 && var13 <= class221.field2633) {
+								field2420[var7] = false;
+							} else {
+								field2420[var7] = true;
+							}
+
+							var14 = (field2408[var8] + field2408[var9] + field2408[var10]) / 3 + this.field2447;
+							field2430[var14][field2429[var14]++] = var7;
 						}
 					}
 				}

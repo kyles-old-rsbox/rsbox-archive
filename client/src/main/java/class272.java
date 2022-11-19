@@ -1,5 +1,3 @@
-import client.Client;
-
 public final class class272 {
 	static long field3034;
 	static long field3035;
@@ -42,83 +40,83 @@ public final class class272 {
 				if (var8) {
 					class263 var11;
 					if (var0 == 1) {
-						var11 = class185.method3435(class274.field3055, Client.field1778.field1071);
+						var11 = class185.method3435(class274.field3055, client.field1778.field1071);
 						var11.field2984.method8241(var1);
 						var11.field2984.method8181(var2);
 						var11.field2984.method8181(var3);
-						Client.field1778.method2078(var11);
+						client.field1778.method2078(var11);
 					}
 
 					if (var0 == 2) {
-						var11 = class185.method3435(class274.field3076, Client.field1778.field1071);
+						var11 = class185.method3435(class274.field3076, client.field1778.field1071);
 						var11.field2984.method8241(var1);
 						var11.field2984.method8181(var2);
 						var11.field2984.method8181(var3);
-						Client.field1778.method2078(var11);
+						client.field1778.method2078(var11);
 					}
 
 					if (var0 == 3) {
-						var11 = class185.method3435(class274.field3085, Client.field1778.field1071);
+						var11 = class185.method3435(class274.field3085, client.field1778.field1071);
 						var11.field2984.method8241(var1);
 						var11.field2984.method8181(var2);
 						var11.field2984.method8181(var3);
-						Client.field1778.method2078(var11);
+						client.field1778.method2078(var11);
 					}
 
 					if (var0 == 4) {
-						var11 = class185.method3435(class274.field3058, Client.field1778.field1071);
+						var11 = class185.method3435(class274.field3058, client.field1778.field1071);
 						var11.field2984.method8241(var1);
 						var11.field2984.method8181(var2);
 						var11.field2984.method8181(var3);
-						Client.field1778.method2078(var11);
+						client.field1778.method2078(var11);
 					}
 
 					if (var0 == 5) {
-						var11 = class185.method3435(class274.field3068, Client.field1778.field1071);
+						var11 = class185.method3435(class274.field3068, client.field1778.field1071);
 						var11.field2984.method8241(var1);
 						var11.field2984.method8181(var2);
 						var11.field2984.method8181(var3);
-						Client.field1778.method2078(var11);
+						client.field1778.method2078(var11);
 					}
 
 					if (var0 == 6) {
-						var11 = class185.method3435(class274.field3046, Client.field1778.field1071);
+						var11 = class185.method3435(class274.field3046, client.field1778.field1071);
 						var11.field2984.method8241(var1);
 						var11.field2984.method8181(var2);
 						var11.field2984.method8181(var3);
-						Client.field1778.method2078(var11);
+						client.field1778.method2078(var11);
 					}
 
 					if (var0 == 7) {
-						var11 = class185.method3435(class274.field3116, Client.field1778.field1071);
+						var11 = class185.method3435(class274.field3116, client.field1778.field1071);
 						var11.field2984.method8241(var1);
 						var11.field2984.method8181(var2);
 						var11.field2984.method8181(var3);
-						Client.field1778.method2078(var11);
+						client.field1778.method2078(var11);
 					}
 
 					if (var0 == 8) {
-						var11 = class185.method3435(class274.field3062, Client.field1778.field1071);
+						var11 = class185.method3435(class274.field3062, client.field1778.field1071);
 						var11.field2984.method8241(var1);
 						var11.field2984.method8181(var2);
 						var11.field2984.method8181(var3);
-						Client.field1778.method2078(var11);
+						client.field1778.method2078(var11);
 					}
 
 					if (var0 == 9) {
-						var11 = class185.method3435(class274.field3061, Client.field1778.field1071);
+						var11 = class185.method3435(class274.field3061, client.field1778.field1071);
 						var11.field2984.method8241(var1);
 						var11.field2984.method8181(var2);
 						var11.field2984.method8181(var3);
-						Client.field1778.method2078(var11);
+						client.field1778.method2078(var11);
 					}
 
 					if (var0 == 10) {
-						var11 = class185.method3435(class274.field3045, Client.field1778.field1071);
+						var11 = class185.method3435(class274.field3045, client.field1778.field1071);
 						var11.field2984.method8241(var1);
 						var11.field2984.method8181(var2);
 						var11.field2984.method8181(var3);
-						Client.field1778.method2078(var11);
+						client.field1778.method2078(var11);
 					}
 
 				}

@@ -1,5 +1,3 @@
-import client.Client;
-
 public class class157 extends class175 {
 	static int field1437;
 	int field1432;
@@ -83,7 +81,7 @@ public class class157 extends class175 {
 	static final boolean method2603(class300 var0) {
 		int var2 = var0.field3464;
 		if (var2 == 205) {
-			Client.field1696 = 250;
+			client.field1696 = 250;
 			return true;
 		} else {
 			int var3;
@@ -91,27 +89,27 @@ public class class157 extends class175 {
 			if (var2 >= 300 && var2 <= 313) {
 				var3 = (var2 - 300) / 2;
 				var4 = var2 & 1;
-				Client.field1920.method6000(var3, var4 == 1);
+				client.field1920.method6000(var3, var4 == 1);
 			}
 
 			if (var2 >= 314 && var2 <= 323) {
 				var3 = (var2 - 314) / 2;
 				var4 = var2 & 1;
-				Client.field1920.method6012(var3, var4 == 1);
+				client.field1920.method6012(var3, var4 == 1);
 			}
 
 			if (var2 == 324) {
-				Client.field1920.method5999(0);
+				client.field1920.method5999(0);
 			}
 
 			if (var2 == 325) {
-				Client.field1920.method5999(1);
+				client.field1920.method5999(1);
 			}
 
 			if (var2 == 326) {
-				class263 var5 = class185.method3435(class274.field3065, Client.field1778.field1071);
-				Client.field1920.method6016(var5.field2984);
-				Client.field1778.method2078(var5);
+				class263 var5 = class185.method3435(class274.field3065, client.field1778.field1071);
+				client.field1920.method6016(var5.field2984);
+				client.field1778.method2078(var5);
 				return true;
 			} else {
 				return false;

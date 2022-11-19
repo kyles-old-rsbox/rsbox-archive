@@ -1,5 +1,3 @@
-import client.Client;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -526,7 +524,7 @@ public class class189 extends class437 {
 							var6 = class413.field4575.method1766();
 							break;
 						case 5:
-							var6 = Client.method6543();
+							var6 = client.method6543();
 							break;
 						default:
 							var8 = String.format("Unkown device option: %s.", var4.toString());
@@ -616,7 +614,7 @@ public class class189 extends class437 {
 						class413.field4575.method1712(var6);
 						break;
 					case 5:
-						Client.method4524(var6);
+						client.method4524(var6);
 						break;
 					default:
 						var8 = String.format("Unkown device option: %s.", var4.toString());
@@ -635,12 +633,12 @@ public class class189 extends class437 {
 					case 3:
 						var6 = Math.min(Math.max(var6, 0), 100);
 						var7 = Math.round((float)(var6 * 127) / 100.0F);
-						Client.method1354(var7);
+						client.method1354(var7);
 						break;
 					case 4:
 						var6 = Math.min(Math.max(var6, 0), 100);
 						var7 = Math.round((float)(var6 * 127) / 100.0F);
-						Client.method6049(var7);
+						client.method6049(var7);
 						break;
 					default:
 						var8 = String.format("Unkown game option: %s.", var5.toString());
@@ -654,7 +652,7 @@ public class class189 extends class437 {
 	}
 
 	static void method3481() {
-		for (class188 var1 = (class188) Client.field1856.method6364(); var1 != null; var1 = (class188) Client.field1856.method6358()) {
+		for (class188 var1 = (class188)client.field1856.method6364(); var1 != null; var1 = (class188)client.field1856.method6358()) {
 			var1.method7825();
 		}
 

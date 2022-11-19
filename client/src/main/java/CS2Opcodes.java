@@ -927,4 +927,6 @@ public final class CS2Opcodes {
 	public static final int DB_FINDALL = 7509;
 	public static final int DB_FIND_FILTER = 7510;
 
+	private CS2Opcodes() {
+	}
 }

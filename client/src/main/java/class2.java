@@ -2,8 +2,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.Hashtable;
-
-import client.Client;
 import org.bouncycastle.crypto.tls.DefaultTlsClient;
 import org.bouncycastle.crypto.tls.TlsAuthentication;
 
@@ -35,9 +33,7 @@ class class2 extends DefaultTlsClient {
 	}
 
 	@Override
-	public TlsAuthentication getAuthentication() throws IOException {
-		return null;
-	}
+	public TlsAuthentication getAuthentication() throws IOException { return null; }
 
 	static int method15(int var0, class78 var1, boolean var2) {
 		class300 var4;
@@ -56,7 +52,7 @@ class class2 extends DefaultTlsClient {
 			return 1;
 		} else if (var0 == CS2Opcodes.IF_HASSUB) {
 			int var6 = class57.field404[--class387.field4452];
-			class89 var5 = (class89) Client.field1810.method7855((long)var6);
+			class89 var5 = (class89)client.field1810.method7855((long)var6);
 			if (var5 != null) {
 				class57.field404[++class387.field4452 - 1] = 1;
 			} else {
@@ -65,7 +61,7 @@ class class2 extends DefaultTlsClient {
 
 			return 1;
 		} else if (var0 == CS2Opcodes.IF_GETTOP) {
-			class57.field404[++class387.field4452 - 1] = Client.field1893;
+			class57.field404[++class387.field4452 - 1] = client.field1893;
 			return 1;
 		} else if (var0 == CS2Opcodes.IF_GETCRM_HASRESPONSE) {
 			var4 = class282.method5426(class57.field404[--class387.field4452]);
@@ -83,6 +79,6 @@ class class2 extends DefaultTlsClient {
 	}
 
 	static int method11() {
-		return Client.field1869 ? 2 : 1;
+		return client.field1869 ? 2 : 1;
 	}
 }

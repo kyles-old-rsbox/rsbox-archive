@@ -1,5 +1,3 @@
-import client.Client;
-
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.MouseEvent;
@@ -188,22 +186,22 @@ public class class42 implements MouseListener, MouseMotionListener, FocusListene
 		int var6 = var3 - 334;
 		int var7;
 		if (var6 < 0) {
-			var7 = Client.field1907;
+			var7 = client.field1907;
 		} else if (var6 >= 100) {
-			var7 = Client.field1792;
+			var7 = client.field1792;
 		} else {
-			var7 = Client.field1907 + var6 * (Client.field1792 - Client.field1907) / 100;
+			var7 = client.field1907 + var6 * (client.field1792 - client.field1907) / 100;
 		}
 
 		int var8 = 512 * var7 * var3 / (var2 * 334);
 		int var9;
 		int var10;
 		short var11;
-		if (var8 < Client.field1705) {
-			var11 = Client.field1705;
+		if (var8 < client.field1705) {
+			var11 = client.field1705;
 			var7 = 334 * var2 * var11 / (var3 * 512);
-			if (var7 > Client.field1912) {
-				var7 = Client.field1912;
+			if (var7 > client.field1912) {
+				var7 = client.field1912;
 				var9 = var7 * var3 * 512 / (var11 * 334);
 				var10 = (var2 - var9) / 2;
 				if (var4) {
@@ -215,11 +213,11 @@ public class class42 implements MouseListener, MouseMotionListener, FocusListene
 				var0 += var10;
 				var2 -= var10 * 2;
 			}
-		} else if (var8 > Client.field1914) {
-			var11 = Client.field1914;
+		} else if (var8 > client.field1914) {
+			var11 = client.field1914;
 			var7 = 334 * var2 * var11 / (var3 * 512);
-			if (var7 < Client.field1744) {
-				var7 = Client.field1744;
+			if (var7 < client.field1744) {
+				var7 = client.field1744;
 				var9 = var11 * var2 * 334 / (var7 * 512);
 				var10 = (var3 - var9) / 2;
 				if (var4) {
@@ -233,20 +231,20 @@ public class class42 implements MouseListener, MouseMotionListener, FocusListene
 			}
 		}
 
-		Client.field1919 = var3 * var7 / 334;
-		if (Client.field1917 != var2 || var3 != Client.field1678) {
+		client.field1919 = var3 * var7 / 334;
+		if (client.field1917 != var2 || var3 != client.field1678) {
 			class336.method6282(var2, var3);
 		}
 
-		Client.field1915 = var0;
-		Client.field1634 = var1;
-		Client.field1917 = var2;
-		Client.field1678 = var3;
+		client.field1915 = var0;
+		client.field1634 = var1;
+		client.field1917 = var2;
+		client.field1678 = var3;
 	}
 
 	static final void method790(int var0, int var1, int var2, int var3) {
-		if (0 == Client.field1802 && !Client.field1804) {
-			Client.method351(class338.field4029, "", 23, 0, var0 - var2, var1 - var3);
+		if (0 == client.field1802 && !client.field1804) {
+			client.method351(class338.field4029, "", 23, 0, var0 - var2, var1 - var3);
 		}
 
 		long var5 = -1L;
@@ -277,18 +275,18 @@ public class class42 implements MouseListener, MouseMotionListener, FocusListene
 
 					class101 var22 = null;
 
-					for (class101 var23 = (class101) Client.field1777.method6364(); null != var23; var23 = (class101) Client.field1777.method6358()) {
+					for (class101 var23 = (class101)client.field1777.method6364(); null != var23; var23 = (class101)client.field1777.method6358()) {
 						if (var23.field993 == class55.field396 && var15 == var23.field999 && var23.field994 == var16 && var23.field998 == var20) {
 							var22 = var23;
 							break;
 						}
 					}
 
-					if (Client.field1802 == 1) {
-						Client.method351(class338.field3898, Client.field1803 + " " + class96.field963 + " " + class96.method4510(65535) + var21.field2063, 1, var20, var15, var16);
-					} else if (Client.field1804) {
+					if (client.field1802 == 1) {
+						client.method351(class338.field3898, client.field1803 + " " + class96.field963 + " " + class96.method4510(65535) + var21.field2063, 1, var20, var15, var16);
+					} else if (client.field1804) {
 						if ((class120.field1161 & 4) == 4) {
-							Client.method351(Client.field1653, Client.field1754 + " " + class96.field963 + " " + class96.method4510(65535) + var21.field2063, 2, var20, var15, var16);
+							client.method351(client.field1653, client.field1754 + " " + class96.field963 + " " + class96.method4510(65535) + var21.field2063, 2, var20, var15, var16);
 						}
 					} else {
 						String[] var36 = var21.field2060;
@@ -316,12 +314,12 @@ public class class42 implements MouseListener, MouseMotionListener, FocusListene
 										var30 = 1001;
 									}
 
-									Client.method351(var36[var24], class96.method4510(65535) + var21.field2063, var30, var20, var15, var16);
+									client.method351(var36[var24], class96.method4510(65535) + var21.field2063, var30, var20, var15, var16);
 								}
 							}
 						}
 
-						Client.method351(class338.field4182, class96.method4510(65535) + var21.field2063, 1002, var21.field2052, var15, var16);
+						client.method351(class338.field4182, class96.method4510(65535) + var21.field2063, 1002, var21.field2052, var15, var16);
 					}
 				}
 
@@ -330,16 +328,16 @@ public class class42 implements MouseListener, MouseMotionListener, FocusListene
 				class81 var37;
 				int[] var38;
 				if (var18 == 1) {
-					class81 var32 = Client.field1902[var20];
+					class81 var32 = client.field1902[var20];
 					if (null == var32) {
 						continue;
 					}
 
 					if (1 == var32.field709.field2262 && (var32.field827 & 127) == 64 && (var32.field802 & 127) == 64) {
-						for (var28 = 0; var28 < Client.field1691; ++var28) {
-							var37 = Client.field1902[Client.field1692[var28]];
+						for (var28 = 0; var28 < client.field1691; ++var28) {
+							var37 = client.field1902[client.field1692[var28]];
 							if (null != var37 && var37 != var32 && 1 == var37.field709.field2262 && var37.field827 == var32.field827 && var32.field802 == var37.field802) {
-								class295.method5541(var37, Client.field1692[var28], var15, var16);
+								class295.method5541(var37, client.field1692[var28], var15, var16);
 							}
 						}
 
@@ -347,7 +345,7 @@ public class class42 implements MouseListener, MouseMotionListener, FocusListene
 						var38 = class102.field1013;
 
 						for (var24 = 0; var24 < var28; ++var24) {
-							var25 = Client.field1763[var38[var24]];
+							var25 = client.field1763[var38[var24]];
 							if (null != var25 && var25.field827 == var32.field827 && var32.field802 == var25.field802) {
 								class117.method2256(var25, var38[var24], var15, var16);
 							}
@@ -358,16 +356,16 @@ public class class42 implements MouseListener, MouseMotionListener, FocusListene
 				}
 
 				if (var18 == 0) {
-					class93 var33 = Client.field1763[var20];
+					class93 var33 = client.field1763[var20];
 					if (null == var33) {
 						continue;
 					}
 
 					if ((var33.field827 & 127) == 64 && 64 == (var33.field802 & 127)) {
-						for (var28 = 0; var28 < Client.field1691; ++var28) {
-							var37 = Client.field1902[Client.field1692[var28]];
+						for (var28 = 0; var28 < client.field1691; ++var28) {
+							var37 = client.field1902[client.field1692[var28]];
 							if (var37 != null && var37.field709.field2262 == 1 && var33.field827 == var37.field827 && var37.field802 == var33.field802) {
-								class295.method5541(var37, Client.field1692[var28], var15, var16);
+								class295.method5541(var37, client.field1692[var28], var15, var16);
 							}
 						}
 
@@ -375,14 +373,14 @@ public class class42 implements MouseListener, MouseMotionListener, FocusListene
 						var38 = class102.field1013;
 
 						for (var24 = 0; var24 < var28; ++var24) {
-							var25 = Client.field1763[var38[var24]];
+							var25 = client.field1763[var38[var24]];
 							if (var25 != null && var33 != var25 && var25.field827 == var33.field827 && var33.field802 == var25.field802) {
 								class117.method2256(var25, var38[var24], var15, var16);
 							}
 						}
 					}
 
-					if (var20 != Client.field1775) {
+					if (var20 != client.field1775) {
 						class117.method2256(var33, var20, var15, var16);
 					} else {
 						var5 = var10;
@@ -390,15 +388,15 @@ public class class42 implements MouseListener, MouseMotionListener, FocusListene
 				}
 
 				if (var18 == 3) {
-					class343 var34 = Client.field1865[class55.field396][var15][var16];
+					class343 var34 = client.field1865[class55.field396][var15][var16];
 					if (var34 != null) {
 						for (class104 var35 = (class104)var34.method6363(); var35 != null; var35 = (class104)var34.method6378()) {
 							class198 var39 = class278.method5388(var35.field1043);
-							if (Client.field1802 == 1) {
-								Client.method351(class338.field3898, Client.field1803 + " " + class96.field963 + " " + class96.method4510(16748608) + var39.field2131, 16, var35.field1043, var15, var16);
-							} else if (Client.field1804) {
+							if (client.field1802 == 1) {
+								client.method351(class338.field3898, client.field1803 + " " + class96.field963 + " " + class96.method4510(16748608) + var39.field2131, 16, var35.field1043, var15, var16);
+							} else if (client.field1804) {
 								if ((class120.field1161 & 1) == 1) {
-									Client.method351(Client.field1653, Client.field1754 + " " + class96.field963 + " " + class96.method4510(16748608) + var39.field2131, 17, var35.field1043, var15, var16);
+									client.method351(client.field1653, client.field1754 + " " + class96.field963 + " " + class96.method4510(16748608) + var39.field2131, 17, var35.field1043, var15, var16);
 								}
 							} else {
 								String[] var29 = var39.field2148;
@@ -427,14 +425,14 @@ public class class42 implements MouseListener, MouseMotionListener, FocusListene
 												var26 = 22;
 											}
 
-											Client.method351(var29[var40], class96.method4510(16748608) + var39.field2131, var26, var35.field1043, var15, var16);
+											client.method351(var29[var40], class96.method4510(16748608) + var39.field2131, var26, var35.field1043, var15, var16);
 										} else if (var40 == 2) {
-											Client.method351(class338.field3949, class96.method4510(16748608) + var39.field2131, 20, var35.field1043, var15, var16);
+											client.method351(class338.field3949, class96.method4510(16748608) + var39.field2131, 20, var35.field1043, var15, var16);
 										}
 									}
 								}
 
-								Client.method351(class338.field4182, class96.method4510(16748608) + var39.field2131, 1004, var35.field1043, var15, var16);
+								client.method351(class338.field4182, class96.method4510(16748608) + var39.field2131, 1004, var35.field1043, var15, var16);
 							}
 						}
 					}
@@ -445,8 +443,8 @@ public class class42 implements MouseListener, MouseMotionListener, FocusListene
 		if (var5 != -1L) {
 			var9 = class234.method7552(var5);
 			int var31 = class234.method3636(var5);
-			class93 var11 = Client.field1763[Client.field1775];
-			class117.method2256(var11, Client.field1775, var9, var31);
+			class93 var11 = client.field1763[client.field1775];
+			class117.method2256(var11, client.field1775, var9, var31);
 		}
 
 	}

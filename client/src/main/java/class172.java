@@ -1,5 +1,3 @@
-import client.Client;
-
 import java.io.DataInputStream;
 import java.net.InetAddress;
 import java.net.Socket;
@@ -213,7 +211,7 @@ public class class172 implements Runnable {
 						for (var3 = 1; var3 < 2048; ++var3) {
 							var10000 = class102.field1019;
 							var10000[var3] = (byte)(var10000[var3] >> 1);
-							class93 var6 = Client.field1763[var3];
+							class93 var6 = client.field1763[var3];
 							if (var6 != null) {
 								class102.field1013[++class102.field1012 - 1] = var3;
 							} else {

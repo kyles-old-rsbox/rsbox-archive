@@ -1,5 +1,3 @@
-import client.Client;
-
 public class class152 extends class140 {
 	String field1410;
 	// $FF: synthetic field
@@ -19,7 +17,7 @@ public class class152 extends class140 {
 	}
 
 	static void method2593(int var0) {
-		for (class426 var2 = (class426) Client.field1785.method7867(); null != var2; var2 = (class426) Client.field1785.method7858()) {
+		for (class426 var2 = (class426)client.field1785.method7867(); null != var2; var2 = (class426)client.field1785.method7858()) {
 			if ((var2.field4681 >> 48 & 65535L) == (long)var0) {
 				var2.method7825();
 			}

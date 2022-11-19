@@ -1,5 +1,3 @@
-import client.Client;
-
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.BitSet;
@@ -125,19 +123,19 @@ public class class147 extends class427 {
 			int var3 = class293.field3370[var0];
 			if (var2 == 1) {
 				if (var3 == 1) {
-					Client.method3634(0.9D);
+					client.method3634(0.9D);
 				}
 
 				if (var3 == 2) {
-					Client.method3634(0.8D);
+					client.method3634(0.8D);
 				}
 
 				if (var3 == 3) {
-					Client.method3634(0.7D);
+					client.method3634(0.7D);
 				}
 
 				if (var3 == 4) {
-					Client.method3634(0.6D);
+					client.method3634(0.6D);
 				}
 			}
 
@@ -165,83 +163,83 @@ public class class147 extends class427 {
 
 			if (var2 == 4) {
 				if (var3 == 0) {
-					Client.method1354(127);
+					client.method1354(127);
 				}
 
 				if (var3 == 1) {
-					Client.method1354(96);
+					client.method1354(96);
 				}
 
 				if (var3 == 2) {
-					Client.method1354(64);
+					client.method1354(64);
 				}
 
 				if (var3 == 3) {
-					Client.method1354(32);
+					client.method1354(32);
 				}
 
 				if (var3 == 4) {
-					Client.method1354(0);
+					client.method1354(0);
 				}
 			}
 
 			if (var2 == 5) {
-				Client.field1862 = var3 == 1;
+				client.field1862 = var3 == 1;
 			}
 
 			if (var2 == 6) {
-				Client.field1753 = var3;
+				client.field1753 = var3;
 			}
 
 			if (var2 == 9) {
-				Client.field1814 = var3;
+				client.field1814 = var3;
 			}
 
 			if (var2 == 10) {
 				if (var3 == 0) {
-					Client.method6049(127);
+					client.method6049(127);
 				}
 
 				if (var3 == 1) {
-					Client.method6049(96);
+					client.method6049(96);
 				}
 
 				if (var3 == 2) {
-					Client.method6049(64);
+					client.method6049(64);
 				}
 
 				if (var3 == 3) {
-					Client.method6049(32);
+					client.method6049(32);
 				}
 
 				if (var3 == 4) {
-					Client.method6049(0);
+					client.method6049(0);
 				}
 			}
 
 			if (var2 == 17) {
-				Client.field1819 = var3 & 65535;
+				client.field1819 = var3 & 65535;
 			}
 
 			if (var2 == 18) {
-				Client.field1812 = (class80)class217.method4362(class80.method1045(), var3);
-				if (Client.field1812 == null) {
-					Client.field1812 = class80.field705;
+				client.field1812 = (class80)class217.method4362(class80.method1045(), var3);
+				if (client.field1812 == null) {
+					client.field1812 = class80.field705;
 				}
 			}
 
 			if (var2 == 19) {
 				if (var3 == -1) {
-					Client.field1775 = -1;
+					client.field1775 = -1;
 				} else {
-					Client.field1775 = var3 & 2047;
+					client.field1775 = var3 & 2047;
 				}
 			}
 
 			if (var2 == 22) {
-				Client.field1850 = (class80)class217.method4362(class80.method1045(), var3);
-				if (Client.field1850 == null) {
-					Client.field1850 = class80.field705;
+				client.field1850 = (class80)class217.method4362(class80.method1045(), var3);
+				if (client.field1850 == null) {
+					client.field1850 = class80.field705;
 				}
 			}
 

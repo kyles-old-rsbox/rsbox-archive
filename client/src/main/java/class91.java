@@ -1,5 +1,3 @@
-import client.Client;
-
 public class class91 extends class427 {
 	static class28 field886;
 	static class473 field882;
@@ -67,7 +65,7 @@ public class class91 extends class427 {
 
 	static final void method1892() {
 		for (int var1 = 0; var1 < class102.field1012; ++var1) {
-			class93 var2 = Client.field1763[class102.field1013[var1]];
+			class93 var2 = client.field1763[class102.field1013[var1]];
 			var2.method1913();
 		}
 

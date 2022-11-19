@@ -3,9 +3,6 @@ public class class428 implements class436 {
 	int field4687;
 	int field4688;
 
-	public class428() {
-	}
-
 	public class439 method7886() {
 		byte var2;
 		if (class20.field100.startsWith("win")) {

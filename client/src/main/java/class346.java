@@ -1,5 +1,3 @@
-import client.Client;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -86,14 +84,14 @@ public class class346 implements class360 {
 			var4 = class55.field396;
 			int var10 = (class291.field3364.field827 >> 7) + class36.field241;
 			int var6 = (class291.field3364.field802 >> 7) + class169.field1536;
-			Client.method6324().method7597(var4, var10, var6, true);
+			client.method6324().method7597(var4, var10, var6, true);
 			return 1;
 		} else {
 			class254 var12;
 			if (var0 == CS2Opcodes.WORLDMAP_GETMAPNAME) {
 				var4 = class57.field404[--class387.field4452];
 				String var17 = "";
-				var12 = Client.method6324().method7603(var4);
+				var12 = client.method6324().method7603(var4);
 				if (var12 != null) {
 					var17 = var12.method5055();
 				}
@@ -102,45 +100,45 @@ public class class346 implements class360 {
 				return 1;
 			} else if (var0 == CS2Opcodes.WORLDMAP_SETMAP) {
 				var4 = class57.field404[--class387.field4452];
-				Client.method6324().method7616(var4);
+				client.method6324().method7616(var4);
 				return 1;
 			} else if (var0 == CS2Opcodes.WORLDMAP_GETZOOM) {
-				class57.field404[++class387.field4452 - 1] = Client.method6324().method7600();
+				class57.field404[++class387.field4452 - 1] = client.method6324().method7600();
 				return 1;
 			} else if (var0 == CS2Opcodes.WORLDMAP_SETZOOM) {
 				var4 = class57.field404[--class387.field4452];
-				Client.method6324().method7585(var4);
+				client.method6324().method7585(var4);
 				return 1;
 			} else if (var0 == CS2Opcodes.WORLDMAP_ISLOADED) {
-				class57.field404[++class387.field4452 - 1] = Client.method6324().method7602() ? 1 : 0;
+				class57.field404[++class387.field4452 - 1] = client.method6324().method7602() ? 1 : 0;
 				return 1;
 			} else {
 				class295 var16;
 				if (var0 == CS2Opcodes.WORLDMAP_JUMPTODISPLAYCOORD) {
 					var16 = new class295(class57.field404[--class387.field4452]);
-					Client.method6324().method7604(var16.field3376, var16.field3375);
+					client.method6324().method7604(var16.field3376, var16.field3375);
 					return 1;
 				} else if (var0 == CS2Opcodes.WORLDMAP_JUMPTODISPLAYCOORD_INSTANT) {
 					var16 = new class295(class57.field404[--class387.field4452]);
-					Client.method6324().method7605(var16.field3376, var16.field3375);
+					client.method6324().method7605(var16.field3376, var16.field3375);
 					return 1;
 				} else if (var0 == CS2Opcodes.WORLDMAP_JUMPTOSOURCECOORD) {
 					var16 = new class295(class57.field404[--class387.field4452]);
-					Client.method6324().method7606(var16.field3374, var16.field3376, var16.field3375);
+					client.method6324().method7606(var16.field3374, var16.field3376, var16.field3375);
 					return 1;
 				} else if (var0 == CS2Opcodes.WORLDMAP_JUMPTOSOURCECOORD_INSTANT) {
 					var16 = new class295(class57.field404[--class387.field4452]);
-					Client.method6324().method7607(var16.field3374, var16.field3376, var16.field3375);
+					client.method6324().method7607(var16.field3374, var16.field3376, var16.field3375);
 					return 1;
 				} else if (var0 == CS2Opcodes.WORLDMAP_GETDISPLAYPOSITION) {
-					class57.field404[++class387.field4452 - 1] = Client.method6324().method7608();
-					class57.field404[++class387.field4452 - 1] = Client.method6324().method7609();
+					class57.field404[++class387.field4452 - 1] = client.method6324().method7608();
+					class57.field404[++class387.field4452 - 1] = client.method6324().method7609();
 					return 1;
 				} else {
 					class254 var14;
 					if (var0 == CS2Opcodes.WORLDMAP_GETCONFIGORIGIN) {
 						var4 = class57.field404[--class387.field4452];
-						var14 = Client.method6324().method7603(var4);
+						var14 = client.method6324().method7603(var4);
 						if (var14 == null) {
 							class57.field404[++class387.field4452 - 1] = 0;
 						} else {
@@ -150,7 +148,7 @@ public class class346 implements class360 {
 						return 1;
 					} else if (var0 == CS2Opcodes.WORLDMAP_GETCONFIGSIZE) {
 						var4 = class57.field404[--class387.field4452];
-						var14 = Client.method6324().method7603(var4);
+						var14 = client.method6324().method7603(var4);
 						if (null == var14) {
 							class57.field404[++class387.field4452 - 1] = 0;
 							class57.field404[++class387.field4452 - 1] = 0;
@@ -162,7 +160,7 @@ public class class346 implements class360 {
 						return 1;
 					} else if (var0 == CS2Opcodes.WORLDMAP_GETCONFIGBOUNDS) {
 						var4 = class57.field404[--class387.field4452];
-						var14 = Client.method6324().method7603(var4);
+						var14 = client.method6324().method7603(var4);
 						if (null == var14) {
 							class57.field404[++class387.field4452 - 1] = 0;
 							class57.field404[++class387.field4452 - 1] = 0;
@@ -178,7 +176,7 @@ public class class346 implements class360 {
 						return 1;
 					} else if (var0 == CS2Opcodes.WORLDMAP_GETCONFIGZOOM) {
 						var4 = class57.field404[--class387.field4452];
-						var14 = Client.method6324().method7603(var4);
+						var14 = client.method6324().method7603(var4);
 						if (null == var14) {
 							class57.field404[++class387.field4452 - 1] = -1;
 						} else {
@@ -187,7 +185,7 @@ public class class346 implements class360 {
 
 						return 1;
 					} else if (var0 == CS2Opcodes._6615) {
-						var16 = Client.method6324().method7610();
+						var16 = client.method6324().method7610();
 						if (var16 == null) {
 							class57.field404[++class387.field4452 - 1] = -1;
 							class57.field404[++class387.field4452 - 1] = -1;
@@ -198,11 +196,11 @@ public class class346 implements class360 {
 
 						return 1;
 					} else if (var0 == CS2Opcodes.WORLDMAP_GETCURRENTMAP) {
-						class57.field404[++class387.field4452 - 1] = Client.method6324().method7583();
+						class57.field404[++class387.field4452 - 1] = client.method6324().method7583();
 						return 1;
 					} else if (var0 == CS2Opcodes.WORLDMAP_GETDISPLAYCOORD) {
 						var16 = new class295(class57.field404[--class387.field4452]);
-						var14 = Client.method6324().method7588();
+						var14 = client.method6324().method7588();
 						if (var14 == null) {
 							class57.field404[++class387.field4452 - 1] = -1;
 							class57.field404[++class387.field4452 - 1] = -1;
@@ -223,7 +221,7 @@ public class class346 implements class360 {
 						class295 var8;
 						if (var0 == CS2Opcodes._6618) {
 							var16 = new class295(class57.field404[--class387.field4452]);
-							var14 = Client.method6324().method7588();
+							var14 = client.method6324().method7588();
 							if (null == var14) {
 								class57.field404[++class387.field4452 - 1] = -1;
 								class57.field404[++class387.field4452 - 1] = -1;
@@ -256,7 +254,7 @@ public class class346 implements class360 {
 								class387.field4452 -= 2;
 								var4 = class57.field404[class387.field4452];
 								var13 = new class295(class57.field404[1 + class387.field4452]);
-								var12 = Client.method6324().method7603(var4);
+								var12 = client.method6324().method7603(var4);
 								if (var12 == null) {
 									class57.field404[++class387.field4452 - 1] = 0;
 									return 1;
@@ -265,12 +263,12 @@ public class class346 implements class360 {
 									return 1;
 								}
 							} else if (var0 == CS2Opcodes.WORLDMAP_GETSIZE) {
-								class57.field404[++class387.field4452 - 1] = Client.method6324().method7611();
-								class57.field404[++class387.field4452 - 1] = Client.method6324().method7612();
+								class57.field404[++class387.field4452 - 1] = client.method6324().method7611();
+								class57.field404[++class387.field4452 - 1] = client.method6324().method7612();
 								return 1;
 							} else if (var0 == CS2Opcodes._6623) {
 								var16 = new class295(class57.field404[--class387.field4452]);
-								var14 = Client.method6324().method7714(var16.field3374, var16.field3376, var16.field3375);
+								var14 = client.method6324().method7714(var16.field3374, var16.field3376, var16.field3375);
 								if (null == var14) {
 									class57.field404[++class387.field4452 - 1] = -1;
 								} else {
@@ -279,37 +277,37 @@ public class class346 implements class360 {
 
 								return 1;
 							} else if (var0 == CS2Opcodes._6624) {
-								Client.method6324().method7613(class57.field404[--class387.field4452]);
+								client.method6324().method7613(class57.field404[--class387.field4452]);
 								return 1;
 							} else if (var0 == CS2Opcodes._6625) {
-								Client.method6324().method7598();
+								client.method6324().method7598();
 								return 1;
 							} else if (var0 == CS2Opcodes._6626) {
-								Client.method6324().method7615(class57.field404[--class387.field4452]);
+								client.method6324().method7615(class57.field404[--class387.field4452]);
 								return 1;
 							} else if (var0 == CS2Opcodes._6627) {
-								Client.method6324().method7645();
+								client.method6324().method7645();
 								return 1;
 							} else {
 								boolean var11;
 								if (var0 == CS2Opcodes.WORLDMAP_PERPETUALFLASH) {
 									var11 = class57.field404[--class387.field4452] == 1;
-									Client.method6324().method7707(var11);
+									client.method6324().method7707(var11);
 									return 1;
 								} else if (var0 == CS2Opcodes.WORLDMAP_FLASHELEMENT) {
 									var4 = class57.field404[--class387.field4452];
-									Client.method6324().method7765(var4);
+									client.method6324().method7765(var4);
 									return 1;
 								} else if (var0 == CS2Opcodes.WORLDMAP_FLASHELEMENTCATEGORY) {
 									var4 = class57.field404[--class387.field4452];
-									Client.method6324().method7731(var4);
+									client.method6324().method7731(var4);
 									return 1;
 								} else if (var0 == CS2Opcodes.WORLDMAP_STOPCURRENTFLASHES) {
-									Client.method6324().method7620();
+									client.method6324().method7620();
 									return 1;
 								} else if (var0 == CS2Opcodes.WORLDMAP_DISABLEELEMENTS) {
 									var11 = class57.field404[--class387.field4452] == 1;
-									Client.method6324().method7621(var11);
+									client.method6324().method7621(var11);
 									return 1;
 								} else {
 									boolean var5;
@@ -317,30 +315,30 @@ public class class346 implements class360 {
 										class387.field4452 -= 2;
 										var4 = class57.field404[class387.field4452];
 										var5 = class57.field404[1 + class387.field4452] == 1;
-										Client.method6324().method7622(var4, var5);
+										client.method6324().method7622(var4, var5);
 										return 1;
 									} else if (var0 == CS2Opcodes.WORLDMAP_DISABLEELEMENTCATEGORY) {
 										class387.field4452 -= 2;
 										var4 = class57.field404[class387.field4452];
 										var5 = 1 == class57.field404[1 + class387.field4452];
-										Client.method6324().method7623(var4, var5);
+										client.method6324().method7623(var4, var5);
 										return 1;
 									} else if (var0 == CS2Opcodes.WORLDMAP_GETDISABLEELEMENTS) {
-										class57.field404[++class387.field4452 - 1] = Client.method6324().method7624() ? 1 : 0;
+										class57.field404[++class387.field4452 - 1] = client.method6324().method7624() ? 1 : 0;
 										return 1;
 									} else if (var0 == CS2Opcodes.WORLDMAP_GETDISABLEELEMENT) {
 										var4 = class57.field404[--class387.field4452];
-										class57.field404[++class387.field4452 - 1] = Client.method6324().method7625(var4) ? 1 : 0;
+										class57.field404[++class387.field4452 - 1] = client.method6324().method7625(var4) ? 1 : 0;
 										return 1;
 									} else if (var0 == CS2Opcodes.WORLDMAP_GETDISABLEELEMENTCATEGORY) {
 										var4 = class57.field404[--class387.field4452];
-										class57.field404[++class387.field4452 - 1] = Client.method6324().method7626(var4) ? 1 : 0;
+										class57.field404[++class387.field4452 - 1] = client.method6324().method7626(var4) ? 1 : 0;
 										return 1;
 									} else if (var0 == CS2Opcodes._6638) {
 										class387.field4452 -= 2;
 										var4 = class57.field404[class387.field4452];
 										var13 = new class295(class57.field404[1 + class387.field4452]);
-										var8 = Client.method6324().method7629(var4, var13);
+										var8 = client.method6324().method7629(var4, var13);
 										if (var8 == null) {
 											class57.field404[++class387.field4452 - 1] = -1;
 										} else {
@@ -351,7 +349,7 @@ public class class346 implements class360 {
 									} else {
 										class251 var9;
 										if (var0 == CS2Opcodes.WORLDMAP_LISTELEMENT_START) {
-											var9 = Client.method6324().method7631();
+											var9 = client.method6324().method7631();
 											if (var9 == null) {
 												class57.field404[++class387.field4452 - 1] = -1;
 												class57.field404[++class387.field4452 - 1] = -1;
@@ -362,7 +360,7 @@ public class class346 implements class360 {
 
 											return 1;
 										} else if (var0 == CS2Opcodes.WORLDMAP_LISTELEMENT_NEXT) {
-											var9 = Client.method6324().method7718();
+											var9 = client.method6324().method7718();
 											if (var9 == null) {
 												class57.field404[++class387.field4452 - 1] = -1;
 												class57.field404[++class387.field4452 - 1] = -1;
@@ -450,14 +448,14 @@ public class class346 implements class360 {
 					if (class242.method4733(class190.method3528(var0.field1984))) {
 						int[] var5 = var0.field1984.method5933();
 						if (var5 != null) {
-							class263 var3 = class185.method3435(class274.field3146, Client.field1778.field1071);
+							class263 var3 = class185.method3435(class274.field3146, client.field1778.field1071);
 							var3.field2984.method8155(var5[2]);
 							var3.field2984.method8241(var0.field1984.field3517);
 							var3.field2984.method8155(var0.field1984.method5871());
 							var3.field2984.method8181(var0.field1984.field3484);
 							var3.field2984.method8171(var5[1]);
 							var3.field2984.method8171(var5[0]);
-							Client.field1778.method2078(var3);
+							client.field1778.method2078(var3);
 						}
 					}
 				}
@@ -466,9 +464,9 @@ public class class346 implements class360 {
 				if (null != var4 && var4.method5612()) {
 					switch(var0.field1983) {
 					case 0:
-						Client.field1877.method3515(var0.field1984);
+						client.field1877.method3515(var0.field1984);
 						var4.method5560(true);
-						var4.method5599(var0.field1987, var0.field1980, Client.field1876.method3895(82), Client.field1876.method3895(81));
+						var4.method5599(var0.field1987, var0.field1980, client.field1876.method3895(82), client.field1876.method3895(81));
 						break;
 					case 1:
 						var4.method5600(var0.field1987, var0.field1980);

@@ -1,5 +1,3 @@
-import client.Client;
-
 public final class class93 extends class90 {
 	boolean field895;
 	boolean field913;
@@ -145,7 +143,7 @@ public final class class93 extends class90 {
 		this.field905 = var1.method8141();
 		this.field912 = var1.method8122();
 		this.field913 = var1.method8141() == 1;
-		if (0 == Client.field1911 && Client.field1750 >= 2) {
+		if (0 == client.field1911 && client.field1750 >= 2) {
 			this.field913 = false;
 		}
 
@@ -209,7 +207,7 @@ public final class class93 extends class90 {
 			this.field897[var11] = var1.method8131();
 		}
 
-		if (Client.field1932 > 208) {
+		if (client.field1932 > 208) {
 			var4 = var1.method8141();
 		}
 
@@ -254,7 +252,7 @@ public final class class93 extends class90 {
 
 	void method1910() {
 		for (int var2 = 0; var2 < 4; ++var2) {
-			if (null != Client.field1738[var2] && Client.field1738[var2].method2525(this.field910.method8451()) != -1 && var2 != 2) {
+			if (null != client.field1738[var2] && client.field1738[var2].method2525(this.field910.method8451()) != -1 && var2 != 2) {
 				this.field918 = class410.field4551;
 				return;
 			}
@@ -304,11 +302,11 @@ public final class class93 extends class90 {
 				}
 
 				if (!this.field895 && null != this.field906) {
-					if (Client.field1645 >= this.field902) {
+					if (client.field1645 >= this.field902) {
 						this.field906 = null;
 					}
 
-					if (Client.field1645 >= this.field901 && Client.field1645 < this.field902) {
+					if (client.field1645 >= this.field901 && client.field1645 < this.field902) {
 						var6 = this.field906;
 						var6.method4008(this.field898 - super.field827, this.field904 - this.field900, this.field903 - super.field802);
 						if (512 == super.field860) {
@@ -340,7 +338,7 @@ public final class class93 extends class90 {
 				}
 
 				var4.field2407 = true;
-				if (super.field867 != 0 && Client.field1645 >= super.field862 && Client.field1645 < super.field863) {
+				if (super.field867 != 0 && client.field1645 >= super.field862 && client.field1645 < super.field863) {
 					var4.field2440 = super.field864;
 					var4.field2417 = super.field865;
 					var4.field2453 = super.field850;
@@ -371,15 +369,15 @@ public final class class93 extends class90 {
 					int var9 = this.method1916();
 					if (var7 >= var9 && var7 < 104 - var9 && var8 >= var9 && var8 < 104 - var9 && var1 >= var9 && var1 < 104 - var9 && var2 >= var9 && var2 < 104 - var9) {
 						int var11 = this.method1916();
-						Client.field1933.field2305 = var1;
-						Client.field1933.field2303 = var2;
-						Client.field1933.field2307 = 1;
-						Client.field1933.field2308 = 1;
-						class55 var12 = Client.field1933;
+						client.field1933.field2305 = var1;
+						client.field1933.field2303 = var2;
+						client.field1933.field2307 = 1;
+						client.field1933.field2308 = 1;
+						class55 var12 = client.field1933;
 						class55 var13 = var12;
-						class200 var14 = Client.field1884[this.field914];
-						int[] var15 = Client.field1836;
-						int[] var16 = Client.field1935;
+						class200 var14 = client.field1884[this.field914];
+						int[] var15 = client.field1836;
+						int[] var16 = client.field1935;
 						int var17 = 0;
 
 						label544:
@@ -724,7 +722,7 @@ public final class class93 extends class90 {
 										break label544;
 									}
 
-									var5.method1914(Client.field1836[var18], Client.field1935[var18], var6);
+									var5.method1914(client.field1836[var18], client.field1935[var18], var6);
 									++var18;
 								}
 							}

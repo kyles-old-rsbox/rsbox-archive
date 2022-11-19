@@ -7,7 +7,6 @@ dependencies {
     implementation("org.json:json:20220320")
     implementation("com.formdev:flatlaf:_")
     implementation("com.formdev:flatlaf-intellij-themes:_")
-    runtimeOnly(files("lib/gamepack.jar"))
 }
 
 tasks {
@@ -15,7 +14,6 @@ tasks {
         dependsOn(build.get())
         group = "rsbox"
         mainClass.set("io.rsbox.client.ClientLauncher")
-        main = mainClass.get()
         classpath = sourceSets["main"].runtimeClasspath
     }
 
@@ -34,16 +32,9 @@ tasks {
         with(jar.get())
     }
 
-    java {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-        disableAutoTargetJvm()
-    }
-
     compileJava {
-        sourceCompatibility = JavaVersion.VERSION_1_8.toString()
-        targetCompatibility = JavaVersion.VERSION_1_8.toString()
-        options.compilerArgs.addAll(arrayOf("-g:source,vars,lines"))
+        sourceCompatibility = JavaVersion.VERSION_11.toString()
+        targetCompatibility = JavaVersion.VERSION_11.toString()
         options.encoding = "UTF-8"
     }
 }

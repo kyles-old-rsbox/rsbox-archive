@@ -1,5 +1,3 @@
-import client.Client;
-
 public class class111 extends class393 {
 	public static boolean field1097;
 	final boolean field1100;
@@ -9,7 +7,7 @@ public class class111 extends class393 {
 	}
 
 	int method2137(class396 var1, class396 var2) {
-		if (var1.field4491 == Client.field1868 && Client.field1868 == var2.field4491) {
+		if (var1.field4491 == client.field1868 && client.field1868 == var2.field4491) {
 			return this.field1100 ? var1.field4490 - var2.field4490 : var2.field4490 - var1.field4490;
 		} else {
 			return this.method7162(var1, var2);

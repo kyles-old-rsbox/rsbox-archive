@@ -1,5 +1,3 @@
-import client.Client;
-
 public class class198 extends class437 {
 	public static class319 field2125;
 	static class284 field2126;
@@ -632,7 +630,7 @@ public class class198 extends class437 {
 	}
 
 	static void method3654() {
-		for (class89 var1 = (class89) Client.field1810.method7867(); var1 != null; var1 = (class89) Client.field1810.method7858()) {
+		for (class89 var1 = (class89)client.field1810.method7867(); var1 != null; var1 = (class89)client.field1810.method7858()) {
 			int var2 = var1.field796;
 			if (class246.method4928(var2)) {
 				boolean var3 = true;

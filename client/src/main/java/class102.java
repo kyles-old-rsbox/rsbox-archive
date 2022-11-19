@@ -1,5 +1,3 @@
-import client.Client;
-
 public class class102 {
 	static byte[] field1019;
 	static class197[] field1010;
@@ -38,8 +36,8 @@ public class class102 {
 
 	static final void method4730(class453 var0) {
 		var0.method8013();
-		int var2 = Client.field1764;
-		class93 var3 = class291.field3364 = Client.field1763[var2] = new class93();
+		int var2 = client.field1764;
+		class93 var3 = class291.field3364 = client.field1763[var2] = new class93();
 		var3.field915 = var2;
 		int var4 = var0.method8014(30);
 		byte var5 = (byte)(var4 >> 28);

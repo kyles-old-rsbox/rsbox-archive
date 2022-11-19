@@ -58,15 +58,17 @@ public class class21 extends SSLSocketFactory {
 		return this.method286(var2, var5);
 	}
 
+	@Override
 	public String[] getDefaultCipherSuites() {
 		return null;
 	}
 
+	@Override
 	public String[] getSupportedCipherSuites() {
 		return null;
 	}
 
-	public Socket createSocket(String var1) throws IOException, UnknownHostException {
+	public Socket createSocket(String host) throws IOException, UnknownHostException {
 		return null;
 	}
 

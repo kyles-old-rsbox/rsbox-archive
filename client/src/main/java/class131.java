@@ -1,5 +1,3 @@
-import client.Client;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
@@ -132,7 +130,7 @@ public class class131 extends class140 {
 	}
 
 	static final void method2399(String var0, boolean var1) {
-		if (Client.field1762) {
+		if (client.field1762) {
 			byte var3 = 4;
 			int var4 = var3 + 6;
 			int var5 = var3 + 6;

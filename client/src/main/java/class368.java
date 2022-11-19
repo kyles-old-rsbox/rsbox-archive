@@ -1,5 +1,3 @@
-import client.Client;
-
 public class class368 {
 	static class329 field4353;
 
@@ -112,15 +110,15 @@ public class class368 {
 	}
 
 	static final void method6731() {
-		Client.field1778.method2080();
-		Client.method2354();
+		client.field1778.method2080();
+		client.method2354();
 		class145.field1333.method4122();
 
 		for (int var1 = 0; var1 < 4; ++var1) {
-			Client.field1884[var1].method3735();
+			client.field1884[var1].method3735();
 		}
 
-		Client.field1877.method3521();
+		client.field1877.method3521();
 		System.gc();
 		class279.field3202 = 1;
 		class7.field29 = null;
@@ -129,8 +127,8 @@ public class class368 {
 		class110.field1092 = 0;
 		class337.field3889 = false;
 		class13.field67 = 2;
-		Client.field1748 = -1;
-		Client.field1781 = false;
+		client.field1748 = -1;
+		client.field1781 = false;
 		class103.method2025();
 		class9.method64(10);
 	}

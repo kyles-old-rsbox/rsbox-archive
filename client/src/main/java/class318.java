@@ -1,5 +1,3 @@
-import client.Client;
-
 import java.io.IOException;
 
 public class class318 implements class360 {
@@ -27,17 +25,17 @@ public class class318 implements class360 {
 
 	static final void method6083(boolean var0) {
 		class349.method6457();
-		++Client.field1778.field1077;
-		if (Client.field1778.field1077 >= 50 || var0) {
-			Client.field1778.field1077 = 0;
-			if (!Client.field1697 && Client.field1778.method2082() != null) {
-				class263 var2 = class185.method3435(class274.field3083, Client.field1778.field1071);
-				Client.field1778.method2078(var2);
+		++client.field1778.field1077;
+		if (client.field1778.field1077 >= 50 || var0) {
+			client.field1778.field1077 = 0;
+			if (!client.field1697 && client.field1778.method2082() != null) {
+				class263 var2 = class185.method3435(class274.field3083, client.field1778.field1071);
+				client.field1778.method2078(var2);
 
 				try {
-					Client.field1778.method2081();
+					client.field1778.method2081();
 				} catch (IOException var4) {
-					Client.field1697 = true;
+					client.field1697 = true;
 				}
 			}
 

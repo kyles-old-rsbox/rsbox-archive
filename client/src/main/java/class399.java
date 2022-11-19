@@ -1,5 +1,3 @@
-import client.Client;
-
 public abstract class class399 extends class259 implements class482 {
 	static class72[] field4502;
 
@@ -64,10 +62,10 @@ public abstract class class399 extends class259 implements class482 {
 				class102.field1020[++class102.field1007 - 1] = var1;
 			}
 
-			if (Client.field1763[var1] != null) {
+			if (client.field1763[var1] != null) {
 				throw new RuntimeException();
 			} else {
-				class93 var7 = Client.field1763[var1] = new class93();
+				class93 var7 = client.field1763[var1] = new class93();
 				var7.field915 = var1;
 				if (null != class102.field1011[var1]) {
 					var7.method1906(class102.field1011[var1]);

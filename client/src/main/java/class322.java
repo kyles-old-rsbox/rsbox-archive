@@ -1,5 +1,3 @@
-import client.Client;
-
 public class class322 implements Runnable {
 	static class343 field3759;
 	static class343 field3760;
@@ -105,7 +103,7 @@ public class class322 implements Runnable {
 	}
 
 	static void method6198(class189 var0, int var1, int var2, int var3) {
-		if (Client.field1894 < 50 && class413.field4575.method1736() != 0) {
+		if (client.field1894 < 50 && class413.field4575.method1736() != 0) {
 			if (var0.field2007 != null && var1 < var0.field2007.length) {
 				class100.method1993(var0.field2007[var1], var2, var3);
 			}

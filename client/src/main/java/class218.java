@@ -1,5 +1,3 @@
-import client.Client;
-
 public class class218 extends class437 {
 	static class401 field2589;
 	static long field2591;
@@ -46,7 +44,7 @@ public class class218 extends class437 {
 
 	static int method4369(int var0, class78 var1, boolean var2) {
 		if (var0 == CS2Opcodes.CLIENTCLOCK) {
-			class57.field404[++class387.field4452 - 1] = Client.field1645;
+			class57.field404[++class387.field4452 - 1] = client.field1645;
 			return 1;
 		} else {
 			int var4;
@@ -75,15 +73,15 @@ public class class218 extends class437 {
 				return 1;
 			} else if (var0 == CS2Opcodes.STAT) {
 				var4 = class57.field404[--class387.field4452];
-				class57.field404[++class387.field4452 - 1] = Client.field1780[var4];
+				class57.field404[++class387.field4452 - 1] = client.field1780[var4];
 				return 1;
 			} else if (var0 == CS2Opcodes.STAT_BASE) {
 				var4 = class57.field404[--class387.field4452];
-				class57.field404[++class387.field4452 - 1] = Client.field1817[var4];
+				class57.field404[++class387.field4452 - 1] = client.field1817[var4];
 				return 1;
 			} else if (var0 == CS2Opcodes.STAT_XP) {
 				var4 = class57.field404[--class387.field4452];
-				class57.field404[++class387.field4452 - 1] = Client.field1782[var4];
+				class57.field404[++class387.field4452 - 1] = client.field1782[var4];
 				return 1;
 			} else {
 				int var6;
@@ -106,7 +104,7 @@ public class class218 extends class437 {
 					class57.field404[++class387.field4452 - 1] = var4 & 16383;
 					return 1;
 				} else if (var0 == CS2Opcodes.MAP_MEMBERS) {
-					class57.field404[++class387.field4452 - 1] = Client.field1635 ? 1 : 0;
+					class57.field404[++class387.field4452 - 1] = client.field1635 ? 1 : 0;
 					return 1;
 				} else if (var0 == CS2Opcodes.INVOTHER_GETOBJ) {
 					class387.field4452 -= 2;
@@ -127,27 +125,27 @@ public class class218 extends class437 {
 					class57.field404[++class387.field4452 - 1] = class257.method5139(var4, var5);
 					return 1;
 				} else if (var0 == CS2Opcodes.STAFFMODLEVEL) {
-					if (Client.field1750 >= 2) {
-						class57.field404[++class387.field4452 - 1] = Client.field1750;
+					if (client.field1750 >= 2) {
+						class57.field404[++class387.field4452 - 1] = client.field1750;
 					} else {
 						class57.field404[++class387.field4452 - 1] = 0;
 					}
 
 					return 1;
 				} else if (var0 == CS2Opcodes.REBOOTTIMER) {
-					class57.field404[++class387.field4452 - 1] = Client.field1651;
+					class57.field404[++class387.field4452 - 1] = client.field1651;
 					return 1;
 				} else if (var0 == CS2Opcodes.MAP_WORLD) {
-					class57.field404[++class387.field4452 - 1] = Client.field1868;
+					class57.field404[++class387.field4452 - 1] = client.field1868;
 					return 1;
 				} else if (var0 == CS2Opcodes.RUNENERGY_VISIBLE) {
-					class57.field404[++class387.field4452 - 1] = Client.field1816;
+					class57.field404[++class387.field4452 - 1] = client.field1816;
 					return 1;
 				} else if (var0 == CS2Opcodes.RUNWEIGHT_VISIBLE) {
-					class57.field404[++class387.field4452 - 1] = Client.field1859;
+					class57.field404[++class387.field4452 - 1] = client.field1859;
 					return 1;
 				} else if (var0 == CS2Opcodes.PLAYERMOD) {
-					if (Client.field1820) {
+					if (client.field1820) {
 						class57.field404[++class387.field4452 - 1] = 1;
 					} else {
 						class57.field404[++class387.field4452 - 1] = 0;
@@ -155,7 +153,7 @@ public class class218 extends class437 {
 
 					return 1;
 				} else if (var0 == CS2Opcodes.WORLDFLAGS) {
-					class57.field404[++class387.field4452 - 1] = Client.field1633;
+					class57.field404[++class387.field4452 - 1] = client.field1633;
 					return 1;
 				} else if (var0 == CS2Opcodes.MOVECOORD) {
 					class387.field4452 -= 4;
@@ -169,10 +167,10 @@ public class class218 extends class437 {
 					class57.field404[++class387.field4452 - 1] = var4;
 					return 1;
 				} else if (var0 == CS2Opcodes.MOUSE_GETX) {
-					class57.field404[++class387.field4452 - 1] = Client.field1647;
+					class57.field404[++class387.field4452 - 1] = client.field1647;
 					return 1;
 				} else if (var0 == CS2Opcodes.MOUSE_GETY) {
-					class57.field404[++class387.field4452 - 1] = Client.field1773;
+					class57.field404[++class387.field4452 - 1] = client.field1773;
 					return 1;
 				} else {
 					return 2;

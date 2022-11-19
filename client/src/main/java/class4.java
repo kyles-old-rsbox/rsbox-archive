@@ -1,5 +1,3 @@
-import client.Client;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -192,13 +190,13 @@ public class class4 {
 	}
 
 	static final void method16(class300 var0, int var1, int var2, int var3, int var4, int var5, int var6) {
-		if (Client.field1714) {
-			Client.field1715 = 32;
+		if (client.field1714) {
+			client.field1715 = 32;
 		} else {
-			Client.field1715 = 0;
+			client.field1715 = 0;
 		}
 
-		Client.field1714 = false;
+		client.field1714 = false;
 		int var8;
 		if (class42.field289 == 1 || !class95.field944 && 4 == class42.field289) {
 			if (var5 >= var1 && var5 < var1 + 16 && var6 >= var2 && var6 < var2 + 16) {
@@ -207,7 +205,7 @@ public class class4 {
 			} else if (var5 >= var1 && var5 < var1 + 16 && var6 >= var2 + var3 - 16 && var6 < var2 + var3) {
 				var0.field3482 += 4;
 				class136.method2438(var0);
-			} else if (var5 >= var1 - Client.field1715 && var5 < var1 + 16 + Client.field1715 && var6 >= var2 + 16 && var6 < var2 + var3 - 16) {
+			} else if (var5 >= var1 - client.field1715 && var5 < var1 + 16 + client.field1715 && var6 >= var2 + 16 && var6 < var2 + var3 - 16) {
 				var8 = (var3 - 32) * var3 / var4;
 				if (var8 < 8) {
 					var8 = 8;
@@ -217,14 +215,14 @@ public class class4 {
 				int var10 = var3 - 32 - var8;
 				var0.field3482 = var9 * (var4 - var3) / var10;
 				class136.method2438(var0);
-				Client.field1714 = true;
+				client.field1714 = true;
 			}
 		}
 
-		if (Client.field1639 != 0) {
+		if (client.field1639 != 0) {
 			var8 = var0.field3448;
 			if (var5 >= var1 - var8 && var6 >= var2 && var5 < var1 + 16 && var6 <= var2 + var3) {
-				var0.field3482 += Client.field1639 * 45;
+				var0.field3482 += client.field1639 * 45;
 				class136.method2438(var0);
 			}
 		}
@@ -245,8 +243,8 @@ public class class4 {
 			class136.method2438(var5);
 		}
 
-		if (-1 != Client.field1893) {
-			class217.method4361(Client.field1893, 1);
+		if (-1 != client.field1893) {
+			class217.method4361(client.field1893, 1);
 		}
 
 	}

@@ -1,5 +1,3 @@
-import client.Client;
-
 public class class203 extends class437 {
 	public static class319 field2257;
 	public static class319 field2293;
@@ -417,10 +415,10 @@ public class class203 extends class437 {
 	}
 
 	static final void method3865() {
-		for (class77 var1 = (class77) Client.field1779.method6364(); null != var1; var1 = (class77) Client.field1779.method6358()) {
+		for (class77 var1 = (class77)client.field1779.method6364(); null != var1; var1 = (class77)client.field1779.method6358()) {
 			if (class55.field396 == var1.field660 && !var1.field667) {
-				if (Client.field1645 >= var1.field659) {
-					var1.method1571(Client.field1701);
+				if (client.field1645 >= var1.field659) {
+					var1.method1571(client.field1701);
 					if (var1.field667) {
 						var1.method7825();
 					} else {

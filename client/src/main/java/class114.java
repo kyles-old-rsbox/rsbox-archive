@@ -1,5 +1,3 @@
-import client.Client;
-
 public class class114 extends class393 {
 	static class376 field1127;
 	final boolean field1123;
@@ -26,17 +24,17 @@ public class class114 extends class393 {
 			class387.field4452 -= 2;
 			var4 = class57.field404[class387.field4452];
 			int var5 = class57.field404[1 + class387.field4452];
-			if (!Client.field1900) {
-				Client.field1761 = var4;
-				Client.field1672 = var5;
+			if (!client.field1900) {
+				client.field1761 = var4;
+				client.field1672 = var5;
 			}
 
 			return 1;
 		} else if (var0 == CS2Opcodes.CAM_GETANGLE_XA) {
-			class57.field404[++class387.field4452 - 1] = Client.field1761;
+			class57.field404[++class387.field4452 - 1] = client.field1761;
 			return 1;
 		} else if (var0 == CS2Opcodes.CAM_GETANGLE_YA) {
-			class57.field404[++class387.field4452 - 1] = Client.field1672;
+			class57.field404[++class387.field4452 - 1] = client.field1672;
 			return 1;
 		} else if (var0 == CS2Opcodes.CAM_SETFOLLOWHEIGHT) {
 			var4 = class57.field404[--class387.field4452];
@@ -44,10 +42,10 @@ public class class114 extends class393 {
 				var4 = 0;
 			}
 
-			Client.field1723 = var4;
+			client.field1723 = var4;
 			return 1;
 		} else if (var0 == CS2Opcodes.CAM_GETFOLLOWHEIGHT) {
-			class57.field404[++class387.field4452 - 1] = Client.field1723;
+			class57.field404[++class387.field4452 - 1] = client.field1723;
 			return 1;
 		} else {
 			return 2;
@@ -55,6 +53,6 @@ public class class114 extends class393 {
 	}
 
 	public static boolean method2218() {
-		return Client.field1750 >= 2;
+		return client.field1750 >= 2;
 	}
 }
