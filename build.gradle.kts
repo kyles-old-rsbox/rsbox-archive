@@ -45,5 +45,10 @@ allprojects {
         compileKotlin {
             kotlinOptions.jvmTarget = "11"
         }
+
+        compileJava {
+            sourceCompatibility  = "11"
+            targetCompatibility = "11"
+        }
     }
 }
