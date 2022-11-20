@@ -46,7 +46,7 @@ public class class378 {
 		field4402.add(30000);
 	}
 
-	static synchronized byte[] method6793(int var0, boolean var1) {
+	static synchronized byte[] ByteArrayPool_release(int var0, boolean var1) {
 		byte[] var3;
 		if ((var0 == 100 || var0 < 100 && var1) && field4390 > 0) {
 			var3 = field4398[--field4390];
@@ -89,7 +89,7 @@ public class class378 {
 	}
 
 	public static synchronized byte[] method765(int var0) {
-		return method6793(var0, false);
+		return ByteArrayPool_release(var0, false);
 	}
 
 	public static class376 method6805(class319 var0, class319 var1, int var2, int var3) {

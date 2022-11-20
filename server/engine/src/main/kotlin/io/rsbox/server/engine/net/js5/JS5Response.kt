@@ -22,8 +22,6 @@ import io.rsbox.server.engine.net.Message
 data class JS5Response(
     val archive: Int,
     val group: Int,
-    val compressionType: Int,
-    val compressedSize: Int,
     val data: ByteArray
 ) : Message {
 
@@ -35,8 +33,6 @@ data class JS5Response(
 
         if (archive != other.archive) return false
         if (group != other.group) return false
-        if (compressionType != other.compressionType) return false
-        if (compressedSize != other.compressedSize) return false
         if (!data.contentEquals(other.data)) return false
 
         return true
@@ -45,8 +41,6 @@ data class JS5Response(
     override fun hashCode(): Int {
         var result = archive
         result = 31 * result + group
-        result = 31 * result + compressionType
-        result = 31 * result + compressedSize
         result = 31 * result + data.contentHashCode()
         return result
     }

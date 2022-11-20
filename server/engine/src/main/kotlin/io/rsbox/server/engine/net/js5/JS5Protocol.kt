@@ -17,12 +17,17 @@
 
 package io.rsbox.server.engine.net.js5
 
+import com.google.common.primitives.Ints
+import io.guthix.js5.container.Js5Compression
+import io.guthix.js5.container.Js5Container
+import io.guthix.js5.container.Uncompressed
 import io.netty.buffer.ByteBuf
 import io.rsbox.server.cache.GameCache
 import io.rsbox.server.common.inject
 import io.rsbox.server.engine.net.Message
 import io.rsbox.server.engine.net.Protocol
 import io.rsbox.server.engine.net.Session
+import org.tinylog.kotlin.Logger
 
 class JS5Protocol(session: Session) : Protocol(session) {
 
@@ -59,8 +64,6 @@ class JS5Protocol(session: Session) : Protocol(session) {
 
         out.writeByte(msg.archive)
         out.writeShort(msg.group)
-        out.writeByte(msg.compressionType)
-        out.writeInt(msg.compressedSize)
 
         msg.data.forEach { byte ->
             if(out.writerIndex() % 512 == 0) {
@@ -72,21 +75,69 @@ class JS5Protocol(session: Session) : Protocol(session) {
 
     override fun handle(msg: Message) {
         if(msg !is JS5Request) return
-        session.writeAndFlush(msg.createResponse())
+
+        val response = msg.createResponse()
+        if(response.archive == -1 && response.group == -1) {
+            return
+        }
+        session.writeAndFlush(response)
     }
 
+    @Suppress("KotlinConstantConditions")
     private fun JS5Request.createResponse(): JS5Response {
-        val data = cache.read(archive, group)
-        val compressionType = data.readUnsignedByte().toInt()
-        val compressedSize = data.readInt()
+        /*
+         * If the request is cached already, return the associated response.
+         */
+        cachedResponses[this]?.also { response ->
+            return response
+        }
 
-        val bytes = ByteArray(data.writerIndex() - Byte.SIZE_BYTES - Int.SIZE_BYTES)
-        data.readBytes(bytes)
+        val bytes: ByteArray
+        if(archive == 255) {
+            if(group == 255) {
+                val validator = cache.cache.generateValidator(
+                    includeWhirlpool = false,
+                    includeSizes = false
+                )
+                val container = Js5Container(validator.encode())
+                val data = container.encode()
+                bytes = ByteArray(data.readableBytes())
+                data.readBytes(bytes)
+            } else {
+                val data = cache.read(archive, group)
+                bytes = ByteArray(data.readableBytes())
+                data.readBytes(bytes)
+            }
+        } else {
+            val buf = cache.read(archive, group)
+            var data = ByteArray(buf.readableBytes())
+            buf.readBytes(data)
+            if(data.isNotEmpty()) {
+                val compression = data[0]
+                val size = Ints.fromBytes(data[1], data[2], data[3], data[4])
+                val targetSize = size + (if(compression.toInt() != 0) 9 else 5)
+                if(targetSize != size && data.size - targetSize == 2) {
+                    data = data.copyOf(data.size - 2)
+                }
+                bytes = data
+            } else {
+                Logger.warn("Failed to read data for [Archive: ${archive}, Group: ${group}].")
+                return JS5Response(-1, -1, ByteArray(0))
+            }
+        }
 
-        return JS5Response(archive, group, compressionType, compressedSize, bytes)
+        val response = JS5Response(archive, group, bytes)
+        if(!cachedResponses.containsKey(this)) {
+            cachedResponses[this] = response
+        }
+        return response
     }
 
     companion object {
-        private val cachedResponses = mutableMapOf<JS5Request, JS5Response>()
+        /**
+         * Cached data responses. This will speed up the JS5 protocol over time as it avoids doing disk IO operations
+         * for already read Js5Requests.
+         */
+        private val cachedResponses = hashMapOf<JS5Request, JS5Response>()
     }
 }
