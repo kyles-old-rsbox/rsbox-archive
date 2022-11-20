@@ -15,20 +15,14 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.server.engine
+package io.rsbox.server.engine.model.entity
 
-import io.rsbox.server.engine.model.World
-import io.rsbox.server.engine.model.worldlist.WorldList
-import io.rsbox.server.engine.net.NetworkServer
-import io.rsbox.server.engine.net.http.HttpServer
-import io.rsbox.server.util.security.RSA
-import org.koin.dsl.module
+import io.rsbox.server.engine.model.coord.Tile
 
-val EngineModule = module {
-    single { RSA() }
-    single { Engine() }
-    single { NetworkServer() }
-    single { HttpServer() }
-    single { WorldList() }
-    single { World() }
+abstract class LivingEntity : Entity() {
+
+    var index = -1
+
+    abstract override var tile: Tile
+
 }

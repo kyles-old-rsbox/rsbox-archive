@@ -18,6 +18,7 @@
 package io.rsbox.server.engine.net
 
 import io.netty.channel.ChannelHandlerContext
+import io.rsbox.server.engine.model.entity.Player
 import io.rsbox.server.engine.net.handshake.HandshakeProtocol
 import io.rsbox.server.util.security.IsaacRandom
 import org.tinylog.kotlin.Logger
@@ -28,6 +29,8 @@ import kotlin.random.nextLong
 class Session(val ctx: ChannelHandlerContext) {
 
     val channel = ctx.channel()
+
+    lateinit var player: Player internal set
 
     var seed = Random.nextLong(0..Long.MAX_VALUE)
     var xteas = IntArray(4) { 0 }
