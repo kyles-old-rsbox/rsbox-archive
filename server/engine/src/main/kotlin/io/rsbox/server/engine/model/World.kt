@@ -15,35 +15,14 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.server.engine
+package io.rsbox.server.engine.model
 
-import io.rsbox.server.common.inject
-import io.rsbox.server.engine.net.NetworkServer
-import io.rsbox.server.engine.net.http.HttpServer
 import org.tinylog.kotlin.Logger
 
-class Engine {
+class World {
 
-    private val networkServer: NetworkServer by inject()
-    private val httpServer: HttpServer by inject()
-
-    fun start() {
-        Logger.info("Starting RSBox engine.")
-
-        /*
-         * Start networking servers
-         */
-        networkServer.start()
-        httpServer.start()
+    fun load() {
+        Logger.info("Loading game world.")
     }
 
-    fun stop() {
-        Logger.info("Stopping RSBox engine.")
-
-        /*
-         * Stop networking servers
-         */
-        networkServer.stop()
-        httpServer.stop()
-    }
 }

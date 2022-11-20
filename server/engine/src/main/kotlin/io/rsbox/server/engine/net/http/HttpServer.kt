@@ -15,54 +15,48 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.server.engine.net
+package io.rsbox.server.engine.net.http
 
 import io.netty.bootstrap.ServerBootstrap
 import io.netty.channel.ChannelOption
 import io.netty.channel.nio.NioEventLoopGroup
 import io.netty.channel.socket.nio.NioServerSocketChannel
 import io.rsbox.server.config.ServerConfig
-import io.rsbox.server.engine.net.pipeline.NetworkChannelInitializer
 import org.tinylog.kotlin.Logger
 import java.net.InetSocketAddress
 import kotlin.system.exitProcess
 
-class NetworkServer {
+class HttpServer {
 
     private val bootstrap = ServerBootstrap()
-    private val bossGroup = NioEventLoopGroup(2)
-    private val workerGroup = NioEventLoopGroup(1)
-    private val channelInitializer = NetworkChannelInitializer()
+    private val bossGroup = NioEventLoopGroup()
+    private val workerGroup = NioEventLoopGroup()
 
     init {
         bootstrap.group(bossGroup, workerGroup)
             .channel(NioServerSocketChannel::class.java)
-            .childHandler(channelInitializer)
+            .childHandler(HttpChannelInitializer())
             .childOption(ChannelOption.TCP_NODELAY, true)
-            .childOption(ChannelOption.SO_KEEPALIVE, true)
+            .childOption(ChannelOption.SO_REUSEADDR, true)
+            .childOption(ChannelOption.CONNECT_TIMEOUT_MILLIS, 30000)
     }
 
     fun start() {
-        Logger.info("Starting network server.")
-        val socketAddress = InetSocketAddress(ServerConfig.NETWORK.ADDRESS, ServerConfig.NETWORK.PORT)
-        bootstrap.bind(socketAddress).addListener {
-            if(it.isSuccess) onBindSuccess(socketAddress)
-            else onBindFailure(socketAddress, it.cause())
+        Logger.info("Starting world list server.")
+
+        val socketAddress = InetSocketAddress(ServerConfig.NETWORK.ADDRESS, 80)
+        bootstrap.bind(socketAddress).sync().addListener {
+            if(!it.isSuccess) {
+                Logger.error(it.cause()) { "Failed to bind HTTP network server to: ${socketAddress.hostString}:${socketAddress.port}." }
+                exitProcess(0)
+            }
         }
     }
 
     fun stop() {
-        Logger.info("Stopping network server.")
+        Logger.info("Stopping world list server.")
         bossGroup.shutdownGracefully()
         workerGroup.shutdownGracefully()
     }
 
-    private fun onBindSuccess(socketAddress: InetSocketAddress) {
-        Logger.info("Server now listening for connections on ${socketAddress.hostString}:${socketAddress.port}.")
-    }
-
-    private fun onBindFailure(socketAddress: InetSocketAddress, cause: Throwable) {
-        Logger.error(cause) { "An error occurred while starting network server on ${socketAddress.hostString}:${socketAddress.port}. Exiting process." }
-        exitProcess(0)
-    }
 }

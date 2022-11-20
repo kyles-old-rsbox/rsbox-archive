@@ -15,35 +15,21 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.server.engine
+package io.rsbox.server.engine.net.http
 
-import io.rsbox.server.common.inject
-import io.rsbox.server.engine.net.NetworkServer
-import io.rsbox.server.engine.net.http.HttpServer
-import org.tinylog.kotlin.Logger
+import io.netty.channel.ChannelInitializer
+import io.netty.channel.socket.SocketChannel
+import io.netty.handler.codec.http.HttpObjectAggregator
+import io.netty.handler.codec.http.HttpServerCodec
 
-class Engine {
+class HttpChannelInitializer : ChannelInitializer<SocketChannel>() {
 
-    private val networkServer: NetworkServer by inject()
-    private val httpServer: HttpServer by inject()
+    private val handler = HttpRequestHandler()
 
-    fun start() {
-        Logger.info("Starting RSBox engine.")
-
-        /*
-         * Start networking servers
-         */
-        networkServer.start()
-        httpServer.start()
-    }
-
-    fun stop() {
-        Logger.info("Stopping RSBox engine.")
-
-        /*
-         * Stop networking servers
-         */
-        networkServer.stop()
-        httpServer.stop()
+    override fun initChannel(ch: SocketChannel) {
+        ch.pipeline()
+            .addLast("codec", HttpServerCodec())
+            .addLast("aggregator", HttpObjectAggregator(2048))
+            .addLast("handler", handler)
     }
 }

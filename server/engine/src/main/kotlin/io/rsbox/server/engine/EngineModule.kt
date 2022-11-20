@@ -17,7 +17,9 @@
 
 package io.rsbox.server.engine
 
+import io.rsbox.server.engine.model.worldlist.WorldList
 import io.rsbox.server.engine.net.NetworkServer
+import io.rsbox.server.engine.net.http.HttpServer
 import io.rsbox.server.util.security.RSA
 import org.koin.dsl.module
 
@@ -25,4 +27,6 @@ val EngineModule = module {
     single { RSA() }
     single { Engine() }
     single { NetworkServer() }
+    single { HttpServer() }
+    single { WorldList() }
 }

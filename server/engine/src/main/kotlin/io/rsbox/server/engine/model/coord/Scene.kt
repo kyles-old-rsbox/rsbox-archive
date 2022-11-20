@@ -15,35 +15,37 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.server.engine
+package io.rsbox.server.engine.model.coord
 
-import io.rsbox.server.common.inject
-import io.rsbox.server.engine.net.NetworkServer
-import io.rsbox.server.engine.net.http.HttpServer
-import org.tinylog.kotlin.Logger
+@JvmInline
+value class Scene(val packed: Int) {
 
-class Engine {
+    val x get() = packed and 0xFFFF
 
-    private val networkServer: NetworkServer by inject()
-    private val httpServer: HttpServer by inject()
+    val y get() = (packed shr 16) and 0xFFFF
 
-    fun start() {
-        Logger.info("Starting RSBox engine.")
+    constructor(x: Int, y: Int) : this(
+        (x and 0xFFFF) or ((y and 0xFFFF) shl 16)
+    )
 
-        /*
-         * Start networking servers
-         */
-        networkServer.start()
-        httpServer.start()
-    }
+    fun toTile(level: Int = 0) = Tile(
+        x * SIZE,
+        y * SIZE,
+        level
+    )
 
-    fun stop() {
-        Logger.info("Stopping RSBox engine.")
+    fun toChunk(level: Int = 0) = Chunk(
+        x * (SIZE / Chunk.SIZE),
+        y * (SIZE / Chunk.SIZE),
+        level
+    )
 
-        /*
-         * Stop networking servers
-         */
-        networkServer.stop()
-        httpServer.stop()
+    fun toRegion() = Region(
+        x * (SIZE / Region.SIZE),
+        y * (SIZE / Region.SIZE)
+    )
+
+    companion object {
+        const val SIZE = 104
     }
 }

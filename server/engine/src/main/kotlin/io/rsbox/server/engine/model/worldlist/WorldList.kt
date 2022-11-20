@@ -15,35 +15,14 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.server.engine
+package io.rsbox.server.engine.model.worldlist
 
-import io.rsbox.server.common.inject
-import io.rsbox.server.engine.net.NetworkServer
-import io.rsbox.server.engine.net.http.HttpServer
-import org.tinylog.kotlin.Logger
+class WorldList(private val worlds: MutableList<WorldEntry> = mutableListOf()) : MutableList<WorldEntry> by worlds {
 
-class Engine {
-
-    private val networkServer: NetworkServer by inject()
-    private val httpServer: HttpServer by inject()
-
-    fun start() {
-        Logger.info("Starting RSBox engine.")
-
-        /*
-         * Start networking servers
-         */
-        networkServer.start()
-        httpServer.start()
-    }
-
-    fun stop() {
-        Logger.info("Stopping RSBox engine.")
-
-        /*
-         * Stop networking servers
-         */
-        networkServer.stop()
-        httpServer.stop()
+    init {
+        worlds.addAll(arrayOf(
+            WorldEntry(1, "127.0.0.1", "-", listOf(WorldType.MEMBERS), WorldLocation.UNITED_STATES, 0),
+            WorldEntry(2, "127.0.0.1", "Development", listOf(WorldType.TOURNAMENT), WorldLocation.UNITED_STATES, 420)
+        ))
     }
 }

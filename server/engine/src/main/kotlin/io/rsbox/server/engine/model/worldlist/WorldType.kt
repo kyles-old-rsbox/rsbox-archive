@@ -15,35 +15,18 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.server.engine
+package io.rsbox.server.engine.model.worldlist
 
-import io.rsbox.server.common.inject
-import io.rsbox.server.engine.net.NetworkServer
-import io.rsbox.server.engine.net.http.HttpServer
-import org.tinylog.kotlin.Logger
-
-class Engine {
-
-    private val networkServer: NetworkServer by inject()
-    private val httpServer: HttpServer by inject()
-
-    fun start() {
-        Logger.info("Starting RSBox engine.")
-
-        /*
-         * Start networking servers
-         */
-        networkServer.start()
-        httpServer.start()
-    }
-
-    fun stop() {
-        Logger.info("Stopping RSBox engine.")
-
-        /*
-         * Stop networking servers
-         */
-        networkServer.stop()
-        httpServer.stop()
-    }
+enum class WorldType(val mask: Int) {
+    FREE(0),
+    MEMBERS(1),
+    PVP(1 shl 2),
+    BOUNTY_HUNTER(1 shl 5),
+    SKILL_TOTAL(1 shl 7),
+    PVP_HIGH_RISK(1 shl 10),
+    UNKNOWN1(1 shl 14),
+    TOURNAMENT(1 shl 25),
+    UNKNOWN2(1 shl 26),
+    DEADMAN(1 shl 29),
+    LEAGUES(1 shl 30);
 }
