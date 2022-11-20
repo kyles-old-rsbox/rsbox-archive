@@ -88,29 +88,29 @@ public class class67 {
 		}
 	}
 
-	final void method1397(class460 var1, class35 var2) {
+	final void method1397(Buffer var1, class35 var2) {
 		int var3 = var1.method8141();
 		this.field550[0] = var3 >> 4;
 		this.field550[1] = var3 & 15;
 		if (var3 != 0) {
-			this.field543[0] = var1.method8122();
-			this.field543[1] = var1.method8122();
+			this.field543[0] = var1.readUnsignedShort();
+			this.field543[1] = var1.readUnsignedShort();
 			int var4 = var1.method8141();
 
 			int var5;
 			int var6;
 			for (var5 = 0; var5 < 2; ++var5) {
 				for (var6 = 0; var6 < this.field550[var5]; ++var6) {
-					this.field541[var5][0][var6] = var1.method8122();
-					this.field542[var5][0][var6] = var1.method8122();
+					this.field541[var5][0][var6] = var1.readUnsignedShort();
+					this.field542[var5][0][var6] = var1.readUnsignedShort();
 				}
 			}
 
 			for (var5 = 0; var5 < 2; ++var5) {
 				for (var6 = 0; var6 < this.field550[var5]; ++var6) {
 					if ((var4 & 1 << var5 * 4 << var6) != 0) {
-						this.field541[var5][1][var6] = var1.method8122();
-						this.field542[var5][1][var6] = var1.method8122();
+						this.field541[var5][1][var6] = var1.readUnsignedShort();
+						this.field542[var5][1][var6] = var1.readUnsignedShort();
 					} else {
 						this.field541[var5][1][var6] = this.field541[var5][0][var6];
 						this.field542[var5][1][var6] = this.field542[var5][0][var6];

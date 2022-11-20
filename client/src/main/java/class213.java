@@ -24,7 +24,7 @@ public class class213 {
 			byte[] var3 = class19.field97.method6175(11, var0);
 			var2 = new class193();
 			if (var3 != null) {
-				var2.method3553(new class460(var3));
+				var2.method3553(new Buffer(var3));
 			}
 
 			var2.method3565();

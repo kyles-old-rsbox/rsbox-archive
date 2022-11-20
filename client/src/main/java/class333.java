@@ -53,12 +53,12 @@ public class class333 implements class360 {
 		this.field3858 = var5;
 	}
 
-	public int method6663() {
+	public int rsOrdinal() {
 		return this.field3843;
 	}
 
 	static void method6267() {
-		if (class75.field617) {
+		if (Login.field617) {
 			class351.field4278 = null;
 			class136.field1272 = null;
 			class258.field2959 = null;
@@ -66,7 +66,7 @@ public class class333 implements class360 {
 			class91.field882 = null;
 			class84.field745 = null;
 			class26.field133 = null;
-			class75.field629 = null;
+			Login.field629 = null;
 			class166.field1525 = null;
 			class289.field3357 = null;
 			class200.field2206 = null;
@@ -78,11 +78,11 @@ public class class333 implements class360 {
 			class7.field29 = null;
 			class279.field3203 = -1;
 			class279.field3204 = -1;
-			class110.field1092 = 0;
+			MessagesManager.field1092 = 0;
 			class337.field3889 = false;
 			class13.field67 = 2;
-			class42.method799(true);
-			class75.field617 = false;
+			MouseManager.method799(true);
+			Login.field617 = false;
 		}
 	}
 }

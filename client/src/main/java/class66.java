@@ -1,5 +1,5 @@
 public final class class66 extends class212 {
-	static class123 field538;
+	static class123 varcs;
 	boolean field524;
 	class189 field534;
 	double field514;
@@ -124,7 +124,7 @@ public final class class66 extends class212 {
 	}
 
 	static final void method1392() {
-		for (class101 var1 = (class101)client.field1777.method6364(); var1 != null; var1 = (class101)client.field1777.method6358()) {
+		for (class101 var1 = (class101)client.pendingSpawns.method6364(); var1 != null; var1 = (class101)client.pendingSpawns.method6358()) {
 			if (-1 == var1.field1003) {
 				var1.field1006 = 0;
 				client.method3540(var1);

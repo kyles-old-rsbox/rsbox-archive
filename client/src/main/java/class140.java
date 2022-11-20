@@ -25,7 +25,7 @@ public abstract class class140 extends class427 {
 		return var3 + var0 + "." + var5 + "/l=" + class94.field940 + "/a=" + class11.field45 + var4 + "/";
 	}
 
-	abstract void method2467(class460 var1);
+	abstract void method2467(Buffer var1);
 
 	abstract void method2468(class148 var1);
 }

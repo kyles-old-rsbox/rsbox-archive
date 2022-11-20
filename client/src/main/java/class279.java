@@ -28,7 +28,7 @@ public class class279 {
 		class7.field29 = var0;
 		field3203 = var1;
 		field3204 = var2;
-		class110.field1092 = var3;
+		MessagesManager.field1092 = var3;
 		class337.field3889 = var4;
 		class13.field67 = 10000;
 	}
@@ -59,16 +59,16 @@ public class class279 {
 		class7.field29 = var1;
 		field3203 = var7;
 		field3204 = var8;
-		class110.field1092 = var4;
+		MessagesManager.field1092 = var4;
 		class337.field3889 = var5;
 		class13.field67 = var0;
 	}
 
 	static void method5396() {
-		if (client.field1891 && class75.field633 != null && class75.field633.length() > 0) {
-			class75.field640 = 1;
+		if (client.isUsernameRemembered && Login.username != null && Login.username.length() > 0) {
+			Login.field640 = 1;
 		} else {
-			class75.field640 = 0;
+			Login.field640 = 0;
 		}
 
 	}

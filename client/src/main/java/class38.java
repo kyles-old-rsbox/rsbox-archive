@@ -1,12 +1,12 @@
 public class class38 extends class51 {
-	class343 field253;
-	class343 field254;
+	NodeDeque field253;
+	NodeDeque field254;
 	int field255;
 	int field256;
 
 	public class38() {
-		this.field254 = new class343();
-		this.field253 = new class343();
+		this.field254 = new NodeDeque();
+		this.field253 = new NodeDeque();
 		this.field255 = 0;
 		this.field256 = -1;
 	}
@@ -36,7 +36,7 @@ public class class38 extends class51 {
 			var1 = var1.field4682;
 		}
 
-		class343.method6361(var2, var1);
+		NodeDeque.method6361(var2, var1);
 		this.field256 = ((class68)this.field253.field4230.field4682).field551;
 	}
 

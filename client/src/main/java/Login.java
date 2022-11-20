@@ -2,7 +2,7 @@ import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class class75 {
+public class Login {
 	static boolean field617;
 	static boolean field621;
 	static boolean field637;
@@ -25,11 +25,11 @@ public class class75 {
 	static String field624;
 	static String field630;
 	static String field631;
-	static String field633;
+	static String username;
 	static String field641;
 	static String field642;
 	static String field648;
-	static String field650;
+	static String password;
 	static String[] field632;
 	static String[] field635;
 	static String[] field649;
@@ -60,8 +60,8 @@ public class class75 {
 		field624 = "";
 		field630 = "";
 		field631 = "";
-		field633 = "";
-		field650 = "";
+		username = "";
+		password = "";
 		field634 = 0;
 		field635 = new String[8];
 		field637 = false;
@@ -82,7 +82,7 @@ public class class75 {
 		field632 = new String[]{"logo", "logo_deadman_mode", "logo_seasonal_mode", "logo_speedrunning", "titlebox", "titlebutton", "titlebutton_large", "play_now_text", "titlebutton_wide42,1", "runes", "title_mute", "options_radio_buttons,0", "options_radio_buttons,2", "options_radio_buttons,4", "options_radio_buttons,6", "sl_back", "sl_flags", "sl_arrows", "sl_stars", "sl_button"};
 	}
 
-	class75() throws Throwable {
+	Login() throws Throwable {
 		throw new Error();
 	}
 
@@ -96,10 +96,10 @@ public class class75 {
 
 	static void method201(String var0, String var1, String var2) {
 		class74.method1490(7);
-		method5452(var0, var1, var2);
+		setLoginResponseString(var0, var1, var2);
 	}
 
-	static void method5452(String var0, String var1, String var2) {
+	static void setLoginResponseString(String var0, String var1, String var2) {
 		field624 = var0;
 		field630 = var1;
 		field631 = var2;
@@ -114,11 +114,11 @@ public class class75 {
 
 	static void method12() {
 		class74.method1490(24);
-		method5452(class338.field4136, class338.field4154, class338.field4138);
+		setLoginResponseString(class338.field4136, class338.field4154, class338.field4138);
 	}
 
 	static void method230() {
 		class74.method1490(24);
-		method5452(class338.field4139, class338.field4055, class338.field4193);
+		setLoginResponseString(class338.field4139, class338.field4055, class338.field4193);
 	}
 }

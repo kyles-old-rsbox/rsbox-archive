@@ -1,5 +1,5 @@
 public final class class70 extends class427 {
-	static class343 field563;
+	static NodeDeque field563;
 	class195 field571;
 	class44 field565;
 	class44 field569;
@@ -16,7 +16,7 @@ public final class class70 extends class427 {
 	int[] field561;
 
 	static {
-		field563 = new class343();
+		field563 = new NodeDeque();
 	}
 
 	class70() {

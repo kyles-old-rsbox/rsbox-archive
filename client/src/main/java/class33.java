@@ -5,23 +5,23 @@ public class class33 {
 
 	public static class33 method610(class319 var0, int var1, int var2) {
 		byte[] var3 = var0.method6175(var1, var2);
-		return var3 == null ? null : new class33(new class460(var3));
+		return var3 == null ? null : new class33(new Buffer(var3));
 	}
 
-	class33(class460 var1) {
+	class33(Buffer var1) {
 		this.field211 = new class59[10];
 
 		for (int var2 = 0; var2 < 10; ++var2) {
 			int var3 = var1.method8141();
 			if (var3 != 0) {
-				--var1.field4878;
+				--var1.offset;
 				this.field211[var2] = new class59();
 				this.field211[var2].method1293(var1);
 			}
 		}
 
-		this.field210 = var1.method8122();
-		this.field213 = var1.method8122();
+		this.field210 = var1.readUnsignedShort();
+		this.field213 = var1.readUnsignedShort();
 	}
 
 	public class39 method605() {

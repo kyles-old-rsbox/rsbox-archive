@@ -28,7 +28,7 @@ public class class78 extends class437 {
 			byte[] var3 = class182.field1622.method6175(3, var0);
 			var2 = new class182();
 			if (var3 != null) {
-				var2.method2846(new class460(var3));
+				var2.method2846(new Buffer(var3));
 			}
 
 			class182.field1627.method5434(var2, (long)var0);

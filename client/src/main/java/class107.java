@@ -2,19 +2,19 @@ import java.io.IOException;
 
 public class class107 {
 	boolean field1067;
-	class283 field1072;
-	class283 field1073;
-	class283 field1079;
-	class283 field1080;
+	ServerPacket field1072;
+	ServerPacket serverPacket;
+	ServerPacket field1079;
+	ServerPacket field1080;
 	class350 field1068;
-	class401 field1074;
-	class453 field1076;
-	class460 field1078;
+	AbstractSocket field1074;
+	PacketBuffer buffer;
+	Buffer field1078;
 	int field1069;
 	int field1070;
-	int field1075;
+	int serverPacketLength;
 	int field1077;
-	public class479 field1071;
+	public IsaacRandom isaacRandom;
 
 	public static byte method2099(char var0) {
 		byte var2;
@@ -84,16 +84,16 @@ public class class107 {
 	class107() {
 		this.field1068 = new class350();
 		this.field1069 = 0;
-		this.field1078 = new class460(5000);
-		this.field1076 = new class453(40000);
-		this.field1073 = null;
-		this.field1075 = 0;
+		this.field1078 = new Buffer(5000);
+		this.buffer = new PacketBuffer(40000);
+		this.serverPacket = null;
+		this.serverPacketLength = 0;
 		this.field1067 = true;
 		this.field1070 = 0;
 		this.field1077 = 0;
 	}
 
-	final void method2076() {
+	final void clear() {
 		this.field1068.method6473();
 		this.field1069 = 0;
 	}
@@ -101,36 +101,36 @@ public class class107 {
 	static void method2079(int var0) {
 	}
 
-	final void method2081() throws IOException {
+	final void flush() throws IOException {
 		if (null != this.field1074 && this.field1069 > 0) {
-			this.field1078.field4878 = 0;
+			this.field1078.offset = 0;
 
 			while (true) {
-				class263 var2 = (class263)this.field1068.method6465();
-				if (null == var2 || var2.field2987 > this.field1078.field4881.length - this.field1078.field4878) {
-					this.field1074.method7258(this.field1078.field4881, 0, this.field1078.field4878);
+				PacketBufferNode var2 = (PacketBufferNode)this.field1068.method6465();
+				if (null == var2 || var2.field2987 > this.field1078.data.length - this.field1078.offset) {
+					this.field1074.write(this.field1078.data, 0, this.field1078.offset);
 					this.field1077 = 0;
 					break;
 				}
 
-				this.field1078.method8114(var2.field2984.field4881, 0, var2.field2987);
+				this.field1078.writeBytes(var2.buffer.data, 0, var2.field2987);
 				this.field1069 -= var2.field2987;
 				var2.method7825();
-				var2.field2984.method8103();
+				var2.buffer.method8103();
 				var2.method5153();
 			}
 		}
 
 	}
 
-	public final void method2078(class263 var1) {
+	public final void add(PacketBufferNode var1) {
 		this.field1068.method6462(var1);
-		var1.field2987 = var1.field2984.field4878;
-		var1.field2984.field4878 = 0;
+		var1.field2987 = var1.buffer.offset;
+		var1.buffer.offset = 0;
 		this.field1069 += var1.field2987;
 	}
 
-	void method2097(class401 var1) {
+	void method2097(AbstractSocket var1) {
 		this.field1074 = var1;
 	}
 
@@ -146,7 +146,7 @@ public class class107 {
 		this.field1074 = null;
 	}
 
-	class401 method2082() {
+	AbstractSocket method2082() {
 		return this.field1074;
 	}
 }

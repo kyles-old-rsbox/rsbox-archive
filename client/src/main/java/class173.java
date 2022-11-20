@@ -11,7 +11,7 @@ public class class173 extends class437 {
 		field1561 = new class284(64);
 	}
 
-	public void method2738(class460 var1) {
+	public void method2738(Buffer var1) {
 		while (true) {
 			int var3 = var1.method8141();
 			if (var3 == 0) {
@@ -22,7 +22,7 @@ public class class173 extends class437 {
 		}
 	}
 
-	void method2742(class460 var1, int var2) {
+	void method2742(Buffer var1, int var2) {
 		if (var2 == 2) {
 			this.field1562 = true;
 		}

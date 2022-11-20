@@ -1,11 +1,11 @@
 public class class87 extends class427 {
 	static boolean field781;
-	static class434 field782;
+	static NodeHashTable field782;
 	int[] field779;
 	int[] field783;
 
 	static {
-		field782 = new class434(32);
+		field782 = new NodeHashTable(32);
 	}
 
 	class87() {
@@ -18,7 +18,7 @@ public class class87 extends class427 {
 	}
 
 	static void method2410() {
-		field782 = new class434(32);
+		field782 = new NodeHashTable(32);
 	}
 
 	static class121 method1855(int var0) {

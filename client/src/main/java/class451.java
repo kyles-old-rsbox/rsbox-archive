@@ -23,7 +23,7 @@ public class class451 implements class360 {
 			byte[] var3 = class326.field3804.method6175(14, var0);
 			var2 = new class184();
 			if (null != var3) {
-				var2.method3405(new class460(var3));
+				var2.method3405(new Buffer(var3));
 			}
 
 			class184.field1947.method5434(var2, (long)var0);
@@ -83,7 +83,7 @@ public class class451 implements class360 {
 		return null;
 	}
 
-	public static void method7981(Object var0, class460 var1) {
+	public static void method7981(Object var0, Buffer var1) {
 		Class var4 = var0.getClass();
 		class451 var5 = method7973(var4);
 		if (null == var5) {
@@ -94,11 +94,11 @@ public class class451 implements class360 {
 		}
 	}
 
-	public int method6663() {
+	public int rsOrdinal() {
 		return this.field4846;
 	}
 
-	public Object method7974(class460 var1) {
+	public Object method7974(Buffer var1) {
 		return this.field4843.method7925(var1);
 	}
 

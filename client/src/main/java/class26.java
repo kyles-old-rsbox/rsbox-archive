@@ -30,7 +30,7 @@ public class class26 implements ThreadFactory {
 			class256.method5126(var1.field3602, var1.field3517, var4, var5, var2);
 		}
 
-		class89 var6 = (class89)client.field1810.method7855((long)var1.field3517);
+		InterfaceParent var6 = (InterfaceParent)client.parentInterfaces.method7855((long)var1.field3517);
 		if (null != var6) {
 			int var7 = var6.field796;
 			if (class246.method4928(var7)) {

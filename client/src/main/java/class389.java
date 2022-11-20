@@ -27,24 +27,24 @@ public class class389 extends class404 {
 		}
 	}
 
-	public void method7018(class460 var1, int var2) {
+	public void method7018(Buffer var1, int var2) {
 		while (true) {
-			if (var1.field4878 < var2) {
+			if (var1.offset < var2) {
 				boolean var4 = var1.method8141() == 1;
-				class472 var5 = new class472(var1.method8131(), this.field4464);
-				class472 var6 = new class472(var1.method8131(), this.field4464);
-				int var7 = var1.method8122();
+				class472 var5 = new class472(var1.readString(), this.field4464);
+				class472 var6 = new class472(var1.readString(), this.field4464);
+				int var7 = var1.readUnsignedShort();
 				int var8 = var1.method8141();
 				int var9 = var1.method8141();
 				boolean var10 = (var9 & 2) != 0;
 				boolean var11 = (var9 & 1) != 0;
 				if (var7 > 0) {
-					var1.method8131();
+					var1.readString();
 					var1.method8141();
 					var1.method8126();
 				}
 
-				var1.method8131();
+				var1.readString();
 				if (var5 != null && var5.method8449()) {
 					class380 var12 = (class380)this.method7290(var5);
 					if (var4) {

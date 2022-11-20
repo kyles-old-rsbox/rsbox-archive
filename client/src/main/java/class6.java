@@ -7,9 +7,9 @@ public class class6 implements Callable {
 	final class24 field17;
 	// $FF: synthetic field
 	final class4 this$0;
-	final class460 field22;
+	final Buffer field22;
 
-	class6(class4 var1, class460 var2, class24 var3) {
+	class6(class4 var1, Buffer var2, class24 var3) {
 		this.this$0 = var1;
 		this.field22 = var2;
 		this.field17 = var3;

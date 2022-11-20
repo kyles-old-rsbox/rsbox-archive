@@ -87,7 +87,7 @@ public class class243 {
 
 						for (int var12 = 0; var12 < var11.length; ++var12) {
 							class253 var13 = var11[var12];
-							class195 var14 = class89.method1866(var13.field2927);
+							class195 var14 = InterfaceParent.method1866(var13.field2927);
 							if (class143.method2494(var14)) {
 								this.method4739(var14, var9, var7, var8, var5);
 								continue label49;
@@ -165,13 +165,13 @@ public class class243 {
 
 	}
 
-	static final void method4768(class460 var0, int var1, int var2, int var3, int var4, int var5, int var6) {
+	static final void method4768(Buffer var0, int var1, int var2, int var3, int var4, int var5, int var6) {
 		int var8;
 		if (var2 >= 0 && var2 < 104 && var3 >= 0 && var3 < 104) {
 			class82.field714[var1][var2][var3] = 0;
 
 			while (true) {
-				var8 = client.field1932 < 209 ? var0.method8141() : var0.method8122();
+				var8 = client.field1932 < 209 ? var0.method8141() : var0.readUnsignedShort();
 				if (var8 == 0) {
 					if (var1 == 0) {
 						class82.field719[0][var2][var3] = -class8.method53(var2 + 932731 + var4, var5 + var3 + 556238) * 8;
@@ -207,7 +207,7 @@ public class class243 {
 			}
 		} else {
 			while (true) {
-				var8 = client.field1932 < 209 ? var0.method8141() : var0.method8122();
+				var8 = client.field1932 < 209 ? var0.method8141() : var0.readUnsignedShort();
 				if (var8 == 0) {
 					break;
 				}
@@ -402,7 +402,7 @@ public class class243 {
 				byte[] var22 = class199.field2188.method6175(4, var8);
 				var13 = new class199();
 				if (var22 != null) {
-					var13.method3717(new class460(var22), var8);
+					var13.method3717(new Buffer(var22), var8);
 				}
 
 				var13.method3716();
@@ -526,7 +526,7 @@ public class class243 {
 					byte[] var21 = class199.field2188.method6175(4, var7);
 					var11 = new class199();
 					if (var21 != null) {
-						var11.method3717(new class460(var21), var7);
+						var11.method3717(new Buffer(var21), var7);
 					}
 
 					var11.method3716();
@@ -648,7 +648,7 @@ public class class243 {
 					int var12 = var10.field2929;
 					boolean var11 = var12 >= class306.field3667.field3670 && var12 <= class306.field3657.field3670;
 					if (var11 || class87.method1851(var10.field2929)) {
-						class195 var13 = class89.method1866(var10.field2927);
+						class195 var13 = InterfaceParent.method1866(var10.field2927);
 						if (var13.field2075 != -1) {
 							if (var13.field2075 != 46 && 52 != var13.field2075) {
 								var4[var13.field2075].method8757(this.field2849 * var1, this.field2849 * (63 - var2), this.field2849 * 2, this.field2849 * 2);
@@ -672,7 +672,7 @@ public class class243 {
 				for (int var8 = 0; var8 < var7.length; ++var8) {
 					class253 var9 = var7[var8];
 					if (class239.method4679(var9.field2929)) {
-						class195 var10 = class89.method1866(var9.field2927);
+						class195 var10 = InterfaceParent.method1866(var9.field2927);
 						int var11 = var10.field2072 != 0 ? -3407872 : -3355444;
 						if (var9.field2929 == class306.field3660.field3670) {
 							this.method4767(var1, var2, var9.field2926, var11);

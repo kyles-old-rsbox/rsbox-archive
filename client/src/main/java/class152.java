@@ -7,8 +7,8 @@ public class class152 extends class140 {
 		this.this$0 = var1;
 	}
 
-	void method2467(class460 var1) {
-		this.field1410 = var1.method8131();
+	void method2467(Buffer var1) {
+		this.field1410 = var1.readString();
 		var1.method8126();
 	}
 
@@ -17,7 +17,7 @@ public class class152 extends class140 {
 	}
 
 	static void method2593(int var0) {
-		for (class426 var2 = (class426)client.field1785.method7867(); null != var2; var2 = (class426)client.field1785.method7858()) {
+		for (class426 var2 = (class426)client.field1785.first(); null != var2; var2 = (class426)client.field1785.next()) {
 			if ((var2.field4681 >> 48 & 65535L) == (long)var0) {
 				var2.method7825();
 			}

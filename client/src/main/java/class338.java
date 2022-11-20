@@ -42,7 +42,7 @@ public class class338 {
 	public static String field3932;
 	public static String field3933;
 	public static String field3934;
-	public static String field3935;
+	public static String Str_Seconds;
 	public static String field3936;
 	public static String field3937;
 	public static String field3938;
@@ -50,7 +50,7 @@ public class class338 {
 	public static String field3940;
 	public static String field3941;
 	public static String field3942;
-	public static String field3943;
+	public static String Str_YourProfileWillBeTransferedIn;
 	public static String field3944;
 	public static String field3945;
 	public static String field3946;
@@ -190,7 +190,7 @@ public class class338 {
 	public static String field4080;
 	public static String field4081;
 	public static String field4082;
-	public static String field4083;
+	public static String Str_YouJustLeftAnotherWorld;
 	public static String field4084;
 	public static String field4085;
 	public static String field4086;
@@ -366,9 +366,9 @@ public class class338 {
 		field3987 = "";
 		field3931 = "Please enter a 6-digit PIN.";
 		field3939 = "";
-		field4083 = "You have only just left another world.";
-		field3943 = "Your profile will be transferred in:";
-		field3935 = " seconds.";
+		Str_YouJustLeftAnotherWorld = "You have only just left another world.";
+		Str_YourProfileWillBeTransferedIn = "Your profile will be transferred in:";
+		Str_Seconds = " seconds.";
 		field3936 = "Connection timed out.";
 		field3937 = "Please try using a different world.";
 		field4075 = "";

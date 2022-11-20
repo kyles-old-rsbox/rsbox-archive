@@ -164,7 +164,7 @@ public class class57 {
 		if (class430.method7845(var0.field696)) {
 			class64.field504 = (class245)var4[0];
 			class160 var6 = class90.method1885(class64.field504.field2860);
-			var5 = class75.method1502(var0.field696, var6.field1481, var6.field1487);
+			var5 = Login.method1502(var0.field696, var6.field1481, var6.field1487);
 		} else {
 			var21 = (Integer)var4[0];
 			var5 = class180.method2844(var21);
@@ -358,9 +358,9 @@ public class class57 {
 									int var18;
 									if (var34 != CS2Opcodes.GOSUB_WITH_PARAMS) {
 										if (var34 == CS2Opcodes.PUSH_VARC_INT) {
-											field404[++class387.field4452 - 1] = class66.field538.method2305(var8[var21]);
+											field404[++class387.field4452 - 1] = class66.varcs.method2305(var8[var21]);
 										} else if (var34 == CS2Opcodes.POP_VARC_INT) {
-											class66.field538.method2343(var8[var21], field404[--class387.field4452]);
+											class66.varcs.method2343(var8[var21], field404[--class387.field4452]);
 										} else if (var34 == CS2Opcodes.DEFINE_ARRAY) {
 											var14 = var8[var21] >> 16;
 											var15 = var8[var21] & 65535;
@@ -398,19 +398,19 @@ public class class57 {
 										} else {
 											String var23;
 											if (var34 == CS2Opcodes.PUSH_VARC_STRING_OLD) {
-												var23 = class66.field538.method2304(var8[var21]);
+												var23 = class66.varcs.method2304(var8[var21]);
 												if (var23 == null) {
 													var23 = class338.field3899;
 												}
 
 												field405[++class126.field1220 - 1] = var23;
 											} else if (var34 == CS2Opcodes.POP_VARC_STRING_OLD) {
-												class66.field538.method2308(var8[var21], field405[--class126.field1220]);
+												class66.varcs.method2308(var8[var21], field405[--class126.field1220]);
 											} else if (var34 == CS2Opcodes.PUSH_VARC_STRING) {
-												var23 = class66.field538.method2307(var8[var21]);
+												var23 = class66.varcs.method2307(var8[var21]);
 												field405[++class126.field1220 - 1] = var23;
 											} else if (var34 == CS2Opcodes.POP_VARC_STRING) {
-												class66.field538.method2306(var8[var21], field405[--class126.field1220]);
+												class66.varcs.method2306(var8[var21], field405[--class126.field1220]);
 											} else if (var34 == CS2Opcodes.SWITCH) {
 												class421 var39 = var5.field681[var8[var21]];
 												class426 var38 = (class426)var39.method7788((long)field404[--class387.field4452]);
@@ -590,7 +590,7 @@ public class class57 {
 		}
 	}
 
-	static int method1273(class453 var0) {
+	static int method1273(PacketBuffer var0) {
 		int var2 = var0.method8014(2);
 		int var3;
 		if (var2 == 0) {

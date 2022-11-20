@@ -67,19 +67,19 @@ public class class236 implements class248 {
 		}
 	}
 
-	public void method4967(class460 var1) {
+	public void method4967(Buffer var1) {
 		this.field2792 = var1.method8141();
 		this.field2788 = var1.method8141();
-		this.field2789 = var1.method8122();
+		this.field2789 = var1.readUnsignedShort();
 		this.field2790 = var1.method8141();
 		this.field2795 = var1.method8141();
-		this.field2791 = var1.method8122();
+		this.field2791 = var1.readUnsignedShort();
 		this.field2794 = var1.method8141();
 		this.field2796 = var1.method8141();
-		this.field2798 = var1.method8122();
+		this.field2798 = var1.readUnsignedShort();
 		this.field2787 = var1.method8141();
 		this.field2799 = var1.method8141();
-		this.field2800 = var1.method8122();
+		this.field2800 = var1.readUnsignedShort();
 		this.field2793 = var1.method8141();
 		this.field2797 = var1.method8141();
 		this.method4594();
@@ -88,7 +88,7 @@ public class class236 implements class248 {
 	void method4594() {
 	}
 
-	static final void method4618(boolean var0, class453 var1) {
+	static final void method4618(boolean var0, PacketBuffer var1) {
 		client.field1769 = 0;
 		client.field1693 = 0;
 		class133.method2411();
@@ -104,7 +104,7 @@ public class class236 implements class248 {
 		while (true) {
 			var3 = class227.field2714 ? 16 : 15;
 			var4 = 1 << var3;
-			if (var1.method8044(client.field1778.field1075) < var3 + 12) {
+			if (var1.method8044(client.packetWriter.serverPacketLength) < var3 + 12) {
 				break;
 			}
 
@@ -114,13 +114,13 @@ public class class236 implements class248 {
 			}
 
 			boolean var6 = false;
-			if (null == client.field1902[var15]) {
-				client.field1902[var15] = new class81();
+			if (null == client.npcs[var15]) {
+				client.npcs[var15] = new class81();
 				var6 = true;
 			}
 
-			class81 var16 = client.field1902[var15];
-			client.field1692[++client.field1691 - 1] = var15;
+			class81 var16 = client.npcs[var15];
+			client.field1692[++client.npcCount - 1] = var15;
 			var16.field847 = client.field1645;
 			if (class227.field2714) {
 				var11 = var1.method8014(1);
@@ -234,7 +234,7 @@ public class class236 implements class248 {
 
 		for (var3 = 0; var3 < client.field1693; ++var3) {
 			var4 = client.field1694[var3];
-			class81 var5 = client.field1902[var4];
+			class81 var5 = client.npcs[var4];
 			int var17 = var1.method8141();
 			int var7;
 			if (0 != (var17 & 32)) {
@@ -300,7 +300,7 @@ public class class236 implements class248 {
 			}
 
 			if (0 != (var17 & 2048)) {
-				var5.method1616(var1.method8131());
+				var5.method1616(var1.readString());
 			}
 
 			if (0 != (var17 & 512)) {
@@ -319,7 +319,7 @@ public class class236 implements class248 {
 			}
 
 			if ((var17 & 128) != 0) {
-				var7 = var1.method8122();
+				var7 = var1.readUnsignedShort();
 				if (var7 == 65535) {
 					var7 = -1;
 				}
@@ -348,7 +348,7 @@ public class class236 implements class248 {
 			}
 
 			if ((var17 & 64) != 0) {
-				var5.field822 = var1.method8131();
+				var5.field822 = var1.readString();
 				var5.field843 = 100;
 			}
 
@@ -357,8 +357,8 @@ public class class236 implements class248 {
 				var5.field855 = var1.method8187();
 				var5.field854 = var1.method8335();
 				var5.field853 = var1.method8287();
-				var5.field857 = var1.method8122() + client.field1645;
-				var5.field858 = var1.method8122() + client.field1645;
+				var5.field857 = var1.readUnsignedShort() + client.field1645;
+				var5.field858 = var1.readUnsignedShort() + client.field1645;
 				var5.field859 = var1.method8164();
 				var5.field871 = 1;
 				var5.field876 = 0;
@@ -411,18 +411,18 @@ public class class236 implements class248 {
 
 		for (var3 = 0; var3 < client.field1769; ++var3) {
 			var4 = client.field1770[var3];
-			if (client.field1902[var4].field847 != client.field1645) {
-				client.field1902[var4].field709 = null;
-				client.field1902[var4] = null;
+			if (client.npcs[var4].field847 != client.field1645) {
+				client.npcs[var4].field709 = null;
+				client.npcs[var4] = null;
 			}
 		}
 
-		if (var1.field4878 != client.field1778.field1075) {
-			throw new RuntimeException(var1.field4878 + class96.field959 + client.field1778.field1075);
+		if (var1.offset != client.packetWriter.serverPacketLength) {
+			throw new RuntimeException(var1.offset + class96.field959 + client.packetWriter.serverPacketLength);
 		} else {
-			for (var3 = 0; var3 < client.field1691; ++var3) {
-				if (client.field1902[client.field1692[var3]] == null) {
-					throw new RuntimeException(var3 + class96.field959 + client.field1691);
+			for (var3 = 0; var3 < client.npcCount; ++var3) {
+				if (client.npcs[client.field1692[var3]] == null) {
+					throw new RuntimeException(var3 + class96.field959 + client.npcCount);
 				}
 			}
 

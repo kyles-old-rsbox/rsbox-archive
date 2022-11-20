@@ -45,7 +45,7 @@ public class class178 extends class437 {
 		this.field1591 = 0;
 	}
 
-	void method2837(class460 var1) {
+	void method2837(Buffer var1) {
 		while (true) {
 			int var3 = var1.method8141();
 			if (var3 == 0) {
@@ -56,9 +56,9 @@ public class class178 extends class437 {
 		}
 	}
 
-	void method2828(class460 var1, int var2) {
+	void method2828(Buffer var1, int var2) {
 		if (var2 == 5) {
-			this.field1591 = var1.method8122();
+			this.field1591 = var1.readUnsignedShort();
 		}
 
 	}
@@ -68,8 +68,8 @@ public class class178 extends class437 {
 	}
 
 	static boolean method2827(char var0) {
-		for (int var2 = 0; var2 < class75.field641.length(); ++var2) {
-			if (var0 == class75.field641.charAt(var2)) {
+		for (int var2 = 0; var2 < Login.field641.length(); ++var2) {
+			if (var0 == Login.field641.charAt(var2)) {
 				return true;
 			}
 		}

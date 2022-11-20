@@ -10,14 +10,14 @@ public class class484 {
 	class484(int var1, int var2) {
 	}
 
-	public void method8735(class460 var1, byte[] var2) {
-		if (var1.field4881[var1.field4878] == 31 && -117 == var1.field4881[var1.field4878 + 1]) {
+	public void method8735(Buffer var1, byte[] var2) {
+		if (var1.data[var1.offset] == 31 && -117 == var1.data[var1.offset + 1]) {
 			if (null == this.field5001) {
 				this.field5001 = new Inflater(true);
 			}
 
 			try {
-				this.field5001.setInput(var1.field4881, var1.field4878 + 10, var1.field4881.length - (var1.field4878 + 10 + 8));
+				this.field5001.setInput(var1.data, var1.offset + 10, var1.data.length - (var1.offset + 10 + 8));
 				this.field5001.inflate(var2);
 			} catch (Exception var5) {
 				this.field5001.reset();

@@ -19,12 +19,12 @@ public class class252 implements class360 {
 		this.field2921 = var2;
 	}
 
-	public int method6663() {
+	public int rsOrdinal() {
 		return this.field2921;
 	}
 
 	static int method5040(int var0) {
-		class71 var2 = (class71)class110.field1093.get(var0);
+		class71 var2 = (class71) MessagesManager.channels.get(var0);
 		return null == var2 ? 0 : var2.method1429();
 	}
 

@@ -23,13 +23,13 @@ public class class223 {
 		this.field2654 = -1;
 		this.field2659 = false;
 		this.field2650 = var2;
-		class460 var3 = new class460(var1);
-		class460 var4 = new class460(var1);
-		var3.field4878 = 2;
+		Buffer var3 = new Buffer(var1);
+		Buffer var4 = new Buffer(var1);
+		var3.offset = 2;
 		int var5 = var3.method8141();
 		int var6 = -1;
 		int var7 = 0;
-		var4.field4878 = var3.field4878 + var5;
+		var4.offset = var3.offset + var5;
 
 		int var8;
 		for (var8 = 0; var8 < var5; ++var8) {
@@ -80,7 +80,7 @@ public class class223 {
 			}
 		}
 
-		if (var4.field4878 != var1.length) {
+		if (var4.offset != var1.length) {
 			throw new RuntimeException();
 		} else {
 			this.field2654 = var7;

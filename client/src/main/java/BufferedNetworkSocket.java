@@ -1,12 +1,12 @@
 import java.io.IOException;
 import java.net.Socket;
 
-public class class409 extends class401 {
+public class BufferedNetworkSocket extends AbstractSocket {
 	class397 field4548;
 	class413 field4546;
 	Socket field4550;
 
-	public class409(Socket var1, int var2, int var3) throws IOException {
+	public BufferedNetworkSocket(Socket var1, int var2, int var3) throws IOException {
 		this.field4550 = var1;
 		this.field4550.setSoTimeout(30000);
 		this.field4550.setTcpNoDelay(true);
@@ -20,19 +20,19 @@ public class class409 extends class401 {
 		return this.field4548.method7186(var1);
 	}
 
-	public int method7255() throws IOException {
+	public int available() throws IOException {
 		return this.field4548.method7187();
 	}
 
-	public int method7256() throws IOException {
+	public int readUnsignedByte() throws IOException {
 		return this.field4548.method7203();
 	}
 
-	public int method7267(byte[] var1, int var2, int var3) throws IOException {
+	public int read(byte[] var1, int var2, int var3) throws IOException {
 		return this.field4548.method7189(var1, var2, var3);
 	}
 
-	public void method7258(byte[] var1, int var2, int var3) throws IOException {
+	public void write(byte[] var1, int var2, int var3) throws IOException {
 		this.field4546.method7494(var1, var2, var3);
 	}
 

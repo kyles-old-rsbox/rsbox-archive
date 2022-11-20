@@ -15,55 +15,55 @@ public final class class359 {
 
 	static final int method6662(long var0, String var2) {
 		Random var4 = new Random();
-		class460 var5 = new class460(128);
-		class460 var6 = new class460(128);
+		Buffer var5 = new Buffer(128);
+		Buffer var6 = new Buffer(128);
 		int[] var7 = new int[]{var4.nextInt(), var4.nextInt(), (int)(var0 >> 32), (int)var0};
-		var5.method8104(10);
+		var5.writeByte(10);
 
 		int var8;
 		for (var8 = 0; var8 < 4; ++var8) {
-			var5.method8241(var4.nextInt());
+			var5.writeInt(var4.nextInt());
 		}
 
-		var5.method8241(var7[0]);
-		var5.method8241(var7[1]);
-		var5.method8109(var0);
-		var5.method8109(0L);
+		var5.writeInt(var7[0]);
+		var5.writeInt(var7[1]);
+		var5.writeLong(var0);
+		var5.writeLong(0L);
 
 		for (var8 = 0; var8 < 4; ++var8) {
-			var5.method8241(var4.nextInt());
+			var5.writeInt(var4.nextInt());
 		}
 
-		var5.method8147(class54.field388, class54.field389);
-		var6.method8104(10);
+		var5.encryptRSA(class54.field388, class54.field389);
+		var6.writeByte(10);
 
 		for (var8 = 0; var8 < 3; ++var8) {
-			var6.method8241(var4.nextInt());
+			var6.writeInt(var4.nextInt());
 		}
 
-		var6.method8109(var4.nextLong());
+		var6.writeLong(var4.nextLong());
 		var6.method8108(var4.nextLong());
-		class296.method5552(var6);
-		var6.method8109(var4.nextLong());
-		var6.method8147(class54.field388, class54.field389);
-		var8 = class460.method1887(var2);
+		class296.writeRandomBytes(var6);
+		var6.writeLong(var4.nextLong());
+		var6.encryptRSA(class54.field388, class54.field389);
+		var8 = Buffer.method1887(var2);
 		if (0 != var8 % 8) {
 			var8 += 8 - var8 % 8;
 		}
 
-		class460 var9 = new class460(var8);
-		var9.method8111(var2);
-		var9.field4878 = var8;
+		Buffer var9 = new Buffer(var8);
+		var9.writeString(var2);
+		var9.offset = var8;
 		var9.method8143(var7);
-		class460 var10 = new class460(var9.field4878 + var6.field4878 + 5 + var5.field4878);
-		var10.method8104(2);
-		var10.method8104(var5.field4878);
-		var10.method8114(var5.field4881, 0, var5.field4878);
-		var10.method8104(var6.field4878);
-		var10.method8114(var6.field4881, 0, var6.field4878);
-		var10.method8181(var9.field4878);
-		var10.method8114(var9.field4881, 0, var9.field4878);
-		byte[] var12 = var10.field4881;
+		Buffer var10 = new Buffer(var9.offset + var6.offset + 5 + var5.offset);
+		var10.writeByte(2);
+		var10.writeByte(var5.offset);
+		var10.writeBytes(var5.data, 0, var5.offset);
+		var10.writeByte(var6.offset);
+		var10.writeBytes(var6.data, 0, var6.offset);
+		var10.writeShort(var9.offset);
+		var10.writeBytes(var9.data, 0, var9.offset);
+		byte[] var12 = var10.data;
 		int var14 = var12.length;
 		StringBuilder var15 = new StringBuilder();
 
@@ -98,14 +98,14 @@ public final class class359 {
 			var21.write("data2=" + class61.method1338(var13) + "&dest=" + class61.method1338("passwordchoice.ws"));
 			var21.flush();
 			InputStream var22 = var25.getInputStream();
-			var10 = new class460(new byte[1000]);
+			var10 = new Buffer(new byte[1000]);
 
 			do {
-				var18 = var22.read(var10.field4881, var10.field4878, 1000 - var10.field4878);
+				var18 = var22.read(var10.data, var10.offset, 1000 - var10.offset);
 				if (var18 == -1) {
 					var21.close();
 					var22.close();
-					String var23 = new String(var10.field4881);
+					String var23 = new String(var10.data);
 					if (var23.startsWith("OFFLINE")) {
 						return 4;
 					} else if (var23.startsWith("WRONG")) {
@@ -117,11 +117,11 @@ public final class class359 {
 					} else {
 						var10.method8144(var7);
 
-						while (var10.field4878 > 0 && 0 == var10.field4881[var10.field4878 - 1]) {
-							--var10.field4878;
+						while (var10.offset > 0 && 0 == var10.data[var10.offset - 1]) {
+							--var10.offset;
 						}
 
-						var23 = new String(var10.field4881, 0, var10.field4878);
+						var23 = new String(var10.data, 0, var10.offset);
 						if (class81.method1622(var23)) {
 							class115.method2229(var23, true, false);
 							return 2;
@@ -131,8 +131,8 @@ public final class class359 {
 					}
 				}
 
-				var10.field4878 += var18;
-			} while(var10.field4878 < 1000);
+				var10.offset += var18;
+			} while(var10.offset < 1000);
 
 			return 5;
 		} catch (Throwable var24) {

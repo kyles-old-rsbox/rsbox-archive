@@ -369,7 +369,7 @@ public class class200 {
 
 	static final boolean method3770(byte[] var0, int var1, int var2) {
 		boolean var4 = true;
-		class460 var5 = new class460(var0);
+		Buffer var5 = new Buffer(var0);
 		int var6 = -1;
 
 		label70:
@@ -398,8 +398,8 @@ public class class200 {
 					int var14 = var12 + var1;
 					int var15 = var11 + var2;
 					if (var14 > 0 && var15 > 0 && var14 < 103 && var15 < 103) {
-						class195 var16 = class89.method1866(var6);
-						if (var13 != 22 || !client.field1636 || var16.field2072 != 0 || var16.field2070 == 1 || var16.field2068) {
+						class195 var16 = InterfaceParent.method1866(var6);
+						if (var13 != 22 || !client.isLowDetail || var16.field2072 != 0 || var16.field2070 == 1 || var16.field2068) {
 							if (!var16.method3587()) {
 								++client.field1702;
 								var4 = false;
@@ -463,12 +463,12 @@ public class class200 {
 		SimpleDateFormat var1 = new SimpleDateFormat("ddMMyyyyHH", Locale.ENGLISH);
 		var1.setLenient(false);
 		StringBuilder var2 = new StringBuilder();
-		String[] var3 = class75.field635;
+		String[] var3 = Login.field635;
 
 		for (int var4 = 0; var4 < var3.length; ++var4) {
 			String var5 = var3[var4];
 			if (null == var5) {
-				class75.method201("Date not valid.", "Please ensure all characters are populated.", "");
+				Login.method201("Date not valid.", "Please ensure all characters are populated.", "");
 				return null;
 			}
 
@@ -480,9 +480,9 @@ public class class200 {
 	}
 
 	static final void method3753(int var0, int var1, boolean var2) {
-		if (!var2 || class361.field4314 != var0 || class283.field3216 != var1) {
+		if (!var2 || class361.field4314 != var0 || ServerPacket.field3216 != var1) {
 			class361.field4314 = var0;
-			class283.field3216 = var1;
+			ServerPacket.field3216 = var1;
 			class9.method64(25);
 			class131.method2399(class338.field3902, true);
 			int var4 = class36.field241;
@@ -498,7 +498,7 @@ public class class200 {
 			int var10;
 			int[] var10000;
 			for (var8 = 0; var8 < 65536; ++var8) {
-				class81 var9 = client.field1902[var8];
+				class81 var9 = client.npcs[var8];
 				if (null != var9) {
 					for (var10 = 0; var10 < 10; ++var10) {
 						var10000 = var9.field861;
@@ -513,7 +513,7 @@ public class class200 {
 			}
 
 			for (var8 = 0; var8 < 2048; ++var8) {
-				class93 var22 = client.field1763[var8];
+				class93 var22 = client.players[var8];
 				if (var22 != null) {
 					for (var10 = 0; var10 < 10; ++var10) {
 						var10000 = var22.field861;
@@ -553,15 +553,15 @@ public class class200 {
 
 					for (int var18 = 0; var18 < 4; ++var18) {
 						if (var16 >= 0 && var17 >= 0 && var16 < 104 && var17 < 104) {
-							client.field1865[var18][var14][var15] = client.field1865[var18][var16][var17];
+							client.groundItems[var18][var14][var15] = client.groundItems[var18][var16][var17];
 						} else {
-							client.field1865[var18][var14][var15] = null;
+							client.groundItems[var18][var14][var15] = null;
 						}
 					}
 				}
 			}
 
-			for (class101 var20 = (class101)client.field1777.method6364(); var20 != null; var20 = (class101)client.field1777.method6358()) {
+			for (class101 var20 = (class101)client.pendingSpawns.method6364(); var20 != null; var20 = (class101)client.pendingSpawns.method6358()) {
 				var20.field999 -= var6;
 				var20.field994 -= var7;
 				if (var20.field999 < 0 || var20.field994 < 0 || var20.field999 >= 104 || var20.field994 >= 104) {
@@ -569,20 +569,20 @@ public class class200 {
 				}
 			}
 
-			if (0 != client.field1889) {
-				client.field1889 -= var6;
-				client.field1890 -= var7;
+			if (0 != client.destinationX) {
+				client.destinationX -= var6;
+				client.destinationY -= var7;
 			}
 
-			client.field1894 = 0;
+			client.soundEffectCount = 0;
 			client.field1900 = false;
 			class215.field2568 -= var6 << 7;
 			class323.field3766 -= var7 << 7;
 			class32.field203 -= var6 << 7;
 			class101.field1004 -= var7 << 7;
 			client.field1662 = -1;
-			client.field1779.method6354();
-			client.field1853.method6354();
+			client.graphics.clear();
+			client.projectiles.clear();
 
 			for (var15 = 0; var15 < 4; ++var15) {
 				client.field1884[var15].method3735();

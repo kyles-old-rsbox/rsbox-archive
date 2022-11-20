@@ -3,41 +3,41 @@ import io.rsbox.client.ClientLauncher;
 import java.math.BigInteger;
 
 public class class62 {
-	static final BigInteger field493;
-	static final BigInteger field494;
+	static final BigInteger exponent;
+	static final BigInteger modulus;
 
 	static {
-		field493 = new BigInteger("10001", 16);
-		field494 = new BigInteger(ClientLauncher.INSTANCE.getRSA_MODULUS(), 16);
+		exponent = new BigInteger("10001", 16);
+		modulus = new BigInteger(ClientLauncher.INSTANCE.getRSA_MODULUS(), 16);
 	}
 
 	class62() throws Throwable {
 		throw new Error();
 	}
 
-	static void method1339(class453 var0, int var1) {
+	static void method1339(PacketBuffer var0, int var1) {
 		boolean var3 = var0.method8014(1) == 1;
 		if (var3) {
-			class102.field1020[++class102.field1007 - 1] = var1;
+			PlayerManager.field1020[++PlayerManager.field1007 - 1] = var1;
 		}
 
 		int var4 = var0.method8014(2);
-		class93 var5 = client.field1763[var1];
+		class93 var5 = client.players[var1];
 		if (var4 == 0) {
 			if (var3) {
 				var5.field919 = false;
-			} else if (var1 == client.field1764) {
+			} else if (var1 == client.localPlayerIndex) {
 				throw new RuntimeException();
 			} else {
-				class102.field1016[var1] = (class36.field241 + var5.field861[0] >> 13 << 14) + (var5.field914 << 28) + (class169.field1536 + var5.field873[0] >> 13);
+				PlayerManager.field1016[var1] = (class36.field241 + var5.field861[0] >> 13 << 14) + (var5.field914 << 28) + (class169.field1536 + var5.field873[0] >> 13);
 				if (var5.field868 != -1) {
-					class102.field1014[var1] = var5.field868;
+					PlayerManager.field1014[var1] = var5.field868;
 				} else {
-					class102.field1014[var1] = var5.field860;
+					PlayerManager.field1014[var1] = var5.field860;
 				}
 
-				class102.field1018[var1] = var5.field835;
-				client.field1763[var1] = null;
+				PlayerManager.field1018[var1] = var5.field835;
+				client.players[var1] = null;
 				if (var0.method8014(1) != 0) {
 					class399.method7221(var0, var1);
 				}
@@ -73,14 +73,14 @@ public class class62 {
 					++var8;
 				}
 
-				if (var1 != client.field1764 || var5.field827 >= 1536 && var5.field802 >= 1536 && var5.field827 < 11776 && var5.field802 < 11776) {
+				if (var1 != client.localPlayerIndex || var5.field827 >= 1536 && var5.field802 >= 1536 && var5.field827 < 11776 && var5.field802 < 11776) {
 					if (var3) {
 						var5.field919 = true;
 						var5.field920 = var7;
 						var5.field892 = var8;
 					} else {
 						var5.field919 = false;
-						var5.method1938(var7, var8, class102.field1010[var1]);
+						var5.method1938(var7, var8, PlayerManager.field1010[var1]);
 					}
 				} else {
 					var5.method1919(var7, var8);
@@ -137,7 +137,7 @@ public class class62 {
 					var8 += 2;
 				}
 
-				if (client.field1764 == var1 && (var5.field827 < 1536 || var5.field802 < 1536 || var5.field827 >= 11776 || var5.field802 >= 11776)) {
+				if (client.localPlayerIndex == var1 && (var5.field827 < 1536 || var5.field802 < 1536 || var5.field827 >= 11776 || var5.field802 >= 11776)) {
 					var5.method1919(var7, var8);
 					var5.field919 = false;
 				} else if (var3) {
@@ -146,7 +146,7 @@ public class class62 {
 					var5.field892 = var8;
 				} else {
 					var5.field919 = false;
-					var5.method1938(var7, var8, class102.field1010[var1]);
+					var5.method1938(var7, var8, PlayerManager.field1010[var1]);
 				}
 
 			} else {
@@ -170,14 +170,14 @@ public class class62 {
 
 					var11 = var5.field861[0] + var9;
 					var12 = var5.field873[0] + var10;
-					if (client.field1764 != var1 || var5.field827 >= 1536 && var5.field802 >= 1536 && var5.field827 < 11776 && var5.field802 < 11776) {
+					if (client.localPlayerIndex != var1 || var5.field827 >= 1536 && var5.field802 >= 1536 && var5.field827 < 11776 && var5.field802 < 11776) {
 						if (var3) {
 							var5.field919 = true;
 							var5.field920 = var11;
 							var5.field892 = var12;
 						} else {
 							var5.field919 = false;
-							var5.method1938(var11, var12, class102.field1010[var1]);
+							var5.method1938(var11, var12, PlayerManager.field1010[var1]);
 						}
 					} else {
 						var5.method1919(var11, var12);
@@ -185,7 +185,7 @@ public class class62 {
 					}
 
 					var5.field914 = (byte)(var5.field914 + var8 & 3);
-					if (var1 == client.field1764) {
+					if (var1 == client.localPlayerIndex) {
 						class55.field396 = var5.field914;
 					}
 
@@ -196,14 +196,14 @@ public class class62 {
 					var10 = var7 & 16383;
 					var11 = (class36.field241 + var5.field861[0] + var9 & 16383) - class36.field241;
 					var12 = (var5.field873[0] + class169.field1536 + var10 & 16383) - class169.field1536;
-					if (var1 != client.field1764 || var5.field827 >= 1536 && var5.field802 >= 1536 && var5.field827 < 11776 && var5.field802 < 11776) {
+					if (var1 != client.localPlayerIndex || var5.field827 >= 1536 && var5.field802 >= 1536 && var5.field827 < 11776 && var5.field802 < 11776) {
 						if (var3) {
 							var5.field919 = true;
 							var5.field920 = var11;
 							var5.field892 = var12;
 						} else {
 							var5.field919 = false;
-							var5.method1938(var11, var12, class102.field1010[var1]);
+							var5.method1938(var11, var12, PlayerManager.field1010[var1]);
 						}
 					} else {
 						var5.method1919(var11, var12);
@@ -211,7 +211,7 @@ public class class62 {
 					}
 
 					var5.field914 = (byte)(var8 + var5.field914 & 3);
-					if (var1 == client.field1764) {
+					if (var1 == client.localPlayerIndex) {
 						class55.field396 = var5.field914;
 					}
 

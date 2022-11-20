@@ -7,7 +7,7 @@ public class class233 {
 	class233() {
 	}
 
-	static final class421 method4559(class460 var0, class421 var1) {
+	static final class421 method4559(Buffer var0, class421 var1) {
 		int var3 = var0.method8141();
 		int var4;
 		if (var1 == null) {
@@ -20,7 +20,7 @@ public class class233 {
 			int var6 = var0.method8312();
 			Object var7;
 			if (var5) {
-				var7 = new class418(var0.method8131());
+				var7 = new class418(var0.readString());
 			} else {
 				var7 = new class426(var0.method8126());
 			}

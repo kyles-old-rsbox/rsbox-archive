@@ -1,15 +1,15 @@
 final class class454 implements class443 {
-	static int field4859;
+	static int currentPort;
 
-	void method8046(String var1, class460 var2) {
-		var2.method8111(var1);
+	void method8046(String var1, Buffer var2) {
+		var2.writeString(var1);
 	}
 
-	public Object method7925(class460 var1) {
-		return var1.method8131();
+	public Object method7925(Buffer var1) {
+		return var1.readString();
 	}
 
-	public void method7924(Object var1, class460 var2) {
+	public void method7924(Object var1, Buffer var2) {
 		this.method8046((String)var1, var2);
 	}
 }

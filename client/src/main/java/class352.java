@@ -40,9 +40,9 @@ public class class352 implements Iterator {
 	}
 
 	static void method6544() {
-		class75.field633 = class75.field633.trim();
-		if (class75.field633.length() == 0) {
-			class75.method5452(class338.field4167, class338.field4010, class338.field4169);
+		Login.username = Login.username.trim();
+		if (Login.username.length() == 0) {
+			Login.setLoginResponseString(class338.field4167, class338.field4010, class338.field4169);
 		} else {
 			long var2;
 			try {
@@ -56,19 +56,19 @@ public class class352 implements Iterator {
 				var6.write("data1=req");
 				var6.flush();
 				InputStream var7 = var5.getInputStream();
-				class460 var8 = new class460(new byte[1000]);
+				Buffer var8 = new Buffer(new byte[1000]);
 
 				while (true) {
-					int var9 = var7.read(var8.field4881, var8.field4878, 1000 - var8.field4878);
+					int var9 = var7.read(var8.data, var8.offset, 1000 - var8.offset);
 					if (var9 == -1) {
-						var8.field4878 = 0;
-						long var11 = var8.method8127();
+						var8.offset = 0;
+						long var11 = var8.readLong();
 						var2 = var11;
 						break;
 					}
 
-					var8.field4878 += var9;
-					if (var8.field4878 >= 1000) {
+					var8.offset += var9;
+					if (var8.offset >= 1000) {
 						var2 = 0L;
 						break;
 					}
@@ -81,28 +81,28 @@ public class class352 implements Iterator {
 			if (var2 == 0L) {
 				var1 = 5;
 			} else {
-				var1 = class359.method6662(var2, class75.field633);
+				var1 = class359.method6662(var2, Login.username);
 			}
 
 			switch(var1) {
 			case 2:
-				class75.method5452(class338.field4050, class338.field4171, class338.field4183);
+				Login.setLoginResponseString(class338.field4050, class338.field4171, class338.field4183);
 				class74.method1490(6);
 				break;
 			case 3:
-				class75.method5452(class338.field4173, class338.field4162, class338.field4175);
+				Login.setLoginResponseString(class338.field4173, class338.field4162, class338.field4175);
 				break;
 			case 4:
-				class75.method5452(class338.field4204, class338.field4156, class338.field4123);
+				Login.setLoginResponseString(class338.field4204, class338.field4156, class338.field4123);
 				break;
 			case 5:
-				class75.method5452(class338.field3914, class338.field4180, class338.field4184);
+				Login.setLoginResponseString(class338.field3914, class338.field4180, class338.field4184);
 				break;
 			case 6:
-				class75.method5452(class338.field4178, class338.field3933, class338.field3992);
+				Login.setLoginResponseString(class338.field4178, class338.field3933, class338.field3992);
 				break;
 			case 7:
-				class75.method5452(class338.field4185, class338.field4186, class338.field3912);
+				Login.setLoginResponseString(class338.field4185, class338.field4186, class338.field3912);
 			}
 
 		}

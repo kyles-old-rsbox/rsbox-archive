@@ -21,21 +21,21 @@ public class class35 {
 		this.field229[1] = 65535;
 	}
 
-	final void method657(class460 var1) {
+	final void method657(Buffer var1) {
 		this.field228 = var1.method8141();
 		this.field226 = var1.method8126();
 		this.field227 = var1.method8126();
 		this.method663(var1);
 	}
 
-	final void method663(class460 var1) {
+	final void method663(Buffer var1) {
 		this.field225 = var1.method8141();
 		this.field224 = new int[this.field225];
 		this.field229 = new int[this.field225];
 
 		for (int var2 = 0; var2 < this.field225; ++var2) {
-			this.field224[var2] = var1.method8122();
-			this.field229[var2] = var1.method8122();
+			this.field224[var2] = var1.readUnsignedShort();
+			this.field229[var2] = var1.readUnsignedShort();
 		}
 
 	}

@@ -12,7 +12,7 @@ public class class155 extends class140 {
 		this.this$0 = var1;
 	}
 
-	void method2467(class460 var1) {
+	void method2467(Buffer var1) {
 		this.field1423 = var1.method8141() == 1;
 		this.field1419 = var1.method8287();
 		this.field1418 = var1.method8287();

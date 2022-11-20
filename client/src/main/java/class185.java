@@ -27,29 +27,29 @@ public class class185 extends class437 {
 		this.method3431(this.field1955);
 	}
 
-	public static class263 method3435(class274 var0, class479 var1) {
-		class263 var3 = class210.method4096();
+	public static PacketBufferNode method3435(class274 var0, IsaacRandom var1) {
+		PacketBufferNode var3 = class210.method4096();
 		var3.field2989 = var0;
 		var3.field2985 = var0.field3148;
 		if (var3.field2985 == -1) {
-			var3.field2984 = new class453(260);
+			var3.buffer = new PacketBuffer(260);
 		} else if (var3.field2985 == -2) {
-			var3.field2984 = new class453(10000);
+			var3.buffer = new PacketBuffer(10000);
 		} else if (var3.field2985 <= 18) {
-			var3.field2984 = new class453(20);
+			var3.buffer = new PacketBuffer(20);
 		} else if (var3.field2985 <= 98) {
-			var3.field2984 = new class453(100);
+			var3.buffer = new PacketBuffer(100);
 		} else {
-			var3.field2984 = new class453(260);
+			var3.buffer = new PacketBuffer(260);
 		}
 
-		var3.field2984.method8025(var1);
-		var3.field2984.method8008(var3.field2989.field3147);
+		var3.buffer.method8025(var1);
+		var3.buffer.method8008(var3.field2989.field3147);
 		var3.field2987 = 0;
 		return var3;
 	}
 
-	public void method3414(class460 var1, int var2) {
+	public void method3414(Buffer var1, int var2) {
 		while (true) {
 			int var4 = var1.method8141();
 			if (var4 == 0) {
@@ -60,7 +60,7 @@ public class class185 extends class437 {
 		}
 	}
 
-	void method3415(class460 var1, int var2, int var3) {
+	void method3415(Buffer var1, int var2, int var3) {
 		if (var2 == 1) {
 			this.field1955 = var1.method8312();
 		}
@@ -148,7 +148,7 @@ public class class185 extends class437 {
 			var1 = class200.method3762();
 		} catch (ParseException var10) {
 			class74.method1490(7);
-			class75.method5452("Date not valid.", "Please ensure date follows the format", "DD/MM/YYYY and is after 01/01/1900");
+			Login.setLoginResponseString("Date not valid.", "Please ensure date follows the format", "DD/MM/YYYY and is after 01/01/1900");
 			return false;
 		}
 
@@ -164,11 +164,11 @@ public class class185 extends class437 {
 			var3.set(14, 0);
 			Date var4 = var3.getTime();
 			boolean var6 = var1.before(var4);
-			Date var5 = class75.method2497();
+			Date var5 = Login.method2497();
 			boolean var8 = var1.after(var5);
 			if (!var8) {
 				class74.method1490(7);
-				class75.method5452("Date not valid.", "Please ensure date follows the format", "DD/MM/YYYY and is after 01/01/1900");
+				Login.setLoginResponseString("Date not valid.", "Please ensure date follows the format", "DD/MM/YYYY and is after 01/01/1900");
 				return false;
 			} else {
 				if (!var6) {

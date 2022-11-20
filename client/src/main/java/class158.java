@@ -38,7 +38,7 @@ public class class158 extends class437 {
 		field1441 = var1;
 	}
 
-	void method2623(class460 var1) {
+	void method2623(Buffer var1) {
 		while (true) {
 			int var3 = var1.method8141();
 			if (var3 == 0) {
@@ -49,9 +49,9 @@ public class class158 extends class437 {
 		}
 	}
 
-	void method2609(class460 var1, int var2) {
+	void method2609(Buffer var1, int var2) {
 		if (var2 == 1) {
-			var1.method8122();
+			var1.readUnsignedShort();
 		} else if (var2 == 2) {
 			this.field1446 = var1.method8141();
 		} else if (var2 == 3) {
@@ -59,7 +59,7 @@ public class class158 extends class437 {
 		} else if (var2 == 4) {
 			this.field1448 = 0;
 		} else if (var2 == 5) {
-			this.field1450 = var1.method8122();
+			this.field1450 = var1.readUnsignedShort();
 		} else if (var2 == 6) {
 			var1.method8141();
 		} else if (var2 == 7) {
@@ -67,7 +67,7 @@ public class class158 extends class437 {
 		} else if (var2 == 8) {
 			this.field1442 = var1.method8140();
 		} else if (var2 == 11) {
-			this.field1448 = var1.method8122();
+			this.field1448 = var1.readUnsignedShort();
 		} else if (var2 == 14) {
 			this.field1453 = var1.method8141();
 		} else if (var2 == 15) {
@@ -85,7 +85,7 @@ public class class158 extends class437 {
 			var2 = new class203();
 			var2.field2260 = var0;
 			if (null != var3) {
-				var2.method3853(new class460(var3));
+				var2.method3853(new Buffer(var3));
 			}
 
 			var2.method3852();

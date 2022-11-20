@@ -22,7 +22,7 @@ public class class182 extends class437 {
 		this.field1630 = false;
 	}
 
-	void method2846(class460 var1) {
+	void method2846(Buffer var1) {
 		while (true) {
 			int var3 = var1.method8141();
 			if (var3 == 0) {
@@ -33,7 +33,7 @@ public class class182 extends class437 {
 		}
 	}
 
-	void method2849(class460 var1, int var2) {
+	void method2849(Buffer var1, int var2) {
 		if (var2 == 1) {
 			this.field1623 = var1.method8141();
 		} else {
@@ -44,7 +44,7 @@ public class class182 extends class437 {
 				this.field1624 = new int[var4];
 
 				for (var5 = 0; var5 < var4; ++var5) {
-					this.field1624[var5] = var1.method8122();
+					this.field1624[var5] = var1.readUnsignedShort();
 				}
 			} else if (var2 == 3) {
 				this.field1630 = true;
@@ -54,8 +54,8 @@ public class class182 extends class437 {
 				this.field1620 = new short[var4];
 
 				for (var5 = 0; var5 < var4; ++var5) {
-					this.field1625[var5] = (short)var1.method8122();
-					this.field1620[var5] = (short)var1.method8122();
+					this.field1625[var5] = (short)var1.readUnsignedShort();
+					this.field1620[var5] = (short)var1.readUnsignedShort();
 				}
 			} else if (var2 == 41) {
 				var4 = var1.method8141();
@@ -63,11 +63,11 @@ public class class182 extends class437 {
 				this.field1628 = new short[var4];
 
 				for (var5 = 0; var5 < var4; ++var5) {
-					this.field1621[var5] = (short)var1.method8122();
-					this.field1628[var5] = (short)var1.method8122();
+					this.field1621[var5] = (short)var1.readUnsignedShort();
+					this.field1628[var5] = (short)var1.readUnsignedShort();
 				}
 			} else if (var2 >= 60 && var2 < 70) {
-				this.field1629[var2 - 60] = var1.method8122();
+				this.field1629[var2 - 60] = var1.readUnsignedShort();
 			}
 		}
 

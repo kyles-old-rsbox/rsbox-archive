@@ -51,8 +51,8 @@ public final class class93 extends class90 {
 		this.field919 = false;
 	}
 
-	final void method1906(class460 var1) {
-		var1.field4878 = 0;
+	final void method1906(Buffer var1) {
+		var1.offset = 0;
 		int var3 = var1.method8141();
 		int var4 = -1;
 		this.field894 = var1.method8287();
@@ -72,7 +72,7 @@ public final class class93 extends class90 {
 				var9 = var1.method8141();
 				var6[var7] = var9 + (var8 << 8);
 				if (var7 == 0 && 65535 == var6[0]) {
-					var5 = var1.method8122();
+					var5 = var1.readUnsignedShort();
 					break;
 				}
 
@@ -96,43 +96,43 @@ public final class class93 extends class90 {
 			var26[var8] = var9;
 		}
 
-		super.field823 = var1.method8122();
+		super.field823 = var1.readUnsignedShort();
 		if (super.field823 == 65535) {
 			super.field823 = -1;
 		}
 
-		super.field808 = var1.method8122();
+		super.field808 = var1.readUnsignedShort();
 		if (super.field808 == 65535) {
 			super.field808 = -1;
 		}
 
 		super.field806 = super.field808;
-		super.field810 = var1.method8122();
+		super.field810 = var1.readUnsignedShort();
 		if (65535 == super.field810) {
 			super.field810 = -1;
 		}
 
-		super.field811 = var1.method8122();
+		super.field811 = var1.readUnsignedShort();
 		if (65535 == super.field811) {
 			super.field811 = -1;
 		}
 
-		super.field812 = var1.method8122();
+		super.field812 = var1.readUnsignedShort();
 		if (super.field812 == 65535) {
 			super.field812 = -1;
 		}
 
-		super.field813 = var1.method8122();
+		super.field813 = var1.readUnsignedShort();
 		if (super.field813 == 65535) {
 			super.field813 = -1;
 		}
 
-		super.field814 = var1.method8122();
+		super.field814 = var1.readUnsignedShort();
 		if (super.field814 == 65535) {
 			super.field814 = -1;
 		}
 
-		this.field910 = new class472(var1.method8131(), class234.field2779);
+		this.field910 = new class472(var1.readString(), class234.field2779);
 		this.method1908();
 		this.method1913();
 		this.method1911();
@@ -141,15 +141,15 @@ public final class class93 extends class90 {
 		}
 
 		this.field905 = var1.method8141();
-		this.field912 = var1.method8122();
+		this.field912 = var1.readUnsignedShort();
 		this.field913 = var1.method8141() == 1;
-		if (0 == client.field1911 && client.field1750 >= 2) {
+		if (0 == client.field1911 && client.privilegeLevel >= 2) {
 			this.field913 = false;
 		}
 
 		class179[] var27 = null;
 		boolean var28 = false;
-		var10 = var1.method8122();
+		var10 = var1.readUnsignedShort();
 		var28 = 1 == (var10 >> 15 & 1);
 		int var11;
 		if (var10 > 0 && var10 != 32768) {
@@ -175,7 +175,7 @@ public final class class93 extends class90 {
 
 						for (var24 = 0; var24 < 2; ++var24) {
 							if (15 != var22[var24]) {
-								var25 = (short)var1.method8122();
+								var25 = (short)var1.readUnsignedShort();
 								if (var23) {
 									var20.field1603[var22[var24]] = var25;
 								}
@@ -190,7 +190,7 @@ public final class class93 extends class90 {
 
 						for (var24 = 0; var24 < 2; ++var24) {
 							if (var22[var24] != 15) {
-								var25 = (short)var1.method8122();
+								var25 = (short)var1.readUnsignedShort();
 								if (var23) {
 									var20.field1600[var22[var24]] = var25;
 								}
@@ -204,7 +204,7 @@ public final class class93 extends class90 {
 		}
 
 		for (var11 = 0; var11 < 3; ++var11) {
-			this.field897[var11] = var1.method8131();
+			this.field897[var11] = var1.readString();
 		}
 
 		if (client.field1932 > 208) {
@@ -231,7 +231,7 @@ public final class class93 extends class90 {
 	}
 
 	void method1909() {
-		this.field916 = class217.field2588.method1056(this.field910) ? class410.field4551 : class410.field4552;
+		this.field916 = class217.friends.method1056(this.field910) ? class410.field4551 : class410.field4552;
 	}
 
 	boolean method1939() {

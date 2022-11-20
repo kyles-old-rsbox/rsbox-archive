@@ -1,27 +1,27 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class class110 {
-	public static class460 field1090;
+public class MessagesManager {
+	public static Buffer field1090;
 	public static int field1092;
-	static int field1091;
-	static final class355 field1088;
-	static final class421 field1089;
-	static final Map field1093;
+	static int count;
+	static final class355 queue;
+	static final class421 hashTable;
+	static final Map channels;
 
 	static {
-		field1093 = new HashMap();
-		field1089 = new class421(1024);
-		field1088 = new class355();
-		field1091 = 0;
+		channels = new HashMap();
+		hashTable = new class421(1024);
+		queue = new class355();
+		count = 0;
 	}
 
-	class110() throws Throwable {
+	MessagesManager() throws Throwable {
 		throw new Error();
 	}
 
 	static int method7846() {
-		return ++field1091 - 1;
+		return ++count - 1;
 	}
 
 	static void method2130() {
@@ -49,24 +49,24 @@ public class class110 {
 	}
 
 	static void method1858(int var0, String var1, String var2, String var3) {
-		class71 var5 = (class71)field1093.get(var0);
+		class71 var5 = (class71) channels.get(var0);
 		if (null == var5) {
 			var5 = new class71();
-			field1093.put(var0, var5);
+			channels.put(var0, var5);
 		}
 
 		class63 var6 = var5.method1434(var0, var1, var2, var3);
-		field1089.method7781(var6, (long)var6.field496);
-		field1088.method6599(var6);
+		hashTable.method7781(var6, (long)var6.field496);
+		queue.method6599(var6);
 		client.field1843 = client.field1878;
 	}
 
 	static class63 method6313(int var0, int var1) {
-		class71 var3 = (class71)field1093.get(var0);
+		class71 var3 = (class71) channels.get(var0);
 		return var3.method1428(var1);
 	}
 
 	static class63 method204(int var0) {
-		return (class63)field1089.method7788((long)var0);
+		return (class63) hashTable.method7788((long)var0);
 	}
 }

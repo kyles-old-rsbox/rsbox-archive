@@ -1,3 +1,3 @@
 public interface class24 {
-	class460 method339(class460 var1);
+	Buffer method339(Buffer var1);
 }

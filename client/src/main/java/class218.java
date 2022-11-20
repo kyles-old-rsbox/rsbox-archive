@@ -1,10 +1,10 @@
 public class class218 extends class437 {
-	static class401 field2589;
+	static AbstractSocket field2589;
 	static long field2591;
 	class223[] field2595;
 
 	public class218(class319 var1, class319 var2, int var3, boolean var4) {
-		class343 var5 = new class343();
+		NodeDeque var5 = new NodeDeque();
 		int var6 = var1.method6099(var3);
 		this.field2595 = new class223[var6];
 		int[] var7 = var1.method6098(var3);
@@ -125,15 +125,15 @@ public class class218 extends class437 {
 					class57.field404[++class387.field4452 - 1] = class257.method5139(var4, var5);
 					return 1;
 				} else if (var0 == CS2Opcodes.STAFFMODLEVEL) {
-					if (client.field1750 >= 2) {
-						class57.field404[++class387.field4452 - 1] = client.field1750;
+					if (client.privilegeLevel >= 2) {
+						class57.field404[++class387.field4452 - 1] = client.privilegeLevel;
 					} else {
 						class57.field404[++class387.field4452 - 1] = 0;
 					}
 
 					return 1;
 				} else if (var0 == CS2Opcodes.REBOOTTIMER) {
-					class57.field404[++class387.field4452 - 1] = client.field1651;
+					class57.field404[++class387.field4452 - 1] = client.rebootTimer;
 					return 1;
 				} else if (var0 == CS2Opcodes.MAP_WORLD) {
 					class57.field404[++class387.field4452 - 1] = client.field1868;
@@ -145,7 +145,7 @@ public class class218 extends class437 {
 					class57.field404[++class387.field4452 - 1] = client.field1859;
 					return 1;
 				} else if (var0 == CS2Opcodes.PLAYERMOD) {
-					if (client.field1820) {
+					if (client.isPlayerMod) {
 						class57.field404[++class387.field4452 - 1] = 1;
 					} else {
 						class57.field404[++class387.field4452 - 1] = 0;

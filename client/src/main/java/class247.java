@@ -63,16 +63,16 @@ public class class247 implements class248 {
 		}
 	}
 
-	public void method4967(class460 var1) {
+	public void method4967(Buffer var1) {
 		this.field2889 = var1.method8141();
 		this.field2883 = var1.method8141();
-		this.field2884 = var1.method8122();
+		this.field2884 = var1.readUnsignedShort();
 		this.field2888 = var1.method8141();
-		this.field2885 = var1.method8122();
+		this.field2885 = var1.readUnsignedShort();
 		this.field2882 = var1.method8141();
-		this.field2886 = var1.method8122();
+		this.field2886 = var1.readUnsignedShort();
 		this.field2890 = var1.method8141();
-		this.field2891 = var1.method8122();
+		this.field2891 = var1.readUnsignedShort();
 		this.field2887 = var1.method8141();
 		this.method4938();
 	}
@@ -90,7 +90,7 @@ public class class247 implements class248 {
 		}
 
 		client.field1806 = var3;
-		client.field1804 = true;
+		client.isSpellSelected = true;
 		class106.field1066 = var0;
 		client.field1805 = var1;
 		class120.field1161 = var2;

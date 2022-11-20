@@ -78,35 +78,35 @@ public class class96 {
 	}
 
 	static void method1959(int var0, String var1) {
-		int var3 = class102.field1012;
-		int[] var4 = class102.field1013;
+		int var3 = PlayerManager.playerCount;
+		int[] var4 = PlayerManager.field1013;
 		boolean var5 = false;
 		class472 var6 = new class472(var1, class234.field2779);
 
 		for (int var7 = 0; var7 < var3; ++var7) {
-			class93 var8 = client.field1763[var4[var7]];
+			class93 var8 = client.players[var4[var7]];
 			if (null != var8 && class291.field3364 != var8 && null != var8.field910 && var8.field910.equals(var6)) {
-				class263 var9;
+				PacketBufferNode var9;
 				if (var0 == 1) {
-					var9 = class185.method3435(class274.field3110, client.field1778.field1071);
-					var9.field2984.method8152(0);
-					var9.field2984.method8161(var4[var7]);
-					client.field1778.method2078(var9);
+					var9 = class185.method3435(class274.field3110, client.packetWriter.isaacRandom);
+					var9.buffer.method8152(0);
+					var9.buffer.method8161(var4[var7]);
+					client.packetWriter.add(var9);
 				} else if (var0 == 4) {
-					var9 = class185.method3435(class274.field3042, client.field1778.field1071);
-					var9.field2984.method8152(0);
-					var9.field2984.method8159(var4[var7]);
-					client.field1778.method2078(var9);
+					var9 = class185.method3435(class274.field3042, client.packetWriter.isaacRandom);
+					var9.buffer.method8152(0);
+					var9.buffer.method8159(var4[var7]);
+					client.packetWriter.add(var9);
 				} else if (var0 == 6) {
-					var9 = class185.method3435(class274.field3070, client.field1778.field1071);
-					var9.field2984.method8161(var4[var7]);
-					var9.field2984.method8152(0);
-					client.field1778.method2078(var9);
+					var9 = class185.method3435(class274.field3070, client.packetWriter.isaacRandom);
+					var9.buffer.method8161(var4[var7]);
+					var9.buffer.method8152(0);
+					client.packetWriter.add(var9);
 				} else if (var0 == 7) {
-					var9 = class185.method3435(class274.field3089, client.field1778.field1071);
-					var9.field2984.method8181(var4[var7]);
-					var9.field2984.method8104(0);
-					client.field1778.method2078(var9);
+					var9 = class185.method3435(class274.field3089, client.packetWriter.isaacRandom);
+					var9.buffer.writeShort(var4[var7]);
+					var9.buffer.writeByte(0);
+					client.packetWriter.add(var9);
 				}
 
 				var5 = true;
@@ -115,7 +115,7 @@ public class class96 {
 		}
 
 		if (!var5) {
-			class42.method773(4, "", class338.field4053 + var1);
+			MouseManager.method773(4, "", class338.field4053 + var1);
 		}
 
 	}

@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 public class class413 implements Runnable {
-	static class83 field4575;
+	static class83 clientPreferences;
 	boolean field4573;
 	byte[] field4569;
 	int field4566;

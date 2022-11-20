@@ -47,16 +47,16 @@ public class class134 extends class137 {
 		this.field1258 = null;
 	}
 
-	void method2441(class460 var1) {
+	void method2441(Buffer var1) {
 		if (var1.method8141() != 255) {
-			--var1.field4878;
-			var1.method8127();
+			--var1.offset;
+			var1.readLong();
 		}
 
 		this.field1258 = var1.method8305();
-		this.field1259 = var1.method8122();
+		this.field1259 = var1.readUnsignedShort();
 		this.field1264 = var1.method8287();
-		var1.method8127();
+		var1.readLong();
 	}
 
 	void method2442(class147 var1) {

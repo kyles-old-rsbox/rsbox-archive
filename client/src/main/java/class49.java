@@ -5,12 +5,12 @@ public class class49 {
 	public static int field348;
 	class319 field346;
 	class319 field350;
-	class434 field347;
-	class434 field351;
+	NodeHashTable field347;
+	NodeHashTable field351;
 
 	public class49(class319 var1, class319 var2) {
-		this.field347 = new class434(256);
-		this.field351 = new class434(256);
+		this.field347 = new NodeHashTable(256);
+		this.field351 = new NodeHashTable(256);
 		this.field350 = var1;
 		this.field346 = var2;
 	}
@@ -82,7 +82,7 @@ public class class49 {
 	}
 
 	static void method1000() {
-		Iterator var1 = class110.field1089.iterator();
+		Iterator var1 = MessagesManager.hashTable.iterator();
 
 		while (var1.hasNext()) {
 			class63 var2 = (class63)var1.next();
@@ -103,10 +103,10 @@ public class class49 {
 
 	static final void method996(boolean var0) {
 		if (var0) {
-			client.field1671 = class75.field621 ? class141.field1306 : class141.field1303;
+			client.field1671 = Login.field621 ? class141.field1306 : class141.field1303;
 		} else {
-			LinkedHashMap var2 = class413.field4575.field744;
-			String var4 = class75.field633;
+			LinkedHashMap var2 = class413.clientPreferences.parameters;
+			String var4 = Login.username;
 			int var5 = var4.length();
 			int var6 = 0;
 

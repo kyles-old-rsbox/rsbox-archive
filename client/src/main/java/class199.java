@@ -38,7 +38,7 @@ public class class199 extends class437 {
 		this.method3715(this.field2184);
 	}
 
-	public void method3717(class460 var1, int var2) {
+	public void method3717(Buffer var1, int var2) {
 		while (true) {
 			int var4 = var1.method8141();
 			if (var4 == 0) {
@@ -49,7 +49,7 @@ public class class199 extends class437 {
 		}
 	}
 
-	void method3719(class460 var1, int var2, int var3) {
+	void method3719(Buffer var1, int var2, int var3) {
 		if (var2 == 1) {
 			this.field2184 = var1.method8312();
 		} else if (var2 == 2) {
@@ -138,11 +138,11 @@ public class class199 extends class437 {
 		return var3;
 	}
 
-	public static void method3732(class460 var0, int var1) {
+	public static void method3732(Buffer var0, int var1) {
 		if (class163.field1498 != null) {
 			try {
 				class163.field1498.method8393(0L);
-				class163.field1498.method8398(var0.field4881, var1, 24);
+				class163.field1498.method8398(var0.data, var1, 24);
 			} catch (Exception var4) {
 			}
 		}

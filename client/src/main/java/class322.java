@@ -1,13 +1,13 @@
 public class class322 implements Runnable {
-	static class343 field3759;
-	static class343 field3760;
+	static NodeDeque field3759;
+	static NodeDeque field3760;
 	static int field3761;
 	static Object field3762;
 	static Thread field3763;
 
 	static {
-		field3759 = new class343();
-		field3760 = new class343();
+		field3759 = new NodeDeque();
+		field3760 = new NodeDeque();
 		field3761 = 0;
 		field3762 = new Object();
 	}
@@ -103,7 +103,7 @@ public class class322 implements Runnable {
 	}
 
 	static void method6198(class189 var0, int var1, int var2, int var3) {
-		if (client.field1894 < 50 && class413.field4575.method1736() != 0) {
+		if (client.soundEffectCount < 50 && class413.clientPreferences.method1736() != 0) {
 			if (var0.field2007 != null && var1 < var0.field2007.length) {
 				class100.method1993(var0.field2007[var1], var2, var3);
 			}

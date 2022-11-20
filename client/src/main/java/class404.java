@@ -170,7 +170,7 @@ public abstract class class404 {
 	}
 
 	static void method7362(class319 var0, class319 var1, boolean var2, int var3) {
-		if (class75.field617) {
+		if (Login.field617) {
 			if (var3 == 4) {
 				class74.method1490(4);
 			}
@@ -204,44 +204,44 @@ public abstract class class404 {
 			class393.method7165(var1, "titlebutton_wide42,1", "");
 			class258.field2959 = class475.method7371(var1, "runes", "");
 			class26.field133 = class475.method7371(var1, "title_mute", "");
-			class75.field629 = class393.method7165(var1, "options_radio_buttons,0", "");
+			Login.field629 = class393.method7165(var1, "options_radio_buttons,0", "");
 			class84.field749 = class393.method7165(var1, "options_radio_buttons,4", "");
 			class166.field1525 = class393.method7165(var1, "options_radio_buttons,2", "");
 			class362.field4317 = class393.method7165(var1, "options_radio_buttons,6", "");
-			class346.field4251 = class75.field629.field5017;
-			class75.field636 = class75.field629.field5019;
+			class346.field4251 = Login.field629.field5017;
+			Login.field636 = Login.field629.field5019;
 			class77.field670 = new class86(class258.field2959);
 			if (var2) {
-				class75.field633 = "";
-				class75.field650 = "";
-				class75.field635 = new String[8];
-				class75.field634 = 0;
+				Login.username = "";
+				Login.password = "";
+				Login.field635 = new String[8];
+				Login.field634 = 0;
 			}
 
 			class340.field4220 = 0;
 			class349.field4269 = "";
-			class75.field621 = true;
-			class75.field643 = false;
-			if (!class413.field4575.method1708()) {
+			Login.field621 = true;
+			Login.field643 = false;
+			if (!class413.clientPreferences.method1708()) {
 				class279.method3434(2, class43.field311, "scape main", "", 255, false);
 			} else {
 				class279.field3202 = 1;
 				class7.field29 = null;
 				class279.field3203 = -1;
 				class279.field3204 = -1;
-				class110.field1092 = 0;
+				MessagesManager.field1092 = 0;
 				class337.field3889 = false;
 				class13.field67 = 2;
 			}
 
-			class42.method799(false);
-			class75.field617 = true;
-			class75.field618 = (class31.field193 - 765) / 2;
-			class75.field627 = class75.field618 + 202;
-			class11.field47 = 180 + class75.field627;
-			class323.field3774.method8483(class75.field618, 0);
-			class91.field882.method8483(382 + class75.field618, 0);
-			class84.field745.method8755(382 + class75.field618 - class84.field745.field5017 / 2, 18);
+			MouseManager.method799(false);
+			Login.field617 = true;
+			Login.field618 = (class31.canvasWidth - 765) / 2;
+			Login.field627 = Login.field618 + 202;
+			class11.field47 = 180 + Login.field627;
+			class323.field3774.method8483(Login.field618, 0);
+			class91.field882.method8483(382 + Login.field618, 0);
+			class84.field745.method8755(382 + Login.field618 - class84.field745.field5017 / 2, 18);
 		}
 	}
 

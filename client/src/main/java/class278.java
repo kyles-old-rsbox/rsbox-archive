@@ -5,7 +5,7 @@ public class class278 extends class51 {
 	class296[][] field3187;
 	class296[][] field3188;
 	class299 field3173;
-	class434 field3171;
+	NodeHashTable field3171;
 	int field3170;
 	int field3175;
 	int field3192;
@@ -50,7 +50,7 @@ public class class278 extends class51 {
 		this.field3188 = new class296[16][128];
 		this.field3189 = new class277();
 		this.field3173 = new class299(this);
-		this.field3171 = new class434(128);
+		this.field3171 = new NodeHashTable(128);
 		this.method5289();
 	}
 
@@ -70,7 +70,7 @@ public class class278 extends class51 {
 			var7 = new int[]{var4};
 		}
 
-		for (class440 var8 = (class440)var1.field3367.method7867(); var8 != null; var8 = (class440)var1.field3367.method7858()) {
+		for (class440 var8 = (class440)var1.field3367.first(); var8 != null; var8 = (class440)var1.field3367.next()) {
 			int var9 = (int)var8.field4681;
 			class288 var10 = (class288)this.field3171.method7855((long)var9);
 			if (null == var10) {
@@ -112,7 +112,7 @@ public class class278 extends class51 {
 			var2 = new class198();
 			var2.field2129 = var0;
 			if (var3 != null) {
-				var2.method3649(new class460(var3));
+				var2.method3649(new Buffer(var3));
 			}
 
 			var2.method3643();
@@ -169,14 +169,14 @@ public class class278 extends class51 {
 	}
 
 	public synchronized void method5277() {
-		for (class288 var2 = (class288)this.field3171.method7867(); null != var2; var2 = (class288)this.field3171.method7858()) {
+		for (class288 var2 = (class288)this.field3171.first(); null != var2; var2 = (class288)this.field3171.next()) {
 			var2.method5454();
 		}
 
 	}
 
 	synchronized void method5275() {
-		for (class288 var2 = (class288)this.field3171.method7867(); var2 != null; var2 = (class288)this.field3171.method7858()) {
+		for (class288 var2 = (class288)this.field3171.first(); var2 != null; var2 = (class288)this.field3171.next()) {
 			var2.method7825();
 		}
 

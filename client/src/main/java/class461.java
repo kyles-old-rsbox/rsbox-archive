@@ -1,3 +1,3 @@
 public interface class461 {
-	void method8362(class460 var1);
+	void method8362(Buffer var1);
 }

@@ -26,7 +26,7 @@ public class class17 implements Callable {
 	static void method200(class93 var0, boolean var1) {
 		if (null != var0 && var0.method1869() && !var0.field913) {
 			var0.field895 = false;
-			if ((client.field1636 && class102.field1012 > 50 || class102.field1012 > 200) && var1 && var0.field839 == var0.field823) {
+			if ((client.isLowDetail && PlayerManager.playerCount > 50 || PlayerManager.playerCount > 200) && var1 && var0.field839 == var0.field823) {
 				var0.field895 = true;
 			}
 
@@ -59,8 +59,8 @@ public class class17 implements Callable {
 
 	static final void method198(int var0) {
 		var0 = Math.min(Math.max(var0, 0), 255);
-		if (var0 != class413.field4575.method1716()) {
-			if (class413.field4575.method1716() == 0 && -1 != client.field1748) {
+		if (var0 != class413.clientPreferences.method1716()) {
+			if (class413.clientPreferences.method1716() == 0 && -1 != client.field1748) {
 				class279.method332(class43.field311, client.field1748, 0, var0, false);
 				client.field1781 = false;
 			} else if (var0 == 0) {
@@ -72,7 +72,7 @@ public class class17 implements Callable {
 				class250.method5006(var0);
 			}
 
-			class413.field4575.method1715(var0);
+			class413.clientPreferences.method1715(var0);
 		}
 
 	}

@@ -27,7 +27,7 @@ public class class103 implements class360 {
 		this.field1036 = var2;
 	}
 
-	public int method6663() {
+	public int rsOrdinal() {
 		return this.field1036;
 	}
 
@@ -44,6 +44,6 @@ public class class103 implements class360 {
 			}
 		}
 
-		class70.field563.method6354();
+		class70.field563.clear();
 	}
 }

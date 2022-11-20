@@ -7,7 +7,7 @@ public class class131 extends class140 {
 	// $FF: synthetic field
 	final class142 this$0;
 
-	public static void method2400(class460 var0, int var1) {
+	public static void method2400(Buffer var0, int var1) {
 		class43 var3 = new class43();
 		var3.field309 = var0.method8141();
 		var3.field307 = var0.method8126();
@@ -26,16 +26,16 @@ public class class131 extends class140 {
 				int var8;
 				if (var5 != 0 && var5 != 1 && var5 != 2) {
 					if (var5 == 3 || var5 == 4) {
-						var6 = var0.method8131();
-						var7 = var0.method8131();
+						var6 = var0.readString();
+						var7 = var0.readString();
 						var8 = var0.method8141();
 						String[] var9 = new String[var8];
 
 						for (int var10 = 0; var10 < var8; ++var10) {
-							var9[var10] = var0.method8131();
+							var9[var10] = var0.readString();
 						}
 
-						String var21 = var0.method8131();
+						String var21 = var0.readString();
 						byte[][] var11 = new byte[var8][];
 						int var13;
 						if (var5 == 3) {
@@ -85,8 +85,8 @@ public class class131 extends class140 {
 						var3.field306[var4] = var11;
 					}
 				} else {
-					var6 = var0.method8131();
-					var7 = var0.method8131();
+					var6 = var0.readString();
+					var7 = var0.readString();
 					var8 = 0;
 					if (var5 == 1) {
 						var8 = var0.method8126();
@@ -120,9 +120,9 @@ public class class131 extends class140 {
 		this.this$0 = var1;
 	}
 
-	void method2467(class460 var1) {
+	void method2467(Buffer var1) {
 		this.field1241 = var1.method8126();
-		this.field1240 = var1.method8131();
+		this.field1240 = var1.readString();
 	}
 
 	void method2468(class148 var1) {

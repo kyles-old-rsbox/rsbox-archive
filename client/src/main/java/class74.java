@@ -2,12 +2,12 @@ import java.util.Comparator;
 
 public class class74 implements Comparator {
 	static byte[][] field612;
-	static class84 field610;
+	static class84 mouseRecorder;
 	boolean field614;
 
 	static void method1490(int var0) {
-		if (class75.field619 != var0) {
-			class75.field619 = var0;
+		if (Login.field619 != var0) {
+			Login.field619 = var0;
 		}
 	}
 
@@ -49,7 +49,7 @@ public class class74 implements Comparator {
 					++var0.field840;
 					var6 = var2.method3476();
 					if (var0.field840 < var6) {
-						class401.method7270(var2, var0.field840, var0.field827, var0.field802);
+						AbstractSocket.method7270(var2, var0.field840, var0.field827, var0.field802);
 					} else {
 						if (var2.field2012 > 0) {
 							var0.field840 -= var2.field2012;
@@ -67,7 +67,7 @@ public class class74 implements Comparator {
 							var0.field840 = 0;
 						}
 
-						class401.method7270(var2, var0.field840, var0.field827, var0.field802);
+						AbstractSocket.method7270(var2, var0.field840, var0.field827, var0.field802);
 					}
 				} else {
 					var0.field839 = -1;
@@ -100,7 +100,7 @@ public class class74 implements Comparator {
 					++var0.field856;
 					int var4 = var3.method3476();
 					if (var0.field856 < var4) {
-						class401.method7270(var3, var0.field856, var0.field827, var0.field802);
+						AbstractSocket.method7270(var3, var0.field856, var0.field827, var0.field802);
 					} else if (var0.field856 < 0 || var0.field856 >= var4) {
 						var0.field848 = -1;
 					}
@@ -148,14 +148,14 @@ public class class74 implements Comparator {
 					++var0.field844;
 					var6 = var2.method3476();
 					if (var0.field844 < var6) {
-						class401.method7270(var2, var0.field844, var0.field827, var0.field802);
+						AbstractSocket.method7270(var2, var0.field844, var0.field827, var0.field802);
 					} else {
 						var0.field844 -= var2.field2012;
 						++var0.field875;
 						if (var0.field875 >= var2.field2009) {
 							var0.field852 = -1;
 						} else if (var0.field844 >= 0 && var0.field844 < var6) {
-							class401.method7270(var2, var0.field844, var0.field827, var0.field802);
+							AbstractSocket.method7270(var2, var0.field844, var0.field827, var0.field802);
 						} else {
 							var0.field852 = -1;
 						}

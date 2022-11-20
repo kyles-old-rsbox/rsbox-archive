@@ -117,8 +117,8 @@ public final class class265 {
 	}
 
 	public void method5185() {
-		this.field3004.method6597();
-		this.field3003.method7782();
+		this.field3004.clear();
+		this.field3003.clear();
 		this.field3002 = this.field3001;
 	}
 }

@@ -14,7 +14,7 @@ public class class25 implements class360 {
 		this.field119 = var2;
 	}
 
-	public int method6663() {
+	public int rsOrdinal() {
 		return this.field119;
 	}
 
@@ -228,9 +228,9 @@ public class class25 implements class360 {
 				Object var14 = null;
 				var4 = class78.field683 ? 65536 : 32768;
 				if (var0.field835 < var4) {
-					var14 = client.field1902[var0.field835];
+					var14 = client.npcs[var0.field835];
 				} else if (var0.field835 >= var4) {
-					var14 = client.field1763[var0.field835 - var4];
+					var14 = client.players[var0.field835 - var4];
 				}
 
 				if (null != var14) {
@@ -301,7 +301,7 @@ public class class25 implements class360 {
 		class74.method1496(var0);
 	}
 
-	static final void method344(boolean var0, class453 var1) {
+	static final void loadRegions(boolean var0, PacketBuffer var1) {
 		client.field1706 = var0;
 		int var4;
 		int var5;
@@ -311,7 +311,7 @@ public class class25 implements class360 {
 		if (!client.field1706) {
 			int var3 = var1.method8202();
 			var4 = var1.method8162();
-			var5 = var1.method8122();
+			var5 = var1.readUnsignedShort();
 			class36.field238 = new int[var5][4];
 
 			for (var6 = 0; var6 < var5; ++var6) {
@@ -340,9 +340,9 @@ public class class25 implements class360 {
 			class200.method3753(var3, var4, true);
 		} else {
 			boolean var16 = var1.method8154() == 1;
-			var4 = var1.method8122();
+			var4 = var1.readUnsignedShort();
 			var5 = var1.method8162();
-			var6 = var1.method8122();
+			var6 = var1.readUnsignedShort();
 			var1.method8013();
 
 			int var9;

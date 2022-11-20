@@ -185,7 +185,7 @@ public class class342 extends AbstractQueue {
 	}
 
 	static final void method6352(class271 var0) {
-		class453 var2 = client.field1778.field1076;
+		PacketBuffer var2 = client.packetWriter.buffer;
 		int var3;
 		int var4;
 		int var5;
@@ -224,7 +224,7 @@ public class class342 extends AbstractQueue {
 				var42 = var42 * 128 + 64;
 				var16 = new class66(var6, class55.field396, var11, var41, class144.method2498(var11, var41, class55.field396) - var43, client.field1645 + var3, var15 + client.field1645, var7, var8, var9, var4);
 				var16.method1380(var5, var42, class144.method2498(var5, var42, class55.field396) - var4, client.field1645 + var3);
-				client.field1853.method6355(var16);
+				client.projectiles.method6355(var16);
 			}
 
 		} else {
@@ -239,13 +239,13 @@ public class class342 extends AbstractQueue {
 				var10 = (var8 & 7) + class19.field98;
 				if (var9 >= 0 && var10 >= 0 && var9 < 104 && var10 < 104) {
 					var11 = var6 + 1;
-					if (class291.field3364.field861[0] >= var9 - var11 && class291.field3364.field861[0] <= var11 + var9 && class291.field3364.field873[0] >= var10 - var11 && class291.field3364.field873[0] <= var10 + var11 && class413.field4575.method1736() != 0 && var7 > 0 && client.field1894 < 50) {
-						client.field1895[client.field1894] = var3;
-						client.field1896[client.field1894] = var7;
-						client.field1897[client.field1894] = var4;
-						client.field1899[client.field1894] = null;
-						client.field1734[client.field1894] = var6 + (var10 << 8) + (var9 << 16);
-						++client.field1894;
+					if (class291.field3364.field861[0] >= var9 - var11 && class291.field3364.field861[0] <= var11 + var9 && class291.field3364.field873[0] >= var10 - var11 && class291.field3364.field873[0] <= var10 + var11 && class413.clientPreferences.method1736() != 0 && var7 > 0 && client.soundEffectCount < 50) {
+						client.field1895[client.soundEffectCount] = var3;
+						client.field1896[client.soundEffectCount] = var7;
+						client.field1897[client.soundEffectCount] = var4;
+						client.field1899[client.soundEffectCount] = null;
+						client.field1734[client.soundEffectCount] = var6 + (var10 << 8) + (var9 << 16);
+						++client.soundEffectCount;
 					}
 				}
 			}
@@ -258,7 +258,7 @@ public class class342 extends AbstractQueue {
 				var5 = class7.field28 + (var4 >> 4 & 7);
 				var6 = class19.field98 + (var4 & 7);
 				if (var5 >= 0 && var6 >= 0 && var5 < 104 && var6 < 104) {
-					class343 var32 = client.field1865[class55.field396][var5][var6];
+					NodeDeque var32 = client.groundItems[class55.field396][var5][var6];
 					if (var32 != null) {
 						for (var44 = (class104)var32.method6364(); null != var44; var44 = (class104)var32.method6358()) {
 							if (var44.field1043 == (var3 & 32767)) {
@@ -268,7 +268,7 @@ public class class342 extends AbstractQueue {
 						}
 
 						if (var32.method6364() == null) {
-							client.field1865[class55.field396][var5][var6] = null;
+							client.groundItems[class55.field396][var5][var6] = null;
 						}
 
 						class176.method2802(var5, var6);
@@ -290,18 +290,18 @@ public class class342 extends AbstractQueue {
 					byte var12 = var2.method8287();
 					var13 = var2.method8187();
 					byte var14 = var2.method8158();
-					var15 = var2.method8122();
+					var15 = var2.readUnsignedShort();
 					int var34 = var2.method8164();
 					int var17 = var2.method8202();
 					class93 var18;
-					if (client.field1764 == var34) {
+					if (client.localPlayerIndex == var34) {
 						var18 = class291.field3364;
 					} else {
-						var18 = client.field1763[var34];
+						var18 = client.players[var34];
 					}
 
 					if (null != var18) {
-						class195 var19 = class89.method1866(var17);
+						class195 var19 = InterfaceParent.method1866(var17);
 						int var20;
 						int var21;
 						if (var7 != 1 && var7 != 3) {
@@ -373,12 +373,12 @@ public class class342 extends AbstractQueue {
 						var4 = var4 * 128 + 64;
 						var16 = new class66(var5, class55.field396, var41, var42, class144.method2498(var41, var42, class55.field396) - var3, var7 + client.field1645, client.field1645 + var6, var15, var8, var43, var9);
 						var16.method1380(var10, var4, class144.method2498(var10, var4, class55.field396) - var9, client.field1645 + var7);
-						client.field1853.method6355(var16);
+						client.projectiles.method6355(var16);
 					}
 
 				} else if (var0 == class271.field3026) {
 					var3 = var2.method8341();
-					var4 = var2.method8122();
+					var4 = var2.readUnsignedShort();
 					var5 = var2.method8141();
 					var6 = (var5 >> 4 & 7) + class7.field28;
 					var7 = (var5 & 7) + class19.field98;
@@ -387,7 +387,7 @@ public class class342 extends AbstractQueue {
 						var6 = 64 + var6 * 128;
 						var7 = 64 + var7 * 128;
 						class77 var46 = new class77(var8, class55.field396, var6, var7, class144.method2498(var6, var7, class55.field396) - var3, var4, client.field1645);
-						client.field1779.method6355(var46);
+						client.graphics.method6355(var46);
 					}
 
 				} else if (class271.field3031 == var0) {
@@ -395,7 +395,7 @@ public class class342 extends AbstractQueue {
 					var4 = var3 >> 2;
 					var5 = var3 & 3;
 					var6 = client.field1708[var4];
-					var7 = var2.method8122();
+					var7 = var2.readUnsignedShort();
 					var8 = var2.method8141();
 					var9 = (var8 >> 4 & 7) + class7.field28;
 					var10 = (var8 & 7) + class19.field98;
@@ -404,7 +404,7 @@ public class class342 extends AbstractQueue {
 					}
 
 				} else if (class271.field3022 == var0) {
-					var3 = var2.method8122();
+					var3 = var2.readUnsignedShort();
 					var4 = var2.method8153();
 					var5 = (var4 >> 4 & 7) + class7.field28;
 					var6 = (var4 & 7) + class19.field98;
@@ -413,11 +413,11 @@ public class class342 extends AbstractQueue {
 						var44 = new class104();
 						var44.field1043 = var7;
 						var44.field1038 = var3;
-						if (null == client.field1865[class55.field396][var5][var6]) {
-							client.field1865[class55.field396][var5][var6] = new class343();
+						if (null == client.groundItems[class55.field396][var5][var6]) {
+							client.groundItems[class55.field396][var5][var6] = new NodeDeque();
 						}
 
-						client.field1865[class55.field396][var5][var6].method6355(var44);
+						client.groundItems[class55.field396][var5][var6].method6355(var44);
 						class176.method2802(var5, var6);
 					}
 
@@ -488,9 +488,9 @@ public class class342 extends AbstractQueue {
 					var5 = class19.field98 + (var3 & 7);
 					var6 = var2.method8162();
 					var7 = var2.method8162();
-					var8 = var2.method8122();
+					var8 = var2.readUnsignedShort();
 					if (var4 >= 0 && var5 >= 0 && var4 < 104 && var5 < 104) {
-						class343 var45 = client.field1865[class55.field396][var4][var5];
+						NodeDeque var45 = client.groundItems[class55.field396][var4][var5];
 						if (null != var45) {
 							for (class104 var37 = (class104)var45.method6364(); null != var37; var37 = (class104)var45.method6358()) {
 								if ((var8 & 32767) == var37.field1043 && var37.field1038 == var6) {
@@ -530,11 +530,11 @@ public class class342 extends AbstractQueue {
 								var35.field1043 = var8;
 								var35.field1038 = var4;
 								var35.method2029(var3);
-								if (client.field1865[class55.field396][var6][var7] == null) {
-									client.field1865[class55.field396][var6][var7] = new class343();
+								if (client.groundItems[class55.field396][var6][var7] == null) {
+									client.groundItems[class55.field396][var6][var7] = new NodeDeque();
 								}
 
-								client.field1865[class55.field396][var6][var7].method6355(var35);
+								client.groundItems[class55.field396][var6][var7].method6355(var35);
 								class176.method2802(var6, var7);
 							}
 
@@ -560,7 +560,7 @@ public class class342 extends AbstractQueue {
 						var6 = var2.method8153();
 						var7 = var2.method8164();
 						if (var4 >= 0 && var5 >= 0 && var4 < 104 && var5 < 104) {
-							class343 var33 = client.field1865[class55.field396][var4][var5];
+							NodeDeque var33 = client.groundItems[class55.field396][var4][var5];
 							if (null != var33) {
 								for (var35 = (class104)var33.method6364(); var35 != null; var35 = (class104)var33.method6358()) {
 									if ((var7 & 32767) == var35.field1043) {

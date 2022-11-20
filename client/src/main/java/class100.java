@@ -75,19 +75,19 @@ final class class100 implements class301 {
 			int var4 = var0 >> 8;
 			int var5 = var0 >> 4 & 7;
 			int var6 = var0 & 15;
-			client.field1895[client.field1894] = var4;
-			client.field1896[client.field1894] = var5;
-			client.field1897[client.field1894] = 0;
-			client.field1899[client.field1894] = null;
+			client.field1895[client.soundEffectCount] = var4;
+			client.field1896[client.soundEffectCount] = var5;
+			client.field1897[client.soundEffectCount] = 0;
+			client.field1899[client.soundEffectCount] = null;
 			int var7 = (var1 - 64) / 128;
 			int var8 = (var2 - 64) / 128;
-			client.field1734[client.field1894] = var6 + (var7 << 16) + (var8 << 8);
-			++client.field1894;
+			client.field1734[client.soundEffectCount] = var6 + (var7 << 16) + (var8 << 8);
+			++client.soundEffectCount;
 		}
 	}
 
 	static void method1989() {
-		if (client.field1804) {
+		if (client.isSpellSelected) {
 			class300 var1 = class253.method5043(class106.field1066, client.field1805);
 			if (null != var1 && null != var1.field3598) {
 				class79 var2 = new class79();
@@ -97,7 +97,7 @@ final class class100 implements class301 {
 			}
 
 			client.field1806 = -1;
-			client.field1804 = false;
+			client.isSpellSelected = false;
 			class136.method2438(var1);
 		}
 	}

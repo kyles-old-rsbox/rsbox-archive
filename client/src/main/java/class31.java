@@ -27,7 +27,7 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 	protected static class172 field169;
 	protected static class36 field198;
 	protected static int field174;
-	public static int field193;
+	public static int canvasWidth;
 	static boolean field170;
 	static class31 field201;
 	static int field168;
@@ -78,16 +78,16 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 
 	static class78 method597(byte[] var0) {
 		class78 var2 = new class78();
-		class460 var3 = new class460(var0);
-		var3.field4878 = var3.field4881.length - 2;
-		int var4 = var3.method8122();
-		int var5 = var3.field4881.length - 2 - var4 - 12;
-		var3.field4878 = var5;
+		Buffer var3 = new Buffer(var0);
+		var3.offset = var3.data.length - 2;
+		int var4 = var3.readUnsignedShort();
+		int var5 = var3.data.length - 2 - var4 - 12;
+		var3.offset = var5;
 		int var6 = var3.method8126();
-		var2.field677 = var3.method8122();
-		var2.field678 = var3.method8122();
-		var2.field679 = var3.method8122();
-		var2.field672 = var3.method8122();
+		var2.field677 = var3.readUnsignedShort();
+		var2.field678 = var3.readUnsignedShort();
+		var2.field679 = var3.readUnsignedShort();
+		var2.field672 = var3.readUnsignedShort();
 		int var7 = var3.method8141();
 		int var8;
 		int var9;
@@ -95,7 +95,7 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 			var2.field681 = var2.method1581(var7);
 
 			for (var8 = 0; var8 < var7; ++var8) {
-				var9 = var3.method8122();
+				var9 = var3.readUnsignedShort();
 				class421 var10 = new class421(var9 > 0 ? class282.method953(var9) : 1);
 				var2.field681[var8] = var10;
 
@@ -107,16 +107,16 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 			}
 		}
 
-		var3.field4878 = 0;
+		var3.offset = 0;
 		var2.field673 = var3.method8305();
 		var2.field674 = new int[var6];
 		var2.field680 = new int[var6];
 		var2.field676 = new String[var6];
 
-		for (var8 = 0; var3.field4878 < var5; var2.field674[var8++] = var9) {
-			var9 = var3.method8122();
+		for (var8 = 0; var3.offset < var5; var2.field674[var8++] = var9) {
+			var9 = var3.readUnsignedShort();
 			if (var9 == 3) {
-				var2.field676[var8] = var3.method8131();
+				var2.field676[var8] = var3.readString();
 			} else if (var9 < 100 && var9 != 21 && var9 != 38 && var9 != 39) {
 				var2.field680[var8] = var3.method8126();
 			} else {
@@ -231,9 +231,9 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 
 	protected final void method450() {
 		Canvas var2 = this.field190;
-		var2.addMouseListener(class42.field292);
-		var2.addMouseMotionListener(class42.field292);
-		var2.addFocusListener(class42.field292);
+		var2.addMouseListener(MouseManager.field292);
+		var2.addMouseMotionListener(MouseManager.field292);
+		var2.addFocusListener(MouseManager.field292);
 	}
 
 	final void method451() {
@@ -250,12 +250,12 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 				this.field179 = 1;
 			}
 
-			field193 = Math.min(this.field171, this.field185);
-			class12.field57 = Math.min(this.field179, this.field186);
-			this.field180 = (this.field171 - field193) / 2;
+			canvasWidth = Math.min(this.field171, this.field185);
+			class12.canvasHeight = Math.min(this.field179, this.field186);
+			this.field180 = (this.field171 - canvasWidth) / 2;
 			this.field181 = 0;
-			this.field190.setSize(field193, class12.field57);
-			class6.field18 = new class48(field193, class12.field57, this.field190);
+			this.field190.setSize(canvasWidth, class12.canvasHeight);
+			class6.field18 = new class48(canvasWidth, class12.canvasHeight, this.field190);
 			if (this.field187 == var2) {
 				Insets var4 = this.field187.getInsets();
 				this.field190.setLocation(this.field180 + var4.left, this.field181 + var4.top);
@@ -271,8 +271,8 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 	void method572() {
 		int var2 = this.field180;
 		int var3 = this.field181;
-		int var4 = this.field171 - field193 - var2;
-		int var5 = this.field179 - class12.field57 - var3;
+		int var4 = this.field171 - canvasWidth - var2;
+		int var5 = this.field179 - class12.canvasHeight - var3;
 		if (var2 > 0 || var4 > 0 || var3 > 0 || var5 > 0) {
 			try {
 				Container var6 = this.method474();
@@ -310,10 +310,10 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 	final void method454() {
 		field198.method673(this.field190);
 		Canvas var2 = this.field190;
-		var2.removeMouseListener(class42.field292);
-		var2.removeMouseMotionListener(class42.field292);
-		var2.removeFocusListener(class42.field292);
-		class42.field291 = 0;
+		var2.removeMouseListener(MouseManager.field292);
+		var2.removeMouseMotionListener(MouseManager.field292);
+		var2.removeFocusListener(MouseManager.field292);
+		MouseManager.field291 = 0;
 		if (this.field194 != null) {
 			this.field194.method38(this.field190);
 		}
@@ -321,9 +321,9 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 		this.method441();
 		field198.method672(this.field190);
 		Canvas var3 = this.field190;
-		var3.addMouseListener(class42.field292);
-		var3.addMouseMotionListener(class42.field292);
-		var3.addFocusListener(class42.field292);
+		var3.addMouseListener(MouseManager.field292);
+		var3.addMouseMotionListener(MouseManager.field292);
+		var3.addFocusListener(MouseManager.field292);
 		if (null != this.field194) {
 			this.field194.method39(this.field190);
 		}
@@ -345,8 +345,8 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 			}
 
 			field201 = this;
-			field193 = var1;
-			class12.field57 = var2;
+			canvasWidth = var1;
+			class12.canvasHeight = var2;
 			class487.field5012 = var3;
 			class487.field5010 = var4;
 			class487.field5015 = this;
@@ -369,20 +369,20 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 			var2.remove(this.field190);
 		}
 
-		field193 = Math.max(var2.getWidth(), this.field195);
-		class12.field57 = Math.max(var2.getHeight(), this.field184);
+		canvasWidth = Math.max(var2.getWidth(), this.field195);
+		class12.canvasHeight = Math.max(var2.getHeight(), this.field184);
 		Insets var3;
 		if (this.field187 != null) {
 			var3 = this.field187.getInsets();
-			field193 -= var3.left + var3.right;
-			class12.field57 -= var3.bottom + var3.top;
+			canvasWidth -= var3.left + var3.right;
+			class12.canvasHeight -= var3.bottom + var3.top;
 		}
 
 		this.field190 = new class11(this);
 		var2.setBackground(Color.BLACK);
 		var2.setLayout((LayoutManager)null);
 		var2.add(this.field190);
-		this.field190.setSize(field193, class12.field57);
+		this.field190.setSize(canvasWidth, class12.canvasHeight);
 		this.field190.setVisible(true);
 		this.field190.setBackground(Color.BLACK);
 		if (var2 == this.field187) {
@@ -395,11 +395,11 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 		this.field190.addFocusListener(this);
 		this.field190.requestFocus();
 		this.field189 = true;
-		if (null != class6.field18 && class6.field18.field4981 == field193 && class12.field57 == class6.field18.field4979) {
+		if (null != class6.field18 && class6.field18.field4981 == canvasWidth && class12.canvasHeight == class6.field18.field4979) {
 			((class48)class6.field18).method972(this.field190);
 			class6.field18.method8621(0, 0);
 		} else {
-			class6.field18 = new class48(field193, class12.field57, this.field190);
+			class6.field18 = new class48(canvasWidth, class12.canvasHeight, this.field190);
 		}
 
 		this.field192 = false;
@@ -499,7 +499,7 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 		}
 
 		synchronized(this) {
-			class71.field574 = field197;
+			class71.isFocused = field197;
 		}
 
 		this.method468();
@@ -519,7 +519,7 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 		if (++field183 - 1 > 50) {
 			field183 -= 50;
 			this.field189 = true;
-			this.field190.setSize(field193, class12.field57);
+			this.field190.setSize(canvasWidth, class12.canvasHeight);
 			this.field190.setVisible(true);
 			if (var2 == this.field187) {
 				Insets var8 = this.field187.getInsets();
@@ -616,7 +616,7 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 			this.field189 = true;
 			if (class272.method2046() - this.field172 > 1000L) {
 				Rectangle var2 = var1.getClipBounds();
-				if (null == var2 || var2.width >= field193 && var2.height >= class12.field57) {
+				if (null == var2 || var2.width >= canvasWidth && var2.height >= class12.canvasHeight) {
 					this.field192 = true;
 				}
 			}
@@ -665,17 +665,17 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 
 			if (var3) {
 				var5.setColor(Color.black);
-				var5.fillRect(0, 0, field193, class12.field57);
+				var5.fillRect(0, 0, canvasWidth, class12.canvasHeight);
 			}
 
 			Color var6 = new Color(140, 17, 17);
 
 			try {
-				if (class80.field707 == null) {
-					class80.field707 = this.field190.createImage(304, 34);
+				if (AttackOption.field707 == null) {
+					AttackOption.field707 = this.field190.createImage(304, 34);
 				}
 
-				Graphics var7 = class80.field707.getGraphics();
+				Graphics var7 = AttackOption.field707.getGraphics();
 				var7.setColor(var6);
 				var7.drawRect(0, 0, 303, 33);
 				var7.fillRect(2, 2, var1 * 3, 30);
@@ -685,10 +685,10 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 				var7.setFont(class121.field1167);
 				var7.setColor(Color.white);
 				var7.drawString(var2, (304 - class12.field59.stringWidth(var2)) / 2, 22);
-				var5.drawImage(class80.field707, field193 / 2 - 152, class12.field57 / 2 - 18, (ImageObserver)null);
+				var5.drawImage(AttackOption.field707, canvasWidth / 2 - 152, class12.canvasHeight / 2 - 18, (ImageObserver)null);
 			} catch (Exception var10) {
-				int var8 = field193 / 2 - 152;
-				int var9 = class12.field57 / 2 - 18;
+				int var8 = canvasWidth / 2 - 152;
+				int var9 = class12.canvasHeight / 2 - 18;
 				var5.setColor(var6);
 				var5.drawRect(var8, var9, 303, 33);
 				var5.fillRect(var8 + 2, var9 + 2, var1 * 3, 30);
@@ -706,7 +706,7 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 	}
 
 	protected final void method472() {
-		class80.field707 = null;
+		AttackOption.field707 = null;
 		class121.field1167 = null;
 		class12.field59 = null;
 	}
@@ -747,16 +747,16 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 
 	static final void method506(String var0) {
 		if (var0.equalsIgnoreCase("toggleroof")) {
-			class413.field4575.method1703(!class413.field4575.method1777());
-			if (class413.field4575.method1777()) {
-				class42.method773(99, "", "Roofs are now all hidden");
+			class413.clientPreferences.method1703(!class413.clientPreferences.method1777());
+			if (class413.clientPreferences.method1777()) {
+				MouseManager.method773(99, "", "Roofs are now all hidden");
 			} else {
-				class42.method773(99, "", "Roofs will only be removed selectively");
+				MouseManager.method773(99, "", "Roofs will only be removed selectively");
 			}
 		}
 
 		if (var0.equalsIgnoreCase("displayfps")) {
-			class413.field4575.method1759();
+			class413.clientPreferences.method1759();
 		}
 
 		if (var0.equalsIgnoreCase("renderself")) {
@@ -767,7 +767,7 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 			client.field1797 = !client.field1797;
 		}
 
-		if (client.field1750 >= 2) {
+		if (client.privilegeLevel >= 2) {
 			if (var0.equalsIgnoreCase("errortest")) {
 				throw new RuntimeException();
 			}
@@ -777,11 +777,11 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 			}
 
 			if (var0.equalsIgnoreCase("fpson")) {
-				class413.field4575.method1709(true);
+				class413.clientPreferences.method1709(true);
 			}
 
 			if (var0.equalsIgnoreCase("fpsoff")) {
-				class413.field4575.method1709(false);
+				class413.clientPreferences.method1709(false);
 			}
 
 			if (var0.equalsIgnoreCase("gc")) {
@@ -793,10 +793,10 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 			}
 		}
 
-		class263 var2 = class185.method3435(class274.field3063, client.field1778.field1071);
-		var2.field2984.method8104(var0.length() + 1);
-		var2.field2984.method8111(var0);
-		client.field1778.method2078(var2);
+		PacketBufferNode var2 = class185.method3435(class274.field3063, client.packetWriter.isaacRandom);
+		var2.buffer.writeByte(var0.length() + 1);
+		var2.buffer.writeString(var0);
+		client.packetWriter.add(var2);
 	}
 
 	static final void method598() {

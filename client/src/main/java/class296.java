@@ -33,9 +33,9 @@ public class class296 extends class427 {
 		this.field3397 = null;
 	}
 
-	static void method5552(class460 var0) {
+	static void writeRandomBytes(Buffer var0) {
 		if (null != client.field1689) {
-			var0.method8114(client.field1689, 0, client.field1689.length);
+			var0.writeBytes(client.field1689, 0, client.field1689.length);
 		} else {
 			byte[] var3 = new byte[24];
 
@@ -56,7 +56,7 @@ public class class296 extends class427 {
 				}
 			}
 
-			var0.method8114(var3, 0, var3.length);
+			var0.writeBytes(var3, 0, var3.length);
 		}
 	}
 }

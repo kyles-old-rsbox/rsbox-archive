@@ -4,7 +4,7 @@ public class class181 {
 	Object field1617;
 	public int field1611;
 	public volatile int field1614;
-	public volatile Object field1612;
+	public volatile Object socket;
 
 	class181() {
 		this.field1614 = 0;

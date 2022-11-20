@@ -1,4 +1,4 @@
-public final class class479 {
+public final class IsaacRandom {
 	int field4983;
 	int field4985;
 	int field4989;
@@ -6,7 +6,7 @@ public final class class479 {
 	int[] field4986;
 	int[] field4990;
 
-	public class479(int[] var1) {
+	public IsaacRandom(int[] var1) {
 		this.field4990 = new int[256];
 		this.field4986 = new int[256];
 

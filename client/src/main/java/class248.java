@@ -3,7 +3,7 @@ public interface class248 {
 
 	class295 method4966(int var1, int var2);
 
-	void method4967(class460 var1);
+	void method4967(Buffer var1);
 
 	boolean method4976(int var1, int var2, int var3);
 

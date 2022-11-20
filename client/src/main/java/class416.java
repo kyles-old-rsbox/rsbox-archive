@@ -4,7 +4,7 @@ public abstract class class416 implements class238 {
 	class416(int var1) {
 	}
 
-	public void method7554(class460 var1) {
+	public void method7554(Buffer var1) {
 		while (true) {
 			int var3 = var1.method8141();
 			if (var3 == 0) {
@@ -52,5 +52,5 @@ public abstract class class416 implements class238 {
 		}
 	}
 
-	abstract void method7555(class460 var1, int var2);
+	abstract void method7555(Buffer var1, int var2);
 }

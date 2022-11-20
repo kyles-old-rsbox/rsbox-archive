@@ -52,7 +52,7 @@ public class class206 extends class437 {
 		field2329 = var2;
 	}
 
-	void method3930(class460 var1) {
+	void method3930(Buffer var1) {
 		while (true) {
 			int var3 = var1.method8141();
 			if (var3 == 0) {
@@ -63,7 +63,7 @@ public class class206 extends class437 {
 		}
 	}
 
-	void method3934(class460 var1, int var2) {
+	void method3934(Buffer var1, int var2) {
 		if (var2 == 1) {
 			this.field2335 = var1.method8140();
 		} else if (var2 == 2) {
@@ -81,7 +81,7 @@ public class class206 extends class437 {
 		} else if (var2 == 8) {
 			this.field2342 = var1.method8132();
 		} else if (var2 == 9) {
-			this.field2327 = var1.method8122();
+			this.field2327 = var1.readUnsignedShort();
 		} else if (var2 == 10) {
 			this.field2350 = var1.method8204();
 		} else if (var2 == 11) {
@@ -91,21 +91,21 @@ public class class206 extends class437 {
 		} else if (var2 == 13) {
 			this.field2339 = var1.method8204();
 		} else if (var2 == 14) {
-			this.field2344 = var1.method8122();
+			this.field2344 = var1.readUnsignedShort();
 		} else if (var2 == 17 || var2 == 18) {
-			this.field2349 = var1.method8122();
+			this.field2349 = var1.readUnsignedShort();
 			if (this.field2349 == 65535) {
 				this.field2349 = -1;
 			}
 
-			this.field2340 = var1.method8122();
+			this.field2340 = var1.readUnsignedShort();
 			if (this.field2340 == 65535) {
 				this.field2340 = -1;
 			}
 
 			int var4 = -1;
 			if (var2 == 18) {
-				var4 = var1.method8122();
+				var4 = var1.readUnsignedShort();
 				if (var4 == 65535) {
 					var4 = -1;
 				}
@@ -115,7 +115,7 @@ public class class206 extends class437 {
 			this.field2348 = new int[var5 + 2];
 
 			for (int var6 = 0; var6 <= var5; ++var6) {
-				this.field2348[var6] = var1.method8122();
+				this.field2348[var6] = var1.readUnsignedShort();
 				if (this.field2348[var6] == 65535) {
 					this.field2348[var6] = -1;
 				}
@@ -155,7 +155,7 @@ public class class206 extends class437 {
 			}
 		}
 
-		class460 var21 = new class460(var0);
+		Buffer var21 = new Buffer(var0);
 
 		for (var11 = 0; var11 < 4; ++var11) {
 			for (int var12 = 0; var12 < 64; ++var12) {

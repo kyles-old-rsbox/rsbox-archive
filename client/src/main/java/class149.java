@@ -28,7 +28,7 @@ public class class149 implements class360 {
 		this.field1394 = var2;
 	}
 
-	public int method6663() {
+	public int rsOrdinal() {
 		return this.field1394;
 	}
 }

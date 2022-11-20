@@ -11,9 +11,9 @@ public class class186 extends class427 {
 	int[] field1969;
 	int[] field1973;
 
-	class186(class460 var1) {
+	class186(Buffer var1) {
 		this.field1974 = false;
-		this.field1965 = var1.method8122();
+		this.field1965 = var1.readUnsignedShort();
 		this.field1966 = var1.method8141() == 1;
 		int var2 = var1.method8141();
 		if (var2 >= 1 && var2 <= 4) {
@@ -21,7 +21,7 @@ public class class186 extends class427 {
 
 			int var3;
 			for (var3 = 0; var3 < var2; ++var3) {
-				this.field1967[var3] = var1.method8122();
+				this.field1967[var3] = var1.readUnsignedShort();
 			}
 
 			if (var2 > 1) {

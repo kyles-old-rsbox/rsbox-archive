@@ -13,7 +13,7 @@ public final class class208 {
 
 	static int method3984(int var0, int var1) {
 		long var3 = (long)((var0 << 16) + var1);
-		return class116.field1137 != null && var3 == class116.field1137.field4681 ? class431.field4704.field4878 * 99 / (class431.field4704.field4881.length - class116.field1137.field3868) + 1 : 0;
+		return class116.field1137 != null && var3 == class116.field1137.field4681 ? class431.field4704.offset * 99 / (class431.field4704.data.length - class116.field1137.field3868) + 1 : 0;
 	}
 
 	static String method3985(String var0) {

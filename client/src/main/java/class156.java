@@ -11,13 +11,13 @@ public class class156 extends class137 {
 		this.field1429 = -1;
 	}
 
-	void method2441(class460 var1) {
+	void method2441(Buffer var1) {
 		var1.method8141();
-		this.field1429 = var1.method8122();
+		this.field1429 = var1.readUnsignedShort();
 		this.field1427 = var1.method8287();
-		this.field1428 = var1.method8122();
-		var1.method8127();
-		this.field1426 = var1.method8131();
+		this.field1428 = var1.readUnsignedShort();
+		var1.readLong();
+		this.field1426 = var1.readString();
 		var1.method8141();
 	}
 

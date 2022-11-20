@@ -60,13 +60,13 @@ public class class237 implements class248 {
 		}
 	}
 
-	public void method4967(class460 var1) {
+	public void method4967(Buffer var1) {
 		this.field2803 = var1.method8141();
 		this.field2802 = var1.method8141();
-		this.field2801 = var1.method8122();
-		this.field2804 = var1.method8122();
-		this.field2805 = var1.method8122();
-		this.field2806 = var1.method8122();
+		this.field2801 = var1.readUnsignedShort();
+		this.field2804 = var1.readUnsignedShort();
+		this.field2805 = var1.readUnsignedShort();
+		this.field2806 = var1.readUnsignedShort();
 		this.method4626();
 	}
 

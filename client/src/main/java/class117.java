@@ -19,7 +19,7 @@ public class class117 extends class393 {
 
 	static final void method2256(class93 var0, int var1, int var2, int var3) {
 		if (class291.field3364 != var0) {
-			if (client.field1695 < 400) {
+			if (client.menuOptionsCount < 400) {
 				String var5;
 				int var8;
 				if (0 == var0.field912) {
@@ -54,22 +54,22 @@ public class class117 extends class393 {
 				}
 
 				int var11;
-				if (client.field1802 == 1) {
+				if (client.isItemSelected == 1) {
 					client.method351(class338.field3898, client.field1803 + " " + class96.field963 + " " + class96.method4510(16777215) + var5, 14, var1, var2, var3);
-				} else if (client.field1804) {
+				} else if (client.isSpellSelected) {
 					if ((class120.field1161 & 8) == 8) {
 						client.method351(client.field1653, client.field1754 + " " + class96.field963 + " " + class96.method4510(16777215) + var5, 15, var1, var2, var3);
 					}
 				} else {
 					for (var11 = 7; var11 >= 0; --var11) {
-						if (null != client.field1772[var11]) {
+						if (null != client.playerMenuActions[var11]) {
 							short var12 = 0;
-							if (client.field1772[var11].equalsIgnoreCase(class338.field4056)) {
-								if (client.field1812 == class80.field703) {
+							if (client.playerMenuActions[var11].equalsIgnoreCase(class338.field4056)) {
+								if (client.playerAttackOption == AttackOption.HIDDEN) {
 									continue;
 								}
 
-								if (client.field1812 == class80.field698 || client.field1812 == class80.field705 && var0.field905 > class291.field3364.field905) {
+								if (client.playerAttackOption == AttackOption.field698 || client.playerAttackOption == AttackOption.field705 && var0.field905 > class291.field3364.field905) {
 									var12 = 2000;
 								}
 
@@ -79,21 +79,21 @@ public class class117 extends class393 {
 									} else {
 										var12 = 0;
 									}
-								} else if (class80.field701 == client.field1812 && var0.method1951()) {
+								} else if (AttackOption.field701 == client.playerAttackOption && var0.method1951()) {
 									var12 = 2000;
 								}
-							} else if (client.field1755[var11]) {
+							} else if (client.playerOptionsPriorities[var11]) {
 								var12 = 2000;
 							}
 
 							boolean var13 = false;
 							var8 = client.field1771[var11] + var12;
-							client.method351(client.field1772[var11], class96.method4510(16777215) + var5, var8, var1, var2, var3);
+							client.method351(client.playerMenuActions[var11], class96.method4510(16777215) + var5, var8, var1, var2, var3);
 						}
 					}
 				}
 
-				for (var11 = 0; var11 < client.field1695; ++var11) {
+				for (var11 = 0; var11 < client.menuOptionsCount; ++var11) {
 					if (client.field1788[var11] == 23) {
 						client.field1923[var11] = class96.method4510(16777215) + var5;
 						break;

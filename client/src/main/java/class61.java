@@ -116,7 +116,7 @@ public class class61 extends class212 {
 			this.field489 = client.field1645 - var2;
 		}
 
-		class195 var13 = class89.method1866(this.field490);
+		class195 var13 = InterfaceParent.method1866(this.field490);
 		if (var13.field2094 != null) {
 			var13 = var13.method3588();
 		}

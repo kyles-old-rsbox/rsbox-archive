@@ -149,6 +149,6 @@ public class class205 implements class29 {
 	}
 
 	static boolean method3926(char var0) {
-		return class75.field641.indexOf(var0) != -1;
+		return Login.field641.indexOf(var0) != -1;
 	}
 }

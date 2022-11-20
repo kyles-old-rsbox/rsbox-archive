@@ -21,14 +21,14 @@ public class class142 {
 		}
 	}
 
-	public class142(class460 var1) {
+	public class142(Buffer var1) {
 		this.field1310 = -1;
 		this.field1320 = new class350();
 		this.method2480(var1);
 	}
 
-	void method2480(class460 var1) {
-		this.field1311 = var1.method8127();
+	void method2480(Buffer var1) {
+		this.field1311 = var1.readLong();
 		this.field1310 = var1.method8126();
 
 		for (int var3 = var1.method8141(); var3 != 0; var3 = var1.method8141()) {
@@ -100,8 +100,8 @@ public class class142 {
 				}
 			}
 
-			int var76 = class102.field1012;
-			int[] var8 = class102.field1013;
+			int var76 = PlayerManager.playerCount;
+			int[] var8 = PlayerManager.field1013;
 			byte var9 = 0;
 			if (var1 < var76 && client.field1645 == var0.field872 && class260.method5147((class93)var0)) {
 				class93 var10 = (class93)var0;
@@ -229,7 +229,7 @@ public class class142 {
 					}
 				}
 
-				if (var1 >= 0 && client.field1652 == 10 && var8[var1] == client.field1654) {
+				if (var1 >= 0 && client.hintArrowType == 10 && var8[var1] == client.field1654) {
 					client.method2451(var0, 15 + var0.field809);
 					if (client.field1809 > -1) {
 						var77 += class176.field1585[1].field4951;
@@ -249,7 +249,7 @@ public class class142 {
 					}
 				}
 
-				if (1 == client.field1652 && client.field1692[var1 - var76] == client.field1879 && client.field1645 % 20 < 10) {
+				if (1 == client.hintArrowType && client.field1692[var1 - var76] == client.field1879 && client.field1645 % 20 < 10) {
 					client.method2451(var0, 15 + var0.field809);
 					if (client.field1809 > -1) {
 						class176.field1585[0].method8526(var2 + client.field1809 - 12, client.field1747 + var3 - 28);

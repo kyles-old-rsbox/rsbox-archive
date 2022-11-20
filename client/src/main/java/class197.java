@@ -3,7 +3,7 @@ public class class197 implements class360 {
 	public static final class197 field2114;
 	public static final class197 field2116;
 	public static final class197 field2119;
-	static class439 field2120;
+	static class439 platformInfo;
 	public byte field2117;
 
 	static {
@@ -21,7 +21,7 @@ public class class197 implements class360 {
 		this.field2117 = var1;
 	}
 
-	public int method6663() {
+	public int rsOrdinal() {
 		return this.field2117;
 	}
 }

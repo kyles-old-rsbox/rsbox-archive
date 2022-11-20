@@ -33,16 +33,16 @@ public class class53 {
 		this.field377 = 1;
 	}
 
-	final void method1046(class460 var1, int var2) {
+	final void method1046(Buffer var1, int var2) {
 		this.field380.method7018(var1, var2);
 		this.field377 = 2;
 
-		for (int var4 = 0; var4 < class102.field1012; ++var4) {
-			class93 var5 = client.field1763[class102.field1013[var4]];
+		for (int var4 = 0; var4 < PlayerManager.playerCount; ++var4) {
+			class93 var5 = client.players[PlayerManager.field1013[var4]];
 			var5.method1908();
 		}
 
-		Iterator var6 = class110.field1089.iterator();
+		Iterator var6 = MessagesManager.hashTable.iterator();
 
 		while (var6.hasNext()) {
 			class63 var7 = (class63)var6.next();
@@ -59,11 +59,11 @@ public class class53 {
 		for (class369 var2 = (class369)this.field380.field4466.method6384(); var2 != null; var2 = (class369)this.field380.field4466.method6381()) {
 			if ((long)var2.field4361 < class272.method2046() / 1000L - 5L) {
 				if (var2.field4360 > 0) {
-					class42.method773(5, "", var2.field4359 + class338.field3942);
+					MouseManager.method773(5, "", var2.field4359 + class338.field3942);
 				}
 
 				if (var2.field4360 == 0) {
-					class42.method773(5, "", var2.field4359 + class338.field4052);
+					MouseManager.method773(5, "", var2.field4359 + class338.field4052);
 				}
 
 				var2.method7811();
@@ -91,17 +91,17 @@ public class class53 {
 			}
 		}
 
-		if (class110.field1090 != null) {
-			class110.field1090.field4878 = var1 * 8 + 5;
-			if (class110.field1090.field4878 >= class110.field1090.field4881.length) {
+		if (MessagesManager.field1090 != null) {
+			MessagesManager.field1090.offset = var1 * 8 + 5;
+			if (MessagesManager.field1090.offset >= MessagesManager.field1090.data.length) {
 				if (!var0.field3883) {
 					throw new RuntimeException("");
 				}
 
 				var0.method6281();
 			} else {
-				int var3 = class110.field1090.method8126();
-				int var4 = class110.field1090.method8126();
+				int var3 = MessagesManager.field1090.method8126();
+				int var4 = MessagesManager.field1090.method8126();
 				var0.method6298(var3, var4);
 			}
 
@@ -111,7 +111,7 @@ public class class53 {
 		}
 	}
 
-	final void method1048() {
+	final void clear() {
 		this.field377 = 0;
 		this.field380.method7285();
 		this.field376.method7285();
@@ -155,7 +155,7 @@ public class class53 {
 	}
 
 	static final void method229(String var0) {
-		class42.method773(30, "", var0);
+		MouseManager.method773(30, "", var0);
 	}
 
 	static final void method2348() {
@@ -171,10 +171,10 @@ public class class53 {
 	}
 
 	static final void method959(String var0) {
-		class263 var2 = class185.method3435(class274.field3074, client.field1778.field1071);
-		var2.field2984.method8104(class460.method1887(var0));
-		var2.field2984.method8111(var0);
-		client.field1778.method2078(var2);
+		PacketBufferNode var2 = class185.method3435(class274.field3074, client.packetWriter.isaacRandom);
+		var2.buffer.writeByte(Buffer.method1887(var0));
+		var2.buffer.writeString(var0);
+		client.packetWriter.add(var2);
 	}
 
 	final boolean method1098() {
@@ -194,10 +194,10 @@ public class class53 {
 				} else if (this.method1071(var3, false)) {
 					method1812(var1);
 				} else {
-					class263 var4 = class185.method3435(class274.field3128, client.field1778.field1071);
-					var4.field2984.method8104(class460.method1887(var1));
-					var4.field2984.method8111(var1);
-					client.field1778.method2078(var4);
+					PacketBufferNode var4 = class185.method3435(class274.field3128, client.packetWriter.isaacRandom);
+					var4.buffer.writeByte(Buffer.method1887(var1));
+					var4.buffer.writeString(var1);
+					client.packetWriter.add(var4);
 				}
 			}
 		}
@@ -221,18 +221,18 @@ public class class53 {
 			if (var3.method8449()) {
 				if (this.field380.method7292(var3)) {
 					client.field1844 = client.field1878;
-					class263 var4 = class185.method3435(class274.field3129, client.field1778.field1071);
-					var4.field2984.method8104(class460.method1887(var1));
-					var4.field2984.method8111(var1);
-					client.field1778.method2078(var4);
+					PacketBufferNode var4 = class185.method3435(class274.field3129, client.packetWriter.isaacRandom);
+					var4.buffer.writeByte(Buffer.method1887(var1));
+					var4.buffer.writeString(var1);
+					client.packetWriter.add(var4);
 				}
 
-				for (int var6 = 0; var6 < class102.field1012; ++var6) {
-					class93 var5 = client.field1763[class102.field1013[var6]];
+				for (int var6 = 0; var6 < PlayerManager.playerCount; ++var6) {
+					class93 var5 = client.players[PlayerManager.field1013[var6]];
 					var5.method1908();
 				}
 
-				Iterator var7 = class110.field1089.iterator();
+				Iterator var7 = MessagesManager.hashTable.iterator();
 
 				while (var7.hasNext()) {
 					class63 var8 = (class63)var7.next();
@@ -268,10 +268,10 @@ public class class53 {
 			if (var3.method8449()) {
 				if (this.field376.method7292(var3)) {
 					client.field1844 = client.field1878;
-					class263 var4 = class185.method3435(class274.field3102, client.field1778.field1071);
-					var4.field2984.method8104(class460.method1887(var1));
-					var4.field2984.method8111(var1);
-					client.field1778.method2078(var4);
+					PacketBufferNode var4 = class185.method3435(class274.field3102, client.packetWriter.isaacRandom);
+					var4.buffer.writeByte(Buffer.method1887(var1));
+					var4.buffer.writeString(var1);
+					client.packetWriter.add(var4);
 				}
 
 				class442.method7920();
@@ -280,11 +280,11 @@ public class class53 {
 	}
 
 	static final void method2855(String var0, int var1) {
-		class263 var3 = class185.method3435(class274.field3117, client.field1778.field1071);
-		var3.field2984.method8104(class460.method1887(var0) + 1);
-		var3.field2984.method8264(var1);
-		var3.field2984.method8111(var0);
-		client.field1778.method2078(var3);
+		PacketBufferNode var3 = class185.method3435(class274.field3117, client.packetWriter.isaacRandom);
+		var3.buffer.writeByte(Buffer.method1887(var0) + 1);
+		var3.buffer.method8264(var1);
+		var3.buffer.writeString(var0);
+		client.packetWriter.add(var3);
 	}
 
 	final boolean method1056(class472 var1) {

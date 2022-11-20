@@ -63,7 +63,7 @@ public class class189 extends class437 {
 		this.field2013 = 2;
 	}
 
-	void method3467(class460 var1) {
+	void method3467(Buffer var1) {
 		while (true) {
 			int var3 = var1.method8141();
 			if (var3 == 0) {
@@ -74,28 +74,28 @@ public class class189 extends class437 {
 		}
 	}
 
-	void method3468(class460 var1, int var2) {
+	void method3468(Buffer var1, int var2) {
 		int var4;
 		int var5;
 		if (var2 == 1) {
-			var4 = var1.method8122();
+			var4 = var1.readUnsignedShort();
 			this.field2000 = new int[var4];
 
 			for (var5 = 0; var5 < var4; ++var5) {
-				this.field2000[var5] = var1.method8122();
+				this.field2000[var5] = var1.readUnsignedShort();
 			}
 
 			this.field1998 = new int[var4];
 
 			for (var5 = 0; var5 < var4; ++var5) {
-				this.field1998[var5] = var1.method8122();
+				this.field1998[var5] = var1.readUnsignedShort();
 			}
 
 			for (var5 = 0; var5 < var4; ++var5) {
-				this.field1998[var5] += var1.method8122() << 16;
+				this.field1998[var5] += var1.readUnsignedShort() << 16;
 			}
 		} else if (var2 == 2) {
-			this.field2012 = var1.method8122();
+			this.field2012 = var1.readUnsignedShort();
 		} else if (var2 == 3) {
 			var4 = var1.method8141();
 			this.field2003 = new int[var4 + 1];
@@ -110,9 +110,9 @@ public class class189 extends class437 {
 		} else if (var2 == 5) {
 			this.field2006 = var1.method8141();
 		} else if (var2 == 6) {
-			this.field1996 = var1.method8122();
+			this.field1996 = var1.readUnsignedShort();
 		} else if (var2 == 7) {
-			this.field1990 = var1.method8122();
+			this.field1990 = var1.readUnsignedShort();
 		} else if (var2 == 8) {
 			this.field2009 = var1.method8141();
 			this.field2008 = true;
@@ -127,11 +127,11 @@ public class class189 extends class437 {
 			this.field1999 = new int[var4];
 
 			for (var5 = 0; var5 < var4; ++var5) {
-				this.field1999[var5] = var1.method8122();
+				this.field1999[var5] = var1.readUnsignedShort();
 			}
 
 			for (var5 = 0; var5 < var4; ++var5) {
-				this.field1999[var5] += var1.method8122() << 16;
+				this.field1999[var5] += var1.readUnsignedShort() << 16;
 			}
 		} else if (var2 == 13) {
 			var4 = var1.method8141();
@@ -143,17 +143,17 @@ public class class189 extends class437 {
 		} else if (var2 == 14) {
 			this.field1994 = var1.method8126();
 		} else if (var2 == 15) {
-			var4 = var1.method8122();
+			var4 = var1.readUnsignedShort();
 			this.field1995 = new HashMap();
 
 			for (var5 = 0; var5 < var4; ++var5) {
-				int var6 = var1.method8122();
+				int var6 = var1.readUnsignedShort();
 				int var7 = var1.method8312();
 				this.field1995.put(var6, var7);
 			}
 		} else if (var2 == 16) {
-			this.field1988 = var1.method8122();
-			this.field1997 = var1.method8122();
+			this.field1988 = var1.readUnsignedShort();
+			this.field1997 = var1.readUnsignedShort();
 		} else if (var2 == 17) {
 			this.field2004 = new boolean[256];
 
@@ -512,16 +512,16 @@ public class class189 extends class437 {
 					if (class88.field786 == var5) {
 						switch(var4.field1027) {
 						case 1:
-							var6 = class413.field4575.method1706() ? 1 : 0;
+							var6 = class413.clientPreferences.method1706() ? 1 : 0;
 							break;
 						case 2:
-							var6 = class413.field4575.method1708() ? 1 : 0;
+							var6 = class413.clientPreferences.method1708() ? 1 : 0;
 							break;
 						case 3:
-							var6 = class413.field4575.method1711() ? 1 : 0;
+							var6 = class413.clientPreferences.method1711() ? 1 : 0;
 							break;
 						case 4:
-							var6 = class413.field4575.method1766();
+							var6 = class413.clientPreferences.method1766();
 							break;
 						case 5:
 							var6 = client.method6543();
@@ -533,18 +533,18 @@ public class class189 extends class437 {
 					} else {
 						switch(var5.field789) {
 						case 1:
-							var6 = class413.field4575.method1777() ? 1 : 0;
+							var6 = class413.clientPreferences.method1777() ? 1 : 0;
 							break;
 						case 2:
-							var7 = class413.field4575.method1716();
+							var7 = class413.clientPreferences.method1716();
 							var6 = Math.round((float)(var7 * 100) / 255.0F);
 							break;
 						case 3:
-							var7 = class413.field4575.method1752();
+							var7 = class413.clientPreferences.method1752();
 							var6 = Math.round((float)(var7 * 100) / 127.0F);
 							break;
 						case 4:
-							var7 = class413.field4575.method1736();
+							var7 = class413.clientPreferences.method1736();
 							var6 = Math.round((float)(var7 * 100) / 127.0F);
 							break;
 						default:
@@ -598,20 +598,20 @@ public class class189 extends class437 {
 				if (var5 == class88.field786) {
 					switch(var4.field1027) {
 					case 1:
-						class413.field4575.method1755(var6 == 1);
+						class413.clientPreferences.method1755(var6 == 1);
 						break;
 					case 2:
-						class413.field4575.method1707(var6 == 1);
+						class413.clientPreferences.method1707(var6 == 1);
 						break;
 					case 3:
-						class413.field4575.method1709(var6 == 1);
+						class413.clientPreferences.method1709(var6 == 1);
 						break;
 					case 4:
 						if (var6 < 0) {
 							var6 = 0;
 						}
 
-						class413.field4575.method1712(var6);
+						class413.clientPreferences.method1712(var6);
 						break;
 					case 5:
 						client.method4524(var6);
@@ -623,7 +623,7 @@ public class class189 extends class437 {
 				} else {
 					switch(var5.field789) {
 					case 1:
-						class413.field4575.method1703(var6 == 1);
+						class413.clientPreferences.method1703(var6 == 1);
 						break;
 					case 2:
 						var6 = Math.min(Math.max(var6, 0), 100);

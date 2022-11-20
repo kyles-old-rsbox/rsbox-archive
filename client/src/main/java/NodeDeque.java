@@ -1,14 +1,14 @@
-public class class343 {
+public class NodeDeque {
 	class427 field4229;
 	public class427 field4230;
 
-	public class343() {
+	public NodeDeque() {
 		this.field4230 = new class427();
 		this.field4230.field4682 = this.field4230;
 		this.field4230.field4683 = this.field4230;
 	}
 
-	public void method6354() {
+	public void clear() {
 		while (true) {
 			class427 var1 = this.field4230.field4682;
 			if (var1 == this.field4230) {

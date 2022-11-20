@@ -19,8 +19,8 @@ public class class337 {
 		field3885 = new class326();
 	}
 
-	public class337(class460 var1, boolean var2) {
-		int var3 = var1.method8122();
+	public class337(Buffer var1, boolean var2) {
+		int var3 = var1.readUnsignedShort();
 		boolean var4 = var1.method8141() == 1;
 		byte var5;
 		if (var4) {
@@ -29,7 +29,7 @@ public class class337 {
 			var5 = 0;
 		}
 
-		int var6 = var1.method8122();
+		int var6 = var1.readUnsignedShort();
 		this.field3886 = new ArrayList(var6);
 
 		for (int var7 = 0; var7 < var6; ++var7) {
@@ -49,7 +49,7 @@ public class class337 {
 
 	static void method6314(boolean var0) {
 		byte var2 = 0;
-		boolean var3 = class413.field4575.method1797() >= client.field1637;
+		boolean var3 = class413.clientPreferences.method1797() >= client.field1637;
 		if (!var3) {
 			var2 = 12;
 		} else if (class133.field1257.method2874() || class133.field1257.method3038()) {
@@ -58,8 +58,8 @@ public class class337 {
 
 		class74.method1490(var2);
 		if (var0) {
-			class75.field633 = "";
-			class75.field650 = "";
+			Login.username = "";
+			Login.password = "";
 			class340.field4220 = 0;
 			class349.field4269 = "";
 		}

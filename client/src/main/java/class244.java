@@ -8,19 +8,19 @@ public class class244 extends class239 {
 	class244() {
 	}
 
-	void method4872(class460 var1) {
+	void method4872(Buffer var1) {
 		int var3 = var1.method8141();
 		if (var3 != class256.field2948.field2947) {
 			throw new IllegalStateException("");
 		} else {
 			super.field2815 = var1.method8141();
 			super.field2813 = var1.method8141();
-			super.field2821 = var1.method8122();
-			super.field2809 = var1.method8122();
+			super.field2821 = var1.readUnsignedShort();
+			super.field2809 = var1.readUnsignedShort();
 			this.field2857 = var1.method8141();
 			this.field2855 = var1.method8141();
-			super.field2810 = var1.method8122();
-			super.field2811 = var1.method8122();
+			super.field2810 = var1.readUnsignedShort();
+			super.field2811 = var1.readUnsignedShort();
 			this.field2856 = var1.method8141();
 			this.field2854 = var1.method8141();
 			super.field2814 = var1.method8140();
@@ -28,7 +28,7 @@ public class class244 extends class239 {
 		}
 	}
 
-	void method4655(class460 var1) {
+	void method4655(Buffer var1) {
 		super.field2813 = Math.min(super.field2813, 4);
 		super.field2816 = new short[1][64][64];
 		super.field2808 = new short[super.field2813][64][64];

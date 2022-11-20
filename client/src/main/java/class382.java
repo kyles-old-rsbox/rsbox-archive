@@ -40,7 +40,7 @@ public class class382 {
 		this.field4417 = var1;
 	}
 
-	public void method6846() {
+	public void pause() {
 		if (this.field4412 != -1L) {
 			this.field4414 = class272.method2046() - this.field4412;
 			this.field4412 = -1L;
@@ -55,21 +55,21 @@ public class class382 {
 		this.field4419 = 0;
 	}
 
-	public void method6833() {
-		this.method6846();
+	public void start() {
+		this.pause();
 	}
 
-	public void method6834(class460 var1) {
+	public void method6834(Buffer var1) {
 		method4869(var1, this.field4411);
 		method4869(var1, this.field4414);
 		method4869(var1, this.field4416);
-		var1.method8181(this.field4417);
-		var1.method8181(this.field4419);
-		var1.method8181(this.field4418);
-		var1.method8181(this.field4420);
+		var1.writeShort(this.field4417);
+		var1.writeShort(this.field4419);
+		var1.writeShort(this.field4418);
+		var1.writeShort(this.field4420);
 	}
 
-	static void method4869(class460 var0, long var1) {
+	static void method4869(Buffer var0, long var1) {
 		var1 /= 10L;
 		if (var1 < 0L) {
 			var1 = 0L;
@@ -77,6 +77,6 @@ public class class382 {
 			var1 = 65535L;
 		}
 
-		var0.method8181((int)var1);
+		var0.writeShort((int)var1);
 	}
 }

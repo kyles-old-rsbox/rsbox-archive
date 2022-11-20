@@ -70,7 +70,7 @@ public class class125 extends class115 {
 	static final void method2358(class300 var0, int var1, int var2, int var3) {
 		class298 var5 = var0.method5859(false);
 		if (var5 != null) {
-			if (client.field1709 < 3) {
+			if (client.minimapState < 3) {
 				class122.field1185.method8502(var1, var2, var5.field3435, var5.field3433, 25, 25, client.field1672, 256, var5.field3432, var5.field3434);
 			} else {
 				class481.method8713(var1, var2, 0, var5.field3432, var5.field3434);

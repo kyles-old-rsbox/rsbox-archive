@@ -88,9 +88,9 @@ public class class367 extends class404 {
 		this.field4349 = var11;
 	}
 
-	public final void method6705(class460 var1, int var2) {
-		this.method6704(var1.method8131());
-		long var4 = var1.method8127();
+	public final void method6705(Buffer var1, int var2) {
+		this.method6704(var1.readString());
+		long var4 = var1.readLong();
 		long var7 = var4;
 		String var6;
 		int var9;
@@ -138,20 +138,20 @@ public class class367 extends class404 {
 			this.method7285();
 
 			for (int var12 = 0; var12 < var11; ++var12) {
-				class373 var13 = (class373)this.method7284(new class472(var1.method8131(), this.field4346));
-				int var14 = var1.method8122();
+				class373 var13 = (class373)this.method7284(new class472(var1.readString(), this.field4346));
+				int var14 = var1.readUnsignedShort();
 				var13.method7178(var14, ++this.field4351 - 1);
 				var13.field4492 = var1.method8287();
-				var1.method8131();
+				var1.readString();
 				this.method6709(var13);
 			}
 
 		}
 	}
 
-	public final void method6706(class460 var1) {
-		class472 var3 = new class472(var1.method8131(), this.field4346);
-		int var4 = var1.method8122();
+	public final void method6706(Buffer var1) {
+		class472 var3 = new class472(var1.readString(), this.field4346);
+		int var4 = var1.readUnsignedShort();
 		byte var5 = var1.method8287();
 		boolean var6 = false;
 		if (var5 == -128) {
@@ -169,7 +169,7 @@ public class class367 extends class404 {
 				this.method7293(var7);
 			}
 		} else {
-			var1.method8131();
+			var1.readString();
 			var7 = (class373)this.method7290(var3);
 			if (var7 == null) {
 				if (this.method7339() > super.field4515) {
@@ -209,12 +209,12 @@ public class class367 extends class404 {
 
 	static void method6730(boolean var0) {
 		if (!class133.field1257.method2874() && !class133.field1257.method3038()) {
-			class75.field624 = class338.field4115;
-			class75.field630 = class338.field4192;
-			class75.field631 = class338.field4111;
+			Login.field624 = class338.field4115;
+			Login.field630 = class338.field4192;
+			Login.field631 = class338.field4111;
 			class74.method1490(2);
 			if (var0) {
-				class75.field650 = "";
+				Login.password = "";
 			}
 
 			class28.method400();

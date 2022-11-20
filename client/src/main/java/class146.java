@@ -8,8 +8,8 @@ public class class146 extends class140 {
 		this.field1340 = -1;
 	}
 
-	void method2467(class460 var1) {
-		this.field1340 = var1.method8122();
+	void method2467(Buffer var1) {
+		this.field1340 = var1.readUnsignedShort();
 	}
 
 	void method2468(class148 var1) {

@@ -87,8 +87,8 @@ public final class class264 {
 						}
 
 						if (client.field1833 && client.field1827) {
-							var16 = class42.field284;
-							var17 = class42.field285;
+							var16 = MouseManager.field284;
+							var17 = MouseManager.field285;
 							var16 -= client.field1824;
 							var17 -= client.field1825;
 							if (var16 < client.field1746) {
@@ -160,14 +160,14 @@ public final class class264 {
 					if (!var11.field3459 || var16 < var18 && var17 < var19) {
 						if (var11.field3464 != 0) {
 							if (var11.field3464 == 1336) {
-								if (class413.field4575.method1711()) {
+								if (class413.clientPreferences.method1711()) {
 									var14 += 15;
 									class353.field4289.method6868("Fps:" + class31.field174, var11.field3448 + var13, var14, 16776960, -1);
 									var14 += 15;
 									Runtime var41 = Runtime.getRuntime();
 									var21 = (int)((var41.totalMemory() - var41.freeMemory()) / 1024L);
 									var22 = 16776960;
-									if (var21 > 327680 && !client.field1636) {
+									if (var21 > 327680 && !client.isLowDetail) {
 										var22 = 16711680;
 									}
 
@@ -231,7 +231,7 @@ public final class class264 {
 								method5166(var11.field3602, var11.field3517, var16, var17, var18, var19, var13 - var11.field3481, var14 - var11.field3482, var12);
 							}
 
-							class89 var20 = (class89)client.field1810.method7855((long)var11.field3517);
+							InterfaceParent var20 = (InterfaceParent)client.parentInterfaces.method7855((long)var11.field3517);
 							if (null != var20) {
 								class41.method763(var20.field796, var16, var17, var18, var19, var13, var14, var12);
 							}
@@ -251,7 +251,7 @@ public final class class264 {
 							class221.method4389();
 						}
 
-						if (client.field1869 || client.field1800[var12] || client.field1867 > 1) {
+						if (client.isResizable || client.field1800[var12] || client.field1867 > 1) {
 							if (var11.field3462 == 0 && !var11.field3459 && var11.field3492 > var11.field3476) {
 								client.method1783(var11.field3448 + var13, var14, var11.field3482, var11.field3476, var11.field3492);
 							}
@@ -288,7 +288,7 @@ public final class class264 {
 												var27 = var11.field3461[var31] - 1;
 												if (var23 + 32 > var2 && var23 < var4 && var24 + 32 > var3 && var24 < var5 || var11 == class183.field1943 && var31 == client.field1737) {
 													class473 var28;
-													if (client.field1802 == 1 && class6.field23 == var31 && var11.field3517 == class213.field2493) {
+													if (client.isItemSelected == 1 && class6.field23 == var31 && var11.field3517 == class213.field2493) {
 														var28 = class71.method1436(var27, var11.field3456[var31], 2, 0, 2, false);
 													} else {
 														var28 = class71.method1436(var27, var11.field3456[var31], 1, 3153952, 2, false);
@@ -296,8 +296,8 @@ public final class class264 {
 
 													if (null != var28) {
 														if (class183.field1943 == var11 && var31 == client.field1737) {
-															var25 = class42.field284 - client.field1638;
-															var26 = class42.field285 - client.field1757;
+															var25 = MouseManager.field284 - client.field1638;
+															var26 = MouseManager.field285 - client.field1757;
 															if (var25 < 5 && var25 > -5) {
 																var25 = 0;
 															}
@@ -360,7 +360,7 @@ public final class class264 {
 										}
 									}
 								} else if (var11.field3462 == 3) {
-									if (class42.method796(var11)) {
+									if (MouseManager.method796(var11)) {
 										var31 = var11.field3495;
 										if (var11 == class219.field2616 && var11.field3567 != 0) {
 											var31 = var11.field3567;
@@ -402,7 +402,7 @@ public final class class264 {
 											}
 										} else {
 											String var48 = var11.field3522;
-											if (class42.method796(var11)) {
+											if (MouseManager.method796(var11)) {
 												var21 = var11.field3495;
 												if (class219.field2616 == var11 && 0 != var11.field3567) {
 													var21 = var11.field3567;
@@ -444,7 +444,7 @@ public final class class264 {
 									} else if (var11.field3462 == 5) {
 										class473 var40;
 										if (!var11.field3459) {
-											var40 = var11.method5852(class42.method796(var11), class28.field155);
+											var40 = var11.method5852(MouseManager.method796(var11), class28.field155);
 											if (null != var40) {
 												var40.method8526(var13, var14);
 											} else if (class300.field3458) {
@@ -499,7 +499,7 @@ public final class class264 {
 									} else {
 										class198 var35;
 										if (6 == var11.field3462) {
-											boolean var46 = class42.method796(var11);
+											boolean var46 = MouseManager.method796(var11);
 											if (var46) {
 												var21 = var11.field3509;
 											} else {
@@ -522,7 +522,7 @@ public final class class264 {
 												}
 											} else if (5 == var11.field3504) {
 												if (0 == var11.field3505) {
-													var44 = client.field1920.method6003((class189)null, -1, (class189)null, -1);
+													var44 = client.playerAppearance.method6003((class189)null, -1, (class189)null, -1);
 												} else {
 													var44 = class291.field3364.method4112();
 												}
@@ -712,7 +712,7 @@ public final class class264 {
 				client.field1686 = var0.field3496;
 			}
 
-			if (client.field1920.field3639 == 1) {
+			if (client.playerAppearance.field3639 == 1) {
 				var0.field3560 = client.field1682;
 			} else {
 				var0.field3560 = client.field1686;
@@ -724,7 +724,7 @@ public final class class264 {
 				client.field1686 = var0.field3496;
 			}
 
-			if (1 == client.field1920.field3639) {
+			if (1 == client.playerAppearance.field3639) {
 				var0.field3560 = client.field1686;
 			} else {
 				var0.field3560 = client.field1682;

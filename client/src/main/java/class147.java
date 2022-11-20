@@ -5,7 +5,7 @@ import java.util.List;
 
 public class class147 extends class427 {
 	static class336 field1352;
-	static SecureRandom field1355;
+	static SecureRandom isaacRandom;
 	boolean field1346;
 	boolean field1353;
 	int[] field1348;
@@ -19,7 +19,7 @@ public class class147 extends class427 {
 		new BitSet(65536);
 	}
 
-	public class147(class460 var1) {
+	public class147(Buffer var1) {
 		this.field1346 = true;
 		this.field1350 = null;
 		this.method2506(var1);
@@ -68,7 +68,7 @@ public class class147 extends class427 {
 		}
 	}
 
-	void method2506(class460 var1) {
+	void method2506(Buffer var1) {
 		int var3 = var1.method8141();
 		if ((var3 & 1) != 0) {
 			this.field1353 = true;
@@ -83,28 +83,28 @@ public class class147 extends class427 {
 			var4 = var1.method8141();
 		}
 
-		super.field4681 = var1.method8127();
-		this.field1349 = var1.method8127();
-		this.field1350 = var1.method8131();
+		super.field4681 = var1.readLong();
+		this.field1349 = var1.readLong();
+		this.field1350 = var1.readString();
 		var1.method8129();
 		this.field1351 = var1.method8287();
 		this.field1345 = var1.method8287();
-		int var5 = var1.method8122();
+		int var5 = var1.readUnsignedShort();
 		if (var5 > 0) {
 			this.field1347 = new ArrayList(var5);
 
 			for (int var6 = 0; var6 < var5; ++var6) {
 				class133 var7 = new class133();
 				if (this.field1353) {
-					var1.method8127();
+					var1.readLong();
 				}
 
 				if (this.field1346) {
-					var7.field1254 = new class472(var1.method8131());
+					var7.field1254 = new class472(var1.readString());
 				}
 
 				var7.field1256 = var1.method8287();
-				var7.field1249 = var1.method8122();
+				var7.field1249 = var1.readUnsignedShort();
 				if (var4 >= 3) {
 					var1.method8129();
 				}
@@ -218,28 +218,28 @@ public class class147 extends class427 {
 			}
 
 			if (var2 == 17) {
-				client.field1819 = var3 & 65535;
+				client.followerIndex = var3 & 65535;
 			}
 
 			if (var2 == 18) {
-				client.field1812 = (class80)class217.method4362(class80.method1045(), var3);
-				if (client.field1812 == null) {
-					client.field1812 = class80.field705;
+				client.playerAttackOption = (AttackOption)class217.method4362(AttackOption.method1045(), var3);
+				if (client.playerAttackOption == null) {
+					client.playerAttackOption = AttackOption.field705;
 				}
 			}
 
 			if (var2 == 19) {
 				if (var3 == -1) {
-					client.field1775 = -1;
+					client.combatTargetPlayerIndex = -1;
 				} else {
-					client.field1775 = var3 & 2047;
+					client.combatTargetPlayerIndex = var3 & 2047;
 				}
 			}
 
 			if (var2 == 22) {
-				client.field1850 = (class80)class217.method4362(class80.method1045(), var3);
-				if (client.field1850 == null) {
-					client.field1850 = class80.field705;
+				client.npcAttackOption = (AttackOption)class217.method4362(AttackOption.method1045(), var3);
+				if (client.npcAttackOption == null) {
+					client.npcAttackOption = AttackOption.field705;
 				}
 			}
 

@@ -49,7 +49,7 @@ public class class346 implements class360 {
 			byte[] var3 = class158.field1452.method6175(33, var0);
 			var2 = new class158();
 			if (null != var3) {
-				var2.method2623(new class460(var3));
+				var2.method2623(new Buffer(var3));
 			}
 
 			class158.field1456.method5434(var2, (long)var0);
@@ -74,7 +74,7 @@ public class class346 implements class360 {
 
 	}
 
-	public int method6663() {
+	public int rsOrdinal() {
 		return this.field4246;
 	}
 
@@ -448,14 +448,14 @@ public class class346 implements class360 {
 					if (class242.method4733(class190.method3528(var0.field1984))) {
 						int[] var5 = var0.field1984.method5933();
 						if (var5 != null) {
-							class263 var3 = class185.method3435(class274.field3146, client.field1778.field1071);
-							var3.field2984.method8155(var5[2]);
-							var3.field2984.method8241(var0.field1984.field3517);
-							var3.field2984.method8155(var0.field1984.method5871());
-							var3.field2984.method8181(var0.field1984.field3484);
-							var3.field2984.method8171(var5[1]);
-							var3.field2984.method8171(var5[0]);
-							client.field1778.method2078(var3);
+							PacketBufferNode var3 = class185.method3435(class274.field3146, client.packetWriter.isaacRandom);
+							var3.buffer.writeIntAlt(var5[2]);
+							var3.buffer.writeInt(var0.field1984.field3517);
+							var3.buffer.writeIntAlt(var0.field1984.method5871());
+							var3.buffer.writeShort(var0.field1984.field3484);
+							var3.buffer.writeIntLE(var5[1]);
+							var3.buffer.writeIntLE(var5[0]);
+							client.packetWriter.add(var3);
 						}
 					}
 				}

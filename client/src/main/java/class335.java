@@ -8,7 +8,7 @@ public class class335 extends class437 {
 	}
 
 	static final int method6272() {
-		if (class413.field4575.method1777()) {
+		if (class413.clientPreferences.method1777()) {
 			return class55.field396;
 		} else {
 			int var1 = 3;
@@ -129,7 +129,7 @@ public class class335 extends class437 {
 	static final void method6271(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9) {
 		class101 var11 = null;
 
-		for (class101 var12 = (class101)client.field1777.method6364(); null != var12; var12 = (class101)client.field1777.method6358()) {
+		for (class101 var12 = (class101)client.pendingSpawns.method6364(); null != var12; var12 = (class101)client.pendingSpawns.method6358()) {
 			if (var0 == var12.field993 && var12.field999 == var1 && var2 == var12.field994 && var3 == var12.field992) {
 				var11 = var12;
 				break;
@@ -143,7 +143,7 @@ public class class335 extends class437 {
 			var11.field999 = var1;
 			var11.field994 = var2;
 			client.method3540(var11);
-			client.field1777.method6355(var11);
+			client.pendingSpawns.method6355(var11);
 		}
 
 		var11.field998 = var4;

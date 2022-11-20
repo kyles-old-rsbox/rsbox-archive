@@ -14,7 +14,7 @@ import java.util.Map.Entry;
 import javax.net.ssl.HttpsURLConnection;
 
 public class class12 {
-	public static int field57;
+	public static int canvasHeight;
 	static class148 field55;
 	static FontMetrics field59;
 	boolean field49;

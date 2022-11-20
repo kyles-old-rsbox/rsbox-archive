@@ -159,7 +159,7 @@ public class class336 extends class319 {
 				if (this.field3869 != var6) {
 					class169.method2714(this, 255, this.field3875, this.field3869, (byte)0, true);
 				} else {
-					class460 var7 = new class460(class231.method4537(var3));
+					Buffer var7 = new Buffer(class231.method4537(var3));
 					int var8 = var7.method8141();
 					if (var8 != 5 && var8 != 6) {
 						throw new RuntimeException(var8 + "," + this.field3875 + "," + var2);

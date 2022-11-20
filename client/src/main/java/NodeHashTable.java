@@ -1,11 +1,11 @@
-public final class class434 {
+public final class NodeHashTable {
 	class427 field4710;
 	class427 field4711;
 	class427[] field4712;
 	int field4708;
 	int field4709;
 
-	public class434(int var1) {
+	public NodeHashTable(int var1) {
 		this.field4709 = 0;
 		this.field4708 = var1;
 		this.field4712 = new class427[var1];
@@ -46,12 +46,12 @@ public final class class434 {
 		var1.field4681 = var2;
 	}
 
-	public class427 method7867() {
+	public class427 first() {
 		this.field4709 = 0;
-		return this.method7858();
+		return this.next();
 	}
 
-	public class427 method7858() {
+	public class427 next() {
 		class427 var1;
 		if (this.field4709 > 0 && this.field4711 != this.field4712[this.field4709 - 1]) {
 			var1 = this.field4711;

@@ -38,7 +38,7 @@ public abstract class class239 {
 		if (!this.method4649()) {
 			byte[] var3 = var1.method6175(this.field2814, this.field2820);
 			if (null != var3) {
-				this.method4655(new class460(var3));
+				this.method4655(new Buffer(var3));
 				this.field2822 = true;
 				this.field2823 = true;
 			}
@@ -60,7 +60,7 @@ public abstract class class239 {
 		this.field2823 = false;
 	}
 
-	void method4656(int var1, int var2, class460 var3) {
+	void method4656(int var1, int var2, Buffer var3) {
 		int var5 = var3.method8141();
 		if (var5 != 0) {
 			if ((var5 & 1) != 0) {
@@ -83,20 +83,20 @@ public abstract class class239 {
 		}
 	}
 
-	void method4653(int var1, int var2, class460 var3, int var4) {
+	void method4653(int var1, int var2, Buffer var3, int var4) {
 		boolean var6 = (var4 & 2) != 0;
 		if (var6) {
-			this.field2808[0][var1][var2] = field2817 ? (short)var3.method8122() : (short)var3.method8141();
+			this.field2808[0][var1][var2] = field2817 ? (short)var3.readUnsignedShort() : (short)var3.method8141();
 		}
 
-		this.field2816[0][var1][var2] = field2817 ? (short)var3.method8122() : (short)var3.method8141();
+		this.field2816[0][var1][var2] = field2817 ? (short)var3.readUnsignedShort() : (short)var3.method8141();
 	}
 
-	void method4654(int var1, int var2, class460 var3, int var4) {
+	void method4654(int var1, int var2, Buffer var3, int var4) {
 		int var6 = 1 + ((var4 & 24) >> 3);
 		boolean var7 = 0 != (var4 & 2);
 		boolean var8 = 0 != (var4 & 4);
-		this.field2816[0][var1][var2] = field2817 ? (short)var3.method8122() : (short)var3.method8141();
+		this.field2816[0][var1][var2] = field2817 ? (short)var3.readUnsignedShort() : (short)var3.method8141();
 		int var9;
 		int var10;
 		int var12;
@@ -104,7 +104,7 @@ public abstract class class239 {
 			var9 = var3.method8141();
 
 			for (var10 = 0; var10 < var9; ++var10) {
-				int var11 = field2817 ? var3.method8122() : var3.method8141();
+				int var11 = field2817 ? var3.readUnsignedShort() : var3.method8141();
 				if (var11 != 0) {
 					this.field2808[var10][var1][var2] = (short)var11;
 					var12 = var3.method8141();
@@ -139,5 +139,5 @@ public abstract class class239 {
 		return this.field2811;
 	}
 
-	abstract void method4655(class460 var1);
+	abstract void method4655(Buffer var1);
 }

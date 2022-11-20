@@ -25,7 +25,7 @@ public class class148 {
 	public String[] field1371;
 	public String[] field1373;
 
-	public class148(class460 var1) {
+	public class148(Buffer var1) {
 		this.field1361 = 0;
 		this.field1372 = null;
 		this.field1363 = 0;
@@ -455,7 +455,7 @@ public class class148 {
 		return true;
 	}
 
-	void method2542(class460 var1) {
+	void method2542(Buffer var1) {
 		int var3 = var1.method8141();
 		if (var3 >= 1 && var3 <= 6) {
 			int var4 = var1.method8141();
@@ -483,9 +483,9 @@ public class class148 {
 				this.field1363 += 16912800;
 			}
 
-			this.field1369 = var1.method8122();
+			this.field1369 = var1.readUnsignedShort();
 			this.field1378 = var1.method8141();
-			this.field1372 = var1.method8131();
+			this.field1372 = var1.readString();
 			if (var3 >= 4) {
 				var1.method8126();
 			}
@@ -523,7 +523,7 @@ public class class148 {
 
 				for (var5 = 0; var5 < this.field1369; ++var5) {
 					if (this.field1358) {
-						this.field1380[var5] = var1.method8127();
+						this.field1380[var5] = var1.readLong();
 					}
 
 					if (this.field1359) {
@@ -536,7 +536,7 @@ public class class148 {
 					}
 
 					if (var3 >= 5) {
-						this.field1374[var5] = var1.method8122();
+						this.field1374[var5] = var1.readUnsignedShort();
 					} else {
 						this.field1374[var5] = 0;
 					}
@@ -562,7 +562,7 @@ public class class148 {
 
 				for (var5 = 0; var5 < this.field1378; ++var5) {
 					if (this.field1358) {
-						this.field1379[var5] = var1.method8127();
+						this.field1379[var5] = var1.readLong();
 					}
 
 					if (this.field1359) {
@@ -572,7 +572,7 @@ public class class148 {
 			}
 
 			if (var3 >= 3) {
-				var5 = var1.method8122();
+				var5 = var1.readUnsignedShort();
 				if (var5 > 0) {
 					this.field1382 = new class421(var5 < 16 ? class282.method953(var5) : 16);
 
@@ -584,10 +584,10 @@ public class class148 {
 							int var9 = var1.method8126();
 							this.field1382.method7781(new class426(var9), (long)var7);
 						} else if (var8 == 1) {
-							long var11 = var1.method8127();
+							long var11 = var1.readLong();
 							this.field1382.method7781(new class424(var11), (long)var7);
 						} else if (var8 == 2) {
-							String var13 = var1.method8131();
+							String var13 = var1.readString();
 							this.field1382.method7781(new class418(var13), (long)var7);
 						}
 					}

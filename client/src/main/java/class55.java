@@ -9,7 +9,7 @@ public class class55 extends class204 {
 			byte[] var3 = class359.field4313.method6175(5, var0);
 			var2 = new class177();
 			if (null != var3) {
-				var2.method2814(new class460(var3));
+				var2.method2814(new Buffer(var3));
 			}
 
 			class177.field1587.method5434(var2, (long)var0);
@@ -33,13 +33,13 @@ public class class55 extends class204 {
 					var6 += var5.field570 - var2;
 				}
 
-				if (var6 - 64 <= var5.field560 && class413.field4575.method1736() != 0 && var0 == var5.field558) {
+				if (var6 - 64 <= var5.field560 && class413.clientPreferences.method1736() != 0 && var0 == var5.field558) {
 					var6 -= 64;
 					if (var6 < 0) {
 						var6 = 0;
 					}
 
-					int var7 = (var5.field560 - var6) * class413.field4575.method1736() / var5.field560;
+					int var7 = (var5.field560 - var6) * class413.clientPreferences.method1736() / var5.field560;
 					if (var5.field565 == null) {
 						if (var5.field564 >= 0) {
 							class33 var8 = class33.method610(class11.field48, var5.field564, 0);

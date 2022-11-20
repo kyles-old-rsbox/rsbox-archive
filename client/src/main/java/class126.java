@@ -60,7 +60,7 @@ public class class126 implements class360 {
 		return this.field1216;
 	}
 
-	public int method6663() {
+	public int rsOrdinal() {
 		return this.field1215;
 	}
 

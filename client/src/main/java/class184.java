@@ -24,7 +24,7 @@ public class class184 extends class437 {
 		class326.field3804 = var0;
 	}
 
-	void method3405(class460 var1) {
+	void method3405(Buffer var1) {
 		while (true) {
 			int var3 = var1.method8141();
 			if (var3 == 0) {
@@ -35,9 +35,9 @@ public class class184 extends class437 {
 		}
 	}
 
-	void method3403(class460 var1, int var2) {
+	void method3403(Buffer var1, int var2) {
 		if (var2 == 1) {
-			this.field1945 = var1.method8122();
+			this.field1945 = var1.readUnsignedShort();
 			this.field1946 = var1.method8141();
 			this.field1948 = var1.method8141();
 		}

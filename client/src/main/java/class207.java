@@ -40,7 +40,7 @@ public class class207 extends class437 {
 			var2 = new class207();
 			var2.field2355 = var0;
 			if (var3 != null) {
-				var2.method3970(new class460(var3));
+				var2.method3970(new Buffer(var3));
 			}
 
 			field2353.method5434(var2, (long)var0);
@@ -48,7 +48,7 @@ public class class207 extends class437 {
 		}
 	}
 
-	void method3970(class460 var1) {
+	void method3970(Buffer var1) {
 		while (true) {
 			int var3 = var1.method8141();
 			if (var3 == 0) {
@@ -59,17 +59,17 @@ public class class207 extends class437 {
 		}
 	}
 
-	void method3971(class460 var1, int var2) {
+	void method3971(Buffer var1, int var2) {
 		if (var2 == 1) {
-			this.field2356 = var1.method8122();
+			this.field2356 = var1.readUnsignedShort();
 		} else if (var2 == 2) {
-			this.field2359 = var1.method8122();
+			this.field2359 = var1.readUnsignedShort();
 		} else if (var2 == 4) {
-			this.field2362 = var1.method8122();
+			this.field2362 = var1.readUnsignedShort();
 		} else if (var2 == 5) {
-			this.field2364 = var1.method8122();
+			this.field2364 = var1.readUnsignedShort();
 		} else if (var2 == 6) {
-			this.field2360 = var1.method8122();
+			this.field2360 = var1.readUnsignedShort();
 		} else if (var2 == 7) {
 			this.field2365 = var1.method8141();
 		} else if (var2 == 8) {
@@ -83,8 +83,8 @@ public class class207 extends class437 {
 				this.field2357 = new short[var4];
 
 				for (var5 = 0; var5 < var4; ++var5) {
-					this.field2358[var5] = (short)var1.method8122();
-					this.field2357[var5] = (short)var1.method8122();
+					this.field2358[var5] = (short)var1.readUnsignedShort();
+					this.field2357[var5] = (short)var1.readUnsignedShort();
 				}
 			} else if (var2 == 41) {
 				var4 = var1.method8141();
@@ -92,8 +92,8 @@ public class class207 extends class437 {
 				this.field2361 = new short[var4];
 
 				for (var5 = 0; var5 < var4; ++var5) {
-					this.field2351[var5] = (short)var1.method8122();
-					this.field2361[var5] = (short)var1.method8122();
+					this.field2351[var5] = (short)var1.readUnsignedShort();
+					this.field2361[var5] = (short)var1.readUnsignedShort();
 				}
 			}
 		}

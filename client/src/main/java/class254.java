@@ -27,10 +27,10 @@ public class class254 {
 		this.field2938 = false;
 	}
 
-	public void method5073(class460 var1, int var2) {
+	public void method5073(Buffer var1, int var2) {
 		this.field2940 = var2;
-		this.field2931 = var1.method8131();
-		this.field2932 = var1.method8131();
+		this.field2931 = var1.readString();
+		this.field2932 = var1.readString();
 		this.field2935 = new class295(var1.method8126());
 		this.field2933 = var1.method8126();
 		var1.method8141();
@@ -46,7 +46,7 @@ public class class254 {
 		this.method5119();
 	}
 
-	class248 method5121(class460 var1) {
+	class248 method5121(Buffer var1) {
 		int var3 = var1.method8141();
 		class252[] var4 = new class252[]{class252.field2916, class252.field2923, class252.field2919, class252.field2917};
 		class252 var5 = (class252)class217.method4362(var4, var3);

@@ -5,11 +5,11 @@ public class class307 {
 		throw new Error();
 	}
 
-	public static class263 method6040(int var0, String var1, class353 var2, int var3) {
-		class263 var5 = class185.method3435(class274.field3115, client.field1778.field1071);
-		var5.field2984.method8104(0);
-		int var6 = var5.field2984.field4878;
-		var5.field2984.method8104(var0);
+	public static PacketBufferNode method6040(int var0, String var1, class353 var2, int var3) {
+		PacketBufferNode var5 = class185.method3435(class274.field3115, client.packetWriter.isaacRandom);
+		var5.buffer.writeByte(0);
+		int var6 = var5.buffer.offset;
+		var5.buffer.writeByte(var0);
 		String var7 = var1.toLowerCase();
 		byte var8 = 0;
 		if (var7.startsWith(class338.field3953)) {
@@ -124,18 +124,18 @@ public class class307 {
 			}
 		}
 
-		var5.field2984.method8104(var8);
-		var5.field2984.method8104(var9);
-		class282.method5406(var5.field2984, var1);
-		if (var0 == class304.field3628.method6663()) {
-			var5.field2984.method8104(var3);
+		var5.buffer.writeByte(var8);
+		var5.buffer.writeByte(var9);
+		class282.method5406(var5.buffer, var1);
+		if (var0 == class304.field3628.rsOrdinal()) {
+			var5.buffer.writeByte(var3);
 		}
 
-		var5.field2984.method8151(var5.field2984.field4878 - var6);
+		var5.buffer.method8151(var5.buffer.offset - var6);
 		return var5;
 	}
 
-	public static String method5489(class460 var0) {
+	public static String method5489(Buffer var0) {
 		return class34.method644(var0, 32767);
 	}
 
@@ -241,7 +241,7 @@ public class class307 {
 								byte[] var49 = class185.field1954.method6175(1, var18);
 								var47 = new class185();
 								if (var49 != null) {
-									var47.method3414(new class460(var49), var18);
+									var47.method3414(new Buffer(var49), var18);
 								}
 
 								var47.method3413();
@@ -275,7 +275,7 @@ public class class307 {
 								byte[] var51 = class185.field1954.method6175(1, var19);
 								var64 = new class185();
 								if (null != var51) {
-									var64.method3414(new class460(var51), var19);
+									var64.method3414(new Buffer(var51), var19);
 								}
 
 								var64.method3413();
@@ -322,7 +322,7 @@ public class class307 {
 							var17 -= class406.field4527[var20];
 						}
 
-						if (var18 >= 1 && var18 < 103 && (!client.field1636 || 0 != (class82.field714[0][var12][var18] & 2) || 0 == (class82.field714[var3][var12][var18] & 16))) {
+						if (var18 >= 1 && var18 < 103 && (!client.isLowDetail || 0 != (class82.field714[0][var12][var18] & 2) || 0 == (class82.field714[var3][var12][var18] & 16))) {
 							if (var3 < class82.field724) {
 								class82.field724 = var3;
 							}
@@ -377,7 +377,7 @@ public class class307 {
 											byte[] var54 = class199.field2188.method6175(4, var36);
 											var37 = new class199();
 											if (null != var54) {
-												var37.method3717(new class460(var54), var36);
+												var37.method3717(new Buffer(var54), var36);
 											}
 
 											var37.method3716();
@@ -414,7 +414,7 @@ public class class307 {
 										byte[] var53 = class199.field2188.method6175(4, var38);
 										var39 = new class199();
 										if (null != var53) {
-											var39.method3717(new class460(var53), var38);
+											var39.method3717(new Buffer(var53), var38);
 										}
 
 										var39.method3716();

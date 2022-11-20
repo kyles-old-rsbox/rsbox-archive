@@ -11,7 +11,7 @@ public class class458 extends class437 {
 	class458() {
 	}
 
-	void method8079(class460 var1) {
+	void method8079(Buffer var1) {
 		while (true) {
 			int var3 = var1.method8141();
 			if (var3 == 0) {
@@ -22,7 +22,7 @@ public class class458 extends class437 {
 		}
 	}
 
-	void method8082(class460 var1, int var2) {
+	void method8082(Buffer var1, int var2) {
 		if (var2 == 1) {
 			int var4 = var1.method8141();
 			if (null == this.field4872) {
@@ -67,12 +67,12 @@ public class class458 extends class437 {
 	}
 
 	static final void method8090(int var0, int var1, int var2, int var3, int var4, int var5, class214 var6, class200 var7) {
-		if (!client.field1636 || 0 != (class82.field714[0][var1][var2] & 2) || (class82.field714[var0][var1][var2] & 16) == 0) {
+		if (!client.isLowDetail || 0 != (class82.field714[0][var1][var2] & 2) || (class82.field714[var0][var1][var2] & 16) == 0) {
 			if (var0 < class82.field724) {
 				class82.field724 = var0;
 			}
 
-			class195 var9 = class89.method1866(var3);
+			class195 var9 = InterfaceParent.method1866(var3);
 			int var10;
 			int var11;
 			if (var4 != 1 && var4 != 3) {
@@ -147,7 +147,7 @@ public class class458 extends class437 {
 
 			Object var35;
 			if (var5 == 22) {
-				if (!client.field1636 || 0 != var9.field2072 || var9.field2070 == 1 || var9.field2068) {
+				if (!client.isLowDetail || 0 != var9.field2072 || var9.field2070 == 1 || var9.field2068) {
 					if (var9.field2076 == -1 && null == var9.field2094) {
 						var35 = var9.method3584(22, var4, var16, var18, var17, var19);
 					} else {
@@ -363,7 +363,7 @@ public class class458 extends class437 {
 							var29 = 16;
 							var32 = var6.method4185(var0, var1, var2);
 							if (var32 != 0L) {
-								var29 = class89.method1866(class234.method1610(var32)).field2077;
+								var29 = InterfaceParent.method1866(class234.method1610(var32)).field2077;
 							}
 
 							if (-1 == var9.field2076 && null == var9.field2094) {
@@ -377,7 +377,7 @@ public class class458 extends class437 {
 							var29 = 8;
 							var32 = var6.method4185(var0, var1, var2);
 							if (var32 != 0L) {
-								var29 = class89.method1866(class234.method1610(var32)).field2077 / 2;
+								var29 = InterfaceParent.method1866(class234.method1610(var32)).field2077 / 2;
 							}
 
 							if (var9.field2076 == -1 && null == var9.field2094) {
@@ -400,7 +400,7 @@ public class class458 extends class437 {
 							var29 = 8;
 							var32 = var6.method4185(var0, var1, var2);
 							if (var32 != 0L) {
-								var29 = class89.method1866(class234.method1610(var32)).field2077 / 2;
+								var29 = InterfaceParent.method1866(class234.method1610(var32)).field2077 / 2;
 							}
 
 							int var28 = var4 + 2 & 3;

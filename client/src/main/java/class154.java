@@ -12,7 +12,7 @@ public class class154 extends class140 {
 			byte[] var3 = class452.field4853.method6175(38, var0);
 			var2 = new class452();
 			if (null != var3) {
-				var2.method7988(new class460(var3));
+				var2.method7988(new Buffer(var3));
 			}
 
 			var2.method7991();
@@ -25,7 +25,7 @@ public class class154 extends class140 {
 		this.this$0 = var1;
 	}
 
-	void method2467(class460 var1) {
+	void method2467(Buffer var1) {
 		this.field1417 = var1.method8126();
 		this.field1416 = var1.method8126();
 	}

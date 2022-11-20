@@ -5,7 +5,7 @@ public class class170 {
 	static boolean field1543;
 	static File field1539;
 	static Hashtable field1538;
-	static long field1540;
+	static long seed;
 
 	static {
 		field1543 = false;

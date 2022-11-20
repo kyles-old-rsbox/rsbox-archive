@@ -270,7 +270,7 @@ public class class311 {
 	}
 
 	static final void method6051(class300 var0, int var1, int var2) {
-		if (client.field1874 == null && !client.field1784) {
+		if (client.field1874 == null && !client.isMenuOpen) {
 			if (var0 != null) {
 				class300 var5 = class252.method5039(var0);
 				if (var5 == null) {

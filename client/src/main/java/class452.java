@@ -17,7 +17,7 @@ public class class452 extends class437 {
 		field4853 = var0;
 	}
 
-	void method7988(class460 var1) {
+	void method7988(Buffer var1) {
 		while (true) {
 			int var3 = var1.method8141();
 			if (var3 == 0) {
@@ -32,7 +32,7 @@ public class class452 extends class437 {
 		return this.field4854 == null ? null : this.field4854[var1];
 	}
 
-	void method7996(class460 var1, int var2) {
+	void method7996(Buffer var1, int var2) {
 		if (var2 == 3) {
 			int var4 = var1.method8141();
 			if (this.field4854 == null) {

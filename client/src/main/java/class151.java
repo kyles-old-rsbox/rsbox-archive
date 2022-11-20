@@ -3,13 +3,13 @@ public class class151 extends class140 {
 	// $FF: synthetic field
 	final class142 this$0;
 
-	static void method2592() {
+	static void savePreferences() {
 		class464 var1 = null;
 
 		try {
 			var1 = class161.method2668("", class368.field4353.field3820, true);
-			class460 var2 = class413.field4575.method1702();
-			var1.method8370(var2.field4881, 0, var2.field4878);
+			Buffer var2 = class413.clientPreferences.method1702();
+			var1.method8370(var2.data, 0, var2.offset);
 		} catch (Exception var4) {
 		}
 
@@ -27,8 +27,8 @@ public class class151 extends class140 {
 		this.field1403 = -1;
 	}
 
-	void method2467(class460 var1) {
-		this.field1403 = var1.method8122();
+	void method2467(Buffer var1) {
+		this.field1403 = var1.readUnsignedShort();
 	}
 
 	void method2468(class148 var1) {

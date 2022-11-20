@@ -7,7 +7,7 @@ public class class230 extends class427 {
 
 	public class230(int var1, byte[] var2) {
 		this.field2740 = var1;
-		class460 var3 = new class460(var2);
+		Buffer var3 = new Buffer(var2);
 		this.field2744 = var3.method8141();
 		this.field2745 = new int[this.field2744];
 		this.field2746 = new int[this.field2744][];
@@ -27,8 +27,8 @@ public class class230 extends class427 {
 			}
 		}
 
-		if (var3.field4878 < var3.field4881.length) {
-			var4 = var3.method8122();
+		if (var3.offset < var3.data.length) {
+			var4 = var3.readUnsignedShort();
 			if (var4 > 0) {
 				this.field2747 = new class216(var3, var4);
 			}

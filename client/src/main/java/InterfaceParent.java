@@ -1,9 +1,9 @@
-public class class89 extends class427 {
+public class InterfaceParent extends class427 {
 	boolean field795;
 	int field796;
 	int field797;
 
-	class89() {
+	InterfaceParent() {
 		this.field795 = false;
 	}
 
@@ -16,7 +16,7 @@ public class class89 extends class427 {
 			var2 = new class195();
 			var2.field2052 = var0;
 			if (null != var3) {
-				var2.method3580(new class460(var3));
+				var2.method3580(new Buffer(var3));
 			}
 
 			var2.method3582();

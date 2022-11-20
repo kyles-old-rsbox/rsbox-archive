@@ -98,7 +98,7 @@ public class class43 extends class427 {
 						var6 = class74.field612[var14];
 						if (null != var6) {
 							class349.method6457();
-							class9.method57(var6, var4, var5, class361.field4314 * 8 - 48, class283.field3216 * 8 - 48, client.field1884);
+							class9.method57(var6, var4, var5, class361.field4314 * 8 - 48, ServerPacket.field3216 * 8 - 48, client.field1884);
 						}
 					}
 
@@ -106,7 +106,7 @@ public class class43 extends class427 {
 						var4 = (class204.field2302[var14] >> 8) * 64 - class36.field241;
 						var5 = (class204.field2302[var14] & 255) * 64 - class169.field1536;
 						var6 = class74.field612[var14];
-						if (null == var6 && class283.field3216 < 800) {
+						if (null == var6 && ServerPacket.field3216 < 800) {
 							class349.method6457();
 							class242.method4732(var4, var5, 64, 64);
 						}
@@ -211,7 +211,7 @@ public class class43 extends class427 {
 					var14 = class55.field396 - 1;
 				}
 
-				if (client.field1636) {
+				if (client.isLowDetail) {
 					class145.field1333.method4123(class82.field724);
 				} else {
 					class145.field1333.method4123(0);
@@ -226,18 +226,18 @@ public class class43 extends class427 {
 				class349.method6457();
 				class66.method1392();
 				class195.field2056.method5437();
-				class263 var17;
+				PacketBufferNode var17;
 				if (class133.field1257.method562()) {
-					var17 = class185.method3435(class274.field3051, client.field1778.field1071);
-					var17.field2984.method8241(1057001181);
-					client.field1778.method2078(var17);
+					var17 = class185.method3435(class274.field3051, client.packetWriter.isaacRandom);
+					var17.buffer.writeInt(1057001181);
+					client.packetWriter.add(var17);
 				}
 
 				if (!client.field1706) {
 					var4 = (class361.field4314 - 6) / 8;
 					var5 = (class361.field4314 + 6) / 8;
-					var16 = (class283.field3216 - 6) / 8;
-					var7 = (class283.field3216 + 6) / 8;
+					var16 = (ServerPacket.field3216 - 6) / 8;
+					var7 = (ServerPacket.field3216 + 6) / 8;
 
 					for (var8 = var4 - 1; var8 <= var5 + 1; ++var8) {
 						for (var9 = var16 - 1; var9 <= var7 + 1; ++var9) {
@@ -252,16 +252,16 @@ public class class43 extends class427 {
 				class9.method64(30);
 				class349.method6457();
 				class82.method1271();
-				var17 = class185.method3435(class274.field3136, client.field1778.field1071);
-				client.field1778.method2078(var17);
+				var17 = class185.method3435(class274.field3136, client.packetWriter.isaacRandom);
+				client.packetWriter.add(var17);
 				class339.method6315();
 			}
 		}
 	}
 
-	static void method801(int var0) {
-		if (var0 != client.field1667) {
-			client.field1667 = var0;
+	static void setLoginState(int var0) {
+		if (var0 != client.loginState) {
+			client.loginState = var0;
 		}
 	}
 }

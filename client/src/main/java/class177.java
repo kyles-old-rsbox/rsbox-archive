@@ -15,7 +15,7 @@ public class class177 extends class437 {
 		class359.field4313 = var0;
 	}
 
-	void method2814(class460 var1) {
+	void method2814(Buffer var1) {
 		while (true) {
 			int var3 = var1.method8141();
 			if (var3 == 0) {
@@ -26,9 +26,9 @@ public class class177 extends class437 {
 		}
 	}
 
-	void method2815(class460 var1, int var2) {
+	void method2815(Buffer var1, int var2) {
 		if (var2 == 2) {
-			this.field1586 = var1.method8122();
+			this.field1586 = var1.readUnsignedShort();
 		}
 
 	}

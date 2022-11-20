@@ -2,7 +2,7 @@ public class class216 {
 	class113[] field2570;
 	int field2569;
 
-	class216(class460 var1, int var2) {
+	class216(Buffer var1, int var2) {
 		this.field2570 = new class113[var2];
 		this.field2569 = var1.method8141();
 

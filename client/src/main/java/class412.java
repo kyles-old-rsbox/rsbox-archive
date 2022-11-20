@@ -34,12 +34,12 @@ public final class class412 {
 		this.method7422(var1);
 	}
 
-	public class412(class460 var1, boolean var2) {
+	public class412(Buffer var1, boolean var2) {
 		this.field4563 = new float[16];
 		this.method7463(var1, var2);
 	}
 
-	void method7463(class460 var1, boolean var2) {
+	void method7463(Buffer var1, boolean var2) {
 		if (var2) {
 			class414 var4 = new class414();
 			int var7 = var1.method8204();

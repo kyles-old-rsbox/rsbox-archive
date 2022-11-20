@@ -11,7 +11,7 @@ public class class138 extends class140 {
 		this.this$0 = var1;
 	}
 
-	void method2467(class460 var1) {
+	void method2467(Buffer var1) {
 		this.field1281 = var1.method8126();
 		this.field1280 = var1.method8126();
 		this.field1278 = var1.method8141();
@@ -42,7 +42,7 @@ public class class138 extends class140 {
 			int[] var12 = class309.field3678.field4952;
 			var13 = 24624 + var1 * 4 + 2048 * (103 - var2);
 			var14 = class234.method1610(var6);
-			class195 var15 = class89.method1866(var14);
+			class195 var15 = InterfaceParent.method1866(var14);
 			if (var15.field2075 != -1) {
 				class488 var16 = class91.field883[var15.field2075];
 				if (var16 != null) {
@@ -119,7 +119,7 @@ public class class138 extends class140 {
 			var9 = var8 >> 6 & 3;
 			var10 = var8 & 31;
 			var11 = class234.method1610(var6);
-			class195 var25 = class89.method1866(var11);
+			class195 var25 = InterfaceParent.method1866(var11);
 			int var20;
 			if (var25.field2075 != -1) {
 				class488 var19 = class91.field883[var25.field2075];
@@ -153,7 +153,7 @@ public class class138 extends class140 {
 		var6 = class145.field1333.method4151(var0, var1, var2);
 		if (0L != var6) {
 			var8 = class234.method1610(var6);
-			class195 var22 = class89.method1866(var8);
+			class195 var22 = InterfaceParent.method1866(var8);
 			if (var22.field2075 != -1) {
 				class488 var23 = class91.field883[var22.field2075];
 				if (var23 != null) {

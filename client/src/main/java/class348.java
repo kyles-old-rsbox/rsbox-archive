@@ -13,7 +13,7 @@ public class class348 {
 		this.field4264 = new int[2048];
 		this.field4265 = new int[2048];
 		this.field4266 = 0;
-		class110.method2130();
+		MessagesManager.method2130();
 	}
 
 	void method6425(int var1) {

@@ -16,7 +16,7 @@ public class class63 extends class437 {
 	}
 
 	void method1341(int var1, String var2, String var3, String var4) {
-		this.field496 = class110.method7846();
+		this.field496 = MessagesManager.method7846();
 		this.field495 = client.field1645;
 		this.field497 = var1;
 		this.field500 = var2;
@@ -40,7 +40,7 @@ public class class63 extends class437 {
 	}
 
 	void method1344() {
-		this.field502 = class217.field2588.field380.method7359(this.field499) ? class410.field4551 : class410.field4552;
+		this.field502 = class217.friends.field380.method7359(this.field499) ? class410.field4551 : class410.field4552;
 	}
 
 	void method1345() {
@@ -56,7 +56,7 @@ public class class63 extends class437 {
 	}
 
 	void method1364() {
-		this.field501 = class217.field2588.field376.method7359(this.field499) ? class410.field4551 : class410.field4552;
+		this.field501 = class217.friends.field376.method7359(this.field499) ? class410.field4551 : class410.field4552;
 	}
 
 	final void method1348() {
@@ -85,7 +85,7 @@ public class class63 extends class437 {
 		}
 
 		String var4;
-		if (var0.field3463 == 2 && !client.field1804) {
+		if (var0.field3463 == 2 && !client.isSpellSelected) {
 			var4 = class323.method6203(var0);
 			if (var4 != null) {
 				client.method1556(var4, class96.method4510(65280) + var0.field3594, 25, 0, -1, var0.field3517, var0.field3445);
@@ -131,7 +131,7 @@ public class class63 extends class437 {
 								class198 var9 = class278.method5388(var0.field3461[var18] - 1);
 								boolean var10;
 								int var11;
-								if (1 == client.field1802) {
+								if (1 == client.isItemSelected) {
 									var11 = class190.method3528(var0);
 									var10 = (var11 >> 30 & 1) != 0;
 									if (var10) {
@@ -142,7 +142,7 @@ public class class63 extends class437 {
 									}
 								}
 
-								if (client.field1804) {
+								if (client.isSpellSelected) {
 									var11 = class190.method3528(var0);
 									var10 = 0 != (var11 >> 30 & 1);
 									if (var10) {
@@ -230,7 +230,7 @@ public class class63 extends class437 {
 		}
 
 		if (var0.field3459) {
-			if (client.field1804) {
+			if (client.isSpellSelected) {
 				var5 = class190.method3528(var0);
 				boolean var24 = 0 != (var5 >> 21 & 1);
 				if (var24 && (class120.field1161 & 32) == 32) {

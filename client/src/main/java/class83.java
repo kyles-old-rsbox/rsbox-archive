@@ -16,7 +16,7 @@ public class class83 {
 	int field740;
 	int field743;
 	String field742;
-	LinkedHashMap field744;
+	LinkedHashMap parameters;
 
 	static {
 		field732 = 10;
@@ -32,11 +32,11 @@ public class class83 {
 		this.field739 = -1;
 		this.field742 = null;
 		this.field743 = 1;
-		this.field744 = new LinkedHashMap();
+		this.parameters = new LinkedHashMap();
 		this.method1701(true);
 	}
 
-	class83(class460 var1) {
+	class83(Buffer var1) {
 		this.field733 = false;
 		this.field735 = false;
 		this.field737 = 0.8D;
@@ -46,8 +46,8 @@ public class class83 {
 		this.field739 = -1;
 		this.field742 = null;
 		this.field743 = 1;
-		this.field744 = new LinkedHashMap();
-		if (var1 != null && var1.field4881 != null) {
+		this.parameters = new LinkedHashMap();
+		if (var1 != null && var1.data != null) {
 			int var2 = var1.method8141();
 			if (var2 >= 0 && var2 <= field732) {
 				if (var1.method8141() == 1) {
@@ -68,7 +68,7 @@ public class class83 {
 					for (int var4 = 0; var4 < var3; ++var4) {
 						int var5 = var1.method8126();
 						int var6 = var1.method8126();
-						this.field744.put(var5, var6);
+						this.parameters.put(var5, var6);
 					}
 				}
 
@@ -110,36 +110,36 @@ public class class83 {
 	void method1701(boolean var1) {
 	}
 
-	class460 method1702() {
-		class460 var2 = new class460(100);
-		var2.method8104(field732);
-		var2.method8104(this.field730 ? 1 : 0);
-		var2.method8104(this.field741 ? 1 : 0);
-		var2.method8104(this.field743);
-		var2.method8104(this.field744.size());
-		Iterator var3 = this.field744.entrySet().iterator();
+	Buffer method1702() {
+		Buffer var2 = new Buffer(100);
+		var2.writeByte(field732);
+		var2.writeByte(this.field730 ? 1 : 0);
+		var2.writeByte(this.field741 ? 1 : 0);
+		var2.writeByte(this.field743);
+		var2.writeByte(this.parameters.size());
+		Iterator var3 = this.parameters.entrySet().iterator();
 
 		while (var3.hasNext()) {
 			Entry var4 = (Entry)var3.next();
-			var2.method8241((Integer)var4.getKey());
-			var2.method8241((Integer)var4.getValue());
+			var2.writeInt((Integer)var4.getKey());
+			var2.writeInt((Integer)var4.getValue());
 		}
 
-		var2.method8111(this.field742 != null ? this.field742 : "");
+		var2.writeString(this.field742 != null ? this.field742 : "");
 		var2.method8110(this.field733);
-		var2.method8104((int)(this.field737 * 100.0D));
-		var2.method8104(this.field731);
-		var2.method8104(this.field738);
-		var2.method8104(this.field740);
-		var2.method8104(this.field739);
-		var2.method8104(this.field735 ? 1 : 0);
-		var2.method8241(this.field736);
+		var2.writeByte((int)(this.field737 * 100.0D));
+		var2.writeByte(this.field731);
+		var2.writeByte(this.field738);
+		var2.writeByte(this.field740);
+		var2.writeByte(this.field739);
+		var2.writeByte(this.field735 ? 1 : 0);
+		var2.writeInt(this.field736);
 		return var2;
 	}
 
 	void method1703(boolean var1) {
 		this.field730 = var1;
-		class151.method2592();
+		class151.savePreferences();
 	}
 
 	boolean method1777() {
@@ -148,7 +148,7 @@ public class class83 {
 
 	void method1755(boolean var1) {
 		this.field733 = var1;
-		class151.method2592();
+		class151.savePreferences();
 	}
 
 	boolean method1706() {
@@ -157,7 +157,7 @@ public class class83 {
 
 	void method1707(boolean var1) {
 		this.field741 = var1;
-		class151.method2592();
+		class151.savePreferences();
 	}
 
 	boolean method1708() {
@@ -166,7 +166,7 @@ public class class83 {
 
 	void method1709(boolean var1) {
 		this.field735 = var1;
-		class151.method2592();
+		class151.savePreferences();
 	}
 
 	void method1759() {
@@ -179,7 +179,7 @@ public class class83 {
 
 	void method1712(int var1) {
 		this.field736 = var1;
-		class151.method2592();
+		class151.savePreferences();
 	}
 
 	int method1766() {
@@ -188,7 +188,7 @@ public class class83 {
 
 	void method1714(double var1) {
 		this.field737 = var1;
-		class151.method2592();
+		class151.savePreferences();
 	}
 
 	double method1717() {
@@ -197,7 +197,7 @@ public class class83 {
 
 	void method1715(int var1) {
 		this.field731 = var1;
-		class151.method2592();
+		class151.savePreferences();
 	}
 
 	int method1716() {
@@ -206,7 +206,7 @@ public class class83 {
 
 	void method1704(int var1) {
 		this.field738 = var1;
-		class151.method2592();
+		class151.savePreferences();
 	}
 
 	int method1752() {
@@ -215,16 +215,16 @@ public class class83 {
 
 	void method1719(int var1) {
 		this.field740 = var1;
-		class151.method2592();
+		class151.savePreferences();
 	}
 
 	int method1736() {
 		return this.field740;
 	}
 
-	void method1710(String var1) {
+	void setRememberedUsername(String var1) {
 		this.field742 = var1;
-		class151.method2592();
+		class151.savePreferences();
 	}
 
 	String method1722() {
@@ -233,7 +233,7 @@ public class class83 {
 
 	void method1723(int var1) {
 		this.field739 = var1;
-		class151.method2592();
+		class151.savePreferences();
 	}
 
 	int method1797() {
@@ -242,7 +242,7 @@ public class class83 {
 
 	void method1778(int var1) {
 		this.field743 = var1;
-		class151.method2592();
+		class151.savePreferences();
 	}
 
 	int method1726() {
@@ -291,7 +291,7 @@ public class class83 {
 			class57.field404[++class387.field4452 - 1] = var4.field3495;
 			return 1;
 		} else if (var0 == CS2Opcodes._2613) {
-			class57.field404[++class387.field4452 - 1] = var4.field3490.method6663();
+			class57.field404[++class387.field4452 - 1] = var4.field3490.rsOrdinal();
 			return 1;
 		} else if (var0 == CS2Opcodes.IF_GETMODELTRANSPARENT) {
 			class57.field404[++class387.field4452 - 1] = var4.field3519 ? 1 : 0;
@@ -436,7 +436,7 @@ public class class83 {
 			class237.field2807 = var4;
 		}
 
-		if (1 == client.field1722 && client.field1750 >= 2 && 0 == client.field1645 % 50 && (class291.field3364.field827 >> 7 != class32.field203 >> 7 || class101.field1004 >> 7 != class291.field3364.field802 >> 7)) {
+		if (1 == client.field1722 && client.privilegeLevel >= 2 && 0 == client.field1645 % 50 && (class291.field3364.field827 >> 7 != class32.field203 >> 7 || class101.field1004 >> 7 != class291.field3364.field802 >> 7)) {
 			var14 = class291.field3364.field914;
 			var15 = (class32.field203 >> 7) + class36.field241;
 			var16 = class169.field1536 + (class101.field1004 >> 7);
@@ -454,7 +454,7 @@ public class class83 {
 						method1761(var4.field3602, var1);
 					}
 
-					class89 var5 = (class89)client.field1810.method7855((long)var4.field3517);
+					InterfaceParent var5 = (InterfaceParent)client.parentInterfaces.method7855((long)var4.field3517);
 					if (null != var5) {
 						class217.method4361(var5.field796, var1);
 					}

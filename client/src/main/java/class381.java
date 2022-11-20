@@ -14,14 +14,14 @@ public class class381 extends class404 {
 		return new class398[var1];
 	}
 
-	public void method6824(class460 var1, int var2) {
+	public void method6824(Buffer var1, int var2) {
 		while (true) {
-			if (var1.field4878 < var2) {
+			if (var1.offset < var2) {
 				int var4 = var1.method8141();
 				boolean var5 = (var4 & 1) == 1;
-				class472 var6 = new class472(var1.method8131(), this.field4410);
-				class472 var7 = new class472(var1.method8131(), this.field4410);
-				var1.method8131();
+				class472 var6 = new class472(var1.readString(), this.field4410);
+				class472 var7 = new class472(var1.readString(), this.field4410);
+				var1.readString();
 				if (null != var6 && var6.method8449()) {
 					class398 var8 = (class398)this.method7290(var6);
 					if (var5) {

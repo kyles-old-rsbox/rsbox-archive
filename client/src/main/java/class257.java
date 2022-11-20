@@ -10,9 +10,9 @@ public class class257 extends class254 {
 	class257() {
 	}
 
-	void method5129(class460 var1, class460 var2, int var3, boolean var4) {
+	void method5129(Buffer var1, Buffer var2, int var3, boolean var4) {
 		this.method5073(var1, var3);
-		int var6 = var2.method8122();
+		int var6 = var2.readUnsignedShort();
 		this.field2952 = new HashSet(var6);
 
 		int var7;
@@ -28,7 +28,7 @@ public class class257 extends class254 {
 			this.field2952.add(var8);
 		}
 
-		var7 = var2.method8122();
+		var7 = var2.readUnsignedShort();
 		this.field2954 = new HashSet(var7);
 
 		for (int var11 = 0; var11 < var7; ++var11) {
@@ -65,9 +65,9 @@ public class class257 extends class254 {
 		}
 	}
 
-	void method5130(class460 var1, boolean var2) {
+	void method5130(Buffer var1, boolean var2) {
 		this.field2953 = new LinkedList();
-		int var4 = var1.method8122();
+		int var4 = var1.readUnsignedShort();
 
 		for (int var5 = 0; var5 < var4; ++var5) {
 			int var6 = var1.method8140();

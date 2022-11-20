@@ -19,12 +19,12 @@ public class class150 extends class137 {
 		this.field1398 = -1;
 	}
 
-	void method2441(class460 var1) {
-		this.field1398 = var1.method8122();
+	void method2441(Buffer var1) {
+		this.field1398 = var1.readUnsignedShort();
 		this.field1397 = var1.method8287();
-		this.field1401 = var1.method8122();
-		var1.method8127();
-		this.field1400 = var1.method8131();
+		this.field1401 = var1.readUnsignedShort();
+		var1.readLong();
+		this.field1400 = var1.readString();
 	}
 
 	void method2442(class147 var1) {

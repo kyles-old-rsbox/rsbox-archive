@@ -5,7 +5,7 @@ public class class141 implements class360 {
 	public static final class141 field1303;
 	public static final class141 field1304;
 	public static final class141 field1306;
-	static int field1307;
+	static int js5Port;
 	final int field1308;
 	public final int field1305;
 
@@ -22,7 +22,7 @@ public class class141 implements class360 {
 		this.field1308 = var2;
 	}
 
-	public int method6663() {
+	public int rsOrdinal() {
 		return this.field1308;
 	}
 
@@ -82,7 +82,7 @@ public class class141 implements class360 {
 				class57.field404[++class387.field4452 - 1] = var4.field3495;
 				return 1;
 			} else if (var0 == CS2Opcodes._1613) {
-				class57.field404[++class387.field4452 - 1] = var4.field3490.method6663();
+				class57.field404[++class387.field4452 - 1] = var4.field3490.rsOrdinal();
 				return 1;
 			} else if (var0 == CS2Opcodes.CC_GETMODELTRANSPARENT) {
 				class57.field404[++class387.field4452 - 1] = var4.field3519 ? 1 : 0;

@@ -14,14 +14,14 @@ public class class139 extends class140 {
 		this.field1290 = 0;
 	}
 
-	void method2467(class460 var1) {
+	void method2467(Buffer var1) {
 		if (var1.method8141() != 255) {
-			--var1.field4878;
-			this.field1293 = var1.method8127();
+			--var1.offset;
+			this.field1293 = var1.readLong();
 		}
 
 		this.field1287 = var1.method8305();
-		this.field1290 = var1.method8122();
+		this.field1290 = var1.readUnsignedShort();
 	}
 
 	void method2468(class148 var1) {

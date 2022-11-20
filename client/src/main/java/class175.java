@@ -10,7 +10,7 @@ public abstract class class175 {
 			byte[] var3 = class192.field2034.method6175(8, var0);
 			var2 = new class192();
 			if (var3 != null) {
-				var2.method3538(new class460(var3));
+				var2.method3538(new Buffer(var3));
 			}
 
 			class192.field2028.method5434(var2, (long)var0);

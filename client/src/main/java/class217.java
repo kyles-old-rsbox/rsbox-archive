@@ -1,7 +1,7 @@
 import java.lang.management.GarbageCollectorMXBean;
 
 public final class class217 {
-	public static class53 field2588;
+	public static class53 friends;
 	static GarbageCollectorMXBean field2586;
 	int field2575;
 	int field2576;
@@ -25,7 +25,7 @@ public final class class217 {
 
 		for (int var4 = 0; var4 < var3.length; ++var4) {
 			class360 var5 = var3[var4];
-			if (var1 == var5.method6663()) {
+			if (var1 == var5.rsOrdinal()) {
 				return var5;
 			}
 		}

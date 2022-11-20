@@ -69,8 +69,8 @@ public class class106 {
 		this.field1047 = 0;
 	}
 
-	int method2049(class460 var1, int var2) {
-		int var4 = var1.method8122();
+	int method2049(Buffer var1, int var2) {
+		int var4 = var1.readUnsignedShort();
 		class322.method6186(var1.method8141());
 		this.field1058 = class77.method1579(var1.method8141());
 		this.field1057 = class77.method1579(var1.method8141());

@@ -65,7 +65,7 @@ public final class class82 {
 	}
 
 	static final void method1668(byte[] var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, class214 var8, class200[] var9) {
-		class460 var10 = new class460(var0);
+		Buffer var10 = new Buffer(var0);
 		int var11 = -1;
 
 		while (true) {
@@ -91,8 +91,8 @@ public final class class82 {
 				int var19 = var18 >> 2;
 				int var20 = var18 & 3;
 				if (var4 == var17 && var16 >= var5 && var16 < var5 + 8 && var15 >= var6 && var15 < var6 + 8) {
-					class195 var21 = class89.method1866(var11);
-					int var22 = var2 + class80.method1613(var16 & 7, var15 & 7, var7, var21.field2100, var21.field2069, var20);
+					class195 var21 = InterfaceParent.method1866(var11);
+					int var22 = var2 + AttackOption.method1613(var16 & 7, var15 & 7, var7, var21.field2100, var21.field2069, var20);
 					int var23 = var3 + class213.method4119(var16 & 7, var15 & 7, var7, var21.field2100, var21.field2069, var20);
 					if (var22 > 0 && var23 > 0 && var22 < 103 && var23 < 103) {
 						int var24 = var1;

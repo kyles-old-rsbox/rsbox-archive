@@ -20,7 +20,7 @@ public class class193 extends class437 {
 	void method3565() {
 	}
 
-	void method3553(class460 var1) {
+	void method3553(Buffer var1) {
 		while (true) {
 			int var3 = var1.method8141();
 			if (var3 == 0) {
@@ -31,7 +31,7 @@ public class class193 extends class437 {
 		}
 	}
 
-	void method3564(class460 var1, int var2) {
+	void method3564(Buffer var1, int var2) {
 		if (var2 == 1) {
 			byte var5 = var1.method8287();
 			int var6 = var5 & 255;
@@ -55,7 +55,7 @@ public class class193 extends class437 {
 		} else if (var2 == 4) {
 			this.field2039 = false;
 		} else if (var2 == 5) {
-			this.field2041 = var1.method8131();
+			this.field2041 = var1.readString();
 		}
 
 	}

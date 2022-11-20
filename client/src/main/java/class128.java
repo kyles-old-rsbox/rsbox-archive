@@ -124,7 +124,7 @@ public class class128 extends class393 {
 					if (var10.field3459) {
 						class79 var18;
 						if (var10.field3539) {
-							if (class42.field284 >= var13 && class42.field285 >= var14 && class42.field284 < var15 && class42.field285 < var16) {
+							if (MouseManager.field284 >= var13 && MouseManager.field285 >= var14 && MouseManager.field284 < var15 && MouseManager.field285 < var16) {
 								for (var18 = (class79)client.field1765.method6364(); null != var18; var18 = (class79)client.field1765.method6358()) {
 									if (var18.field692) {
 										var18.method7825();
@@ -138,11 +138,11 @@ public class class128 extends class393 {
 									client.field1823 = null;
 								}
 
-								if (!client.field1784) {
+								if (!client.isMenuOpen) {
 									client.method5557();
 								}
 							}
-						} else if (var10.field3449 && class42.field284 >= var13 && class42.field285 >= var14 && class42.field284 < var15 && class42.field285 < var16) {
+						} else if (var10.field3449 && MouseManager.field284 >= var13 && MouseManager.field285 >= var14 && MouseManager.field284 < var15 && MouseManager.field285 < var16) {
 							for (var18 = (class79)client.field1765.method6364(); null != var18; var18 = (class79)client.field1765.method6358()) {
 								if (var18.field692 && var18.field686 == var18.field694.field3574) {
 									var18.method7825();
@@ -151,26 +151,26 @@ public class class128 extends class393 {
 						}
 					}
 
-					var28 = class42.field284;
-					var19 = class42.field285;
-					if (class42.field277 != 0) {
-						var28 = class42.field283;
-						var19 = class42.field293;
+					var28 = MouseManager.field284;
+					var19 = MouseManager.field285;
+					if (MouseManager.field277 != 0) {
+						var28 = MouseManager.field283;
+						var19 = MouseManager.field293;
 					}
 
 					boolean var36 = var28 >= var13 && var19 >= var14 && var28 < var15 && var19 < var16;
 					if (var10.field3464 == 1337) {
-						if (!client.field1828 && !client.field1784 && var36) {
-							class42.method790(var28, var19, var13, var14);
+						if (!client.isLoading && !client.isMenuOpen && var36) {
+							MouseManager.method790(var28, var19, var13, var14);
 						}
 					} else if (var10.field3464 == 1338) {
 						class143.method2492(var10, var27, var12);
 					} else {
 						if (1400 == var10.field3464) {
-							class4.field10.method7657(class42.field284, class42.field285, var36, var27, var12, var10.field3448, var10.field3476);
+							class4.field10.method7657(MouseManager.field284, MouseManager.field285, var36, var27, var12, var10.field3448, var10.field3476);
 						}
 
-						if (!client.field1784 && var36) {
+						if (!client.isMenuOpen && var36) {
 							if (1400 == var10.field3464) {
 								class4.field10.method7628(var27, var12, var10.field3448, var10.field3476, var28, var19);
 							} else {
@@ -247,33 +247,33 @@ public class class128 extends class393 {
 						}
 
 						if (var10.field3459) {
-							if (class42.field284 >= var13 && class42.field285 >= var14 && class42.field284 < var15 && class42.field285 < var16) {
+							if (MouseManager.field284 >= var13 && MouseManager.field285 >= var14 && MouseManager.field284 < var15 && MouseManager.field285 < var16) {
 								var36 = true;
 							} else {
 								var36 = false;
 							}
 
 							boolean var37 = false;
-							if ((class42.field289 == 1 || !class95.field944 && 4 == class42.field289) && var36) {
+							if ((MouseManager.field289 == 1 || !class95.field944 && 4 == MouseManager.field289) && var36) {
 								var37 = true;
 							}
 
 							var22 = false;
-							if ((1 == class42.field277 || !class95.field944 && class42.field277 == 4) && class42.field283 >= var13 && class42.field293 >= var14 && class42.field283 < var15 && class42.field293 < var16) {
+							if ((1 == MouseManager.field277 || !class95.field944 && MouseManager.field277 == 4) && MouseManager.field283 >= var13 && MouseManager.field293 >= var14 && MouseManager.field283 < var15 && MouseManager.field293 < var16) {
 								var22 = true;
 							}
 
 							if (var22) {
-								class311.method6051(var10, class42.field283 - var27, class42.field293 - var12);
+								class311.method6051(var10, MouseManager.field283 - var27, MouseManager.field293 - var12);
 							}
 
 							if (var10.method5862()) {
 								if (var22) {
-									client.field1856.method6355(new class188(0, class42.field284 - var27, class42.field285 - var12, var10));
+									client.field1856.method6355(new class188(0, MouseManager.field284 - var27, MouseManager.field285 - var12, var10));
 								}
 
 								if (var37) {
-									client.field1856.method6355(new class188(1, class42.field284 - var27, class42.field285 - var12, var10));
+									client.field1856.method6355(new class188(1, MouseManager.field284 - var27, MouseManager.field285 - var12, var10));
 								}
 							}
 
@@ -302,7 +302,7 @@ public class class128 extends class393 {
 									client.field1765.method6355(var29);
 								}
 
-								if (null != client.field1874 || null != class183.field1943 || client.field1784) {
+								if (null != client.field1874 || null != class183.field1943 || client.isMenuOpen) {
 									var22 = false;
 									var37 = false;
 									var36 = false;
@@ -314,8 +314,8 @@ public class class128 extends class393 {
 										var29 = new class79();
 										var29.field692 = true;
 										var29.field694 = var10;
-										var29.field693 = class42.field283 - var27;
-										var29.field688 = class42.field293 - var12;
+										var29.field693 = MouseManager.field283 - var27;
+										var29.field688 = MouseManager.field293 - var12;
 										var29.field686 = var10.field3611;
 										client.field1765.method6355(var29);
 									}
@@ -325,8 +325,8 @@ public class class128 extends class393 {
 									var29 = new class79();
 									var29.field692 = true;
 									var29.field694 = var10;
-									var29.field693 = class42.field284 - var27;
-									var29.field688 = class42.field285 - var12;
+									var29.field693 = MouseManager.field284 - var27;
+									var29.field688 = MouseManager.field285 - var12;
 									var29.field686 = var10.field3555;
 									client.field1765.method6355(var29);
 								}
@@ -337,8 +337,8 @@ public class class128 extends class393 {
 										var29 = new class79();
 										var29.field692 = true;
 										var29.field694 = var10;
-										var29.field693 = class42.field284 - var27;
-										var29.field688 = class42.field285 - var12;
+										var29.field693 = MouseManager.field284 - var27;
+										var29.field688 = MouseManager.field285 - var12;
 										var29.field686 = var10.field3556;
 										client.field1813.method6355(var29);
 									}
@@ -348,8 +348,8 @@ public class class128 extends class393 {
 									var29 = new class79();
 									var29.field692 = true;
 									var29.field694 = var10;
-									var29.field693 = class42.field284 - var27;
-									var29.field688 = class42.field285 - var12;
+									var29.field693 = MouseManager.field284 - var27;
+									var29.field688 = MouseManager.field285 - var12;
 									var29.field686 = var10.field3557;
 									client.field1765.method6355(var29);
 								}
@@ -360,8 +360,8 @@ public class class128 extends class393 {
 										var29 = new class79();
 										var29.field692 = true;
 										var29.field694 = var10;
-										var29.field693 = class42.field284 - var27;
-										var29.field688 = class42.field285 - var12;
+										var29.field693 = MouseManager.field284 - var27;
+										var29.field688 = MouseManager.field285 - var12;
 										var29.field686 = var10.field3558;
 										client.field1765.method6355(var29);
 									}
@@ -371,8 +371,8 @@ public class class128 extends class393 {
 									var29 = new class79();
 									var29.field692 = true;
 									var29.field694 = var10;
-									var29.field693 = class42.field284 - var27;
-									var29.field688 = class42.field285 - var12;
+									var29.field693 = MouseManager.field284 - var27;
+									var29.field688 = MouseManager.field285 - var12;
 									var29.field686 = var10.field3559;
 									client.field1765.method6355(var29);
 								}
@@ -383,8 +383,8 @@ public class class128 extends class393 {
 										var29 = new class79();
 										var29.field692 = true;
 										var29.field694 = var10;
-										var29.field693 = class42.field284 - var27;
-										var29.field688 = class42.field285 - var12;
+										var29.field693 = MouseManager.field284 - var27;
+										var29.field688 = MouseManager.field285 - var12;
 										var29.field686 = var10.field3454;
 										client.field1813.method6355(var29);
 									}
@@ -575,11 +575,11 @@ public class class128 extends class393 {
 						}
 
 						if (!var10.field3459) {
-							if (client.field1874 != null || class183.field1943 != null || client.field1784) {
+							if (client.field1874 != null || class183.field1943 != null || client.isMenuOpen) {
 								continue;
 							}
 
-							if ((var10.field3536 >= 0 || var10.field3487 != 0) && class42.field284 >= var13 && class42.field285 >= var14 && class42.field284 < var15 && class42.field285 < var16) {
+							if ((var10.field3536 >= 0 || var10.field3487 != 0) && MouseManager.field284 >= var13 && MouseManager.field285 >= var14 && MouseManager.field284 < var15 && MouseManager.field285 < var16) {
 								if (var10.field3536 >= 0) {
 									class219.field2616 = var0[var10.field3536];
 								} else {
@@ -587,12 +587,12 @@ public class class128 extends class393 {
 								}
 							}
 
-							if (8 == var10.field3462 && class42.field284 >= var13 && class42.field285 >= var14 && class42.field284 < var15 && class42.field285 < var16) {
+							if (8 == var10.field3462 && MouseManager.field284 >= var13 && MouseManager.field285 >= var14 && MouseManager.field284 < var15 && MouseManager.field285 < var16) {
 								class219.field2617 = var10;
 							}
 
 							if (var10.field3492 > var10.field3476) {
-								class4.method16(var10, var10.field3448 + var27, var12, var10.field3476, var10.field3492, class42.field284, class42.field285);
+								class4.method16(var10, var10.field3448 + var27, var12, var10.field3476, var10.field3492, MouseManager.field284, MouseManager.field285);
 							}
 						}
 
@@ -602,9 +602,9 @@ public class class128 extends class393 {
 								method2390(var10.field3602, var10.field3517, var13, var14, var15, var16, var27 - var10.field3481, var12 - var10.field3482);
 							}
 
-							class89 var32 = (class89)client.field1810.method7855((long)var10.field3517);
+							InterfaceParent var32 = (InterfaceParent)client.parentInterfaces.method7855((long)var10.field3517);
 							if (var32 != null) {
-								if (var32.field797 == 0 && class42.field284 >= var13 && class42.field285 >= var14 && class42.field284 < var15 && class42.field285 < var16 && !client.field1784) {
+								if (var32.field797 == 0 && MouseManager.field284 >= var13 && MouseManager.field285 >= var14 && MouseManager.field284 < var15 && MouseManager.field285 < var16 && !client.isMenuOpen) {
 									for (class79 var33 = (class79)client.field1765.method6364(); null != var33; var33 = (class79)client.field1765.method6358()) {
 										if (var33.field692) {
 											var33.method7825();
@@ -617,7 +617,7 @@ public class class128 extends class393 {
 										client.field1823 = null;
 									}
 
-									if (!client.field1784) {
+									if (!client.isMenuOpen) {
 										client.method5557();
 									}
 								}

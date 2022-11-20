@@ -5,14 +5,14 @@ public class class215 implements class220 {
 	static int field2568;
 	class186[] field2563;
 	class319 field2566;
-	class343 field2562;
+	NodeDeque field2562;
 	double field2565;
 	int field2561;
 	int field2564;
 	int field2567;
 
 	public class215(class319 var1, class319 var2, int var3, double var4, int var6) {
-		this.field2562 = new class343();
+		this.field2562 = new NodeDeque();
 		this.field2567 = 0;
 		this.field2565 = 1.0D;
 		this.field2564 = 128;
@@ -26,7 +26,7 @@ public class class215 implements class220 {
 		this.field2563 = new class186[var1.method6099(0)];
 
 		for (int var9 = 0; var9 < var8; ++var9) {
-			class460 var10 = new class460(var1.method6175(0, var7[var9]));
+			Buffer var10 = new Buffer(var1.method6175(0, var7[var9]));
 			this.field2563[var7[var9]] = new class186(var10);
 		}
 
@@ -152,7 +152,7 @@ public class class215 implements class220 {
 			}
 		}
 
-		this.field2562 = new class343();
+		this.field2562 = new NodeDeque();
 		this.field2567 = this.field2561;
 	}
 

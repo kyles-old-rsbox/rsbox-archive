@@ -56,8 +56,8 @@ public final class class284 {
 	}
 
 	public void method5437() {
-		this.field3331.method6597();
-		this.field3330.method7782();
+		this.field3331.clear();
+		this.field3330.clear();
 		this.field3328 = new class437();
 		this.field3329 = this.field3327;
 	}

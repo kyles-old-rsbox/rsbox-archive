@@ -1,10 +1,10 @@
-public class class102 {
+public class PlayerManager {
 	static byte[] field1019;
 	static class197[] field1010;
-	static class460 field1021;
-	static class460[] field1011;
+	static Buffer field1021;
+	static Buffer[] field1011;
 	static int field1007;
-	static int field1012;
+	static int playerCount;
 	static int field1017;
 	static int[] field1013;
 	static int[] field1014;
@@ -17,8 +17,8 @@ public class class102 {
 	static {
 		field1019 = new byte[2048];
 		field1010 = new class197[2048];
-		field1011 = new class460[2048];
-		field1012 = 0;
+		field1011 = new Buffer[2048];
+		playerCount = 0;
 		field1013 = new int[2048];
 		field1017 = 0;
 		field1015 = new int[2048];
@@ -27,17 +27,17 @@ public class class102 {
 		field1018 = new int[2048];
 		field1007 = 0;
 		field1020 = new int[2048];
-		field1021 = new class460(new byte[5000]);
+		field1021 = new Buffer(new byte[5000]);
 	}
 
-	class102() throws Throwable {
+	PlayerManager() throws Throwable {
 		throw new Error();
 	}
 
-	static final void method4730(class453 var0) {
+	static final void updateGPI(PacketBuffer var0) {
 		var0.method8013();
-		int var2 = client.field1764;
-		class93 var3 = class291.field3364 = client.field1763[var2] = new class93();
+		int var2 = client.localPlayerIndex;
+		class93 var3 = class291.field3364 = client.players[var2] = new class93();
 		var3.field915 = var2;
 		int var4 = var0.method8014(30);
 		byte var5 = (byte)(var4 >> 28);
@@ -52,8 +52,8 @@ public class class102 {
 			var3.method1906(field1011[var2]);
 		}
 
-		field1012 = 0;
-		field1013[++field1012 - 1] = var2;
+		playerCount = 0;
+		field1013[++playerCount - 1] = var2;
 		field1019[var2] = 0;
 		field1017 = 0;
 

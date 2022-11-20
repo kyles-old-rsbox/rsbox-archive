@@ -14,7 +14,7 @@ public class class250 {
 
 	public static void method5006(int var0) {
 		if (0 != class279.field3202) {
-			class110.field1092 = var0;
+			MessagesManager.field1092 = var0;
 		} else {
 			class279.field3201.method5271(var0);
 		}

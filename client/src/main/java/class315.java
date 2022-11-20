@@ -6,8 +6,8 @@ public class class315 {
 	}
 
 	static final void method6071(boolean var0) {
-		for (int var2 = 0; var2 < client.field1691; ++var2) {
-			class81 var3 = client.field1902[client.field1692[var2]];
+		for (int var2 = 0; var2 < client.npcCount; ++var2) {
+			class81 var3 = client.npcs[client.field1692[var2]];
 			if (null != var3 && var3.method1869() && var3.field709.field2289 == var0 && var3.field709.method3870()) {
 				int var4 = var3.field827 >> 7;
 				int var5 = var3.field802 >> 7;

@@ -16,10 +16,10 @@ public class class288 extends class427 {
 		this.field3352 = new class286[128];
 		this.field3353 = new byte[128];
 		this.field3354 = new int[128];
-		class460 var2 = new class460(var1);
+		Buffer var2 = new Buffer(var1);
 
 		int var3;
-		for (var3 = 0; 0 != var2.field4881[var3 + var2.field4878]; ++var3) {
+		for (var3 = 0; 0 != var2.data[var3 + var2.offset]; ++var3) {
 		}
 
 		byte[] var4 = new byte[var3];
@@ -29,13 +29,13 @@ public class class288 extends class427 {
 			var4[var5] = var2.method8287();
 		}
 
-		++var2.field4878;
+		++var2.offset;
 		++var3;
-		var5 = var2.field4878;
-		var2.field4878 += var3;
+		var5 = var2.offset;
+		var2.offset += var3;
 
 		int var6;
-		for (var6 = 0; 0 != var2.field4881[var2.field4878 + var6]; ++var6) {
+		for (var6 = 0; 0 != var2.data[var2.offset + var6]; ++var6) {
 		}
 
 		byte[] var7 = new byte[var6];
@@ -45,13 +45,13 @@ public class class288 extends class427 {
 			var7[var8] = var2.method8287();
 		}
 
-		++var2.field4878;
+		++var2.offset;
 		++var6;
-		var8 = var2.field4878;
-		var2.field4878 += var6;
+		var8 = var2.offset;
+		var2.offset += var6;
 
 		int var9;
-		for (var9 = 0; var2.field4881[var9 + var2.field4878] != 0; ++var9) {
+		for (var9 = 0; var2.data[var9 + var2.offset] != 0; ++var9) {
 		}
 
 		byte[] var10 = new byte[var9];
@@ -60,7 +60,7 @@ public class class288 extends class427 {
 			var10[var11] = var2.method8287();
 		}
 
-		++var2.field4878;
+		++var2.offset;
 		++var9;
 		byte[] var36 = new byte[var9];
 		int var12;
@@ -111,7 +111,7 @@ public class class288 extends class427 {
 		byte[] var39 = var14 > 0 ? new byte[var14 * 2] : null;
 
 		int var17;
-		for (var17 = 0; var2.field4881[var17 + var2.field4878] != 0; ++var17) {
+		for (var17 = 0; var2.data[var17 + var2.offset] != 0; ++var17) {
 		}
 
 		byte[] var18 = new byte[var17];
@@ -121,7 +121,7 @@ public class class288 extends class427 {
 			var18[var19] = var2.method8287();
 		}
 
-		++var2.field4878;
+		++var2.offset;
 		++var17;
 		var19 = 0;
 
@@ -176,7 +176,7 @@ public class class288 extends class427 {
 						var20 = -1;
 					}
 
-					var23 = var2.field4881[var5++] - 1;
+					var23 = var2.data[var5++] - 1;
 				}
 
 				this.field3353[var24] = (byte)var23;
@@ -197,7 +197,7 @@ public class class288 extends class427 {
 						var20 = -1;
 					}
 
-					var24 = var2.field4881[var8++] + 16 << 2;
+					var24 = var2.data[var8++] + 16 << 2;
 				}
 
 				this.field3351[var25] = (byte)var24;

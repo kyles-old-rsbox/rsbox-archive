@@ -17,7 +17,7 @@ public final class class241 {
 		int var4 = -1;
 
 		for (int var5 = var1; var5 < var2; ++var5) {
-			var4 = var4 >>> 8 ^ class460.field4883[(var4 ^ var0[var5]) & 255];
+			var4 = var4 >>> 8 ^ Buffer.field4883[(var4 ^ var0[var5]) & 255];
 		}
 
 		var4 = ~var4;

@@ -57,7 +57,7 @@ public class class9 {
 			}
 		}
 
-		class460 var11 = new class460(var0);
+		Buffer var11 = new Buffer(var0);
 
 		for (var8 = 0; var8 < 4; ++var8) {
 			for (var9 = 0; var9 < 64; ++var9) {
@@ -69,10 +69,10 @@ public class class9 {
 
 	}
 
-	static final void method56(class453 var0) {
-		for (int var2 = 0; var2 < class102.field1007; ++var2) {
-			int var3 = class102.field1020[var2];
-			class93 var4 = client.field1763[var3];
+	static final void method56(PacketBuffer var0) {
+		for (int var2 = 0; var2 < PlayerManager.field1007; ++var2) {
+			int var3 = PlayerManager.field1020[var2];
+			class93 var4 = client.players[var3];
 			int var5 = var0.method8141();
 			if (0 != (var5 & 4)) {
 				var5 += var0.method8141() << 8;
@@ -95,12 +95,12 @@ public class class9 {
 			}
 
 			if (0 != (var5 & 2)) {
-				var4.field822 = var0.method8131();
+				var4.field822 = var0.readString();
 				if (var4.field822.charAt(0) == '~') {
 					var4.field822 = var4.field822.substring(1);
-					class42.method773(2, var4.field910.method8451(), var4.field822);
+					MouseManager.method773(2, var4.field910.method8451(), var4.field822);
 				} else if (class291.field3364 == var4) {
-					class42.method773(2, var4.field910.method8451(), var4.field822);
+					MouseManager.method773(2, var4.field910.method8451(), var4.field822);
 				}
 
 				var4.field842 = false;
@@ -112,9 +112,9 @@ public class class9 {
 			if ((var5 & 64) != 0) {
 				var7 = var0.method8154();
 				byte[] var8 = new byte[var7];
-				class460 var9 = new class460(var8);
+				Buffer var9 = new Buffer(var8);
 				var0.method8333(var8, 0, var7);
-				class102.field1011[var3] = var9;
+				PlayerManager.field1011[var3] = var9;
 				var4.method1906(var9);
 			}
 
@@ -143,7 +143,7 @@ public class class9 {
 			}
 
 			if ((var5 & 1) != 0) {
-				var4.field868 = var0.method8122();
+				var4.field868 = var0.readUnsignedShort();
 				if (0 == var4.field871) {
 					var4.field860 = var4.field868;
 					var4.field868 = -1;
@@ -157,7 +157,7 @@ public class class9 {
 				var4.field853 = var0.method8187();
 				var4.field857 = var0.method8164() + client.field1645;
 				var4.field858 = var0.method8162() + client.field1645;
-				var4.field859 = var0.method8122();
+				var4.field859 = var0.readUnsignedShort();
 				if (var4.field919) {
 					var4.field815 += var4.field920;
 					var4.field855 += var4.field892;
@@ -240,7 +240,7 @@ public class class9 {
 
 			if ((var5 & 512) != 0) {
 				for (var7 = 0; var7 < 3; ++var7) {
-					var4.field897[var7] = var0.method8131();
+					var4.field897[var7] = var0.readString();
 				}
 			}
 
@@ -249,18 +249,18 @@ public class class9 {
 				class333 var19 = (class333)class217.method4362(class333.method5480(), var0.method8153());
 				boolean var21 = var0.method8341() == 1;
 				var10 = var0.method8154();
-				var11 = var0.field4878;
+				var11 = var0.offset;
 				if (var4.field910 != null && null != var4.field911) {
 					boolean var20 = false;
-					if (var19.field3858 && class217.field2588.method1049(var4.field910)) {
+					if (var19.field3858 && class217.friends.method1049(var4.field910)) {
 						var20 = true;
 					}
 
 					if (!var20 && client.field1830 == 0 && !var4.field913) {
-						class102.field1021.field4878 = 0;
-						var0.method8195(class102.field1021.field4881, 0, var10);
-						class102.field1021.field4878 = 0;
-						String var17 = class384.method6864(class158.method2630(class307.method5489(class102.field1021)));
+						PlayerManager.field1021.offset = 0;
+						var0.method8195(PlayerManager.field1021.data, 0, var10);
+						PlayerManager.field1021.offset = 0;
+						String var17 = class384.method6864(class158.method2630(class307.method5489(PlayerManager.field1021)));
 						var4.field822 = var17.trim();
 						var4.field801 = var7 >> 8;
 						var4.field819 = var7 & 255;
@@ -274,18 +274,18 @@ public class class9 {
 						}
 
 						if (var19.field3856 != -1) {
-							class42.method773(var14, class96.method5151(var19.field3856) + var4.field910.method8451(), var17);
+							MouseManager.method773(var14, class96.method5151(var19.field3856) + var4.field910.method8451(), var17);
 						} else {
-							class42.method773(var14, var4.field910.method8451(), var17);
+							MouseManager.method773(var14, var4.field910.method8451(), var17);
 						}
 					}
 				}
 
-				var0.field4878 = var11 + var10;
+				var0.offset = var11 + var10;
 			}
 
 			if ((var5 & 1024) != 0) {
-				class102.field1010[var3] = (class197)class217.method4362(class197.method7499(), var0.method8158());
+				PlayerManager.field1010[var3] = (class197)class217.method4362(class197.method7499(), var0.method8158());
 			}
 
 			if (var4.field919) {
@@ -296,7 +296,7 @@ public class class9 {
 					if (var6 != class197.field2119.field2117) {
 						var18 = (class197)class217.method4362(class197.method7499(), var6);
 					} else {
-						var18 = class102.field1010[var3];
+						var18 = PlayerManager.field1010[var3];
 					}
 
 					var4.method1938(var4.field920, var4.field892, var18);
@@ -307,20 +307,20 @@ public class class9 {
 	}
 
 	static void method64(int var0) {
-		if (client.field1766 != var0) {
-			if (30 == client.field1766) {
+		if (client.gameState != var0) {
+			if (30 == client.gameState) {
 				client.field1877.method3521();
 			}
 
-			if (client.field1766 == 0) {
+			if (client.gameState == 0) {
 				class133.field1257.method472();
 			}
 
 			if (var0 == 20 || var0 == 40 || var0 == 45 || var0 == 50) {
-				class43.method801(0);
+				class43.setLoginState(0);
 				client.field1668 = 0;
 				client.field1669 = 0;
-				client.field1698.method6843(var0);
+				client.timer.method6843(var0);
 				if (var0 != 20) {
 					class49.method996(false);
 				}
@@ -331,7 +331,7 @@ public class class9 {
 				class218.field2589 = null;
 			}
 
-			if (client.field1766 == 25) {
+			if (client.gameState == 25) {
 				client.field1725 = 0;
 				client.field1700 = 0;
 				client.field1631 = 1;
@@ -341,52 +341,52 @@ public class class9 {
 
 			if (var0 != 5 && var0 != 10) {
 				if (var0 == 20) {
-					int var4 = 11 == client.field1766 ? 4 : 0;
+					int var4 = 11 == client.gameState ? 4 : 0;
 					class404.method7362(class243.field2846, class155.field1425, false, var4);
 				} else if (var0 == 11) {
 					class404.method7362(class243.field2846, class155.field1425, false, 4);
 				} else if (var0 == 50) {
-					class75.method5452("", "Updating date of birth...", "");
+					Login.setLoginResponseString("", "Updating date of birth...", "");
 					class404.method7362(class243.field2846, class155.field1425, false, 7);
 				} else {
 					class333.method6267();
 				}
 			} else {
-				boolean var2 = class413.field4575.method1797() >= client.field1637;
+				boolean var2 = class413.clientPreferences.method1797() >= client.field1637;
 				int var3 = var2 ? 0 : 12;
 				class404.method7362(class243.field2846, class155.field1425, true, var3);
 			}
 
-			client.field1766 = var0;
+			client.gameState = var0;
 		}
 	}
 
 	static final void method63(int var0, int var1, int var2, int var3) {
 		++client.field1745;
-		if (client.field1889 == class291.field3364.field827 >> 7 && client.field1890 == class291.field3364.field802 >> 7) {
-			client.field1889 = 0;
+		if (client.destinationX == class291.field3364.field827 >> 7 && client.destinationY == class291.field3364.field802 >> 7) {
+			client.destinationX = 0;
 		}
 
 		class353.method6566();
-		if (client.field1775 >= 0 && null != client.field1763[client.field1775]) {
-			class17.method200(client.field1763[client.field1775], false);
+		if (client.combatTargetPlayerIndex >= 0 && null != client.players[client.combatTargetPlayerIndex]) {
+			class17.method200(client.players[client.combatTargetPlayerIndex], false);
 		}
 
 		class315.method6071(true);
-		int var5 = class102.field1012;
-		int[] var6 = class102.field1013;
+		int var5 = PlayerManager.playerCount;
+		int[] var6 = PlayerManager.field1013;
 
 		int var7;
 		for (var7 = 0; var7 < var5; ++var7) {
-			if (client.field1775 != var6[var7] && var6[var7] != client.field1764) {
-				class17.method200(client.field1763[var6[var7]], true);
+			if (client.combatTargetPlayerIndex != var6[var7] && var6[var7] != client.localPlayerIndex) {
+				class17.method200(client.players[var6[var7]], true);
 			}
 		}
 
 		class315.method6071(false);
 		class19.method228();
 		class203.method3865();
-		class42.method795(var0, var1, var2, var3, true);
+		MouseManager.method795(var0, var1, var2, var3, true);
 		var0 = client.field1915;
 		var1 = client.field1634;
 		var2 = client.field1917;
@@ -450,11 +450,11 @@ public class class9 {
 			}
 		}
 
-		var13 = class42.field284;
-		var14 = class42.field285;
-		if (0 != class42.field277) {
-			var13 = class42.field283;
-			var14 = class42.field293;
+		var13 = MouseManager.field284;
+		var14 = MouseManager.field285;
+		if (0 != MouseManager.field277) {
+			var13 = MouseManager.field283;
+			var14 = MouseManager.field293;
 		}
 
 		int var15;
@@ -481,7 +481,7 @@ public class class9 {
 		class349.method6457();
 		class145.field1333.method4136();
 		class123.method2326(var0, var1, var2, var3);
-		if (2 == client.field1652) {
+		if (2 == client.hintArrowType) {
 			class230.method4536((client.field1655 - class36.field241 << 7) + client.field1866, client.field1684 + (client.field1656 - class169.field1536 << 7), client.field1913 * 2);
 			if (client.field1809 > -1 && client.field1645 % 20 < 10) {
 				class176.field1585[0].method8526(var0 + client.field1809 - 12, var1 + client.field1747 - 28);
@@ -495,15 +495,15 @@ public class class9 {
 		class323.field3766 = var10;
 		class414.field4588 = var11;
 		class237.field2807 = var12;
-		if (client.field1828) {
+		if (client.isLoading) {
 			byte var17 = 0;
 			int var19 = var17 + class324.field3780 + class324.field3778;
 			if (var19 == 0) {
-				client.field1828 = false;
+				client.isLoading = false;
 			}
 		}
 
-		if (client.field1828) {
+		if (client.isLoading) {
 			class481.method8660(var0, var1, var2, var3, 0);
 			class131.method2399(class338.field3902, false);
 		}

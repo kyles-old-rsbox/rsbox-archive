@@ -24,7 +24,7 @@ public class class331 {
 
 	static final void method6260(int var0, int var1, int var2, int var3, int var4, int var5, int var6) {
 		if (var2 >= 1 && var3 >= 1 && var2 <= 102 && var3 <= 102) {
-			if (client.field1636 && var0 != class55.field396) {
+			if (client.isLowDetail && var0 != class55.field396) {
 				return;
 			}
 
@@ -57,7 +57,7 @@ public class class331 {
 				class195 var14;
 				if (var1 == 0) {
 					class145.field1333.method4232(var0, var2, var3);
-					var14 = class89.method1866(var40);
+					var14 = InterfaceParent.method1866(var40);
 					if (var14.field2070 != 0) {
 						client.field1884[var0].method3759(var2, var3, var41, var42, var14.field2071);
 					}
@@ -69,7 +69,7 @@ public class class331 {
 
 				if (var1 == 2) {
 					class145.field1333.method4170(var0, var2, var3);
-					var14 = class89.method1866(var40);
+					var14 = InterfaceParent.method1866(var40);
 					if (var14.field2100 + var2 > 103 || var14.field2100 + var3 > 103 || var14.field2069 + var2 > 103 || var3 + var14.field2069 > 103) {
 						return;
 					}
@@ -81,7 +81,7 @@ public class class331 {
 
 				if (var1 == 3) {
 					class145.field1333.method4142(var0, var2, var3);
-					var14 = class89.method1866(var40);
+					var14 = InterfaceParent.method1866(var40);
 					if (var14.field2070 == 1) {
 						client.field1884[var0].method3743(var2, var3);
 					}
@@ -96,7 +96,7 @@ public class class331 {
 
 				class214 var43 = class145.field1333;
 				class200 var15 = client.field1884[var0];
-				class195 var16 = class89.method1866(var4);
+				class195 var16 = InterfaceParent.method1866(var4);
 				int var17;
 				int var18;
 				if (var5 != 1 && var5 != 3) {
@@ -238,7 +238,7 @@ public class class331 {
 								var36 = 16;
 								var37 = var43.method4185(var0, var2, var3);
 								if (var37 != 0L) {
-									var36 = class89.method1866(class234.method1610(var37)).field2077;
+									var36 = InterfaceParent.method1866(class234.method1610(var37)).field2077;
 								}
 
 								if (var16.field2076 == -1 && var16.field2094 == null) {
@@ -252,7 +252,7 @@ public class class331 {
 								var36 = 8;
 								var37 = var43.method4185(var0, var2, var3);
 								if (0L != var37) {
-									var36 = class89.method1866(class234.method1610(var37)).field2077 / 2;
+									var36 = InterfaceParent.method1866(class234.method1610(var37)).field2077 / 2;
 								}
 
 								if (-1 == var16.field2076 && null == var16.field2094) {
@@ -275,7 +275,7 @@ public class class331 {
 								var36 = 8;
 								var37 = var43.method4185(var0, var2, var3);
 								if (var37 != 0L) {
-									var36 = class89.method1866(class234.method1610(var37)).field2077 / 2;
+									var36 = InterfaceParent.method1866(class234.method1610(var37)).field2077 / 2;
 								}
 
 								int var35 = var5 + 2 & 3;

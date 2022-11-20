@@ -15,12 +15,12 @@ public class class282 {
 
 	}
 
-	public static int method5406(class460 var0, String var1) {
-		int var3 = var0.field4878;
+	public static int method5406(Buffer var0, String var1) {
+		int var3 = var0.offset;
 		byte[] var4 = class262.method5149(var1);
 		var0.method8247(var4.length);
-		var0.field4878 += class307.field3673.method6052(var4, 0, var4.length, var0.field4881, var0.field4878);
-		return var0.field4878 - var3;
+		var0.offset += class307.field3673.method6052(var4, 0, var4.length, var0.data, var0.offset);
+		return var0.offset - var3;
 	}
 
 	class282() throws Throwable {
@@ -54,11 +54,11 @@ public class class282 {
 	}
 
 	static int method5416(int var0) {
-		class63 var2 = (class63)class110.field1089.method7788((long)var0);
+		class63 var2 = (class63) MessagesManager.hashTable.method7788((long)var0);
 		if (null == var2) {
 			return -1;
 		} else {
-			return class110.field1088.field4305 == var2.field4725 ? -1 : ((class63)var2.field4725).field496;
+			return MessagesManager.queue.field4305 == var2.field4725 ? -1 : ((class63)var2.field4725).field496;
 		}
 	}
 

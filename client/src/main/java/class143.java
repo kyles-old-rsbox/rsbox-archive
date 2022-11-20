@@ -3,15 +3,15 @@ public class class143 {
 	long field1321;
 	long field1324;
 
-	public class143(class460 var1) {
+	public class143(Buffer var1) {
 		this.field1324 = -1L;
 		this.field1323 = new class350();
 		this.method2495(var1);
 	}
 
-	void method2495(class460 var1) {
-		this.field1321 = var1.method8127();
-		this.field1324 = var1.method8127();
+	void method2495(Buffer var1) {
+		this.field1321 = var1.readLong();
+		this.field1324 = var1.readLong();
 
 		for (int var3 = var1.method8141(); var3 != 0; var3 = var1.method8141()) {
 			Object var4;
@@ -55,7 +55,7 @@ public class class143 {
 
 			for (int var3 = 0; var3 < var2.length; ++var3) {
 				int var4 = var2[var3];
-				class195 var5 = class89.method1866(var4);
+				class195 var5 = InterfaceParent.method1866(var4);
 				if (var5.field2081 != -1) {
 					return true;
 				}
@@ -68,15 +68,15 @@ public class class143 {
 	}
 
 	static final void method2492(class300 var0, int var1, int var2) {
-		if (client.field1709 == 0 || 3 == client.field1709) {
-			if (!client.field1784 && (class42.field277 == 1 || !class95.field944 && 4 == class42.field277)) {
+		if (client.minimapState == 0 || 3 == client.minimapState) {
+			if (!client.isMenuOpen && (MouseManager.field277 == 1 || !class95.field944 && 4 == MouseManager.field277)) {
 				class298 var4 = var0.method5859(true);
 				if (null == var4) {
 					return;
 				}
 
-				int var5 = class42.field283 - var1;
-				int var6 = class42.field293 - var2;
+				int var5 = MouseManager.field283 - var1;
+				int var6 = MouseManager.field293 - var2;
 				if (var4.method5837(var5, var6)) {
 					var5 -= var4.field3435 / 2;
 					var6 -= var4.field3433 / 2;
@@ -87,24 +87,24 @@ public class class143 {
 					int var11 = var9 * var6 - var5 * var8 >> 11;
 					int var12 = var10 + class291.field3364.field827 >> 7;
 					int var13 = class291.field3364.field802 - var11 >> 7;
-					class263 var14 = class185.method3435(class274.field3052, client.field1778.field1071);
-					var14.field2984.method8104(18);
-					var14.field2984.method8161(var13 + class169.field1536);
-					var14.field2984.method8264(client.field1876.method3895(82) ? (client.field1876.method3895(81) ? 2 : 1) : 0);
-					var14.field2984.method8337(class36.field241 + var12);
-					var14.field2984.method8104(var5);
-					var14.field2984.method8104(var6);
-					var14.field2984.method8181(client.field1672);
-					var14.field2984.method8104(57);
-					var14.field2984.method8104(0);
-					var14.field2984.method8104(0);
-					var14.field2984.method8104(89);
-					var14.field2984.method8181(class291.field3364.field827);
-					var14.field2984.method8181(class291.field3364.field802);
-					var14.field2984.method8104(63);
-					client.field1778.method2078(var14);
-					client.field1889 = var12;
-					client.field1890 = var13;
+					PacketBufferNode var14 = class185.method3435(class274.field3052, client.packetWriter.isaacRandom);
+					var14.buffer.writeByte(18);
+					var14.buffer.method8161(var13 + class169.field1536);
+					var14.buffer.method8264(client.field1876.method3895(82) ? (client.field1876.method3895(81) ? 2 : 1) : 0);
+					var14.buffer.method8337(class36.field241 + var12);
+					var14.buffer.writeByte(var5);
+					var14.buffer.writeByte(var6);
+					var14.buffer.writeShort(client.field1672);
+					var14.buffer.writeByte(57);
+					var14.buffer.writeByte(0);
+					var14.buffer.writeByte(0);
+					var14.buffer.writeByte(89);
+					var14.buffer.writeShort(class291.field3364.field827);
+					var14.buffer.writeShort(class291.field3364.field802);
+					var14.buffer.writeByte(63);
+					client.packetWriter.add(var14);
+					client.destinationX = var12;
+					client.destinationY = var13;
 				}
 			}
 
@@ -125,7 +125,7 @@ public class class143 {
 
 				return 1;
 			} else if (var0 == CS2Opcodes.GETDEFAULTWINDOWMODE) {
-				class57.field404[++class387.field4452 - 1] = class413.field4575.method1726();
+				class57.field404[++class387.field4452 - 1] = class413.clientPreferences.method1726();
 				return 1;
 			} else if (var0 != CS2Opcodes.SETDEFAULTWINDOWMODE) {
 				if (var0 == CS2Opcodes._5310) {
@@ -137,7 +137,7 @@ public class class143 {
 			} else {
 				var4 = class57.field404[--class387.field4452];
 				if (var4 == 1 || var4 == 2) {
-					class413.field4575.method1778(var4);
+					class413.clientPreferences.method1778(var4);
 				}
 
 				return 1;

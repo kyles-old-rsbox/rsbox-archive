@@ -29,11 +29,11 @@ public class class405 {
 		}
 	}
 
-	static final class89 method7370(int var0, int var1, int var2) {
-		class89 var4 = new class89();
+	static final InterfaceParent method7370(int var0, int var1, int var2) {
+		InterfaceParent var4 = new InterfaceParent();
 		var4.field796 = var1;
 		var4.field797 = var2;
-		client.field1810.method7857(var4, (long)var0);
+		client.parentInterfaces.method7857(var4, (long)var0);
 		class82.method1699(var1);
 		class300 var5 = class282.method5426(var0);
 		class136.method2438(var5);
@@ -44,8 +44,8 @@ public class class405 {
 
 		class26.method349(class300.field3593[var0 >> 16], var5, false);
 		class134.method2421(var1);
-		if (-1 != client.field1893) {
-			class217.method4361(client.field1893, 1);
+		if (-1 != client.rootInterface) {
+			class217.method4361(client.rootInterface, 1);
 		}
 
 		return var4;

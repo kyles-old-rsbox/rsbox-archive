@@ -9,8 +9,8 @@ public class class14 {
 		this.field70 = var3;
 	}
 
-	class14(class460 var1) {
-		this(var1.method8141(), var1.method8141(), var1.method8131());
+	class14(Buffer var1) {
+		this(var1.method8141(), var1.method8141(), var1.readString());
 	}
 
 	String method122() {

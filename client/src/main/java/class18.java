@@ -101,7 +101,7 @@ public class class18 implements class360 {
 		return this.field83;
 	}
 
-	public int method6663() {
+	public int rsOrdinal() {
 		return this.field93;
 	}
 

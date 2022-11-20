@@ -57,19 +57,19 @@ public class class88 implements class360 {
 		this.field792 = var2;
 	}
 
-	public int method6663() {
+	public int rsOrdinal() {
 		return this.field792;
 	}
 
-	public static void method1865(class453 var0) {
+	public static void method1865(PacketBuffer var0) {
 		class43 var2 = (class43)class45.field329.method6465();
 		if (var2 != null) {
-			int var3 = var0.field4878;
-			var0.method8241(var2.field307);
+			int var3 = var0.offset;
+			var0.writeInt(var2.field307);
 
 			for (int var4 = 0; var4 < var2.field309; ++var4) {
 				if (var2.field300[var4] != 0) {
-					var0.method8104(var2.field300[var4]);
+					var0.writeByte(var2.field300[var4]);
 				} else {
 					try {
 						int var5 = var2.field301[var4];
@@ -78,17 +78,17 @@ public class class88 implements class360 {
 						if (var5 == 0) {
 							var6 = var2.field303[var4];
 							var7 = var6.getInt((Object)null);
-							var0.method8104(0);
-							var0.method8241(var7);
+							var0.writeByte(0);
+							var0.writeInt(var7);
 						} else if (var5 == 1) {
 							var6 = var2.field303[var4];
 							var6.setInt((Object)null, var2.field304[var4]);
-							var0.method8104(0);
+							var0.writeByte(0);
 						} else if (var5 == 2) {
 							var6 = var2.field303[var4];
 							var7 = var6.getModifiers();
-							var0.method8104(0);
-							var0.method8241(var7);
+							var0.writeByte(0);
+							var0.writeInt(var7);
 						}
 
 						Method var26;
@@ -96,8 +96,8 @@ public class class88 implements class360 {
 							if (var5 == 4) {
 								var26 = var2.field305[var4];
 								var7 = var26.getModifiers();
-								var0.method8104(0);
-								var0.method8241(var7);
+								var0.writeByte(0);
+								var0.writeInt(var7);
 							}
 						} else {
 							var26 = var2.field305[var4];
@@ -111,41 +111,41 @@ public class class88 implements class360 {
 
 							Object var12 = var26.invoke((Object)null, var8);
 							if (null == var12) {
-								var0.method8104(0);
+								var0.writeByte(0);
 							} else if (var12 instanceof Number) {
-								var0.method8104(1);
-								var0.method8109(((Number)var12).longValue());
+								var0.writeByte(1);
+								var0.writeLong(((Number)var12).longValue());
 							} else if (var12 instanceof String) {
-								var0.method8104(2);
-								var0.method8111((String)var12);
+								var0.writeByte(2);
+								var0.writeString((String)var12);
 							} else {
-								var0.method8104(4);
+								var0.writeByte(4);
 							}
 						}
 					} catch (ClassNotFoundException var14) {
-						var0.method8104(-10);
+						var0.writeByte(-10);
 					} catch (InvalidClassException var15) {
-						var0.method8104(-11);
+						var0.writeByte(-11);
 					} catch (StreamCorruptedException var16) {
-						var0.method8104(-12);
+						var0.writeByte(-12);
 					} catch (OptionalDataException var17) {
-						var0.method8104(-13);
+						var0.writeByte(-13);
 					} catch (IllegalAccessException var18) {
-						var0.method8104(-14);
+						var0.writeByte(-14);
 					} catch (IllegalArgumentException var19) {
-						var0.method8104(-15);
+						var0.writeByte(-15);
 					} catch (InvocationTargetException var20) {
-						var0.method8104(-16);
+						var0.writeByte(-16);
 					} catch (SecurityException var21) {
-						var0.method8104(-17);
+						var0.writeByte(-17);
 					} catch (IOException var22) {
-						var0.method8104(-18);
+						var0.writeByte(-18);
 					} catch (NullPointerException var23) {
-						var0.method8104(-19);
+						var0.writeByte(-19);
 					} catch (Exception var24) {
-						var0.method8104(-20);
+						var0.writeByte(-20);
 					} catch (Throwable var25) {
-						var0.method8104(-21);
+						var0.writeByte(-21);
 					}
 				}
 			}
@@ -264,9 +264,9 @@ public class class88 implements class360 {
 							var9 = class57.field404[class387.field4452 + 1];
 							var10 = class213.method4120(var9);
 							if (var10.method3567()) {
-								class57.field405[++class126.field1220 - 1] = class89.method1866(var8).method3590(var9, var10.field2041);
+								class57.field405[++class126.field1220 - 1] = InterfaceParent.method1866(var8).method3590(var9, var10.field2041);
 							} else {
-								class57.field404[++class387.field4452 - 1] = class89.method1866(var8).method3614(var9, var10.field2043);
+								class57.field404[++class387.field4452 - 1] = InterfaceParent.method1866(var8).method3614(var9, var10.field2043);
 							}
 
 							return 1;
@@ -298,7 +298,7 @@ public class class88 implements class360 {
 							class57.field404[++class387.field4452 - 1] = client.field1640 ? 1 : 0;
 							return 1;
 						} else if (var0 == CS2Opcodes.CLIENTTYPE) {
-							class57.field404[++class387.field4452 - 1] = client.field1704;
+							class57.field404[++class387.field4452 - 1] = client.clientType;
 							return 1;
 						} else if (var0 == CS2Opcodes._6520) {
 							return 1;

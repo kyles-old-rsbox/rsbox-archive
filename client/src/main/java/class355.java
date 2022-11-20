@@ -10,7 +10,7 @@ public class class355 implements Iterable {
 		this.field4305.field4725 = this.field4305;
 	}
 
-	public void method6597() {
+	public void clear() {
 		while (this.field4305.field4724 != this.field4305) {
 			this.field4305.field4724.method7889();
 		}

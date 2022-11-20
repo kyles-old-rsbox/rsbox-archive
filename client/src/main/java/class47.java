@@ -21,7 +21,7 @@ public class class47 implements Runnable {
 	}
 
 	static final boolean method962(int var0, int var1) {
-		class195 var3 = class89.method1866(var0);
+		class195 var3 = InterfaceParent.method1866(var0);
 		if (var1 == 11) {
 			var1 = 10;
 		}

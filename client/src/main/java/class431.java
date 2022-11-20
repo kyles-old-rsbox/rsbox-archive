@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 public class class431 implements class419 {
-	public static class460 field4704;
+	public static Buffer field4704;
 	final Map field4703;
 
 	public class431(Map var1) {

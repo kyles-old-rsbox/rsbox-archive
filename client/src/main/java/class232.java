@@ -14,7 +14,7 @@ public class class232 extends class251 {
 	}
 
 	void method4543() {
-		this.field2755 = class89.method1866(this.field2756).method3588().field2081;
+		this.field2755 = InterfaceParent.method1866(this.field2756).method3588().field2081;
 		this.field2758 = this.field2757.method4761(class90.method1885(this.field2755));
 		class160 var2 = class90.method1885(this.method5024());
 		class473 var3 = var2.method2644(false);

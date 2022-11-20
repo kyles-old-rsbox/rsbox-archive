@@ -258,10 +258,10 @@ public class class190 implements class29 {
 
 	static final void method3532(String var0) {
 		if (!var0.equals("")) {
-			class263 var2 = class185.method3435(class274.field3049, client.field1778.field1071);
-			var2.field2984.method8104(class460.method1887(var0));
-			var2.field2984.method8111(var0);
-			client.field1778.method2078(var2);
+			PacketBufferNode var2 = class185.method3435(class274.field3049, client.packetWriter.isaacRandom);
+			var2.buffer.writeByte(Buffer.method1887(var0));
+			var2.buffer.writeString(var0);
+			client.packetWriter.add(var2);
 		}
 	}
 
@@ -270,12 +270,12 @@ public class class190 implements class29 {
 			if (var1 >= 0 && var1 < client.field1883[var0].method2512()) {
 				class133 var3 = (class133)client.field1883[var0].field1347.get(var1);
 				if (var3.field1256 == -1) {
-					class263 var4 = class185.method3435(class274.field3114, client.field1778.field1071);
-					var4.field2984.method8104(3 + class460.method1887(var3.field1254.method8451()));
-					var4.field2984.method8104(var0);
-					var4.field2984.method8181(var1);
-					var4.field2984.method8111(var3.field1254.method8451());
-					client.field1778.method2078(var4);
+					PacketBufferNode var4 = class185.method3435(class274.field3114, client.packetWriter.isaacRandom);
+					var4.buffer.writeByte(3 + Buffer.method1887(var3.field1254.method8451()));
+					var4.buffer.writeByte(var0);
+					var4.buffer.writeShort(var1);
+					var4.buffer.writeString(var3.field1254.method8451());
+					client.packetWriter.add(var4);
 				}
 			}
 		}

@@ -108,21 +108,21 @@ public class class305 {
 		}
 	}
 
-	public void method6016(class460 var1) {
-		var1.method8104(this.field3639);
+	public void method6016(Buffer var1) {
+		var1.writeByte(this.field3639);
 
 		int var3;
 		for (var3 = 0; var3 < 7; ++var3) {
 			int var4 = this.field3646[field3642[var3]];
 			if (var4 == 0) {
-				var1.method8104(-1);
+				var1.writeByte(-1);
 			} else {
-				var1.method8104(var4 - 256);
+				var1.writeByte(var4 - 256);
 			}
 		}
 
 		for (var3 = 0; var3 < 5; ++var3) {
-			var1.method8104(this.field3637[var3]);
+			var1.writeByte(this.field3637[var3]);
 		}
 
 	}

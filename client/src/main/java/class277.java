@@ -1,6 +1,6 @@
 public class class277 {
 	static final byte[] field3164;
-	class460 field3167;
+	Buffer field3167;
 	int field3159;
 	int field3168;
 	int[] field3156;
@@ -14,30 +14,30 @@ public class class277 {
 	}
 
 	class277() {
-		this.field3167 = new class460((byte[])null);
+		this.field3167 = new Buffer((byte[])null);
 	}
 
 	class277(byte[] var1) {
-		this.field3167 = new class460((byte[])null);
+		this.field3167 = new Buffer((byte[])null);
 		this.method5226(var1);
 	}
 
 	void method5226(byte[] var1) {
-		this.field3167.field4881 = var1;
-		this.field3167.field4878 = 10;
-		int var2 = this.field3167.method8122();
-		this.field3168 = this.field3167.method8122();
+		this.field3167.data = var1;
+		this.field3167.offset = 10;
+		int var2 = this.field3167.readUnsignedShort();
+		this.field3168 = this.field3167.readUnsignedShort();
 		this.field3159 = 500000;
 		this.field3156 = new int[var2];
 
-		class460 var10000;
+		Buffer var10000;
 		int var3;
 		int var5;
-		for (var3 = 0; var3 < var2; var10000.field4878 += var5) {
+		for (var3 = 0; var3 < var2; var10000.offset += var5) {
 			int var4 = this.field3167.method8126();
 			var5 = this.field3167.method8126();
 			if (var4 == 1297379947) {
-				this.field3156[var3] = this.field3167.field4878;
+				this.field3156[var3] = this.field3167.offset;
 				++var3;
 			}
 
@@ -56,7 +56,7 @@ public class class277 {
 	}
 
 	void method5256() {
-		this.field3167.field4881 = null;
+		this.field3167.data = null;
 		this.field3156 = null;
 		this.field3158 = null;
 		this.field3161 = null;
@@ -64,7 +64,7 @@ public class class277 {
 	}
 
 	boolean method5228() {
-		return this.field3167.field4881 != null;
+		return this.field3167.data != null;
 	}
 
 	int method5227() {
@@ -72,15 +72,15 @@ public class class277 {
 	}
 
 	void method5230(int var1) {
-		this.field3167.field4878 = this.field3158[var1];
+		this.field3167.offset = this.field3158[var1];
 	}
 
 	void method5231(int var1) {
-		this.field3158[var1] = this.field3167.field4878;
+		this.field3158[var1] = this.field3167.offset;
 	}
 
 	void method5254() {
-		this.field3167.field4878 = -1;
+		this.field3167.offset = -1;
 	}
 
 	void method5233(int var1) {
@@ -95,12 +95,12 @@ public class class277 {
 	}
 
 	int method5235(int var1) {
-		byte var2 = this.field3167.field4881[this.field3167.field4878];
+		byte var2 = this.field3167.data[this.field3167.offset];
 		int var5;
 		if (var2 < 0) {
 			var5 = var2 & 255;
 			this.field3160[var1] = var5;
-			++this.field3167.field4878;
+			++this.field3167.offset;
 		} else {
 			var5 = this.field3160[var1];
 		}
@@ -110,16 +110,16 @@ public class class277 {
 		} else {
 			int var3 = this.field3167.method8235();
 			if (var5 == 247 && var3 > 0) {
-				int var4 = this.field3167.field4881[this.field3167.field4878] & 255;
+				int var4 = this.field3167.data[this.field3167.offset] & 255;
 				if (var4 >= 241 && var4 <= 243 || var4 == 246 || var4 == 248 || var4 >= 250 && var4 <= 252 || var4 == 254) {
-					++this.field3167.field4878;
+					++this.field3167.offset;
 					this.field3160[var1] = var4;
 					return this.method5236(var1, var4);
 				}
 			}
 
-			class460 var10000 = this.field3167;
-			var10000.field4878 += var3;
+			Buffer var10000 = this.field3167;
+			var10000.offset += var3;
 			return 0;
 		}
 	}
@@ -129,10 +129,10 @@ public class class277 {
 		if (var2 == 255) {
 			int var7 = this.field3167.method8141();
 			var4 = this.field3167.method8235();
-			class460 var10000;
+			Buffer var10000;
 			if (var7 == 47) {
 				var10000 = this.field3167;
-				var10000.field4878 += var4;
+				var10000.offset += var4;
 				return 1;
 			} else if (var7 == 81) {
 				int var5 = this.field3167.method8312();
@@ -141,11 +141,11 @@ public class class277 {
 				this.field3163 += (long)var6 * (long)(this.field3159 - var5);
 				this.field3159 = var5;
 				var10000 = this.field3167;
-				var10000.field4878 += var4;
+				var10000.offset += var4;
 				return 2;
 			} else {
 				var10000 = this.field3167;
-				var10000.field4878 += var4;
+				var10000.offset += var4;
 				return 3;
 			}
 		} else {
@@ -201,9 +201,9 @@ public class class277 {
 		for (int var4 = 0; var4 < var3; ++var4) {
 			this.field3161[var4] = 0;
 			this.field3160[var4] = 0;
-			this.field3167.field4878 = this.field3156[var4];
+			this.field3167.offset = this.field3156[var4];
 			this.method5233(var4);
-			this.field3158[var4] = this.field3167.field4878;
+			this.field3158[var4] = this.field3167.offset;
 		}
 
 	}

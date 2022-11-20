@@ -124,7 +124,7 @@ public class class262 {
 				long var8 = class145.field1333.method4151(class55.field396, var6, var7);
 				if (0L != var8) {
 					int var10 = class234.method1610(var8);
-					int var11 = class89.method1866(var10).field2081;
+					int var11 = InterfaceParent.method1866(var10).field2081;
 					if (var11 >= 0 && class90.method1885(var11).field1463) {
 						client.field1818[client.field1885] = class90.method1885(var11).method2644(false);
 						client.field1834[client.field1885] = var6;

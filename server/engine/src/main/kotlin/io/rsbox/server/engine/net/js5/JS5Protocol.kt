@@ -18,9 +18,7 @@
 package io.rsbox.server.engine.net.js5
 
 import com.google.common.primitives.Ints
-import io.guthix.js5.container.Js5Compression
 import io.guthix.js5.container.Js5Container
-import io.guthix.js5.container.Uncompressed
 import io.netty.buffer.ByteBuf
 import io.rsbox.server.cache.GameCache
 import io.rsbox.server.common.inject
@@ -100,13 +98,13 @@ class JS5Protocol(session: Session) : Protocol(session) {
                     includeSizes = false
                 )
                 val container = Js5Container(validator.encode())
-                val data = container.encode()
-                bytes = ByteArray(data.readableBytes())
-                data.readBytes(bytes)
+                val buf = container.encode()
+                bytes = ByteArray(buf.readableBytes())
+                buf.readBytes(bytes)
             } else {
-                val data = cache.read(archive, group)
-                bytes = ByteArray(data.readableBytes())
-                data.readBytes(bytes)
+                val buf = cache.read(archive, group)
+                bytes = ByteArray(buf.readableBytes())
+                buf.readBytes(bytes)
             }
         } else {
             val buf = cache.read(archive, group)
@@ -115,8 +113,8 @@ class JS5Protocol(session: Session) : Protocol(session) {
             if(data.isNotEmpty()) {
                 val compression = data[0]
                 val size = Ints.fromBytes(data[1], data[2], data[3], data[4])
-                val targetSize = size + (if(compression.toInt() != 0) 9 else 5)
-                if(targetSize != size && data.size - targetSize == 2) {
+                val expectedSize = size + (if(compression.toInt() != 0) 9 else 5)
+                if(expectedSize != size && data.size - expectedSize == 2) {
                     data = data.copyOf(data.size - 2)
                 }
                 bytes = data
@@ -126,11 +124,9 @@ class JS5Protocol(session: Session) : Protocol(session) {
             }
         }
 
-        val response = JS5Response(archive, group, bytes)
-        if(!cachedResponses.containsKey(this)) {
-            cachedResponses[this] = response
+        return JS5Response(archive, group, bytes).also {
+            cachedResponses[this] = it
         }
-        return response
     }
 
     companion object {

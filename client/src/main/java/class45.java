@@ -187,14 +187,14 @@ public class class45 {
 			class279.field3201.method5365();
 			class279.field3202 = 1;
 			class7.field29 = null;
-		} else if (var0 != -1 && var0 != client.field1748 && class413.field4575.method1716() != 0 && !client.field1781) {
+		} else if (var0 != -1 && var0 != client.field1748 && class413.clientPreferences.method1716() != 0 && !client.field1781) {
 			class336 var2 = class43.field311;
-			int var3 = class413.field4575.method1716();
+			int var3 = class413.clientPreferences.method1716();
 			class279.field3202 = 1;
 			class7.field29 = var2;
 			class279.field3203 = var0;
 			class279.field3204 = 0;
-			class110.field1092 = var3;
+			MessagesManager.field1092 = var3;
 			class337.field3889 = false;
 			class13.field67 = 2;
 		}

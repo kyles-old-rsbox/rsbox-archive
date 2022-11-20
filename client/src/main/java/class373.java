@@ -20,7 +20,7 @@ public class class373 extends class396 {
 	}
 
 	void method6765() {
-		this.field4384 = class217.field2588.field380.method7359(super.field4503) ? class410.field4551 : class410.field4552;
+		this.field4384 = class217.friends.field380.method7359(super.field4503) ? class410.field4551 : class410.field4552;
 	}
 
 	void method6754() {
@@ -36,6 +36,6 @@ public class class373 extends class396 {
 	}
 
 	void method6767() {
-		this.field4383 = class217.field2588.field376.method7359(super.field4503) ? class410.field4551 : class410.field4552;
+		this.field4383 = class217.friends.field376.method7359(super.field4503) ? class410.field4551 : class410.field4552;
 	}
 }

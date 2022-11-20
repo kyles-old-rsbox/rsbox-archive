@@ -13,9 +13,9 @@ public class class73 {
 	String field604;
 
 	public static void method1488() {
-		if (null != class42.field292) {
-			synchronized(class42.field292) {
-				class42.field292 = null;
+		if (null != MouseManager.field292) {
+			synchronized(MouseManager.field292) {
+				MouseManager.field292 = null;
 			}
 		}
 
@@ -35,7 +35,7 @@ public class class73 {
 						method1486(var4.field3602, var4.field3517);
 					}
 
-					class89 var5 = (class89)client.field1810.method7855((long)var4.field3517);
+					InterfaceParent var5 = (InterfaceParent)client.parentInterfaces.method7855((long)var4.field3517);
 					if (var5 != null) {
 						class378.method6804(var5.field796);
 					}
@@ -44,7 +44,7 @@ public class class73 {
 				if (var4.field3462 == 6) {
 					int var6;
 					if (var4.field3575 != -1 || var4.field3509 != -1) {
-						boolean var9 = class42.method796(var4);
+						boolean var9 = MouseManager.method796(var4);
 						if (var9) {
 							var6 = var4.field3509;
 						} else {
@@ -99,7 +99,7 @@ public class class73 {
 		class298 var5 = var0.method5859(false);
 		if (null != var5) {
 			class481.method8653(var1, var2, var1 + var5.field3435, var2 + var5.field3433);
-			if (client.field1709 != 2 && 5 != client.field1709) {
+			if (client.minimapState != 2 && 5 != client.minimapState) {
 				int var6 = client.field1672 & 2047;
 				int var7 = 48 + class291.field3364.field827 / 32;
 				int var8 = 464 - class291.field3364.field802 / 32;
@@ -118,7 +118,7 @@ public class class73 {
 				int var13;
 				for (var9 = 0; var9 < 104; ++var9) {
 					for (var10 = 0; var10 < 104; ++var10) {
-						class343 var15 = client.field1865[class55.field396][var9][var10];
+						NodeDeque var15 = client.groundItems[class55.field396][var9][var10];
 						if (null != var15) {
 							var12 = var9 * 4 + 2 - class291.field3364.field827 / 32;
 							var13 = 2 + var10 * 4 - class291.field3364.field802 / 32;
@@ -127,8 +127,8 @@ public class class73 {
 					}
 				}
 
-				for (var9 = 0; var9 < client.field1691; ++var9) {
-					class81 var16 = client.field1902[client.field1692[var9]];
+				for (var9 = 0; var9 < client.npcCount; ++var9) {
+					class81 var16 = client.npcs[client.field1692[var9]];
 					if (var16 != null && var16.method1869()) {
 						class203 var18 = var16.field709;
 						if (null != var18 && null != var18.field2278) {
@@ -143,11 +143,11 @@ public class class73 {
 					}
 				}
 
-				var9 = class102.field1012;
-				int[] var19 = class102.field1013;
+				var9 = PlayerManager.playerCount;
+				int[] var19 = PlayerManager.field1013;
 
 				for (var11 = 0; var11 < var9; ++var11) {
-					class93 var17 = client.field1763[var19[var11]];
+					class93 var17 = client.players[var19[var11]];
 					if (var17 != null && var17.method1869() && !var17.field913 && var17 != class291.field3364) {
 						var13 = var17.field827 / 32 - class291.field3364.field827 / 32;
 						int var14 = var17.field802 / 32 - class291.field3364.field802 / 32;
@@ -165,9 +165,9 @@ public class class73 {
 					}
 				}
 
-				if (0 != client.field1652 && client.field1645 % 20 < 10) {
-					if (client.field1652 == 1 && client.field1879 >= 0 && client.field1879 < client.field1902.length) {
-						class81 var20 = client.field1902[client.field1879];
+				if (0 != client.hintArrowType && client.field1645 % 20 < 10) {
+					if (client.hintArrowType == 1 && client.field1879 >= 0 && client.field1879 < client.npcs.length) {
+						class81 var20 = client.npcs[client.field1879];
 						if (null != var20) {
 							var12 = var20.field827 / 32 - class291.field3364.field827 / 32;
 							var13 = var20.field802 / 32 - class291.field3364.field802 / 32;
@@ -175,14 +175,14 @@ public class class73 {
 						}
 					}
 
-					if (client.field1652 == 2) {
+					if (client.hintArrowType == 2) {
 						var11 = 2 + (client.field1655 * 4 - class36.field241 * 4) - class291.field3364.field827 / 32;
 						var12 = 2 + (client.field1656 * 4 - class169.field1536 * 4) - class291.field3364.field802 / 32;
 						class41.method764(var1, var2, var11, var12, class210.field2462[1], var5);
 					}
 
-					if (10 == client.field1652 && client.field1654 >= 0 && client.field1654 < client.field1763.length) {
-						class93 var21 = client.field1763[client.field1654];
+					if (10 == client.hintArrowType && client.field1654 >= 0 && client.field1654 < client.players.length) {
+						class93 var21 = client.players[client.field1654];
 						if (null != var21) {
 							var12 = var21.field827 / 32 - class291.field3364.field827 / 32;
 							var13 = var21.field802 / 32 - class291.field3364.field802 / 32;
@@ -191,9 +191,9 @@ public class class73 {
 					}
 				}
 
-				if (0 != client.field1889) {
-					var11 = 2 + client.field1889 * 4 - class291.field3364.field827 / 32;
-					var12 = 2 + client.field1890 * 4 - class291.field3364.field802 / 32;
+				if (0 != client.destinationX) {
+					var11 = 2 + client.destinationX * 4 - class291.field3364.field827 / 32;
+					var12 = 2 + client.destinationY * 4 - class291.field3364.field802 / 32;
 					class275.method5224(var1, var2, var11, var12, class210.field2462[0], var5);
 				}
 

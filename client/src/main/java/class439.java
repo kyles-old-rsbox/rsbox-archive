@@ -56,41 +56,41 @@ public class class439 extends class427 {
 		this.field4751 = var26;
 	}
 
-	public void method7903(class460 var1) {
-		var1.method8104(9);
-		var1.method8104(this.field4747);
-		var1.method8104(this.field4738 ? 1 : 0);
-		var1.method8181(this.field4737);
-		var1.method8104(this.field4740);
-		var1.method8104(this.field4741);
-		var1.method8104(this.field4731);
-		var1.method8104(this.field4743);
-		var1.method8104(this.field4744 ? 1 : 0);
-		var1.method8181(this.field4729);
-		var1.method8104(this.field4746);
-		var1.method8106(this.field4742);
-		var1.method8181(this.field4756);
+	public void write(Buffer var1) {
+		var1.writeByte(9);
+		var1.writeByte(this.field4747);
+		var1.writeByte(this.field4738 ? 1 : 0);
+		var1.writeShort(this.field4737);
+		var1.writeByte(this.field4740);
+		var1.writeByte(this.field4741);
+		var1.writeByte(this.field4731);
+		var1.writeByte(this.field4743);
+		var1.writeByte(this.field4744 ? 1 : 0);
+		var1.writeShort(this.field4729);
+		var1.writeByte(this.field4746);
+		var1.writeMedium(this.field4742);
+		var1.writeShort(this.field4756);
 		var1.method8112(this.field4749);
 		var1.method8112(this.field4750);
 		var1.method8112(this.field4732);
 		var1.method8112(this.field4752);
-		var1.method8104(this.field4754);
-		var1.method8181(this.field4761);
+		var1.writeByte(this.field4754);
+		var1.writeShort(this.field4761);
 		var1.method8112(this.field4757);
 		var1.method8112(this.field4758);
-		var1.method8104(this.field4745);
-		var1.method8104(this.field4733);
+		var1.writeByte(this.field4745);
+		var1.writeByte(this.field4733);
 
 		for (int var3 = 0; var3 < this.field4759.length; ++var3) {
-			var1.method8241(this.field4759[var3]);
+			var1.writeInt(this.field4759[var3]);
 		}
 
-		var1.method8241(this.field4760);
+		var1.writeInt(this.field4760);
 		var1.method8112(this.field4748);
 		var1.method8112(this.field4751);
 	}
 
-	public int method7900() {
+	public int size() {
 		byte var2 = 39;
 		String var5 = this.field4749;
 		int var4 = var5.length() + 2;

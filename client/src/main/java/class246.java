@@ -108,8 +108,8 @@ public final class class246 {
 			System.nanoTime();
 			int var5 = var1.method6124(class242.field2838.field2837);
 			int var6 = var1.method6170(var5, var2);
-			class460 var7 = new class460(var1.method6148(class242.field2838.field2837, var2));
-			class460 var8 = new class460(var1.method6148(class242.field2833.field2837, var2));
+			Buffer var7 = new Buffer(var1.method6148(class242.field2838.field2837, var2));
+			Buffer var8 = new Buffer(var1.method6148(class242.field2833.field2837, var2));
 			System.nanoTime();
 			System.nanoTime();
 			this.field2866 = new class257();
@@ -359,9 +359,9 @@ public final class class246 {
 							class300.field3593[var0][var3] = new class300();
 							class300.field3593[var0][var3].field3517 = var3 + (var0 << 16);
 							if (-1 == var4[0]) {
-								class300.field3593[var0][var3].method5848(new class460(var4));
+								class300.field3593[var0][var3].method5848(new Buffer(var4));
 							} else {
-								class300.field3593[var0][var3].method5847(new class460(var4));
+								class300.field3593[var0][var3].method5847(new Buffer(var4));
 							}
 						}
 					}

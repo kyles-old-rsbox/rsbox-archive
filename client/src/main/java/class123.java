@@ -29,7 +29,7 @@ public class class123 {
 				byte[] var5 = class173.field1560.method6175(19, var2);
 				var4 = new class173();
 				if (var5 != null) {
-					var4.method2738(new class460(var5));
+					var4.method2738(new Buffer(var5));
 				}
 
 				class173.field1561.method5434(var4, (long)var2);
@@ -82,7 +82,7 @@ public class class123 {
 		return this.field1194[var1];
 	}
 
-	void method2310() {
+	void clear() {
 		int var2;
 		for (var2 = 0; var2 < this.field1190.length; ++var2) {
 			if (!this.field1190[var2]) {
@@ -117,31 +117,31 @@ public class class123 {
 					if (var8 instanceof Integer) {
 						var3 += 4;
 					} else if (var8 instanceof String) {
-						var3 += class460.method1887((String)var8);
+						var3 += Buffer.method1887((String)var8);
 					}
 
 					++var4;
 				}
 			}
 
-			class460 var24 = new class460(var3);
-			var24.method8104(2);
-			var24.method8181(var4);
+			Buffer var24 = new Buffer(var3);
+			var24.writeByte(2);
+			var24.writeShort(var4);
 			Iterator var25 = this.field1192.entrySet().iterator();
 
 			while (var25.hasNext()) {
 				Entry var13 = (Entry)var25.next();
 				int var14 = (Integer)var13.getKey();
 				if (this.field1190[var14]) {
-					var24.method8181(var14);
+					var24.writeShort(var14);
 					Object var9 = var13.getValue();
 					class451 var10 = class451.method7973(var9.getClass());
-					var24.method8104(var10.field4846);
+					var24.writeByte(var10.field4846);
 					class451.method7981(var9, var24);
 				}
 			}
 
-			var2.method8370(var24.field4881, 0, var24.field4878);
+			var2.method8370(var24.data, 0, var24.offset);
 		} catch (Exception var22) {
 		} finally {
 			try {
@@ -170,8 +170,8 @@ public class class123 {
 					}
 				}
 
-				class460 var15 = new class460(var3);
-				if (var15.field4881.length - var15.field4878 >= 1) {
+				Buffer var15 = new Buffer(var3);
+				if (var15.data.length - var15.offset >= 1) {
 					int var16 = var15.method8141();
 					if (var16 < 0 || var16 > 2) {
 						return;
@@ -182,7 +182,7 @@ public class class123 {
 					int var10;
 					int var17;
 					if (var16 >= 2) {
-						var17 = var15.method8122();
+						var17 = var15.readUnsignedShort();
 						var8 = 0;
 
 						while (true) {
@@ -190,7 +190,7 @@ public class class123 {
 								break label212;
 							}
 
-							var9 = var15.method8122();
+							var9 = var15.readUnsignedShort();
 							var10 = var15.method8141();
 							class451 var11 = (class451)class217.method4362(class451.method7984(), var10);
 							Object var12 = var11.method7974(var15);
@@ -201,17 +201,17 @@ public class class123 {
 							++var8;
 						}
 					} else {
-						var17 = var15.method8122();
+						var17 = var15.readUnsignedShort();
 
 						for (var8 = 0; var8 < var17; ++var8) {
-							var9 = var15.method8122();
+							var9 = var15.readUnsignedShort();
 							var10 = var15.method8126();
 							if (this.field1190[var9]) {
 								this.field1192.put(var9, var10);
 							}
 						}
 
-						var8 = var15.method8122();
+						var8 = var15.readUnsignedShort();
 						var9 = 0;
 
 						while (true) {
@@ -219,8 +219,8 @@ public class class123 {
 								break label212;
 							}
 
-							var15.method8122();
-							var15.method8131();
+							var15.readUnsignedShort();
+							var15.readString();
 							++var9;
 						}
 					}
@@ -257,15 +257,15 @@ public class class123 {
 		boolean var5 = false;
 		int var6 = -1;
 		int var7 = -1;
-		int var8 = class102.field1012;
-		int[] var9 = class102.field1013;
+		int var8 = PlayerManager.playerCount;
+		int[] var9 = PlayerManager.field1013;
 
 		int var10;
-		for (var10 = 0; var10 < client.field1691 + var8; ++var10) {
+		for (var10 = 0; var10 < client.npcCount + var8; ++var10) {
 			Object var11;
 			if (var10 < var8) {
-				var11 = client.field1763[var9[var10]];
-				if (var9[var10] == client.field1775) {
+				var11 = client.players[var9[var10]];
+				if (var9[var10] == client.combatTargetPlayerIndex) {
 					var5 = true;
 					var6 = var10;
 					continue;
@@ -276,7 +276,7 @@ public class class123 {
 					continue;
 				}
 			} else {
-				var11 = client.field1902[client.field1692[var10 - var8]];
+				var11 = client.npcs[client.field1692[var10 - var8]];
 			}
 
 			class142.method2486((class90)var11, var10, var0, var1, var2, var3);
@@ -287,7 +287,7 @@ public class class123 {
 		}
 
 		if (var5) {
-			class142.method2486(client.field1763[client.field1775], var6, var0, var1, var2, var3);
+			class142.method2486(client.players[client.combatTargetPlayerIndex], var6, var0, var1, var2, var3);
 		}
 
 		for (var10 = 0; var10 < client.field1661; ++var10) {

@@ -119,7 +119,7 @@ public class class420 {
 		this.field4614 = new HashMap(var9.length);
 
 		for (int var10 = 0; var10 < var9.length; ++var10) {
-			class460 var11 = new class460(this.field4609.method6175(var8, var9[var10]));
+			Buffer var11 = new Buffer(this.field4609.method6175(var8, var9[var10]));
 			class254 var12 = new class254();
 			var12.method5073(var11, var9[var10]);
 			this.field4614.put(var12.method5054(), var12);
@@ -229,9 +229,9 @@ public class class420 {
 					}
 
 					if (var10) {
-						class263 var13 = class185.method3435(class274.field3081, client.field1778.field1071);
-						var13.field2984.method8241(this.field4654.method5522());
-						client.field1778.method2078(var13);
+						PacketBufferNode var13 = class185.method3435(class274.field3081, client.packetWriter.isaacRandom);
+						var13.buffer.writeInt(this.field4654.method5522());
+						client.packetWriter.add(var13);
 						this.field4640 = 0L;
 					}
 				}

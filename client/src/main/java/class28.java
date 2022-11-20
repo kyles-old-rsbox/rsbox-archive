@@ -27,7 +27,7 @@ public class class28 {
 			byte[] var3 = class458.field4873.method6175(39, var0);
 			var2 = new class458();
 			if (null != var3) {
-				var2.method8079(new class460(var3));
+				var2.method8079(new Buffer(var3));
 			}
 
 			var2.method8081();
@@ -311,12 +311,12 @@ public class class28 {
 	}
 
 	static void method400() {
-		if (null == class75.field633 || class75.field633.length() <= 0) {
-			if (class413.field4575.method1722() != null) {
-				class75.field633 = class413.field4575.method1722();
-				client.field1891 = true;
+		if (null == Login.username || Login.username.length() <= 0) {
+			if (class413.clientPreferences.method1722() != null) {
+				Login.username = class413.clientPreferences.method1722();
+				client.isUsernameRemembered = true;
 			} else {
-				client.field1891 = false;
+				client.isUsernameRemembered = false;
 			}
 
 		}

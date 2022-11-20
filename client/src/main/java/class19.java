@@ -17,11 +17,11 @@ class class19 implements TlsAuthentication {
 	}
 
 	static final void method228() {
-		for (class66 var1 = (class66)client.field1853.method6364(); null != var1; var1 = (class66)client.field1853.method6358()) {
+		for (class66 var1 = (class66)client.projectiles.method6364(); null != var1; var1 = (class66)client.projectiles.method6358()) {
 			if (var1.field537 == class55.field396 && client.field1645 <= var1.field520) {
 				if (client.field1645 >= var1.field528) {
 					if (var1.field523 > 0) {
-						class81 var2 = client.field1902[var1.field523 - 1];
+						class81 var2 = client.npcs[var1.field523 - 1];
 						if (var2 != null && var2.field827 >= 0 && var2.field827 < 13312 && var2.field802 >= 0 && var2.field802 < 13312) {
 							var1.method1380(var2.field827, var2.field802, class144.method2498(var2.field827, var2.field802, var1.field537) - var1.field521, client.field1645);
 						}
@@ -30,10 +30,10 @@ class class19 implements TlsAuthentication {
 					if (var1.field523 < 0) {
 						int var3 = -var1.field523 - 1;
 						class93 var4;
-						if (client.field1764 == var3) {
+						if (client.localPlayerIndex == var3) {
 							var4 = class291.field3364;
 						} else {
-							var4 = client.field1763[var3];
+							var4 = client.players[var3];
 						}
 
 						if (var4 != null && var4.field827 >= 0 && var4.field827 < 13312 && var4.field802 >= 0 && var4.field802 < 13312) {

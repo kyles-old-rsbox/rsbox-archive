@@ -18,15 +18,15 @@ public class class459 extends class437 {
 
 	public class459(class319 var1, int var2, int var3) {
 		byte[] var4 = var1.method6175(var2, var3 + 1);
-		this.method8092(new class460(var4));
+		this.method8092(new Buffer(var4));
 	}
 
 	public class459(class319 var1, int var2) {
 		byte[] var3 = var1.method6175(var2, 0);
-		this.method8092(new class460(var3));
+		this.method8092(new Buffer(var3));
 	}
 
-	void method8092(class460 var1) {
+	void method8092(Buffer var1) {
 		int var3 = var1.method8142();
 		this.field4876 = new class451[var3];
 		this.field4875 = new ArrayList(var3);

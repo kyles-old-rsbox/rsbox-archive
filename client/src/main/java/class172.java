@@ -73,15 +73,15 @@ public class class172 implements Runnable {
 			try {
 				int var5 = var1.field1618;
 				if (var5 == 1) {
-					var1.field1612 = new Socket(InetAddress.getByName((String)var1.field1617), var1.field1611);
+					var1.socket = new Socket(InetAddress.getByName((String)var1.field1617), var1.field1611);
 				} else if (var5 == 2) {
 					Thread var3 = new Thread((Runnable)var1.field1617);
 					var3.setDaemon(true);
 					var3.start();
 					var3.setPriority(var1.field1611);
-					var1.field1612 = var3;
+					var1.socket = var3;
 				} else if (var5 == 4) {
-					var1.field1612 = new DataInputStream(((URL)var1.field1617).openStream());
+					var1.socket = new DataInputStream(((URL)var1.field1617).openStream());
 				}
 
 				var1.field1614 = 1;
@@ -93,7 +93,7 @@ public class class172 implements Runnable {
 		}
 	}
 
-	static final void method2733(class453 var0) {
+	static final void method2733(PacketBuffer var0) {
 		int var2 = 0;
 		var0.method8013();
 
@@ -101,18 +101,18 @@ public class class172 implements Runnable {
 		int var3;
 		int var4;
 		int var5;
-		for (var3 = 0; var3 < class102.field1012; ++var3) {
-			var4 = class102.field1013[var3];
-			if ((class102.field1019[var4] & 1) == 0) {
+		for (var3 = 0; var3 < PlayerManager.playerCount; ++var3) {
+			var4 = PlayerManager.field1013[var3];
+			if ((PlayerManager.field1019[var4] & 1) == 0) {
 				if (var2 > 0) {
 					--var2;
-					var10000 = class102.field1019;
+					var10000 = PlayerManager.field1019;
 					var10000[var4] = (byte)(var10000[var4] | 2);
 				} else {
 					var5 = var0.method8014(1);
 					if (var5 == 0) {
 						var2 = class57.method1273(var0);
-						var10000 = class102.field1019;
+						var10000 = PlayerManager.field1019;
 						var10000[var4] = (byte)(var10000[var4] | 2);
 					} else {
 						class62.method1339(var0, var4);
@@ -127,18 +127,18 @@ public class class172 implements Runnable {
 		} else {
 			var0.method8013();
 
-			for (var3 = 0; var3 < class102.field1012; ++var3) {
-				var4 = class102.field1013[var3];
-				if ((class102.field1019[var4] & 1) != 0) {
+			for (var3 = 0; var3 < PlayerManager.playerCount; ++var3) {
+				var4 = PlayerManager.field1013[var3];
+				if ((PlayerManager.field1019[var4] & 1) != 0) {
 					if (var2 > 0) {
 						--var2;
-						var10000 = class102.field1019;
+						var10000 = PlayerManager.field1019;
 						var10000[var4] = (byte)(var10000[var4] | 2);
 					} else {
 						var5 = var0.method8014(1);
 						if (var5 == 0) {
 							var2 = class57.method1273(var0);
-							var10000 = class102.field1019;
+							var10000 = PlayerManager.field1019;
 							var10000[var4] = (byte)(var10000[var4] | 2);
 						} else {
 							class62.method1339(var0, var4);
@@ -153,21 +153,21 @@ public class class172 implements Runnable {
 			} else {
 				var0.method8013();
 
-				for (var3 = 0; var3 < class102.field1017; ++var3) {
-					var4 = class102.field1015[var3];
-					if (0 != (class102.field1019[var4] & 1)) {
+				for (var3 = 0; var3 < PlayerManager.field1017; ++var3) {
+					var4 = PlayerManager.field1015[var3];
+					if (0 != (PlayerManager.field1019[var4] & 1)) {
 						if (var2 > 0) {
 							--var2;
-							var10000 = class102.field1019;
+							var10000 = PlayerManager.field1019;
 							var10000[var4] = (byte)(var10000[var4] | 2);
 						} else {
 							var5 = var0.method8014(1);
 							if (var5 == 0) {
 								var2 = class57.method1273(var0);
-								var10000 = class102.field1019;
+								var10000 = PlayerManager.field1019;
 								var10000[var4] = (byte)(var10000[var4] | 2);
 							} else if (class399.method7221(var0, var4)) {
-								var10000 = class102.field1019;
+								var10000 = PlayerManager.field1019;
 								var10000[var4] = (byte)(var10000[var4] | 2);
 							}
 						}
@@ -180,21 +180,21 @@ public class class172 implements Runnable {
 				} else {
 					var0.method8013();
 
-					for (var3 = 0; var3 < class102.field1017; ++var3) {
-						var4 = class102.field1015[var3];
-						if ((class102.field1019[var4] & 1) == 0) {
+					for (var3 = 0; var3 < PlayerManager.field1017; ++var3) {
+						var4 = PlayerManager.field1015[var3];
+						if ((PlayerManager.field1019[var4] & 1) == 0) {
 							if (var2 > 0) {
 								--var2;
-								var10000 = class102.field1019;
+								var10000 = PlayerManager.field1019;
 								var10000[var4] = (byte)(var10000[var4] | 2);
 							} else {
 								var5 = var0.method8014(1);
 								if (var5 == 0) {
 									var2 = class57.method1273(var0);
-									var10000 = class102.field1019;
+									var10000 = PlayerManager.field1019;
 									var10000[var4] = (byte)(var10000[var4] | 2);
 								} else if (class399.method7221(var0, var4)) {
-									var10000 = class102.field1019;
+									var10000 = PlayerManager.field1019;
 									var10000[var4] = (byte)(var10000[var4] | 2);
 								}
 							}
@@ -205,17 +205,17 @@ public class class172 implements Runnable {
 					if (var2 != 0) {
 						throw new RuntimeException();
 					} else {
-						class102.field1012 = 0;
-						class102.field1017 = 0;
+						PlayerManager.playerCount = 0;
+						PlayerManager.field1017 = 0;
 
 						for (var3 = 1; var3 < 2048; ++var3) {
-							var10000 = class102.field1019;
+							var10000 = PlayerManager.field1019;
 							var10000[var3] = (byte)(var10000[var3] >> 1);
-							class93 var6 = client.field1763[var3];
+							class93 var6 = client.players[var3];
 							if (var6 != null) {
-								class102.field1013[++class102.field1012 - 1] = var3;
+								PlayerManager.field1013[++PlayerManager.playerCount - 1] = var3;
 							} else {
-								class102.field1015[++class102.field1017 - 1] = var3;
+								PlayerManager.field1015[++PlayerManager.field1017 - 1] = var3;
 							}
 						}
 

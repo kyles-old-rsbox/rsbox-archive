@@ -23,10 +23,10 @@ public class class174 extends class140 {
 		this.field1565 = null;
 	}
 
-	void method2467(class460 var1) {
+	void method2467(Buffer var1) {
 		if (var1.method8141() != 255) {
-			--var1.field4878;
-			this.field1568 = var1.method8127();
+			--var1.offset;
+			this.field1568 = var1.readLong();
 		}
 
 		this.field1565 = var1.method8305();

@@ -2,7 +2,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class class312 {
-	static class401 field3697;
+	static AbstractSocket js5Socket;
 	class109 field3696;
 	class473 field3695;
 
@@ -49,7 +49,7 @@ public class class312 {
 			if ((!var1 || var6.field2175) && -1 == var6.field2166 && var6.field2131.toLowerCase().indexOf(var0) != -1) {
 				if (var4 >= 250) {
 					class157.field1437 = -1;
-					class102.field1009 = null;
+					PlayerManager.field1009 = null;
 					return;
 				}
 
@@ -67,7 +67,7 @@ public class class312 {
 			}
 		}
 
-		class102.field1009 = var3;
+		PlayerManager.field1009 = var3;
 		class369.field4362 = 0;
 		class157.field1437 = var4;
 		String[] var9 = new String[class157.field1437];
@@ -76,6 +76,6 @@ public class class312 {
 			var9[var10] = class278.method5388(var3[var10]).field2131;
 		}
 
-		class446.method7363(var9, class102.field1009);
+		class446.method7363(var9, PlayerManager.field1009);
 	}
 }

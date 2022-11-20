@@ -9,7 +9,7 @@ public class class214 {
 	static class219[] field2538;
 	static class219[][] field2535;
 	static class227[] field2524;
-	static class343 field2546;
+	static NodeDeque field2546;
 	static int field2494;
 	static int field2495;
 	static int field2499;
@@ -74,7 +74,7 @@ public class class214 {
 		field2535 = new class219[field2536][500];
 		field2537 = 0;
 		field2538 = new class219[500];
-		field2546 = new class343();
+		field2546 = new NodeDeque();
 		field2540 = new int[]{19, 55, 38, 155, 255, 110, 137, 205, 76};
 		field2547 = new int[]{160, 192, 80, 96, 0, 144, 80, 48, 160};
 		field2542 = new int[]{76, 8, 137, 4, 0, 1, 38, 2, 19};

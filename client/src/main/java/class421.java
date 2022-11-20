@@ -48,7 +48,7 @@ public final class class421 implements Iterable {
 		var1.field4681 = var2;
 	}
 
-	public void method7782() {
+	public void clear() {
 		for (int var1 = 0; var1 < this.field4664; ++var1) {
 			class427 var2 = this.field4667[var1];
 

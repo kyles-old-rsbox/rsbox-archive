@@ -1,5 +1,5 @@
 public class class119 {
-	static int[] field1157;
+	static int[] reconnectXteas;
 	class119 field1156;
 	float field1150;
 	float field1151;
@@ -15,7 +15,7 @@ public class class119 {
 		this.field1155 = Float.MAX_VALUE;
 	}
 
-	void method2268(class460 var1, int var2) {
+	void method2268(Buffer var1, int var2) {
 		this.field1153 = var1.method8204();
 		this.field1150 = var1.method8128();
 		this.field1152 = var1.method8128();

@@ -1,5 +1,5 @@
 public class class180 extends class140 {
-	static int field1608;
+	static int worldPort;
 	int field1606;
 	long field1607;
 	// $FF: synthetic field
@@ -25,9 +25,9 @@ public class class180 extends class140 {
 		this.this$0 = var1;
 	}
 
-	void method2467(class460 var1) {
+	void method2467(Buffer var1) {
 		this.field1606 = var1.method8126();
-		this.field1607 = var1.method8127();
+		this.field1607 = var1.readLong();
 	}
 
 	void method2468(class148 var1) {

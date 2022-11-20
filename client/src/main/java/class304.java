@@ -19,7 +19,7 @@ public class class304 implements class360 {
 		this.field3630 = var1;
 	}
 
-	public int method6663() {
+	public int rsOrdinal() {
 		return this.field3630;
 	}
 }

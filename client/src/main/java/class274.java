@@ -229,7 +229,7 @@ public class class274 implements class273 {
 			byte[] var3 = class178.field1593.method6175(16, var0);
 			var2 = new class178();
 			if (var3 != null) {
-				var2.method2837(new class460(var3));
+				var2.method2837(new Buffer(var3));
 			}
 
 			class178.field1590.method5434(var2, (long)var0);

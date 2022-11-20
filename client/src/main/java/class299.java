@@ -2,11 +2,11 @@ public class class299 extends class51 {
 	public static boolean[] field3442;
 	public static class319 field3439;
 	class278 field3443;
-	class343 field3440;
+	NodeDeque field3440;
 	class38 field3441;
 
 	class299(class278 var1) {
-		this.field3440 = new class343();
+		this.field3440 = new NodeDeque();
 		this.field3441 = new class38();
 		this.field3443 = var1;
 	}

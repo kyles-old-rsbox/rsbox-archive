@@ -278,14 +278,14 @@ public class class59 {
 		}
 	}
 
-	final void method1293(class460 var1) {
+	final void method1293(Buffer var1) {
 		this.field430 = new class35();
 		this.field430.method657(var1);
 		this.field422 = new class35();
 		this.field422.method657(var1);
 		int var2 = var1.method8141();
 		if (var2 != 0) {
-			--var1.field4878;
+			--var1.offset;
 			this.field434 = new class35();
 			this.field434.method657(var1);
 			this.field424 = new class35();
@@ -294,7 +294,7 @@ public class class59 {
 
 		var2 = var1.method8141();
 		if (var2 != 0) {
-			--var1.field4878;
+			--var1.offset;
 			this.field425 = new class35();
 			this.field425.method657(var1);
 			this.field426 = new class35();
@@ -303,7 +303,7 @@ public class class59 {
 
 		var2 = var1.method8141();
 		if (var2 != 0) {
-			--var1.field4878;
+			--var1.offset;
 			this.field427 = new class35();
 			this.field427.method657(var1);
 			this.field437 = new class35();
@@ -323,8 +323,8 @@ public class class59 {
 
 		this.field432 = var1.method8207();
 		this.field429 = var1.method8207();
-		this.field436 = var1.method8122();
-		this.field428 = var1.method8122();
+		this.field436 = var1.readUnsignedShort();
+		this.field428 = var1.readUnsignedShort();
 		this.field433 = new class67();
 		this.field435 = new class35();
 		this.field433.method1397(var1, this.field435);

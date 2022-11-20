@@ -53,6 +53,6 @@ public class class114 extends class393 {
 	}
 
 	public static boolean method2218() {
-		return client.field1750 >= 2;
+		return client.privilegeLevel >= 2;
 	}
 }

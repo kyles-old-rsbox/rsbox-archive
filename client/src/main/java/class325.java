@@ -139,8 +139,8 @@ public class class325 {
 						return 2;
 					}
 				} else {
-					if (null != class102.field1009 && class369.field4362 < class157.field1437) {
-						class57.field404[++class387.field4452 - 1] = class102.field1009[++class369.field4362 - 1] & '\uffff';
+					if (null != PlayerManager.field1009 && class369.field4362 < class157.field1437) {
+						class57.field404[++class387.field4452 - 1] = PlayerManager.field1009[++class369.field4362 - 1] & '\uffff';
 					} else {
 						class57.field404[++class387.field4452 - 1] = -1;
 					}

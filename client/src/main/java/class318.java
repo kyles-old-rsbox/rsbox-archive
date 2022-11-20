@@ -19,21 +19,21 @@ public class class318 implements class360 {
 		this.field3730 = var1;
 	}
 
-	public int method6663() {
+	public int rsOrdinal() {
 		return this.field3730;
 	}
 
 	static final void method6083(boolean var0) {
 		class349.method6457();
-		++client.field1778.field1077;
-		if (client.field1778.field1077 >= 50 || var0) {
-			client.field1778.field1077 = 0;
-			if (!client.field1697 && client.field1778.method2082() != null) {
-				class263 var2 = class185.method3435(class274.field3083, client.field1778.field1071);
-				client.field1778.method2078(var2);
+		++client.packetWriter.field1077;
+		if (client.packetWriter.field1077 >= 50 || var0) {
+			client.packetWriter.field1077 = 0;
+			if (!client.field1697 && client.packetWriter.method2082() != null) {
+				PacketBufferNode var2 = class185.method3435(class274.field3083, client.packetWriter.isaacRandom);
+				client.packetWriter.add(var2);
 
 				try {
-					client.field1778.method2081();
+					client.packetWriter.flush();
 				} catch (IOException var4) {
 					client.field1697 = true;
 				}

@@ -12,9 +12,9 @@ public class class112 extends class437 {
 		this.field1105 = 0;
 		this.field1103 = var3;
 		byte[] var5 = var1.method6175(this.field1103 >> 16 & 65535, this.field1103 & 65535);
-		class460 var6 = new class460(var5);
+		Buffer var6 = new Buffer(var5);
 		int var7 = var6.method8141();
-		int var8 = var6.method8122();
+		int var8 = var6.readUnsignedShort();
 		byte[] var9;
 		if (var4) {
 			var9 = var2.method6131(0, var8);
@@ -26,11 +26,11 @@ public class class112 extends class437 {
 		this.method2145(var6, var7);
 	}
 
-	void method2145(class460 var1, int var2) {
-		var1.method8122();
-		var1.method8122();
+	void method2145(Buffer var1, int var2) {
+		var1.readUnsignedShort();
+		var1.readUnsignedShort();
 		this.field1105 = var1.method8141();
-		int var4 = var1.method8122();
+		int var4 = var1.readUnsignedShort();
 		this.field1101 = new class106[this.field1104.method4530().method4346()][];
 		this.field1102 = new class106[this.field1104.method4529()][];
 
@@ -191,134 +191,134 @@ public class class112 extends class437 {
 		}
 	}
 
-	static void method2169(int var0) {
-		int var2 = class75.field619;
+	static void loginError(int var0) {
+		int var2 = Login.field619;
 		if (var0 == -3) {
-			class75.method5452(class338.field3936, class338.field3937, class338.field4075);
+			Login.setLoginResponseString(class338.field3936, class338.field3937, class338.field4075);
 		} else if (var0 == -2) {
-			class75.method5452(class338.field4096, class338.field3940, class338.field3968);
+			Login.setLoginResponseString(class338.field4096, class338.field3940, class338.field3968);
 		} else if (var0 == -1) {
-			class75.method5452(class338.field4084, class338.field3919, class338.field3944);
+			Login.setLoginResponseString(class338.field4084, class338.field3919, class338.field3944);
 		} else if (var0 == 3) {
 			class74.method1490(3);
-			class75.field646 = 1;
+			Login.field646 = 1;
 		} else if (var0 == 4) {
 			class74.method1490(14);
-			class75.field628 = 0;
+			Login.field628 = 0;
 		} else if (var0 == 5) {
-			class75.field646 = 2;
-			class75.method5452(class338.field3948, class338.field4194, class338.field4100);
+			Login.field646 = 2;
+			Login.setLoginResponseString(class338.field3948, class338.field4194, class338.field4100);
 		} else if (var0 != 68 && (client.field1640 || var0 != 6)) {
 			if (var0 == 7) {
-				class75.method5452(class338.field3954, class338.field3955, class338.field3956);
+				Login.setLoginResponseString(class338.field3954, class338.field3955, class338.field3956);
 			} else if (var0 == 8) {
-				class75.method5452(class338.field3957, class338.field3958, class338.field3959);
+				Login.setLoginResponseString(class338.field3957, class338.field3958, class338.field3959);
 			} else if (var0 == 9) {
-				class75.method5452(class338.field4051, class338.field4091, class338.field4170);
+				Login.setLoginResponseString(class338.field4051, class338.field4091, class338.field4170);
 			} else if (var0 == 10) {
-				class75.method5452(class338.field4116, class338.field3964, class338.field4168);
+				Login.setLoginResponseString(class338.field4116, class338.field3964, class338.field4168);
 			} else if (var0 == 11) {
-				class75.method5452(class338.field4212, class338.field3967, class338.field4122);
+				Login.setLoginResponseString(class338.field4212, class338.field3967, class338.field4122);
 			} else if (var0 == 12) {
-				class75.method5452(class338.field3969, class338.field3970, class338.field3971);
+				Login.setLoginResponseString(class338.field3969, class338.field3970, class338.field3971);
 			} else if (var0 == 13) {
-				class75.method5452(class338.field3904, class338.field4002, class338.field3974);
+				Login.setLoginResponseString(class338.field3904, class338.field4002, class338.field3974);
 			} else if (var0 == 14) {
-				class75.method5452(class338.field3975, class338.field3906, class338.field3977);
+				Login.setLoginResponseString(class338.field3975, class338.field3906, class338.field3977);
 			} else if (var0 == 16) {
-				class75.method5452(class338.field3978, class338.field3979, class338.field3980);
+				Login.setLoginResponseString(class338.field3978, class338.field3979, class338.field3980);
 			} else if (var0 == 17) {
-				class75.method5452(class338.field4073, class338.field4018, class338.field3983);
+				Login.setLoginResponseString(class338.field4073, class338.field4018, class338.field3983);
 			} else if (var0 == 18) {
 				class74.method1490(14);
-				class75.field628 = 1;
+				Login.field628 = 1;
 			} else if (var0 == 19) {
-				class75.method5452(class338.field4016, class338.field3962, class338.field3989);
+				Login.setLoginResponseString(class338.field4016, class338.field3962, class338.field3989);
 			} else if (var0 == 20) {
-				class75.method5452(class338.field3990, class338.field4179, class338.field3972);
+				Login.setLoginResponseString(class338.field3990, class338.field4179, class338.field3972);
 			} else if (var0 == 22) {
-				class75.method5452(class338.field4145, class338.field3994, class338.field3995);
+				Login.setLoginResponseString(class338.field4145, class338.field3994, class338.field3995);
 			} else if (var0 == 23) {
-				class75.method5452(class338.field3996, class338.field3997, class338.field3998);
+				Login.setLoginResponseString(class338.field3996, class338.field3997, class338.field3998);
 			} else if (var0 == 24) {
-				class75.method5452(class338.field3999, class338.field4000, class338.field4001);
+				Login.setLoginResponseString(class338.field3999, class338.field4000, class338.field4001);
 			} else if (var0 == 25) {
-				class75.method5452(class338.field4023, class338.field4003, class338.field4209);
+				Login.setLoginResponseString(class338.field4023, class338.field4003, class338.field4209);
 			} else if (var0 == 26) {
-				class75.method5452(class338.field4005, class338.field4006, class338.field4007);
+				Login.setLoginResponseString(class338.field4005, class338.field4006, class338.field4007);
 			} else if (var0 == 27) {
-				class75.method5452(class338.field3920, class338.field4009, class338.field4141);
+				Login.setLoginResponseString(class338.field3920, class338.field4009, class338.field4141);
 			} else if (var0 == 31) {
-				class75.method5452(class338.field4017, class338.field3941, class338.field4164);
+				Login.setLoginResponseString(class338.field4017, class338.field3941, class338.field4164);
 			} else if (var0 == 32) {
 				class74.method1490(14);
-				class75.field628 = 2;
+				Login.field628 = 2;
 			} else if (var0 == 37) {
-				class75.method5452(class338.field4008, class338.field4024, class338.field4025);
+				Login.setLoginResponseString(class338.field4008, class338.field4024, class338.field4025);
 			} else if (var0 == 38) {
-				class75.method5452(class338.field4026, class338.field4027, class338.field4127);
+				Login.setLoginResponseString(class338.field4026, class338.field4027, class338.field4127);
 			} else if (var0 == 55) {
 				class74.method1490(8);
 			} else {
 				if (var0 == 56) {
-					class75.method5452(class338.field4161, class338.field4034, class338.field3976);
+					Login.setLoginResponseString(class338.field4161, class338.field4034, class338.field3976);
 					class9.method64(11);
 					return;
 				}
 
 				if (var0 == 57) {
-					class75.method5452(class338.field4085, class338.field4191, class338.field4038);
+					Login.setLoginResponseString(class338.field4085, class338.field4191, class338.field4038);
 					class9.method64(11);
 					return;
 				}
 
 				if (var0 == 61) {
-					class75.method5452("", "Please enter your date of birth (DD/MM/YYYY)", "");
+					Login.setLoginResponseString("", "Please enter your date of birth (DD/MM/YYYY)", "");
 					class74.method1490(7);
 				} else {
 					if (var0 == 62) {
 						class9.method64(10);
 						class74.method1490(9);
-						class75.method5452(class338.field4086, class338.field4040, class338.field4041);
+						Login.setLoginResponseString(class338.field4086, class338.field4040, class338.field4041);
 						return;
 					}
 
 					if (var0 == 63) {
 						class9.method64(10);
 						class74.method1490(9);
-						class75.method5452(class338.field4042, class338.field4043, class338.field4044);
+						Login.setLoginResponseString(class338.field4042, class338.field4043, class338.field4044);
 						return;
 					}
 
 					if (var0 == 65 || var0 == 67) {
 						class9.method64(10);
 						class74.method1490(9);
-						class75.method5452(class338.field4045, class338.field4046, class338.field4047);
+						Login.setLoginResponseString(class338.field4045, class338.field4046, class338.field4047);
 						return;
 					}
 
 					if (var0 == 71) {
 						class9.method64(10);
 						class74.method1490(7);
-						class75.method5452("There was a problem updating your DOB.", "Please try again later. If the problem ", "persists, please contact Jagex Support.");
+						Login.setLoginResponseString("There was a problem updating your DOB.", "Please try again later. If the problem ", "persists, please contact Jagex Support.");
 					} else if (var0 == 73) {
 						class9.method64(10);
 						class74.method1490(6);
-						class75.method5452(class338.field3960, class338.field4028, class338.field3918);
+						Login.setLoginResponseString(class338.field3960, class338.field4028, class338.field3918);
 					} else if (var0 == 72) {
 						class9.method64(10);
 						class74.method1490(26);
 					} else {
-						class75.method5452(class338.field4048, class338.field4049, class338.field4137);
+						Login.setLoginResponseString(class338.field4048, class338.field4049, class338.field4137);
 					}
 				}
 			}
 		} else {
-			class75.method5452(class338.field3963, class338.field3952, class338.field4181);
+			Login.setLoginResponseString(class338.field3963, class338.field3952, class338.field4181);
 		}
 
 		class9.method64(10);
-		int var5 = class75.field619;
+		int var5 = Login.field619;
 		boolean var6 = var2 != var5;
 		if (!var6 && client.field1758.method7938()) {
 			class74.method1490(9);

@@ -53,7 +53,7 @@ public class class160 extends class437 {
 			byte[] var3 = class189.field1989.method6175(12, var0);
 			var2 = new class189();
 			if (var3 != null) {
-				var2.method3467(new class460(var3));
+				var2.method3467(new Buffer(var3));
 			}
 
 			var2.method3469();
@@ -62,7 +62,7 @@ public class class160 extends class437 {
 		}
 	}
 
-	public void method2649(class460 var1) {
+	public void method2649(Buffer var1) {
 		while (true) {
 			int var3 = var1.method8141();
 			if (var3 == 0) {
@@ -73,13 +73,13 @@ public class class160 extends class437 {
 		}
 	}
 
-	void method2663(class460 var1, int var2) {
+	void method2663(Buffer var1, int var2) {
 		if (var2 == 1) {
 			this.field1468 = var1.method8140();
 		} else if (var2 == 2) {
 			this.field1478 = var1.method8140();
 		} else if (var2 == 3) {
-			this.field1470 = var1.method8131();
+			this.field1470 = var1.readString();
 		} else if (var2 == 4) {
 			this.field1475 = var1.method8312();
 		} else if (var2 == 5) {
@@ -100,7 +100,7 @@ public class class160 extends class437 {
 			} else if (var2 == 8) {
 				var1.method8141();
 			} else if (var2 >= 10 && var2 <= 14) {
-				this.field1476[var2 - 10] = var1.method8131();
+				this.field1476[var2 - 10] = var1.readString();
 			} else if (var2 == 15) {
 				var4 = var1.method8141();
 				this.field1474 = new int[var4 * 2];
@@ -126,11 +126,11 @@ public class class160 extends class437 {
 				}
 			} else if (var2 != 16) {
 				if (var2 == 17) {
-					this.field1477 = var1.method8131();
+					this.field1477 = var1.readString();
 				} else if (var2 == 18) {
 					var1.method8140();
 				} else if (var2 == 19) {
-					this.field1487 = var1.method8122();
+					this.field1487 = var1.readUnsignedShort();
 				} else if (var2 == 21) {
 					var1.method8126();
 				} else if (var2 == 22) {

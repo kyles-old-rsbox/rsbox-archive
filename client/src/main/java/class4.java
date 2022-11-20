@@ -11,9 +11,9 @@ public class class4 {
 	ExecutorService field5;
 	Future field13;
 	final class24 field8;
-	final class460 field7;
+	final Buffer field7;
 
-	public class4(class460 var1, class24 var2) {
+	public class4(Buffer var1, class24 var2) {
 		this.field5 = Executors.newSingleThreadExecutor();
 		this.field7 = var1;
 		this.field8 = var2;
@@ -29,9 +29,9 @@ public class class4 {
 		this.field5 = null;
 	}
 
-	public class460 method19() {
+	public Buffer method19() {
 		try {
-			return (class460)this.field13.get();
+			return (Buffer)this.field13.get();
 		} catch (Exception var3) {
 			return null;
 		}
@@ -47,21 +47,21 @@ public class class4 {
 		String var5 = null;
 		String var6 = null;
 		boolean var7 = false;
-		class460 var9;
+		Buffer var9;
 		File var27;
 		if (class163.field1501.exists()) {
 			try {
 				class464 var8 = new class464(class163.field1501, "rw", 10000L);
 
 				int var10;
-				for (var9 = new class460((int)var8.method8373()); var9.field4878 < var9.field4881.length; var9.field4878 += var10) {
-					var10 = var8.method8369(var9.field4881, var9.field4878, var9.field4881.length - var9.field4878);
+				for (var9 = new Buffer((int)var8.method8373()); var9.offset < var9.data.length; var9.offset += var10) {
+					var10 = var8.method8369(var9.data, var9.offset, var9.data.length - var9.offset);
 					if (var10 == -1) {
 						throw new IOException();
 					}
 				}
 
-				var9.field4878 = 0;
+				var9.offset = 0;
 				var10 = var9.method8141();
 				if (var10 < 1 || var10 > 3) {
 					throw new IOException("" + var10);
@@ -171,15 +171,15 @@ public class class4 {
 
 			try {
 				class464 var31 = new class464(class163.field1501, "rw", 10000L);
-				class460 var32 = new class460(500);
-				var32.method8104(3);
-				var32.method8104(var9 != null ? 1 : 0);
+				Buffer var32 = new Buffer(500);
+				var32.writeByte(3);
+				var32.writeByte(var9 != null ? 1 : 0);
 				var32.method8199(var26.getPath());
 				if (null != var9) {
 					var32.method8199("");
 				}
 
-				var31.method8370(var32.field4881, 0, var32.field4878);
+				var31.method8370(var32.data, 0, var32.offset);
 				var31.method8374();
 			} catch (IOException var22) {
 				var22.printStackTrace();
@@ -198,7 +198,7 @@ public class class4 {
 
 		client.field1714 = false;
 		int var8;
-		if (class42.field289 == 1 || !class95.field944 && 4 == class42.field289) {
+		if (MouseManager.field289 == 1 || !class95.field944 && 4 == MouseManager.field289) {
 			if (var5 >= var1 && var5 < var1 + 16 && var6 >= var2 && var6 < var2 + 16) {
 				var0.field3482 -= 4;
 				class136.method2438(var0);
@@ -229,7 +229,7 @@ public class class4 {
 
 	}
 
-	static final void method32(class89 var0, boolean var1) {
+	static final void closeInterface(InterfaceParent var0, boolean var1) {
 		int var3 = var0.field796;
 		int var4 = (int)var0.field4681;
 		var0.method7825();
@@ -243,8 +243,8 @@ public class class4 {
 			class136.method2438(var5);
 		}
 
-		if (-1 != client.field1893) {
-			class217.method4361(client.field1893, 1);
+		if (-1 != client.rootInterface) {
+			class217.method4361(client.rootInterface, 1);
 		}
 
 	}

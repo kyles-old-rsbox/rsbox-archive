@@ -14,7 +14,7 @@ public class class113 {
 	public class113 field1110;
 	public final int field1109;
 
-	public class113(int var1, class460 var2, boolean var3) {
+	public class113(int var1, Buffer var2, boolean var3) {
 		this.field1120 = new class412();
 		this.field1115 = true;
 		this.field1116 = new class412();

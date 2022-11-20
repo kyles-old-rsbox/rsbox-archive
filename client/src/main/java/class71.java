@@ -1,5 +1,5 @@
 public class class71 {
-	protected static boolean field574;
+	protected static boolean isFocused;
 	static class336 field578;
 	class63[] field579;
 	int field576;

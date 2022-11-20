@@ -6,11 +6,11 @@ public class class132 extends class140 {
 	final class142 this$0;
 
 	static int method2409(int var0) {
-		class63 var2 = (class63)class110.field1089.method7788((long)var0);
+		class63 var2 = (class63) MessagesManager.hashTable.method7788((long)var0);
 		if (var2 == null) {
 			return -1;
 		} else {
-			return var2.field4724 == class110.field1088.field4305 ? -1 : ((class63)var2.field4724).field496;
+			return var2.field4724 == MessagesManager.queue.field4305 ? -1 : ((class63)var2.field4724).field496;
 		}
 	}
 
@@ -20,10 +20,10 @@ public class class132 extends class140 {
 		this.field1244 = null;
 	}
 
-	void method2467(class460 var1) {
+	void method2467(Buffer var1) {
 		if (var1.method8141() != 255) {
-			--var1.field4878;
-			this.field1245 = var1.method8127();
+			--var1.offset;
+			this.field1245 = var1.readLong();
 		}
 
 		this.field1244 = var1.method8305();

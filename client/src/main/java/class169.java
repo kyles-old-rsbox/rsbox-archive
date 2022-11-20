@@ -14,7 +14,7 @@ public class class169 extends class137 {
 			byte[] var3 = class206.field2346.method6175(32, var0);
 			var2 = new class206();
 			if (var3 != null) {
-				var2.method3930(new class460(var3));
+				var2.method3930(new Buffer(var3));
 			}
 
 			class206.field2330.method5434(var2, (long)var0);
@@ -67,7 +67,7 @@ public class class169 extends class137 {
 		this.this$0 = var1;
 	}
 
-	void method2441(class460 var1) {
+	void method2441(Buffer var1) {
 		this.field1534 = var1.method8305();
 		if (this.field1534 != null) {
 			var1.method8141();

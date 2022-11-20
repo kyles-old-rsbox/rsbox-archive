@@ -31,7 +31,7 @@ public abstract class class319 {
 		int var4 = var1.length;
 		int var3 = class241.method4729(var1, 0, var4);
 		this.field3746 = var3;
-		class460 var5 = new class460(class231.method4537(var1));
+		Buffer var5 = new Buffer(class231.method4537(var1));
 		int var6 = var5.method8141();
 		if (var6 >= 5 && var6 <= 7) {
 			if (var6 >= 6) {
@@ -42,7 +42,7 @@ public abstract class class319 {
 			if (var6 >= 7) {
 				this.field3739 = var5.method8139();
 			} else {
-				this.field3739 = var5.method8122();
+				this.field3739 = var5.readUnsignedShort();
 			}
 
 			int var8 = 0;
@@ -58,7 +58,7 @@ public abstract class class319 {
 				}
 			} else {
 				for (var10 = 0; var10 < this.field3739; ++var10) {
-					this.field3734[var10] = var8 += var5.method8122();
+					this.field3734[var10] = var8 += var5.readUnsignedShort();
 					if (this.field3734[var10] > var9) {
 						var9 = this.field3734[var10];
 					}
@@ -90,7 +90,7 @@ public abstract class class319 {
 			}
 
 			for (var10 = 0; var10 < this.field3739; ++var10) {
-				this.field3733[this.field3734[var10]] = var5.method8122();
+				this.field3733[this.field3734[var10]] = var5.readUnsignedShort();
 			}
 
 			int var11;
@@ -124,7 +124,7 @@ public abstract class class319 {
 					this.field3740[var11] = new int[var12];
 
 					for (var14 = 0; var14 < var12; ++var14) {
-						var15 = this.field3740[var11][var14] = var8 += var5.method8122();
+						var15 = this.field3740[var11][var14] = var8 += var5.readUnsignedShort();
 						if (var15 > var13) {
 							var13 = var15;
 						}
@@ -345,8 +345,8 @@ public abstract class class319 {
 					var19 = class329.method6257(this.field3743[var1], false);
 				} else {
 					var19 = class329.method6257(this.field3743[var1], true);
-					class460 var9 = new class460(var19);
-					var9.method8146(var2, 5, var9.field4881.length);
+					Buffer var9 = new Buffer(var19);
+					var9.method8146(var2, 5, var9.data.length);
 				}
 
 				byte[] var21 = class231.method4537(var19);
@@ -359,9 +359,9 @@ public abstract class class319 {
 					--var10;
 					int var11 = var21[var10] & 255;
 					var10 -= var11 * var4 * 4;
-					class460 var12 = new class460(var21);
+					Buffer var12 = new Buffer(var21);
 					int[] var13 = new int[var4];
-					var12.field4878 = var10;
+					var12.offset = var10;
 
 					int var15;
 					int var16;
@@ -381,7 +381,7 @@ public abstract class class319 {
 						var13[var15] = 0;
 					}
 
-					var12.field4878 = var10;
+					var12.offset = var10;
 					var15 = 0;
 
 					for (var16 = 0; var16 < var11; ++var16) {

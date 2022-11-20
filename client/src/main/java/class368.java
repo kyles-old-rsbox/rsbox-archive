@@ -110,7 +110,7 @@ public class class368 {
 	}
 
 	static final void method6731() {
-		client.field1778.method2080();
+		client.packetWriter.method2080();
 		client.method2354();
 		class145.field1333.method4122();
 
@@ -124,7 +124,7 @@ public class class368 {
 		class7.field29 = null;
 		class279.field3203 = -1;
 		class279.field3204 = -1;
-		class110.field1092 = 0;
+		MessagesManager.field1092 = 0;
 		class337.field3889 = false;
 		class13.field67 = 2;
 		client.field1748 = -1;
@@ -137,10 +137,10 @@ public class class368 {
 		method6731();
 		switch(var0) {
 		case 1:
-			class75.method230();
+			Login.method230();
 			break;
 		case 2:
-			class75.method12();
+			Login.method12();
 		}
 
 	}
