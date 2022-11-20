@@ -59,7 +59,7 @@ class RSA {
 
     companion object {
 
-        private const val KEY_SIZE = 2048
+        private const val KEY_SIZE = 1024
 
         private val PUBLIC_KEY_FILE = File("data/rsa/public.pem")
         private val PRIVATE_KEY_FILE = File("data/rsa/private.pem")

@@ -17,6 +17,7 @@
 
 package io.rsbox.server.engine.net
 
+import io.netty.buffer.ByteBuf
 import io.netty.channel.ChannelHandlerContext
 import io.rsbox.server.engine.model.entity.Player
 import io.rsbox.server.engine.net.handshake.HandshakeProtocol
@@ -67,8 +68,9 @@ class Session(val ctx: ChannelHandlerContext) {
     }
 
     fun write(msg: Message) = ctx.write(msg)
-
+    fun write(buf: ByteBuf) = ctx.write(buf)
     fun writeAndFlush(msg: Message) = ctx.writeAndFlush(msg)
+    fun writeAndFlush(buf: ByteBuf) = ctx.writeAndFlush(buf)
 
     fun flush() = ctx.flush()
 

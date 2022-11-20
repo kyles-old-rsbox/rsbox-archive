@@ -24,7 +24,7 @@ object ClientLauncher {
      */
     const val CLIENT_TITLE = "RSBox Dev Client : v209.5"
     const val SERVER_IP = "127.0.0.1"
-    const val DEFAULT_WORLD = "301"
+    const val DEFAULT_WORLD = "1"
     var RSA_MODULUS = "a65afc7b11a18da1a1bd0e144ea1883463fa040a57341006cec6556954e275446d8b0a222076a68fb0cb6d1fcaa9e7969affe6d5c42ccdba314e465d6dcf69a2bce2c6c70abc884349a2e31bf334ba712e4f7cda455562a80f3ceb1134e6459974780798ef38221e2fa1b9bd6560e120258f366e732b75bd7a385f07a5f5330d"
     const val CACHE_DIR = "rsbox"
 

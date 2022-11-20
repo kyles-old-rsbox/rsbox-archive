@@ -24,6 +24,7 @@ import io.rsbox.server.engine.net.Protocol
 import io.rsbox.server.engine.net.Session
 import io.rsbox.server.engine.net.StatusResponse
 import io.rsbox.server.engine.net.js5.JS5Protocol
+import io.rsbox.server.engine.net.login.LoginProtocol
 
 class HandshakeProtocol(session: Session) : Protocol(session) {
 
@@ -50,11 +51,14 @@ class HandshakeProtocol(session: Session) : Protocol(session) {
             session.writeAndClose(StatusResponse.OUT_OF_DATE)
             return
         }
-        session.protocol.set(JS5Protocol(session))
         session.writeAndFlush(StatusResponse.SUCCESSFUL)
+        session.protocol.set(JS5Protocol(session))
     }
 
     private fun HandshakeRequest.LOGIN.handle() {
-        println("Login handshake")
+        session.write(StatusResponse.SUCCESSFUL)
+        session.write(session.ctx.alloc().buffer(Long.SIZE_BYTES).writeLong(session.seed))
+        session.flush()
+        session.protocol.set(LoginProtocol(session))
     }
 }
