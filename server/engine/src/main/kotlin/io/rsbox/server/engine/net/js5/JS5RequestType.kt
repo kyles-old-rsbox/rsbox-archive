@@ -15,22 +15,17 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.server.engine.net.pipeline
+package io.rsbox.server.engine.net.js5
 
-import io.netty.channel.ChannelInitializer
-import io.netty.channel.socket.SocketChannel
-import io.rsbox.server.engine.net.StatusResponse
+enum class JS5RequestType(val opcode: Int) {
+    REQUEST_PRIORITY(0),
+    REQUEST_NORMAL(1),
+    GAME_INIT(2),
+    GAME_LOADED(3),
+    GAME_READY(6);
 
-class NetworkChannelInitializer : ChannelInitializer<SocketChannel>() {
-    override fun initChannel(ch: SocketChannel) {
-        val handler = NetworkChannelHandler()
-        val encoder = NetworkChannelEncoder(handler)
-        val decoder = NetworkChannelDecoder(handler)
-
-        ch.pipeline()
-            .addLast("decoder", decoder)
-            .addLast("encoder", encoder)
-            .addLast("status-encoder", StatusResponse.Encoder())
-            .addLast("handler", handler)
+    companion object {
+        private val values = values()
+        fun fromOpcode(opcode: Int) = values.first { it.opcode == opcode }
     }
 }

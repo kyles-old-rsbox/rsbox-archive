@@ -23,6 +23,7 @@ import io.rsbox.server.engine.net.Message
 import io.rsbox.server.engine.net.Protocol
 import io.rsbox.server.engine.net.Session
 import io.rsbox.server.engine.net.StatusResponse
+import io.rsbox.server.engine.net.js5.JS5Protocol
 
 class HandshakeProtocol(session: Session) : Protocol(session) {
 
@@ -45,14 +46,12 @@ class HandshakeProtocol(session: Session) : Protocol(session) {
     }
 
     private fun HandshakeRequest.JS5.handle() {
-        // Check Revision
         if(revision != ServerConfig.REVISION) {
             session.writeAndClose(StatusResponse.OUT_OF_DATE)
             return
         }
-
+        session.protocol.set(JS5Protocol(session))
         session.writeAndFlush(StatusResponse.SUCCESSFUL)
-        println("JS5 handshake")
     }
 
     private fun HandshakeRequest.LOGIN.handle() {
