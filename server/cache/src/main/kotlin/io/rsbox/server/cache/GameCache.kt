@@ -17,38 +17,51 @@
 
 package io.rsbox.server.cache
 
+import io.guthix.js5.Js5Archive
 import io.guthix.js5.Js5Cache
-import io.guthix.js5.container.Js5Container
+import io.guthix.js5.Js5File
+import io.guthix.js5.Js5Group
 import io.guthix.js5.container.XTEA_ZERO_KEY
 import io.guthix.js5.container.disk.Js5DiskStore
+import io.netty.buffer.ByteBuf
+import io.netty.buffer.Unpooled
 import org.tinylog.kotlin.Logger
 import java.io.File
 
-class GameCache {
+class GameCache : AutoCloseable {
 
-    val filestore = Js5DiskStore.open(CACHE_DIR.toPath())
-    val cache = Js5Cache(filestore)
+    lateinit var cache: Js5Cache private set
+    lateinit var filestore: Js5DiskStore private set
+
+    val archiveCount get() = cache.archiveCount
+
+    fun read(archive: Int, group: Int) = filestore.read(archive, group).retain()
+
+    fun readArchive(archive: Int): Js5Archive {
+        return cache.readArchive(archive)
+    }
+
+    fun readGroup(archive: Int, group: Int, xteaKey: IntArray = XTEA_ZERO_KEY): Js5Group {
+        return readArchive(archive).readGroup(group, xteaKey)
+    }
+
+    fun readFile(archive: Int, group: Int, file: Int, xteaKey: IntArray = XTEA_ZERO_KEY): ByteBuf {
+        return readGroup(archive, group, xteaKey)[file]?.data?.retain() ?: Unpooled.EMPTY_BUFFER
+    }
 
     fun load() {
         Logger.info("Loading game cache files.")
 
-        val validator = cache.generateValidator(includeWhirlpool = false, includeSizes = false)
-        val container = Js5Container(validator.encode())
-        filestore.write(255, 255, container.encode())
+        filestore = Js5DiskStore.open(CACHE_DIR.toPath())
+        cache = Js5Cache(filestore)
 
         Logger.info("Successfully loaded ${cache.archiveCount} game cache archives.")
     }
 
-    fun close() {
-        filestore.close()
+    override fun close() {
         cache.close()
+        filestore.close()
     }
-
-    fun readArchive(archive: Int) = cache.readArchive(archive)
-
-    fun readGroup(archive: Int, group: Int, xteaKeys: IntArray = XTEA_ZERO_KEY) = readArchive(archive).readGroup(group, xteaKeys)
-
-    fun readContainer(archive: Int, group: Int) = cache.readArchive(archive).readGroup(group).mapValues { it.value.data.retain() }
 
     companion object {
         private val CACHE_DIR = File("data/cache/")

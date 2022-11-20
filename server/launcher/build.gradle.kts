@@ -9,7 +9,6 @@ dependencies {
 
 tasks {
     register<JavaExec>("run server") {
-        dependsOn(build.get())
         group = "rsbox"
         mainClass.set("io.rsbox.server.launcher.ServerLauncher")
         workingDir = rootProject.projectDir
@@ -17,7 +16,6 @@ tasks {
     }
 
     register<JavaExec>("setup server") {
-        dependsOn(build.get())
         group = "rsbox"
         mainClass.set("io.rsbox.server.launcher.ServerSetup")
         workingDir = rootProject.projectDir

@@ -17,6 +17,7 @@
 
 package io.rsbox.server.launcher
 
+import io.rsbox.server.cache.Cache
 import io.rsbox.server.cache.GameCache
 import io.rsbox.server.common.get
 import io.rsbox.server.config.ServerConfig

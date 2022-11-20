@@ -27,7 +27,9 @@ import java.io.File
 
 class ServerConfig {
 
-    private var config = Config()
+    var config = Config()
+        private set
+
     private val file = File("data/server.toml")
 
     fun load() {

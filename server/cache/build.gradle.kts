@@ -5,4 +5,5 @@ dependencies {
     implementation("io.guthix:js5-filestore:_")
     implementation("io.guthix:js5-container:_")
     implementation("io.netty:netty-buffer:_")
+    implementation("org.apache.commons:commons-compress:_")
 }
