@@ -18,12 +18,11 @@
 package io.rsbox.server.engine.net
 
 import io.netty.bootstrap.ServerBootstrap
-import io.netty.channel.ChannelInitializer
 import io.netty.channel.ChannelOption
 import io.netty.channel.nio.NioEventLoopGroup
-import io.netty.channel.socket.SocketChannel
 import io.netty.channel.socket.nio.NioServerSocketChannel
 import io.rsbox.server.config.ServerConfig
+import io.rsbox.server.engine.net.pipeline.NetworkChannelInitializer
 import org.tinylog.kotlin.Logger
 import java.net.InetSocketAddress
 import kotlin.system.exitProcess
@@ -31,8 +30,10 @@ import kotlin.system.exitProcess
 class NetworkServer {
 
     private val bootstrap = ServerBootstrap()
+
     private val bossGroup = NioEventLoopGroup(2)
     private val workerGroup = NioEventLoopGroup(1)
+
     private val channelInitializer = NetworkChannelInitializer()
 
     init {
@@ -65,12 +66,5 @@ class NetworkServer {
     private fun onBindFailure(socketAddress: InetSocketAddress, cause: Throwable) {
         Logger.error(cause) { "An error occurred while starting network server on ${socketAddress.hostString}:${socketAddress.port}. Exiting process." }
         exitProcess(0)
-    }
-
-    private class NetworkChannelInitializer : ChannelInitializer<SocketChannel>() {
-        override fun initChannel(ch: SocketChannel) {
-            ch.pipeline()
-                .addLast("status-encoder", StatusResponse.Encoder())
-        }
     }
 }
