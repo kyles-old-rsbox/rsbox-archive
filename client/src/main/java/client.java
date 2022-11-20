@@ -3,6 +3,8 @@ import com.jagex.oldscape.pub.OtlTokenRequester;
 import com.jagex.oldscape.pub.OtlTokenResponse;
 import com.jagex.oldscape.pub.RefreshAccessTokenRequester;
 import com.jagex.oldscape.pub.RefreshAccessTokenResponse;
+import io.rsbox.client.ClientLauncher;
+
 import java.awt.datatransfer.Clipboard;
 import java.io.File;
 import java.io.IOException;
@@ -795,7 +797,7 @@ public final class client extends class31 implements class375, OAuthApi {
 
 				label170:
 				for (var3 = 0; var3 < 4; ++var3) {
-					class290.field3361 = class4.method34("oldschool", var8, var3);
+					class290.field3361 = class4.method34(ClientLauncher.CACHE_DIR, var8, var3);
 					if (!class290.field3361.exists()) {
 						class290.field3361.mkdirs();
 					}

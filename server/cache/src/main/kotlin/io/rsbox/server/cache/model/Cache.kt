@@ -15,7 +15,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.server.cache
+package io.rsbox.server.cache.model
 
 import io.guthix.js5.container.XTEA_ZERO_KEY
 import io.netty.buffer.Unpooled

@@ -19,11 +19,7 @@ package io.rsbox.server.cache.disk
 
 import io.netty.buffer.ByteBuf
 import io.netty.buffer.Unpooled
-import io.rsbox.server.cache.Cache
 import java.io.File
-import java.io.FileNotFoundException
-import java.nio.channels.FileChannel
-import java.nio.file.StandardOpenOption
 
 class FileStore(private val dir: File) : AutoCloseable {
 

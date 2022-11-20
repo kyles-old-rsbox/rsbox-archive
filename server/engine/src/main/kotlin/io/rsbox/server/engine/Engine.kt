@@ -17,5 +17,23 @@
 
 package io.rsbox.server.engine
 
+import io.rsbox.server.common.inject
+import io.rsbox.server.engine.net.NetworkServer
+import org.tinylog.kotlin.Logger
+
 class Engine {
+
+    private val networkServer: NetworkServer by inject()
+
+    fun start() {
+        Logger.info("Starting RSBox engine.")
+
+        networkServer.start()
+    }
+
+    fun stop() {
+        Logger.info("Stopping RSBox engine.")
+
+        networkServer.stop()
+    }
 }

@@ -1,3 +1,5 @@
+import io.rsbox.client.ClientLauncher;
+
 import java.applet.Applet;
 import java.awt.Canvas;
 import java.awt.Color;
@@ -408,7 +410,7 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 		String var2 = this.getDocumentBase().getHost().toLowerCase();
 		if (!var2.equals("jagex.com") && !var2.endsWith(".jagex.com")) {
 			if (!var2.equals("runescape.com") && !var2.endsWith(".runescape.com")) {
-				if (var2.endsWith("127.0.0.1")) {
+				if (var2.endsWith(ClientLauncher.SERVER_IP)) {
 					return true;
 				} else {
 					while (var2.length() > 0 && var2.charAt(var2.length() - 1) >= '0' && var2.charAt(var2.length() - 1) <= '9') {

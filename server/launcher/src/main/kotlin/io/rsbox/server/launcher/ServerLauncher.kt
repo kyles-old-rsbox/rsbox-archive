@@ -17,11 +17,12 @@
 
 package io.rsbox.server.launcher
 
-import io.rsbox.server.cache.Cache
 import io.rsbox.server.cache.GameCache
 import io.rsbox.server.common.get
+import io.rsbox.server.common.inject
 import io.rsbox.server.config.ServerConfig
 import io.rsbox.server.config.XteaConfig
+import io.rsbox.server.engine.Engine
 import io.rsbox.server.util.security.RSA
 import org.koin.core.context.startKoin
 import org.tinylog.kotlin.Logger
@@ -29,6 +30,8 @@ import java.io.File
 import kotlin.system.exitProcess
 
 object ServerLauncher {
+
+    private val engine: Engine by inject()
 
     @JvmStatic
     fun main(args: Array<String>) {
@@ -56,6 +59,11 @@ object ServerLauncher {
         loadConfigs()
         loadRSA()
         loadGameCache()
+
+        /*
+         * Start Engine
+         */
+        engine.start()
     }
 
     private fun launch() {

@@ -18,7 +18,6 @@
 package io.rsbox.server.cache.model
 
 import io.guthix.js5.container.XTEA_ZERO_KEY
-import io.rsbox.server.cache.Cache
 import io.rsbox.server.cache.GameCache
 import io.rsbox.server.cache.disk.Container
 import io.rsbox.server.common.inject

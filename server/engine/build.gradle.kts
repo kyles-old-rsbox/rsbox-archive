@@ -3,4 +3,6 @@ dependencies {
     implementation(project(":server:util"))
     implementation(project(":server:logger"))
     implementation(project(":server:cache"))
+    implementation(project(":server:config"))
+    implementation("io.netty:netty-all:_")
 }
