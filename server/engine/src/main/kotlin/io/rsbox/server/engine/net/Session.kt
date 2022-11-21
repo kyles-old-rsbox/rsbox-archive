@@ -61,9 +61,7 @@ class Session(val ctx: ChannelHandlerContext) {
         if(this::player.isInitialized) {
             player.world.players.removePlayer(player)
         }
-        if(channel.isActive) {
-            channel.close()
-        }
+        ctx.close()
     }
 
     fun write(msg: Message) = ctx.write(msg)

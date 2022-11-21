@@ -44,6 +44,7 @@ class LoginDecoder(private val session: Session) {
     private var reconnectXteas: IntArray? = null
 
     fun decode(buf: ByteBuf, out: MutableList<Any>) {
+        println("login hit")
         try {
             when(stage) {
                 Stage.HANDSHAKE -> readHandshake(buf, out)
@@ -119,16 +120,20 @@ class LoginDecoder(private val session: Session) {
          * Submit the login request network message for the engine
          * to process.
          */
-        LoginRequest(
-            session,
-            username,
-            password,
-            authCode,
-            session.seed,
-            xteas,
-            reconnectXteas,
-            reconnecting
-        ).also { out.add(it) }
+        if(!reconnecting) {
+            LoginRequest(
+                session,
+                username,
+                password,
+                authCode,
+                session.seed,
+                xteas,
+                reconnectXteas,
+                reconnecting
+            ).also { out.add(it) }
+        } else {
+            throw LoginError(StatusResponse.SIGNED_OUT)
+        }
     }
 
     private fun readRSABuf(buf: ByteBuf) {

@@ -18,13 +18,13 @@
 package io.rsbox.server.engine.model.entity
 
 import io.rsbox.server.config.ServerConfig
-import io.rsbox.server.engine.model.PrivilegeLevel
+import io.rsbox.server.engine.model.Privilege
 import io.rsbox.server.engine.model.coord.Tile
 import io.rsbox.server.engine.model.manager.GpiManager
+import io.rsbox.server.engine.model.manager.InterfaceManager
 import io.rsbox.server.engine.model.manager.SceneManager
+import io.rsbox.server.engine.model.ui.DisplayMode
 import io.rsbox.server.engine.net.Session
-import io.rsbox.server.engine.net.packet.server.IfOpenTopPacket
-import org.tinylog.kotlin.Logger
 
 class Player internal constructor(val session: Session) : LivingEntity() {
 
@@ -37,6 +37,7 @@ class Player internal constructor(val session: Session) : LivingEntity() {
      */
     val gpi = GpiManager(this)
     val scene = SceneManager(this)
+    val ui = InterfaceManager(this)
 
     lateinit var username: String
     lateinit var passwordHash: String
@@ -44,7 +45,8 @@ class Player internal constructor(val session: Session) : LivingEntity() {
     var pid: Int = -1
     var skullIcon: Int = -1
     var prayerIcon: Int = -1
-    var privilegeLevel = PrivilegeLevel.PLAYER
+    var privilege = Privilege.PLAYER
+    var displayMode = DisplayMode.RESIZABLE_CLASSIC
 
     var stanceAnimations = intArrayOf(808, 823, 819, 820, 821, 822, 824)
 
@@ -60,7 +62,7 @@ class Player internal constructor(val session: Session) : LivingEntity() {
     internal fun init() {
         gpi.init()
         scene.init()
-        session.writeAndFlush(IfOpenTopPacket(548))
+        ui.init()
     }
 
     override suspend fun cycle() {

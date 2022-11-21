@@ -15,11 +15,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.server.engine.model
+package io.rsbox.server.engine.model.ui
 
-enum class PrivilegeLevel(val id: Int) {
-    PLAYER(0),
-    MODERATOR(1),
-    ADMINISTRATOR(2),
-    DEVELOPER(3);
+enum class InterfaceType(val id: Int) {
+    MODAL(0),
+    OVERLAY(1),
+    TOP(2)
 }

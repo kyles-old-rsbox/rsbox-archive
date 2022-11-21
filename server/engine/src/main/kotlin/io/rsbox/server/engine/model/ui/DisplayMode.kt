@@ -15,13 +15,18 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.server.engine.model.worldlist
+package io.rsbox.server.engine.model.ui
 
-class WorldList(private val worlds: MutableList<WorldEntry> = mutableListOf()) : MutableList<WorldEntry> by worlds {
+enum class DisplayMode(val id: Int, val enum: Int) {
+    FIXED(id = 548, enum = 1129),
+    RESIZABLE_CLASSIC(id = 161, enum = 1130),
+    RESIZABLE_MODERN(id = 164, enum = 1131),
+    FULLSCREEN(id = 165, enum = 1132),
+    MOBILE(id = 601, enum = 1745);
 
-    init {
-        worlds.addAll(arrayOf(
-            WorldEntry(301, "127.0.0.1", "-", listOf(WorldType.F2P, WorldType.PVP), WorldLocation.UNITED_STATES),
-        ))
+    fun isResizable() = this == RESIZABLE_CLASSIC || this == RESIZABLE_MODERN
+
+    companion object {
+        fun fromId(id: Int) = values().first { it.id == id }
     }
 }

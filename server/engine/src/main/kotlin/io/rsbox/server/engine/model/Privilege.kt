@@ -15,13 +15,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.server.engine.model.worldlist
+package io.rsbox.server.engine.model
 
-class WorldList(private val worlds: MutableList<WorldEntry> = mutableListOf()) : MutableList<WorldEntry> by worlds {
-
-    init {
-        worlds.addAll(arrayOf(
-            WorldEntry(301, "127.0.0.1", "-", listOf(WorldType.F2P, WorldType.PVP), WorldLocation.UNITED_STATES),
-        ))
-    }
+enum class Privilege(val id: Int) {
+    PLAYER(0),
+    MODERATOR(1),
+    ADMINISTRATOR(2),
+    DEVELOPER(3);
 }

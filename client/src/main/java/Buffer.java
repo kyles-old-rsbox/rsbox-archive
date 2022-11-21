@@ -611,7 +611,7 @@ public class Buffer extends class427 {
 		return 0 - this.data[++this.offset - 1] & 255;
 	}
 
-	public int method8341() {
+	public int readUnsignedByteSub() {
 		return 128 - this.data[++this.offset - 1] & 255;
 	}
 
@@ -724,7 +724,7 @@ public class Buffer extends class427 {
 		this.data[++this.offset - 1] = (byte)(var1 >> 8);
 	}
 
-	public int method8174() {
+	public int readIntLE() {
 		this.offset += 4;
 		return (this.data[this.offset - 4] & 255) + ((this.data[this.offset - 3] & 255) << 8) + ((this.data[this.offset - 1] & 255) << 24) + ((this.data[this.offset - 2] & 255) << 16);
 	}
@@ -734,7 +734,7 @@ public class Buffer extends class427 {
 		return (this.data[this.offset - 3] & 255) + ((this.data[this.offset - 4] & 255) << 8) + ((this.data[this.offset - 1] & 255) << 16) + ((this.data[this.offset - 2] & 255) << 24);
 	}
 
-	public int method8176() {
+	public int readIntIME() {
 		this.offset += 4;
 		return (this.data[this.offset - 2] & 255) + ((this.data[this.offset - 1] & 255) << 8) + ((this.data[this.offset - 4] & 255) << 16) + ((this.data[this.offset - 3] & 255) << 24);
 	}

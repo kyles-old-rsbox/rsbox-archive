@@ -213,7 +213,7 @@ public class class342 extends AbstractQueue {
 			var11 = class7.field28 + (var10 >> 4 & 7);
 			var41 = (var10 & 7) + class19.field98;
 			var13 = var2.method8187();
-			var43 = var2.method8341() * 4;
+			var43 = var2.readUnsignedByteSub() * 4;
 			var15 = var2.readUnsignedShortLE();
 			var5 = var39 + var11;
 			var42 = var13 + var41;
@@ -359,7 +359,7 @@ public class class342 extends AbstractQueue {
 					var8 = var2.readUnsignedByteNeg();
 					var9 = var2.readUnsignedByteNeg() * 4;
 					byte var40 = var2.method8158();
-					var11 = var2.method8341();
+					var11 = var2.readUnsignedByteSub();
 					var41 = class7.field28 + (var11 >> 4 & 7);
 					var42 = (var11 & 7) + class19.field98;
 					var43 = var2.method8166();
@@ -377,7 +377,7 @@ public class class342 extends AbstractQueue {
 					}
 
 				} else if (var0 == class271.field3026) {
-					var3 = var2.method8341();
+					var3 = var2.readUnsignedByteSub();
 					var4 = var2.readUnsignedShort();
 					var5 = var2.method8141();
 					var6 = (var5 >> 4 & 7) + class7.field28;
@@ -391,7 +391,7 @@ public class class342 extends AbstractQueue {
 					}
 
 				} else if (class271.field3031 == var0) {
-					var3 = var2.method8341();
+					var3 = var2.readUnsignedByteSub();
 					var4 = var3 >> 2;
 					var5 = var3 & 3;
 					var6 = client.field1708[var4];
@@ -422,7 +422,7 @@ public class class342 extends AbstractQueue {
 					}
 
 				} else if (var0 == class271.field3019) {
-					var3 = var2.method8341();
+					var3 = var2.readUnsignedByteSub();
 					var4 = class7.field28 + (var3 >> 4 & 7);
 					var5 = class19.field98 + (var3 & 7);
 					var6 = var2.readUnsignedShortAdd();
@@ -520,7 +520,7 @@ public class class342 extends AbstractQueue {
 
 						} else if (class271.field3033 == var0) {
 							var3 = var2.method8141();
-							var4 = var2.method8174();
+							var4 = var2.readIntLE();
 							var5 = var2.readUnsignedByteNeg();
 							var6 = (var5 >> 4 & 7) + class7.field28;
 							var7 = class19.field98 + (var5 & 7);
@@ -541,7 +541,7 @@ public class class342 extends AbstractQueue {
 						} else if (class271.field3030 == var0) {
 							var3 = var2.readUnsignedShortAdd();
 							var4 = var2.method8153();
-							var5 = var2.method8341();
+							var5 = var2.readUnsignedByteSub();
 							var6 = class7.field28 + (var5 >> 4 & 7);
 							var7 = (var5 & 7) + class19.field98;
 							var8 = var2.method8153();

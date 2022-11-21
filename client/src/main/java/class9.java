@@ -83,7 +83,7 @@ public class class9 {
 			if (0 != (var5 & 16)) {
 				var4.field835 = var0.method8164();
 				if (class78.field683) {
-					var4.field835 += var0.method8341() << 16;
+					var4.field835 += var0.readUnsignedByteSub() << 16;
 					var7 = 16777215;
 				} else {
 					var7 = 65535;
@@ -139,7 +139,7 @@ public class class9 {
 				var4.field864 = var0.method8287();
 				var4.field865 = var0.method8335();
 				var4.field850 = var0.method8287();
-				var4.field867 = (byte)var0.method8341();
+				var4.field867 = (byte)var0.readUnsignedByteSub();
 			}
 
 			if ((var5 & 1) != 0) {
@@ -179,7 +179,7 @@ public class class9 {
 			int var11;
 			int var14;
 			if (0 != (var5 & 32)) {
-				var7 = var0.method8341();
+				var7 = var0.readUnsignedByteSub();
 				int var12;
 				int var13;
 				int var16;
@@ -205,14 +205,14 @@ public class class9 {
 					}
 				}
 
-				var15 = var0.method8341();
+				var15 = var0.readUnsignedByteSub();
 				if (var15 > 0) {
 					for (var16 = 0; var16 < var15; ++var16) {
 						var10 = var0.method8207();
 						var11 = var0.method8207();
 						if (var11 != 32767) {
 							var12 = var0.method8207();
-							var13 = var0.method8341();
+							var13 = var0.readUnsignedByteSub();
 							var14 = var11 > 0 ? var0.method8141() : var13;
 							var4.method1867(var10, client.field1645, var11, var12, var13, var14);
 						} else {
@@ -224,7 +224,7 @@ public class class9 {
 
 			if (0 != (var5 & 8192)) {
 				var4.field848 = var0.method8164();
-				var7 = var0.method8176();
+				var7 = var0.readIntIME();
 				var4.field824 = var7 >> 16;
 				var4.field851 = (var7 & 65535) + client.field1645;
 				var4.field856 = 0;
@@ -247,7 +247,7 @@ public class class9 {
 			if (0 != (var5 & 128)) {
 				var7 = var0.readUnsignedShortAdd();
 				class333 var19 = (class333)class217.method4362(class333.method5480(), var0.method8153());
-				boolean var21 = var0.method8341() == 1;
+				boolean var21 = var0.readUnsignedByteSub() == 1;
 				var10 = var0.readUnsignedByteNeg();
 				var11 = var0.offset;
 				if (var4.field910 != null && null != var4.field911) {

@@ -24,6 +24,7 @@ import io.netty.handler.codec.http.FullHttpRequest
 import io.netty.handler.codec.http.HttpMethod
 import io.netty.handler.codec.http.HttpResponseStatus
 import io.netty.handler.codec.http.QueryStringDecoder
+import io.rsbox.server.engine.net.http.endpoint.JavConfigEndpoint
 import io.rsbox.server.engine.net.http.endpoint.WorldListEndpoint
 
 @ChannelHandler.Sharable
@@ -44,6 +45,7 @@ class HttpRequestHandler : SimpleChannelInboundHandler<FullHttpRequest>() {
         val query = QueryStringDecoder(uri)
 
         when {
+            query.path() == "/jav_config.ws" -> JavConfigEndpoint.handle(ctx, msg, query)
             query.path() == "/world_list.ws" -> WorldListEndpoint.handle(ctx)
             else -> ctx.writeHttpError(HttpResponseStatus.NOT_FOUND)
         }

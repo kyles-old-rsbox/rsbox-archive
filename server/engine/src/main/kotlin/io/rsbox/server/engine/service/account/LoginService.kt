@@ -19,7 +19,7 @@ package io.rsbox.server.engine.service.account
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder
 import io.rsbox.server.common.inject
-import io.rsbox.server.engine.model.PrivilegeLevel
+import io.rsbox.server.engine.model.Privilege
 import io.rsbox.server.engine.model.World
 import io.rsbox.server.engine.model.entity.Player
 import io.rsbox.server.engine.net.StatusResponse
@@ -76,7 +76,7 @@ class LoginService : Service, Runnable {
             player.username = request.username
             player.passwordHash = SHA256.hash(request.password ?: "")
             player.displayName = request.username
-            player.privilegeLevel = PrivilegeLevel.DEVELOPER
+            player.privilege = Privilege.DEVELOPER
             session.xteas = request.xteas
             session.reconnectXteas = request.reconnectXteas
             player.login()

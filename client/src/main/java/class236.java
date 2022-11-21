@@ -259,7 +259,7 @@ public class class236 implements class248 {
 			}
 
 			if ((var17 & 8) != 0) {
-				var7 = var1.method8341();
+				var7 = var1.readUnsignedByteSub();
 				if (var7 > 0) {
 					for (var8 = 0; var8 < var7; ++var8) {
 						var10 = -1;
@@ -289,7 +289,7 @@ public class class236 implements class248 {
 						var11 = var1.method8207();
 						if (var11 != 32767) {
 							var18 = var1.method8207();
-							var13 = var1.method8341();
+							var13 = var1.readUnsignedByteSub();
 							int var14 = var11 > 0 ? var1.method8153() : var13;
 							var5.method1867(var10, client.field1645, var11, var18, var13, var14);
 						} else {
@@ -304,7 +304,7 @@ public class class236 implements class248 {
 			}
 
 			if (0 != (var17 & 512)) {
-				var5.field877 = var1.method8174();
+				var5.field877 = var1.readIntLE();
 			}
 
 			if ((var17 & 4) != 0) {
@@ -324,7 +324,7 @@ public class class236 implements class248 {
 					var7 = -1;
 				}
 
-				var8 = var1.method8341();
+				var8 = var1.readUnsignedByteSub();
 				if (var5.field852 == var7 && var7 != -1) {
 					var9 = class160.method2660(var7).field2013;
 					if (var9 == 1) {
