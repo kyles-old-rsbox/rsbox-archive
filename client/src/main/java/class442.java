@@ -131,7 +131,7 @@ public class class442 {
 				class413.clientPreferences.method1707(!class413.clientPreferences.method1708());
 				if (!class413.clientPreferences.method1708()) {
 					class336 var3 = class43.field311;
-					int var20 = var3.method6124("scape main");
+					int var20 = var3.getGroupId("scape main");
 					var5 = var3.method6170(var20, "");
 					class279.method332(var3, var20, var5, 255, false);
 				} else {

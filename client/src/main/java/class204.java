@@ -1,5 +1,5 @@
 public abstract class class204 {
-	static int[] field2302;
+	static int[] regions;
 	public int field2303;
 	public int field2305;
 	public int field2307;

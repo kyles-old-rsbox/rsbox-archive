@@ -1,7 +1,7 @@
 public class class136 extends class137 {
 	static class336 field1275;
 	static class488 field1272;
-	static int[] field1271;
+	static int[] regionMapArchiveIds;
 	int field1274;
 	// $FF: synthetic field
 	final class143 this$0;

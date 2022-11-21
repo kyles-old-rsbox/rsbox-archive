@@ -53,7 +53,7 @@ public class class279 {
 	}
 
 	public static void method3434(int var0, class319 var1, String var2, String var3, int var4, boolean var5) {
-		int var7 = var1.method6124(var2);
+		int var7 = var1.getGroupId(var2);
 		int var8 = var1.method6170(var7, var3);
 		field3202 = 1;
 		class7.field29 = var1;

@@ -6,7 +6,7 @@ final class class467 implements class443 {
 	}
 
 	public Object method7925(Buffer var1) {
-		return var1.method8126();
+		return var1.readInt();
 	}
 
 	public void method7924(Object var1, Buffer var2) {

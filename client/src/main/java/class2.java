@@ -6,7 +6,7 @@ import org.bouncycastle.crypto.tls.DefaultTlsClient;
 import org.bouncycastle.crypto.tls.TlsAuthentication;
 
 class class2 extends DefaultTlsClient {
-	static int[] field1;
+	static int[] regionLandArchiveIds;
 	// $FF: synthetic field
 	final class16 this$1;
 

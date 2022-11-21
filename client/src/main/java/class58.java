@@ -4,7 +4,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 public class class58 {
-	static class336 field417;
+	static class336 cache_regionMaps;
 	ExecutorService field419;
 	Future field418;
 

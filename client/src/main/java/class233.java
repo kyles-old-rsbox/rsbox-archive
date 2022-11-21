@@ -22,7 +22,7 @@ public class class233 {
 			if (var5) {
 				var7 = new class418(var0.readString());
 			} else {
-				var7 = new class426(var0.method8126());
+				var7 = new class426(var0.readInt());
 			}
 
 			var1.method7781((class427)var7, (long)var6);

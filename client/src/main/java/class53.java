@@ -100,8 +100,8 @@ public class class53 {
 
 				var0.method6281();
 			} else {
-				int var3 = MessagesManager.field1090.method8126();
-				int var4 = MessagesManager.field1090.method8126();
+				int var3 = MessagesManager.field1090.readInt();
+				int var4 = MessagesManager.field1090.readInt();
 				var0.method6298(var3, var4);
 			}
 

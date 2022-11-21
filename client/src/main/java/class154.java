@@ -26,8 +26,8 @@ public class class154 extends class140 {
 	}
 
 	void method2467(Buffer var1) {
-		this.field1417 = var1.method8126();
-		this.field1416 = var1.method8126();
+		this.field1417 = var1.readInt();
+		this.field1416 = var1.readInt();
 	}
 
 	void method2468(class148 var1) {

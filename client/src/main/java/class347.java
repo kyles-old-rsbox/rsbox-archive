@@ -14,10 +14,10 @@ public class class347 {
 	public class347(Buffer var1, boolean var2) {
 		this.field4260 = var1.method8287();
 		this.field4254 = var1.readUnsignedShort();
-		this.field4253 = var1.method8126();
-		this.field4256 = var1.method8126();
-		this.field4255 = var1.method8126();
-		this.field4258 = var1.method8126();
+		this.field4253 = var1.readInt();
+		this.field4256 = var1.readInt();
+		this.field4255 = var1.readInt();
+		this.field4258 = var1.readInt();
 		if (var2) {
 			int var4 = 0;
 			boolean var5 = false;
@@ -49,7 +49,7 @@ public class class347 {
 						throw new IllegalStateException("");
 					}
 
-					var4 = var1.method8126();
+					var4 = var1.readInt();
 					var5 = true;
 				}
 			}

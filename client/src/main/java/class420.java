@@ -114,7 +114,7 @@ public class class420 {
 		this.field4612.put(class210.field2457, var5.get(field4639));
 		this.field4612.put(class210.field2459, var5.get(field4610));
 		this.field4619 = new class435(var1);
-		int var8 = this.field4609.method6124(class242.field2838.field2837);
+		int var8 = this.field4609.getGroupId(class242.field2838.field2837);
 		int[] var9 = this.field4609.method6098(var8);
 		this.field4614 = new HashMap(var9.length);
 

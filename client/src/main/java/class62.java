@@ -16,12 +16,12 @@ public class class62 {
 	}
 
 	static void method1339(PacketBuffer var0, int var1) {
-		boolean var3 = var0.method8014(1) == 1;
+		boolean var3 = var0.readBits(1) == 1;
 		if (var3) {
 			PlayerManager.field1020[++PlayerManager.field1007 - 1] = var1;
 		}
 
-		int var4 = var0.method8014(2);
+		int var4 = var0.readBits(2);
 		class93 var5 = client.players[var1];
 		if (var4 == 0) {
 			if (var3) {
@@ -38,7 +38,7 @@ public class class62 {
 
 				PlayerManager.field1018[var1] = var5.field835;
 				client.players[var1] = null;
-				if (var0.method8014(1) != 0) {
+				if (var0.readBits(1) != 0) {
 					class399.method7221(var0, var1);
 				}
 
@@ -48,7 +48,7 @@ public class class62 {
 			int var7;
 			int var8;
 			if (var4 == 1) {
-				var6 = var0.method8014(3);
+				var6 = var0.readBits(3);
 				var7 = var5.field861[0];
 				var8 = var5.field873[0];
 				if (var6 == 0) {
@@ -88,7 +88,7 @@ public class class62 {
 				}
 
 			} else if (var4 == 2) {
-				var6 = var0.method8014(4);
+				var6 = var0.readBits(4);
 				var7 = var5.field861[0];
 				var8 = var5.field873[0];
 				if (var6 == 0) {
@@ -150,13 +150,13 @@ public class class62 {
 				}
 
 			} else {
-				var6 = var0.method8014(1);
+				var6 = var0.readBits(1);
 				int var9;
 				int var10;
 				int var11;
 				int var12;
 				if (var6 == 0) {
-					var7 = var0.method8014(12);
+					var7 = var0.readBits(12);
 					var8 = var7 >> 10;
 					var9 = var7 >> 5 & 31;
 					if (var9 > 15) {
@@ -190,7 +190,7 @@ public class class62 {
 					}
 
 				} else {
-					var7 = var0.method8014(30);
+					var7 = var0.readBits(30);
 					var8 = var7 >> 28;
 					var9 = var7 >> 14 & 16383;
 					var10 = var7 & 16383;

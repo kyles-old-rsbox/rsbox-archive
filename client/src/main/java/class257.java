@@ -71,7 +71,7 @@ public class class257 extends class254 {
 
 		for (int var5 = 0; var5 < var4; ++var5) {
 			int var6 = var1.method8140();
-			class295 var7 = new class295(var1.method8126());
+			class295 var7 = new class295(var1.readInt());
 			boolean var8 = var1.method8141() == 1;
 			if (var2 || !var8) {
 				this.field2953.add(new class249((class295)null, var7, var6, (class260)null));

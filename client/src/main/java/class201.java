@@ -398,7 +398,7 @@ public class class201 extends class212 {
 			var2.readUnsignedShort();
 			var2.readUnsignedShort();
 			var2.readUnsignedShort();
-			var2.method8126();
+			var2.readInt();
 		}
 
 	}
@@ -996,7 +996,7 @@ public class class201 extends class212 {
 			var2.readUnsignedShort();
 			var2.readUnsignedShort();
 			var2.readUnsignedShort();
-			var2.method8126();
+			var2.readInt();
 		}
 
 	}

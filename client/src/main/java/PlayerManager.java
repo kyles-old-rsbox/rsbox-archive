@@ -35,11 +35,11 @@ public class PlayerManager {
 	}
 
 	static final void updateGPI(PacketBuffer var0) {
-		var0.method8013();
+		var0.setBitMode();
 		int var2 = client.localPlayerIndex;
 		class93 var3 = class291.field3364 = client.players[var2] = new class93();
 		var3.field915 = var2;
-		int var4 = var0.method8014(30);
+		int var4 = var0.readBits(30);
 		byte var5 = (byte)(var4 >> 28);
 		int var6 = var4 >> 14 & 16383;
 		int var7 = var4 & 16383;
@@ -59,7 +59,7 @@ public class PlayerManager {
 
 		for (int var8 = 1; var8 < 2048; ++var8) {
 			if (var2 != var8) {
-				int var9 = var0.method8014(18);
+				int var9 = var0.readBits(18);
 				int var10 = var9 >> 16;
 				int var11 = var9 >> 8 & 597;
 				int var12 = var9 & 597;
@@ -71,6 +71,6 @@ public class PlayerManager {
 			}
 		}
 
-		var0.method8010();
+		var0.setByteMode();
 	}
 }

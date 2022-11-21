@@ -115,7 +115,7 @@ public class class34 {
 			class174.field1564 = client.method5506(2, true, false, true, false);
 			class333.field3859 = client.method5506(3, false, true, true, false);
 			class11.field48 = client.method5506(4, false, true, true, false);
-			class58.field417 = client.method5506(5, true, true, true, false);
+			class58.cache_regionMaps = client.method5506(5, true, true, true, false);
 			class43.field311 = client.method5506(6, true, true, true, false);
 			class252.field2922 = client.method5506(7, false, true, true, false);
 			class155.field1425 = client.method5506(8, false, true, true, false);
@@ -141,7 +141,7 @@ public class class34 {
 			var1 += class174.field1564.method6274() * 2 / 100;
 			var1 += class333.field3859.method6274() * 2 / 100;
 			var1 += class11.field48.method6274() * 6 / 100;
-			var1 += class58.field417.method6274() * 4 / 100;
+			var1 += class58.cache_regionMaps.method6274() * 4 / 100;
 			var1 += class43.field311.method6274() * 2 / 100;
 			var1 += class252.field2922.method6274() * 55 / 100;
 			var1 += class155.field1425.method6274() * 2 / 100;
@@ -167,7 +167,7 @@ public class class34 {
 				client.method5128(class139.field1286, "Animations");
 				client.method5128(MouseManager.field295, "Skeletons");
 				client.method5128(class11.field48, "Sound FX");
-				client.method5128(class58.field417, "Maps");
+				client.method5128(class58.cache_regionMaps, "Maps");
 				client.method5128(class43.field311, "Music Tracks");
 				client.method5128(class252.field2922, "Models");
 				client.method5128(class155.field1425, "Sprites");

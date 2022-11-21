@@ -281,19 +281,19 @@ public class Buffer extends class427 {
 		return var2;
 	}
 
-	public int method8126() {
+	public int readInt() {
 		this.offset += 4;
 		return ((this.data[this.offset - 2] & 255) << 8) + ((this.data[this.offset - 4] & 255) << 24) + ((this.data[this.offset - 3] & 255) << 16) + (this.data[this.offset - 1] & 255);
 	}
 
 	public long readLong() {
-		long var2 = (long)this.method8126() & 4294967295L;
-		long var4 = (long)this.method8126() & 4294967295L;
+		long var2 = (long)this.readInt() & 4294967295L;
+		long var4 = (long)this.readInt() & 4294967295L;
 		return var4 + (var2 << 32);
 	}
 
 	public float method8128() {
-		return Float.intBitsToFloat(this.method8126());
+		return Float.intBitsToFloat(this.readInt());
 	}
 
 	public boolean method8129() {
@@ -436,12 +436,12 @@ public class Buffer extends class427 {
 	}
 
 	public int method8139() {
-		return this.data[this.offset] < 0 ? this.method8126() & Integer.MAX_VALUE : this.readUnsignedShort();
+		return this.data[this.offset] < 0 ? this.readInt() & Integer.MAX_VALUE : this.readUnsignedShort();
 	}
 
 	public int method8140() {
 		if (this.data[this.offset] < 0) {
-			return this.method8126() & Integer.MAX_VALUE;
+			return this.readInt() & Integer.MAX_VALUE;
 		} else {
 			int var2 = this.readUnsignedShort();
 			return var2 == 32767 ? -1 : var2;
@@ -478,8 +478,8 @@ public class Buffer extends class427 {
 		this.offset = 0;
 
 		for (int var4 = 0; var4 < var3; ++var4) {
-			int var5 = this.method8126();
-			int var6 = this.method8126();
+			int var5 = this.readInt();
+			int var6 = this.readInt();
 			int var7 = 0;
 			int var8 = -1640531527;
 
@@ -500,8 +500,8 @@ public class Buffer extends class427 {
 		this.offset = 0;
 
 		for (int var4 = 0; var4 < var3; ++var4) {
-			int var5 = this.method8126();
-			int var6 = this.method8126();
+			int var5 = this.readInt();
+			int var6 = this.readInt();
 			int var7 = -957401312;
 			int var8 = -1640531527;
 
@@ -523,8 +523,8 @@ public class Buffer extends class427 {
 		int var6 = (var3 - var2) / 8;
 
 		for (int var7 = 0; var7 < var6; ++var7) {
-			int var8 = this.method8126();
-			int var9 = this.method8126();
+			int var8 = this.readInt();
+			int var9 = this.readInt();
 			int var10 = 0;
 			int var11 = -1640531527;
 
@@ -547,8 +547,8 @@ public class Buffer extends class427 {
 		int var6 = (var3 - var2) / 8;
 
 		for (int var7 = 0; var7 < var6; ++var7) {
-			int var8 = this.method8126();
-			int var9 = this.method8126();
+			int var8 = this.readInt();
+			int var9 = this.readInt();
 			int var10 = -957401312;
 			int var11 = -1640531527;
 
@@ -587,7 +587,7 @@ public class Buffer extends class427 {
 	public boolean method8246() {
 		this.offset -= 4;
 		int var2 = class241.method4729(this.data, 0, this.offset);
-		int var3 = this.method8126();
+		int var3 = this.readInt();
 		return var2 == var3;
 	}
 
@@ -607,7 +607,7 @@ public class Buffer extends class427 {
 		return this.data[++this.offset - 1] - 128 & 255;
 	}
 
-	public int method8154() {
+	public int readUnsignedByteNeg() {
 		return 0 - this.data[++this.offset - 1] & 255;
 	}
 
@@ -642,12 +642,12 @@ public class Buffer extends class427 {
 		this.data[++this.offset - 1] = (byte)(var1 >> 8);
 	}
 
-	public int method8162() {
+	public int readUnsignedShortLE() {
 		this.offset += 2;
 		return (this.data[this.offset - 2] & 255) + ((this.data[this.offset - 1] & 255) << 8);
 	}
 
-	public int method8202() {
+	public int readUnsignedShortAdd() {
 		this.offset += 2;
 		return ((this.data[this.offset - 2] & 255) << 8) + (this.data[this.offset - 1] - 128 & 255);
 	}

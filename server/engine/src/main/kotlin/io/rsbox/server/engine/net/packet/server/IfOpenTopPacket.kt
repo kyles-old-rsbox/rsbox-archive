@@ -22,15 +22,14 @@ import io.rsbox.server.engine.net.game.Codec
 import io.rsbox.server.engine.net.game.Packet
 import io.rsbox.server.engine.net.game.PacketType
 import io.rsbox.server.engine.net.game.ServerPacket
+import io.rsbox.server.util.buffer.ADD
 import io.rsbox.server.util.buffer.JagByteBuf
 
-@ServerPacket(opcode = 0, type = PacketType.FIXED)
-class TestPacket : Packet {
-
-    companion object : Codec<TestPacket> {
-
-        override fun encode(session: Session, packet: TestPacket, out: JagByteBuf) {
-
+@ServerPacket(opcode = 10, type = PacketType.FIXED)
+class IfOpenTopPacket(val interfaceId: Int) : Packet {
+    companion object : Codec<IfOpenTopPacket> {
+        override fun encode(session: Session, packet: IfOpenTopPacket, out: JagByteBuf) {
+            out.writeShort(packet.interfaceId, transform = ADD)
         }
     }
 }

@@ -37,7 +37,7 @@ public class class451 implements class360 {
 			return var3;
 		} else {
 			String var4 = String.valueOf(var0);
-			int var5 = class202.field2255.method6124(var4);
+			int var5 = class202.field2255.getGroupId(var4);
 			if (var5 == -1) {
 				return null;
 			} else {

@@ -35,7 +35,7 @@ public final class client extends class31 implements class375, OAuthApi {
 	static boolean isFocused;
 	static boolean field1660;
 	static boolean field1697;
-	static boolean field1706;
+	static boolean dynamicRegion;
 	static boolean field1714;
 	static boolean field1732;
 	static boolean field1739;
@@ -284,7 +284,7 @@ public final class client extends class31 implements class375, OAuthApi {
 	static int[] field1931;
 	static int[] field1935;
 	static int[][] field1855;
-	static int[][][] field1707;
+	static int[][][] instanceChunkTemplates;
 	static String field1653;
 	static String field1754;
 	static String field1803;
@@ -427,8 +427,8 @@ public final class client extends class31 implements class375, OAuthApi {
 		field1703 = 1;
 		field1725 = 0;
 		field1884 = new class200[4];
-		field1706 = false;
-		field1707 = new int[4][13][13];
+		dynamicRegion = false;
+		instanceChunkTemplates = new int[4][13][13];
 		field1708 = new int[]{0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3};
 		field1701 = 0;
 		field1857 = 2301979;
@@ -1297,7 +1297,7 @@ public final class client extends class31 implements class375, OAuthApi {
 									var10 = class324.field3776.method8141();
 									var11 = class324.field3776.readUnsignedShort();
 									int var12 = class324.field3776.method8141();
-									var13 = class324.field3776.method8126();
+									var13 = class324.field3776.readInt();
 									long var14 = (long)((var10 << 16) + var11);
 									class335 var16 = (class335)class324.field3779.method7855(var14);
 									class111.field1097 = true;
@@ -1363,8 +1363,8 @@ public final class client extends class31 implements class375, OAuthApi {
 
 													var20.method6281();
 												} else {
-													var13 = MessagesManager.field1090.method8126();
-													int var21 = MessagesManager.field1090.method8126();
+													var13 = MessagesManager.field1090.readInt();
+													int var21 = MessagesManager.field1090.readInt();
 													var20.method6298(var13, var21);
 												}
 											}
@@ -1613,7 +1613,7 @@ public final class client extends class31 implements class375, OAuthApi {
 		int var6;
 		if (null == class289.field3357) {
 			class336 var4 = class155.field1425;
-			var5 = var4.method6124("sl_back");
+			var5 = var4.getGroupId("sl_back");
 			var6 = var4.method6170(var5, "");
 			class473[] var3 = class397.method7205(var4, var5, var6);
 			class289.field3357 = var3;
@@ -2245,7 +2245,7 @@ public final class client extends class31 implements class375, OAuthApi {
 				buf.buffer.writeInt(class174.field1564.field3746);
 				buf.buffer.writeIntLEAlt(class304.field3634.field3746);
 				buf.buffer.writeInt(class155.field1425.field3746);
-				buf.buffer.writeIntAlt(class58.field417.field3746);
+				buf.buffer.writeIntAlt(class58.cache_regionMaps.field3746);
 				buf.buffer.writeIntLEAlt(0);
 				buf.buffer.writeIntLE(MouseManager.field295.field3746);
 				buf.buffer.writeIntLEAlt(class147.field1352.field3746);
@@ -2644,7 +2644,7 @@ public final class client extends class31 implements class375, OAuthApi {
 						class242.field2835 = null;
 						PlayerManager.updateGPI(packetBuf);
 						class361.field4314 = -1;
-						class25.loadRegions(false, packetBuf);
+						class25.rebuildRegion(false, packetBuf);
 						packetWriter.serverPacket = null;
 					}
 
@@ -2703,7 +2703,7 @@ public final class client extends class31 implements class375, OAuthApi {
 		MouseManager.field295.method6117();
 		class333.field3859.method6117();
 		class11.field48.method6117();
-		class58.field417.method6117();
+		class58.cache_regionMaps.method6117();
 		class43.field311.method6117();
 		class252.field2922.method6117();
 		class155.field1425.method6117();
@@ -3804,9 +3804,9 @@ public final class client extends class31 implements class375, OAuthApi {
 		return true;
 	}
 
-	final boolean method2888(class107 var1) {
-		AbstractSocket var3 = var1.method2082();
-		PacketBuffer var4 = var1.buffer;
+	final boolean method2888(class107 connection) {
+		AbstractSocket var3 = connection.method2082();
+		PacketBuffer packetBuf = connection.buffer;
 		if (null == var3) {
 			return false;
 		} else {
@@ -3814,117 +3814,117 @@ public final class client extends class31 implements class375, OAuthApi {
 			int var23;
 			try {
 				int var6;
-				if (null == var1.serverPacket) {
-					if (var1.field1067) {
+				if (null == connection.serverPacket) {
+					if (connection.field1067) {
 						if (!var3.method7254(1)) {
 							return false;
 						}
 
-						var3.read(var1.buffer.data, 0, 1);
-						var1.field1070 = 0;
-						var1.field1067 = false;
+						var3.read(connection.buffer.data, 0, 1);
+						connection.field1070 = 0;
+						connection.field1067 = false;
 					}
 
-					var4.offset = 0;
-					if (var4.method8007()) {
+					packetBuf.offset = 0;
+					if (packetBuf.method8007()) {
 						if (!var3.method7254(1)) {
 							return false;
 						}
 
-						var3.read(var1.buffer.data, 1, 1);
-						var1.field1070 = 0;
+						var3.read(connection.buffer.data, 1, 1);
+						connection.field1070 = 0;
 					}
 
-					var1.field1067 = true;
+					connection.field1067 = true;
 					ServerPacket[] var5 = ServerPacket.values();
-					var6 = var4.readPacketOpcode();
+					var6 = packetBuf.readPacketOpcode();
 					if (var6 < 0 || var6 >= var5.length) {
-						throw new IOException(var6 + " " + var4.offset);
+						throw new IOException(var6 + " " + packetBuf.offset);
 					}
 
-					var1.serverPacket = var5[var6];
-					var1.serverPacketLength = var1.serverPacket.length;
+					connection.serverPacket = var5[var6];
+					connection.serverPacketLength = connection.serverPacket.length;
 				}
 
-				if (var1.serverPacketLength == -1) {
+				if (connection.serverPacketLength == -1) {
 					if (!var3.method7254(1)) {
 						return false;
 					}
 
-					var1.method2082().read(var4.data, 0, 1);
-					var1.serverPacketLength = var4.data[0] & 255;
+					connection.method2082().read(packetBuf.data, 0, 1);
+					connection.serverPacketLength = packetBuf.data[0] & 255;
 				}
 
-				if (-2 == var1.serverPacketLength) {
+				if (-2 == connection.serverPacketLength) {
 					if (!var3.method7254(2)) {
 						return false;
 					}
 
-					var1.method2082().read(var4.data, 0, 2);
-					var4.offset = 0;
-					var1.serverPacketLength = var4.readUnsignedShort();
+					connection.method2082().read(packetBuf.data, 0, 2);
+					packetBuf.offset = 0;
+					connection.serverPacketLength = packetBuf.readUnsignedShort();
 				}
 
-				if (!var3.method7254(var1.serverPacketLength)) {
+				if (!var3.method7254(connection.serverPacketLength)) {
 					return false;
 				}
 
-				var4.offset = 0;
-				var3.read(var4.data, 0, var1.serverPacketLength);
-				var1.field1070 = 0;
+				packetBuf.offset = 0;
+				var3.read(packetBuf.data, 0, connection.serverPacketLength);
+				connection.field1070 = 0;
 				timer.method6829();
-				var1.field1080 = var1.field1072;
-				var1.field1072 = var1.field1079;
-				var1.field1079 = var1.serverPacket;
-				if (ServerPacket.field3219 == var1.serverPacket) {
+				connection.field1080 = connection.field1072;
+				connection.field1072 = connection.field1079;
+				connection.field1079 = connection.serverPacket;
+				if (ServerPacket.field3219 == connection.serverPacket) {
 					class342.method6352(class271.field3021);
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
 				class300 var7;
-				int var21;
-				if (ServerPacket.field3225 == var1.serverPacket) {
-					var21 = var4.method8176();
-					var6 = var4.method8202();
-					var7 = class282.method5426(var21);
+				int rootInterfac;
+				if (ServerPacket.field3225 == connection.serverPacket) {
+					rootInterfac = packetBuf.method8176();
+					var6 = packetBuf.readUnsignedShortAdd();
+					var7 = class282.method5426(rootInterfac);
 					if (1 != var7.field3504 || var6 != var7.field3505) {
 						var7.field3504 = 1;
 						var7.field3505 = var6;
 						class136.method2438(var7);
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
 				String var53;
-				if (var1.serverPacket == ServerPacket.field3253) {
-					var21 = var4.method8154();
-					var6 = var4.method8154();
-					var53 = var4.readString();
+				if (connection.serverPacket == ServerPacket.field3253) {
+					rootInterfac = packetBuf.readUnsignedByteNeg();
+					var6 = packetBuf.readUnsignedByteNeg();
+					var53 = packetBuf.readString();
 					if (var6 >= 1 && var6 <= 8) {
 						if (var53.equalsIgnoreCase(class338.field3899)) {
 							var53 = null;
 						}
 
 						playerMenuActions[var6 - 1] = var53;
-						playerOptionsPriorities[var6 - 1] = var21 == 0;
+						playerOptionsPriorities[var6 - 1] = rootInterfac == 0;
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3265) {
-					class7.field28 = var4.method8154();
-					class19.field98 = var4.method8153();
+				if (connection.serverPacket == ServerPacket.field3265) {
+					class7.field28 = packetBuf.readUnsignedByteNeg();
+					class19.field98 = packetBuf.method8153();
 
-					for (var21 = class7.field28; var21 < 8 + class7.field28; ++var21) {
+					for (rootInterfac = class7.field28; rootInterfac < 8 + class7.field28; ++rootInterfac) {
 						for (var6 = class19.field98; var6 < 8 + class19.field98; ++var6) {
-							if (groundItems[class55.field396][var21][var6] != null) {
-								groundItems[class55.field396][var21][var6] = null;
-								class176.method2802(var21, var6);
+							if (groundItems[class55.field396][rootInterfac][var6] != null) {
+								groundItems[class55.field396][rootInterfac][var6] = null;
+								class176.method2802(rootInterfac, var6);
 							}
 						}
 					}
@@ -3935,34 +3935,34 @@ public final class client extends class31 implements class375, OAuthApi {
 						}
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
 				String var48;
-				if (var1.serverPacket == ServerPacket.field3293) {
-					var48 = var4.readString();
+				if (connection.serverPacket == ServerPacket.field3293) {
+					var48 = packetBuf.readString();
 					Object[] var77 = new Object[var48.length() + 1];
 
 					for (var23 = var48.length() - 1; var23 >= 0; --var23) {
 						if (var48.charAt(var23) == 's') {
-							var77[var23 + 1] = var4.readString();
+							var77[var23 + 1] = packetBuf.readString();
 						} else {
-							var77[var23 + 1] = new Integer(var4.method8126());
+							var77[var23 + 1] = new Integer(packetBuf.readInt());
 						}
 					}
 
-					var77[0] = new Integer(var4.method8126());
+					var77[0] = new Integer(packetBuf.readInt());
 					class79 var62 = new class79();
 					var62.field686 = var77;
 					class57.method5433(var62);
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3320 == var1.serverPacket) {
+				if (ServerPacket.field3320 == connection.serverPacket) {
 					class342.method6352(class271.field3024);
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
@@ -3971,12 +3971,12 @@ public final class client extends class31 implements class375, OAuthApi {
 				int var17;
 				String var26;
 				byte var69;
-				if (var1.serverPacket == ServerPacket.field3275) {
-					var69 = var4.method8287();
-					var22 = var4.readString();
-					long var24 = (long)var4.readUnsignedShort();
-					long var9 = (long)var4.method8312();
-					class333 var60 = (class333)class217.method4362(class333.method5480(), var4.method8141());
+				if (connection.serverPacket == ServerPacket.field3275) {
+					var69 = packetBuf.method8287();
+					var22 = packetBuf.readString();
+					long var24 = (long) packetBuf.readUnsignedShort();
+					long var9 = (long) packetBuf.method8312();
+					class333 var60 = (class333)class217.method4362(class333.method5480(), packetBuf.method8141());
 					long var12 = var9 + (var24 << 32);
 					boolean var67 = false;
 					var15 = null;
@@ -4006,7 +4006,7 @@ public final class client extends class31 implements class375, OAuthApi {
 					if (!var67) {
 						field1918[field1875] = var12;
 						field1875 = (field1875 + 1) % 100;
-						var26 = class384.method6864(class307.method5489(var4));
+						var26 = class384.method6864(class307.method5489(packetBuf));
 						var17 = var69 >= 0 ? 41 : 44;
 						if (var60.field3856 != -1) {
 							MessagesManager.method1858(var17, class96.method5151(var60.field3856) + var22, var26, var68.field1350);
@@ -4015,21 +4015,21 @@ public final class client extends class31 implements class375, OAuthApi {
 						}
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
 				class81 var8;
 				int var27;
-				if (var1.serverPacket == ServerPacket.field3224) {
-					var23 = var4.method8141();
-					var21 = var4.method8202();
-					var6 = var4.method8164();
+				if (connection.serverPacket == ServerPacket.field3224) {
+					var23 = packetBuf.method8141();
+					rootInterfac = packetBuf.readUnsignedShortAdd();
+					var6 = packetBuf.method8164();
 					if (var6 == 65535) {
 						var6 = -1;
 					}
 
-					var8 = npcs[var21];
+					var8 = npcs[rootInterfac];
 					if (var8 != null) {
 						if (var6 == var8.field852 && var6 != -1) {
 							var27 = class160.method2660(var6).field2013;
@@ -4051,19 +4051,19 @@ public final class client extends class31 implements class375, OAuthApi {
 						}
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3282) {
+				if (connection.serverPacket == ServerPacket.field3282) {
 					class174.field1567 = null;
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3230) {
-					var21 = var4.method8126();
-					InterfaceParent var76 = (InterfaceParent) parentInterfaces.method7855((long)var21);
+				if (connection.serverPacket == ServerPacket.field3230) {
+					rootInterfac = packetBuf.readInt();
+					InterfaceParent var76 = (InterfaceParent) parentInterfaces.method7855((long)rootInterfac);
 					if (null != var76) {
 						class4.closeInterface(var76, true);
 					}
@@ -4073,83 +4073,83 @@ public final class client extends class31 implements class375, OAuthApi {
 						field1641 = null;
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3305 && field1900) {
+				if (connection.serverPacket == ServerPacket.field3305 && field1900) {
 					field1901 = true;
-					class318.field3732 = var4.method8141();
-					class109.field1086 = var4.method8141();
-					MouseManager.field298 = var4.method8141();
-					class158.field1440 = var4.method8141();
+					class318.field3732 = packetBuf.method8141();
+					class109.field1086 = packetBuf.method8141();
+					MouseManager.field298 = packetBuf.method8141();
+					class158.field1440 = packetBuf.method8141();
 
-					for (var21 = 0; var21 < 5; ++var21) {
-						field1699[var21] = false;
+					for (rootInterfac = 0; rootInterfac < 5; ++rootInterfac) {
+						field1699[rootInterfac] = false;
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3303) {
-					rebootTimer = var4.method8202() * 30;
+				if (connection.serverPacket == ServerPacket.field3303) {
+					rebootTimer = packetBuf.readUnsignedShortAdd() * 30;
 					field1642 = field1878;
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3308) {
+				if (connection.serverPacket == ServerPacket.field3308) {
 					class342.method6352(class271.field3019);
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
 				boolean var78;
-				if (ServerPacket.field3273 == var1.serverPacket) {
-					var78 = var4.method8141() == 1;
+				if (ServerPacket.field3273 == connection.serverPacket) {
+					var78 = packetBuf.method8141() == 1;
 					if (var78) {
-						class100.field987 = class272.method2046() - var4.readLong();
-						class242.field2835 = new class337(var4, true);
+						class100.field987 = class272.method2046() - packetBuf.readLong();
+						class242.field2835 = new class337(packetBuf, true);
 					} else {
 						class242.field2835 = null;
 					}
 
 					field1849 = field1878;
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3269) {
-					class25.loadRegions(true, var1.buffer);
-					var1.serverPacket = null;
+				if (connection.serverPacket == ServerPacket.REBUILD_REGION) {
+					class25.rebuildRegion(true, connection.buffer);
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3244) {
+				if (connection.serverPacket == ServerPacket.field3244) {
 					class342.method6352(class271.field3030);
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3278 == var1.serverPacket) {
-					var21 = var4.method8126();
-					var6 = var4.method8126();
+				if (ServerPacket.field3278 == connection.serverPacket) {
+					rootInterfac = packetBuf.readInt();
+					var6 = packetBuf.readInt();
 					var23 = class260.method5146();
 					PacketBufferNode var58 = class185.method3435(class274.field3113, packetWriter.isaacRandom);
-					var58.buffer.writeInt(var21);
+					var58.buffer.writeInt(rootInterfac);
 					var58.buffer.writeIntAlt(var6);
 					var58.buffer.method8264(var23);
 					var58.buffer.method8152(class31.field174);
 					packetWriter.add(var58);
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3315) {
-					var21 = var4.method8175();
-					var6 = var4.method8202();
-					var7 = class282.method5426(var21);
+				if (connection.serverPacket == ServerPacket.field3315) {
+					rootInterfac = packetBuf.method8175();
+					var6 = packetBuf.readUnsignedShortAdd();
+					var7 = class282.method5426(rootInterfac);
 					if (var7 != null && var7.field3462 == 0) {
 						if (var6 > var7.field3492 - var7.field3476) {
 							var6 = var7.field3492 - var7.field3476;
@@ -4165,104 +4165,104 @@ public final class client extends class31 implements class375, OAuthApi {
 						}
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3251 == var1.serverPacket) {
+				if (ServerPacket.field3251 == connection.serverPacket) {
 					class342.method6352(class271.field3023);
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
 				int var28;
 				class300 var29;
-				if (var1.serverPacket == ServerPacket.field3220) {
-					var21 = var4.method8202();
-					var6 = var4.method8162();
-					var23 = var4.method8164();
-					var28 = var4.method8126();
+				if (connection.serverPacket == ServerPacket.field3220) {
+					rootInterfac = packetBuf.readUnsignedShortAdd();
+					var6 = packetBuf.readUnsignedShortLE();
+					var23 = packetBuf.method8164();
+					var28 = packetBuf.readInt();
 					var29 = class282.method5426(var28);
-					if (var29.field3601 != var21 || var6 != var29.field3513 || var29.field3562 != var23) {
-						var29.field3601 = var21;
+					if (var29.field3601 != rootInterfac || var6 != var29.field3513 || var29.field3562 != var23) {
+						var29.field3601 = rootInterfac;
 						var29.field3513 = var6;
 						var29.field3562 = var23;
 						class136.method2438(var29);
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3272 == var1.serverPacket) {
-					for (var21 = 0; var21 < players.length; ++var21) {
-						if (players[var21] != null) {
-							players[var21].field852 = -1;
+				if (ServerPacket.field3272 == connection.serverPacket) {
+					for (rootInterfac = 0; rootInterfac < players.length; ++rootInterfac) {
+						if (players[rootInterfac] != null) {
+							players[rootInterfac].field852 = -1;
 						}
 					}
 
-					for (var21 = 0; var21 < npcs.length; ++var21) {
-						if (null != npcs[var21]) {
-							npcs[var21].field852 = -1;
+					for (rootInterfac = 0; rootInterfac < npcs.length; ++rootInterfac) {
+						if (null != npcs[rootInterfac]) {
+							npcs[rootInterfac].field852 = -1;
 						}
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3283) {
-					minimapState = var4.method8141();
-					var1.serverPacket = null;
+				if (connection.serverPacket == ServerPacket.field3283) {
+					minimapState = packetBuf.method8141();
+					connection.serverPacket = null;
 					return true;
 				}
 
 				class300 var55;
-				if (ServerPacket.field3218 == var1.serverPacket) {
-					var21 = var4.method8162();
-					var6 = var4.method8162();
-					var23 = var4.method8176();
+				if (ServerPacket.field3218 == connection.serverPacket) {
+					rootInterfac = packetBuf.readUnsignedShortLE();
+					var6 = packetBuf.readUnsignedShortLE();
+					var23 = packetBuf.method8176();
 					var55 = class282.method5426(var23);
-					var55.field3512 = (var21 << 16) + var6;
-					var1.serverPacket = null;
+					var55.field3512 = (rootInterfac << 16) + var6;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3301 == var1.serverPacket) {
+				if (ServerPacket.field3301 == connection.serverPacket) {
 					class342.method6352(class271.field3025);
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3311 == var1.serverPacket) {
-					var48 = var4.readString();
-					var22 = class384.method6864(class158.method2630(class307.method5489(var4)));
+				if (ServerPacket.field3311 == connection.serverPacket) {
+					var48 = packetBuf.readString();
+					var22 = class384.method6864(class158.method2630(class307.method5489(packetBuf)));
 					MouseManager.method773(6, var48, var22);
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3234) {
-					for (var21 = 0; var21 < class293.field3370.length; ++var21) {
-						if (class293.field3368[var21] != class293.field3370[var21]) {
-							class293.field3370[var21] = class293.field3368[var21];
-							class147.method2521(var21);
-							field1931[++field1690 - 1 & 31] = var21;
+				if (connection.serverPacket == ServerPacket.field3234) {
+					for (rootInterfac = 0; rootInterfac < class293.field3370.length; ++rootInterfac) {
+						if (class293.field3368[rootInterfac] != class293.field3370[rootInterfac]) {
+							class293.field3370[rootInterfac] = class293.field3368[rootInterfac];
+							class147.method2521(rootInterfac);
+							field1931[++field1690 - 1 & 31] = rootInterfac;
 						}
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3297 == var1.serverPacket) {
-					return this.method2886(var1, 1);
+				if (ServerPacket.field3297 == connection.serverPacket) {
+					return this.method2886(connection, 1);
 				}
 
-				if (ServerPacket.field3249 == var1.serverPacket) {
+				if (ServerPacket.field3249 == connection.serverPacket) {
 					method2263();
-					var69 = var4.method8287();
-					class142 var75 = new class142(var4);
+					var69 = packetBuf.method8287();
+					class142 var75 = new class142(packetBuf);
 					class148 var61;
 					if (var69 >= 0) {
 						var61 = field1738[var69];
@@ -4271,46 +4271,46 @@ public final class client extends class31 implements class375, OAuthApi {
 					}
 
 					var75.method2481(var61);
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3228 == var1.serverPacket) {
+				if (ServerPacket.field3228 == connection.serverPacket) {
 					class368.method6731();
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return false;
 				}
 
-				if (ServerPacket.field3289 == var1.serverPacket) {
-					var21 = var4.method8126();
-					var6 = var4.method8164();
-					class293.field3368[var6] = var21;
-					if (class293.field3370[var6] != var21) {
-						class293.field3370[var6] = var21;
+				if (ServerPacket.field3289 == connection.serverPacket) {
+					rootInterfac = packetBuf.readInt();
+					var6 = packetBuf.method8164();
+					class293.field3368[var6] = rootInterfac;
+					if (class293.field3370[var6] != rootInterfac) {
+						class293.field3370[var6] = rootInterfac;
 					}
 
 					class147.method2521(var6);
 					field1931[++field1690 - 1 & 31] = var6;
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
 				long var10;
-				if (var1.serverPacket == ServerPacket.field3325) {
-					var21 = var4.method8162();
-					if (var21 == 65535) {
-						var21 = -1;
+				if (connection.serverPacket == ServerPacket.field3325) {
+					rootInterfac = packetBuf.readUnsignedShortLE();
+					if (rootInterfac == 65535) {
+						rootInterfac = -1;
 					}
 
-					var6 = var4.method8162();
+					var6 = packetBuf.readUnsignedShortLE();
 					if (var6 == 65535) {
 						var6 = -1;
 					}
 
-					var23 = var4.method8126();
-					var28 = var4.method8126();
+					var23 = packetBuf.readInt();
+					var28 = packetBuf.readInt();
 
-					for (var27 = var21; var27 <= var6; ++var27) {
+					for (var27 = rootInterfac; var27 <= var6; ++var27) {
 						var10 = ((long)var28 << 32) + (long)var27;
 						class427 var80 = field1785.method7855(var10);
 						if (null != var80) {
@@ -4320,61 +4320,61 @@ public final class client extends class31 implements class375, OAuthApi {
 						field1785.method7857(new class426(var23), var10);
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3321 == var1.serverPacket) {
+				if (ServerPacket.field3321 == connection.serverPacket) {
 					class342.method6352(class271.field3029);
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3268 == var1.serverPacket) {
-					var21 = var4.method8141();
-					class368.method6732(var21);
-					var1.serverPacket = null;
+				if (ServerPacket.field3268 == connection.serverPacket) {
+					rootInterfac = packetBuf.method8141();
+					class368.method6732(rootInterfac);
+					connection.serverPacket = null;
 					return false;
 				}
 
-				if (ServerPacket.field3266 == var1.serverPacket) {
+				if (ServerPacket.field3266 == connection.serverPacket) {
 					class342.method6352(class271.field3022);
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3245 == var1.serverPacket) {
-					var4.offset += 28;
-					if (var4.method8246()) {
-						method5002(var4, var4.offset - 28);
+				if (ServerPacket.field3245 == connection.serverPacket) {
+					packetBuf.offset += 28;
+					if (packetBuf.method8246()) {
+						method5002(packetBuf, packetBuf.offset - 28);
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
 				int var31;
-				if (ServerPacket.field3236 == var1.serverPacket) {
-					var21 = var4.method8126();
-					var6 = var4.readUnsignedShort();
-					if (var21 < -70000) {
+				if (ServerPacket.field3236 == connection.serverPacket) {
+					rootInterfac = packetBuf.readInt();
+					var6 = packetBuf.readUnsignedShort();
+					if (rootInterfac < -70000) {
 						var6 += 32768;
 					}
 
-					if (var21 >= 0) {
-						var7 = class282.method5426(var21);
+					if (rootInterfac >= 0) {
+						var7 = class282.method5426(rootInterfac);
 					} else {
 						var7 = null;
 					}
 
-					for (; var4.offset < var1.serverPacketLength; class233.method4557(var6, var28, var27 - 1, var31)) {
-						var28 = var4.method8207();
-						var27 = var4.readUnsignedShort();
+					for (; packetBuf.offset < connection.serverPacketLength; class233.method4557(var6, var28, var27 - 1, var31)) {
+						var28 = packetBuf.method8207();
+						var27 = packetBuf.readUnsignedShort();
 						var31 = 0;
 						if (var27 != 0) {
-							var31 = var4.method8141();
+							var31 = packetBuf.method8141();
 							if (var31 == 255) {
-								var31 = var4.method8126();
+								var31 = packetBuf.readInt();
 							}
 						}
 
@@ -4390,71 +4390,71 @@ public final class client extends class31 implements class375, OAuthApi {
 
 					class198.method3654();
 					field1837[++field1838 - 1 & 31] = var6 & 32767;
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3248) {
-					field1871 = var4.method8153();
-					field1872 = var4.method8141();
-					var1.serverPacket = null;
+				if (connection.serverPacket == ServerPacket.field3248) {
+					field1871 = packetBuf.method8153();
+					field1872 = packetBuf.method8141();
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3296 == var1.serverPacket) {
+				if (ServerPacket.field3296 == connection.serverPacket) {
 					class342.method6352(class271.field3026);
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3323) {
+				if (connection.serverPacket == ServerPacket.field3323) {
 					class342.method6352(class271.field3033);
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
 				boolean var64;
-				if (var1.serverPacket == ServerPacket.field3299) {
-					var21 = var4.method8207();
-					var64 = var4.method8141() == 1;
+				if (connection.serverPacket == ServerPacket.field3299) {
+					rootInterfac = packetBuf.method8207();
+					var64 = packetBuf.method8141() == 1;
 					var53 = "";
 					boolean var83 = false;
 					if (var64) {
-						var53 = var4.readString();
+						var53 = packetBuf.readString();
 						if (class217.friends.method1049(new class472(var53, class234.field2779))) {
 							var83 = true;
 						}
 					}
 
-					String var81 = var4.readString();
+					String var81 = packetBuf.readString();
 					if (!var83) {
-						MouseManager.method773(var21, var53, var81);
+						MouseManager.method773(rootInterfac, var53, var81);
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
 				class300 var71;
-				if (ServerPacket.field3267 == var1.serverPacket) {
-					var21 = var4.method8175();
-					var71 = class282.method5426(var21);
+				if (ServerPacket.field3267 == connection.serverPacket) {
+					rootInterfac = packetBuf.method8175();
+					var71 = class282.method5426(rootInterfac);
 					var71.field3504 = 3;
 					var71.field3505 = class291.field3364.field911.method6029();
 					class136.method2438(var71);
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
 				long var13;
 				long var32;
 				long var34;
-				if (var1.serverPacket == ServerPacket.field3277) {
-					var48 = var4.readString();
-					var32 = var4.readLong();
-					var34 = (long)var4.readUnsignedShort();
-					var10 = (long)var4.method8312();
-					class333 var30 = (class333)class217.method4362(class333.method5480(), var4.method8141());
+				if (connection.serverPacket == ServerPacket.field3277) {
+					var48 = packetBuf.readString();
+					var32 = packetBuf.readLong();
+					var34 = (long) packetBuf.readUnsignedShort();
+					var10 = (long) packetBuf.method8312();
+					class333 var30 = (class333)class217.method4362(class333.method5480(), packetBuf.method8141());
 					var13 = var10 + (var34 << 32);
 					boolean var85 = false;
 
@@ -4472,7 +4472,7 @@ public final class client extends class31 implements class375, OAuthApi {
 					if (!var85 && 0 == field1830) {
 						field1918[field1875] = var13;
 						field1875 = (1 + field1875) % 100;
-						var26 = class384.method6864(class158.method2630(class307.method5489(var4)));
+						var26 = class384.method6864(class158.method2630(class307.method5489(packetBuf)));
 						if (-1 != var30.field3856) {
 							MessagesManager.method1858(9, class96.method5151(var30.field3856) + var48, var26, class363.method4889(var32));
 						} else {
@@ -4480,115 +4480,115 @@ public final class client extends class31 implements class375, OAuthApi {
 						}
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3319) {
+				if (connection.serverPacket == ServerPacket.field3319) {
 					class227.field2714 = true;
-					class236.method4618(true, var4);
-					var1.serverPacket = null;
+					class236.method4618(true, packetBuf);
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3214 == var1.serverPacket) {
-					var21 = var4.method8141();
-					method411(var21);
-					var1.serverPacket = null;
+				if (ServerPacket.field3214 == connection.serverPacket) {
+					rootInterfac = packetBuf.method8141();
+					method411(rootInterfac);
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3243 == var1.serverPacket) {
-					class131.method2400(var4, var1.serverPacketLength);
-					var1.serverPacket = null;
+				if (ServerPacket.field3243 == connection.serverPacket) {
+					class131.method2400(packetBuf, connection.serverPacketLength);
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3227 == var1.serverPacket) {
-					class19.field98 = var4.method8341();
-					class7.field28 = var4.method8141();
+				if (ServerPacket.field3227 == connection.serverPacket) {
+					class19.field98 = packetBuf.method8341();
+					class7.field28 = packetBuf.method8141();
 
-					while (var4.offset < var1.serverPacketLength) {
-						var21 = var4.method8141();
-						class271 var74 = class271.method1667()[var21];
+					while (packetBuf.offset < connection.serverPacketLength) {
+						rootInterfac = packetBuf.method8141();
+						class271 var74 = class271.method1667()[rootInterfac];
 						class342.method6352(var74);
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3276) {
+				if (connection.serverPacket == ServerPacket.field3276) {
 					field1900 = true;
 					field1901 = false;
-					class264.field2998 = var4.method8141();
-					class19.field96 = var4.method8141();
-					class244.field2859 = var4.readUnsignedShort();
-					class318.field3732 = var4.method8141();
-					class109.field1086 = var4.method8141();
+					class264.field2998 = packetBuf.method8141();
+					class19.field96 = packetBuf.method8141();
+					class244.field2859 = packetBuf.readUnsignedShort();
+					class318.field3732 = packetBuf.method8141();
+					class109.field1086 = packetBuf.method8141();
 					if (class109.field1086 >= 100) {
 						class215.field2568 = 64 + class264.field2998 * 128;
 						class323.field3766 = 64 + class19.field96 * 128;
 						class32.field204 = class144.method2498(class215.field2568, class323.field3766, class55.field396) - class244.field2859;
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3239) {
-					class242.method4731(var4, var1.serverPacketLength);
+				if (connection.serverPacket == ServerPacket.field3239) {
+					class242.method4731(packetBuf, connection.serverPacketLength);
 					class372.method6749();
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3316 == var1.serverPacket) {
+				if (ServerPacket.field3316 == connection.serverPacket) {
 					class78.field683 = true;
-					class242.method4731(var4, var1.serverPacketLength);
+					class242.method4731(packetBuf, connection.serverPacketLength);
 					class372.method6749();
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3312 == var1.serverPacket) {
-					class330.method6258(var4.readString());
-					var1.serverPacket = null;
+				if (ServerPacket.field3312 == connection.serverPacket) {
+					class330.method6258(packetBuf.readString());
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3226) {
-					var21 = var4.readUnsignedShort();
-					var6 = var4.method8141();
-					var23 = var4.readUnsignedShort();
-					class271.method5212(var21, var6, var23);
-					var1.serverPacket = null;
+				if (connection.serverPacket == ServerPacket.field3226) {
+					rootInterfac = packetBuf.readUnsignedShort();
+					var6 = packetBuf.method8141();
+					var23 = packetBuf.readUnsignedShort();
+					class271.method5212(rootInterfac, var6, var23);
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3294 == var1.serverPacket) {
-					var21 = var4.method8175();
-					var64 = var4.method8341() == 1;
-					var7 = class282.method5426(var21);
+				if (ServerPacket.field3294 == connection.serverPacket) {
+					rootInterfac = packetBuf.method8175();
+					var64 = packetBuf.method8341() == 1;
+					var7 = class282.method5426(rootInterfac);
 					if (var7.field3480 != var64) {
 						var7.field3480 = var64;
 						class136.method2438(var7);
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
 				int var37;
 				int var38;
-				if (ServerPacket.field3326 == var1.serverPacket) {
-					var31 = var4.readUnsignedShort();
-					var37 = var4.method8141();
-					var38 = var4.method8162();
-					var23 = var4.method8169();
-					var21 = var23 >> 16;
+				if (ServerPacket.field3326 == connection.serverPacket) {
+					var31 = packetBuf.readUnsignedShort();
+					var37 = packetBuf.method8141();
+					var38 = packetBuf.readUnsignedShortLE();
+					var23 = packetBuf.method8169();
+					rootInterfac = var23 >> 16;
 					var6 = var23 >> 8 & 255;
-					var28 = var21 + (var23 >> 4 & 7);
+					var28 = rootInterfac + (var23 >> 4 & 7);
 					var27 = var6 + (var23 & 7);
 					if (var28 >= 0 && var27 >= 0 && var28 < 104 && var27 < 104) {
 						var28 = 64 + var28 * 128;
@@ -4597,14 +4597,14 @@ public final class client extends class31 implements class375, OAuthApi {
 						graphics.method6355(var87);
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3290 == var1.serverPacket) {
+				if (ServerPacket.field3290 == connection.serverPacket) {
 					field1847 = field1878;
-					var69 = var4.method8287();
-					class143 var73 = new class143(var4);
+					var69 = packetBuf.method8287();
+					class143 var73 = new class143(packetBuf);
 					class147 var56;
 					if (var69 >= 0) {
 						var56 = field1883[var69];
@@ -4613,63 +4613,63 @@ public final class client extends class31 implements class375, OAuthApi {
 					}
 
 					var73.method2490(var56);
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3241 == var1.serverPacket) {
-					class217.friends.field376.method6824(var4, var1.serverPacketLength);
+				if (ServerPacket.field3241 == connection.serverPacket) {
+					class217.friends.field376.method6824(packetBuf, connection.serverPacketLength);
 					class442.method7920();
 					field1844 = field1878;
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3238 == var1.serverPacket) {
+				if (ServerPacket.field3238 == connection.serverPacket) {
 					class198.method3654();
-					field1859 = var4.method8204();
+					field1859 = packetBuf.method8204();
 					field1642 = field1878;
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3280 == var1.serverPacket) {
-					var21 = var4.method8175();
-					var6 = var4.readUnsignedShort();
+				if (ServerPacket.field3280 == connection.serverPacket) {
+					rootInterfac = packetBuf.method8175();
+					var6 = packetBuf.readUnsignedShort();
 					var23 = var6 >> 10 & 31;
 					var28 = var6 >> 5 & 31;
 					var27 = var6 & 31;
 					var31 = (var28 << 11) + (var23 << 19) + (var27 << 3);
-					class300 var59 = class282.method5426(var21);
+					class300 var59 = class282.method5426(rootInterfac);
 					if (var59.field3485 != var31) {
 						var59.field3485 = var31;
 						class136.method2438(var59);
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3246 == var1.serverPacket) {
-					var21 = var4.method8202();
-					if (var21 == 65535) {
-						var21 = -1;
+				if (ServerPacket.field3246 == connection.serverPacket) {
+					rootInterfac = packetBuf.readUnsignedShortAdd();
+					if (rootInterfac == 65535) {
+						rootInterfac = -1;
 					}
 
-					class45.method943(var21);
-					var1.serverPacket = null;
+					class45.method943(rootInterfac);
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3215) {
-					var21 = var4.method8148();
-					var6 = var4.method8162();
+				if (connection.serverPacket == ServerPacket.field3215) {
+					rootInterfac = packetBuf.method8148();
+					var6 = packetBuf.readUnsignedShortLE();
 					if (var6 == 65535) {
 						var6 = -1;
 					}
 
-					class196.method3635(var6, var21);
-					var1.serverPacket = null;
+					class196.method3635(var6, rootInterfac);
+					connection.serverPacket = null;
 					return true;
 				}
 
@@ -4681,22 +4681,22 @@ public final class client extends class31 implements class375, OAuthApi {
 				byte var82;
 				int var84;
 				byte var88;
-				if (var1.serverPacket == ServerPacket.field3263) {
-					var40 = var4.readUnsignedShort();
-					var82 = var4.method8335();
-					var16 = var4.method8202();
-					var17 = var4.method8202();
-					var14 = var4.method8141() * 4;
-					var88 = var4.method8335();
-					var19 = var4.method8141();
-					var38 = var4.method8183();
-					var18 = var4.method8154();
-					var23 = var4.method8312();
-					var21 = var23 >> 16;
+				if (connection.serverPacket == ServerPacket.field3263) {
+					var40 = packetBuf.readUnsignedShort();
+					var82 = packetBuf.method8335();
+					var16 = packetBuf.readUnsignedShortAdd();
+					var17 = packetBuf.readUnsignedShortAdd();
+					var14 = packetBuf.method8141() * 4;
+					var88 = packetBuf.method8335();
+					var19 = packetBuf.method8141();
+					var38 = packetBuf.method8183();
+					var18 = packetBuf.readUnsignedByteNeg();
+					var23 = packetBuf.method8312();
+					rootInterfac = var23 >> 16;
 					var6 = var23 >> 8 & 255;
-					var28 = (var23 >> 4 & 7) + var21;
+					var28 = (var23 >> 4 & 7) + rootInterfac;
 					var27 = (var23 & 7) + var6;
-					var84 = var4.method8153() * 4;
+					var84 = packetBuf.method8153() * 4;
 					var31 = var82 + var28;
 					var37 = var88 + var27;
 					if (var28 >= 0 && var27 >= 0 && var28 < 104 && var27 < 104 && var31 >= 0 && var37 >= 0 && var31 < 104 && var37 < 104 && var40 != 65535) {
@@ -4709,26 +4709,26 @@ public final class client extends class31 implements class375, OAuthApi {
 						projectiles.method6355(var20);
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3317 == var1.serverPacket) {
-					var17 = var4.readUnsignedShort();
-					var16 = var4.method8164();
-					var19 = var4.method8154();
-					var23 = var4.method8312();
-					var21 = var23 >> 16;
+				if (ServerPacket.field3317 == connection.serverPacket) {
+					var17 = packetBuf.readUnsignedShort();
+					var16 = packetBuf.method8164();
+					var19 = packetBuf.readUnsignedByteNeg();
+					var23 = packetBuf.method8312();
+					rootInterfac = var23 >> 16;
 					var6 = var23 >> 8 & 255;
-					var28 = var21 + (var23 >> 4 & 7);
+					var28 = rootInterfac + (var23 >> 4 & 7);
 					var27 = var6 + (var23 & 7);
-					var40 = var4.readUnsignedShort();
-					var38 = var4.method8125();
-					var14 = var4.method8154() * 4;
-					var88 = var4.method8287();
-					var84 = var4.method8341() * 4;
-					var82 = var4.method8287();
-					var18 = var4.method8141();
+					var40 = packetBuf.readUnsignedShort();
+					var38 = packetBuf.method8125();
+					var14 = packetBuf.readUnsignedByteNeg() * 4;
+					var88 = packetBuf.method8287();
+					var84 = packetBuf.method8341() * 4;
+					var82 = packetBuf.method8287();
+					var18 = packetBuf.method8141();
 					var31 = var82 + var28;
 					var37 = var88 + var27;
 					if (var28 >= 0 && var27 >= 0 && var28 < 104 && var27 < 104 && var31 >= 0 && var37 >= 0 && var31 < 104 && var37 < 104 && var40 != 65535) {
@@ -4741,20 +4741,20 @@ public final class client extends class31 implements class375, OAuthApi {
 						projectiles.method6355(var20);
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3254 == var1.serverPacket) {
+				if (ServerPacket.field3254 == connection.serverPacket) {
 					class342.method6352(class271.field3028);
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3235) {
-					var21 = var4.method8126();
-					var6 = var4.method8175();
-					var23 = var4.readUnsignedShort();
+				if (connection.serverPacket == ServerPacket.field3235) {
+					rootInterfac = packetBuf.readInt();
+					var6 = packetBuf.method8175();
+					var23 = packetBuf.readUnsignedShort();
 					if (var23 == 65535) {
 						var23 = -1;
 					}
@@ -4764,7 +4764,7 @@ public final class client extends class31 implements class375, OAuthApi {
 					if (!var55.field3459) {
 						if (var23 == -1) {
 							var55.field3504 = 0;
-							var1.serverPacket = null;
+							connection.serverPacket = null;
 							return true;
 						}
 
@@ -4773,11 +4773,11 @@ public final class client extends class31 implements class375, OAuthApi {
 						var55.field3505 = var23;
 						var55.field3601 = var79.field2137;
 						var55.field3513 = var79.field2138;
-						var55.field3562 = var79.field2144 * 100 / var21;
+						var55.field3562 = var79.field2144 * 100 / rootInterfac;
 						class136.method2438(var55);
 					} else {
 						var55.field3445 = var23;
-						var55.field3599 = var21;
+						var55.field3599 = rootInterfac;
 						var79 = class278.method5388(var23);
 						var55.field3601 = var79.field2137;
 						var55.field3513 = var79.field2138;
@@ -4800,99 +4800,99 @@ public final class client extends class31 implements class375, OAuthApi {
 						class136.method2438(var55);
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3223) {
-					var21 = var4.method8202();
-					rootInterface = var21;
+				if (connection.serverPacket == ServerPacket.IF_OPENTOP) {
+					rootInterfac = packetBuf.readUnsignedShortAdd();
+					rootInterface = rootInterfac;
 					this.method2892(false);
-					class82.method1699(var21);
+					class82.method1699(rootInterfac);
 					class134.method2421(rootInterface);
 
 					for (var6 = 0; var6 < 100; ++var6) {
 						field1860[var6] = true;
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3222 == var1.serverPacket) {
+				if (ServerPacket.field3222 == connection.serverPacket) {
 					if (-1 != rootInterface) {
 						class217.method4361(rootInterface, 0);
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3262 == var1.serverPacket) {
-					class217.friends.method1046(var4, var1.serverPacketLength);
+				if (ServerPacket.field3262 == connection.serverPacket) {
+					class217.friends.method1046(packetBuf, connection.serverPacketLength);
 					field1844 = field1878;
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3287) {
+				if (connection.serverPacket == ServerPacket.field3287) {
 					if (class174.field1567 == null) {
 						class174.field1567 = new class411(class191.field2026);
 					}
 
-					class474 var50 = class191.field2026.method7216(var4);
+					class474 var50 = class191.field2026.method7216(packetBuf);
 					class174.field1567.field4557.method7566(var50.field4965, var50.field4963);
 					field1841[++field1842 - 1 & 31] = var50.field4965;
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3307) {
+				if (connection.serverPacket == ServerPacket.field3307) {
 					class198.method3654();
-					var21 = var4.method8175();
-					var6 = var4.method8154();
-					var23 = var4.method8154();
-					field1782[var23] = var21;
+					rootInterfac = packetBuf.method8175();
+					var6 = packetBuf.readUnsignedByteNeg();
+					var23 = packetBuf.readUnsignedByteNeg();
+					field1782[var23] = rootInterfac;
 					field1780[var23] = var6;
 					field1817[var23] = 1;
 
 					for (var28 = 0; var28 < 98; ++var28) {
-						if (var21 >= class321.field3756[var28]) {
+						if (rootInterfac >= class321.field3756[var28]) {
 							field1817[var23] = var28 + 2;
 						}
 					}
 
 					field1839[++field1742 - 1 & 31] = var23;
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3302) {
+				if (connection.serverPacket == ServerPacket.field3302) {
 					field1847 = field1878;
-					var69 = var4.method8287();
-					if (var1.serverPacketLength == 1) {
+					var69 = packetBuf.method8287();
+					if (connection.serverPacketLength == 1) {
 						if (var69 >= 0) {
 							field1883[var69] = null;
 						} else {
 							class188.field1982 = null;
 						}
 
-						var1.serverPacket = null;
+						connection.serverPacket = null;
 						return true;
 					}
 
 					if (var69 >= 0) {
-						field1883[var69] = new class147(var4);
+						field1883[var69] = new class147(packetBuf);
 					} else {
-						class188.field1982 = new class147(var4);
+						class188.field1982 = new class147(packetBuf);
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3310 == var1.serverPacket) {
-					var78 = var4.method8129();
+				if (ServerPacket.field3310 == connection.serverPacket) {
+					var78 = packetBuf.method8129();
 					if (var78) {
 						if (class335.field3867 == null) {
 							class335.field3867 = new class348();
@@ -4901,37 +4901,37 @@ public final class client extends class31 implements class375, OAuthApi {
 						class335.field3867 = null;
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3274) {
-					var21 = var4.method8126();
-					var6 = var4.method8202();
-					var7 = class282.method5426(var21);
+				if (connection.serverPacket == ServerPacket.field3274) {
+					rootInterfac = packetBuf.readInt();
+					var6 = packetBuf.readUnsignedShortAdd();
+					var7 = class282.method5426(rootInterfac);
 					if (var7.field3504 != 2 || var6 != var7.field3505) {
 						var7.field3504 = 2;
 						var7.field3505 = var6;
 						class136.method2438(var7);
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3231 == var1.serverPacket) {
-					return this.method2886(var1, 2);
+				if (ServerPacket.field3231 == connection.serverPacket) {
+					return this.method2886(connection, 2);
 				}
 
-				if (var1.serverPacket == ServerPacket.field3314) {
-					var21 = var4.method8126();
-					var6 = var4.readUnsignedShort();
-					if (var21 < -70000) {
+				if (connection.serverPacket == ServerPacket.field3314) {
+					rootInterfac = packetBuf.readInt();
+					var6 = packetBuf.readUnsignedShort();
+					if (rootInterfac < -70000) {
 						var6 += 32768;
 					}
 
-					if (var21 >= 0) {
-						var7 = class282.method5426(var21);
+					if (rootInterfac >= 0) {
+						var7 = class282.method5426(rootInterfac);
 					} else {
 						var7 = null;
 					}
@@ -4944,13 +4944,13 @@ public final class client extends class31 implements class375, OAuthApi {
 					}
 
 					class239.method4680(var6);
-					var28 = var4.readUnsignedShort();
+					var28 = packetBuf.readUnsignedShort();
 
 					for (var27 = 0; var27 < var28; ++var27) {
-						var31 = var4.method8162();
-						var37 = var4.method8341();
+						var31 = packetBuf.readUnsignedShortLE();
+						var37 = packetBuf.method8341();
 						if (var37 == 255) {
-							var37 = var4.method8174();
+							var37 = packetBuf.method8174();
 						}
 
 						if (var7 != null && var27 < var7.field3461.length) {
@@ -4967,78 +4967,78 @@ public final class client extends class31 implements class375, OAuthApi {
 
 					class198.method3654();
 					field1837[++field1838 - 1 & 31] = var6 & 32767;
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
 				InterfaceParent var54;
-				if (ServerPacket.field3261 == var1.serverPacket) {
-					var21 = var4.method8341();
-					var6 = var4.method8174();
-					var23 = var4.method8202();
+				if (ServerPacket.field3261 == connection.serverPacket) {
+					rootInterfac = packetBuf.method8341();
+					var6 = packetBuf.method8174();
+					var23 = packetBuf.readUnsignedShortAdd();
 					var54 = (InterfaceParent) parentInterfaces.method7855((long)var6);
 					if (null != var54) {
 						class4.closeInterface(var54, var54.field796 != var23);
 					}
 
-					class405.method7370(var6, var23, var21);
-					var1.serverPacket = null;
+					class405.method7370(var6, var23, rootInterfac);
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3271 == var1.serverPacket) {
-					var21 = var4.method8141();
-					if (var4.method8141() == 0) {
-						field1924[var21] = new class347();
-						var4.offset += 18;
+				if (ServerPacket.field3271 == connection.serverPacket) {
+					rootInterfac = packetBuf.method8141();
+					if (packetBuf.method8141() == 0) {
+						field1924[rootInterfac] = new class347();
+						packetBuf.offset += 18;
 					} else {
-						--var4.offset;
-						field1924[var21] = new class347(var4, false);
+						--packetBuf.offset;
+						field1924[rootInterfac] = new class347(packetBuf, false);
 					}
 
 					field1848 = field1878;
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3318) {
+				if (connection.serverPacket == ServerPacket.field3318) {
 					class227.field2714 = true;
-					class236.method4618(false, var4);
-					var1.serverPacket = null;
+					class236.method4618(false, packetBuf);
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3292 == var1.serverPacket) {
-					class297.field3431 = class363.method6675(var4.method8141());
-					var1.serverPacket = null;
+				if (ServerPacket.field3292 == connection.serverPacket) {
+					class297.field3431 = class363.method6675(packetBuf.method8141());
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3285 == var1.serverPacket) {
-					var21 = var4.method8141();
-					var6 = var4.method8141();
-					var23 = var4.method8141();
-					var28 = var4.method8141();
-					field1699[var21] = true;
-					field1903[var21] = var6;
-					field1808[var21] = var23;
-					field1905[var21] = var28;
-					field1906[var21] = 0;
-					var1.serverPacket = null;
+				if (ServerPacket.field3285 == connection.serverPacket) {
+					rootInterfac = packetBuf.method8141();
+					var6 = packetBuf.method8141();
+					var23 = packetBuf.method8141();
+					var28 = packetBuf.method8141();
+					field1699[rootInterfac] = true;
+					field1903[rootInterfac] = var6;
+					field1808[rootInterfac] = var23;
+					field1905[rootInterfac] = var28;
+					field1906[rootInterfac] = 0;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3279 == var1.serverPacket) {
-					var21 = var4.method8164();
+				if (ServerPacket.field3279 == connection.serverPacket) {
+					rootInterfac = packetBuf.method8164();
 					class93 var57;
-					if (localPlayerIndex == var21) {
+					if (localPlayerIndex == rootInterfac) {
 						var57 = class291.field3364;
 					} else {
-						var57 = players[var21];
+						var57 = players[rootInterfac];
 					}
 
-					var23 = var4.method8174();
-					var6 = var4.method8202();
+					var23 = packetBuf.method8174();
+					var6 = packetBuf.readUnsignedShortAdd();
 					if (var57 != null) {
 						var57.field848 = var6;
 						var57.field824 = var23 >> 16;
@@ -5054,88 +5054,88 @@ public final class client extends class31 implements class375, OAuthApi {
 						}
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3259) {
-					var21 = var4.method8164();
-					class408.method7405(var21);
-					field1837[++field1838 - 1 & 31] = var21 & 32767;
-					var1.serverPacket = null;
+				if (connection.serverPacket == ServerPacket.field3259) {
+					rootInterfac = packetBuf.method8164();
+					class408.method7405(rootInterfac);
+					field1837[++field1838 - 1 & 31] = rootInterfac & 32767;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3284 == var1.serverPacket) {
-					byte[] var49 = new byte[var1.serverPacketLength];
-					var4.method8017(var49, 0, var49.length);
+				if (ServerPacket.field3284 == connection.serverPacket) {
+					byte[] var49 = new byte[connection.serverPacketLength];
+					packetBuf.method8017(var49, 0, var49.length);
 					Buffer var72 = new Buffer(var49);
 					var53 = var72.readString();
 					class115.method2229(var53, true, false);
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3298) {
+				if (connection.serverPacket == ServerPacket.field3298) {
 					class174.field1567 = new class411(class191.field2026);
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3291 == var1.serverPacket) {
-					return this.method2900(var1);
+				if (ServerPacket.field3291 == connection.serverPacket) {
+					return this.method2900(connection);
 				}
 
-				if (var1.serverPacket == ServerPacket.field3252) {
-					var48 = var4.readString();
-					var6 = var4.method8176();
+				if (connection.serverPacket == ServerPacket.field3252) {
+					var48 = packetBuf.readString();
+					var6 = packetBuf.method8176();
 					var7 = class282.method5426(var6);
 					if (!var48.equals(var7.field3522)) {
 						var7.field3522 = var48;
 						class136.method2438(var7);
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3260 == var1.serverPacket) {
+				if (ServerPacket.field3260 == connection.serverPacket) {
 					class198.method3654();
-					field1816 = var4.method8141();
+					field1816 = packetBuf.method8141();
 					field1642 = field1878;
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3233 == var1.serverPacket) {
-					var21 = var4.method8126();
-					if (field1729 != var21) {
-						field1729 = var21;
+				if (ServerPacket.field3233 == connection.serverPacket) {
+					rootInterfac = packetBuf.readInt();
+					if (field1729 != rootInterfac) {
+						field1729 = rootInterfac;
 						method3391();
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3306) {
-					class236.method4618(false, var4);
-					var1.serverPacket = null;
+				if (connection.serverPacket == ServerPacket.field3306) {
+					class236.method4618(false, packetBuf);
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3258 == var1.serverPacket) {
-					var21 = var4.method8176();
-					var6 = var4.method8174();
+				if (ServerPacket.field3258 == connection.serverPacket) {
+					rootInterfac = packetBuf.method8176();
+					var6 = packetBuf.method8174();
 					InterfaceParent var51 = (InterfaceParent) parentInterfaces.method7855((long)var6);
-					var54 = (InterfaceParent) parentInterfaces.method7855((long)var21);
+					var54 = (InterfaceParent) parentInterfaces.method7855((long)rootInterfac);
 					if (var54 != null) {
 						class4.closeInterface(var54, var51 == null || var51.field796 != var54.field796);
 					}
 
 					if (var51 != null) {
 						var51.method7825();
-						parentInterfaces.method7857(var51, (long)var21);
+						parentInterfaces.method7857(var51, (long)rootInterfac);
 					}
 
 					var29 = class282.method5426(var6);
@@ -5143,7 +5143,7 @@ public final class client extends class31 implements class375, OAuthApi {
 						class136.method2438(var29);
 					}
 
-					var29 = class282.method5426(var21);
+					var29 = class282.method5426(rootInterfac);
 					if (var29 != null) {
 						class136.method2438(var29);
 						class26.method349(class300.field3593[var29.field3517 >>> 16], var29, true);
@@ -5153,15 +5153,15 @@ public final class client extends class31 implements class375, OAuthApi {
 						class217.method4361(rootInterface, 1);
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
 				String var41;
-				if (var1.serverPacket == ServerPacket.field3300) {
-					var69 = var4.method8287();
-					var32 = (long)var4.readUnsignedShort();
-					var34 = (long)var4.method8312();
+				if (connection.serverPacket == ServerPacket.field3300) {
+					var69 = packetBuf.method8287();
+					var32 = (long) packetBuf.readUnsignedShort();
+					var34 = (long) packetBuf.method8312();
 					var10 = var34 + (var32 << 32);
 					boolean var86 = false;
 					class147 var39 = var69 >= 0 ? field1883[var69] : class188.field1982;
@@ -5179,51 +5179,51 @@ public final class client extends class31 implements class375, OAuthApi {
 					if (!var86) {
 						field1918[field1875] = var10;
 						field1875 = (field1875 + 1) % 100;
-						var41 = class307.method5489(var4);
+						var41 = class307.method5489(packetBuf);
 						var84 = var69 >= 0 ? 43 : 46;
 						MessagesManager.method1858(var84, "", var41, var39.field1350);
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3286 == var1.serverPacket) {
-					class236.method4618(true, var4);
-					var1.serverPacket = null;
+				if (ServerPacket.field3286 == connection.serverPacket) {
+					class236.method4618(true, packetBuf);
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3221) {
-					var21 = var4.method8183();
-					var6 = var4.method8174();
+				if (connection.serverPacket == ServerPacket.field3221) {
+					rootInterfac = packetBuf.method8183();
+					var6 = packetBuf.method8174();
 					var7 = class282.method5426(var6);
-					if (var21 != var7.field3575 || var21 == -1) {
-						var7.field3575 = var21;
+					if (rootInterfac != var7.field3575 || rootInterfac == -1) {
+						var7.field3575 = rootInterfac;
 						var7.field3471 = 0;
 						var7.field3518 = 0;
 						class136.method2438(var7);
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3264) {
+				if (connection.serverPacket == ServerPacket.field3264) {
 					class342.method6352(class271.field3020);
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3304 == var1.serverPacket) {
-					class25.loadRegions(false, var1.buffer);
-					var1.serverPacket = null;
+				if (ServerPacket.field3304 == connection.serverPacket) {
+					class25.rebuildRegion(false, connection.buffer);
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3270 == var1.serverPacket) {
-					var21 = var4.method8176();
-					var71 = class282.method5426(var21);
+				if (ServerPacket.field3270 == connection.serverPacket) {
+					rootInterfac = packetBuf.method8176();
+					var71 = class282.method5426(rootInterfac);
 
 					for (var23 = 0; var23 < var71.field3461.length; ++var23) {
 						var71.field3461[var23] = -1;
@@ -5231,15 +5231,15 @@ public final class client extends class31 implements class375, OAuthApi {
 					}
 
 					class136.method2438(var71);
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3242) {
-					var48 = var4.readString();
-					var32 = (long)var4.readUnsignedShort();
-					var34 = (long)var4.method8312();
-					class333 var42 = (class333)class217.method4362(class333.method5480(), var4.method8141());
+				if (connection.serverPacket == ServerPacket.field3242) {
+					var48 = packetBuf.readString();
+					var32 = (long) packetBuf.readUnsignedShort();
+					var34 = (long) packetBuf.method8312();
+					class333 var42 = (class333)class217.method4362(class333.method5480(), packetBuf.method8141());
 					long var43 = var34 + (var32 << 32);
 					boolean var89 = false;
 
@@ -5257,7 +5257,7 @@ public final class client extends class31 implements class375, OAuthApi {
 					if (!var89 && field1830 == 0) {
 						field1918[field1875] = var43;
 						field1875 = (field1875 + 1) % 100;
-						var41 = class384.method6864(class158.method2630(class307.method5489(var4)));
+						var41 = class384.method6864(class158.method2630(class307.method5489(packetBuf)));
 						byte var36;
 						if (var42.field3857) {
 							var36 = 7;
@@ -5272,14 +5272,14 @@ public final class client extends class31 implements class375, OAuthApi {
 						}
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3288) {
-					hintArrowType = var4.method8141();
+				if (connection.serverPacket == ServerPacket.field3288) {
+					hintArrowType = packetBuf.method8141();
 					if (1 == hintArrowType) {
-						field1879 = var4.readUnsignedShort();
+						field1879 = packetBuf.readUnsignedShort();
 					}
 
 					if (hintArrowType >= 2 && hintArrowType <= 6) {
@@ -5309,27 +5309,27 @@ public final class client extends class31 implements class375, OAuthApi {
 						}
 
 						hintArrowType = 2;
-						field1655 = var4.readUnsignedShort();
-						field1656 = var4.readUnsignedShort();
-						field1913 = var4.method8141();
+						field1655 = packetBuf.readUnsignedShort();
+						field1656 = packetBuf.readUnsignedShort();
+						field1913 = packetBuf.method8141();
 					}
 
 					if (hintArrowType == 10) {
-						field1654 = var4.readUnsignedShort();
+						field1654 = packetBuf.readUnsignedShort();
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3322 == var1.serverPacket) {
-					var21 = var4.method8204();
-					var6 = var4.method8176();
-					var23 = var4.method8183();
+				if (ServerPacket.field3322 == connection.serverPacket) {
+					rootInterfac = packetBuf.method8204();
+					var6 = packetBuf.method8176();
+					var23 = packetBuf.method8183();
 					var55 = class282.method5426(var6);
-					if (var55.field3469 != var23 || var21 != var55.field3470 || var55.field3465 != 0 || var55.field3466 != 0) {
+					if (var55.field3469 != var23 || rootInterfac != var55.field3470 || var55.field3465 != 0 || var55.field3466 != 0) {
 						var55.field3469 = var23;
-						var55.field3470 = var21;
+						var55.field3470 = rootInterfac;
 						var55.field3465 = 0;
 						var55.field3466 = 0;
 						class136.method2438(var55);
@@ -5339,25 +5339,25 @@ public final class client extends class31 implements class375, OAuthApi {
 						}
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3295) {
+				if (connection.serverPacket == ServerPacket.field3295) {
 					field1900 = false;
 
-					for (var21 = 0; var21 < 5; ++var21) {
-						field1699[var21] = false;
+					for (rootInterfac = 0; rootInterfac < 5; ++rootInterfac) {
+						field1699[rootInterfac] = false;
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3255) {
-					var21 = var1.serverPacketLength + var4.offset;
-					var6 = var4.readUnsignedShort();
-					var23 = var4.readUnsignedShort();
+				if (connection.serverPacket == ServerPacket.field3255) {
+					rootInterfac = connection.serverPacketLength + packetBuf.offset;
+					var6 = packetBuf.readUnsignedShort();
+					var23 = packetBuf.readUnsignedShort();
 					if (var6 != rootInterface) {
 						rootInterface = var6;
 						this.method2892(false);
@@ -5371,9 +5371,9 @@ public final class client extends class31 implements class375, OAuthApi {
 
 					InterfaceParent var11;
 					for (; var23-- > 0; var11.field795 = true) {
-						var28 = var4.method8126();
-						var27 = var4.readUnsignedShort();
-						var31 = var4.method8141();
+						var28 = packetBuf.readInt();
+						var27 = packetBuf.readUnsignedShort();
+						var31 = packetBuf.method8141();
 						var11 = (InterfaceParent) parentInterfaces.method7855((long)var28);
 						if (null != var11 && var11.field796 != var27) {
 							class4.closeInterface(var11, true);
@@ -5395,11 +5395,11 @@ public final class client extends class31 implements class375, OAuthApi {
 
 					field1785 = new NodeHashTable(512);
 
-					while (var4.offset < var21) {
-						var28 = var4.method8126();
-						var27 = var4.readUnsignedShort();
-						var31 = var4.readUnsignedShort();
-						var37 = var4.method8126();
+					while (packetBuf.offset < rootInterfac) {
+						var28 = packetBuf.readInt();
+						var27 = packetBuf.readUnsignedShort();
+						var31 = packetBuf.readUnsignedShort();
+						var37 = packetBuf.readInt();
 
 						for (var38 = var27; var38 <= var31; ++var38) {
 							var13 = ((long)var28 << 32) + (long)var38;
@@ -5407,19 +5407,19 @@ public final class client extends class31 implements class375, OAuthApi {
 						}
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3309 == var1.serverPacket) {
+				if (ServerPacket.field3309 == connection.serverPacket) {
 					class342.method6352(class271.field3018);
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3229) {
-					var69 = var4.method8158();
-					var6 = var4.method8202();
+				if (connection.serverPacket == ServerPacket.field3229) {
+					var69 = packetBuf.method8158();
+					var6 = packetBuf.readUnsignedShortAdd();
 					class293.field3368[var6] = var69;
 					if (class293.field3370[var6] != var69) {
 						class293.field3370[var6] = var69;
@@ -5427,22 +5427,22 @@ public final class client extends class31 implements class375, OAuthApi {
 
 					class147.method2521(var6);
 					field1931[++field1690 - 1 & 31] = var6;
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3217) {
-					class19.field98 = var4.method8153();
-					class7.field28 = var4.method8153();
-					var1.serverPacket = null;
+				if (connection.serverPacket == ServerPacket.field3217) {
+					class19.field98 = packetBuf.method8153();
+					class7.field28 = packetBuf.method8153();
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3256 == var1.serverPacket) {
-					var21 = var4.method8162();
-					var8 = npcs[var21];
-					var23 = var4.method8162();
-					var6 = var4.method8175();
+				if (ServerPacket.field3256 == connection.serverPacket) {
+					rootInterfac = packetBuf.readUnsignedShortLE();
+					var8 = npcs[rootInterfac];
+					var23 = packetBuf.readUnsignedShortLE();
+					var6 = packetBuf.method8175();
 					if (var8 != null) {
 						var8.field848 = var23;
 						var8.field824 = var6 >> 16;
@@ -5458,68 +5458,68 @@ public final class client extends class31 implements class375, OAuthApi {
 						}
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3257 == var1.serverPacket) {
+				if (ServerPacket.field3257 == connection.serverPacket) {
 					method2263();
-					var69 = var4.method8287();
-					if (var1.serverPacketLength == 1) {
+					var69 = packetBuf.method8287();
+					if (connection.serverPacketLength == 1) {
 						if (var69 >= 0) {
 							field1738[var69] = null;
 						} else {
 							class127.field1224 = null;
 						}
 
-						var1.serverPacket = null;
+						connection.serverPacket = null;
 						return true;
 					}
 
 					if (var69 >= 0) {
-						field1738[var69] = new class148(var4);
+						field1738[var69] = new class148(packetBuf);
 					} else {
-						class127.field1224 = new class148(var4);
+						class127.field1224 = new class148(packetBuf);
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3281 == var1.serverPacket) {
-					for (var21 = 0; var21 < class178.field1592; ++var21) {
-						class178 var70 = class274.method5221(var21);
+				if (ServerPacket.field3281 == connection.serverPacket) {
+					for (rootInterfac = 0; rootInterfac < class178.field1592; ++rootInterfac) {
+						class178 var70 = class274.method5221(rootInterfac);
 						if (var70 != null) {
-							class293.field3368[var21] = 0;
-							class293.field3370[var21] = 0;
+							class293.field3368[rootInterfac] = 0;
+							class293.field3370[rootInterfac] = 0;
 						}
 					}
 
 					class198.method3654();
 					field1690 += 32;
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3232) {
+				if (connection.serverPacket == ServerPacket.field3232) {
 					class342.method6352(class271.field3031);
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3247) {
+				if (connection.serverPacket == ServerPacket.field3247) {
 					field1900 = true;
 					field1901 = false;
-					class8.field34 = var4.method8141();
-					class122.field1186 = var4.method8141();
-					class278.field3197 = var4.readUnsignedShort();
-					MouseManager.field298 = var4.method8141();
-					class158.field1440 = var4.method8141();
+					class8.field34 = packetBuf.method8141();
+					class122.field1186 = packetBuf.method8141();
+					class278.field3197 = packetBuf.readUnsignedShort();
+					MouseManager.field298 = packetBuf.method8141();
+					class158.field1440 = packetBuf.method8141();
 					if (class158.field1440 >= 100) {
-						var21 = class8.field34 * 128 + 64;
+						rootInterfac = class8.field34 * 128 + 64;
 						var6 = class122.field1186 * 128 + 64;
-						var23 = class144.method2498(var21, var6, class55.field396) - class278.field3197;
-						var28 = var21 - class215.field2568;
+						var23 = class144.method2498(rootInterfac, var6, class55.field396) - class278.field3197;
+						var28 = rootInterfac - class215.field2568;
 						var27 = var23 - class32.field204;
 						var31 = var6 - class323.field3766;
 						var37 = (int)Math.sqrt((double)(var28 * var28 + var31 * var31));
@@ -5534,56 +5534,56 @@ public final class client extends class31 implements class375, OAuthApi {
 						}
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3313 == var1.serverPacket) {
+				if (ServerPacket.field3313 == connection.serverPacket) {
 					class72 var47 = new class72();
-					var47.field589 = var4.readString();
-					var47.field590 = var4.readUnsignedShort();
-					var6 = var4.method8126();
+					var47.field589 = packetBuf.readString();
+					var47.field590 = packetBuf.readUnsignedShort();
+					var6 = packetBuf.readInt();
 					var47.field587 = var6;
 					class9.method64(45);
 					var3.method7259();
 					var3 = null;
 					method3066(var47);
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return false;
 				}
 
-				if (ServerPacket.field3237 == var1.serverPacket) {
-					destinationX = var4.method8141();
+				if (ServerPacket.field3237 == connection.serverPacket) {
+					destinationX = packetBuf.method8141();
 					if (255 == destinationX) {
 						destinationX = 0;
 					}
 
-					destinationY = var4.method8141();
+					destinationY = packetBuf.method8141();
 					if (255 == destinationY) {
 						destinationY = 0;
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3250) {
+				if (connection.serverPacket == ServerPacket.field3250) {
 					class217.friends.method1109();
 					field1844 = field1878;
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				if (var1.serverPacket == ServerPacket.field3213) {
-					var14 = var4.method8202();
-					var31 = var4.method8153();
+				if (connection.serverPacket == ServerPacket.field3213) {
+					var14 = packetBuf.readUnsignedShortAdd();
+					var31 = packetBuf.method8153();
 					var37 = var31 >> 2;
 					var38 = var31 & 3;
 					var40 = field1708[var37];
-					var23 = var4.method8312();
-					var21 = var23 >> 16;
+					var23 = packetBuf.method8312();
+					rootInterfac = var23 >> 16;
 					var6 = var23 >> 8 & 255;
-					var28 = var21 + (var23 >> 4 & 7);
+					var28 = rootInterfac + (var23 >> 4 & 7);
 					var27 = var6 + (var23 & 7);
 					if (var28 >= 0 && var27 >= 0 && var28 < 103 && var27 < 103) {
 						if (var40 == 0) {
@@ -5631,19 +5631,19 @@ public final class client extends class31 implements class375, OAuthApi {
 						}
 					}
 
-					var1.serverPacket = null;
+					connection.serverPacket = null;
 					return true;
 				}
 
-				class422.method7807("" + (var1.serverPacket != null ? var1.serverPacket.field3324 : -1) + class96.field959 + (var1.field1072 != null ? var1.field1072.field3324 : -1) + class96.field959 + (var1.field1080 != null ? -1220623677 * var1.field1080.field3324 * 1911455211 : -1) + class96.field959 + var1.serverPacketLength, (Throwable)null);
+				class422.method7807("" + (connection.serverPacket != null ? connection.serverPacket.field3324 : -1) + class96.field959 + (connection.field1072 != null ? connection.field1072.field3324 : -1) + class96.field959 + (connection.field1080 != null ? -1220623677 * connection.field1080.field3324 * 1911455211 : -1) + class96.field959 + connection.serverPacketLength, (Throwable)null);
 				class368.method6731();
 			} catch (IOException var45) {
 				method4611();
 			} catch (Exception var46) {
-				var22 = "" + (var1.serverPacket != null ? var1.serverPacket.field3324 : -1) + class96.field959 + (var1.field1072 != null ? -1220623677 * var1.field1072.field3324 * 1911455211 : -1) + class96.field959 + (null != var1.field1080 ? -1220623677 * var1.field1080.field3324 * 1911455211 : -1) + class96.field959 + var1.serverPacketLength + class96.field959 + (class291.field3364.field861[0] + class36.field241) + class96.field959 + (class291.field3364.field873[0] + class169.field1536) + class96.field959;
+				var22 = "" + (connection.serverPacket != null ? connection.serverPacket.field3324 : -1) + class96.field959 + (connection.field1072 != null ? -1220623677 * connection.field1072.field3324 * 1911455211 : -1) + class96.field959 + (null != connection.field1080 ? -1220623677 * connection.field1080.field3324 * 1911455211 : -1) + class96.field959 + connection.serverPacketLength + class96.field959 + (class291.field3364.field861[0] + class36.field241) + class96.field959 + (class291.field3364.field873[0] + class169.field1536) + class96.field959;
 
-				for (var23 = 0; var23 < var1.serverPacketLength && var23 < 50; ++var23) {
-					var22 = var22 + var4.data[var23] + class96.field959;
+				for (var23 = 0; var23 < connection.serverPacketLength && var23 < 50; ++var23) {
+					var22 = var22 + packetBuf.data[var23] + class96.field959;
 				}
 
 				class422.method7807(var22, var46);

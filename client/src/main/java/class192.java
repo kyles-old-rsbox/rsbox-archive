@@ -38,7 +38,7 @@ public class class192 extends class437 {
 		} else if (var2 == 3) {
 			this.field2031 = var1.readString();
 		} else if (var2 == 4) {
-			this.field2029 = var1.method8126();
+			this.field2029 = var1.readInt();
 		} else {
 			int var4;
 			if (var2 == 5) {
@@ -47,7 +47,7 @@ public class class192 extends class437 {
 				this.field2027 = new String[this.field2033];
 
 				for (var4 = 0; var4 < this.field2033; ++var4) {
-					this.field2036[var4] = var1.method8126();
+					this.field2036[var4] = var1.readInt();
 					this.field2027[var4] = var1.readString();
 				}
 			} else if (var2 == 6) {
@@ -56,8 +56,8 @@ public class class192 extends class437 {
 				this.field2035 = new int[this.field2033];
 
 				for (var4 = 0; var4 < this.field2033; ++var4) {
-					this.field2036[var4] = var1.method8126();
-					this.field2035[var4] = var1.method8126();
+					this.field2036[var4] = var1.readInt();
+					this.field2035[var4] = var1.readInt();
 				}
 			}
 		}

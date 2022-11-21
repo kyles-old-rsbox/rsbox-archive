@@ -51,7 +51,7 @@ public class class193 extends class437 {
 			char var4 = (char)var6;
 			this.field2042 = var4;
 		} else if (var2 == 2) {
-			this.field2043 = var1.method8126();
+			this.field2043 = var1.readInt();
 		} else if (var2 == 4) {
 			this.field2039 = false;
 		} else if (var2 == 5) {

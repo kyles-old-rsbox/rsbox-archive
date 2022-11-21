@@ -95,7 +95,7 @@ public class class172 implements Runnable {
 
 	static final void method2733(PacketBuffer var0) {
 		int var2 = 0;
-		var0.method8013();
+		var0.setBitMode();
 
 		byte[] var10000;
 		int var3;
@@ -109,7 +109,7 @@ public class class172 implements Runnable {
 					var10000 = PlayerManager.field1019;
 					var10000[var4] = (byte)(var10000[var4] | 2);
 				} else {
-					var5 = var0.method8014(1);
+					var5 = var0.readBits(1);
 					if (var5 == 0) {
 						var2 = class57.method1273(var0);
 						var10000 = PlayerManager.field1019;
@@ -121,11 +121,11 @@ public class class172 implements Runnable {
 			}
 		}
 
-		var0.method8010();
+		var0.setByteMode();
 		if (var2 != 0) {
 			throw new RuntimeException();
 		} else {
-			var0.method8013();
+			var0.setBitMode();
 
 			for (var3 = 0; var3 < PlayerManager.playerCount; ++var3) {
 				var4 = PlayerManager.field1013[var3];
@@ -135,7 +135,7 @@ public class class172 implements Runnable {
 						var10000 = PlayerManager.field1019;
 						var10000[var4] = (byte)(var10000[var4] | 2);
 					} else {
-						var5 = var0.method8014(1);
+						var5 = var0.readBits(1);
 						if (var5 == 0) {
 							var2 = class57.method1273(var0);
 							var10000 = PlayerManager.field1019;
@@ -147,11 +147,11 @@ public class class172 implements Runnable {
 				}
 			}
 
-			var0.method8010();
+			var0.setByteMode();
 			if (var2 != 0) {
 				throw new RuntimeException();
 			} else {
-				var0.method8013();
+				var0.setBitMode();
 
 				for (var3 = 0; var3 < PlayerManager.field1017; ++var3) {
 					var4 = PlayerManager.field1015[var3];
@@ -161,7 +161,7 @@ public class class172 implements Runnable {
 							var10000 = PlayerManager.field1019;
 							var10000[var4] = (byte)(var10000[var4] | 2);
 						} else {
-							var5 = var0.method8014(1);
+							var5 = var0.readBits(1);
 							if (var5 == 0) {
 								var2 = class57.method1273(var0);
 								var10000 = PlayerManager.field1019;
@@ -174,11 +174,11 @@ public class class172 implements Runnable {
 					}
 				}
 
-				var0.method8010();
+				var0.setByteMode();
 				if (var2 != 0) {
 					throw new RuntimeException();
 				} else {
-					var0.method8013();
+					var0.setBitMode();
 
 					for (var3 = 0; var3 < PlayerManager.field1017; ++var3) {
 						var4 = PlayerManager.field1015[var3];
@@ -188,7 +188,7 @@ public class class172 implements Runnable {
 								var10000 = PlayerManager.field1019;
 								var10000[var4] = (byte)(var10000[var4] | 2);
 							} else {
-								var5 = var0.method8014(1);
+								var5 = var0.readBits(1);
 								if (var5 == 0) {
 									var2 = class57.method1273(var0);
 									var10000 = PlayerManager.field1019;
@@ -201,7 +201,7 @@ public class class172 implements Runnable {
 						}
 					}
 
-					var0.method8010();
+					var0.setByteMode();
 					if (var2 != 0) {
 						throw new RuntimeException();
 					} else {

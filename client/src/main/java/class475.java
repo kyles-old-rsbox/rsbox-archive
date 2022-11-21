@@ -10,7 +10,7 @@ public class class475 {
 	}
 
 	public static class488[] method7371(class319 var0, String var1, String var2) {
-		int var4 = var0.method6124(var1);
+		int var4 = var0.getGroupId(var1);
 		int var5 = var0.method6170(var4, var2);
 		return class134.method2422(var0, var4, var5);
 	}

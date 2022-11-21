@@ -1,7 +1,7 @@
 import java.util.Comparator;
 
 public class class74 implements Comparator {
-	static byte[][] field612;
+	static byte[][] regionLandArchives;
 	static class84 mouseRecorder;
 	boolean field614;
 

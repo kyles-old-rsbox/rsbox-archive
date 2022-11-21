@@ -11,7 +11,7 @@ import java.util.List;
 
 public class class36 implements KeyListener, FocusListener {
 	static int field241;
-	static int[][] field238;
+	static int[][] xteaKeys;
 	boolean[] field237;
 	class29[] field234;
 	Collection field236;

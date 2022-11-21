@@ -44,11 +44,11 @@ public class PacketBuffer extends Buffer {
 
 	}
 
-	public void method8013() {
+	public void setBitMode() {
 		this.field4858 = super.offset * 8;
 	}
 
-	public int method8014(int var1) {
+	public int readBits(int var1) {
 		int var3 = this.field4858 >> 3;
 		int var4 = 8 - (this.field4858 & 7);
 		int var5 = 0;
@@ -67,7 +67,7 @@ public class PacketBuffer extends Buffer {
 		return var5;
 	}
 
-	public void method8010() {
+	public void setByteMode() {
 		super.offset = (7 + this.field4858) / 8;
 	}
 

@@ -34,8 +34,8 @@ public class class277 {
 		int var3;
 		int var5;
 		for (var3 = 0; var3 < var2; var10000.offset += var5) {
-			int var4 = this.field3167.method8126();
-			var5 = this.field3167.method8126();
+			int var4 = this.field3167.readInt();
+			var5 = this.field3167.readInt();
 			if (var4 == 1297379947) {
 				this.field3156[var3] = this.field3167.offset;
 				++var3;

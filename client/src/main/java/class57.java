@@ -591,16 +591,16 @@ public class class57 {
 	}
 
 	static int method1273(PacketBuffer var0) {
-		int var2 = var0.method8014(2);
+		int var2 = var0.readBits(2);
 		int var3;
 		if (var2 == 0) {
 			var3 = 0;
 		} else if (var2 == 1) {
-			var3 = var0.method8014(5);
+			var3 = var0.readBits(5);
 		} else if (var2 == 2) {
-			var3 = var0.method8014(8);
+			var3 = var0.readBits(8);
 		} else {
-			var3 = var0.method8014(11);
+			var3 = var0.readBits(11);
 		}
 
 		return var3;

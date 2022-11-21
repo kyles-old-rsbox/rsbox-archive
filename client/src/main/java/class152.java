@@ -9,7 +9,7 @@ public class class152 extends class140 {
 
 	void method2467(Buffer var1) {
 		this.field1410 = var1.readString();
-		var1.method8126();
+		var1.readInt();
 	}
 
 	void method2468(class148 var1) {

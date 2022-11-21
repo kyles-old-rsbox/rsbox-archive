@@ -477,8 +477,8 @@ public class class148 {
 				this.field1371 = null;
 			}
 
-			this.field1361 = var1.method8126();
-			this.field1363 = var1.method8126();
+			this.field1361 = var1.readInt();
+			this.field1363 = var1.readInt();
 			if (var3 <= 3 && this.field1363 != 0) {
 				this.field1363 += 16912800;
 			}
@@ -487,7 +487,7 @@ public class class148 {
 			this.field1378 = var1.method8141();
 			this.field1372 = var1.readString();
 			if (var3 >= 4) {
-				var1.method8126();
+				var1.readInt();
 			}
 
 			this.field1364 = var1.method8141() == 1;
@@ -532,7 +532,7 @@ public class class148 {
 
 					this.field1381[var5] = var1.method8287();
 					if (var3 >= 2) {
-						this.field1365[var5] = var1.method8126();
+						this.field1365[var5] = var1.readInt();
 					}
 
 					if (var3 >= 5) {
@@ -577,11 +577,11 @@ public class class148 {
 					this.field1382 = new class421(var5 < 16 ? class282.method953(var5) : 16);
 
 					while (var5-- > 0) {
-						int var6 = var1.method8126();
+						int var6 = var1.readInt();
 						int var7 = var6 & 1073741823;
 						int var8 = var6 >>> 30;
 						if (var8 == 0) {
-							int var9 = var1.method8126();
+							int var9 = var1.readInt();
 							this.field1382.method7781(new class426(var9), (long)var7);
 						} else if (var8 == 1) {
 							long var11 = var1.readLong();

@@ -141,7 +141,7 @@ public class class189 extends class437 {
 				this.field2007[var5] = var1.method8312();
 			}
 		} else if (var2 == 14) {
-			this.field1994 = var1.method8126();
+			this.field1994 = var1.readInt();
 		} else if (var2 == 15) {
 			var4 = var1.readUnsignedShort();
 			this.field1995 = new HashMap();

@@ -110,7 +110,7 @@ public class class9 {
 			}
 
 			if ((var5 & 64) != 0) {
-				var7 = var0.method8154();
+				var7 = var0.readUnsignedByteNeg();
 				byte[] var8 = new byte[var7];
 				Buffer var9 = new Buffer(var8);
 				var0.method8333(var8, 0, var7);
@@ -124,7 +124,7 @@ public class class9 {
 
 			int var15;
 			if (0 != (var5 & 8)) {
-				var7 = var0.method8202();
+				var7 = var0.readUnsignedShortAdd();
 				if (var7 == 65535) {
 					var7 = -1;
 				}
@@ -134,7 +134,7 @@ public class class9 {
 			}
 
 			if (0 != (var5 & 2048)) {
-				var4.field862 = client.field1645 + var0.method8162();
+				var4.field862 = client.field1645 + var0.readUnsignedShortLE();
 				var4.field863 = client.field1645 + var0.method8164();
 				var4.field864 = var0.method8287();
 				var4.field865 = var0.method8335();
@@ -156,7 +156,7 @@ public class class9 {
 				var4.field854 = var0.method8335();
 				var4.field853 = var0.method8187();
 				var4.field857 = var0.method8164() + client.field1645;
-				var4.field858 = var0.method8162() + client.field1645;
+				var4.field858 = var0.readUnsignedShortLE() + client.field1645;
 				var4.field859 = var0.readUnsignedShort();
 				if (var4.field919) {
 					var4.field815 += var4.field920;
@@ -245,10 +245,10 @@ public class class9 {
 			}
 
 			if (0 != (var5 & 128)) {
-				var7 = var0.method8202();
+				var7 = var0.readUnsignedShortAdd();
 				class333 var19 = (class333)class217.method4362(class333.method5480(), var0.method8153());
 				boolean var21 = var0.method8341() == 1;
-				var10 = var0.method8154();
+				var10 = var0.readUnsignedByteNeg();
 				var11 = var0.offset;
 				if (var4.field910 != null && null != var4.field911) {
 					boolean var20 = false;

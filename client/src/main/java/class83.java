@@ -66,8 +66,8 @@ public class class83 {
 					int var3 = var1.method8141();
 
 					for (int var4 = 0; var4 < var3; ++var4) {
-						int var5 = var1.method8126();
-						int var6 = var1.method8126();
+						int var5 = var1.readInt();
+						int var6 = var1.readInt();
 						this.parameters.put(var5, var6);
 					}
 				}
@@ -96,7 +96,7 @@ public class class83 {
 				}
 
 				if (var2 > 9) {
-					this.field736 = var1.method8126();
+					this.field736 = var1.readInt();
 				}
 			} else {
 				this.method1701(true);

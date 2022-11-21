@@ -10,7 +10,7 @@ public class class131 extends class140 {
 	public static void method2400(Buffer var0, int var1) {
 		class43 var3 = new class43();
 		var3.field309 = var0.method8141();
-		var3.field307 = var0.method8126();
+		var3.field307 = var0.readInt();
 		var3.field301 = new int[var3.field309];
 		var3.field300 = new int[var3.field309];
 		var3.field303 = new Field[var3.field309];
@@ -40,7 +40,7 @@ public class class131 extends class140 {
 						int var13;
 						if (var5 == 3) {
 							for (int var12 = 0; var12 < var8; ++var12) {
-								var13 = var0.method8126();
+								var13 = var0.readInt();
 								var11[var12] = new byte[var13];
 								var0.method8333(var11[var12], 0, var13);
 							}
@@ -89,7 +89,7 @@ public class class131 extends class140 {
 					var7 = var0.readString();
 					var8 = 0;
 					if (var5 == 1) {
-						var8 = var0.method8126();
+						var8 = var0.readInt();
 					}
 
 					var3.field301[var4] = var5;
@@ -121,7 +121,7 @@ public class class131 extends class140 {
 	}
 
 	void method2467(Buffer var1) {
-		this.field1241 = var1.method8126();
+		this.field1241 = var1.readInt();
 		this.field1240 = var1.readString();
 	}
 

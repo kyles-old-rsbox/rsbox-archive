@@ -18,7 +18,7 @@ public class class231 {
 	static final byte[] method4537(byte[] var0) {
 		Buffer var2 = new Buffer(var0);
 		int var3 = var2.method8141();
-		int var4 = var2.method8126();
+		int var4 = var2.readInt();
 		if (var4 < 0 || class319.field3744 != 0 && var4 > class319.field3744) {
 			throw new RuntimeException();
 		} else if (var3 == 0) {
@@ -26,7 +26,7 @@ public class class231 {
 			var2.method8333(var5, 0, var4);
 			return var5;
 		} else {
-			int var7 = var2.method8126();
+			int var7 = var2.readInt();
 			if (var7 >= 0 && (class319.field3744 == 0 || var7 <= class319.field3744)) {
 				byte[] var6 = new byte[var7];
 				if (var3 == 1) {

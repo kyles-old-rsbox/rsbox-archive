@@ -43,7 +43,7 @@ public class class186 extends class427 {
 			this.field1968 = new int[var2];
 
 			for (var3 = 0; var3 < var2; ++var3) {
-				this.field1968[var3] = var1.method8126();
+				this.field1968[var3] = var1.readInt();
 			}
 
 			this.field1971 = var1.method8141();

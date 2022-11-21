@@ -88,16 +88,16 @@ public class class60 extends class427 {
 
 	void method1317(byte[] var1) {
 		Buffer var2 = new Buffer(var1);
-		this.field469 = var2.method8126();
-		this.field466 = var2.method8126();
-		this.field450 = var2.method8126();
-		this.field451 = var2.method8126();
+		this.field469 = var2.readInt();
+		this.field466 = var2.readInt();
+		this.field450 = var2.readInt();
+		this.field451 = var2.readInt();
 		if (this.field451 < 0) {
 			this.field451 = ~this.field451;
 			this.field452 = true;
 		}
 
-		int var3 = var2.method8126();
+		int var3 = var2.readInt();
 		this.field480 = new byte[var3][];
 
 		for (int var4 = 0; var4 < var3; ++var4) {

@@ -20,7 +20,10 @@ package io.rsbox.server.engine.model.entity
 import io.rsbox.server.config.ServerConfig
 import io.rsbox.server.engine.model.PrivilegeLevel
 import io.rsbox.server.engine.model.coord.Tile
+import io.rsbox.server.engine.model.manager.GpiManager
+import io.rsbox.server.engine.model.manager.SceneManager
 import io.rsbox.server.engine.net.Session
+import io.rsbox.server.engine.net.packet.server.IfOpenTopPacket
 import org.tinylog.kotlin.Logger
 
 class Player internal constructor(val session: Session) : LivingEntity() {
@@ -28,6 +31,12 @@ class Player internal constructor(val session: Session) : LivingEntity() {
     init {
         session.player = this
     }
+
+    /*
+     * Player State Managers
+     */
+    val gpi = GpiManager(this)
+    val scene = SceneManager(this)
 
     lateinit var username: String
     lateinit var passwordHash: String
@@ -49,7 +58,9 @@ class Player internal constructor(val session: Session) : LivingEntity() {
     override var followTile = tile
 
     internal fun init() {
-
+        gpi.init()
+        scene.init()
+        session.writeAndFlush(IfOpenTopPacket(548))
     }
 
     override suspend fun cycle() {

@@ -8,7 +8,7 @@ public class ServerPacket {
 	public static final ServerPacket field3220;
 	public static final ServerPacket field3221;
 	public static final ServerPacket field3222;
-	public static final ServerPacket field3223;
+	public static final ServerPacket IF_OPENTOP;
 	public static final ServerPacket field3224;
 	public static final ServerPacket field3225;
 	public static final ServerPacket field3226;
@@ -53,7 +53,7 @@ public class ServerPacket {
 	public static final ServerPacket field3266;
 	public static final ServerPacket field3267;
 	public static final ServerPacket field3268;
-	public static final ServerPacket field3269;
+	public static final ServerPacket REBUILD_REGION;
 	public static final ServerPacket field3270;
 	public static final ServerPacket field3271;
 	public static final ServerPacket field3272;
@@ -125,7 +125,7 @@ public class ServerPacket {
 		field3262 = new ServerPacket(7, -2);
 		field3243 = new ServerPacket(8, -2);
 		field3222 = new ServerPacket(9, 0);
-		field3223 = new ServerPacket(10, 2);
+		IF_OPENTOP = new ServerPacket(10, 2);
 		field3224 = new ServerPacket(11, 5);
 		field3225 = new ServerPacket(12, 6);
 		field3251 = new ServerPacket(13, 15);
@@ -171,7 +171,7 @@ public class ServerPacket {
 		field3266 = new ServerPacket(53, 5);
 		field3267 = new ServerPacket(54, 4);
 		field3220 = new ServerPacket(55, 10);
-		field3269 = new ServerPacket(56, -2);
+		REBUILD_REGION = new ServerPacket(56, -2);
 		field3270 = new ServerPacket(57, 4);
 		field3226 = new ServerPacket(58, 5);
 		field3272 = new ServerPacket(59, 0);
@@ -229,7 +229,7 @@ public class ServerPacket {
 	}
 
 	public static ServerPacket[] values() {
-		return new ServerPacket[]{field3277, field3214, field3313, field3236, field3217, field3218, field3219, field3262, field3243, field3222, field3223, field3224, field3225, field3251, field3227, field3234, field3304, field3230, field3310, field3232, field3325, field3280, field3221, field3233, field3237, field3238, field3239, field3215, field3241, field3242, field3257, field3229, field3245, field3284, field3274, field3248, field3249, field3250, field3246, field3252, field3253, field3254, field3255, field3326, field3256, field3258, field3259, field3293, field3261, field3282, field3263, field3264, field3265, field3266, field3267, field3220, field3269, field3270, field3226, field3272, field3235, field3300, field3275, field3276, field3260, field3278, field3279, field3213, field3281, field3271, field3283, field3312, field3294, field3286, field3287, field3288, field3289, field3290, field3291, field3292, field3231, field3247, field3295, field3296, field3297, field3298, field3299, field3268, field3301, field3302, field3303, field3285, field3305, field3306, field3307, field3308, field3309, field3322, field3311, field3273, field3228, field3314, field3315, field3316, field3317, field3318, field3319, field3320, field3321, field3244, field3323};
+		return new ServerPacket[]{field3277, field3214, field3313, field3236, field3217, field3218, field3219, field3262, field3243, field3222, IF_OPENTOP, field3224, field3225, field3251, field3227, field3234, field3304, field3230, field3310, field3232, field3325, field3280, field3221, field3233, field3237, field3238, field3239, field3215, field3241, field3242, field3257, field3229, field3245, field3284, field3274, field3248, field3249, field3250, field3246, field3252, field3253, field3254, field3255, field3326, field3256, field3258, field3259, field3293, field3261, field3282, field3263, field3264, field3265, field3266, field3267, field3220, REBUILD_REGION, field3270, field3226, field3272, field3235, field3300, field3275, field3276, field3260, field3278, field3279, field3213, field3281, field3271, field3283, field3312, field3294, field3286, field3287, field3288, field3289, field3290, field3291, field3292, field3231, field3247, field3295, field3296, field3297, field3298, field3299, field3268, field3301, field3302, field3303, field3285, field3305, field3306, field3307, field3308, field3309, field3322, field3311, field3273, field3228, field3314, field3315, field3316, field3317, field3318, field3319, field3320, field3321, field3244, field3323};
 	}
 
 	ServerPacket(int var1, int var2) {

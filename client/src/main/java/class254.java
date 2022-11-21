@@ -31,8 +31,8 @@ public class class254 {
 		this.field2940 = var2;
 		this.field2931 = var1.readString();
 		this.field2932 = var1.readString();
-		this.field2935 = new class295(var1.method8126());
-		this.field2933 = var1.method8126();
+		this.field2935 = new class295(var1.readInt());
+		this.field2933 = var1.readInt();
 		var1.method8141();
 		this.field2938 = var1.method8141() == 1;
 		this.field2934 = var1.method8141();

@@ -83,7 +83,7 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 		int var4 = var3.readUnsignedShort();
 		int var5 = var3.data.length - 2 - var4 - 12;
 		var3.offset = var5;
-		int var6 = var3.method8126();
+		int var6 = var3.readInt();
 		var2.field677 = var3.readUnsignedShort();
 		var2.field678 = var3.readUnsignedShort();
 		var2.field679 = var3.readUnsignedShort();
@@ -100,8 +100,8 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 				var2.field681[var8] = var10;
 
 				while (var9-- > 0) {
-					int var11 = var3.method8126();
-					int var12 = var3.method8126();
+					int var11 = var3.readInt();
+					int var12 = var3.readInt();
 					var10.method7781(new class426(var12), (long)var11);
 				}
 			}
@@ -118,7 +118,7 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 			if (var9 == 3) {
 				var2.field676[var8] = var3.readString();
 			} else if (var9 < 100 && var9 != 21 && var9 != 38 && var9 != 39) {
-				var2.field680[var8] = var3.method8126();
+				var2.field680[var8] = var3.readInt();
 			} else {
 				var2.field680[var8] = var3.method8141();
 			}

@@ -29,7 +29,7 @@ public class class142 {
 
 	void method2480(Buffer var1) {
 		this.field1311 = var1.readLong();
-		this.field1310 = var1.method8126();
+		this.field1310 = var1.readInt();
 
 		for (int var3 = var1.method8141(); var3 != 0; var3 = var1.method8141()) {
 			Object var4;

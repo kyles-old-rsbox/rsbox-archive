@@ -21,18 +21,18 @@ public class class43 extends class427 {
 		boolean var1 = true;
 
 		int var2;
-		for (var2 = 0; var2 < class74.field612.length; ++var2) {
-			if (class136.field1271[var2] != -1 && class74.field612[var2] == null) {
-				class74.field612[var2] = class58.field417.method6175(class136.field1271[var2], 0);
-				if (class74.field612[var2] == null) {
+		for (var2 = 0; var2 < class74.regionLandArchives.length; ++var2) {
+			if (class136.regionMapArchiveIds[var2] != -1 && class74.regionLandArchives[var2] == null) {
+				class74.regionLandArchives[var2] = class58.cache_regionMaps.method6175(class136.regionMapArchiveIds[var2], 0);
+				if (class74.regionLandArchives[var2] == null) {
 					var1 = false;
 					++client.field1700;
 				}
 			}
 
-			if (class2.field1[var2] != -1 && class18.field92[var2] == null) {
-				class18.field92[var2] = class58.field417.method6088(class2.field1[var2], 0, class36.field238[var2]);
-				if (null == class18.field92[var2]) {
+			if (class2.regionLandArchiveIds[var2] != -1 && class18.regionMapArchives[var2] == null) {
+				class18.regionMapArchives[var2] = class58.cache_regionMaps.method6088(class2.regionLandArchiveIds[var2], 0, class36.xteaKeys[var2]);
+				if (null == class18.regionMapArchives[var2]) {
 					var1 = false;
 					++client.field1700;
 				}
@@ -47,12 +47,12 @@ public class class43 extends class427 {
 
 			int var4;
 			int var5;
-			for (var2 = 0; var2 < class74.field612.length; ++var2) {
-				byte[] var3 = class18.field92[var2];
+			for (var2 = 0; var2 < class74.regionLandArchives.length; ++var2) {
+				byte[] var3 = class18.regionMapArchives[var2];
 				if (var3 != null) {
-					var4 = 64 * (class204.field2302[var2] >> 8) - class36.field241;
-					var5 = 64 * (class204.field2302[var2] & 255) - class169.field1536;
-					if (client.field1706) {
+					var4 = 64 * (class204.regions[var2] >> 8) - class36.field241;
+					var5 = 64 * (class204.regions[var2] & 255) - class169.field1536;
+					if (client.dynamicRegion) {
 						var4 = 10;
 						var5 = 10;
 					}
@@ -86,16 +86,16 @@ public class class43 extends class427 {
 
 				class349.method6457();
 				class82.method1589();
-				var2 = class74.field612.length;
+				var2 = class74.regionLandArchives.length;
 				class103.method2025();
 				class318.method6083(true);
 				int var16;
-				if (!client.field1706) {
+				if (!client.dynamicRegion) {
 					byte[] var6;
 					for (var14 = 0; var14 < var2; ++var14) {
-						var4 = 64 * (class204.field2302[var14] >> 8) - class36.field241;
-						var5 = 64 * (class204.field2302[var14] & 255) - class169.field1536;
-						var6 = class74.field612[var14];
+						var4 = 64 * (class204.regions[var14] >> 8) - class36.field241;
+						var5 = 64 * (class204.regions[var14] & 255) - class169.field1536;
+						var6 = class74.regionLandArchives[var14];
 						if (null != var6) {
 							class349.method6457();
 							class9.method57(var6, var4, var5, class361.field4314 * 8 - 48, ServerPacket.field3216 * 8 - 48, client.field1884);
@@ -103,9 +103,9 @@ public class class43 extends class427 {
 					}
 
 					for (var14 = 0; var14 < var2; ++var14) {
-						var4 = (class204.field2302[var14] >> 8) * 64 - class36.field241;
-						var5 = (class204.field2302[var14] & 255) * 64 - class169.field1536;
-						var6 = class74.field612[var14];
+						var4 = (class204.regions[var14] >> 8) * 64 - class36.field241;
+						var5 = (class204.regions[var14] & 255) * 64 - class169.field1536;
+						var6 = class74.regionLandArchives[var14];
 						if (null == var6 && ServerPacket.field3216 < 800) {
 							class349.method6457();
 							class242.method4732(var4, var5, 64, 64);
@@ -115,10 +115,10 @@ public class class43 extends class427 {
 					class318.method6083(true);
 
 					for (var14 = 0; var14 < var2; ++var14) {
-						byte[] var15 = class18.field92[var14];
+						byte[] var15 = class18.regionMapArchives[var14];
 						if (var15 != null) {
-							var5 = 64 * (class204.field2302[var14] >> 8) - class36.field241;
-							var16 = 64 * (class204.field2302[var14] & 255) - class169.field1536;
+							var5 = 64 * (class204.regions[var14] >> 8) - class36.field241;
+							var16 = 64 * (class204.regions[var14] & 255) - class169.field1536;
 							class349.method6457();
 							class357.method6607(var15, var5, var16, class145.field1333, client.field1884);
 						}
@@ -128,7 +128,7 @@ public class class43 extends class427 {
 				int var7;
 				int var8;
 				int var9;
-				if (client.field1706) {
+				if (client.dynamicRegion) {
 					int var10;
 					int var11;
 					int var12;
@@ -138,7 +138,7 @@ public class class43 extends class427 {
 						for (var4 = 0; var4 < 13; ++var4) {
 							for (var5 = 0; var5 < 13; ++var5) {
 								boolean var18 = false;
-								var7 = client.field1707[var14][var4][var5];
+								var7 = client.instanceChunkTemplates[var14][var4][var5];
 								if (var7 != -1) {
 									var8 = var7 >> 24 & 3;
 									var9 = var7 >> 1 & 3;
@@ -146,9 +146,9 @@ public class class43 extends class427 {
 									var11 = var7 >> 3 & 2047;
 									var12 = (var10 / 8 << 8) + var11 / 8;
 
-									for (int var13 = 0; var13 < class204.field2302.length; ++var13) {
-										if (class204.field2302[var13] == var12 && null != class74.field612[var13]) {
-											class206.method3968(class74.field612[var13], var14, var4 * 8, var5 * 8, var8, 8 * (var10 & 7), 8 * (var11 & 7), var9, client.field1884);
+									for (int var13 = 0; var13 < class204.regions.length; ++var13) {
+										if (class204.regions[var13] == var12 && null != class74.regionLandArchives[var13]) {
+											class206.method3968(class74.regionLandArchives[var13], var14, var4 * 8, var5 * 8, var8, 8 * (var10 & 7), 8 * (var11 & 7), var9, client.field1884);
 											var18 = true;
 											break;
 										}
@@ -164,7 +164,7 @@ public class class43 extends class427 {
 
 					for (var14 = 0; var14 < 13; ++var14) {
 						for (var4 = 0; var4 < 13; ++var4) {
-							var5 = client.field1707[0][var14][var4];
+							var5 = client.instanceChunkTemplates[0][var14][var4];
 							if (var5 == -1) {
 								class242.method4732(var14 * 8, var4 * 8, 8, 8);
 							}
@@ -178,7 +178,7 @@ public class class43 extends class427 {
 
 						for (var4 = 0; var4 < 13; ++var4) {
 							for (var5 = 0; var5 < 13; ++var5) {
-								var16 = client.field1707[var14][var4][var5];
+								var16 = client.instanceChunkTemplates[var14][var4][var5];
 								if (var16 != -1) {
 									var7 = var16 >> 24 & 3;
 									var8 = var16 >> 1 & 3;
@@ -186,9 +186,9 @@ public class class43 extends class427 {
 									var10 = var16 >> 3 & 2047;
 									var11 = var10 / 8 + (var9 / 8 << 8);
 
-									for (var12 = 0; var12 < class204.field2302.length; ++var12) {
-										if (class204.field2302[var12] == var11 && null != class18.field92[var12]) {
-											class82.method1668(class18.field92[var12], var14, var4 * 8, var5 * 8, var7, (var9 & 7) * 8, (var10 & 7) * 8, var8, class145.field1333, client.field1884);
+									for (var12 = 0; var12 < class204.regions.length; ++var12) {
+										if (class204.regions[var12] == var11 && null != class18.regionMapArchives[var12]) {
+											class82.method1668(class18.regionMapArchives[var12], var14, var4 * 8, var5 * 8, var7, (var9 & 7) * 8, (var10 & 7) * 8, var8, class145.field1333, client.field1884);
 											break;
 										}
 									}
@@ -233,7 +233,7 @@ public class class43 extends class427 {
 					client.packetWriter.add(var17);
 				}
 
-				if (!client.field1706) {
+				if (!client.dynamicRegion) {
 					var4 = (class361.field4314 - 6) / 8;
 					var5 = (class361.field4314 + 6) / 8;
 					var16 = (ServerPacket.field3216 - 6) / 8;
@@ -242,8 +242,8 @@ public class class43 extends class427 {
 					for (var8 = var4 - 1; var8 <= var5 + 1; ++var8) {
 						for (var9 = var16 - 1; var9 <= var7 + 1; ++var9) {
 							if (var8 < var4 || var8 > var5 || var9 < var16 || var9 > var7) {
-								class58.field417.method6106("m" + var8 + "_" + var9);
-								class58.field417.method6106("l" + var8 + "_" + var9);
+								class58.cache_regionMaps.method6106("m" + var8 + "_" + var9);
+								class58.cache_regionMaps.method6106("l" + var8 + "_" + var9);
 							}
 						}
 					}

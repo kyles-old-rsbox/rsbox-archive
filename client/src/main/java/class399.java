@@ -20,7 +20,7 @@ public abstract class class399 extends class259 implements class482 {
 		class474 var5 = new class474(var3);
 		Class var6 = var4.field4599.field4847;
 		if (var6 == Integer.class) {
-			var5.field4963 = var1.method8126();
+			var5.field4963 = var1.readInt();
 		} else if (var6 == Long.class) {
 			var5.field4963 = var1.readLong();
 		} else if (var6 == String.class) {
@@ -43,7 +43,7 @@ public abstract class class399 extends class259 implements class482 {
 	}
 
 	static boolean method7221(PacketBuffer var0, int var1) {
-		int var3 = var0.method8014(2);
+		int var3 = var0.readBits(2);
 		int var4;
 		int var5;
 		int var8;
@@ -51,13 +51,13 @@ public abstract class class399 extends class259 implements class482 {
 		int var10;
 		int var11;
 		if (var3 == 0) {
-			if (var0.method8014(1) != 0) {
+			if (var0.readBits(1) != 0) {
 				method7221(var0, var1);
 			}
 
-			var4 = var0.method8014(13);
-			var5 = var0.method8014(13);
-			boolean var13 = var0.method8014(1) == 1;
+			var4 = var0.readBits(13);
+			var5 = var0.readBits(13);
+			boolean var13 = var0.readBits(1) == 1;
 			if (var13) {
 				PlayerManager.field1020[++PlayerManager.field1007 - 1] = var1;
 			}
@@ -84,7 +84,7 @@ public abstract class class399 extends class259 implements class482 {
 				return true;
 			}
 		} else if (var3 == 1) {
-			var4 = var0.method8014(2);
+			var4 = var0.readBits(2);
 			var5 = PlayerManager.field1016[var1];
 			PlayerManager.field1016[var1] = (((var5 >> 28) + var4 & 3) << 28) + (var5 & 268435455);
 			return false;
@@ -92,7 +92,7 @@ public abstract class class399 extends class259 implements class482 {
 			int var6;
 			int var12;
 			if (var3 == 2) {
-				var4 = var0.method8014(5);
+				var4 = var0.readBits(5);
 				var5 = var4 >> 3;
 				var6 = var4 & 7;
 				var12 = PlayerManager.field1016[var1];
@@ -138,7 +138,7 @@ public abstract class class399 extends class259 implements class482 {
 				PlayerManager.field1016[var1] = var10 + (var8 << 28) + (var9 << 14);
 				return false;
 			} else {
-				var4 = var0.method8014(18);
+				var4 = var0.readBits(18);
 				var5 = var4 >> 16;
 				var6 = var4 >> 8 & 255;
 				var12 = var4 & 255;

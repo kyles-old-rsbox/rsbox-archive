@@ -41,7 +41,7 @@ public class class389 extends class404 {
 				if (var7 > 0) {
 					var1.readString();
 					var1.method8141();
-					var1.method8126();
+					var1.readInt();
 				}
 
 				var1.readString();

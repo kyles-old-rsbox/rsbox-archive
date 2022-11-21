@@ -19,7 +19,7 @@ public class class111 extends class393 {
 	}
 
 	public static class376 method2143(class319 var0, class319 var1, String var2, String var3) {
-		int var5 = var0.method6124(var2);
+		int var5 = var0.getGroupId(var2);
 		int var6 = var0.method6170(var5, var3);
 		return class378.method6805(var0, var1, var5, var6);
 	}

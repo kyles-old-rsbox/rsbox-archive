@@ -24,7 +24,7 @@ public abstract class class393 implements Comparator {
 	}
 
 	public static class488 method7165(class319 var0, String var1, String var2) {
-		int var4 = var0.method6124(var1);
+		int var4 = var0.getGroupId(var1);
 		int var5 = var0.method6170(var4, var2);
 		byte[] var8 = var0.method6175(var4, var5);
 		boolean var7;

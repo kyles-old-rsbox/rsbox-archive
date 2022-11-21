@@ -166,7 +166,7 @@ public class class336 extends class319 {
 					} else {
 						int var9 = 0;
 						if (var8 >= 6) {
-							var9 = var7.method8126();
+							var9 = var7.readInt();
 						}
 
 						if (this.field3881 != var9) {

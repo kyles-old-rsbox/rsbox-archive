@@ -45,8 +45,8 @@ class JagByteBuf(private val buffer: ByteBuf = Unpooled.buffer()) {
 
     private var writerBitIndex = 0
     private var readerBitIndex = 0
-    private var writerMode: AccessMode = BYTE_ACCESS
-    private var readerMode: AccessMode = BYTE_ACCESS
+    private var writerMode: AccessMode = BYTE_MODE
+    private var readerMode: AccessMode = BYTE_MODE
 
     fun release() = buffer.release()
 
@@ -82,14 +82,14 @@ class JagByteBuf(private val buffer: ByteBuf = Unpooled.buffer()) {
      */
     fun switchWriteAccess(accessMode: AccessMode) {
         when(accessMode) {
-            is BYTE_ACCESS -> {
-                if(writerMode === BYTE_ACCESS) return
-                writerMode = BYTE_ACCESS
+            is BYTE_MODE -> {
+                if(writerMode === BYTE_MODE) return
+                writerMode = BYTE_MODE
                 buffer.writerIndex((writerBitIndex + 7) / 8)
             }
-            is BIT_ACCESS -> {
-                if(writerMode === BIT_ACCESS) return
-                writerMode = BIT_ACCESS
+            is BIT_MODE -> {
+                if(writerMode === BIT_MODE) return
+                writerMode = BIT_MODE
                 writerBitIndex = buffer.writerIndex() * 8
             }
         }
@@ -101,14 +101,14 @@ class JagByteBuf(private val buffer: ByteBuf = Unpooled.buffer()) {
      */
     fun switchReadAccess(accessMode: AccessMode) {
         when(accessMode) {
-            is BYTE_ACCESS -> {
-                if(readerMode === BYTE_ACCESS) return
-                readerMode = BYTE_ACCESS
+            is BYTE_MODE -> {
+                if(readerMode === BYTE_MODE) return
+                readerMode = BYTE_MODE
                 buffer.readerIndex((readerBitIndex + 7) / 8)
             }
-            is BIT_ACCESS -> {
-                if(readerMode === BIT_ACCESS) return
-                readerMode = BIT_ACCESS
+            is BIT_MODE -> {
+                if(readerMode === BIT_MODE) return
+                readerMode = BIT_MODE
                 readerBitIndex = buffer.readerIndex() * 8
             }
         }
@@ -236,7 +236,7 @@ class JagByteBuf(private val buffer: ByteBuf = Unpooled.buffer()) {
             return
         }
 
-        if(writerMode != BYTE_ACCESS) throw IllegalStateException("Can not write bytes while in BIT_ACCESS mode.")
+        if(writerMode != BYTE_MODE) throw IllegalStateException("Can not write bytes while in BIT_ACCESS mode.")
         val longValue = value.toLong()
         val length = type.size
         when(endian) {
@@ -286,7 +286,7 @@ class JagByteBuf(private val buffer: ByteBuf = Unpooled.buffer()) {
     fun writeBits(value: Int, count: Int) {
         var numberOfBits = count
         if(numberOfBits !in 1..32) throw IllegalArgumentException("Can not write more than 32 bits at a time.")
-        if(writerMode !== BIT_ACCESS) throw IllegalStateException("Can not write bits while in BYTE_ACCESS mode.")
+        if(writerMode !== BIT_MODE) throw IllegalStateException("Can not write bits while in BYTE_ACCESS mode.")
 
         var byteOffset = writerBitIndex shr 3
         var bitOffset = 8 - (writerBitIndex and 7)
@@ -424,7 +424,7 @@ class JagByteBuf(private val buffer: ByteBuf = Unpooled.buffer()) {
     fun readBoolean(): Boolean = readBit() == 1
 
     private fun read(type: DataType, endian: DataEndian, transform: DataTransform): Long {
-        if(readerMode != BYTE_ACCESS) throw IllegalStateException("Can not read bytes while in BIT_ACCESS mode.")
+        if(readerMode != BYTE_MODE) throw IllegalStateException("Can not read bytes while in BIT_ACCESS mode.")
         var longValue: Long = 0
         val length = type.size
         when(endian) {
@@ -493,7 +493,7 @@ class JagByteBuf(private val buffer: ByteBuf = Unpooled.buffer()) {
     fun readBits(count: Int): Int {
         var amountOfBits = count
         if(amountOfBits !in 0..32) throw IllegalArgumentException("Can not read more than 32 bits and less than 1 bits.")
-        if(readerMode != BIT_ACCESS) throw IllegalStateException("Can not read bits while in BYTE_ACCESS mode.")
+        if(readerMode != BIT_MODE) throw IllegalStateException("Can not read bits while in BYTE_ACCESS mode.")
 
         var byteOffset = readerBitIndex shr 3
         var bitOffset = 8 - (readerBitIndex and 7)

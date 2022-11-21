@@ -3,7 +3,7 @@ import java.security.SecureRandom;
 public class class18 implements class360 {
 	public static final class18 field84;
 	public static final class18 field87;
-	static byte[][] field92;
+	static byte[][] regionMapArchives;
 	static class167 mouseWheel;
 	static final class18 field86;
 	static final class18 field88;

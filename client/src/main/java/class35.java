@@ -23,8 +23,8 @@ public class class35 {
 
 	final void method657(Buffer var1) {
 		this.field228 = var1.method8141();
-		this.field226 = var1.method8126();
-		this.field227 = var1.method8126();
+		this.field226 = var1.readInt();
+		this.field227 = var1.readInt();
 		this.method663(var1);
 	}
 

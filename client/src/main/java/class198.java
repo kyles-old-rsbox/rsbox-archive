@@ -150,7 +150,7 @@ public class class198 extends class437 {
 		} else if (var2 == 11) {
 			this.field2142 = 1;
 		} else if (var2 == 12) {
-			this.field2143 = var1.method8126();
+			this.field2143 = var1.readInt();
 		} else if (var2 == 13) {
 			this.field2130 = var1.method8141();
 		} else if (var2 == 14) {

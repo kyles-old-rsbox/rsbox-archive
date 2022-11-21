@@ -205,7 +205,7 @@ public class class123 {
 
 						for (var8 = 0; var8 < var17; ++var8) {
 							var9 = var15.readUnsignedShort();
-							var10 = var15.method8126();
+							var10 = var15.readInt();
 							if (this.field1190[var9]) {
 								this.field1192.put(var9, var10);
 							}

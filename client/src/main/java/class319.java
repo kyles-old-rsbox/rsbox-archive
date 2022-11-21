@@ -35,7 +35,7 @@ public abstract class class319 {
 		int var6 = var5.method8141();
 		if (var6 >= 5 && var6 <= 7) {
 			if (var6 >= 6) {
-				var5.method8126();
+				var5.readInt();
 			}
 
 			int var7 = var5.method8141();
@@ -75,18 +75,18 @@ public abstract class class319 {
 				this.field3735 = new int[var9 + 1];
 
 				for (var10 = 0; var10 < this.field3739; ++var10) {
-					this.field3735[this.field3734[var10]] = var5.method8126();
+					this.field3735[this.field3734[var10]] = var5.readInt();
 				}
 
 				this.field3736 = new class476(this.field3735);
 			}
 
 			for (var10 = 0; var10 < this.field3739; ++var10) {
-				this.field3737[this.field3734[var10]] = var5.method8126();
+				this.field3737[this.field3734[var10]] = var5.readInt();
 			}
 
 			for (var10 = 0; var10 < this.field3739; ++var10) {
-				this.field3738[this.field3734[var10]] = var5.method8126();
+				this.field3738[this.field3734[var10]] = var5.readInt();
 			}
 
 			for (var10 = 0; var10 < this.field3739; ++var10) {
@@ -144,7 +144,7 @@ public abstract class class319 {
 					this.field3741[var11] = new int[this.field3747[var11].length];
 
 					for (var13 = 0; var13 < var12; ++var13) {
-						this.field3741[var11][this.field3740[var11][var13]] = var5.method8126();
+						this.field3741[var11][this.field3740[var11][var13]] = var5.readInt();
 					}
 
 					this.field3742[var11] = new class476(this.field3741[var11]);
@@ -369,7 +369,7 @@ public abstract class class319 {
 						var15 = 0;
 
 						for (var16 = 0; var16 < var4; ++var16) {
-							var15 += var12.method8126();
+							var15 += var12.readInt();
 							var13[var16] += var15;
 						}
 					}
@@ -388,7 +388,7 @@ public abstract class class319 {
 						int var17 = 0;
 
 						for (int var18 = 0; var18 < var4; ++var18) {
-							var17 += var12.method8126();
+							var17 += var12.readInt();
 							System.arraycopy(var21, var15, var20[var18], var13[var18], var17);
 							var13[var18] += var17;
 							var15 += var17;
@@ -413,7 +413,7 @@ public abstract class class319 {
 		}
 	}
 
-	public int method6124(String var1) {
+	public int getGroupId(String var1) {
 		var1 = var1.toLowerCase();
 		return this.field3736.method8617(class359.method6670(var1));
 	}

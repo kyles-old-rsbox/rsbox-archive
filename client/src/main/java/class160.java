@@ -110,13 +110,13 @@ public class class160 extends class437 {
 					this.field1474[var5] = var1.method8204();
 				}
 
-				var1.method8126();
+				var1.readInt();
 				var5 = var1.method8141();
 				this.field1485 = new int[var5];
 
 				int var6;
 				for (var6 = 0; var6 < this.field1485.length; ++var6) {
-					this.field1485[var6] = var1.method8126();
+					this.field1485[var6] = var1.readInt();
 				}
 
 				this.field1486 = new byte[var4];
@@ -132,9 +132,9 @@ public class class160 extends class437 {
 				} else if (var2 == 19) {
 					this.field1487 = var1.readUnsignedShort();
 				} else if (var2 == 21) {
-					var1.method8126();
+					var1.readInt();
 				} else if (var2 == 22) {
-					var1.method8126();
+					var1.readInt();
 				} else if (var2 == 23) {
 					var1.method8141();
 					var1.method8141();

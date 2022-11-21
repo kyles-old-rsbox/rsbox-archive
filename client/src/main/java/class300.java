@@ -376,7 +376,7 @@ public class class300 extends class427 {
 				if (var10 == 1) {
 					this.field3530[var9] = var1.method8204();
 					this.field3531[var9] = var1.method8204();
-					this.field3526[var9] = var1.method8126();
+					this.field3526[var9] = var1.readInt();
 				} else {
 					this.field3526[var9] = -1;
 				}
@@ -415,18 +415,18 @@ public class class300 extends class427 {
 		}
 
 		if (this.field3462 == 1 || this.field3462 == 3 || this.field3462 == 4) {
-			this.field3485 = var1.method8126();
+			this.field3485 = var1.readInt();
 		}
 
 		if (this.field3462 == 3 || 4 == this.field3462) {
-			this.field3495 = var1.method8126();
-			this.field3487 = var1.method8126();
-			this.field3567 = var1.method8126();
+			this.field3495 = var1.readInt();
+			this.field3487 = var1.readInt();
+			this.field3567 = var1.readInt();
 		}
 
 		if (5 == this.field3462) {
-			this.field3560 = var1.method8126();
-			this.field3496 = var1.method8126();
+			this.field3560 = var1.readInt();
+			this.field3496 = var1.readInt();
 		}
 
 		if (this.field3462 == 6) {
@@ -467,7 +467,7 @@ public class class300 extends class427 {
 			}
 
 			this.field3488 = var1.method8141() == 1;
-			this.field3485 = var1.method8126();
+			this.field3485 = var1.readInt();
 			this.field3528 = var1.method8204();
 			this.field3529 = var1.method8204();
 			var5 = var1.method8141();
@@ -561,12 +561,12 @@ public class class300 extends class427 {
 		}
 
 		if (5 == this.field3462) {
-			this.field3560 = var1.method8126();
+			this.field3560 = var1.readInt();
 			this.field3498 = var1.readUnsignedShort();
 			this.field3499 = var1.method8141() == 1;
 			this.field3612 = var1.method8141();
 			this.field3500 = var1.method8141();
-			this.field3501 = var1.method8126();
+			this.field3501 = var1.readInt();
 			this.field3467 = var1.method8141() == 1;
 			this.field3503 = var1.method8141() == 1;
 		}
@@ -611,18 +611,18 @@ public class class300 extends class427 {
 			this.field3525 = var1.method8141();
 			this.field3572 = var1.method8141();
 			this.field3488 = var1.method8141() == 1;
-			this.field3485 = var1.method8126();
+			this.field3485 = var1.readInt();
 		}
 
 		if (3 == this.field3462) {
-			this.field3485 = var1.method8126();
+			this.field3485 = var1.readInt();
 			this.field3489 = var1.method8141() == 1;
 			this.field3612 = var1.method8141();
 		}
 
 		if (this.field3462 == 9) {
 			this.field3493 = var1.method8141();
-			this.field3485 = var1.method8126();
+			this.field3485 = var1.readInt();
 			this.field3494 = var1.method8141() == 1;
 		}
 
@@ -674,7 +674,7 @@ public class class300 extends class427 {
 			for (int var5 = 0; var5 < var3; ++var5) {
 				int var6 = var1.method8141();
 				if (var6 == 0) {
-					var4[var5] = new Integer(var1.method8126());
+					var4[var5] = new Integer(var1.readInt());
 				} else if (var6 == 1) {
 					var4[var5] = var1.readString();
 				}
@@ -693,7 +693,7 @@ public class class300 extends class427 {
 			int[] var4 = new int[var3];
 
 			for (int var5 = 0; var5 < var3; ++var5) {
-				var4[var5] = var1.method8126();
+				var4[var5] = var1.readInt();
 			}
 
 			return var4;
