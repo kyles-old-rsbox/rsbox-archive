@@ -21,13 +21,17 @@ import io.netty.bootstrap.ServerBootstrap
 import io.netty.channel.ChannelOption
 import io.netty.channel.nio.NioEventLoopGroup
 import io.netty.channel.socket.nio.NioServerSocketChannel
+import io.rsbox.server.common.inject
 import io.rsbox.server.config.ServerConfig
+import io.rsbox.server.engine.net.game.GamePackets
 import io.rsbox.server.engine.net.pipeline.NetworkChannelInitializer
 import org.tinylog.kotlin.Logger
 import java.net.InetSocketAddress
 import kotlin.system.exitProcess
 
 class NetworkServer {
+
+    private val gamePackets: GamePackets by inject()
 
     private val bootstrap = ServerBootstrap()
     private val bossGroup = NioEventLoopGroup(2)
@@ -44,6 +48,9 @@ class NetworkServer {
 
     fun start() {
         Logger.info("Starting network server.")
+
+        gamePackets.load()
+
         val socketAddress = InetSocketAddress(ServerConfig.NETWORK.ADDRESS, ServerConfig.NETWORK.PORT)
         bootstrap.bind(socketAddress).addListener {
             if(it.isSuccess) onBindSuccess(socketAddress)
@@ -53,6 +60,7 @@ class NetworkServer {
 
     fun stop() {
         Logger.info("Stopping network server.")
+
         bossGroup.shutdownGracefully()
         workerGroup.shutdownGracefully()
     }

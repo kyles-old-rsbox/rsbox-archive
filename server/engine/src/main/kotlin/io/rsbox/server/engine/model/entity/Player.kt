@@ -48,6 +48,10 @@ class Player internal constructor(val session: Session) : LivingEntity() {
     override var prevTile = tile
     override var followTile = tile
 
+    internal fun init() {
+
+    }
+
     override suspend fun cycle() {
         queueCycle()
     }

@@ -77,19 +77,22 @@ class LoginService : Service, Runnable {
             player.passwordHash = SHA256.hash(request.password ?: "")
             player.displayName = request.username
             player.privilegeLevel = PrivilegeLevel.DEVELOPER
+            session.xteas = request.xteas
+            session.reconnectXteas = request.reconnectXteas
             player.login()
         }
     }
 
     private fun Player.login() {
-        world.players.addPlayer(this)
-        LoginResponse(this).also { session.writeAndFlush(it) }
+        session.encoderIsaac.init(IntArray(4) { session.xteas[it] + 50 })
+        session.decoderIsaac.init(session.xteas)
 
-        /*
-         * Update the player's session protocol to the game-packet
-         * protocol.
-         */
+        world.players.addPlayer(this)
+
+        LoginResponse(this).also { session.writeAndFlush(it) }
         session.protocol.set(GameProtocol(session))
+
+        this.init()
 
         Logger.info("[$username] has connected to the server.")
     }

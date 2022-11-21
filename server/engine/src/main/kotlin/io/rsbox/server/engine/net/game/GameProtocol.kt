@@ -15,21 +15,47 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+@file:Suppress("UNCHECKED_CAST")
+
 package io.rsbox.server.engine.net.game
 
 import io.netty.buffer.ByteBuf
+import io.rsbox.server.common.inject
 import io.rsbox.server.engine.net.Message
 import io.rsbox.server.engine.net.Protocol
 import io.rsbox.server.engine.net.Session
+import io.rsbox.server.util.buffer.toJagBuf
+import kotlin.reflect.KClass
 
 class GameProtocol(session: Session) : Protocol(session) {
 
+    private val gamePackets: GamePackets by inject()
+
     override fun decode(buf: ByteBuf, out: MutableList<Any>) {
-        println("decoder: packet")
     }
 
     override fun encode(msg: Message, out: ByteBuf) {
-        println("encoder: packet")
+        if(msg !is Packet) return
+
+        val opcode = gamePackets.serverPackets.getOpcode(msg::class as KClass<out Packet>)
+        val type = gamePackets.serverPackets.getType(opcode)
+        val codec = gamePackets.serverPackets.getCodec(opcode)
+
+        val buf = session.ctx.alloc().buffer().toJagBuf()
+        codec.encode(session, msg, buf)
+
+        val length = buf.writerIndex()
+
+        out.writeByte((opcode + session.encoderIsaac.nextInt()) and 0xFF)
+
+        when(type) {
+            PacketType.VARIABLE_BYTE -> out.writeByte(length)
+            PacketType.VARIABLE_SHORT -> out.writeShort(length)
+            else -> { /* Do Nothing */ }
+        }
+
+        out.writeBytes(buf.toByteBuf())
+        buf.release()
     }
 
     override fun handle(msg: Message) {

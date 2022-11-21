@@ -15,24 +15,22 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.server.engine
+package io.rsbox.server.engine.net.packet.server
 
-import io.rsbox.server.engine.model.World
-import io.rsbox.server.engine.model.worldlist.WorldList
-import io.rsbox.server.engine.net.NetworkServer
-import io.rsbox.server.engine.net.game.GamePackets
-import io.rsbox.server.engine.net.http.HttpServer
-import io.rsbox.server.engine.service.ServiceManager
-import io.rsbox.server.util.security.RSA
-import org.koin.dsl.module
+import io.rsbox.server.engine.net.Session
+import io.rsbox.server.engine.net.game.Codec
+import io.rsbox.server.engine.net.game.Packet
+import io.rsbox.server.engine.net.game.PacketType
+import io.rsbox.server.engine.net.game.ServerPacket
+import io.rsbox.server.util.buffer.JagByteBuf
 
-val EngineModule = module {
-    single { RSA() }
-    single { Engine() }
-    single { NetworkServer() }
-    single { HttpServer() }
-    single { WorldList() }
-    single { World() }
-    single { ServiceManager() }
-    single { GamePackets() }
+@ServerPacket(opcode = 0, type = PacketType.FIXED)
+class TestPacket : Packet {
+
+    companion object : Codec<TestPacket> {
+
+        override fun encode(session: Session, packet: TestPacket, out: JagByteBuf) {
+
+        }
+    }
 }

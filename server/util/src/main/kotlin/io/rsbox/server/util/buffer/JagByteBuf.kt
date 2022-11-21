@@ -48,6 +48,8 @@ class JagByteBuf(private val buffer: ByteBuf = Unpooled.buffer()) {
     private var writerMode: AccessMode = BYTE_ACCESS
     private var readerMode: AccessMode = BYTE_ACCESS
 
+    fun release() = buffer.release()
+
     fun readerIndex() = buffer.readerIndex()
 
     fun writerIndex() = buffer.writerIndex()

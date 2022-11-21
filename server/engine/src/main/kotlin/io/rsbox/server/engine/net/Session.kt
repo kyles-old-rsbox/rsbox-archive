@@ -39,8 +39,8 @@ class Session(val ctx: ChannelHandlerContext) {
 
     val protocol = AtomicReference<Protocol>(null)
 
-    val encoderIsaac = IsaacRandom()
-    val decoderIsaac = IsaacRandom()
+    var encoderIsaac = IsaacRandom()
+    var decoderIsaac = IsaacRandom()
 
     internal fun onConnect() {
         protocol.set(HandshakeProtocol(this))

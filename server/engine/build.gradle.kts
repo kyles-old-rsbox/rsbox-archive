@@ -7,4 +7,5 @@ dependencies {
     implementation("io.netty:netty-all:_")
     implementation("com.google.guava:guava:_")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:_")
+    implementation("io.github.classgraph:classgraph:_")
 }
