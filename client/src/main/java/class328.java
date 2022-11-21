@@ -10,7 +10,7 @@ public class class328 {
 	static boolean method6247() {
 		try {
 			if (null == class96.field962) {
-				class96.field962 = class28.field155.method2222(new URL(class130.field1236));
+				class96.field962 = class28.urlRequester.method2222(new URL(class130.field1236));
 			} else if (class96.field962.method2102()) {
 				byte[] var1 = class96.field962.method2115();
 				Buffer var2 = new Buffer(var1);

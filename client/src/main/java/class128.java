@@ -31,7 +31,7 @@ public class class128 extends class393 {
 				}
 
 				if (var10.field3462 == 11) {
-					if (var10.method5874(class28.field155)) {
+					if (var10.method5874(class28.urlRequester)) {
 						if (var10.method5876()) {
 							class136.method2438(var10);
 							class26.method349(var10.field3602, var10, true);

@@ -24,7 +24,7 @@ import java.util.concurrent.Future;
 public final class client extends class31 implements class375, OAuthApi {
 	public static boolean field1635;
 	public static class205 field1876;
-	public static int field1868;
+	public static int worldId;
 	public static int field1932;
 	public static int field1936;
 	public static final class107 packetWriter;
@@ -232,7 +232,7 @@ public final class client extends class31 implements class375, OAuthApi {
 	static int field1898;
 	static int field1904;
 	static int field1910;
-	static int field1911;
+	static int gameBuild;
 	static int field1913;
 	static int field1915;
 	static int field1917;
@@ -333,9 +333,9 @@ public final class client extends class31 implements class375, OAuthApi {
 
 	static {
 		field1660 = true;
-		field1868 = 1;
+		worldId = 1;
 		field1633 = 0;
-		field1911 = 0;
+		gameBuild = 0;
 		field1635 = false;
 		isLowDetail = false;
 		field1637 = -1;
@@ -713,7 +713,7 @@ public final class client extends class31 implements class375, OAuthApi {
 						class106.field1050 = var2;
 						break;
 					case 12:
-						field1868 = Integer.parseInt(var2);
+						worldId = Integer.parseInt(var2);
 					case 13:
 					case 16:
 					case 18:
@@ -728,7 +728,7 @@ public final class client extends class31 implements class375, OAuthApi {
 						class11.field45 = Integer.parseInt(var2);
 						break;
 					case 15:
-						field1911 = Integer.parseInt(var2);
+						gameBuild = Integer.parseInt(var2);
 						break;
 					case 17:
 						class130.field1236 = var2;
@@ -965,17 +965,17 @@ public final class client extends class31 implements class375, OAuthApi {
 			class378.method6183();
 		}
 
-		class180.worldPort = field1911 == 0 ? 43594 : 40000 + field1868;
-		class141.js5Port = field1911 == 0 ? 443 : 50000 + field1868;
+		class180.worldPort = gameBuild == 0 ? 43594 : 40000 + worldId;
+		class141.js5Port = gameBuild == 0 ? 443 : 50000 + worldId;
 		class454.currentPort = class180.worldPort;
 		class172.field1551 = class303.field3622;
 		class37.field251 = class303.field3624;
 		class9.field39 = class303.field3621;
 		class97.field974 = class303.field3623;
-		class28.field155 = new class125(this.field1835, 209);
-		this.method573();
+		class28.urlRequester = new class125(this.field1835, 209);
+		this.initKeyboard();
 		this.method450();
-		class18.field94 = this.method443();
+		class18.mouseWheel = this.mouseWheel();
 		this.method449(field1877, 0);
 		this.method449(field1876, 1);
 		class227.field2721 = new class392(255, class163.field1503, class163.field1509, 500000);
@@ -1022,8 +1022,8 @@ public final class client extends class31 implements class375, OAuthApi {
 		field1876.method3893();
 		this.method539();
 		MouseManager.method4616();
-		if (null != class18.field94) {
-			int var2 = class18.field94.method2702();
+		if (null != class18.mouseWheel) {
+			int var2 = class18.mouseWheel.method2702();
 			field1639 = var2;
 		}
 
@@ -1179,7 +1179,7 @@ public final class client extends class31 implements class375, OAuthApi {
 		class74.mouseRecorder = null;
 		packetWriter.method2080();
 		class73.method1488();
-		class18.field94 = null;
+		class18.mouseWheel = null;
 		if (class91.field886 != null) {
 			class91.field886.method361();
 		}
@@ -1190,9 +1190,9 @@ public final class client extends class31 implements class375, OAuthApi {
 
 		class323.method6200();
 		class322.method3464();
-		if (null != class28.field155) {
-			class28.field155.method2236();
-			class28.field155 = null;
+		if (null != class28.urlRequester) {
+			class28.urlRequester.method2236();
+			class28.urlRequester = null;
 		}
 
 		class53.method1112();
@@ -1884,10 +1884,10 @@ public final class client extends class31 implements class375, OAuthApi {
 		}
 
 		class271.field3032 = var0.field589;
-		field1868 = var0.field590;
+		worldId = var0.field590;
 		field1633 = var0.field587;
-		class180.worldPort = 0 == field1911 ? 43594 : 40000 + var0.field590;
-		class141.js5Port = 0 == field1911 ? 443 : 50000 + var0.field590;
+		class180.worldPort = 0 == gameBuild ? 43594 : 40000 + var0.field590;
+		class141.js5Port = 0 == gameBuild ? 443 : 50000 + var0.field590;
 		class454.currentPort = class180.worldPort;
 	}
 

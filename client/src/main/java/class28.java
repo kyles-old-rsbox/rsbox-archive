@@ -1,5 +1,5 @@
 public class class28 {
-	static class115 field155;
+	static class115 urlRequester;
 	static class448 field148;
 	static class47 field154;
 	boolean field137;

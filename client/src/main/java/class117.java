@@ -6,7 +6,7 @@ public class class117 extends class393 {
 	}
 
 	int method2251(class396 var1, class396 var2) {
-		if (var1.field4491 == client.field1868 && client.field1868 == var2.field4491) {
+		if (var1.field4491 == client.worldId && client.worldId == var2.field4491) {
 			return this.field1139 ? var1.method7232().method8457(var2.method7232()) : var2.method7232().method8457(var1.method7232());
 		} else {
 			return this.method7162(var1, var2);

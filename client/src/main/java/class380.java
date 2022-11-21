@@ -6,9 +6,9 @@ public class class380 extends class396 {
 	}
 
 	int method6807(class380 var1) {
-		if (client.field1868 == super.field4491 && var1.field4491 != client.field1868) {
+		if (client.worldId == super.field4491 && var1.field4491 != client.worldId) {
 			return -1;
-		} else if (client.field1868 == var1.field4491 && super.field4491 != client.field1868) {
+		} else if (client.worldId == var1.field4491 && super.field4491 != client.worldId) {
 			return 1;
 		} else if (super.field4491 != 0 && 0 == var1.field4491) {
 			return -1;

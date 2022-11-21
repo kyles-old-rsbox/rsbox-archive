@@ -15,16 +15,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.server.engine.model.worldlist
+package io.rsbox.server.engine.queue
 
-enum class WorldType(val mask: Int) {
-    F2P(0),
-    MEMBERS(1),
-    PVP(1 shl 2),
-    OTHER(1 shl 4),
-    DEAD_MAN(1 shl 29),
-    BETA(1 shl 25),
-    LEAGUES(1 shl 30),
-    SPEED_RUNNING(1 shl 8),
-    FRESH_START(1 shl 27);
+enum class QueuePriority {
+    WEAK,
+    NORMAL,
+    STRONG
 }

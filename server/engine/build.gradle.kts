@@ -6,4 +6,5 @@ dependencies {
     implementation(project(":server:config"))
     implementation("io.netty:netty-all:_")
     implementation("com.google.guava:guava:_")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:_")
 }

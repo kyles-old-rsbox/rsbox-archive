@@ -17,9 +17,16 @@
 
 package io.rsbox.server.engine.model
 
+import io.rsbox.server.engine.model.list.PlayerList
+import io.rsbox.server.engine.queue.QueueList
 import org.tinylog.kotlin.Logger
 
 class World {
+
+    val players = PlayerList()
+
+    internal val queue = QueueList()
+    fun queue(block: suspend () -> Unit) = queue.queue(block)
 
     fun load() {
         Logger.info("Loading game world.")

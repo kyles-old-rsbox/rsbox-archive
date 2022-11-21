@@ -8,11 +8,11 @@ public class class105 extends class393 {
 	}
 
 	int method2040(class396 var1, class396 var2) {
-		if (client.field1868 == var1.field4491) {
-			if (client.field1868 != var2.field4491) {
+		if (client.worldId == var1.field4491) {
+			if (client.worldId != var2.field4491) {
 				return this.field1045 ? -1 : 1;
 			}
-		} else if (var2.field4491 == client.field1868) {
+		} else if (var2.field4491 == client.worldId) {
 			return this.field1045 ? 1 : -1;
 		}
 

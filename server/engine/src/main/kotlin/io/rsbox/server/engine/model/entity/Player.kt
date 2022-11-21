@@ -31,6 +31,11 @@ class Player internal constructor(val session: Session) : LivingEntity() {
     lateinit var username: String
     lateinit var passwordHash: String
     lateinit var displayName: String
+    var pid: Int = -1
+    var skullIcon: Int = -1
+    var prayerIcon: Int = -1
+
+    var stanceAnimations = intArrayOf(808, 823, 819, 820, 821, 822, 824)
 
     override var tile = Tile(
         ServerConfig.DEFAULTS.HOME_TILE.X,
@@ -44,5 +49,9 @@ class Player internal constructor(val session: Session) : LivingEntity() {
 
     internal fun onLogout() {
         Logger.info("[$username] has disconnected from the server.")
+    }
+
+    override suspend fun cycle() {
+        queueCycle()
     }
 }

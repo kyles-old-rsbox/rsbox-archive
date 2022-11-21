@@ -168,7 +168,7 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 		}
 	}
 
-	protected class167 method443() {
+	protected class167 mouseWheel() {
 		if (null == this.field194) {
 			this.field194 = new class5();
 			this.field194.method39(this.field190);
@@ -189,7 +189,7 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 		return this.field182;
 	}
 
-	protected final void method573() {
+	protected final void initKeyboard() {
 		if (class172.field1559.toLowerCase().indexOf("microsoft") != -1) {
 			class41.field264[186] = 57;
 			class41.field264[187] = 27;

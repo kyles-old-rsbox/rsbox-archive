@@ -18,11 +18,42 @@
 package io.rsbox.server.engine.model.entity
 
 import io.rsbox.server.engine.model.coord.Tile
+import io.rsbox.server.engine.queue.PriorityQueueList
+import org.tinylog.kotlin.Logger
 
 abstract class LivingEntity : Entity() {
 
     var index = -1
 
     abstract override var tile: Tile
+    abstract var prevTile: Tile
+    abstract var followTile: Tile
+
+    var teleportTile: Tile? = null
+    var path = mutableListOf<Tile>()
+    var interacting: LivingEntity? = null
+    var movementState = MovementState.NONE
+    var invisible = false
+
+    internal val queue = PriorityQueueList()
+
+    internal suspend fun queueCycle() {
+        val shouldPollPending = queue.paused
+        try {
+            queue.processCurrent()
+        } catch (e: Throwable) {
+            queue.discardCurrent()
+            Logger.error(e) { "An error occurred in queue." }
+        }
+        if(shouldPollPending) {
+            try {
+                queue.pollPending()
+            } catch (e: Throwable) {
+                Logger.error(e) { "An error occurred in queue." }
+            }
+        }
+    }
+
+    abstract suspend fun cycle()
 
 }

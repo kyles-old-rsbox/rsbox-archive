@@ -444,7 +444,7 @@ public final class class264 {
 									} else if (var11.field3462 == 5) {
 										class473 var40;
 										if (!var11.field3459) {
-											var40 = var11.method5852(MouseManager.method796(var11), class28.field155);
+											var40 = var11.method5852(MouseManager.method796(var11), class28.urlRequester);
 											if (null != var40) {
 												var40.method8526(var13, var14);
 											} else if (class300.field3458) {
@@ -454,7 +454,7 @@ public final class class264 {
 											if (-1 != var11.field3445) {
 												var40 = class71.method1436(var11.field3445, var11.field3599, var11.field3500, var11.field3501, var11.field3520, false);
 											} else {
-												var40 = var11.method5852(false, class28.field155);
+												var40 = var11.method5852(false, class28.urlRequester);
 											}
 
 											if (var40 == null) {

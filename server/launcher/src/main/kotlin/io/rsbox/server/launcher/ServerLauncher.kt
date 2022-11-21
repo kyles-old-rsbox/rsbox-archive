@@ -35,11 +35,6 @@ object ServerLauncher {
 
     @JvmStatic
     fun main(args: Array<String>) {
-        init()
-        launch()
-    }
-
-    private fun init() {
         /*
          * Check if the server has been setup.
          */
@@ -64,11 +59,6 @@ object ServerLauncher {
          * Start Engine
          */
         engine.start()
-    }
-
-    private fun launch() {
-        Logger.info("Launching RSBox server.")
-
     }
 
     private fun checkDirs() {

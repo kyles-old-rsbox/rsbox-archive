@@ -136,7 +136,7 @@ public class class218 extends class437 {
 					class57.field404[++class387.field4452 - 1] = client.rebootTimer;
 					return 1;
 				} else if (var0 == CS2Opcodes.MAP_WORLD) {
-					class57.field404[++class387.field4452 - 1] = client.field1868;
+					class57.field404[++class387.field4452 - 1] = client.worldId;
 					return 1;
 				} else if (var0 == CS2Opcodes.RUNENERGY_VISIBLE) {
 					class57.field404[++class387.field4452 - 1] = client.field1816;

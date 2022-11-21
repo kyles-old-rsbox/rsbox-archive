@@ -452,7 +452,7 @@ public class class109 {
 					byte var32 = 100;
 					byte var31 = 35;
 					class246.field2880.method8755(var25, var26);
-					var0.method6955(class338.field4069 + " " + client.field1868, var25 + var32 / 2, var26 + var31 / 2 - 2, 16777215, 0);
+					var0.method6955(class338.field4069 + " " + client.worldId, var25 + var32 / 2, var26 + var31 / 2 - 2, 16777215, 0);
 					if (class96.field962 != null) {
 						var1.method6955(class338.field3961, var25 + var32 / 2, 12 + var26 + var31 / 2, 16777215, 0);
 					} else {

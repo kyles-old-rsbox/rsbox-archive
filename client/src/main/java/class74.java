@@ -182,11 +182,11 @@ public class class74 implements Comparator {
 			return 0;
 		} else {
 			if (this.field614) {
-				if (var1.field3806 == client.field1868) {
+				if (var1.field3806 == client.worldId) {
 					return -1;
 				}
 
-				if (client.field1868 == var2.field3806) {
+				if (client.worldId == var2.field3806) {
 					return 1;
 				}
 			}

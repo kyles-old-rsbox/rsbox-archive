@@ -143,7 +143,7 @@ public final class class93 extends class90 {
 		this.field905 = var1.method8141();
 		this.field912 = var1.readUnsignedShort();
 		this.field913 = var1.method8141() == 1;
-		if (0 == client.field1911 && client.privilegeLevel >= 2) {
+		if (0 == client.gameBuild && client.privilegeLevel >= 2) {
 			this.field913 = false;
 		}
 
