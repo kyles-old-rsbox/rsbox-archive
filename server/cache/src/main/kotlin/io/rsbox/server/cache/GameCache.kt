@@ -35,6 +35,8 @@ class GameCache : AutoCloseable {
 
     val archiveCount get() = cache.archiveCount
 
+    lateinit var configArchive: ConfigArchive private set
+
     fun read(archive: Int, group: Int) = filestore.read(archive, group).retain()
 
     fun readArchive(archive: Int): Js5Archive {
@@ -55,7 +57,13 @@ class GameCache : AutoCloseable {
         filestore = Js5DiskStore.open(CACHE_DIR.toPath())
         cache = Js5Cache(filestore)
 
+        loadArchives()
+
         Logger.info("Successfully loaded ${cache.archiveCount} game cache archives.")
+    }
+
+    private fun loadArchives() {
+        configArchive = ConfigArchive.load(readArchive(ConfigArchive.id))
     }
 
     override fun close() {

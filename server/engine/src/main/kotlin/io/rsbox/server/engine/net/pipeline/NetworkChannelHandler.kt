@@ -34,7 +34,7 @@ class NetworkChannelHandler : ChannelInboundHandlerAdapter() {
     }
 
     override fun channelInactive(ctx: ChannelHandlerContext) {
-        session.get().onDisconnect()
+        session.get().disconnect()
     }
 
     override fun channelRead(ctx: ChannelHandlerContext, msg: Any) {

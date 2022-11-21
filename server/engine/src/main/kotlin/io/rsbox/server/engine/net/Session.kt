@@ -46,10 +46,6 @@ class Session(val ctx: ChannelHandlerContext) {
         protocol.set(HandshakeProtocol(this))
     }
 
-    internal fun onDisconnect() {
-
-    }
-
     internal fun onMessage(msg: Message) {
         protocol.get().handle(msg)
     }
@@ -62,6 +58,9 @@ class Session(val ctx: ChannelHandlerContext) {
     }
 
     fun disconnect() {
+        if(this::player.isInitialized) {
+            player.world.players.removePlayer(player)
+        }
         if(channel.isActive) {
             channel.close()
         }
