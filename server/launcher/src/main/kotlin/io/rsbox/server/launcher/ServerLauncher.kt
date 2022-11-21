@@ -54,11 +54,9 @@ object ServerLauncher {
         loadConfigs()
         loadRSA()
         loadGameCache()
-
-        /*
-         * Start Engine
-         */
         engine.start()
+
+        Logger.info("RSBox server startup completed successfully.")
     }
 
     private fun checkDirs() {

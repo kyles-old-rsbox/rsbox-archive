@@ -23,6 +23,7 @@ import io.rsbox.server.engine.coroutine.EngineCoroutineScope
 import io.rsbox.server.engine.model.World
 import io.rsbox.server.engine.net.NetworkServer
 import io.rsbox.server.engine.net.http.HttpServer
+import io.rsbox.server.engine.service.ServiceManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -36,6 +37,7 @@ class Engine {
     private val httpServer: HttpServer by inject()
     private val engineCoroutine: EngineCoroutineScope by inject()
     private val world: World by inject()
+    private val serviceManager: ServiceManager by inject()
 
     private var running = false
     private var prevCycleNanos = 0L
@@ -45,6 +47,7 @@ class Engine {
 
         running = true
 
+        serviceManager.start()
         world.load()
         engineCoroutine.start()
         networkServer.start()

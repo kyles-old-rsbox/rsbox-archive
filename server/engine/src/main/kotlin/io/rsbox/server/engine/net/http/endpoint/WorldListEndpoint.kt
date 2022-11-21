@@ -25,11 +25,13 @@ import io.netty.handler.codec.http.HttpHeaderValues
 import io.netty.handler.codec.http.HttpResponseStatus
 import io.netty.handler.codec.http.HttpVersion
 import io.rsbox.server.common.inject
+import io.rsbox.server.engine.model.World
 import io.rsbox.server.engine.model.worldlist.WorldList
 
 object WorldListEndpoint {
 
     private val worldList: WorldList by inject()
+    private val world: World by inject()
 
     fun handle(ctx: ChannelHandlerContext) {
         /*
@@ -46,7 +48,7 @@ object WorldListEndpoint {
             worldsBuf.writeString(worldEntry.address)
             worldsBuf.writeString(worldEntry.activity)
             worldsBuf.writeByte(worldEntry.location.id)
-            worldsBuf.writeShort(worldEntry.players)
+            worldsBuf.writeShort(world.players.size)
         }
 
         /*

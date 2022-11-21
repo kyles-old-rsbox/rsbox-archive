@@ -15,33 +15,24 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.server.engine.net.login
+package io.rsbox.server.engine.net.game
 
 import io.netty.buffer.ByteBuf
-import io.rsbox.server.common.inject
 import io.rsbox.server.engine.net.Message
 import io.rsbox.server.engine.net.Protocol
 import io.rsbox.server.engine.net.Session
-import io.rsbox.server.engine.service.ServiceManager
-import io.rsbox.server.engine.service.account.LoginService
 
-class LoginProtocol(session: Session) : Protocol(session) {
+class GameProtocol(session: Session) : Protocol(session) {
 
-    private val serviceManager: ServiceManager by inject()
+    override fun decode(buf: ByteBuf, out: MutableList<Any>) {
+        println("decoder: packet")
+    }
 
-    private val decoder = LoginDecoder(session)
-    private val encoder = LoginEncoder(session)
-
-    override fun decode(buf: ByteBuf, out: MutableList<Any>) = decoder.decode(buf, out)
-    override fun encode(msg: Message, out: ByteBuf) = encoder.encode(msg, out)
+    override fun encode(msg: Message, out: ByteBuf) {
+        println("encoder: packet")
+    }
 
     override fun handle(msg: Message) {
-        if(msg !is LoginRequest) return
-
-        /*
-         * Submit the login request for processing by the login service.
-         */
-        val loginService = serviceManager[LoginService::class]
-        loginService.submit(msg)
+        println("handler: packet")
     }
 }

@@ -21,7 +21,7 @@ class WorldList(private val worlds: MutableList<WorldEntry> = mutableListOf()) :
 
     init {
         worlds.addAll(arrayOf(
-            WorldEntry(1, "127.0.0.1", "-", listOf(WorldType.F2P, WorldType.PVP), WorldLocation.UNITED_STATES, 0),
+            WorldEntry(1, "127.0.0.1", "-", listOf(WorldType.F2P, WorldType.PVP), WorldLocation.UNITED_STATES),
         ))
     }
 }

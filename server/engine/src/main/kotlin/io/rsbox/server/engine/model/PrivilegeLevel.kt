@@ -15,12 +15,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.server.engine.model.worldlist
+package io.rsbox.server.engine.model
 
-data class WorldEntry(
-    val id: Int,
-    val address: String,
-    val activity: String = "-",
-    val types: List<WorldType> = listOf(WorldType.F2P),
-    val location: WorldLocation = WorldLocation.UNITED_STATES,
-)
+enum class PrivilegeLevel(val id: Int) {
+    PLAYER(0),
+    MODERATOR(1),
+    ADMINISTRATOR(2),
+    DEVELOPER(3);
+}

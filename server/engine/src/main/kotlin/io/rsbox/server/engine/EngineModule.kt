@@ -21,6 +21,7 @@ import io.rsbox.server.engine.model.World
 import io.rsbox.server.engine.model.worldlist.WorldList
 import io.rsbox.server.engine.net.NetworkServer
 import io.rsbox.server.engine.net.http.HttpServer
+import io.rsbox.server.engine.service.ServiceManager
 import io.rsbox.server.util.security.RSA
 import org.koin.dsl.module
 
@@ -31,4 +32,5 @@ val EngineModule = module {
     single { HttpServer() }
     single { WorldList() }
     single { World() }
+    single { ServiceManager() }
 }

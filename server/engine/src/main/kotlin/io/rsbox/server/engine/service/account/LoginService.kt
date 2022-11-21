@@ -17,44 +17,84 @@
 
 package io.rsbox.server.engine.service.account
 
+import com.google.common.util.concurrent.ThreadFactoryBuilder
+import io.rsbox.server.common.inject
+import io.rsbox.server.engine.model.PrivilegeLevel
+import io.rsbox.server.engine.model.World
+import io.rsbox.server.engine.model.entity.Player
+import io.rsbox.server.engine.net.StatusResponse
+import io.rsbox.server.engine.net.game.GameProtocol
+import io.rsbox.server.engine.net.login.LoginRequest
+import io.rsbox.server.engine.net.login.LoginResponse
 import io.rsbox.server.engine.service.Service
+import io.rsbox.server.util.security.SHA256
 import kotlinx.coroutines.*
-import kotlinx.coroutines.channels.Channel
-import kotlin.coroutines.CoroutineContext
-import kotlin.coroutines.EmptyCoroutineContext
+import org.tinylog.kotlin.Logger
+import java.util.concurrent.Executors
+import java.util.concurrent.LinkedBlockingQueue
 
-class LoginService : Service {
+class LoginService : Service, Runnable {
+
+    private val world: World by inject()
+
+    private val executor = Executors.newFixedThreadPool(
+        LOGIN_THREADS,
+        ThreadFactoryBuilder()
+            .setDaemon(false)
+            .setNameFormat("login-thread")
+            .build()
+    )
+
+    private val queue = LinkedBlockingQueue<LoginRequest>()
 
     override fun start() {
-
+        repeat(LOGIN_THREADS) {
+            executor.execute(this::run)
+        }
     }
 
     override fun stop() {
-
+        queue.clear()
+        executor.shutdown()
     }
 
-    private class LoginRequestQueue {
+    fun submit(request: LoginRequest) {
+        queue.add(request)
+    }
 
-        private val scope = MainScope()
-        private val queue = Channel<Job>(Channel.UNLIMITED)
+    override fun run() {
+        while(true) {
+            val request = queue.take()
 
-        init {
-            scope.launch(Dispatchers.Default) {
-                for(job in queue) job.join()
+            val session = request.session
+            if(world.players.any { it.username == request.username && it.passwordHash == SHA256.hash(request.password ?: "") }) {
+                session.writeAndClose(StatusResponse.ACCOUNT_ONLINE)
+                return
             }
-        }
 
-        fun queue(
-            context: CoroutineContext = EmptyCoroutineContext,
-            block: suspend CoroutineScope.() -> Unit
-        ) {
-            val job = scope.launch(context, CoroutineStart.LAZY, block)
-            queue.trySend(job)
+            val player = Player(session)
+            player.username = request.username
+            player.passwordHash = SHA256.hash(request.password ?: "")
+            player.displayName = request.username
+            player.privilegeLevel = PrivilegeLevel.DEVELOPER
+            player.login()
         }
+    }
 
-        fun cancel() {
-            queue.cancel()
-            scope.cancel()
-        }
+    private fun Player.login() {
+        world.players.addPlayer(this)
+        LoginResponse(this).also { session.writeAndFlush(it) }
+
+        /*
+         * Update the player's session protocol to the game-packet
+         * protocol.
+         */
+        session.protocol.set(GameProtocol(session))
+
+        Logger.info("[$username] has connected to the server.")
+    }
+
+    companion object {
+        private const val LOGIN_THREADS = 4
     }
 }

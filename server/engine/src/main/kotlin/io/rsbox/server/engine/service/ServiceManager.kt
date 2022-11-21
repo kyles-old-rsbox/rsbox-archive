@@ -17,6 +17,7 @@
 
 package io.rsbox.server.engine.service
 
+import io.rsbox.server.engine.service.account.LoginService
 import org.tinylog.kotlin.Logger
 import kotlin.reflect.KClass
 import kotlin.reflect.full.createInstance
@@ -26,7 +27,7 @@ class ServiceManager {
     private val services = mutableSetOf<Service>()
 
     init {
-
+        register<LoginService>()
     }
 
     fun start() {

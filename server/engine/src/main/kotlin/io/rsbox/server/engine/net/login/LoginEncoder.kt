@@ -24,6 +24,16 @@ import io.rsbox.server.engine.net.Session
 class LoginEncoder(private val session: Session) {
 
     fun encode(msg: Message, out: ByteBuf) {
+        if(msg !is LoginResponse) return
 
+        out.writeByte(2)
+        out.writeByte(21)
+        out.writeBoolean(false)
+        out.writeInt(0)
+        out.writeByte(msg.player.privilegeLevel.id)
+        out.writeBoolean(msg.player.privilegeLevel.id > 0)
+        out.writeShort(msg.player.index)
+        out.writeBoolean(true)
+        out.writeLong(0L)
     }
 }

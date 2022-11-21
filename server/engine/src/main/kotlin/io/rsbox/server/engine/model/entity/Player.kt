@@ -18,6 +18,7 @@
 package io.rsbox.server.engine.model.entity
 
 import io.rsbox.server.config.ServerConfig
+import io.rsbox.server.engine.model.PrivilegeLevel
 import io.rsbox.server.engine.model.coord.Tile
 import io.rsbox.server.engine.net.Session
 import org.tinylog.kotlin.Logger
@@ -34,6 +35,7 @@ class Player internal constructor(val session: Session) : LivingEntity() {
     var pid: Int = -1
     var skullIcon: Int = -1
     var prayerIcon: Int = -1
+    var privilegeLevel = PrivilegeLevel.PLAYER
 
     var stanceAnimations = intArrayOf(808, 823, 819, 820, 821, 822, 824)
 
@@ -43,13 +45,8 @@ class Player internal constructor(val session: Session) : LivingEntity() {
         ServerConfig.DEFAULTS.HOME_TILE.LEVEL
     )
 
-    internal fun onLogin() {
-        Logger.info("[$username] has connected to the server.")
-    }
-
-    internal fun onLogout() {
-        Logger.info("[$username] has disconnected from the server.")
-    }
+    override var prevTile = tile
+    override var followTile = tile
 
     override suspend fun cycle() {
         queueCycle()
