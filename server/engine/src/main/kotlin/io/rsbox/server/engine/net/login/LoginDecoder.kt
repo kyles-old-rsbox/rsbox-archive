@@ -18,6 +18,7 @@
 package io.rsbox.server.engine.net.login
 
 import io.guthix.buffer.readString
+import io.guthix.buffer.readVersionedString
 import io.netty.buffer.ByteBuf
 import io.netty.buffer.Unpooled
 import io.rsbox.server.common.inject
@@ -35,16 +36,10 @@ class LoginDecoder(private val session: Session) {
 
     private var stage = Stage.HANDSHAKE
     private var payloadSize = 0
-
+    private var retries = 0
     private var reconnecting = false
-    private lateinit var username: String
-    private var password: String? = null
-    private var authCode: Int? = null
-    private lateinit var xteas: IntArray
-    private var reconnectXteas: IntArray? = null
 
     fun decode(buf: ByteBuf, out: MutableList<Any>) {
-        println("login hit")
         try {
             when(stage) {
                 Stage.HANDSHAKE -> readHandshake(buf, out)
@@ -52,136 +47,157 @@ class LoginDecoder(private val session: Session) {
                 Stage.PAYLOAD -> readPayload(buf, out)
             }
         } catch(e : LoginError) {
-            session.writeAndFlush(e.status).addListener {
-                if(it.isSuccess) session.disconnect()
-            }
-        } catch(e : Exception) {
-            Logger.error(e) { "An error occurred while logging in." }
-            session.disconnect()
+            session.writeAndClose(e.status)
+            return
         }
     }
 
     private fun readHandshake(buf: ByteBuf, out: MutableList<Any>) {
         val opcode = buf.readUnsignedByte().toInt()
-        if(opcode != LOGIN_NORMAL && opcode != LOGIN_RECONNECT) {
-            throw LoginError(StatusResponse.FAILED_TO_LOGIN)
-        }
         reconnecting = opcode == LOGIN_RECONNECT
         stage = Stage.HEADER
     }
 
     private fun readHeader(buf: ByteBuf, out: MutableList<Any>) {
-        if(buf.readableBytes() < Short.SIZE_BYTES) return
+        if(buf.readableBytes() < Short.SIZE_BYTES) {
+            retry()
+            return
+        }
+
         payloadSize = buf.readUnsignedShort()
+        if(payloadSize == 0) {
+            throw LoginError(StatusResponse.COULD_NOT_COMPLETE_LOGIN)
+        }
+
+        retries = 0
         stage = Stage.PAYLOAD
     }
 
     private fun readPayload(buf: ByteBuf, out: MutableList<Any>) {
-        if(buf.readableBytes() < payloadSize) return
+        if(buf.readableBytes() < payloadSize) {
+            retry()
+            return
+        }
 
-        // Check Revision
         val clientRevision = buf.readInt()
         if(clientRevision != ServerConfig.REVISION) {
             throw LoginError(StatusResponse.OUT_OF_DATE)
         }
 
         buf.skipBytes(Int.SIZE_BYTES)
-        buf.skipBytes(Byte.SIZE_BYTES)
+        val clientType = buf.readUnsignedByte().toInt()
         buf.skipBytes(Byte.SIZE_BYTES)
         buf.skipBytes(Byte.SIZE_BYTES)
 
-        /*
-         * == RSA BUFFER ==
-         */
         val rsaBuf = run {
             val length = buf.readUnsignedShort()
-            val data = ByteArray(length)
-            buf.readBytes(data)
-            val decryptData = BigInteger(data).modPow(rsa.exponent, rsa.modulus)
-            Unpooled.wrappedBuffer(decryptData.toByteArray())
+            buf.decryptRSA(rsa.exponent, rsa.modulus, length)
         }
 
-        val payloadData = ByteArray(buf.readableBytes())
-        buf.readBytes(payloadData)
-
-        // Read data from RSA encrypted buffer.
-        readRSABuf(rsaBuf)
+        val payload = ByteArray(buf.readableBytes())
+        buf.readBytes(payload)
 
         /*
-         * == XTEA BUFFER ==
+         * ======== RSA BUFFER DECODE ========
          */
-        val xteaData = Xtea.decipher(payloadData, xteas)
-        val xteaBuf = Unpooled.wrappedBuffer(xteaData)
 
-        // Read data from the XTEA encrypted buffer.
-        readXTEABuf(xteaBuf)
-
-        /*
-         * Submit the login request network message for the engine
-         * to process.
-         */
-        if(!reconnecting) {
-            LoginRequest(
-                session,
-                username,
-                password,
-                authCode,
-                session.seed,
-                xteas,
-                reconnectXteas,
-                reconnecting
-            ).also { out.add(it) }
-        } else {
-            throw LoginError(StatusResponse.SIGNED_OUT)
-        }
-    }
-
-    private fun readRSABuf(buf: ByteBuf) {
-        val decryptionCheck = buf.readUnsignedByte().toInt()
-        if(decryptionCheck != 1) {
-            Logger.warn("Invalid RSA public/private key. Failed to decrypt the RSA login request. Make sure the client's modulus is correct.")
+        val decryptCheck = rsaBuf.readByte().toInt()
+        if(decryptCheck != 1) {
             throw LoginError(StatusResponse.BAD_SESSION_ID)
         }
 
-        xteas = IntArray(4) { buf.readInt() }
-        val clientSeed = buf.readLong()
+        val xteas = IntArray(4) { rsaBuf.readInt() }
+        val seed = rsaBuf.readLong()
 
-        if(clientSeed != session.seed) {
-            throw LoginError(StatusResponse.MALFORMED_PACKET)
+        if(seed != session.seed) {
+            throw LoginError(StatusResponse.COULD_NOT_COMPLETE_LOGIN)
         }
+
+        val authCode: Int?
+        val password: String?
+        var reconnectXteas: IntArray? = null
 
         if(reconnecting) {
-            reconnectXteas = IntArray(4) { buf.readInt() }
-            password = null
+            reconnectXteas = IntArray(4)  { rsaBuf.readInt() }
             authCode = null
+            password = null
         } else {
-            authCode = when(buf.readByte().toInt()) {
+            authCode = when(rsaBuf.readByte().toInt()) {
+                0 -> rsaBuf.readInt()
                 1,3 -> {
-                    val value = buf.readUnsignedMedium()
-                    buf.skipBytes(Byte.SIZE_BYTES)
+                    val value = rsaBuf.readUnsignedMedium()
+                    rsaBuf.skipBytes(Byte.SIZE_BYTES)
                     value
                 }
-                2 -> {
-                    buf.skipBytes(Int.SIZE_BYTES)
+                else -> {
+                    rsaBuf.skipBytes(Int.SIZE_BYTES)
                     -1
                 }
-                else -> buf.readInt()
             }
-            buf.skipBytes(Byte.SIZE_BYTES)
-            password = buf.readString()
-        }
-    }
 
-    private fun readXTEABuf(buf: ByteBuf) {
-        username = buf.readString()
-        if(username.isBlank()) {
-            throw LoginError(StatusResponse.INVALID_CREDENTIALS)
+            rsaBuf.skipBytes(Byte.SIZE_BYTES)
+            password = rsaBuf.readString()
         }
 
         /*
-         * Skip the rest of the payload bytes.
+         * ======== XTEA BUFFER DECODE ========
          */
-        buf.skipBytes(buf.readableBytes())
+
+        val xteaBuf = Unpooled.wrappedBuffer(Xtea.decipher(payload, xteas))
+
+        val username = xteaBuf.readString()
+        if(username.isBlank() || Regex("[^a-zA-Z0-9\\d ]").containsMatchIn(username)) {
+            throw LoginError(StatusResponse.INVALID_CREDENTIALS)
+        }
+
+        val flags = xteaBuf.readByte().toInt()
+        val isResizable = (flags shr 1) == 1
+        val clientWidth = xteaBuf.readUnsignedShort()
+        val clientHeight = xteaBuf.readUnsignedShort()
+
+        ByteArray(24) { xteaBuf.readByte() }
+
+        xteaBuf.readString()
+        xteaBuf.readInt()
+
+        xteaBuf.skipBytes(18)
+        xteaBuf.readVersionedString()
+        xteaBuf.readVersionedString()
+        xteaBuf.readVersionedString()
+        xteaBuf.readVersionedString()
+        xteaBuf.skipBytes(3)
+        xteaBuf.readVersionedString()
+        xteaBuf.readVersionedString()
+        xteaBuf.skipBytes(2)
+        repeat(3) { xteaBuf.skipBytes(4) }
+        xteaBuf.skipBytes(4)
+        xteaBuf.readVersionedString()
+        xteaBuf.readVersionedString()
+        xteaBuf.skipBytes(1)
+
+        repeat(22) {
+            xteaBuf.skipBytes(Int.SIZE_BYTES)
+        }
+
+        val request = LoginRequest(
+            session,
+            username,
+            password,
+            authCode,
+            seed,
+            xteas,
+            reconnectXteas,
+            reconnecting
+        )
+        out.add(request)
+
+        /*
+         * Reset states
+         */
+        stage = Stage.HANDSHAKE
+        payloadSize = 0
+        reconnecting = false
+        retries = 0
     }
 
     private class LoginError(val status: StatusResponse) : Exception()
@@ -192,8 +208,22 @@ class LoginDecoder(private val session: Session) {
         PAYLOAD
     }
 
+    private fun retry() {
+        retries++
+        if(retries >= MAX_RETRIES) {
+            throw LoginError(StatusResponse.COULD_NOT_COMPLETE_LOGIN)
+        }
+    }
+
+    private fun ByteBuf.decryptRSA(exponent: BigInteger, modulus: BigInteger, length: Int): ByteBuf {
+        val bytes = ByteArray(length)
+        readBytes(bytes)
+        return Unpooled.wrappedBuffer(BigInteger(bytes).modPow(exponent, modulus).toByteArray())
+    }
+
     companion object {
         private const val LOGIN_NORMAL = 16
         private const val LOGIN_RECONNECT = 18
+        private const val MAX_RETRIES = 5
     }
 }

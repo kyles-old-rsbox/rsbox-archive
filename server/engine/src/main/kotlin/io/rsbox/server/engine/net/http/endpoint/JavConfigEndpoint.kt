@@ -26,7 +26,6 @@ import io.rsbox.server.engine.net.http.writeHttpText
 object JavConfigEndpoint {
 
     fun handle(ctx: ChannelHandlerContext, msg: FullHttpRequest, query: QueryStringDecoder) {
-        println("jav_config hit")
         ctx.writeHttpText(JAV_CONFIG_STRING.toByteArray(Charsets.ISO_8859_1))
     }
 

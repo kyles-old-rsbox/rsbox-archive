@@ -30,12 +30,13 @@ class NetworkChannelHandler : ChannelInboundHandlerAdapter() {
     internal val session = AtomicReference<Session>(null)
 
     override fun channelActive(ctx: ChannelHandlerContext) {
-        println("connection!")
-        session.set(Session(ctx).also { it.onConnect() })
+        val newSession = Session(ctx)
+        newSession.onConnect()
+        session.set(newSession)
     }
 
     override fun channelInactive(ctx: ChannelHandlerContext) {
-        session.get().disconnect()
+        session.get().onDisconnect()
     }
 
     override fun channelRead(ctx: ChannelHandlerContext, msg: Any) {

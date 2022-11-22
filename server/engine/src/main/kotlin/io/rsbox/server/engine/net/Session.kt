@@ -20,6 +20,7 @@ package io.rsbox.server.engine.net
 import io.netty.buffer.ByteBuf
 import io.netty.channel.ChannelHandlerContext
 import io.rsbox.server.engine.model.entity.Player
+import io.rsbox.server.engine.net.game.GameProtocol
 import io.rsbox.server.engine.net.handshake.HandshakeProtocol
 import io.rsbox.server.util.security.IsaacRandom
 import org.tinylog.kotlin.Logger
@@ -46,6 +47,13 @@ class Session(val ctx: ChannelHandlerContext) {
         protocol.set(HandshakeProtocol(this))
     }
 
+    internal fun onDisconnect() {
+        if(protocol.get() is GameProtocol) {
+            player.world.players.removePlayer(player)
+            Logger.info("[${player.username}] has disconnected from the server.")
+        }
+    }
+
     internal fun onMessage(msg: Message) {
         protocol.get().handle(msg)
     }
@@ -58,10 +66,9 @@ class Session(val ctx: ChannelHandlerContext) {
     }
 
     fun disconnect() {
-        if(this::player.isInitialized) {
-            player.world.players.removePlayer(player)
+        if(channel.isActive) {
+            channel.close()
         }
-        ctx.close()
     }
 
     fun write(msg: Message) = ctx.write(msg)
