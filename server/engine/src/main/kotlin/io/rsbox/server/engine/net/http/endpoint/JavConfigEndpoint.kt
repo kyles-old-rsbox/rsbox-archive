@@ -32,7 +32,7 @@ object JavConfigEndpoint {
     private const val JAV_CONFIG_STRING = "title=Old School RuneScape\n" +
             "adverturl=http://www.runescape.com/g=oldscape/bare_advert.ws\n" +
             "codebase=http://127.0.0.1/\n" +
-            "cachedir=oldschool\n" +
+            "cachedir=rsbox\n" +
             "storebase=0\n" +
             "initial_jar=gamepack_2549226.jar\n" +
             "initial_class=client.class\n" +
@@ -75,7 +75,7 @@ object JavConfigEndpoint {
             "msg=new_version=Update available! You can now launch the client directly from the OldSchool website.\\nGet the new version from the link on the OldSchool homepage: http://oldschool.runescape.com/\n" +
             "msg=new_version_linktext=Open OldSchool Homepage\n" +
             "msg=new_version_link=http://oldschool.runescape.com/\n" +
-            "param=12=301\n" +
+            "param=12=1\n" +
             "param=9=ElZAIrq5NpKN6D3mDdihco3oPeYN2KFy2DCquj7JMmECPmLrDP3Bnw\n" +
             "param=21=0\n" +
             "param=20=https://social.auth.jagex.com/\n" +
@@ -88,7 +88,7 @@ object JavConfigEndpoint {
             "param=6=0\n" +
             "param=15=0\n" +
             "param=7=0\n" +
-            "param=4=1\n" +
+            "param=4=0\n" +
             "param=2=https://payments.jagex.com/\n" +
             "param=14=0\n" +
             "param=13=.runescape.com\n" +

@@ -47,6 +47,8 @@ class LoginDecoder(private val session: Session) {
                 Stage.PAYLOAD -> readPayload(buf, out)
             }
         } catch(e : LoginError) {
+            stage = Stage.HANDSHAKE
+            buf.readBytes(buf.readableBytes())
             session.writeAndClose(e.status)
             return
         }
@@ -178,6 +180,8 @@ class LoginDecoder(private val session: Session) {
         repeat(22) {
             xteaBuf.skipBytes(Int.SIZE_BYTES)
         }
+
+        buf.readBytes(buf.readableBytes())
 
         val request = LoginRequest(
             session,

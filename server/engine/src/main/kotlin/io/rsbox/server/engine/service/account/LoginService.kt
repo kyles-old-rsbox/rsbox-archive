@@ -67,10 +67,6 @@ class LoginService : Service, Runnable {
             val request = queue.take()
 
             val session = request.session
-            if(world.players.any { it.username == request.username && it.passwordHash == SHA256.hash(request.password ?: "") }) {
-                session.writeAndClose(StatusResponse.ACCOUNT_ONLINE)
-                return
-            }
 
             val player = Player(session)
             player.username = request.username

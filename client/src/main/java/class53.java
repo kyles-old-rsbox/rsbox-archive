@@ -178,7 +178,7 @@ public class class53 {
 	}
 
 	final boolean method1098() {
-		return this.field380.method7329() || this.field380.method7339() >= 200 && 1 != client.field1921;
+		return this.field380.method7329() || this.field380.method7339() >= 200 && 1 != client.isMember;
 	}
 
 	final void method1052(String var1) {
@@ -212,7 +212,7 @@ public class class53 {
 	}
 
 	final boolean method1053() {
-		return this.field376.method7329() || this.field376.method7339() >= 100 && 1 != client.field1921;
+		return this.field376.method7329() || this.field376.method7339() >= 100 && 1 != client.isMember;
 	}
 
 	final void method1069(String var1) {

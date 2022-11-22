@@ -56,10 +56,4 @@ enum class StatusResponse(val opcode: Int) : Message {
     LOGIN_ATTEMPT_TIMEOUT(62),
     SIGNED_OUT(63),
     FAILED_TO_LOGIN(65);
-
-    class Encoder : MessageToByteEncoder<StatusResponse>() {
-        override fun encode(ctx: ChannelHandlerContext, msg: StatusResponse, out: ByteBuf) {
-            out.writeByte(msg.opcode)
-        }
-    }
 }

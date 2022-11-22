@@ -27,13 +27,13 @@ class LoginEncoder(private val session: Session) {
         if(msg !is LoginResponse) return
 
         out.writeByte(2)
-        out.writeByte(21)
+        out.writeByte(20)
         out.writeBoolean(false)
         out.writeInt(0)
         out.writeByte(msg.player.privilege.id)
         out.writeBoolean(msg.player.privilege.id > 0)
         out.writeShort(msg.player.index)
         out.writeBoolean(true)
-        out.writeLong(0L)
+        out.writeLong(msg.player.session.seed)
     }
 }

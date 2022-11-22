@@ -15,24 +15,18 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.server.engine.net.pipeline
+package io.rsbox.server.engine.net
 
-import io.netty.buffer.ByteBuf
+import io.netty.channel.Channel
 import io.netty.channel.ChannelHandlerContext
-import io.netty.handler.codec.MessageToByteEncoder
-import io.rsbox.server.engine.net.Message
-import io.rsbox.server.engine.net.StatusResponse
-import io.rsbox.server.engine.net.session
+import io.netty.util.AttributeKey
 
-class NetworkChannelEncoder(private val handler: NetworkChannelHandler) : MessageToByteEncoder<Message>() {
+val SESSION_ATTR = AttributeKey.valueOf<Session>("session")
 
-    override fun encode(ctx: ChannelHandlerContext, msg: Message, out: ByteBuf) {
-        val protocol = ctx.session.protocol.get()
+var Channel.session: Session
+    get() =  this.attr(SESSION_ATTR).get()
+    set(value) { this.attr(SESSION_ATTR).set(value) }
 
-        if(msg is StatusResponse) {
-            out.writeByte(msg.opcode)
-        } else {
-            protocol.encode(msg, out)
-        }
-    }
-}
+var ChannelHandlerContext.session: Session
+    get() = this.channel().session
+    set(value) { this.channel().session = value }

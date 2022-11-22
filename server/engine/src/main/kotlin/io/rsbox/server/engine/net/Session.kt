@@ -30,7 +30,7 @@ import kotlin.random.nextLong
 
 class Session(val ctx: ChannelHandlerContext) {
 
-    val channel = ctx.channel()
+    val channel get() = ctx.channel()
 
     lateinit var player: Player internal set
 
@@ -67,7 +67,7 @@ class Session(val ctx: ChannelHandlerContext) {
 
     fun disconnect() {
         if(channel.isActive) {
-            channel.close()
+            ctx.close()
         }
     }
 
@@ -79,8 +79,10 @@ class Session(val ctx: ChannelHandlerContext) {
     fun flush() = ctx.flush()
 
     fun writeAndClose(msg: Message) {
-        writeAndFlush(msg).addListener {
-            if(it.isSuccess) this.disconnect()
+        ctx.writeAndFlush(msg).addListener {
+            if(it.isSuccess) {
+                this.disconnect()
+            }
         }
     }
 }

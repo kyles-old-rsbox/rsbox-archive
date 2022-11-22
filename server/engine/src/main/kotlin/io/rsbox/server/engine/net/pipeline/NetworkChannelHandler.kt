@@ -17,34 +17,32 @@
 
 package io.rsbox.server.engine.net.pipeline
 
-import io.netty.channel.ChannelHandler
+import io.netty.channel.ChannelHandler.Sharable
 import io.netty.channel.ChannelHandlerContext
 import io.netty.channel.ChannelInboundHandlerAdapter
 import io.rsbox.server.engine.net.Message
 import io.rsbox.server.engine.net.Session
-import java.util.concurrent.atomic.AtomicReference
+import io.rsbox.server.engine.net.session
 
-@ChannelHandler.Sharable
+@Sharable
 class NetworkChannelHandler : ChannelInboundHandlerAdapter() {
-
-    internal val session = AtomicReference<Session>(null)
 
     override fun channelActive(ctx: ChannelHandlerContext) {
         val newSession = Session(ctx)
         newSession.onConnect()
-        session.set(newSession)
+        ctx.session = newSession
     }
 
     override fun channelInactive(ctx: ChannelHandlerContext) {
-        session.get().onDisconnect()
+        ctx.session.onDisconnect()
     }
 
     override fun channelRead(ctx: ChannelHandlerContext, msg: Any) {
         if(msg !is Message) return
-        session.get().onMessage(msg)
+        ctx.session.onMessage(msg)
     }
 
     override fun exceptionCaught(ctx: ChannelHandlerContext, cause: Throwable) {
-        session.get().onError(cause)
+        ctx.session.onError(cause)
     }
 }

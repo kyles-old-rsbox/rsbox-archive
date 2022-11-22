@@ -237,7 +237,7 @@ public final class client extends class31 implements class375, OAuthApi {
 	static int field1915;
 	static int field1917;
 	static int field1919;
-	static int field1921;
+	static int isMember;
 	static int field1922;
 	static int field1928;
 	static int field1929;
@@ -486,7 +486,7 @@ public final class client extends class31 implements class375, OAuthApi {
 		field1762 = true;
 		players = new class93[2048];
 		localPlayerIndex = -1;
-		field1921 = 0;
+		isMember = 0;
 		field1632 = -1L;
 		field1739 = true;
 		field1768 = 0;
@@ -2427,7 +2427,7 @@ public final class client extends class31 implements class375, OAuthApi {
 					localPlayerIndex = ((AbstractSocket)loginSocket).readUnsignedByte();
 					localPlayerIndex <<= 8;
 					localPlayerIndex += ((AbstractSocket)loginSocket).readUnsignedByte();
-					field1921 = ((AbstractSocket)loginSocket).readUnsignedByte();
+					isMember = ((AbstractSocket)loginSocket).readUnsignedByte();
 					((AbstractSocket)loginSocket).read(packetBuf.data, 0, 8);
 					packetBuf.offset = 0;
 					this.seed = packetBuf.readLong();

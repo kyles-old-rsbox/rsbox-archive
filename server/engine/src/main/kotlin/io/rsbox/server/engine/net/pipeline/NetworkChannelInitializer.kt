@@ -30,7 +30,6 @@ class NetworkChannelInitializer : ChannelInitializer<SocketChannel>() {
         ch.pipeline()
             .addLast("decoder", decoder)
             .addLast("encoder", encoder)
-            .addLast("status-encoder", StatusResponse.Encoder())
             .addLast("handler", handler)
     }
 }
