@@ -21,7 +21,7 @@ public class class132 extends class140 {
 	}
 
 	void method2467(Buffer var1) {
-		if (var1.method8141() != 255) {
+		if (var1.readUnsignedByte() != 255) {
 			--var1.offset;
 			this.field1245 = var1.readLong();
 		}

@@ -47,7 +47,7 @@ public class class271 {
 			return 1;
 		} else if (var0 == CS2Opcodes.ANIM) {
 			class387.field4452 -= 2;
-			class442.method7921(class291.field3364, class57.field404[class387.field4452], class57.field404[1 + class387.field4452]);
+			class442.method7921(class291.localPlayer, class57.field404[class387.field4452], class57.field404[1 + class387.field4452]);
 			return 1;
 		} else if (var0 == CS2Opcodes.IF_CLOSE) {
 			if (!class57.field411) {

@@ -50,7 +50,7 @@ public class class207 extends class437 {
 
 	void method3970(Buffer var1) {
 		while (true) {
-			int var3 = var1.method8141();
+			int var3 = var1.readUnsignedByte();
 			if (var3 == 0) {
 				return;
 			}
@@ -71,14 +71,14 @@ public class class207 extends class437 {
 		} else if (var2 == 6) {
 			this.field2360 = var1.readUnsignedShort();
 		} else if (var2 == 7) {
-			this.field2365 = var1.method8141();
+			this.field2365 = var1.readUnsignedByte();
 		} else if (var2 == 8) {
-			this.field2366 = var1.method8141();
+			this.field2366 = var1.readUnsignedByte();
 		} else {
 			int var4;
 			int var5;
 			if (var2 == 40) {
-				var4 = var1.method8141();
+				var4 = var1.readUnsignedByte();
 				this.field2358 = new short[var4];
 				this.field2357 = new short[var4];
 
@@ -87,7 +87,7 @@ public class class207 extends class437 {
 					this.field2357[var5] = (short)var1.readUnsignedShort();
 				}
 			} else if (var2 == 41) {
-				var4 = var1.method8141();
+				var4 = var1.readUnsignedByte();
 				this.field2351 = new short[var4];
 				this.field2361 = new short[var4];
 

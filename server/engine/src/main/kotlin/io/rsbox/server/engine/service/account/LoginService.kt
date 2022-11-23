@@ -84,11 +84,10 @@ class LoginService : Service, Runnable {
         session.decoderIsaac.init(session.xteas)
 
         world.players.addPlayer(this)
-
         LoginResponse(this).also { session.writeAndFlush(it) }
         session.protocol.set(GameProtocol(session))
 
-        this.init()
+        this.onLogin()
 
         Logger.info("[$username] has connected to the server.")
     }

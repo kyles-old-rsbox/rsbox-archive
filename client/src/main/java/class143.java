@@ -13,7 +13,7 @@ public class class143 {
 		this.field1321 = var1.readLong();
 		this.field1324 = var1.readLong();
 
-		for (int var3 = var1.method8141(); var3 != 0; var3 = var1.method8141()) {
+		for (int var3 = var1.readUnsignedByte(); var3 != 0; var3 = var1.readUnsignedByte()) {
 			Object var4;
 			if (var3 == 1) {
 				var4 = new class134(this);
@@ -85,8 +85,8 @@ public class class143 {
 					int var9 = class221.field2645[var7];
 					int var10 = var5 * var9 + var8 * var6 >> 11;
 					int var11 = var9 * var6 - var5 * var8 >> 11;
-					int var12 = var10 + class291.field3364.field827 >> 7;
-					int var13 = class291.field3364.field802 - var11 >> 7;
+					int var12 = var10 + class291.localPlayer.field827 >> 7;
+					int var13 = class291.localPlayer.field802 - var11 >> 7;
 					PacketBufferNode var14 = class185.method3435(class274.field3052, client.packetWriter.isaacRandom);
 					var14.buffer.writeByte(18);
 					var14.buffer.method8161(var13 + class169.field1536);
@@ -99,8 +99,8 @@ public class class143 {
 					var14.buffer.writeByte(0);
 					var14.buffer.writeByte(0);
 					var14.buffer.writeByte(89);
-					var14.buffer.writeShort(class291.field3364.field827);
-					var14.buffer.writeShort(class291.field3364.field802);
+					var14.buffer.writeShort(class291.localPlayer.field827);
+					var14.buffer.writeShort(class291.localPlayer.field802);
 					var14.buffer.writeByte(63);
 					client.packetWriter.add(var14);
 					client.destinationX = var12;

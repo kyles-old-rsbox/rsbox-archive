@@ -8,22 +8,22 @@ public class class230 extends class427 {
 	public class230(int var1, byte[] var2) {
 		this.field2740 = var1;
 		Buffer var3 = new Buffer(var2);
-		this.field2744 = var3.method8141();
+		this.field2744 = var3.readUnsignedByte();
 		this.field2745 = new int[this.field2744];
 		this.field2746 = new int[this.field2744][];
 
 		int var4;
 		for (var4 = 0; var4 < this.field2744; ++var4) {
-			this.field2745[var4] = var3.method8141();
+			this.field2745[var4] = var3.readUnsignedByte();
 		}
 
 		for (var4 = 0; var4 < this.field2744; ++var4) {
-			this.field2746[var4] = new int[var3.method8141()];
+			this.field2746[var4] = new int[var3.readUnsignedByte()];
 		}
 
 		for (var4 = 0; var4 < this.field2744; ++var4) {
 			for (int var5 = 0; var5 < this.field2746[var4].length; ++var5) {
-				this.field2746[var4][var5] = var3.method8141();
+				this.field2746[var4][var5] = var3.readUnsignedByte();
 			}
 		}
 

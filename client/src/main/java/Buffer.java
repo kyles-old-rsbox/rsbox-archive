@@ -243,11 +243,11 @@ public class Buffer extends class427 {
 		this.writeByte(var1 & 127);
 	}
 
-	public int method8141() {
+	public int readUnsignedByte() {
 		return this.data[++this.offset - 1] & 255;
 	}
 
-	public byte method8287() {
+	public byte readByte() {
 		return this.data[++this.offset - 1];
 	}
 
@@ -297,7 +297,7 @@ public class Buffer extends class427 {
 	}
 
 	public boolean method8129() {
-		return (this.method8141() & 1) == 1;
+		return (this.readUnsignedByte() & 1) == 1;
 	}
 
 	public String method8305() {
@@ -401,7 +401,7 @@ public class Buffer extends class427 {
 		}
 	}
 
-	public void method8333(byte[] var1, int var2, int var3) {
+	public void readBytes(byte[] var1, int var2, int var3) {
 		for (int var5 = var2; var5 < var3 + var2; ++var5) {
 			var1[var5] = this.data[++this.offset - 1];
 		}
@@ -410,17 +410,17 @@ public class Buffer extends class427 {
 
 	public int method8219() {
 		int var2 = this.data[this.offset] & 255;
-		return var2 < 128 ? this.method8141() - 64 : this.readUnsignedShort() - 49152;
+		return var2 < 128 ? this.readUnsignedByte() - 64 : this.readUnsignedShort() - 49152;
 	}
 
 	public int method8207() {
 		int var2 = this.data[this.offset] & 255;
-		return var2 < 128 ? this.method8141() : this.readUnsignedShort() - 32768;
+		return var2 < 128 ? this.readUnsignedByte() : this.readUnsignedShort() - 32768;
 	}
 
 	public int method8359() {
 		int var2 = this.data[this.offset] & 255;
-		return var2 < 128 ? this.method8141() - 1 : this.readUnsignedShort() - 32769;
+		return var2 < 128 ? this.readUnsignedByte() - 1 : this.readUnsignedShort() - 32769;
 	}
 
 	public int method8138() {
@@ -465,7 +465,7 @@ public class Buffer extends class427 {
 
 		int var2;
 		do {
-			var2 = this.method8141();
+			var2 = this.readUnsignedByte();
 			var3 |= (var2 & 127) << var4;
 			var4 += 7;
 		} while(var2 > 127);
@@ -569,7 +569,7 @@ public class Buffer extends class427 {
 		int var4 = this.offset;
 		this.offset = 0;
 		byte[] var5 = new byte[var4];
-		this.method8333(var5, 0, var4);
+		this.readBytes(var5, 0, var4);
 		BigInteger var6 = new BigInteger(var5);
 		BigInteger var7 = var6.modPow(var1, var2);
 		byte[] var8 = var7.toByteArray();
@@ -652,7 +652,7 @@ public class Buffer extends class427 {
 		return ((this.data[this.offset - 2] & 255) << 8) + (this.data[this.offset - 1] - 128 & 255);
 	}
 
-	public int method8164() {
+	public int readUnsignedShortLEADD() {
 		this.offset += 2;
 		return (this.data[this.offset - 2] - 128 & 255) + ((this.data[this.offset - 1] & 255) << 8);
 	}

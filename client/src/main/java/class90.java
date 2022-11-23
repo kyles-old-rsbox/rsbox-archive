@@ -11,7 +11,7 @@ public abstract class class90 extends class212 {
 	byte field864;
 	byte field865;
 	byte field867;
-	class197[] field803;
+	MoveSpeed[] field803;
 	class350 field834;
 	int field801;
 	int field802;
@@ -36,7 +36,7 @@ public abstract class class90 extends class212 {
 	int field825;
 	int field826;
 	int field827;
-	int field835;
+	int interacting;
 	int field837;
 	int field839;
 	int field840;
@@ -113,7 +113,7 @@ public abstract class class90 extends class212 {
 		this.field832 = new int[4];
 		this.field833 = new int[4];
 		this.field834 = new class350();
-		this.field835 = -1;
+		this.interacting = -1;
 		this.field836 = false;
 		this.field868 = -1;
 		this.field839 = -1;
@@ -137,7 +137,7 @@ public abstract class class90 extends class212 {
 		this.field871 = 0;
 		this.field861 = new int[10];
 		this.field873 = new int[10];
-		this.field803 = new class197[10];
+		this.field803 = new MoveSpeed[10];
 		this.field837 = 0;
 		this.field876 = 0;
 		this.field877 = -1;
@@ -645,11 +645,11 @@ public abstract class class90 extends class212 {
 							var4 = class57.field405[class126.field1220];
 							var10 = class57.field405[1 + class126.field1220];
 							String var16 = class57.field405[class126.field1220 + 2];
-							if (class291.field3364.field911 == null) {
+							if (class291.localPlayer.appearance == null) {
 								class57.field405[++class126.field1220 - 1] = var16;
 								return 1;
 							} else {
-								switch(class291.field3364.field911.field3641) {
+								switch(class291.localPlayer.appearance.field3641) {
 								case 0:
 									class57.field405[++class126.field1220 - 1] = var4;
 									break;
@@ -671,7 +671,7 @@ public abstract class class90 extends class212 {
 					class126.field1220 -= 2;
 					var4 = class57.field405[class126.field1220];
 					var10 = class57.field405[class126.field1220 + 1];
-					if (null != class291.field3364.field911 && 0 != class291.field3364.field911.field3639) {
+					if (null != class291.localPlayer.appearance && 0 != class291.localPlayer.appearance.field3639) {
 						class57.field405[++class126.field1220 - 1] = var10;
 					} else {
 						class57.field405[++class126.field1220 - 1] = var4;

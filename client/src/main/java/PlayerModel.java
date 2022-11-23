@@ -1,4 +1,4 @@
-public class class305 {
+public class PlayerModel {
 	static class284 field3645;
 	static final int[] field3642;
 	boolean field3644;
@@ -11,7 +11,7 @@ public class class305 {
 	public int field3640;
 	public int field3641;
 
-	public class305() {
+	public PlayerModel() {
 		this.field3641 = -1;
 		this.field3639 = 0;
 		this.field3644 = false;
@@ -22,7 +22,7 @@ public class class305 {
 		field3645 = new class284(260);
 	}
 
-	public void method5997(int[] var1, class179[] var2, boolean var3, int[] var4, int var5, int var6, int var7) {
+	public void init(int[] var1, class179[] var2, boolean var3, int[] var4, int var5, int var6, int var7) {
 		this.field3643 = var2;
 		this.field3644 = var3;
 		this.field3641 = var7;

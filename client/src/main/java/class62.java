@@ -18,11 +18,11 @@ public class class62 {
 	static void method1339(PacketBuffer var0, int var1) {
 		boolean var3 = var0.readBits(1) == 1;
 		if (var3) {
-			PlayerManager.field1020[++PlayerManager.field1007 - 1] = var1;
+			PlayerManager.field1020[++PlayerManager.extendedInfoCount - 1] = var1;
 		}
 
 		int var4 = var0.readBits(2);
-		class93 var5 = client.players[var1];
+		PlayerEntity var5 = client.players[var1];
 		if (var4 == 0) {
 			if (var3) {
 				var5.field919 = false;
@@ -36,7 +36,7 @@ public class class62 {
 					PlayerManager.field1014[var1] = var5.field860;
 				}
 
-				PlayerManager.field1018[var1] = var5.field835;
+				PlayerManager.field1018[var1] = var5.interacting;
 				client.players[var1] = null;
 				if (var0.readBits(1) != 0) {
 					class399.method7221(var0, var1);

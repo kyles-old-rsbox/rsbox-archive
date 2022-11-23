@@ -13,8 +13,8 @@ public class class136 extends class137 {
 
 	void method2441(Buffer var1) {
 		this.field1274 = var1.readUnsignedShort();
-		var1.method8141();
-		if (var1.method8141() != 255) {
+		var1.readUnsignedByte();
+		if (var1.readUnsignedByte() != 255) {
 			--var1.offset;
 			var1.readLong();
 		}

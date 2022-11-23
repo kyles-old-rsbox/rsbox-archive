@@ -119,10 +119,10 @@ public class class367 extends class404 {
 		}
 
 		this.method6712(var6);
-		this.field4350 = var1.method8287();
+		this.field4350 = var1.readByte();
 		short var10;
 		if (var2 == 1) {
-			var9 = var1.method8141();
+			var9 = var1.readUnsignedByte();
 			var10 = 255;
 		} else {
 			if (var2 != 2) {
@@ -138,10 +138,10 @@ public class class367 extends class404 {
 			this.method7285();
 
 			for (int var12 = 0; var12 < var11; ++var12) {
-				class373 var13 = (class373)this.method7284(new class472(var1.readString(), this.field4346));
+				class373 var13 = (class373)this.method7284(new DisplayName(var1.readString(), this.field4346));
 				int var14 = var1.readUnsignedShort();
 				var13.method7178(var14, ++this.field4351 - 1);
-				var13.field4492 = var1.method8287();
+				var13.field4492 = var1.readByte();
 				var1.readString();
 				this.method6709(var13);
 			}
@@ -150,9 +150,9 @@ public class class367 extends class404 {
 	}
 
 	public final void method6706(Buffer var1) {
-		class472 var3 = new class472(var1.readString(), this.field4346);
+		DisplayName var3 = new DisplayName(var1.readString(), this.field4346);
 		int var4 = var1.readUnsignedShort();
-		byte var5 = var1.method8287();
+		byte var5 = var1.readByte();
 		boolean var6 = false;
 		if (var5 == -128) {
 			var6 = true;

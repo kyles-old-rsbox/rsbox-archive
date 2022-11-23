@@ -17,7 +17,7 @@ public class class317 {
 		var2.offset = var0.length - 7 - class475.field4968 * 8;
 		class475.field4967 = var2.readUnsignedShort();
 		class475.field4971 = var2.readUnsignedShort();
-		int var3 = (var2.method8141() & 255) + 1;
+		int var3 = (var2.readUnsignedByte() & 255) + 1;
 
 		int var4;
 		for (var4 = 0; var4 < class475.field4968; ++var4) {
@@ -54,16 +54,16 @@ public class class317 {
 			int var7 = var5 * var6;
 			byte[] var8 = new byte[var7];
 			class451.field4844[var4] = var8;
-			int var9 = var2.method8141();
+			int var9 = var2.readUnsignedByte();
 			int var10;
 			if (var9 == 0) {
 				for (var10 = 0; var10 < var7; ++var10) {
-					var8[var10] = var2.method8287();
+					var8[var10] = var2.readByte();
 				}
 			} else if (var9 == 1) {
 				for (var10 = 0; var10 < var5; ++var10) {
 					for (int var11 = 0; var11 < var6; ++var11) {
-						var8[var10 + var11 * var5] = var2.method8287();
+						var8[var10 + var11 * var5] = var2.readByte();
 					}
 				}
 			}

@@ -151,7 +151,7 @@ public class class45 {
 						return 1;
 					} else if (var0 == CS2Opcodes.ACTIVECLANCHANNEL_GETUSERDISPLAYNAME) {
 						var4 = class57.field404[--class387.field4452];
-						class57.field405[++class126.field1220 - 1] = ((class133)class442.field4776.field1347.get(var4)).field1254.method8451();
+						class57.field405[++class126.field1220 - 1] = ((class133)class442.field4776.field1347.get(var4)).field1254.getName();
 						return 1;
 					} else if (var0 == CS2Opcodes.ACTIVECLANCHANNEL_GETUSERRANK) {
 						var4 = class57.field404[--class387.field4452];

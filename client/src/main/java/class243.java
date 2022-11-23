@@ -171,7 +171,7 @@ public class class243 {
 			class82.field714[var1][var2][var3] = 0;
 
 			while (true) {
-				var8 = client.field1932 < 209 ? var0.method8141() : var0.readUnsignedShort();
+				var8 = client.buildNumber < 209 ? var0.readUnsignedByte() : var0.readUnsignedShort();
 				if (var8 == 0) {
 					if (var1 == 0) {
 						class82.field719[0][var2][var3] = -class8.method53(var2 + 932731 + var4, var5 + var3 + 556238) * 8;
@@ -182,7 +182,7 @@ public class class243 {
 				}
 
 				if (var8 == 1) {
-					int var9 = var0.method8141();
+					int var9 = var0.readUnsignedByte();
 					if (var9 == 1) {
 						var9 = 0;
 					}
@@ -196,7 +196,7 @@ public class class243 {
 				}
 
 				if (var8 <= 49) {
-					class82.field723[var1][var2][var3] = client.field1932 < 209 ? (short)var0.method8287() : (short)var0.method8204();
+					class82.field723[var1][var2][var3] = client.buildNumber < 209 ? (short)var0.readByte() : (short)var0.method8204();
 					class82.field718[var1][var2][var3] = (byte)((var8 - 2) / 4);
 					class179.field1597[var1][var2][var3] = (byte)(var6 + (var8 - 2) & 3);
 				} else if (var8 <= 81) {
@@ -207,19 +207,19 @@ public class class243 {
 			}
 		} else {
 			while (true) {
-				var8 = client.field1932 < 209 ? var0.method8141() : var0.readUnsignedShort();
+				var8 = client.buildNumber < 209 ? var0.readUnsignedByte() : var0.readUnsignedShort();
 				if (var8 == 0) {
 					break;
 				}
 
 				if (var8 == 1) {
-					var0.method8141();
+					var0.readUnsignedByte();
 					break;
 				}
 
 				if (var8 <= 49) {
-					if (client.field1932 < 209) {
-						var0.method8287();
+					if (client.buildNumber < 209) {
+						var0.readByte();
 					} else {
 						var0.method8204();
 					}

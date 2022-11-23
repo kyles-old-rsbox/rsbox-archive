@@ -204,12 +204,12 @@ public class class342 extends AbstractQueue {
 		if (var0 == class271.field3024) {
 			var3 = var2.readUnsignedShortAdd();
 			var4 = var2.method8153() * 4;
-			byte var39 = var2.method8287();
+			byte var39 = var2.readByte();
 			var6 = var2.readUnsignedShortLE();
 			var7 = var2.readUnsignedByteNeg();
 			var8 = var2.method8153();
 			var9 = var2.method8156();
-			var10 = var2.method8141();
+			var10 = var2.readUnsignedByte();
 			var11 = class7.field28 + (var10 >> 4 & 7);
 			var41 = (var10 & 7) + class19.field98;
 			var13 = var2.method8187();
@@ -239,7 +239,7 @@ public class class342 extends AbstractQueue {
 				var10 = (var8 & 7) + class19.field98;
 				if (var9 >= 0 && var10 >= 0 && var9 < 104 && var10 < 104) {
 					var11 = var6 + 1;
-					if (class291.field3364.field861[0] >= var9 - var11 && class291.field3364.field861[0] <= var11 + var9 && class291.field3364.field873[0] >= var10 - var11 && class291.field3364.field873[0] <= var10 + var11 && class413.clientPreferences.method1736() != 0 && var7 > 0 && client.soundEffectCount < 50) {
+					if (class291.localPlayer.field861[0] >= var9 - var11 && class291.localPlayer.field861[0] <= var11 + var9 && class291.localPlayer.field873[0] >= var10 - var11 && class291.localPlayer.field873[0] <= var10 + var11 && class413.clientPreferences.method1736() != 0 && var7 > 0 && client.soundEffectCount < 50) {
 						client.field1895[client.soundEffectCount] = var3;
 						client.field1896[client.soundEffectCount] = var7;
 						client.field1897[client.soundEffectCount] = var4;
@@ -252,7 +252,7 @@ public class class342 extends AbstractQueue {
 
 			class104 var44;
 			if (var0 == class271.field3020) {
-				var2.method8164();
+				var2.readUnsignedShortLEADD();
 				var3 = var2.readUnsignedShortAdd();
 				var4 = var2.method8153();
 				var5 = class7.field28 + (var4 >> 4 & 7);
@@ -278,24 +278,24 @@ public class class342 extends AbstractQueue {
 			} else {
 				byte var38;
 				if (var0 == class271.field3018) {
-					var3 = var2.method8164();
+					var3 = var2.readUnsignedShortLEADD();
 					var38 = var2.method8187();
-					var5 = var2.method8141();
+					var5 = var2.readUnsignedByte();
 					var6 = var5 >> 2;
 					var7 = var5 & 3;
 					var8 = client.field1708[var6];
-					var9 = var2.method8141();
+					var9 = var2.readUnsignedByte();
 					var10 = class7.field28 + (var9 >> 4 & 7);
 					var11 = (var9 & 7) + class19.field98;
-					byte var12 = var2.method8287();
+					byte var12 = var2.readByte();
 					var13 = var2.method8187();
 					byte var14 = var2.method8158();
 					var15 = var2.readUnsignedShort();
-					int var34 = var2.method8164();
+					int var34 = var2.readUnsignedShortLEADD();
 					int var17 = var2.readUnsignedShortAdd();
-					class93 var18;
+					PlayerEntity var18;
 					if (client.localPlayerIndex == var34) {
-						var18 = class291.field3364;
+						var18 = class291.localPlayer;
 					} else {
 						var18 = client.players[var34];
 					}
@@ -352,10 +352,10 @@ public class class342 extends AbstractQueue {
 
 				if (class271.field3023 == var0) {
 					var3 = var2.readUnsignedByteNeg() * 4;
-					var38 = var2.method8287();
-					var5 = var2.method8164();
+					var38 = var2.readByte();
+					var5 = var2.readUnsignedShortLEADD();
 					var6 = var2.readUnsignedShortLE();
-					var7 = var2.method8164();
+					var7 = var2.readUnsignedShortLEADD();
 					var8 = var2.readUnsignedByteNeg();
 					var9 = var2.readUnsignedByteNeg() * 4;
 					byte var40 = var2.method8158();
@@ -363,7 +363,7 @@ public class class342 extends AbstractQueue {
 					var41 = class7.field28 + (var11 >> 4 & 7);
 					var42 = (var11 & 7) + class19.field98;
 					var43 = var2.method8166();
-					var15 = var2.method8141();
+					var15 = var2.readUnsignedByte();
 					var10 = var40 + var41;
 					var4 = var38 + var42;
 					if (var41 >= 0 && var42 >= 0 && var41 < 104 && var42 < 104 && var10 >= 0 && var4 >= 0 && var10 < 104 && var4 < 104 && var5 != 65535) {
@@ -379,7 +379,7 @@ public class class342 extends AbstractQueue {
 				} else if (var0 == class271.field3026) {
 					var3 = var2.readUnsignedByteSub();
 					var4 = var2.readUnsignedShort();
-					var5 = var2.method8141();
+					var5 = var2.readUnsignedByte();
 					var6 = (var5 >> 4 & 7) + class7.field28;
 					var7 = (var5 & 7) + class19.field98;
 					var8 = var2.readUnsignedShortAdd();
@@ -396,7 +396,7 @@ public class class342 extends AbstractQueue {
 					var5 = var3 & 3;
 					var6 = client.field1708[var4];
 					var7 = var2.readUnsignedShort();
-					var8 = var2.method8141();
+					var8 = var2.readUnsignedByte();
 					var9 = (var8 >> 4 & 7) + class7.field28;
 					var10 = (var8 & 7) + class19.field98;
 					if (var9 >= 0 && var10 >= 0 && var9 < 104 && var10 < 104) {
@@ -408,7 +408,7 @@ public class class342 extends AbstractQueue {
 					var4 = var2.method8153();
 					var5 = (var4 >> 4 & 7) + class7.field28;
 					var6 = (var4 & 7) + class19.field98;
-					var7 = var2.method8164();
+					var7 = var2.readUnsignedShortLEADD();
 					if (var5 >= 0 && var6 >= 0 && var5 < 104 && var6 < 104) {
 						var44 = new class104();
 						var44.field1043 = var7;
@@ -507,11 +507,11 @@ public class class342 extends AbstractQueue {
 					class104 var35;
 					if (var0 != class271.field3029) {
 						if (class271.field3025 == var0) {
-							var3 = var2.method8141();
+							var3 = var2.readUnsignedByte();
 							var4 = var3 >> 2;
 							var5 = var3 & 3;
 							var6 = client.field1708[var4];
-							var7 = var2.method8141();
+							var7 = var2.readUnsignedByte();
 							var8 = (var7 >> 4 & 7) + class7.field28;
 							var9 = (var7 & 7) + class19.field98;
 							if (var8 >= 0 && var9 >= 0 && var8 < 104 && var9 < 104) {
@@ -519,7 +519,7 @@ public class class342 extends AbstractQueue {
 							}
 
 						} else if (class271.field3033 == var0) {
-							var3 = var2.method8141();
+							var3 = var2.readUnsignedByte();
 							var4 = var2.readIntLE();
 							var5 = var2.readUnsignedByteNeg();
 							var6 = (var5 >> 4 & 7) + class7.field28;
@@ -558,7 +558,7 @@ public class class342 extends AbstractQueue {
 						var4 = class7.field28 + (var3 >> 4 & 7);
 						var5 = class19.field98 + (var3 & 7);
 						var6 = var2.method8153();
-						var7 = var2.method8164();
+						var7 = var2.readUnsignedShortLEADD();
 						if (var4 >= 0 && var5 >= 0 && var4 < 104 && var5 < 104) {
 							NodeDeque var33 = client.groundItems[class55.field396][var4][var5];
 							if (null != var33) {

@@ -62,20 +62,20 @@ public class class121 implements class360 {
 	}
 
 	static void method2285() {
-		if (client.field1643 && null != class291.field3364) {
-			int var1 = class291.field3364.field861[0];
-			int var2 = class291.field3364.field873[0];
+		if (client.field1643 && null != class291.localPlayer) {
+			int var1 = class291.localPlayer.field861[0];
+			int var2 = class291.localPlayer.field873[0];
 			if (var1 < 0 || var2 < 0 || var1 >= 104 || var2 >= 104) {
 				return;
 			}
 
-			class32.field203 = class291.field3364.field827;
-			int var3 = class144.method2498(class291.field3364.field827, class291.field3364.field802, class55.field396) - client.field1723;
+			class32.field203 = class291.localPlayer.field827;
+			int var3 = class144.method2498(class291.localPlayer.field827, class291.localPlayer.field802, class55.field396) - client.field1723;
 			if (var3 < class178.field1595) {
 				class178.field1595 = var3;
 			}
 
-			class101.field1004 = class291.field3364.field802;
+			class101.field1004 = class291.localPlayer.field802;
 			client.field1643 = false;
 		}
 

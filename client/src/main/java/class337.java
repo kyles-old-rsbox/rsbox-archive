@@ -21,7 +21,7 @@ public class class337 {
 
 	public class337(Buffer var1, boolean var2) {
 		int var3 = var1.readUnsignedShort();
-		boolean var4 = var1.method8141() == 1;
+		boolean var4 = var1.readUnsignedByte() == 1;
 		byte var5;
 		if (var4) {
 			var5 = 1;

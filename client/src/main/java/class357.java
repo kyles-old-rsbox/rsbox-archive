@@ -30,7 +30,7 @@ public final class class357 {
 				int var11 = var9 & 63;
 				int var12 = var9 >> 6 & 63;
 				int var13 = var9 >> 12;
-				int var14 = var6.method8141();
+				int var14 = var6.readUnsignedByte();
 				int var15 = var14 >> 2;
 				int var16 = var14 & 3;
 				int var17 = var1 + var12;

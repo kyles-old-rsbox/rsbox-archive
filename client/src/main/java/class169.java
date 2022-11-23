@@ -70,9 +70,9 @@ public class class169 extends class137 {
 	void method2441(Buffer var1) {
 		this.field1534 = var1.method8305();
 		if (this.field1534 != null) {
-			var1.method8141();
-			this.field1532 = var1.method8287();
-			this.field1535 = var1.method8287();
+			var1.readUnsignedByte();
+			this.field1532 = var1.readByte();
+			this.field1535 = var1.readByte();
 		}
 
 	}

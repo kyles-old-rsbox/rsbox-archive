@@ -18,7 +18,7 @@ public class class389 extends class404 {
 		return new class380[var1];
 	}
 
-	public boolean method7017(class472 var1, boolean var2) {
+	public boolean method7017(DisplayName var1, boolean var2) {
 		class380 var4 = (class380)this.method7289(var1);
 		if (null == var4) {
 			return false;
@@ -30,17 +30,17 @@ public class class389 extends class404 {
 	public void method7018(Buffer var1, int var2) {
 		while (true) {
 			if (var1.offset < var2) {
-				boolean var4 = var1.method8141() == 1;
-				class472 var5 = new class472(var1.readString(), this.field4464);
-				class472 var6 = new class472(var1.readString(), this.field4464);
+				boolean var4 = var1.readUnsignedByte() == 1;
+				DisplayName var5 = new DisplayName(var1.readString(), this.field4464);
+				DisplayName var6 = new DisplayName(var1.readString(), this.field4464);
 				int var7 = var1.readUnsignedShort();
-				int var8 = var1.method8141();
-				int var9 = var1.method8141();
+				int var8 = var1.readUnsignedByte();
+				int var9 = var1.readUnsignedByte();
 				boolean var10 = (var9 & 2) != 0;
 				boolean var11 = (var9 & 1) != 0;
 				if (var7 > 0) {
 					var1.readString();
-					var1.method8141();
+					var1.readUnsignedByte();
 					var1.readInt();
 				}
 

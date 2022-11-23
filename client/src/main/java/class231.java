@@ -17,13 +17,13 @@ public class class231 {
 
 	static final byte[] method4537(byte[] var0) {
 		Buffer var2 = new Buffer(var0);
-		int var3 = var2.method8141();
+		int var3 = var2.readUnsignedByte();
 		int var4 = var2.readInt();
 		if (var4 < 0 || class319.field3744 != 0 && var4 > class319.field3744) {
 			throw new RuntimeException();
 		} else if (var3 == 0) {
 			byte[] var5 = new byte[var4];
-			var2.method8333(var5, 0, var4);
+			var2.readBytes(var5, 0, var4);
 			return var5;
 		} else {
 			int var7 = var2.readInt();

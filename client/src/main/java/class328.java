@@ -25,7 +25,7 @@ public class class328 {
 					var4.field587 = var2.readInt();
 					var4.field589 = var2.readString();
 					var4.field588 = var2.readString();
-					var4.field580 = var2.method8141();
+					var4.field580 = var2.readUnsignedByte();
 					var4.field593 = var2.method8204();
 				}
 

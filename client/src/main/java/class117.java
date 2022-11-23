@@ -17,15 +17,15 @@ public class class117 extends class393 {
 		return this.method2251((class396)var1, (class396)var2);
 	}
 
-	static final void method2256(class93 var0, int var1, int var2, int var3) {
-		if (class291.field3364 != var0) {
+	static final void method2256(PlayerEntity var0, int var1, int var2, int var3) {
+		if (class291.localPlayer != var0) {
 			if (client.menuOptionsCount < 400) {
 				String var5;
 				int var8;
-				if (0 == var0.field912) {
-					String var6 = var0.field897[0] + var0.field910 + var0.field897[1];
-					var8 = var0.field905;
-					int var9 = class291.field3364.field905;
+				if (0 == var0.totalLevel) {
+					String var6 = var0.actions[0] + var0.displayName + var0.actions[1];
+					var8 = var0.combatLevel;
+					int var9 = class291.localPlayer.combatLevel;
 					int var10 = var9 - var8;
 					String var7;
 					if (var10 < -9) {
@@ -48,9 +48,9 @@ public class class117 extends class393 {
 						var7 = class96.method4510(16776960);
 					}
 
-					var5 = var6 + var7 + " " + class96.field964 + class338.field4060 + var0.field905 + class96.field958 + var0.field897[2];
+					var5 = var6 + var7 + " " + class96.field964 + class338.field4060 + var0.combatLevel + class96.field958 + var0.actions[2];
 				} else {
-					var5 = var0.field897[0] + var0.field910 + var0.field897[1] + " " + class96.field964 + class338.field4061 + var0.field912 + class96.field958 + var0.field897[2];
+					var5 = var0.actions[0] + var0.displayName + var0.actions[1] + " " + class96.field964 + class338.field4061 + var0.totalLevel + class96.field958 + var0.actions[2];
 				}
 
 				int var11;
@@ -69,12 +69,12 @@ public class class117 extends class393 {
 									continue;
 								}
 
-								if (client.playerAttackOption == AttackOption.field698 || client.playerAttackOption == AttackOption.field705 && var0.field905 > class291.field3364.field905) {
+								if (client.playerAttackOption == AttackOption.field698 || client.playerAttackOption == AttackOption.field705 && var0.combatLevel > class291.localPlayer.combatLevel) {
 									var12 = 2000;
 								}
 
-								if (0 != class291.field3364.field921 && var0.field921 != 0) {
-									if (var0.field921 == class291.field3364.field921) {
+								if (0 != class291.localPlayer.team && var0.team != 0) {
+									if (var0.team == class291.localPlayer.team) {
 										var12 = 2000;
 									} else {
 										var12 = 0;

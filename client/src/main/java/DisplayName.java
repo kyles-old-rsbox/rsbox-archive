@@ -1,8 +1,8 @@
-public class class472 implements Comparable {
+public class DisplayName implements Comparable {
 	String field4948;
 	String field4949;
 
-	public class472(String var1) {
+	public DisplayName(String var1) {
 		this.field4948 = var1;
 		class463 var4 = class463.field4894;
 		String var3;
@@ -114,7 +114,7 @@ public class class472 implements Comparable {
 		this.field4949 = var3;
 	}
 
-	public class472(String var1, class463 var2) {
+	public DisplayName(String var1, class463 var2) {
 		this.field4948 = var1;
 		String var4;
 		if (null == var1) {
@@ -225,7 +225,7 @@ public class class472 implements Comparable {
 		this.field4949 = var4;
 	}
 
-	public String method8451() {
+	public String getName() {
 		return this.field4948;
 	}
 
@@ -238,8 +238,8 @@ public class class472 implements Comparable {
 	}
 
 	public boolean equals(Object var1) {
-		if (var1 instanceof class472) {
-			class472 var2 = (class472)var1;
+		if (var1 instanceof DisplayName) {
+			DisplayName var2 = (DisplayName)var1;
 			if (null == this.field4949) {
 				return var2.field4949 == null;
 			} else if (null == var2.field4949) {
@@ -257,10 +257,10 @@ public class class472 implements Comparable {
 	}
 
 	public String toString() {
-		return this.method8451();
+		return this.getName();
 	}
 
-	public int method8457(class472 var1) {
+	public int method8457(DisplayName var1) {
 		if (this.field4949 == null) {
 			return null == var1.field4949 ? 0 : 1;
 		} else {
@@ -269,6 +269,6 @@ public class class472 implements Comparable {
 	}
 
 	public int compareTo(Object var1) {
-		return this.method8457((class472)var1);
+		return this.method8457((DisplayName)var1);
 	}
 }

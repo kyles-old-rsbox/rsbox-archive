@@ -34,7 +34,7 @@ public abstract class class404 {
 		return this.field4518 == this.field4515;
 	}
 
-	public boolean method7359(class472 var1) {
+	public boolean method7359(DisplayName var1) {
 		if (!var1.method8449()) {
 			return false;
 		} else {
@@ -42,20 +42,20 @@ public abstract class class404 {
 		}
 	}
 
-	public class400 method7289(class472 var1) {
+	public class400 method7289(DisplayName var1) {
 		class400 var3 = this.method7290(var1);
 		return null != var3 ? var3 : this.method7303(var1);
 	}
 
-	class400 method7290(class472 var1) {
+	class400 method7290(DisplayName var1) {
 		return !var1.method8449() ? null : (class400)this.field4513.get(var1);
 	}
 
-	class400 method7303(class472 var1) {
+	class400 method7303(DisplayName var1) {
 		return !var1.method8449() ? null : (class400)this.field4512.get(var1);
 	}
 
-	public final boolean method7292(class472 var1) {
+	public final boolean method7292(DisplayName var1) {
 		class400 var3 = this.method7290(var1);
 		if (null == var3) {
 			return false;
@@ -73,11 +73,11 @@ public abstract class class404 {
 		}
 	}
 
-	class400 method7284(class472 var1) {
-		return this.method7295(var1, (class472)null);
+	class400 method7284(DisplayName var1) {
+		return this.method7295(var1, (DisplayName)null);
 	}
 
-	class400 method7295(class472 var1, class472 var2) {
+	class400 method7295(DisplayName var1, DisplayName var2) {
 		if (this.method7290(var1) != null) {
 			throw new IllegalStateException();
 		} else {
@@ -106,7 +106,7 @@ public abstract class class404 {
 
 	}
 
-	final void method7347(class400 var1, class472 var2, class472 var3) {
+	final void method7347(class400 var1, DisplayName var2, DisplayName var3) {
 		this.method7300(var1);
 		var1.method7235(var2, var3);
 		this.method7340(var1);

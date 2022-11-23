@@ -48,22 +48,22 @@ public class class83 {
 		this.field743 = 1;
 		this.parameters = new LinkedHashMap();
 		if (var1 != null && var1.data != null) {
-			int var2 = var1.method8141();
+			int var2 = var1.readUnsignedByte();
 			if (var2 >= 0 && var2 <= field732) {
-				if (var1.method8141() == 1) {
+				if (var1.readUnsignedByte() == 1) {
 					this.field730 = true;
 				}
 
 				if (var2 > 1) {
-					this.field741 = var1.method8141() == 1;
+					this.field741 = var1.readUnsignedByte() == 1;
 				}
 
 				if (var2 > 3) {
-					this.field743 = var1.method8141();
+					this.field743 = var1.readUnsignedByte();
 				}
 
 				if (var2 > 2) {
-					int var3 = var1.method8141();
+					int var3 = var1.readUnsignedByte();
 
 					for (int var4 = 0; var4 < var3; ++var4) {
 						int var5 = var1.readInt();
@@ -81,18 +81,18 @@ public class class83 {
 				}
 
 				if (var2 > 6) {
-					this.field737 = (double)var1.method8141() / 100.0D;
-					this.field731 = var1.method8141();
-					this.field738 = var1.method8141();
-					this.field740 = var1.method8141();
+					this.field737 = (double)var1.readUnsignedByte() / 100.0D;
+					this.field731 = var1.readUnsignedByte();
+					this.field738 = var1.readUnsignedByte();
+					this.field740 = var1.readUnsignedByte();
 				}
 
 				if (var2 > 7) {
-					this.field739 = var1.method8141();
+					this.field739 = var1.readUnsignedByte();
 				}
 
 				if (var2 > 8) {
-					this.field735 = var1.method8141() == 1;
+					this.field735 = var1.readUnsignedByte() == 1;
 				}
 
 				if (var2 > 9) {
@@ -436,8 +436,8 @@ public class class83 {
 			class237.field2807 = var4;
 		}
 
-		if (1 == client.field1722 && client.privilegeLevel >= 2 && 0 == client.field1645 % 50 && (class291.field3364.field827 >> 7 != class32.field203 >> 7 || class101.field1004 >> 7 != class291.field3364.field802 >> 7)) {
-			var14 = class291.field3364.field914;
+		if (1 == client.field1722 && client.privilegeLevel >= 2 && 0 == client.field1645 % 50 && (class291.localPlayer.field827 >> 7 != class32.field203 >> 7 || class101.field1004 >> 7 != class291.localPlayer.field802 >> 7)) {
+			var14 = class291.localPlayer.field914;
 			var15 = (class32.field203 >> 7) + class36.field241;
 			var16 = class169.field1536 + (class101.field1004 >> 7);
 			class136.method2439(var15, var16, var14, true);

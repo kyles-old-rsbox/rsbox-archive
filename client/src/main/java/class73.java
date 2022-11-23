@@ -101,16 +101,16 @@ public class class73 {
 			class481.method8653(var1, var2, var1 + var5.field3435, var2 + var5.field3433);
 			if (client.minimapState != 2 && 5 != client.minimapState) {
 				int var6 = client.field1672 & 2047;
-				int var7 = 48 + class291.field3364.field827 / 32;
-				int var8 = 464 - class291.field3364.field802 / 32;
+				int var7 = 48 + class291.localPlayer.field827 / 32;
+				int var8 = 464 - class291.localPlayer.field802 / 32;
 				class309.field3678.method8502(var1, var2, var5.field3435, var5.field3433, var7, var8, var6, 256, var5.field3432, var5.field3434);
 
 				int var9;
 				int var10;
 				int var11;
 				for (var9 = 0; var9 < client.field1885; ++var9) {
-					var10 = 4 * client.field1834[var9] + 2 - class291.field3364.field827 / 32;
-					var11 = 4 * client.field1887[var9] + 2 - class291.field3364.field802 / 32;
+					var10 = 4 * client.field1834[var9] + 2 - class291.localPlayer.field827 / 32;
+					var11 = 4 * client.field1887[var9] + 2 - class291.localPlayer.field802 / 32;
 					class275.method5224(var1, var2, var10, var11, client.field1818[var9], var5);
 				}
 
@@ -120,8 +120,8 @@ public class class73 {
 					for (var10 = 0; var10 < 104; ++var10) {
 						NodeDeque var15 = client.groundItems[class55.field396][var9][var10];
 						if (null != var15) {
-							var12 = var9 * 4 + 2 - class291.field3364.field827 / 32;
-							var13 = 2 + var10 * 4 - class291.field3364.field802 / 32;
+							var12 = var9 * 4 + 2 - class291.localPlayer.field827 / 32;
+							var13 = 2 + var10 * 4 - class291.localPlayer.field802 / 32;
 							class275.method5224(var1, var2, var12, var13, class64.field505[0], var5);
 						}
 					}
@@ -136,8 +136,8 @@ public class class73 {
 						}
 
 						if (var18 != null && var18.field2285 && var18.field2282) {
-							var12 = var16.field827 / 32 - class291.field3364.field827 / 32;
-							var13 = var16.field802 / 32 - class291.field3364.field802 / 32;
+							var12 = var16.field827 / 32 - class291.localPlayer.field827 / 32;
+							var13 = var16.field802 / 32 - class291.localPlayer.field802 / 32;
 							class275.method5224(var1, var2, var12, var13, class64.field505[1], var5);
 						}
 					}
@@ -147,13 +147,13 @@ public class class73 {
 				int[] var19 = PlayerManager.field1013;
 
 				for (var11 = 0; var11 < var9; ++var11) {
-					class93 var17 = client.players[var19[var11]];
-					if (var17 != null && var17.method1869() && !var17.field913 && var17 != class291.field3364) {
-						var13 = var17.field827 / 32 - class291.field3364.field827 / 32;
-						int var14 = var17.field802 / 32 - class291.field3364.field802 / 32;
+					PlayerEntity var17 = client.players[var19[var11]];
+					if (var17 != null && var17.method1869() && !var17.invisible && var17 != class291.localPlayer) {
+						var13 = var17.field827 / 32 - class291.localPlayer.field827 / 32;
+						int var14 = var17.field802 / 32 - class291.localPlayer.field802 / 32;
 						if (var17.method1907()) {
 							class275.method5224(var1, var2, var13, var14, class64.field505[3], var5);
-						} else if (class291.field3364.field921 != 0 && var17.field921 != 0 && var17.field921 == class291.field3364.field921) {
+						} else if (class291.localPlayer.team != 0 && var17.team != 0 && var17.team == class291.localPlayer.team) {
 							class275.method5224(var1, var2, var13, var14, class64.field505[4], var5);
 						} else if (var17.method1939()) {
 							class275.method5224(var1, var2, var13, var14, class64.field505[5], var5);
@@ -169,35 +169,35 @@ public class class73 {
 					if (client.hintArrowType == 1 && client.field1879 >= 0 && client.field1879 < client.npcs.length) {
 						class81 var20 = client.npcs[client.field1879];
 						if (null != var20) {
-							var12 = var20.field827 / 32 - class291.field3364.field827 / 32;
-							var13 = var20.field802 / 32 - class291.field3364.field802 / 32;
+							var12 = var20.field827 / 32 - class291.localPlayer.field827 / 32;
+							var13 = var20.field802 / 32 - class291.localPlayer.field802 / 32;
 							class41.method764(var1, var2, var12, var13, class210.field2462[1], var5);
 						}
 					}
 
 					if (client.hintArrowType == 2) {
-						var11 = 2 + (client.field1655 * 4 - class36.field241 * 4) - class291.field3364.field827 / 32;
-						var12 = 2 + (client.field1656 * 4 - class169.field1536 * 4) - class291.field3364.field802 / 32;
+						var11 = 2 + (client.field1655 * 4 - class36.field241 * 4) - class291.localPlayer.field827 / 32;
+						var12 = 2 + (client.field1656 * 4 - class169.field1536 * 4) - class291.localPlayer.field802 / 32;
 						class41.method764(var1, var2, var11, var12, class210.field2462[1], var5);
 					}
 
 					if (10 == client.hintArrowType && client.field1654 >= 0 && client.field1654 < client.players.length) {
-						class93 var21 = client.players[client.field1654];
+						PlayerEntity var21 = client.players[client.field1654];
 						if (null != var21) {
-							var12 = var21.field827 / 32 - class291.field3364.field827 / 32;
-							var13 = var21.field802 / 32 - class291.field3364.field802 / 32;
+							var12 = var21.field827 / 32 - class291.localPlayer.field827 / 32;
+							var13 = var21.field802 / 32 - class291.localPlayer.field802 / 32;
 							class41.method764(var1, var2, var12, var13, class210.field2462[1], var5);
 						}
 					}
 				}
 
 				if (0 != client.destinationX) {
-					var11 = 2 + client.destinationX * 4 - class291.field3364.field827 / 32;
-					var12 = 2 + client.destinationY * 4 - class291.field3364.field802 / 32;
+					var11 = 2 + client.destinationX * 4 - class291.localPlayer.field827 / 32;
+					var12 = 2 + client.destinationY * 4 - class291.localPlayer.field802 / 32;
 					class275.method5224(var1, var2, var11, var12, class210.field2462[0], var5);
 				}
 
-				if (!class291.field3364.field913) {
+				if (!class291.localPlayer.invisible) {
 					class481.method8660(var5.field3435 / 2 + var1 - 1, var2 + var5.field3433 / 2 - 1, 3, 3, 16777215);
 				}
 			} else {

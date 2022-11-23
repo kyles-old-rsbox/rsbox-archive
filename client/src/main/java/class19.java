@@ -29,9 +29,9 @@ class class19 implements TlsAuthentication {
 
 					if (var1.field523 < 0) {
 						int var3 = -var1.field523 - 1;
-						class93 var4;
+						PlayerEntity var4;
 						if (client.localPlayerIndex == var3) {
-							var4 = class291.field3364;
+							var4 = class291.localPlayer;
 						} else {
 							var4 = client.players[var3];
 						}

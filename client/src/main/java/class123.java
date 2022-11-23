@@ -172,7 +172,7 @@ public class class123 {
 
 				Buffer var15 = new Buffer(var3);
 				if (var15.data.length - var15.offset >= 1) {
-					int var16 = var15.method8141();
+					int var16 = var15.readUnsignedByte();
 					if (var16 < 0 || var16 > 2) {
 						return;
 					}
@@ -191,7 +191,7 @@ public class class123 {
 							}
 
 							var9 = var15.readUnsignedShort();
-							var10 = var15.method8141();
+							var10 = var15.readUnsignedByte();
 							class451 var11 = (class451)class217.method4362(class451.method7984(), var10);
 							Object var12 = var11.method7974(var15);
 							if (this.field1190[var9]) {
@@ -271,7 +271,7 @@ public class class123 {
 					continue;
 				}
 
-				if (var11 == class291.field3364) {
+				if (var11 == class291.localPlayer) {
 					var7 = var10;
 					continue;
 				}
@@ -283,7 +283,7 @@ public class class123 {
 		}
 
 		if (client.field1739 && var7 != -1) {
-			class142.method2486(class291.field3364, var7, var0, var1, var2, var3);
+			class142.method2486(class291.localPlayer, var7, var0, var1, var2, var3);
 		}
 
 		if (var5) {

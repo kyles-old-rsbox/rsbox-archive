@@ -88,7 +88,7 @@ public class PacketBufferNode extends class427 {
 			client.packetWriter.add(var16);
 		}
 
-		class93 var17;
+		PlayerEntity var17;
 		PacketBufferNode var18;
 		if (var2 == 50) {
 			var17 = client.players[var3];

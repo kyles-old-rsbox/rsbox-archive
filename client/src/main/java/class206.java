@@ -54,7 +54,7 @@ public class class206 extends class437 {
 
 	void method3930(Buffer var1) {
 		while (true) {
-			int var3 = var1.method8141();
+			int var3 = var1.readUnsignedByte();
 			if (var3 == 0) {
 				return;
 			}
@@ -87,7 +87,7 @@ public class class206 extends class437 {
 		} else if (var2 == 11) {
 			this.field2344 = 0;
 		} else if (var2 == 12) {
-			this.field2338 = var1.method8141();
+			this.field2338 = var1.readUnsignedByte();
 		} else if (var2 == 13) {
 			this.field2339 = var1.method8204();
 		} else if (var2 == 14) {
@@ -111,7 +111,7 @@ public class class206 extends class437 {
 				}
 			}
 
-			int var5 = var1.method8141();
+			int var5 = var1.readUnsignedByte();
 			this.field2348 = new int[var5 + 2];
 
 			for (int var6 = 0; var6 <= var5; ++var6) {

@@ -6,7 +6,7 @@ public abstract class class416 implements class238 {
 
 	public void method7554(Buffer var1) {
 		while (true) {
-			int var3 = var1.method8141();
+			int var3 = var1.readUnsignedByte();
 			if (var3 == 0) {
 				return;
 			}
@@ -17,7 +17,7 @@ public abstract class class416 implements class238 {
 				switch(var5.field4521) {
 				case 0:
 					class318[] var6 = new class318[]{class318.field3728, class318.field3729, class318.field3731, class318.field3727};
-					class217.method4362(var6, var1.method8141());
+					class217.method4362(var6, var1.readUnsignedByte());
 					break;
 				case 1:
 				default:
@@ -26,7 +26,7 @@ public abstract class class416 implements class238 {
 					var1.method8132();
 					break;
 				case 3:
-					int var7 = var1.method8141();
+					int var7 = var1.readUnsignedByte();
 					this.field4599 = class213.method4117(var7);
 					if (null == this.field4599) {
 						throw new IllegalStateException("Unknown ScriptVarType ID in VarType.decode: " + var7);

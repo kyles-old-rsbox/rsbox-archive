@@ -271,10 +271,10 @@ public class class190 implements class29 {
 				class133 var3 = (class133)client.field1883[var0].field1347.get(var1);
 				if (var3.field1256 == -1) {
 					PacketBufferNode var4 = class185.method3435(class274.field3114, client.packetWriter.isaacRandom);
-					var4.buffer.writeByte(3 + Buffer.method1887(var3.field1254.method8451()));
+					var4.buffer.writeByte(3 + Buffer.method1887(var3.field1254.getName()));
 					var4.buffer.writeByte(var0);
 					var4.buffer.writeShort(var1);
-					var4.buffer.writeString(var3.field1254.method8451());
+					var4.buffer.writeString(var3.field1254.getName());
 					client.packetWriter.add(var4);
 				}
 			}

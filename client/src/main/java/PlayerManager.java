@@ -1,9 +1,9 @@
 public class PlayerManager {
 	static byte[] field1019;
-	static class197[] field1010;
+	static MoveSpeed[] field1010;
 	static Buffer field1021;
-	static Buffer[] field1011;
-	static int field1007;
+	static Buffer[] cachedAppearanceData;
+	static int extendedInfoCount;
 	static int playerCount;
 	static int field1017;
 	static int[] field1013;
@@ -16,8 +16,8 @@ public class PlayerManager {
 
 	static {
 		field1019 = new byte[2048];
-		field1010 = new class197[2048];
-		field1011 = new Buffer[2048];
+		field1010 = new MoveSpeed[2048];
+		cachedAppearanceData = new Buffer[2048];
 		playerCount = 0;
 		field1013 = new int[2048];
 		field1017 = 0;
@@ -25,7 +25,7 @@ public class PlayerManager {
 		field1016 = new int[2048];
 		field1014 = new int[2048];
 		field1018 = new int[2048];
-		field1007 = 0;
+		extendedInfoCount = 0;
 		field1020 = new int[2048];
 		field1021 = new Buffer(new byte[5000]);
 	}
@@ -37,7 +37,7 @@ public class PlayerManager {
 	static final void updateGPI(PacketBuffer var0) {
 		var0.setBitMode();
 		int var2 = client.localPlayerIndex;
-		class93 var3 = class291.field3364 = client.players[var2] = new class93();
+		PlayerEntity var3 = class291.localPlayer = client.players[var2] = new PlayerEntity();
 		var3.field915 = var2;
 		int var4 = var0.readBits(30);
 		byte var5 = (byte)(var4 >> 28);
@@ -48,8 +48,8 @@ public class PlayerManager {
 		var3.field873[0] = var7 - class169.field1536;
 		var3.field802 = (var3.field873[0] << 7) + (var3.method1916() << 6);
 		class55.field396 = var3.field914 = var5;
-		if (null != field1011[var2]) {
-			var3.method1906(field1011[var2]);
+		if (null != cachedAppearanceData[var2]) {
+			var3.decodeAppearance(cachedAppearanceData[var2]);
 		}
 
 		playerCount = 0;

@@ -65,7 +65,7 @@ public class class189 extends class437 {
 
 	void method3467(Buffer var1) {
 		while (true) {
-			int var3 = var1.method8141();
+			int var3 = var1.readUnsignedByte();
 			if (var3 == 0) {
 				return;
 			}
@@ -97,33 +97,33 @@ public class class189 extends class437 {
 		} else if (var2 == 2) {
 			this.field2012 = var1.readUnsignedShort();
 		} else if (var2 == 3) {
-			var4 = var1.method8141();
+			var4 = var1.readUnsignedByte();
 			this.field2003 = new int[var4 + 1];
 
 			for (var5 = 0; var5 < var4; ++var5) {
-				this.field2003[var5] = var1.method8141();
+				this.field2003[var5] = var1.readUnsignedByte();
 			}
 
 			this.field2003[var4] = 9999999;
 		} else if (var2 == 4) {
 			this.field2005 = true;
 		} else if (var2 == 5) {
-			this.field2006 = var1.method8141();
+			this.field2006 = var1.readUnsignedByte();
 		} else if (var2 == 6) {
 			this.field1996 = var1.readUnsignedShort();
 		} else if (var2 == 7) {
 			this.field1990 = var1.readUnsignedShort();
 		} else if (var2 == 8) {
-			this.field2009 = var1.method8141();
+			this.field2009 = var1.readUnsignedByte();
 			this.field2008 = true;
 		} else if (var2 == 9) {
-			this.field2002 = var1.method8141();
+			this.field2002 = var1.readUnsignedByte();
 		} else if (var2 == 10) {
-			this.field1992 = var1.method8141();
+			this.field1992 = var1.readUnsignedByte();
 		} else if (var2 == 11) {
-			this.field2013 = var1.method8141();
+			this.field2013 = var1.readUnsignedByte();
 		} else if (var2 == 12) {
-			var4 = var1.method8141();
+			var4 = var1.readUnsignedByte();
 			this.field1999 = new int[var4];
 
 			for (var5 = 0; var5 < var4; ++var5) {
@@ -134,7 +134,7 @@ public class class189 extends class437 {
 				this.field1999[var5] += var1.readUnsignedShort() << 16;
 			}
 		} else if (var2 == 13) {
-			var4 = var1.method8141();
+			var4 = var1.readUnsignedByte();
 			this.field2007 = new int[var4];
 
 			for (var5 = 0; var5 < var4; ++var5) {
@@ -161,10 +161,10 @@ public class class189 extends class437 {
 				this.field2004[var4] = false;
 			}
 
-			var4 = var1.method8141();
+			var4 = var1.readUnsignedByte();
 
 			for (var5 = 0; var5 < var4; ++var5) {
-				this.field2004[var1.method8141()] = true;
+				this.field2004[var1.readUnsignedByte()] = true;
 			}
 		}
 

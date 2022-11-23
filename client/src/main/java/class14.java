@@ -10,7 +10,7 @@ public class class14 {
 	}
 
 	class14(Buffer var1) {
-		this(var1.method8141(), var1.method8141(), var1.readString());
+		this(var1.readUnsignedByte(), var1.readUnsignedByte(), var1.readString());
 	}
 
 	String method122() {

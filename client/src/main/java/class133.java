@@ -2,7 +2,7 @@ public class class133 {
 	static client field1257;
 	static int[] field1250;
 	public byte field1256;
-	public class472 field1254;
+	public DisplayName field1254;
 	public int field1249;
 
 	class133() {
@@ -44,7 +44,7 @@ public class class133 {
 							client.field1692[++client.npcCount - 1] = var4;
 							var5.field847 = client.field1645;
 							var8 = var1.readBits(3);
-							var5.method1615(var8, class197.field2114);
+							var5.method1615(var8, MoveSpeed.field2114);
 							var9 = var1.readBits(1);
 							if (var9 == 1) {
 								client.field1694[++client.field1693 - 1] = var4;
@@ -54,12 +54,12 @@ public class class133 {
 							var5.field847 = client.field1645;
 							if (var1.readBits(1) == 1) {
 								var8 = var1.readBits(3);
-								var5.method1615(var8, class197.field2116);
+								var5.method1615(var8, MoveSpeed.field2116);
 								var9 = var1.readBits(3);
-								var5.method1615(var9, class197.field2116);
+								var5.method1615(var9, MoveSpeed.field2116);
 							} else {
 								var8 = var1.readBits(3);
-								var5.method1615(var8, class197.field2113);
+								var5.method1615(var8, MoveSpeed.field2113);
 							}
 
 							var8 = var1.readBits(1);

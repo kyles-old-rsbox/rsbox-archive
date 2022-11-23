@@ -59,7 +59,7 @@ public class class147 extends class427 {
 			throw new RuntimeException("Displaynames not available");
 		} else {
 			for (int var3 = 0; var3 < this.field1347.size(); ++var3) {
-				if (((class133)this.field1347.get(var3)).field1254.method8451().equalsIgnoreCase(var1)) {
+				if (((class133)this.field1347.get(var3)).field1254.getName().equalsIgnoreCase(var1)) {
 					return var3;
 				}
 			}
@@ -69,7 +69,7 @@ public class class147 extends class427 {
 	}
 
 	void method2506(Buffer var1) {
-		int var3 = var1.method8141();
+		int var3 = var1.readUnsignedByte();
 		if ((var3 & 1) != 0) {
 			this.field1353 = true;
 		}
@@ -80,15 +80,15 @@ public class class147 extends class427 {
 
 		int var4 = 2;
 		if ((var3 & 4) != 0) {
-			var4 = var1.method8141();
+			var4 = var1.readUnsignedByte();
 		}
 
 		super.field4681 = var1.readLong();
 		this.field1349 = var1.readLong();
 		this.field1350 = var1.readString();
 		var1.method8129();
-		this.field1351 = var1.method8287();
-		this.field1345 = var1.method8287();
+		this.field1351 = var1.readByte();
+		this.field1345 = var1.readByte();
 		int var5 = var1.readUnsignedShort();
 		if (var5 > 0) {
 			this.field1347 = new ArrayList(var5);
@@ -100,10 +100,10 @@ public class class147 extends class427 {
 				}
 
 				if (this.field1346) {
-					var7.field1254 = new class472(var1.readString());
+					var7.field1254 = new DisplayName(var1.readString());
 				}
 
-				var7.field1256 = var1.method8287();
+				var7.field1256 = var1.readByte();
 				var7.field1249 = var1.readUnsignedShort();
 				if (var4 >= 3) {
 					var1.method8129();

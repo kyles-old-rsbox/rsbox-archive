@@ -8,7 +8,7 @@ public class class233 {
 	}
 
 	static final class421 method4559(Buffer var0, class421 var1) {
-		int var3 = var0.method8141();
+		int var3 = var0.readUnsignedByte();
 		int var4;
 		if (var1 == null) {
 			var4 = class282.method953(var3);
@@ -16,7 +16,7 @@ public class class233 {
 		}
 
 		for (var4 = 0; var4 < var3; ++var4) {
-			boolean var5 = var0.method8141() == 1;
+			boolean var5 = var0.readUnsignedByte() == 1;
 			int var6 = var0.method8312();
 			Object var7;
 			if (var5) {

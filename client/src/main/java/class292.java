@@ -9,7 +9,7 @@ public class class292 extends class427 {
 
 	class292(Buffer var1) {
 		var1.offset = var1.data.length - 3;
-		int var2 = var1.method8141();
+		int var2 = var1.readUnsignedByte();
 		int var3 = var1.readUnsignedShort();
 		int var4 = 14 + var2 * 10;
 		var1.offset = 0;
@@ -29,7 +29,7 @@ public class class292 extends class427 {
 			var14 = -1;
 
 			while (true) {
-				var15 = var1.method8141();
+				var15 = var1.readUnsignedByte();
 				if (var15 != var14) {
 					++var4;
 				}
@@ -91,7 +91,7 @@ public class class292 extends class427 {
 
 		int var29;
 		for (var29 = 0; var29 < var6; ++var29) {
-			var28 = var28 + var1.method8141() & 127;
+			var28 = var28 + var1.readUnsignedByte() & 127;
 			if (var28 != 0 && var28 != 32) {
 				if (var28 == 1) {
 					++var16;

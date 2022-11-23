@@ -21,7 +21,7 @@ public class class192 extends class437 {
 
 	void method3538(Buffer var1) {
 		while (true) {
-			int var3 = var1.method8141();
+			int var3 = var1.readUnsignedByte();
 			if (var3 == 0) {
 				return;
 			}
@@ -32,9 +32,9 @@ public class class192 extends class437 {
 
 	void method3539(Buffer var1, int var2) {
 		if (var2 == 1) {
-			this.field2037 = (char)var1.method8141();
+			this.field2037 = (char)var1.readUnsignedByte();
 		} else if (var2 == 2) {
-			this.field2030 = (char)var1.method8141();
+			this.field2030 = (char)var1.readUnsignedByte();
 		} else if (var2 == 3) {
 			this.field2031 = var1.readString();
 		} else if (var2 == 4) {

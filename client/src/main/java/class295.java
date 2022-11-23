@@ -146,7 +146,7 @@ public class class295 {
 						int var10;
 						if (0 != var5.field2291 && 0 != var0.field877) {
 							var7 = -1 != var0.field877 ? var0.field877 : var5.field2291;
-							var10 = class291.field3364.field905;
+							var10 = class291.localPlayer.combatLevel;
 							int var11 = var10 - var7;
 							String var9;
 							if (var11 < -9) {
@@ -220,7 +220,7 @@ public class class295 {
 									if (var0.method1639(var12) && null != var8[var12] && var8[var12].equalsIgnoreCase(class338.field4056)) {
 										short var13 = 0;
 										if (client.npcAttackOption != AttackOption.HIDDEN) {
-											if (client.npcAttackOption == AttackOption.field698 || client.npcAttackOption == AttackOption.field705 && var5.field2291 > class291.field3364.field905) {
+											if (client.npcAttackOption == AttackOption.field698 || client.npcAttackOption == AttackOption.field705 && var5.field2291 > class291.localPlayer.combatLevel) {
 												var13 = 2000;
 											}
 

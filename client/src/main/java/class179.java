@@ -222,8 +222,8 @@ public class class179 {
 								return 2;
 							}
 						} else {
-							if (class291.field3364 != null && null != class291.field3364.field910) {
-								var4 = class291.field3364.field910.method8451();
+							if (class291.localPlayer != null && null != class291.localPlayer.displayName) {
+								var4 = class291.localPlayer.displayName.getName();
 							} else {
 								var4 = "";
 							}

@@ -208,7 +208,7 @@ public class class34 {
 				class346.field4250 = (class376)client.field1934.get(class442.field4779);
 				class353.field4289 = (class376)client.field1934.get(class442.field4769);
 				class114.field1127 = (class376)client.field1934.get(class442.field4780);
-				class197.platformInfo = client.field1807.method7886();
+				MoveSpeed.platformInfo = client.field1807.method7886();
 				Login.field623 = class338.field4011;
 				Login.field622 = 40;
 				client.field1793 = 60;
@@ -570,7 +570,7 @@ public class class34 {
 				} else if (var0 == CS2Opcodes.FRIEND_TEST) {
 					var6 = class57.field405[--class126.field1220];
 					var6 = class208.method3985(var6);
-					class57.field404[++class387.field4452 - 1] = class217.friends.method1071(new class472(var6, class234.field2779), false) ? 1 : 0;
+					class57.field404[++class387.field4452 - 1] = class217.friends.method1071(new DisplayName(var6, class234.gameEngineMode), false) ? 1 : 0;
 					return 1;
 				} else if (var0 == CS2Opcodes.CLAN_GETCHATDISPLAYNAME) {
 					if (null != class73.field603) {
@@ -591,7 +591,7 @@ public class class34 {
 				} else if (var0 == CS2Opcodes.CLAN_GETCHATUSERNAME) {
 					var4 = class57.field404[--class387.field4452];
 					if (null != class73.field603 && var4 < class73.field603.method7339()) {
-						class57.field405[++class126.field1220 - 1] = class73.field603.method7296(var4).method7232().method8451();
+						class57.field405[++class126.field1220 - 1] = class73.field603.method7296(var4).method7232().getName();
 					} else {
 						class57.field405[++class126.field1220 - 1] = "";
 					}
@@ -655,11 +655,11 @@ public class class34 {
 				} else if (var0 == CS2Opcodes.IGNORE_TEST) {
 					var6 = class57.field405[--class126.field1220];
 					var6 = class208.method3985(var6);
-					class57.field404[++class387.field4452 - 1] = class217.friends.method1049(new class472(var6, class234.field2779)) ? 1 : 0;
+					class57.field404[++class387.field4452 - 1] = class217.friends.method1049(new DisplayName(var6, class234.gameEngineMode)) ? 1 : 0;
 					return 1;
 				} else if (var0 == CS2Opcodes.CLAN_ISSELF) {
 					var4 = class57.field404[--class387.field4452];
-					if (class73.field603 != null && var4 < class73.field603.method7339() && class73.field603.method7296(var4).method7232().equals(class291.field3364.field910)) {
+					if (class73.field603 != null && var4 < class73.field603.method7339() && class73.field603.method7296(var4).method7232().equals(class291.localPlayer.displayName)) {
 						class57.field404[++class387.field4452 - 1] = 1;
 					} else {
 						class57.field404[++class387.field4452 - 1] = 0;

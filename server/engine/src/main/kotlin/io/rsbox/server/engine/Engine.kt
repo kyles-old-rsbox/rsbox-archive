@@ -24,6 +24,7 @@ import io.rsbox.server.engine.model.World
 import io.rsbox.server.engine.net.NetworkServer
 import io.rsbox.server.engine.net.http.HttpServer
 import io.rsbox.server.engine.service.ServiceManager
+import io.rsbox.server.engine.sync.SyncTaskList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -39,6 +40,7 @@ class Engine {
     private val world: World by inject()
     private val serviceManager: ServiceManager by inject()
 
+    private val syncTasks = SyncTaskList()
     private var running = false
     private var prevCycleNanos = 0L
 
@@ -85,6 +87,10 @@ class Engine {
      * The root game engine cycle/tick method.
      */
     private suspend fun cycle() {
+        world.players.forEach { it.session.cycle() }
+        world.players.forEach { it.cycle() }
         world.queue.cycle()
+        syncTasks.forEach { it.execute() }
+        world.players.forEach { it.session.flush() }
     }
 }

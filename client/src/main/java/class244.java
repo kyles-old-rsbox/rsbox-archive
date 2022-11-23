@@ -9,20 +9,20 @@ public class class244 extends class239 {
 	}
 
 	void method4872(Buffer var1) {
-		int var3 = var1.method8141();
+		int var3 = var1.readUnsignedByte();
 		if (var3 != class256.field2948.field2947) {
 			throw new IllegalStateException("");
 		} else {
-			super.field2815 = var1.method8141();
-			super.field2813 = var1.method8141();
+			super.field2815 = var1.readUnsignedByte();
+			super.field2813 = var1.readUnsignedByte();
 			super.field2821 = var1.readUnsignedShort();
 			super.field2809 = var1.readUnsignedShort();
-			this.field2857 = var1.method8141();
-			this.field2855 = var1.method8141();
+			this.field2857 = var1.readUnsignedByte();
+			this.field2855 = var1.readUnsignedByte();
 			super.field2810 = var1.readUnsignedShort();
 			super.field2811 = var1.readUnsignedShort();
-			this.field2856 = var1.method8141();
-			this.field2854 = var1.method8141();
+			this.field2856 = var1.readUnsignedByte();
+			this.field2854 = var1.readUnsignedByte();
 			super.field2814 = var1.method8140();
 			super.field2820 = var1.method8140();
 		}
@@ -35,14 +35,14 @@ public class class244 extends class239 {
 		super.field2818 = new byte[super.field2813][64][64];
 		super.field2819 = new byte[super.field2813][64][64];
 		super.field2812 = new class253[super.field2813][64][64][];
-		int var3 = var1.method8141();
+		int var3 = var1.readUnsignedByte();
 		if (class250.field2904.field2901 != var3) {
 			throw new IllegalStateException("");
 		} else {
-			int var4 = var1.method8141();
-			int var5 = var1.method8141();
-			int var6 = var1.method8141();
-			int var7 = var1.method8141();
+			int var4 = var1.readUnsignedByte();
+			int var5 = var1.readUnsignedByte();
+			int var6 = var1.readUnsignedByte();
+			int var7 = var1.readUnsignedByte();
 			if (var4 == super.field2810 && var5 == super.field2811 && var6 == this.field2856 && this.field2854 == var7) {
 				for (int var8 = 0; var8 < 8; ++var8) {
 					for (int var9 = 0; var9 < 8; ++var9) {

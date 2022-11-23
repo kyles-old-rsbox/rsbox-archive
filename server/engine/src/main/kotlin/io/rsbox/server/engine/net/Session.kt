@@ -21,10 +21,12 @@ import io.netty.buffer.ByteBuf
 import io.netty.channel.ChannelHandlerContext
 import io.rsbox.server.engine.model.entity.Player
 import io.rsbox.server.engine.net.game.GameProtocol
+import io.rsbox.server.engine.net.game.Packet
 import io.rsbox.server.engine.net.handshake.HandshakeProtocol
 import io.rsbox.server.util.security.IsaacRandom
 import org.tinylog.kotlin.Logger
 import java.util.concurrent.atomic.AtomicReference
+import kotlin.collections.ArrayDeque
 import kotlin.random.Random
 import kotlin.random.nextLong
 
@@ -43,6 +45,8 @@ class Session(val ctx: ChannelHandlerContext) {
     var encoderIsaac = IsaacRandom()
     var decoderIsaac = IsaacRandom()
 
+    private val packetQueue = ArrayDeque<Packet>()
+
     internal fun onConnect() {
         protocol.set(HandshakeProtocol(this))
     }
@@ -55,7 +59,11 @@ class Session(val ctx: ChannelHandlerContext) {
     }
 
     internal fun onMessage(msg: Message) {
-        protocol.get().handle(msg)
+        if(protocol.get() is GameProtocol && msg is Packet) {
+            packetQueue.add(msg)
+        } else {
+            protocol.get().handle(msg)
+        }
     }
 
     internal fun onError(cause: Throwable) {
@@ -83,6 +91,15 @@ class Session(val ctx: ChannelHandlerContext) {
             if(it.isSuccess) {
                 this.disconnect()
             }
+        }
+    }
+
+    suspend fun cycle() {
+        var handledPackets = 0
+        while(packetQueue.isNotEmpty() && handledPackets < 10) {
+            val packet = packetQueue.removeFirst()
+            packet.handle(this)
+            handledPackets++
         }
     }
 }

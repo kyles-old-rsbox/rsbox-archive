@@ -62,14 +62,14 @@ public class class4 {
 				}
 
 				var9.offset = 0;
-				var10 = var9.method8141();
+				var10 = var9.readUnsignedByte();
 				if (var10 < 1 || var10 > 3) {
 					throw new IOException("" + var10);
 				}
 
 				int var11 = 0;
 				if (var10 > 1) {
-					var11 = var9.method8141();
+					var11 = var9.readUnsignedByte();
 				}
 
 				if (var10 <= 2) {

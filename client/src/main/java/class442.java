@@ -818,7 +818,7 @@ public class class442 {
 		}
 	}
 
-	static void method7921(class93 var0, int var1, int var2) {
+	static void method7921(PlayerEntity var0, int var1, int var2) {
 		if (var1 == var0.field852 && var1 != -1) {
 			int var4 = class160.method2660(var1).field2013;
 			if (var4 == 1) {

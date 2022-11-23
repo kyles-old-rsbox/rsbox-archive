@@ -30,7 +30,7 @@ public class class408 {
 		Buffer var4 = new Buffer(var3);
 
 		while (true) {
-			int var5 = var4.method8141();
+			int var5 = var4.readUnsignedByte();
 			if (var5 == 0) {
 				return;
 			}

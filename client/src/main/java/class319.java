@@ -32,13 +32,13 @@ public abstract class class319 {
 		int var3 = class241.method4729(var1, 0, var4);
 		this.field3746 = var3;
 		Buffer var5 = new Buffer(class231.method4537(var1));
-		int var6 = var5.method8141();
+		int var6 = var5.readUnsignedByte();
 		if (var6 >= 5 && var6 <= 7) {
 			if (var6 >= 6) {
 				var5.readInt();
 			}
 
-			int var7 = var5.method8141();
+			int var7 = var5.readUnsignedByte();
 			if (var6 >= 7) {
 				this.field3739 = var5.method8139();
 			} else {

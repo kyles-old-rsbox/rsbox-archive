@@ -23,11 +23,11 @@ public class class242 {
 		return 0 != (var0 >> 22 & 1);
 	}
 
-	static final void method4731(PacketBuffer var0, int var1) {
+	static final void updatePlayers(PacketBuffer var0, int var1) {
 		int var3 = var0.offset;
-		PlayerManager.field1007 = 0;
-		class172.method2733(var0);
-		class9.method56(var0);
+		PlayerManager.extendedInfoCount = 0;
+		class172.updatePlayerInfo(var0);
+		class9.updatePlayerExtendedInfo(var0);
 		if (var0.offset - var3 != var1) {
 			throw new RuntimeException(var0.offset - var3 + " " + var1);
 		}

@@ -13,7 +13,7 @@ public class class112 extends class437 {
 		this.field1103 = var3;
 		byte[] var5 = var1.method6175(this.field1103 >> 16 & 65535, this.field1103 & 65535);
 		Buffer var6 = new Buffer(var5);
-		int var7 = var6.method8141();
+		int var7 = var6.readUnsignedByte();
 		int var8 = var6.readUnsignedShort();
 		byte[] var9;
 		if (var4) {
@@ -29,13 +29,13 @@ public class class112 extends class437 {
 	void method2145(Buffer var1, int var2) {
 		var1.readUnsignedShort();
 		var1.readUnsignedShort();
-		this.field1105 = var1.method8141();
+		this.field1105 = var1.readUnsignedByte();
 		int var4 = var1.readUnsignedShort();
 		this.field1101 = new class106[this.field1104.method4530().method4346()][];
 		this.field1102 = new class106[this.field1104.method4529()][];
 
 		for (int var5 = 0; var5 < var4; ++var5) {
-			int var7 = var1.method8141();
+			int var7 = var1.readUnsignedByte();
 			class126[] var8 = new class126[]{class126.field1219, class126.field1212, class126.field1210, class126.field1211, class126.field1208, class126.field1213};
 			class126 var9 = (class126)class217.method4362(var8, var7);
 			if (var9 == null) {
@@ -43,7 +43,7 @@ public class class112 extends class437 {
 			}
 
 			int var14 = var1.method8219();
-			class121 var10 = class87.method1855(var1.method8141());
+			class121 var10 = class87.method1855(var1.readUnsignedByte());
 			class106 var11 = new class106();
 			var11.method2049(var1, var2);
 			int var12 = var9.method2367();

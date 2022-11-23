@@ -13,11 +13,11 @@ public class class155 extends class140 {
 	}
 
 	void method2467(Buffer var1) {
-		this.field1423 = var1.method8141() == 1;
-		this.field1419 = var1.method8287();
-		this.field1418 = var1.method8287();
-		this.field1421 = var1.method8287();
-		this.field1422 = var1.method8287();
+		this.field1423 = var1.readUnsignedByte() == 1;
+		this.field1419 = var1.readByte();
+		this.field1418 = var1.readByte();
+		this.field1421 = var1.readByte();
+		this.field1422 = var1.readByte();
 	}
 
 	void method2468(class148 var1) {

@@ -26,14 +26,14 @@ public class class223 {
 		Buffer var3 = new Buffer(var1);
 		Buffer var4 = new Buffer(var1);
 		var3.offset = 2;
-		int var5 = var3.method8141();
+		int var5 = var3.readUnsignedByte();
 		int var6 = -1;
 		int var7 = 0;
 		var4.offset = var3.offset + var5;
 
 		int var8;
 		for (var8 = 0; var8 < var5; ++var8) {
-			int var9 = var3.method8141();
+			int var9 = var3.readUnsignedByte();
 			if (var9 > 0) {
 				if (this.field2650.field2745[var8] != 0) {
 					for (int var10 = var8 - 1; var10 > var6; --var10) {

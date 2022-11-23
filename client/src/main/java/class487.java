@@ -4,7 +4,7 @@ public class class487 extends RuntimeException {
 	public static int field5010;
 	public static int field5012;
 	public static Applet field5015;
-	public static String field5013;
+	public static String username;
 	String field5011;
 	Throwable field5014;
 

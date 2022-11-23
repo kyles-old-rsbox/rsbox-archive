@@ -4,7 +4,7 @@ public class class216 {
 
 	class216(Buffer var1, int var2) {
 		this.field2570 = new class113[var2];
-		this.field2569 = var1.method8141();
+		this.field2569 = var1.readUnsignedByte();
 
 		for (int var3 = 0; var3 < this.field2570.length; ++var3) {
 			class113 var4 = new class113(this.field2569, var1, false);

@@ -5,7 +5,7 @@ public class class234 {
 	public static int field2768;
 	public static int field2771;
 	public static long[] field2766;
-	static class463 field2779;
+	static class463 gameEngineMode;
 	static int field2770;
 	static int field2772;
 	static int field2773;

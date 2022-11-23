@@ -81,11 +81,11 @@ public class class96 {
 		int var3 = PlayerManager.playerCount;
 		int[] var4 = PlayerManager.field1013;
 		boolean var5 = false;
-		class472 var6 = new class472(var1, class234.field2779);
+		DisplayName var6 = new DisplayName(var1, class234.gameEngineMode);
 
 		for (int var7 = 0; var7 < var3; ++var7) {
-			class93 var8 = client.players[var4[var7]];
-			if (null != var8 && class291.field3364 != var8 && null != var8.field910 && var8.field910.equals(var6)) {
+			PlayerEntity var8 = client.players[var4[var7]];
+			if (null != var8 && class291.localPlayer != var8 && null != var8.displayName && var8.displayName.equals(var6)) {
 				PacketBufferNode var9;
 				if (var0 == 1) {
 					var9 = class185.method3435(class274.field3110, client.packetWriter.isaacRandom);

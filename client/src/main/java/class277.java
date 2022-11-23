@@ -127,7 +127,7 @@ public class class277 {
 	int method5236(int var1, int var2) {
 		int var4;
 		if (var2 == 255) {
-			int var7 = this.field3167.method8141();
+			int var7 = this.field3167.readUnsignedByte();
 			var4 = this.field3167.method8235();
 			Buffer var10000;
 			if (var7 == 47) {
@@ -152,11 +152,11 @@ public class class277 {
 			byte var3 = field3164[var2 - 128];
 			var4 = var2;
 			if (var3 >= 1) {
-				var4 = var2 | this.field3167.method8141() << 8;
+				var4 = var2 | this.field3167.readUnsignedByte() << 8;
 			}
 
 			if (var3 >= 2) {
-				var4 |= this.field3167.method8141() << 16;
+				var4 |= this.field3167.readUnsignedByte() << 16;
 			}
 
 			return var4;

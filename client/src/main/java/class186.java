@@ -14,8 +14,8 @@ public class class186 extends class427 {
 	class186(Buffer var1) {
 		this.field1974 = false;
 		this.field1965 = var1.readUnsignedShort();
-		this.field1966 = var1.method8141() == 1;
-		int var2 = var1.method8141();
+		this.field1966 = var1.readUnsignedByte() == 1;
+		int var2 = var1.readUnsignedByte();
 		if (var2 >= 1 && var2 <= 4) {
 			this.field1967 = new int[var2];
 
@@ -28,7 +28,7 @@ public class class186 extends class427 {
 				this.field1963 = new int[var2 - 1];
 
 				for (var3 = 0; var3 < var2 - 1; ++var3) {
-					this.field1963[var3] = var1.method8141();
+					this.field1963[var3] = var1.readUnsignedByte();
 				}
 			}
 
@@ -36,7 +36,7 @@ public class class186 extends class427 {
 				this.field1969 = new int[var2 - 1];
 
 				for (var3 = 0; var3 < var2 - 1; ++var3) {
-					this.field1969[var3] = var1.method8141();
+					this.field1969[var3] = var1.readUnsignedByte();
 				}
 			}
 
@@ -46,8 +46,8 @@ public class class186 extends class427 {
 				this.field1968[var3] = var1.readInt();
 			}
 
-			this.field1971 = var1.method8141();
-			this.field1972 = var1.method8141();
+			this.field1971 = var1.readUnsignedByte();
+			this.field1972 = var1.readUnsignedByte();
 			this.field1973 = null;
 		} else {
 			throw new RuntimeException();

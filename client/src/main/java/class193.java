@@ -22,7 +22,7 @@ public class class193 extends class437 {
 
 	void method3553(Buffer var1) {
 		while (true) {
-			int var3 = var1.method8141();
+			int var3 = var1.readUnsignedByte();
 			if (var3 == 0) {
 				return;
 			}
@@ -33,7 +33,7 @@ public class class193 extends class437 {
 
 	void method3564(Buffer var1, int var2) {
 		if (var2 == 1) {
-			byte var5 = var1.method8287();
+			byte var5 = var1.readByte();
 			int var6 = var5 & 255;
 			if (var6 == 0) {
 				throw new IllegalArgumentException("" + Integer.toString(var6, 16));

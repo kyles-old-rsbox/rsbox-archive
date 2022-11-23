@@ -24,7 +24,7 @@ public class class182 extends class437 {
 
 	void method2846(Buffer var1) {
 		while (true) {
-			int var3 = var1.method8141();
+			int var3 = var1.readUnsignedByte();
 			if (var3 == 0) {
 				return;
 			}
@@ -35,12 +35,12 @@ public class class182 extends class437 {
 
 	void method2849(Buffer var1, int var2) {
 		if (var2 == 1) {
-			this.field1623 = var1.method8141();
+			this.field1623 = var1.readUnsignedByte();
 		} else {
 			int var4;
 			int var5;
 			if (var2 == 2) {
-				var4 = var1.method8141();
+				var4 = var1.readUnsignedByte();
 				this.field1624 = new int[var4];
 
 				for (var5 = 0; var5 < var4; ++var5) {
@@ -49,7 +49,7 @@ public class class182 extends class437 {
 			} else if (var2 == 3) {
 				this.field1630 = true;
 			} else if (var2 == 40) {
-				var4 = var1.method8141();
+				var4 = var1.readUnsignedByte();
 				this.field1625 = new short[var4];
 				this.field1620 = new short[var4];
 
@@ -58,7 +58,7 @@ public class class182 extends class437 {
 					this.field1620[var5] = (short)var1.readUnsignedShort();
 				}
 			} else if (var2 == 41) {
-				var4 = var1.method8141();
+				var4 = var1.readUnsignedByte();
 				this.field1621 = new short[var4];
 				this.field1628 = new short[var4];
 

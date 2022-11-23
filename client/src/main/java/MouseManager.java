@@ -323,7 +323,7 @@ public class MouseManager implements MouseListener, MouseMotionListener, FocusLi
 					}
 				}
 
-				class93 var25;
+				PlayerEntity var25;
 				int var28;
 				class81 var37;
 				int[] var38;
@@ -356,7 +356,7 @@ public class MouseManager implements MouseListener, MouseMotionListener, FocusLi
 				}
 
 				if (var18 == 0) {
-					class93 var33 = client.players[var20];
+					PlayerEntity var33 = client.players[var20];
 					if (null == var33) {
 						continue;
 					}
@@ -443,7 +443,7 @@ public class MouseManager implements MouseListener, MouseMotionListener, FocusLi
 		if (var5 != -1L) {
 			var9 = class234.method7552(var5);
 			int var31 = class234.method3636(var5);
-			class93 var11 = client.players[client.combatTargetPlayerIndex];
+			PlayerEntity var11 = client.players[client.combatTargetPlayerIndex];
 			class117.method2256(var11, client.combatTargetPlayerIndex, var9, var31);
 		}
 

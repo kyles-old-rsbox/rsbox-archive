@@ -69,122 +69,122 @@ public class class9 {
 
 	}
 
-	static final void method56(PacketBuffer var0) {
-		for (int var2 = 0; var2 < PlayerManager.field1007; ++var2) {
-			int var3 = PlayerManager.field1020[var2];
-			class93 var4 = client.players[var3];
-			int var5 = var0.method8141();
-			if (0 != (var5 & 4)) {
-				var5 += var0.method8141() << 8;
+	static final void updatePlayerExtendedInfo(PacketBuffer var0) {
+		for (int i = 0; i < PlayerManager.extendedInfoCount; ++i) {
+			int playerIndex = PlayerManager.field1020[i];
+			PlayerEntity player = client.players[playerIndex];
+			int mask = var0.readUnsignedByte();
+			if (0 != (mask & 4)) {
+				mask += var0.readUnsignedByte() << 8;
 			}
 
-			byte var6 = class197.field2119.field2117;
-			int var7;
-			if (0 != (var5 & 16)) {
-				var4.field835 = var0.method8164();
-				if (class78.field683) {
-					var4.field835 += var0.readUnsignedByteSub() << 16;
-					var7 = 16777215;
+			byte moveSpeed = MoveSpeed.NONE.speed;
+			int appBufLength;
+			if (0 != (mask & 0x10)) {
+				player.interacting = var0.readUnsignedShortLEADD();
+				if (class78.isNewPlayerUpdating) {
+					player.interacting += var0.readUnsignedByteSub() << 16;
+					appBufLength = 16777215;
 				} else {
-					var7 = 65535;
+					appBufLength = 65535;
 				}
 
-				if (var7 == var4.field835) {
-					var4.field835 = -1;
+				if (appBufLength == player.interacting) {
+					player.interacting = -1;
 				}
 			}
 
-			if (0 != (var5 & 2)) {
-				var4.field822 = var0.readString();
-				if (var4.field822.charAt(0) == '~') {
-					var4.field822 = var4.field822.substring(1);
-					MouseManager.method773(2, var4.field910.method8451(), var4.field822);
-				} else if (class291.field3364 == var4) {
-					MouseManager.method773(2, var4.field910.method8451(), var4.field822);
+			if (0 != (mask & 2)) {
+				player.field822 = var0.readString();
+				if (player.field822.charAt(0) == '~') {
+					player.field822 = player.field822.substring(1);
+					MouseManager.method773(2, player.displayName.getName(), player.field822);
+				} else if (class291.localPlayer == player) {
+					MouseManager.method773(2, player.displayName.getName(), player.field822);
 				}
 
-				var4.field842 = false;
-				var4.field801 = 0;
-				var4.field819 = 0;
-				var4.field843 = 150;
+				player.field842 = false;
+				player.field801 = 0;
+				player.field819 = 0;
+				player.field843 = 150;
 			}
 
-			if ((var5 & 64) != 0) {
-				var7 = var0.readUnsignedByteNeg();
-				byte[] var8 = new byte[var7];
-				Buffer var9 = new Buffer(var8);
-				var0.method8333(var8, 0, var7);
-				PlayerManager.field1011[var3] = var9;
-				var4.method1906(var9);
+			if ((mask & 64) != 0) {
+				appBufLength = var0.readUnsignedByteNeg();
+				byte[] appBytes = new byte[appBufLength];
+				Buffer appBuf = new Buffer(appBytes);
+				var0.readBytes(appBytes, 0, appBufLength);
+				PlayerManager.cachedAppearanceData[playerIndex] = appBuf;
+				player.decodeAppearance(appBuf);
 			}
 
-			if ((var5 & 4096) != 0) {
-				var6 = var0.method8287();
+			if ((mask & 4096) != 0) {
+				moveSpeed = var0.readByte();
 			}
 
 			int var15;
-			if (0 != (var5 & 8)) {
-				var7 = var0.readUnsignedShortAdd();
-				if (var7 == 65535) {
-					var7 = -1;
+			if (0 != (mask & 8)) {
+				appBufLength = var0.readUnsignedShortAdd();
+				if (appBufLength == 65535) {
+					appBufLength = -1;
 				}
 
 				var15 = var0.method8153();
-				class442.method7921(var4, var7, var15);
+				class442.method7921(player, appBufLength, var15);
 			}
 
-			if (0 != (var5 & 2048)) {
-				var4.field862 = client.field1645 + var0.readUnsignedShortLE();
-				var4.field863 = client.field1645 + var0.method8164();
-				var4.field864 = var0.method8287();
-				var4.field865 = var0.method8335();
-				var4.field850 = var0.method8287();
-				var4.field867 = (byte)var0.readUnsignedByteSub();
+			if (0 != (mask & 2048)) {
+				player.field862 = client.field1645 + var0.readUnsignedShortLE();
+				player.field863 = client.field1645 + var0.readUnsignedShortLEADD();
+				player.field864 = var0.readByte();
+				player.field865 = var0.method8335();
+				player.field850 = var0.readByte();
+				player.field867 = (byte)var0.readUnsignedByteSub();
 			}
 
-			if ((var5 & 1) != 0) {
-				var4.field868 = var0.readUnsignedShort();
-				if (0 == var4.field871) {
-					var4.field860 = var4.field868;
-					var4.field868 = -1;
+			if ((mask & 1) != 0) {
+				player.field868 = var0.readUnsignedShort();
+				if (0 == player.field871) {
+					player.field860 = player.field868;
+					player.field868 = -1;
 				}
 			}
 
-			if (0 != (var5 & 16384)) {
-				var4.field815 = var0.method8187();
-				var4.field855 = var0.method8335();
-				var4.field854 = var0.method8335();
-				var4.field853 = var0.method8187();
-				var4.field857 = var0.method8164() + client.field1645;
-				var4.field858 = var0.readUnsignedShortLE() + client.field1645;
-				var4.field859 = var0.readUnsignedShort();
-				if (var4.field919) {
-					var4.field815 += var4.field920;
-					var4.field855 += var4.field892;
-					var4.field854 += var4.field920;
-					var4.field853 += var4.field892;
-					var4.field871 = 0;
+			if (0 != (mask & 16384)) {
+				player.field815 = var0.method8187();
+				player.field855 = var0.method8335();
+				player.field854 = var0.method8335();
+				player.field853 = var0.method8187();
+				player.field857 = var0.readUnsignedShortLEADD() + client.field1645;
+				player.field858 = var0.readUnsignedShortLE() + client.field1645;
+				player.field859 = var0.readUnsignedShort();
+				if (player.field919) {
+					player.field815 += player.field920;
+					player.field855 += player.field892;
+					player.field854 += player.field920;
+					player.field853 += player.field892;
+					player.field871 = 0;
 				} else {
-					var4.field815 += var4.field861[0];
-					var4.field855 += var4.field873[0];
-					var4.field854 += var4.field861[0];
-					var4.field853 += var4.field873[0];
-					var4.field871 = 1;
+					player.field815 += player.field861[0];
+					player.field855 += player.field873[0];
+					player.field854 += player.field861[0];
+					player.field853 += player.field873[0];
+					player.field871 = 1;
 				}
 
-				var4.field876 = 0;
+				player.field876 = 0;
 			}
 
 			int var10;
 			int var11;
 			int var14;
-			if (0 != (var5 & 32)) {
-				var7 = var0.readUnsignedByteSub();
+			if (0 != (mask & 32)) {
+				appBufLength = var0.readUnsignedByteSub();
 				int var12;
 				int var13;
 				int var16;
-				if (var7 > 0) {
-					for (var15 = 0; var15 < var7; ++var15) {
+				if (appBufLength > 0) {
+					for (var15 = 0; var15 < appBufLength; ++var15) {
 						var10 = -1;
 						var11 = -1;
 						var12 = -1;
@@ -201,7 +201,7 @@ public class class9 {
 						}
 
 						var13 = var0.method8207();
-						var4.method1877(var16, var11, var10, var12, client.field1645, var13);
+						player.method1877(var16, var11, var10, var12, client.field1645, var13);
 					}
 				}
 
@@ -213,60 +213,60 @@ public class class9 {
 						if (var11 != 32767) {
 							var12 = var0.method8207();
 							var13 = var0.readUnsignedByteSub();
-							var14 = var11 > 0 ? var0.method8141() : var13;
-							var4.method1867(var10, client.field1645, var11, var12, var13, var14);
+							var14 = var11 > 0 ? var0.readUnsignedByte() : var13;
+							player.method1867(var10, client.field1645, var11, var12, var13, var14);
 						} else {
-							var4.method1872(var10);
+							player.method1872(var10);
 						}
 					}
 				}
 			}
 
-			if (0 != (var5 & 8192)) {
-				var4.field848 = var0.method8164();
-				var7 = var0.readIntIME();
-				var4.field824 = var7 >> 16;
-				var4.field851 = (var7 & 65535) + client.field1645;
-				var4.field856 = 0;
-				var4.field807 = 0;
-				if (var4.field851 > client.field1645) {
-					var4.field856 = -1;
+			if (0 != (mask & 8192)) {
+				player.field848 = var0.readUnsignedShortLEADD();
+				appBufLength = var0.readIntIME();
+				player.field824 = appBufLength >> 16;
+				player.field851 = (appBufLength & 65535) + client.field1645;
+				player.field856 = 0;
+				player.field807 = 0;
+				if (player.field851 > client.field1645) {
+					player.field856 = -1;
 				}
 
-				if (65535 == var4.field848) {
-					var4.field848 = -1;
-				}
-			}
-
-			if ((var5 & 512) != 0) {
-				for (var7 = 0; var7 < 3; ++var7) {
-					var4.field897[var7] = var0.readString();
+				if (65535 == player.field848) {
+					player.field848 = -1;
 				}
 			}
 
-			if (0 != (var5 & 128)) {
-				var7 = var0.readUnsignedShortAdd();
+			if ((mask & 512) != 0) {
+				for (appBufLength = 0; appBufLength < 3; ++appBufLength) {
+					player.actions[appBufLength] = var0.readString();
+				}
+			}
+
+			if (0 != (mask & 128)) {
+				appBufLength = var0.readUnsignedShortAdd();
 				class333 var19 = (class333)class217.method4362(class333.method5480(), var0.method8153());
 				boolean var21 = var0.readUnsignedByteSub() == 1;
 				var10 = var0.readUnsignedByteNeg();
 				var11 = var0.offset;
-				if (var4.field910 != null && null != var4.field911) {
+				if (player.displayName != null && null != player.appearance) {
 					boolean var20 = false;
-					if (var19.field3858 && class217.friends.method1049(var4.field910)) {
+					if (var19.field3858 && class217.friends.method1049(player.displayName)) {
 						var20 = true;
 					}
 
-					if (!var20 && client.field1830 == 0 && !var4.field913) {
+					if (!var20 && client.field1830 == 0 && !player.invisible) {
 						PlayerManager.field1021.offset = 0;
 						var0.method8195(PlayerManager.field1021.data, 0, var10);
 						PlayerManager.field1021.offset = 0;
 						String var17 = class384.method6864(class158.method2630(class307.method5489(PlayerManager.field1021)));
-						var4.field822 = var17.trim();
-						var4.field801 = var7 >> 8;
-						var4.field819 = var7 & 255;
-						var4.field843 = 150;
-						var4.field842 = var21;
-						var4.field820 = var4 != class291.field3364 && var19.field3858 && client.field1873 != "" && var17.toLowerCase().indexOf(client.field1873) == -1;
+						player.field822 = var17.trim();
+						player.field801 = appBufLength >> 8;
+						player.field819 = appBufLength & 255;
+						player.field843 = 150;
+						player.field842 = var21;
+						player.field820 = player != class291.localPlayer && var19.field3858 && client.field1873 != "" && var17.toLowerCase().indexOf(client.field1873) == -1;
 						if (var19.field3857) {
 							var14 = var21 ? 91 : 1;
 						} else {
@@ -274,9 +274,9 @@ public class class9 {
 						}
 
 						if (var19.field3856 != -1) {
-							MouseManager.method773(var14, class96.method5151(var19.field3856) + var4.field910.method8451(), var17);
+							MouseManager.method773(var14, class96.method5151(var19.field3856) + player.displayName.getName(), var17);
 						} else {
-							MouseManager.method773(var14, var4.field910.method8451(), var17);
+							MouseManager.method773(var14, player.displayName.getName(), var17);
 						}
 					}
 				}
@@ -284,22 +284,22 @@ public class class9 {
 				var0.offset = var11 + var10;
 			}
 
-			if ((var5 & 1024) != 0) {
-				PlayerManager.field1010[var3] = (class197)class217.method4362(class197.method7499(), var0.method8158());
+			if ((mask & 1024) != 0) {
+				PlayerManager.field1010[playerIndex] = (MoveSpeed)class217.method4362(MoveSpeed.method7499(), var0.method8158());
 			}
 
-			if (var4.field919) {
-				if (var6 == 127) {
-					var4.method1919(var4.field920, var4.field892);
+			if (player.field919) {
+				if (moveSpeed == 127) {
+					player.method1919(player.field920, player.field892);
 				} else {
-					class197 var18;
-					if (var6 != class197.field2119.field2117) {
-						var18 = (class197)class217.method4362(class197.method7499(), var6);
+					MoveSpeed var18;
+					if (moveSpeed != MoveSpeed.NONE.speed) {
+						var18 = (MoveSpeed)class217.method4362(MoveSpeed.method7499(), moveSpeed);
 					} else {
-						var18 = PlayerManager.field1010[var3];
+						var18 = PlayerManager.field1010[playerIndex];
 					}
 
-					var4.method1938(var4.field920, var4.field892, var18);
+					player.method1938(player.field920, player.field892, var18);
 				}
 			}
 		}
@@ -363,7 +363,7 @@ public class class9 {
 
 	static final void method63(int var0, int var1, int var2, int var3) {
 		++client.field1745;
-		if (client.destinationX == class291.field3364.field827 >> 7 && client.destinationY == class291.field3364.field802 >> 7) {
+		if (client.destinationX == class291.localPlayer.field827 >> 7 && client.destinationY == class291.localPlayer.field802 >> 7) {
 			client.destinationX = 0;
 		}
 

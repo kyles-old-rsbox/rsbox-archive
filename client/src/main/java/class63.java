@@ -1,7 +1,7 @@
 public class class63 extends class437 {
 	class410 field501;
 	class410 field502;
-	class472 field499;
+	DisplayName field499;
 	int field495;
 	int field496;
 	int field497;
@@ -61,7 +61,7 @@ public class class63 extends class437 {
 
 	final void method1348() {
 		if (this.field500 != null) {
-			this.field499 = new class472(class208.method3985(this.field500), class234.field2779);
+			this.field499 = new DisplayName(class208.method3985(this.field500), class234.gameEngineMode);
 		} else {
 			this.field499 = null;
 		}

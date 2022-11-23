@@ -12,7 +12,7 @@ public class class347 {
 	}
 
 	public class347(Buffer var1, boolean var2) {
-		this.field4260 = var1.method8287();
+		this.field4260 = var1.readByte();
 		this.field4254 = var1.readUnsignedShort();
 		this.field4253 = var1.readInt();
 		this.field4256 = var1.readInt();
@@ -23,7 +23,7 @@ public class class347 {
 			boolean var5 = false;
 
 			while (true) {
-				int var6 = var1.method8141();
+				int var6 = var1.readUnsignedByte();
 				if (var6 == 255) {
 					Integer var3 = var5 ? var4 : null;
 					this.method6418(var3);
@@ -35,7 +35,7 @@ public class class347 {
 				}
 
 				while (true) {
-					int var7 = var1.method8141();
+					int var7 = var1.readUnsignedByte();
 					if (var7 == 255) {
 						break;
 					}

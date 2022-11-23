@@ -9,7 +9,7 @@ public class class131 extends class140 {
 
 	public static void method2400(Buffer var0, int var1) {
 		class43 var3 = new class43();
-		var3.field309 = var0.method8141();
+		var3.field309 = var0.readUnsignedByte();
 		var3.field307 = var0.readInt();
 		var3.field301 = new int[var3.field309];
 		var3.field300 = new int[var3.field309];
@@ -20,7 +20,7 @@ public class class131 extends class140 {
 
 		for (int var4 = 0; var4 < var3.field309; ++var4) {
 			try {
-				int var5 = var0.method8141();
+				int var5 = var0.readUnsignedByte();
 				String var6;
 				String var7;
 				int var8;
@@ -28,7 +28,7 @@ public class class131 extends class140 {
 					if (var5 == 3 || var5 == 4) {
 						var6 = var0.readString();
 						var7 = var0.readString();
-						var8 = var0.method8141();
+						var8 = var0.readUnsignedByte();
 						String[] var9 = new String[var8];
 
 						for (int var10 = 0; var10 < var8; ++var10) {
@@ -42,7 +42,7 @@ public class class131 extends class140 {
 							for (int var12 = 0; var12 < var8; ++var12) {
 								var13 = var0.readInt();
 								var11[var12] = new byte[var13];
-								var0.method8333(var11[var12], 0, var13);
+								var0.readBytes(var11[var12], 0, var13);
 							}
 						}
 

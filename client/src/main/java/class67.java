@@ -89,13 +89,13 @@ public class class67 {
 	}
 
 	final void method1397(Buffer var1, class35 var2) {
-		int var3 = var1.method8141();
+		int var3 = var1.readUnsignedByte();
 		this.field550[0] = var3 >> 4;
 		this.field550[1] = var3 & 15;
 		if (var3 != 0) {
 			this.field543[0] = var1.readUnsignedShort();
 			this.field543[1] = var1.readUnsignedShort();
-			int var4 = var1.method8141();
+			int var4 = var1.readUnsignedByte();
 
 			int var5;
 			int var6;

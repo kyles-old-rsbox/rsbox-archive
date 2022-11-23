@@ -59,6 +59,7 @@ class ServerConfig {
         val maxLoginsPerTick by optional(25, "max-logins-per-tick")
         val maxLogoutsPerTick by optional(10, "max-logouts-per-tick")
         val maxPacketsPerTick by optional(25, "max-packets-per-tick")
+        val renderDistance by optional(15, "render-distance")
 
         object Network : ConfigSpec("network") {
             val address by optional("0.0.0.0", "address")
@@ -95,7 +96,8 @@ class ServerConfig {
         val TICK_RATE get() = config[Spec.tickRate]
         val MAX_LOGINS_PER_TICK get() = config[Spec.maxLoginsPerTick]
         val MAX_LOGOUTS_PER_TICK get() = config[Spec.maxLogoutsPerTick]
-        val MAX_PACKETS_PER_TICK get() = config[Spec.maxLogoutsPerTick]
+        val MAX_PACKETS_PER_TICK get() = config[Spec.maxPacketsPerTick]
+        val RENDER_DISTANCE get() = config[Spec.renderDistance]
 
         val NETWORK = NetworkCompanion(config)
         class NetworkCompanion(private val config: ServerConfig) {

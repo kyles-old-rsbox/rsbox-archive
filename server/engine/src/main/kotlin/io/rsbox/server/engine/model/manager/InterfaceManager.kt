@@ -91,7 +91,7 @@ class InterfaceManager(private val player: Player) {
             val toParent = player.displayMode.id
             val toChild = GameInterface.fromChild(currentDisplayMode, fromChild)?.getChildId(player.displayMode)
             if(toChild != null) {
-                player.session.writeAndFlush(IfMoveSubPacket(fromParent, fromChild, toParent, toChild))
+                player.session.write(IfMoveSubPacket(fromParent, fromChild, toParent, toChild))
             }
         }
 

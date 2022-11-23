@@ -115,7 +115,7 @@ public class class198 extends class437 {
 
 	void method3649(Buffer var1) {
 		while (true) {
-			int var3 = var1.method8141();
+			int var3 = var1.readUnsignedByte();
 			if (var3 == 0) {
 				return;
 			}
@@ -152,23 +152,23 @@ public class class198 extends class437 {
 		} else if (var2 == 12) {
 			this.field2143 = var1.readInt();
 		} else if (var2 == 13) {
-			this.field2130 = var1.method8141();
+			this.field2130 = var1.readUnsignedByte();
 		} else if (var2 == 14) {
-			this.field2145 = var1.method8141();
+			this.field2145 = var1.readUnsignedByte();
 		} else if (var2 == 16) {
 			this.field2162 = true;
 		} else if (var2 == 23) {
 			this.field2121 = var1.readUnsignedShort();
-			this.field2153 = var1.method8141();
+			this.field2153 = var1.readUnsignedByte();
 		} else if (var2 == 24) {
 			this.field2157 = var1.readUnsignedShort();
 		} else if (var2 == 25) {
 			this.field2154 = var1.readUnsignedShort();
-			this.field2156 = var1.method8141();
+			this.field2156 = var1.readUnsignedByte();
 		} else if (var2 == 26) {
 			this.field2155 = var1.readUnsignedShort();
 		} else if (var2 == 27) {
-			this.field2146 = var1.method8141();
+			this.field2146 = var1.readUnsignedByte();
 		} else if (var2 >= 30 && var2 < 35) {
 			this.field2148[var2 - 30] = var1.readString();
 			if (this.field2148[var2 - 30].equalsIgnoreCase(class338.field3894)) {
@@ -180,7 +180,7 @@ public class class198 extends class437 {
 			int var4;
 			int var5;
 			if (var2 == 40) {
-				var4 = var1.method8141();
+				var4 = var1.readUnsignedByte();
 				this.field2132 = new short[var4];
 				this.field2133 = new short[var4];
 
@@ -189,7 +189,7 @@ public class class198 extends class437 {
 					this.field2133[var5] = (short)var1.readUnsignedShort();
 				}
 			} else if (var2 == 41) {
-				var4 = var1.method8141();
+				var4 = var1.readUnsignedByte();
 				this.field2160 = new short[var4];
 				this.field2135 = new short[var4];
 
@@ -198,7 +198,7 @@ public class class198 extends class437 {
 					this.field2135[var5] = (short)var1.readUnsignedShort();
 				}
 			} else if (var2 == 42) {
-				this.field2177 = var1.method8287();
+				this.field2177 = var1.readByte();
 			} else if (var2 == 65) {
 				this.field2175 = true;
 			} else if (var2 == 75) {
@@ -238,11 +238,11 @@ public class class198 extends class437 {
 			} else if (var2 == 112) {
 				this.field2169 = var1.readUnsignedShort();
 			} else if (var2 == 113) {
-				this.field2159 = var1.method8287();
+				this.field2159 = var1.readByte();
 			} else if (var2 == 114) {
-				this.field2171 = var1.method8287() * 5;
+				this.field2171 = var1.readByte() * 5;
 			} else if (var2 == 115) {
-				this.field2172 = var1.method8141();
+				this.field2172 = var1.readUnsignedByte();
 			} else if (var2 == 139) {
 				this.field2147 = var1.readUnsignedShort();
 			} else if (var2 == 140) {

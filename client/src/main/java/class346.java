@@ -82,8 +82,8 @@ public class class346 implements class360 {
 		int var4;
 		if (var0 == CS2Opcodes._6600) {
 			var4 = class55.field396;
-			int var10 = (class291.field3364.field827 >> 7) + class36.field241;
-			int var6 = (class291.field3364.field802 >> 7) + class169.field1536;
+			int var10 = (class291.localPlayer.field827 >> 7) + class36.field241;
+			int var6 = (class291.localPlayer.field802 >> 7) + class169.field1536;
 			client.method6324().method7597(var4, var10, var6, true);
 			return 1;
 		} else {

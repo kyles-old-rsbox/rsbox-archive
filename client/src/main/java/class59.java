@@ -283,7 +283,7 @@ public class class59 {
 		this.field430.method657(var1);
 		this.field422 = new class35();
 		this.field422.method657(var1);
-		int var2 = var1.method8141();
+		int var2 = var1.readUnsignedByte();
 		if (var2 != 0) {
 			--var1.offset;
 			this.field434 = new class35();
@@ -292,7 +292,7 @@ public class class59 {
 			this.field424.method657(var1);
 		}
 
-		var2 = var1.method8141();
+		var2 = var1.readUnsignedByte();
 		if (var2 != 0) {
 			--var1.offset;
 			this.field425 = new class35();
@@ -301,7 +301,7 @@ public class class59 {
 			this.field426.method657(var1);
 		}
 
-		var2 = var1.method8141();
+		var2 = var1.readUnsignedByte();
 		if (var2 != 0) {
 			--var1.offset;
 			this.field427 = new class35();

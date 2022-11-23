@@ -19,8 +19,8 @@ public class class335 extends class437 {
 					var2 = class32.field203 >> 7;
 					var3 = class101.field1004 >> 7;
 				} else {
-					var2 = class291.field3364.field827 >> 7;
-					var3 = class291.field3364.field802 >> 7;
+					var2 = class291.localPlayer.field827 >> 7;
+					var3 = class291.localPlayer.field802 >> 7;
 				}
 
 				int var4 = class215.field2568 >> 7;
@@ -114,8 +114,8 @@ public class class335 extends class437 {
 				}
 			}
 
-			if (class291.field3364.field827 >= 0 && class291.field3364.field802 >= 0 && class291.field3364.field827 < 13312 && class291.field3364.field802 < 13312) {
-				if ((class82.field714[class55.field396][class291.field3364.field827 >> 7][class291.field3364.field802 >> 7] & 4) != 0) {
+			if (class291.localPlayer.field827 >= 0 && class291.localPlayer.field802 >= 0 && class291.localPlayer.field827 < 13312 && class291.localPlayer.field802 < 13312) {
+				if ((class82.field714[class55.field396][class291.localPlayer.field827 >> 7][class291.localPlayer.field802 >> 7] & 4) != 0) {
 					var1 = class55.field396;
 				}
 

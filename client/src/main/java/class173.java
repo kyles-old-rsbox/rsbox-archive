@@ -13,7 +13,7 @@ public class class173 extends class437 {
 
 	public void method2738(Buffer var1) {
 		while (true) {
-			int var3 = var1.method8141();
+			int var3 = var1.readUnsignedByte();
 			if (var3 == 0) {
 				return;
 			}

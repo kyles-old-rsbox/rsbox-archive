@@ -40,7 +40,7 @@ public class class199 extends class437 {
 
 	public void method3717(Buffer var1, int var2) {
 		while (true) {
-			int var4 = var1.method8141();
+			int var4 = var1.readUnsignedByte();
 			if (var4 == 0) {
 				return;
 			}
@@ -53,7 +53,7 @@ public class class199 extends class437 {
 		if (var2 == 1) {
 			this.field2184 = var1.method8312();
 		} else if (var2 == 2) {
-			this.field2185 = var1.method8141();
+			this.field2185 = var1.readUnsignedByte();
 		} else if (var2 == 5) {
 			this.field2186 = false;
 		} else if (var2 == 7) {

@@ -40,7 +40,7 @@ public class class158 extends class437 {
 
 	void method2623(Buffer var1) {
 		while (true) {
-			int var3 = var1.method8141();
+			int var3 = var1.readUnsignedByte();
 			if (var3 == 0) {
 				return;
 			}
@@ -53,15 +53,15 @@ public class class158 extends class437 {
 		if (var2 == 1) {
 			var1.readUnsignedShort();
 		} else if (var2 == 2) {
-			this.field1446 = var1.method8141();
+			this.field1446 = var1.readUnsignedByte();
 		} else if (var2 == 3) {
-			this.field1447 = var1.method8141();
+			this.field1447 = var1.readUnsignedByte();
 		} else if (var2 == 4) {
 			this.field1448 = 0;
 		} else if (var2 == 5) {
 			this.field1450 = var1.readUnsignedShort();
 		} else if (var2 == 6) {
-			var1.method8141();
+			var1.readUnsignedByte();
 		} else if (var2 == 7) {
 			this.field1449 = var1.method8140();
 		} else if (var2 == 8) {
@@ -69,9 +69,9 @@ public class class158 extends class437 {
 		} else if (var2 == 11) {
 			this.field1448 = var1.readUnsignedShort();
 		} else if (var2 == 14) {
-			this.field1453 = var1.method8141();
+			this.field1453 = var1.readUnsignedByte();
 		} else if (var2 == 15) {
-			this.field1444 = var1.method8141();
+			this.field1444 = var1.readUnsignedByte();
 		}
 
 	}

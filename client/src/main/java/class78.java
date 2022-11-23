@@ -1,5 +1,5 @@
 public class class78 extends class437 {
-	static boolean field683;
+	static boolean isNewPlayerUpdating;
 	static class284 field675;
 	static class300[] field682;
 	static int field684;

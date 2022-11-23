@@ -38,7 +38,7 @@ public class class53 {
 		this.field377 = 2;
 
 		for (int var4 = 0; var4 < PlayerManager.playerCount; ++var4) {
-			class93 var5 = client.players[PlayerManager.field1013[var4]];
+			PlayerEntity var5 = client.players[PlayerManager.field1013[var4]];
 			var5.method1908();
 		}
 
@@ -117,17 +117,17 @@ public class class53 {
 		this.field376.method7285();
 	}
 
-	final boolean method1071(class472 var1, boolean var2) {
+	final boolean method1071(DisplayName var1, boolean var2) {
 		if (var1 == null) {
 			return false;
-		} else if (var1.equals(class291.field3364.field910)) {
+		} else if (var1.equals(class291.localPlayer.displayName)) {
 			return true;
 		} else {
 			return this.field380.method7017(var1, var2);
 		}
 	}
 
-	final boolean method1049(class472 var1) {
+	final boolean method1049(DisplayName var1) {
 		if (null == var1) {
 			return false;
 		} else {
@@ -137,11 +137,11 @@ public class class53 {
 
 	final void method1050(String var1) {
 		if (var1 != null) {
-			class472 var3 = new class472(var1, this.field375);
+			DisplayName var3 = new DisplayName(var1, this.field375);
 			if (var3.method8449()) {
 				if (this.method1098()) {
 					method2348();
-				} else if (class291.field3364.field910.equals(var3)) {
+				} else if (class291.localPlayer.displayName.equals(var3)) {
 					method229(class338.field3924);
 				} else if (this.method1071(var3, false)) {
 					method2355(var1);
@@ -183,11 +183,11 @@ public class class53 {
 
 	final void method1052(String var1) {
 		if (null != var1) {
-			class472 var3 = new class472(var1, this.field375);
+			DisplayName var3 = new DisplayName(var1, this.field375);
 			if (var3.method8449()) {
 				if (this.method1053()) {
 					method229(class338.field4072);
-				} else if (class291.field3364.field910.equals(var3)) {
+				} else if (class291.localPlayer.displayName.equals(var3)) {
 					method229(class338.field4177);
 				} else if (this.method1049(var3)) {
 					method7283(var1);
@@ -217,7 +217,7 @@ public class class53 {
 
 	final void method1069(String var1) {
 		if (var1 != null) {
-			class472 var3 = new class472(var1, this.field375);
+			DisplayName var3 = new DisplayName(var1, this.field375);
 			if (var3.method8449()) {
 				if (this.field380.method7292(var3)) {
 					client.field1844 = client.field1878;
@@ -228,7 +228,7 @@ public class class53 {
 				}
 
 				for (int var6 = 0; var6 < PlayerManager.playerCount; ++var6) {
-					class93 var5 = client.players[PlayerManager.field1013[var6]];
+					PlayerEntity var5 = client.players[PlayerManager.field1013[var6]];
 					var5.method1908();
 				}
 
@@ -264,7 +264,7 @@ public class class53 {
 
 	final void method1055(String var1) {
 		if (var1 != null) {
-			class472 var3 = new class472(var1, this.field375);
+			DisplayName var3 = new DisplayName(var1, this.field375);
 			if (var3.method8449()) {
 				if (this.field376.method7292(var3)) {
 					client.field1844 = client.field1878;
@@ -287,7 +287,7 @@ public class class53 {
 		client.packetWriter.add(var3);
 	}
 
-	final boolean method1056(class472 var1) {
+	final boolean method1056(DisplayName var1) {
 		class380 var3 = (class380)this.field380.method7289(var1);
 		return null != var3 && var3.method7174();
 	}

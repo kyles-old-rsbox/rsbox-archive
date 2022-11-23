@@ -105,12 +105,12 @@ public class class60 extends class427 {
 
 			int var6;
 			do {
-				var6 = var2.method8141();
+				var6 = var2.readUnsignedByte();
 				var5 += var6;
 			} while(var6 >= 255);
 
 			byte[] var7 = new byte[var5];
-			var2.method8333(var7, 0, var5);
+			var2.readBytes(var7, 0, var5);
 			this.field480[var4] = var7;
 		}
 

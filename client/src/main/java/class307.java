@@ -229,7 +229,7 @@ public class class307 {
 					var14 = var12 + 5;
 					int var10002;
 					if (var14 >= 0 && var14 < 104) {
-						var15 = client.field1932 < 209 ? (int)class150.method2591(8) : (int)class150.method2591(15);
+						var15 = client.buildNumber < 209 ? (int)class150.method2591(8) : (int)class150.method2591(15);
 						var16 = class82.field716[var3][var14][var13] & var15;
 						if (var16 > 0) {
 							var18 = var16 - 1;
@@ -263,7 +263,7 @@ public class class307 {
 
 					var15 = var12 - 5;
 					if (var15 >= 0 && var15 < 104) {
-						var16 = client.field1932 < 209 ? (int)class150.method2591(8) : (int)class150.method2591(15);
+						var16 = client.buildNumber < 209 ? (int)class150.method2591(8) : (int)class150.method2591(15);
 						var17 = class82.field716[var3][var15][var13] & var16;
 						if (var17 > 0) {
 							var19 = var17 - 1;
@@ -327,7 +327,7 @@ public class class307 {
 								class82.field724 = var3;
 							}
 
-							var21 = client.field1932 < 209 ? (int)class150.method2591(8) : (int)class150.method2591(15);
+							var21 = client.buildNumber < 209 ? (int)class150.method2591(8) : (int)class150.method2591(15);
 							int var22 = class82.field716[var3][var12][var18] & var21;
 							int var23 = class82.field723[var3][var12][var18] & var21;
 							if (var22 > 0 || var23 > 0) {

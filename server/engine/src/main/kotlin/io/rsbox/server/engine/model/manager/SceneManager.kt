@@ -30,7 +30,7 @@ class SceneManager(private val player: Player) {
 
     fun init() {
         rebuild()
-        player.session.writeAndFlush(RebuildRegionPacket(player, gpi = true))
+        player.session.write(RebuildRegionPacket(player, gpi = true))
     }
 
     fun rebuild() {

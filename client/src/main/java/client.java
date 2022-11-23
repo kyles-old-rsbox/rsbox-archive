@@ -25,7 +25,7 @@ public final class client extends class31 implements class375, OAuthApi {
 	public static boolean field1635;
 	public static class205 field1876;
 	public static int worldId;
-	public static int field1932;
+	public static int buildNumber;
 	public static int field1936;
 	public static final class107 packetWriter;
 	static boolean isLowDetail;
@@ -77,7 +77,7 @@ public final class client extends class31 implements class375, OAuthApi {
 	static class300 field1823;
 	static class300 field1826;
 	static class300 field1874;
-	static class305 playerAppearance;
+	static PlayerModel playerAppearance;
 	static class336 field1665;
 	static class33[] field1899;
 	static NodeDeque field1765;
@@ -101,7 +101,7 @@ public final class client extends class31 implements class375, OAuthApi {
 	static AttackOption playerAttackOption;
 	static AttackOption npcAttackOption;
 	static class81[] npcs;
-	static class93[] players;
+	static PlayerEntity[] players;
 	static int field1631;
 	static int field1633;
 	static int field1634;
@@ -342,7 +342,7 @@ public final class client extends class31 implements class375, OAuthApi {
 		clientType = -1;
 		field1716 = -1;
 		field1640 = false;
-		field1932 = 209;
+		buildNumber = 209;
 		gameState = 0;
 		isLoading = true;
 		field1645 = 0;
@@ -484,7 +484,7 @@ public final class client extends class31 implements class375, OAuthApi {
 		field1786 = 0;
 		field1830 = 0;
 		field1762 = true;
-		players = new class93[2048];
+		players = new PlayerEntity[2048];
 		localPlayerIndex = -1;
 		isMember = 0;
 		field1632 = -1L;
@@ -641,7 +641,7 @@ public final class client extends class31 implements class375, OAuthApi {
 		field1917 = 0;
 		field1678 = 0;
 		field1919 = 0;
-		playerAppearance = new class305();
+		playerAppearance = new PlayerModel();
 		field1682 = -1;
 		field1686 = -1;
 		field1807 = new class428();
@@ -704,9 +704,9 @@ public final class client extends class31 implements class375, OAuthApi {
 					case 10:
 						class368.field4353 = (class329)class217.method4362(class329.method1596(), Integer.parseInt(var2));
 						if (class368.field4353 == class329.field3819) {
-							class234.field2779 = class463.field4894;
+							class234.gameEngineMode = class463.field4894;
 						} else {
-							class234.field2779 = class463.field4896;
+							class234.gameEngineMode = class463.field4896;
 						}
 						break;
 					case 11:
@@ -739,9 +739,9 @@ public final class client extends class31 implements class375, OAuthApi {
 					case 25:
 						var3 = var2.indexOf(".");
 						if (var3 == -1) {
-							field1932 = Integer.parseInt(var2);
+							buildNumber = Integer.parseInt(var2);
 						} else {
-							field1932 = Integer.parseInt(var2.substring(0, var3));
+							buildNumber = Integer.parseInt(var2.substring(0, var3));
 							Integer.parseInt(var2.substring(var3 + 1));
 						}
 					}
@@ -1009,7 +1009,7 @@ public final class client extends class31 implements class375, OAuthApi {
 		this.method444();
 		class99.method1985(this, AttackOption.field706);
 		class164.method2692(class413.clientPreferences.method1726());
-		class217.friends = new class53(class234.field2779);
+		class217.friends = new class53(class234.gameEngineMode);
 		this.field1674 = new class15("tokenRequest", 1, 1);
 	}
 
@@ -1294,9 +1294,9 @@ public final class client extends class31 implements class375, OAuthApi {
 
 								if (null == class116.field1137) {
 									class324.field3776.offset = 0;
-									var10 = class324.field3776.method8141();
+									var10 = class324.field3776.readUnsignedByte();
 									var11 = class324.field3776.readUnsignedShort();
-									int var12 = class324.field3776.method8141();
+									int var12 = class324.field3776.readUnsignedByte();
 									var13 = class324.field3776.readInt();
 									long var14 = (long)((var10 << 16) + var11);
 									class335 var16 = (class335)class324.field3779.method7855(var14);
@@ -2236,8 +2236,8 @@ public final class client extends class31 implements class375, OAuthApi {
 				class296.writeRandomBytes(buf.buffer);
 				buf.buffer.writeString(class61.field481);
 				buf.buffer.writeInt(class11.field45);
-				Buffer platformInfoBuf = new Buffer(class197.platformInfo.size());
-				class197.platformInfo.write(platformInfoBuf);
+				Buffer platformInfoBuf = new Buffer(MoveSpeed.platformInfo.size());
+				MoveSpeed.platformInfo.write(platformInfoBuf);
 				buf.buffer.writeBytes(platformInfoBuf.data, 0, platformInfoBuf.data.length);
 				buf.buffer.writeByte(clientType);
 				buf.buffer.writeInt(0);
@@ -2321,7 +2321,7 @@ public final class client extends class31 implements class375, OAuthApi {
 				packetBuf.offset = 0;
 				((AbstractSocket)loginSocket).read(packetBuf.data, packetBuf.offset, class77.field669);
 				class25[] var36 = new class25[]{class25.field122};
-				class25 var35 = var36[packetBuf.method8141()];
+				class25 var35 = var36[packetBuf.readUnsignedByte()];
 
 				try {
 					class24 var37 = class8.method3967(var35);
@@ -2566,8 +2566,8 @@ public final class client extends class31 implements class375, OAuthApi {
 						PlayerManager.playerCount = 0;
 
 						for (int i = 0; i < 2048; ++i) {
-							PlayerManager.field1011[i] = null;
-							PlayerManager.field1010[i] = class197.field2114;
+							PlayerManager.cachedAppearanceData[i] = null;
+							PlayerManager.field1010[i] = MoveSpeed.field2114;
 						}
 
 						for (int i = 0; i < 2048; ++i) {
@@ -2695,7 +2695,7 @@ public final class client extends class31 implements class375, OAuthApi {
 		class452.field4852.method5437();
 		field1926.method5437();
 		field1927.method5437();
-		class305.method3577();
+		PlayerModel.method3577();
 		class300.method5845();
 		((class215)class221.field2629).method4312();
 		class78.field675.method5437();
@@ -3030,13 +3030,13 @@ public final class client extends class31 implements class375, OAuthApi {
 									if (field1734[var2] != 0) {
 										var5 = (field1734[var2] & 255) * 128;
 										var6 = field1734[var2] >> 16 & 255;
-										var7 = var6 * 128 + 64 - class291.field3364.field827;
+										var7 = var6 * 128 + 64 - class291.localPlayer.field827;
 										if (var7 < 0) {
 											var7 = -var7;
 										}
 
 										var8 = field1734[var2] >> 8 & 255;
-										var9 = 64 + var8 * 128 - class291.field3364.field802;
+										var9 = 64 + var8 * 128 - class291.localPlayer.field802;
 										if (var9 < 0) {
 											var9 = -var9;
 										}
@@ -3106,7 +3106,7 @@ public final class client extends class31 implements class375, OAuthApi {
 						int[] var33 = PlayerManager.field1013;
 
 						for (var4 = 0; var4 < var2; ++var4) {
-							class93 var43 = players[var33[var4]];
+							PlayerEntity var43 = players[var33[var4]];
 							if (var43 != null) {
 								class25.method341(var43, 1);
 							}
@@ -3123,7 +3123,7 @@ public final class client extends class31 implements class375, OAuthApi {
 						int[] var40 = PlayerManager.field1013;
 
 						for (var16 = 0; var16 < PlayerManager.playerCount; ++var16) {
-							class93 var49 = players[var40[var16]];
+							PlayerEntity var49 = players[var40[var16]];
 							if (null != var49 && var49.field843 > 0) {
 								--var49.field843;
 								if (0 == var49.field843) {
@@ -3190,15 +3190,15 @@ public final class client extends class31 implements class375, OAuthApi {
 						}
 
 						if (class114.method2218() && field1876.method3895(82) && field1876.method3895(81) && field1639 != 0) {
-							var4 = class291.field3364.field914 - field1639;
+							var4 = class291.localPlayer.field914 - field1639;
 							if (var4 < 0) {
 								var4 = 0;
 							} else if (var4 > 3) {
 								var4 = 3;
 							}
 
-							if (class291.field3364.field914 != var4) {
-								class136.method2439(class291.field3364.field861[0] + class36.field241, class169.field1536 + class291.field3364.field873[0], var4, false);
+							if (class291.localPlayer.field914 != var4) {
+								class136.method2439(class291.localPlayer.field861[0] + class36.field241, class169.field1536 + class291.localPlayer.field873[0], var4, false);
 							}
 
 							field1639 = 0;
@@ -3359,8 +3359,8 @@ public final class client extends class31 implements class375, OAuthApi {
 																	}
 
 																	if (0 == field1722) {
-																		var4 = class291.field3364.field827;
-																		var5 = class291.field3364.field802;
+																		var4 = class291.localPlayer.field827;
+																		var5 = class291.localPlayer.field802;
 																		if (class32.field203 - var4 < -500 || class32.field203 - var4 > 500 || class101.field1004 - var5 < -500 || class101.field1004 - var5 > 500) {
 																			class32.field203 = var4;
 																			class101.field1004 = var5;
@@ -3409,7 +3409,7 @@ public final class client extends class31 implements class375, OAuthApi {
 																			field1733 += (var10 - field1733) / 80;
 																		}
 
-																		class178.field1595 = class144.method2498(class291.field3364.field827, class291.field3364.field802, class55.field396) - field1723;
+																		class178.field1595 = class144.method2498(class291.localPlayer.field827, class291.localPlayer.field802, class55.field396) - field1723;
 																	} else if (field1722 == 1) {
 																		class121.method2285();
 																		short var38 = -1;
@@ -3762,7 +3762,7 @@ public final class client extends class31 implements class375, OAuthApi {
 			}
 		}
 
-		class55.method1117(class55.field396, class291.field3364.field827, class291.field3364.field802, field1701);
+		class55.method1117(class55.field396, class291.localPlayer.field827, class291.localPlayer.field802, field1701);
 		field1701 = 0;
 	}
 
@@ -3783,7 +3783,7 @@ public final class client extends class31 implements class375, OAuthApi {
 			class73.field603 = null;
 		} else {
 			if (null == class73.field603) {
-				class73.field603 = new class367(class234.field2779, class133.field1257);
+				class73.field603 = new class367(class234.gameEngineMode, class133.field1257);
 			}
 
 			class73.field603.method6705(var1.buffer, var2);
@@ -3972,11 +3972,11 @@ public final class client extends class31 implements class375, OAuthApi {
 				String var26;
 				byte var69;
 				if (connection.serverPacket == ServerPacket.field3275) {
-					var69 = packetBuf.method8287();
+					var69 = packetBuf.readByte();
 					var22 = packetBuf.readString();
 					long var24 = (long) packetBuf.readUnsignedShort();
 					long var9 = (long) packetBuf.method8312();
-					class333 var60 = (class333)class217.method4362(class333.method5480(), packetBuf.method8141());
+					class333 var60 = (class333)class217.method4362(class333.method5480(), packetBuf.readUnsignedByte());
 					long var12 = var9 + (var24 << 32);
 					boolean var67 = false;
 					var15 = null;
@@ -3988,7 +3988,7 @@ public final class client extends class31 implements class375, OAuthApi {
 
 						while (true) {
 							if (var16 >= 100) {
-								if (var60.field3858 && class217.friends.method1049(new class472(var22, class234.field2779))) {
+								if (var60.field3858 && class217.friends.method1049(new DisplayName(var22, class234.gameEngineMode))) {
 									var67 = true;
 								}
 								break;
@@ -4022,9 +4022,9 @@ public final class client extends class31 implements class375, OAuthApi {
 				class81 var8;
 				int var27;
 				if (connection.serverPacket == ServerPacket.field3224) {
-					var23 = packetBuf.method8141();
+					var23 = packetBuf.readUnsignedByte();
 					someVar = packetBuf.readUnsignedShortAdd();
-					var6 = packetBuf.method8164();
+					var6 = packetBuf.readUnsignedShortLEADD();
 					if (var6 == 65535) {
 						var6 = -1;
 					}
@@ -4079,10 +4079,10 @@ public final class client extends class31 implements class375, OAuthApi {
 
 				if (connection.serverPacket == ServerPacket.field3305 && field1900) {
 					field1901 = true;
-					class318.field3732 = packetBuf.method8141();
-					class109.field1086 = packetBuf.method8141();
-					MouseManager.field298 = packetBuf.method8141();
-					class158.field1440 = packetBuf.method8141();
+					class318.field3732 = packetBuf.readUnsignedByte();
+					class109.field1086 = packetBuf.readUnsignedByte();
+					MouseManager.field298 = packetBuf.readUnsignedByte();
+					class158.field1440 = packetBuf.readUnsignedByte();
 
 					for (someVar = 0; someVar < 5; ++someVar) {
 						field1699[someVar] = false;
@@ -4107,7 +4107,7 @@ public final class client extends class31 implements class375, OAuthApi {
 
 				boolean var78;
 				if (ServerPacket.field3273 == connection.serverPacket) {
-					var78 = packetBuf.method8141() == 1;
+					var78 = packetBuf.readUnsignedByte() == 1;
 					if (var78) {
 						class100.field987 = class272.method2046() - packetBuf.readLong();
 						class242.field2835 = new class337(packetBuf, true);
@@ -4180,7 +4180,7 @@ public final class client extends class31 implements class375, OAuthApi {
 				if (connection.serverPacket == ServerPacket.field3220) {
 					someVar = packetBuf.readUnsignedShortAdd();
 					var6 = packetBuf.readUnsignedShortLE();
-					var23 = packetBuf.method8164();
+					var23 = packetBuf.readUnsignedShortLEADD();
 					var28 = packetBuf.readInt();
 					var29 = class282.method5426(var28);
 					if (var29.field3601 != someVar || var6 != var29.field3513 || var29.field3562 != var23) {
@@ -4212,7 +4212,7 @@ public final class client extends class31 implements class375, OAuthApi {
 				}
 
 				if (connection.serverPacket == ServerPacket.field3283) {
-					minimapState = packetBuf.method8141();
+					minimapState = packetBuf.readUnsignedByte();
 					connection.serverPacket = null;
 					return true;
 				}
@@ -4261,7 +4261,7 @@ public final class client extends class31 implements class375, OAuthApi {
 
 				if (ServerPacket.field3249 == connection.serverPacket) {
 					method2263();
-					var69 = packetBuf.method8287();
+					var69 = packetBuf.readByte();
 					class142 var75 = new class142(packetBuf);
 					class148 var61;
 					if (var69 >= 0) {
@@ -4283,7 +4283,7 @@ public final class client extends class31 implements class375, OAuthApi {
 
 				if (ServerPacket.field3289 == connection.serverPacket) {
 					someVar = packetBuf.readInt();
-					var6 = packetBuf.method8164();
+					var6 = packetBuf.readUnsignedShortLEADD();
 					class293.field3368[var6] = someVar;
 					if (class293.field3370[var6] != someVar) {
 						class293.field3370[var6] = someVar;
@@ -4331,7 +4331,7 @@ public final class client extends class31 implements class375, OAuthApi {
 				}
 
 				if (ServerPacket.field3268 == connection.serverPacket) {
-					someVar = packetBuf.method8141();
+					someVar = packetBuf.readUnsignedByte();
 					class368.method6732(someVar);
 					connection.serverPacket = null;
 					return false;
@@ -4372,7 +4372,7 @@ public final class client extends class31 implements class375, OAuthApi {
 						var27 = packetBuf.readUnsignedShort();
 						var31 = 0;
 						if (var27 != 0) {
-							var31 = packetBuf.method8141();
+							var31 = packetBuf.readUnsignedByte();
 							if (var31 == 255) {
 								var31 = packetBuf.readInt();
 							}
@@ -4396,7 +4396,7 @@ public final class client extends class31 implements class375, OAuthApi {
 
 				if (connection.serverPacket == ServerPacket.field3248) {
 					field1871 = packetBuf.method8153();
-					field1872 = packetBuf.method8141();
+					field1872 = packetBuf.readUnsignedByte();
 					connection.serverPacket = null;
 					return true;
 				}
@@ -4416,12 +4416,12 @@ public final class client extends class31 implements class375, OAuthApi {
 				boolean var64;
 				if (connection.serverPacket == ServerPacket.field3299) {
 					someVar = packetBuf.method8207();
-					var64 = packetBuf.method8141() == 1;
+					var64 = packetBuf.readUnsignedByte() == 1;
 					var53 = "";
 					boolean var83 = false;
 					if (var64) {
 						var53 = packetBuf.readString();
-						if (class217.friends.method1049(new class472(var53, class234.field2779))) {
+						if (class217.friends.method1049(new DisplayName(var53, class234.gameEngineMode))) {
 							var83 = true;
 						}
 					}
@@ -4440,7 +4440,7 @@ public final class client extends class31 implements class375, OAuthApi {
 					someVar = packetBuf.method8175();
 					var71 = class282.method5426(someVar);
 					var71.field3504 = 3;
-					var71.field3505 = class291.field3364.field911.method6029();
+					var71.field3505 = class291.localPlayer.appearance.method6029();
 					class136.method2438(var71);
 					connection.serverPacket = null;
 					return true;
@@ -4454,7 +4454,7 @@ public final class client extends class31 implements class375, OAuthApi {
 					var32 = packetBuf.readLong();
 					var34 = (long) packetBuf.readUnsignedShort();
 					var10 = (long) packetBuf.method8312();
-					class333 var30 = (class333)class217.method4362(class333.method5480(), packetBuf.method8141());
+					class333 var30 = (class333)class217.method4362(class333.method5480(), packetBuf.readUnsignedByte());
 					var13 = var10 + (var34 << 32);
 					boolean var85 = false;
 
@@ -4465,7 +4465,7 @@ public final class client extends class31 implements class375, OAuthApi {
 						}
 					}
 
-					if (var30.field3858 && class217.friends.method1049(new class472(var48, class234.field2779))) {
+					if (var30.field3858 && class217.friends.method1049(new DisplayName(var48, class234.gameEngineMode))) {
 						var85 = true;
 					}
 
@@ -4492,7 +4492,7 @@ public final class client extends class31 implements class375, OAuthApi {
 				}
 
 				if (ServerPacket.field3214 == connection.serverPacket) {
-					someVar = packetBuf.method8141();
+					someVar = packetBuf.readUnsignedByte();
 					method411(someVar);
 					connection.serverPacket = null;
 					return true;
@@ -4506,10 +4506,10 @@ public final class client extends class31 implements class375, OAuthApi {
 
 				if (ServerPacket.field3227 == connection.serverPacket) {
 					class19.field98 = packetBuf.readUnsignedByteSub();
-					class7.field28 = packetBuf.method8141();
+					class7.field28 = packetBuf.readUnsignedByte();
 
 					while (packetBuf.offset < connection.serverPacketLength) {
-						someVar = packetBuf.method8141();
+						someVar = packetBuf.readUnsignedByte();
 						class271 var74 = class271.method1667()[someVar];
 						class342.method6352(var74);
 					}
@@ -4521,11 +4521,11 @@ public final class client extends class31 implements class375, OAuthApi {
 				if (connection.serverPacket == ServerPacket.field3276) {
 					field1900 = true;
 					field1901 = false;
-					class264.field2998 = packetBuf.method8141();
-					class19.field96 = packetBuf.method8141();
+					class264.field2998 = packetBuf.readUnsignedByte();
+					class19.field96 = packetBuf.readUnsignedByte();
 					class244.field2859 = packetBuf.readUnsignedShort();
-					class318.field3732 = packetBuf.method8141();
-					class109.field1086 = packetBuf.method8141();
+					class318.field3732 = packetBuf.readUnsignedByte();
+					class109.field1086 = packetBuf.readUnsignedByte();
 					if (class109.field1086 >= 100) {
 						class215.field2568 = 64 + class264.field2998 * 128;
 						class323.field3766 = 64 + class19.field96 * 128;
@@ -4537,15 +4537,15 @@ public final class client extends class31 implements class375, OAuthApi {
 				}
 
 				if (connection.serverPacket == ServerPacket.field3239) {
-					class242.method4731(packetBuf, connection.serverPacketLength);
+					class242.updatePlayers(packetBuf, connection.serverPacketLength);
 					class372.method6749();
 					connection.serverPacket = null;
 					return true;
 				}
 
-				if (ServerPacket.field3316 == connection.serverPacket) {
-					class78.field683 = true;
-					class242.method4731(packetBuf, connection.serverPacketLength);
+				if (ServerPacket.PLAYER_INFO == connection.serverPacket) {
+					class78.isNewPlayerUpdating = true;
+					class242.updatePlayers(packetBuf, connection.serverPacketLength);
 					class372.method6749();
 					connection.serverPacket = null;
 					return true;
@@ -4559,7 +4559,7 @@ public final class client extends class31 implements class375, OAuthApi {
 
 				if (connection.serverPacket == ServerPacket.field3226) {
 					someVar = packetBuf.readUnsignedShort();
-					var6 = packetBuf.method8141();
+					var6 = packetBuf.readUnsignedByte();
 					var23 = packetBuf.readUnsignedShort();
 					class271.method5212(someVar, var6, var23);
 					connection.serverPacket = null;
@@ -4583,7 +4583,7 @@ public final class client extends class31 implements class375, OAuthApi {
 				int var38;
 				if (ServerPacket.field3326 == connection.serverPacket) {
 					var31 = packetBuf.readUnsignedShort();
-					var37 = packetBuf.method8141();
+					var37 = packetBuf.readUnsignedByte();
 					var38 = packetBuf.readUnsignedShortLE();
 					var23 = packetBuf.method8169();
 					someVar = var23 >> 16;
@@ -4603,7 +4603,7 @@ public final class client extends class31 implements class375, OAuthApi {
 
 				if (ServerPacket.field3290 == connection.serverPacket) {
 					field1847 = field1878;
-					var69 = packetBuf.method8287();
+					var69 = packetBuf.readByte();
 					class143 var73 = new class143(packetBuf);
 					class147 var56;
 					if (var69 >= 0) {
@@ -4686,9 +4686,9 @@ public final class client extends class31 implements class375, OAuthApi {
 					var82 = packetBuf.method8335();
 					var16 = packetBuf.readUnsignedShortAdd();
 					var17 = packetBuf.readUnsignedShortAdd();
-					var14 = packetBuf.method8141() * 4;
+					var14 = packetBuf.readUnsignedByte() * 4;
 					var88 = packetBuf.method8335();
-					var19 = packetBuf.method8141();
+					var19 = packetBuf.readUnsignedByte();
 					var38 = packetBuf.method8183();
 					var18 = packetBuf.readUnsignedByteNeg();
 					var23 = packetBuf.method8312();
@@ -4715,7 +4715,7 @@ public final class client extends class31 implements class375, OAuthApi {
 
 				if (ServerPacket.field3317 == connection.serverPacket) {
 					var17 = packetBuf.readUnsignedShort();
-					var16 = packetBuf.method8164();
+					var16 = packetBuf.readUnsignedShortLEADD();
 					var19 = packetBuf.readUnsignedByteNeg();
 					var23 = packetBuf.method8312();
 					someVar = var23 >> 16;
@@ -4725,10 +4725,10 @@ public final class client extends class31 implements class375, OAuthApi {
 					var40 = packetBuf.readUnsignedShort();
 					var38 = packetBuf.method8125();
 					var14 = packetBuf.readUnsignedByteNeg() * 4;
-					var88 = packetBuf.method8287();
+					var88 = packetBuf.readByte();
 					var84 = packetBuf.readUnsignedByteSub() * 4;
-					var82 = packetBuf.method8287();
-					var18 = packetBuf.method8141();
+					var82 = packetBuf.readByte();
+					var18 = packetBuf.readUnsignedByte();
 					var31 = var82 + var28;
 					var37 = var88 + var27;
 					if (var28 >= 0 && var27 >= 0 && var28 < 104 && var27 < 104 && var31 >= 0 && var37 >= 0 && var31 < 104 && var37 < 104 && var40 != 65535) {
@@ -4869,7 +4869,7 @@ public final class client extends class31 implements class375, OAuthApi {
 
 				if (connection.serverPacket == ServerPacket.field3302) {
 					field1847 = field1878;
-					var69 = packetBuf.method8287();
+					var69 = packetBuf.readByte();
 					if (connection.serverPacketLength == 1) {
 						if (var69 >= 0) {
 							field1883[var69] = null;
@@ -4994,8 +4994,8 @@ public final class client extends class31 implements class375, OAuthApi {
 				}
 
 				if (ServerPacket.field3271 == connection.serverPacket) {
-					someVar = packetBuf.method8141();
-					if (packetBuf.method8141() == 0) {
+					someVar = packetBuf.readUnsignedByte();
+					if (packetBuf.readUnsignedByte() == 0) {
 						field1924[someVar] = new class347();
 						packetBuf.offset += 18;
 					} else {
@@ -5016,16 +5016,16 @@ public final class client extends class31 implements class375, OAuthApi {
 				}
 
 				if (ServerPacket.field3292 == connection.serverPacket) {
-					class297.field3431 = class363.method6675(packetBuf.method8141());
+					class297.field3431 = class363.method6675(packetBuf.readUnsignedByte());
 					connection.serverPacket = null;
 					return true;
 				}
 
 				if (ServerPacket.field3285 == connection.serverPacket) {
-					someVar = packetBuf.method8141();
-					var6 = packetBuf.method8141();
-					var23 = packetBuf.method8141();
-					var28 = packetBuf.method8141();
+					someVar = packetBuf.readUnsignedByte();
+					var6 = packetBuf.readUnsignedByte();
+					var23 = packetBuf.readUnsignedByte();
+					var28 = packetBuf.readUnsignedByte();
 					field1699[someVar] = true;
 					field1903[someVar] = var6;
 					field1808[someVar] = var23;
@@ -5036,10 +5036,10 @@ public final class client extends class31 implements class375, OAuthApi {
 				}
 
 				if (ServerPacket.field3279 == connection.serverPacket) {
-					someVar = packetBuf.method8164();
-					class93 var57;
+					someVar = packetBuf.readUnsignedShortLEADD();
+					PlayerEntity var57;
 					if (localPlayerIndex == someVar) {
-						var57 = class291.field3364;
+						var57 = class291.localPlayer;
 					} else {
 						var57 = players[someVar];
 					}
@@ -5066,7 +5066,7 @@ public final class client extends class31 implements class375, OAuthApi {
 				}
 
 				if (connection.serverPacket == ServerPacket.field3259) {
-					someVar = packetBuf.method8164();
+					someVar = packetBuf.readUnsignedShortLEADD();
 					class408.method7405(someVar);
 					field1837[++field1838 - 1 & 31] = someVar & 32767;
 					connection.serverPacket = null;
@@ -5108,7 +5108,7 @@ public final class client extends class31 implements class375, OAuthApi {
 
 				if (ServerPacket.field3260 == connection.serverPacket) {
 					class198.method3654();
-					field1816 = packetBuf.method8141();
+					field1816 = packetBuf.readUnsignedByte();
 					field1642 = field1878;
 					connection.serverPacket = null;
 					return true;
@@ -5173,7 +5173,7 @@ public final class client extends class31 implements class375, OAuthApi {
 
 				String var41;
 				if (connection.serverPacket == ServerPacket.field3300) {
-					var69 = packetBuf.method8287();
+					var69 = packetBuf.readByte();
 					var32 = (long) packetBuf.readUnsignedShort();
 					var34 = (long) packetBuf.method8312();
 					var10 = var34 + (var32 << 32);
@@ -5253,7 +5253,7 @@ public final class client extends class31 implements class375, OAuthApi {
 					var48 = packetBuf.readString();
 					var32 = (long) packetBuf.readUnsignedShort();
 					var34 = (long) packetBuf.method8312();
-					class333 var42 = (class333)class217.method4362(class333.method5480(), packetBuf.method8141());
+					class333 var42 = (class333)class217.method4362(class333.method5480(), packetBuf.readUnsignedByte());
 					long var43 = var34 + (var32 << 32);
 					boolean var89 = false;
 
@@ -5264,7 +5264,7 @@ public final class client extends class31 implements class375, OAuthApi {
 						}
 					}
 
-					if (class217.friends.method1049(new class472(var48, class234.field2779))) {
+					if (class217.friends.method1049(new DisplayName(var48, class234.gameEngineMode))) {
 						var89 = true;
 					}
 
@@ -5291,7 +5291,7 @@ public final class client extends class31 implements class375, OAuthApi {
 				}
 
 				if (connection.serverPacket == ServerPacket.field3288) {
-					hintArrowType = packetBuf.method8141();
+					hintArrowType = packetBuf.readUnsignedByte();
 					if (1 == hintArrowType) {
 						field1879 = packetBuf.readUnsignedShort();
 					}
@@ -5325,7 +5325,7 @@ public final class client extends class31 implements class375, OAuthApi {
 						hintArrowType = 2;
 						field1655 = packetBuf.readUnsignedShort();
 						field1656 = packetBuf.readUnsignedShort();
-						field1913 = packetBuf.method8141();
+						field1913 = packetBuf.readUnsignedByte();
 					}
 
 					if (hintArrowType == 10) {
@@ -5387,7 +5387,7 @@ public final class client extends class31 implements class375, OAuthApi {
 					for (; var23-- > 0; var11.field795 = true) {
 						var28 = packetBuf.readInt();
 						var27 = packetBuf.readUnsignedShort();
-						var31 = packetBuf.method8141();
+						var31 = packetBuf.readUnsignedByte();
 						var11 = (InterfaceParent) parentInterfaces.method7855((long)var28);
 						if (null != var11 && var11.field796 != var27) {
 							class4.closeInterface(var11, true);
@@ -5478,7 +5478,7 @@ public final class client extends class31 implements class375, OAuthApi {
 
 				if (ServerPacket.field3257 == connection.serverPacket) {
 					method2263();
-					var69 = packetBuf.method8287();
+					var69 = packetBuf.readByte();
 					if (connection.serverPacketLength == 1) {
 						if (var69 >= 0) {
 							field1738[var69] = null;
@@ -5524,11 +5524,11 @@ public final class client extends class31 implements class375, OAuthApi {
 				if (connection.serverPacket == ServerPacket.field3247) {
 					field1900 = true;
 					field1901 = false;
-					class8.field34 = packetBuf.method8141();
-					class122.field1186 = packetBuf.method8141();
+					class8.field34 = packetBuf.readUnsignedByte();
+					class122.field1186 = packetBuf.readUnsignedByte();
 					class278.field3197 = packetBuf.readUnsignedShort();
-					MouseManager.field298 = packetBuf.method8141();
-					class158.field1440 = packetBuf.method8141();
+					MouseManager.field298 = packetBuf.readUnsignedByte();
+					class158.field1440 = packetBuf.readUnsignedByte();
 					if (class158.field1440 >= 100) {
 						someVar = class8.field34 * 128 + 64;
 						var6 = class122.field1186 * 128 + 64;
@@ -5567,12 +5567,12 @@ public final class client extends class31 implements class375, OAuthApi {
 				}
 
 				if (ServerPacket.field3237 == connection.serverPacket) {
-					destinationX = packetBuf.method8141();
+					destinationX = packetBuf.readUnsignedByte();
 					if (255 == destinationX) {
 						destinationX = 0;
 					}
 
-					destinationY = packetBuf.method8141();
+					destinationY = packetBuf.readUnsignedByte();
 					if (255 == destinationY) {
 						destinationY = 0;
 					}
@@ -5654,7 +5654,7 @@ public final class client extends class31 implements class375, OAuthApi {
 			} catch (IOException var45) {
 				method4611();
 			} catch (Exception var46) {
-				var22 = "" + (connection.serverPacket != null ? connection.serverPacket.field3324 : -1) + class96.field959 + (connection.field1072 != null ? -1220623677 * connection.field1072.field3324 * 1911455211 : -1) + class96.field959 + (null != connection.field1080 ? -1220623677 * connection.field1080.field3324 * 1911455211 : -1) + class96.field959 + connection.serverPacketLength + class96.field959 + (class291.field3364.field861[0] + class36.field241) + class96.field959 + (class291.field3364.field873[0] + class169.field1536) + class96.field959;
+				var22 = "" + (connection.serverPacket != null ? connection.serverPacket.field3324 : -1) + class96.field959 + (connection.field1072 != null ? -1220623677 * connection.field1072.field3324 * 1911455211 : -1) + class96.field959 + (null != connection.field1080 ? -1220623677 * connection.field1080.field3324 * 1911455211 : -1) + class96.field959 + connection.serverPacketLength + class96.field959 + (class291.localPlayer.field861[0] + class36.field241) + class96.field959 + (class291.localPlayer.field873[0] + class169.field1536) + class96.field959;
 
 				for (var23 = 0; var23 < connection.serverPacketLength && var23 < 50; ++var23) {
 					var22 = var22 + packetBuf.data[var23] + class96.field959;
@@ -6188,7 +6188,7 @@ public final class client extends class31 implements class375, OAuthApi {
 
 	static final void method602() {
 		for (int var1 = 0; var1 < PlayerManager.playerCount; ++var1) {
-			class93 var2 = players[PlayerManager.field1013[var1]];
+			PlayerEntity var2 = players[PlayerManager.field1013[var1]];
 			var2.method1911();
 		}
 
@@ -6224,8 +6224,8 @@ public final class client extends class31 implements class375, OAuthApi {
 		class199.method3732(var0, var1);
 	}
 
-	public class472 method6785() {
-		return null != class291.field3364 ? class291.field3364.field910 : null;
+	public DisplayName method6785() {
+		return null != class291.localPlayer ? class291.localPlayer.displayName : null;
 	}
 
 	static void method411(int var0) {

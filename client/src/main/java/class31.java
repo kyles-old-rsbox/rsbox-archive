@@ -88,7 +88,7 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 		var2.field678 = var3.readUnsignedShort();
 		var2.field679 = var3.readUnsignedShort();
 		var2.field672 = var3.readUnsignedShort();
-		int var7 = var3.method8141();
+		int var7 = var3.readUnsignedByte();
 		int var8;
 		int var9;
 		if (var7 > 0) {
@@ -120,7 +120,7 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 			} else if (var9 < 100 && var9 != 21 && var9 != 38 && var9 != 39) {
 				var2.field680[var8] = var3.readInt();
 			} else {
-				var2.field680[var8] = var3.method8141();
+				var2.field680[var8] = var3.readUnsignedByte();
 			}
 		}
 
@@ -801,8 +801,8 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 
 	static final void method598() {
 		client.field1830 = 0;
-		int var1 = class36.field241 + (class291.field3364.field827 >> 7);
-		int var2 = class169.field1536 + (class291.field3364.field802 >> 7);
+		int var1 = class36.field241 + (class291.localPlayer.field827 >> 7);
+		int var2 = class169.field1536 + (class291.localPlayer.field802 >> 7);
 		if (var1 >= 3053 && var1 <= 3156 && var2 >= 3056 && var2 <= 3136) {
 			client.field1830 = 1;
 		}

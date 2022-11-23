@@ -47,7 +47,7 @@ public class class178 extends class437 {
 
 	void method2837(Buffer var1) {
 		while (true) {
-			int var3 = var1.method8141();
+			int var3 = var1.readUnsignedByte();
 			if (var3 == 0) {
 				return;
 			}

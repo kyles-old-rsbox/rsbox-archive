@@ -19,7 +19,7 @@ public class class452 extends class437 {
 
 	void method7988(Buffer var1) {
 		while (true) {
-			int var3 = var1.method8141();
+			int var3 = var1.readUnsignedByte();
 			if (var3 == 0) {
 				return;
 			}
@@ -34,14 +34,14 @@ public class class452 extends class437 {
 
 	void method7996(Buffer var1, int var2) {
 		if (var2 == 3) {
-			int var4 = var1.method8141();
+			int var4 = var1.readUnsignedByte();
 			if (this.field4854 == null) {
 				this.field4854 = new Object[var4][];
 				this.field4851 = new int[var4][];
 			}
 
-			for (int var5 = var1.method8141(); var5 != 255; var5 = var1.method8141()) {
-				int var6 = var1.method8141();
+			for (int var5 = var1.readUnsignedByte(); var5 != 255; var5 = var1.readUnsignedByte()) {
+				int var6 = var1.readUnsignedByte();
 				int[] var7 = new int[var6];
 
 				for (int var8 = 0; var8 < var6; ++var8) {

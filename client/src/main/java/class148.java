@@ -456,9 +456,9 @@ public class class148 {
 	}
 
 	void method2542(Buffer var1) {
-		int var3 = var1.method8141();
+		int var3 = var1.readUnsignedByte();
 		if (var3 >= 1 && var3 <= 6) {
-			int var4 = var1.method8141();
+			int var4 = var1.readUnsignedByte();
 			if (0 != (var4 & 1)) {
 				this.field1358 = true;
 			}
@@ -484,17 +484,17 @@ public class class148 {
 			}
 
 			this.field1369 = var1.readUnsignedShort();
-			this.field1378 = var1.method8141();
+			this.field1378 = var1.readUnsignedByte();
 			this.field1372 = var1.readString();
 			if (var3 >= 4) {
 				var1.readInt();
 			}
 
-			this.field1364 = var1.method8141() == 1;
-			this.field1367 = var1.method8287();
-			this.field1357 = var1.method8287();
-			this.field1377 = var1.method8287();
-			this.field1368 = var1.method8287();
+			this.field1364 = var1.readUnsignedByte() == 1;
+			this.field1367 = var1.readByte();
+			this.field1357 = var1.readByte();
+			this.field1377 = var1.readByte();
+			this.field1368 = var1.readByte();
 			int var5;
 			if (this.field1369 > 0) {
 				if (this.field1358 && (null == this.field1380 || this.field1380.length < this.field1369)) {
@@ -530,7 +530,7 @@ public class class148 {
 						this.field1373[var5] = var1.method8305();
 					}
 
-					this.field1381[var5] = var1.method8287();
+					this.field1381[var5] = var1.readByte();
 					if (var3 >= 2) {
 						this.field1365[var5] = var1.readInt();
 					}
@@ -542,7 +542,7 @@ public class class148 {
 					}
 
 					if (var3 >= 6) {
-						this.field1375[var5] = var1.method8141() == 1;
+						this.field1375[var5] = var1.readUnsignedByte() == 1;
 					} else {
 						this.field1375[var5] = false;
 					}

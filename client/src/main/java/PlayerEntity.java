@@ -1,16 +1,16 @@
-public final class class93 extends class90 {
+public final class PlayerEntity extends class90 {
 	boolean field895;
-	boolean field913;
+	boolean invisible;
 	boolean field919;
 	class209 field906;
-	class305 field911;
+	PlayerModel appearance;
 	class410 field916;
 	class410 field917;
 	class410 field918;
-	class472 field910;
+	DisplayName displayName;
 	int field892;
-	int field893;
-	int field894;
+	int prayerIcon;
+	int skullIcon;
 	int field898;
 	int field899;
 	int field900;
@@ -18,148 +18,147 @@ public final class class93 extends class90 {
 	int field902;
 	int field903;
 	int field904;
-	int field905;
+	int combatLevel;
 	int field907;
 	int field908;
 	int field909;
-	int field912;
+	int totalLevel;
 	int field914;
 	int field915;
 	int field920;
-	int field921;
-	String[] field897;
+	int team;
+	String[] actions;
 
-	class93() {
-		this.field894 = -1;
-		this.field893 = -1;
-		this.field897 = new String[3];
+	PlayerEntity() {
+		this.skullIcon = -1;
+		this.prayerIcon = -1;
+		this.actions = new String[3];
 
 		for (int var1 = 0; var1 < 3; ++var1) {
-			this.field897[var1] = "";
+			this.actions[var1] = "";
 		}
 
-		this.field905 = 0;
-		this.field912 = 0;
+		this.combatLevel = 0;
+		this.totalLevel = 0;
 		this.field901 = 0;
 		this.field902 = 0;
 		this.field895 = false;
-		this.field921 = 0;
-		this.field913 = false;
+		this.team = 0;
+		this.invisible = false;
 		this.field916 = class410.field4554;
 		this.field917 = class410.field4554;
 		this.field918 = class410.field4554;
 		this.field919 = false;
 	}
 
-	final void method1906(Buffer var1) {
-		var1.offset = 0;
-		int var3 = var1.method8141();
-		int var4 = -1;
-		this.field894 = var1.method8287();
-		this.field893 = var1.method8287();
-		int var5 = -1;
-		this.field921 = 0;
-		int[] var6 = new int[12];
+	final void decodeAppearance(Buffer buf) {
+		buf.offset = 0;
+		int gender = buf.readUnsignedByte();
+		int genderIndex = -1;
+		this.skullIcon = buf.readByte();
+		this.prayerIcon = buf.readByte();
+		int transmogId = -1;
+		this.team = 0;
+		int[] styles = new int[12];
 
-		int var8;
-		int var9;
-		int var10;
-		for (int var7 = 0; var7 < 12; ++var7) {
-			var8 = var1.method8141();
-			if (var8 == 0) {
-				var6[var7] = 0;
+		int color;
+		int objCustomizeFlags;
+		for (int i = 0; i < 12; ++i) {
+			int id = buf.readUnsignedByte();
+			if (id == 0) {
+				styles[i] = 0;
 			} else {
-				var9 = var1.method8141();
-				var6[var7] = var9 + (var8 << 8);
-				if (var7 == 0 && 65535 == var6[0]) {
-					var5 = var1.readUnsignedShort();
+				color = buf.readUnsignedByte();
+				styles[i] = color + (id << 8);
+				if (i == 0 && 65535 == styles[0]) {
+					transmogId = buf.readUnsignedShort();
 					break;
 				}
 
-				if (var6[var7] >= 512) {
-					var10 = class278.method5388(var6[var7] - 512).field2172;
-					if (var10 != 0) {
-						this.field921 = var10;
+				if (styles[i] >= 512) {
+					objCustomizeFlags = class278.method5388(styles[i] - 512).field2172;
+					if (objCustomizeFlags != 0) {
+						this.team = objCustomizeFlags;
 					}
 				}
 			}
 		}
 
-		int[] var26 = new int[5];
+		int[] colors = new int[5];
 
-		for (var8 = 0; var8 < 5; ++var8) {
-			var9 = var1.method8141();
-			if (var9 < 0 || var9 >= class37.field251[var8].length) {
-				var9 = 0;
+		for (int i = 0; i < 5; ++i) {
+			color = buf.readUnsignedByte();
+			if (color < 0 || color >= class37.field251[i].length) {
+				color = 0;
 			}
 
-			var26[var8] = var9;
+			colors[i] = color;
 		}
 
-		super.field823 = var1.readUnsignedShort();
+		super.field823 = buf.readUnsignedShort();
 		if (super.field823 == 65535) {
 			super.field823 = -1;
 		}
 
-		super.field808 = var1.readUnsignedShort();
+		super.field808 = buf.readUnsignedShort();
 		if (super.field808 == 65535) {
 			super.field808 = -1;
 		}
 
 		super.field806 = super.field808;
-		super.field810 = var1.readUnsignedShort();
+		super.field810 = buf.readUnsignedShort();
 		if (65535 == super.field810) {
 			super.field810 = -1;
 		}
 
-		super.field811 = var1.readUnsignedShort();
+		super.field811 = buf.readUnsignedShort();
 		if (65535 == super.field811) {
 			super.field811 = -1;
 		}
 
-		super.field812 = var1.readUnsignedShort();
+		super.field812 = buf.readUnsignedShort();
 		if (super.field812 == 65535) {
 			super.field812 = -1;
 		}
 
-		super.field813 = var1.readUnsignedShort();
+		super.field813 = buf.readUnsignedShort();
 		if (super.field813 == 65535) {
 			super.field813 = -1;
 		}
 
-		super.field814 = var1.readUnsignedShort();
+		super.field814 = buf.readUnsignedShort();
 		if (super.field814 == 65535) {
 			super.field814 = -1;
 		}
 
-		this.field910 = new class472(var1.readString(), class234.field2779);
+		this.displayName = new DisplayName(buf.readString(), class234.gameEngineMode);
 		this.method1908();
 		this.method1913();
 		this.method1911();
-		if (class291.field3364 == this) {
-			class487.field5013 = this.field910.method8451();
+		if (class291.localPlayer == this) {
+			class487.username = this.displayName.getName();
 		}
 
-		this.field905 = var1.method8141();
-		this.field912 = var1.readUnsignedShort();
-		this.field913 = var1.method8141() == 1;
+		this.combatLevel = buf.readUnsignedByte();
+		this.totalLevel = buf.readUnsignedShort();
+		this.invisible = buf.readUnsignedByte() == 1;
 		if (0 == client.gameBuild && client.privilegeLevel >= 2) {
-			this.field913 = false;
+			this.invisible = false;
 		}
 
 		class179[] var27 = null;
 		boolean var28 = false;
-		var10 = var1.readUnsignedShort();
-		var28 = 1 == (var10 >> 15 & 1);
-		int var11;
-		if (var10 > 0 && var10 != 32768) {
+		objCustomizeFlags = buf.readUnsignedShort();
+		var28 = 1 == (objCustomizeFlags >> 15 & 1);
+		int j;
+		if (objCustomizeFlags > 0 && objCustomizeFlags != 32768) {
 			var27 = new class179[12];
 
-			for (var11 = 0; var11 < 12; ++var11) {
-				int var12 = var10 >> 12 - var11 & 1;
+			for (j = 0; j < 12; ++j) {
+				int var12 = objCustomizeFlags >> 12 - j & 1;
 				if (var12 == 1) {
-					int var16 = var6[var11] - 512;
-					int var17 = var1.method8141();
+					int var16 = styles[j] - 512;
+					int var17 = buf.readUnsignedByte();
 					boolean var18 = (var17 & 1) != 0;
 					boolean var19 = (var17 & 2) != 0;
 					class179 var20 = new class179(var16);
@@ -169,13 +168,13 @@ public final class class93 extends class90 {
 					int var24;
 					short var25;
 					if (var18) {
-						var21 = var1.method8141();
+						var21 = buf.readUnsignedByte();
 						var22 = new int[]{var21 & 15, var21 >> 4 & 15};
 						var23 = null != var20.field1603 && var20.field1603.length == var22.length;
 
 						for (var24 = 0; var24 < 2; ++var24) {
 							if (15 != var22[var24]) {
-								var25 = (short)var1.readUnsignedShort();
+								var25 = (short)buf.readUnsignedShort();
 								if (var23) {
 									var20.field1603[var22[var24]] = var25;
 								}
@@ -184,13 +183,13 @@ public final class class93 extends class90 {
 					}
 
 					if (var19) {
-						var21 = var1.method8141();
+						var21 = buf.readUnsignedByte();
 						var22 = new int[]{var21 & 15, var21 >> 4 & 15};
 						var23 = null != var20.field1600 && var22.length == var20.field1600.length;
 
 						for (var24 = 0; var24 < 2; ++var24) {
 							if (var22[var24] != 15) {
-								var25 = (short)var1.readUnsignedShort();
+								var25 = (short)buf.readUnsignedShort();
 								if (var23) {
 									var20.field1600[var22[var24]] = var25;
 								}
@@ -198,24 +197,24 @@ public final class class93 extends class90 {
 						}
 					}
 
-					var27[var11] = var20;
+					var27[j] = var20;
 				}
 			}
 		}
 
-		for (var11 = 0; var11 < 3; ++var11) {
-			this.field897[var11] = var1.readString();
+		for (int k = 0; k < 3; ++k) {
+			this.actions[k] = buf.readString();
 		}
 
-		if (client.field1932 > 208) {
-			var4 = var1.method8141();
+		if (client.buildNumber > 208) {
+			genderIndex = buf.readUnsignedByte();
 		}
 
-		if (this.field911 == null) {
-			this.field911 = new class305();
+		if (this.appearance == null) {
+			this.appearance = new PlayerModel();
 		}
 
-		this.field911.method5997(var6, var27, var28, var26, var3, var5, var4);
+		this.appearance.init(styles, var27, var28, colors, gender, transmogId, genderIndex);
 	}
 
 	boolean method1907() {
@@ -231,7 +230,7 @@ public final class class93 extends class90 {
 	}
 
 	void method1909() {
-		this.field916 = class217.friends.method1056(this.field910) ? class410.field4551 : class410.field4552;
+		this.field916 = class217.friends.method1056(this.displayName) ? class410.field4551 : class410.field4552;
 	}
 
 	boolean method1939() {
@@ -247,12 +246,12 @@ public final class class93 extends class90 {
 	}
 
 	void method1912() {
-		this.field917 = null != class73.field603 && class73.field603.method7359(this.field910) ? class410.field4551 : class410.field4552;
+		this.field917 = null != class73.field603 && class73.field603.method7359(this.displayName) ? class410.field4551 : class410.field4552;
 	}
 
 	void method1910() {
 		for (int var2 = 0; var2 < 4; ++var2) {
-			if (null != client.field1738[var2] && client.field1738[var2].method2525(this.field910.method8451()) != -1 && var2 != 2) {
+			if (null != client.field1738[var2] && client.field1738[var2].method2525(this.displayName.getName()) != -1 && var2 != 2) {
 				this.field918 = class410.field4551;
 				return;
 			}
@@ -274,16 +273,16 @@ public final class class93 extends class90 {
 	}
 
 	int method1916() {
-		return null != this.field911 && this.field911.field3640 != -1 ? class158.method2632(this.field911.field3640).field2262 : 1;
+		return null != this.appearance && this.appearance.field3640 != -1 ? class158.method2632(this.appearance.field3640).field2262 : 1;
 	}
 
 	protected final class209 method4112() {
-		if (this.field911 == null) {
+		if (this.appearance == null) {
 			return null;
 		} else {
 			class189 var2 = super.field852 != -1 && super.field804 == 0 ? class160.method2660(super.field852) : null;
 			class189 var3 = -1 == super.field839 || this.field895 || super.field823 == super.field839 && null != var2 ? null : class160.method2660(super.field839);
-			class209 var4 = this.field911.method6003(var2, super.field844, var3, super.field840);
+			class209 var4 = this.appearance.method6003(var2, super.field844, var3, super.field840);
 			if (var4 == null) {
 				return null;
 			} else {
@@ -353,7 +352,7 @@ public final class class93 extends class90 {
 		}
 	}
 
-	final void method1938(int var1, int var2, class197 var3) {
+	final void method1938(int var1, int var2, MoveSpeed var3) {
 		if (-1 != super.field852 && class160.method2660(super.field852).field1992 == 1) {
 			super.field852 = -1;
 		}
@@ -361,9 +360,9 @@ public final class class93 extends class90 {
 		super.field868 = -1;
 		if (var1 >= 0 && var1 < 104 && var2 >= 0 && var2 < 104) {
 			if (super.field861[0] >= 0 && super.field861[0] < 104 && super.field873[0] >= 0 && super.field873[0] < 104) {
-				if (var3 == class197.field2116) {
-					class93 var5 = this;
-					class197 var6 = class197.field2116;
+				if (var3 == MoveSpeed.field2116) {
+					PlayerEntity var5 = this;
+					MoveSpeed var6 = MoveSpeed.field2116;
 					int var7 = super.field861[0];
 					int var8 = super.field873[0];
 					int var9 = this.method1916();
@@ -758,7 +757,7 @@ public final class class93 extends class90 {
 		super.field802 = var4 * 64 + 128 * super.field873[0];
 	}
 
-	final void method1914(int var1, int var2, class197 var3) {
+	final void method1914(int var1, int var2, MoveSpeed var3) {
 		if (super.field871 < 9) {
 			++super.field871;
 		}
@@ -775,6 +774,6 @@ public final class class93 extends class90 {
 	}
 
 	final boolean method1869() {
-		return null != this.field911;
+		return null != this.appearance;
 	}
 }

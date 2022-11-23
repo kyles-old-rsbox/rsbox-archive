@@ -22,14 +22,14 @@ public class class35 {
 	}
 
 	final void method657(Buffer var1) {
-		this.field228 = var1.method8141();
+		this.field228 = var1.readUnsignedByte();
 		this.field226 = var1.readInt();
 		this.field227 = var1.readInt();
 		this.method663(var1);
 	}
 
 	final void method663(Buffer var1) {
-		this.field225 = var1.method8141();
+		this.field225 = var1.readUnsignedByte();
 		this.field224 = new int[this.field225];
 		this.field229 = new int[this.field225];
 

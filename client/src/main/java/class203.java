@@ -90,7 +90,7 @@ public class class203 extends class437 {
 
 	void method3853(Buffer var1) {
 		while (true) {
-			int var3 = var1.method8141();
+			int var3 = var1.readUnsignedByte();
 			if (var3 == 0) {
 				return;
 			}
@@ -103,7 +103,7 @@ public class class203 extends class437 {
 		int var4;
 		int var5;
 		if (var2 == 1) {
-			var4 = var1.method8141();
+			var4 = var1.readUnsignedByte();
 			this.field2283 = new int[var4];
 
 			for (var5 = 0; var5 < var4; ++var5) {
@@ -112,7 +112,7 @@ public class class203 extends class437 {
 		} else if (var2 == 2) {
 			this.field2261 = var1.readString();
 		} else if (var2 == 12) {
-			this.field2262 = var1.method8141();
+			this.field2262 = var1.readUnsignedByte();
 		} else if (var2 == 13) {
 			this.field2265 = var1.readUnsignedShort();
 		} else if (var2 == 14) {
@@ -134,7 +134,7 @@ public class class203 extends class437 {
 				this.field2284[var2 - 30] = null;
 			}
 		} else if (var2 == 40) {
-			var4 = var1.method8141();
+			var4 = var1.readUnsignedByte();
 			this.field2280 = new short[var4];
 			this.field2281 = new short[var4];
 
@@ -143,7 +143,7 @@ public class class203 extends class437 {
 				this.field2281[var5] = (short)var1.readUnsignedShort();
 			}
 		} else if (var2 == 41) {
-			var4 = var1.method8141();
+			var4 = var1.readUnsignedByte();
 			this.field2263 = new short[var4];
 			this.field2258 = new short[var4];
 
@@ -152,7 +152,7 @@ public class class203 extends class437 {
 				this.field2258[var5] = (short)var1.readUnsignedShort();
 			}
 		} else if (var2 == 60) {
-			var4 = var1.method8141();
+			var4 = var1.readUnsignedByte();
 			this.field2275 = new int[var4];
 
 			for (var5 = 0; var5 < var4; ++var5) {
@@ -169,9 +169,9 @@ public class class203 extends class437 {
 		} else if (var2 == 99) {
 			this.field2289 = true;
 		} else if (var2 == 100) {
-			this.field2290 = var1.method8287();
+			this.field2290 = var1.readByte();
 		} else if (var2 == 101) {
-			this.field2276 = var1.method8287() * 5;
+			this.field2276 = var1.readByte() * 5;
 		} else if (var2 == 102) {
 			this.field2292 = var1.readUnsignedShort();
 		} else if (var2 == 103) {
@@ -219,7 +219,7 @@ public class class203 extends class437 {
 				}
 			}
 
-			var5 = var1.method8141();
+			var5 = var1.readUnsignedByte();
 			this.field2278 = new int[var5 + 2];
 
 			for (int var6 = 0; var6 <= var5; ++var6) {

@@ -93,7 +93,7 @@ public class class172 implements Runnable {
 		}
 	}
 
-	static final void method2733(PacketBuffer var0) {
+	static final void updatePlayerInfo(PacketBuffer var0) {
 		int var2 = 0;
 		var0.setBitMode();
 
@@ -211,7 +211,7 @@ public class class172 implements Runnable {
 						for (var3 = 1; var3 < 2048; ++var3) {
 							var10000 = PlayerManager.field1019;
 							var10000[var3] = (byte)(var10000[var3] >> 1);
-							class93 var6 = client.players[var3];
+							PlayerEntity var6 = client.players[var3];
 							if (var6 != null) {
 								PlayerManager.field1013[++PlayerManager.playerCount - 1] = var3;
 							} else {

@@ -121,7 +121,7 @@ public class class195 extends class437 {
 
 	void method3580(Buffer var1) {
 		while (true) {
-			int var3 = var1.method8141();
+			int var3 = var1.readUnsignedByte();
 			if (var3 == 0) {
 				return;
 			}
@@ -134,7 +134,7 @@ public class class195 extends class437 {
 		int var4;
 		int var5;
 		if (var2 == 1) {
-			var4 = var1.method8141();
+			var4 = var1.readUnsignedByte();
 			if (var4 > 0) {
 				if (null != this.field2057 && !field2082) {
 					var1.offset += var4 * 3;
@@ -144,14 +144,14 @@ public class class195 extends class437 {
 
 					for (var5 = 0; var5 < var4; ++var5) {
 						this.field2057[var5] = var1.readUnsignedShort();
-						this.field2079[var5] = var1.method8141();
+						this.field2079[var5] = var1.readUnsignedByte();
 					}
 				}
 			}
 		} else if (var2 == 2) {
 			this.field2063 = var1.readString();
 		} else if (var2 == 5) {
-			var4 = var1.method8141();
+			var4 = var1.readUnsignedByte();
 			if (var4 > 0) {
 				if (null != this.field2057 && !field2082) {
 					var1.offset += var4 * 2;
@@ -165,16 +165,16 @@ public class class195 extends class437 {
 				}
 			}
 		} else if (var2 == 14) {
-			this.field2100 = var1.method8141();
+			this.field2100 = var1.readUnsignedByte();
 		} else if (var2 == 15) {
-			this.field2069 = var1.method8141();
+			this.field2069 = var1.readUnsignedByte();
 		} else if (var2 == 17) {
 			this.field2070 = 0;
 			this.field2071 = false;
 		} else if (var2 == 18) {
 			this.field2071 = false;
 		} else if (var2 == 19) {
-			this.field2072 = var1.method8141();
+			this.field2072 = var1.readUnsignedByte();
 		} else if (var2 == 21) {
 			this.field2073 = 0;
 		} else if (var2 == 22) {
@@ -189,18 +189,18 @@ public class class195 extends class437 {
 		} else if (var2 == 27) {
 			this.field2070 = 1;
 		} else if (var2 == 28) {
-			this.field2077 = var1.method8141();
+			this.field2077 = var1.readUnsignedByte();
 		} else if (var2 == 29) {
-			this.field2061 = var1.method8287();
+			this.field2061 = var1.readByte();
 		} else if (var2 == 39) {
-			this.field2078 = var1.method8287() * 25;
+			this.field2078 = var1.readByte() * 25;
 		} else if (var2 >= 30 && var2 < 35) {
 			this.field2060[var2 - 30] = var1.readString();
 			if (this.field2060[var2 - 30].equalsIgnoreCase(class338.field3894)) {
 				this.field2060[var2 - 30] = null;
 			}
 		} else if (var2 == 40) {
-			var4 = var1.method8141();
+			var4 = var1.readUnsignedByte();
 			this.field2064 = new short[var4];
 			this.field2092 = new short[var4];
 
@@ -209,7 +209,7 @@ public class class195 extends class437 {
 				this.field2092[var5] = (short)var1.readUnsignedShort();
 			}
 		} else if (var2 == 41) {
-			var4 = var1.method8141();
+			var4 = var1.readUnsignedByte();
 			this.field2066 = new short[var4];
 			this.field2067 = new short[var4];
 
@@ -232,7 +232,7 @@ public class class195 extends class437 {
 		} else if (var2 == 68) {
 			this.field2075 = var1.readUnsignedShort();
 		} else if (var2 == 69) {
-			var1.method8141();
+			var1.readUnsignedByte();
 		} else if (var2 == 70) {
 			this.field2088 = var1.method8204();
 		} else if (var2 == 71) {
@@ -244,23 +244,23 @@ public class class195 extends class437 {
 		} else if (var2 == 74) {
 			this.field2085 = true;
 		} else if (var2 == 75) {
-			this.field2093 = var1.method8141();
+			this.field2093 = var1.readUnsignedByte();
 		} else if (var2 != 77 && var2 != 92) {
 			if (var2 == 78) {
 				this.field2097 = var1.readUnsignedShort();
-				this.field2098 = var1.method8141();
+				this.field2098 = var1.readUnsignedByte();
 			} else if (var2 == 79) {
 				this.field2086 = var1.readUnsignedShort();
 				this.field2102 = var1.readUnsignedShort();
-				this.field2098 = var1.method8141();
-				var4 = var1.method8141();
+				this.field2098 = var1.readUnsignedByte();
+				var4 = var1.readUnsignedByte();
 				this.field2101 = new int[var4];
 
 				for (var5 = 0; var5 < var4; ++var5) {
 					this.field2101[var5] = var1.readUnsignedShort();
 				}
 			} else if (var2 == 81) {
-				this.field2073 = var1.method8141() * 256;
+				this.field2073 = var1.readUnsignedByte() * 256;
 			} else if (var2 == 82) {
 				this.field2081 = var1.readUnsignedShort();
 			} else if (var2 == 89) {
@@ -287,7 +287,7 @@ public class class195 extends class437 {
 				}
 			}
 
-			var5 = var1.method8141();
+			var5 = var1.readUnsignedByte();
 			this.field2094 = new int[var5 + 2];
 
 			for (int var6 = 0; var6 <= var5; ++var6) {

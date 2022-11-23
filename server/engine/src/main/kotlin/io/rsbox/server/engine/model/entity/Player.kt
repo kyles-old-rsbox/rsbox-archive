@@ -20,6 +20,7 @@ package io.rsbox.server.engine.model.entity
 import io.rsbox.server.config.ServerConfig
 import io.rsbox.server.engine.model.Privilege
 import io.rsbox.server.engine.model.coord.Tile
+import io.rsbox.server.engine.model.entity.update.PlayerUpdateFlag
 import io.rsbox.server.engine.model.manager.GpiManager
 import io.rsbox.server.engine.model.manager.InterfaceManager
 import io.rsbox.server.engine.model.manager.SceneManager
@@ -47,8 +48,11 @@ class Player internal constructor(val session: Session) : LivingEntity() {
     var prayerIcon: Int = -1
     var privilege = Privilege.PLAYER
     var displayMode = DisplayMode.RESIZABLE_CLASSIC
-
+    var appearance = Appearance.DEFAULT
     var stanceAnimations = intArrayOf(808, 823, 819, 820, 821, 822, 824)
+    val updateFlags = sortedSetOf<PlayerUpdateFlag>()
+
+    override val size = 1
 
     override var tile = Tile(
         ServerConfig.DEFAULTS.HOME_TILE.X,
@@ -63,6 +67,15 @@ class Player internal constructor(val session: Session) : LivingEntity() {
         gpi.init()
         scene.init()
         ui.init()
+    }
+
+    internal fun onLogin() {
+        this.init()
+        updateFlags.add(PlayerUpdateFlag.APPEARANCE)
+    }
+
+    internal fun onLogout() {
+
     }
 
     override suspend fun cycle() {

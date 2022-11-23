@@ -48,20 +48,20 @@ public class class134 extends class137 {
 	}
 
 	void method2441(Buffer var1) {
-		if (var1.method8141() != 255) {
+		if (var1.readUnsignedByte() != 255) {
 			--var1.offset;
 			var1.readLong();
 		}
 
 		this.field1258 = var1.method8305();
 		this.field1259 = var1.readUnsignedShort();
-		this.field1264 = var1.method8287();
+		this.field1264 = var1.readByte();
 		var1.readLong();
 	}
 
 	void method2442(class147 var1) {
 		class133 var3 = new class133();
-		var3.field1254 = new class472(this.field1258);
+		var3.field1254 = new DisplayName(this.field1258);
 		var3.field1249 = this.field1259;
 		var3.field1256 = this.field1264;
 		var1.method2516(var3);

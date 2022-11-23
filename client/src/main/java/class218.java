@@ -87,8 +87,8 @@ public class class218 extends class437 {
 				int var6;
 				if (var0 == CS2Opcodes.COORD) {
 					var4 = class55.field396;
-					var5 = class36.field241 + (class291.field3364.field827 >> 7);
-					var6 = class169.field1536 + (class291.field3364.field802 >> 7);
+					var5 = class36.field241 + (class291.localPlayer.field827 >> 7);
+					var6 = class169.field1536 + (class291.localPlayer.field802 >> 7);
 					class57.field404[++class387.field4452 - 1] = (var5 << 14) + (var4 << 28) + var6;
 					return 1;
 				} else if (var0 == CS2Opcodes.COORDX) {

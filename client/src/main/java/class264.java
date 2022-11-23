@@ -524,16 +524,16 @@ public final class class264 {
 												if (0 == var11.field3505) {
 													var44 = client.playerAppearance.method6003((class189)null, -1, (class189)null, -1);
 												} else {
-													var44 = class291.field3364.method4112();
+													var44 = class291.localPlayer.method4112();
 												}
 											} else if (var21 == -1) {
-												var44 = var11.method5858((class189)null, -1, var46, class291.field3364.field911);
+												var44 = var11.method5858((class189)null, -1, var46, class291.localPlayer.appearance);
 												if (null == var44 && class300.field3458) {
 													class136.method2438(var11);
 												}
 											} else {
 												class189 var50 = class160.method2660(var21);
-												var44 = var11.method5858(var50, var11.field3471, var46, class291.field3364.field911);
+												var44 = var11.method5858(var50, var11.field3471, var46, class291.localPlayer.appearance);
 												if (var44 == null && class300.field3458) {
 													class136.method2438(var11);
 												}

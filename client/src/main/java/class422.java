@@ -106,7 +106,7 @@ public class class422 {
 				return;
 			}
 
-			URL var4 = new URL(class487.field5015.getCodeBase(), "clienterror.ws?cv=" + class487.field5012 + "&cs=" + class487.field5010 + "&u=" + class487.field5013 + "&v1=" + class172.field1559 + "&v2=" + class172.field1552 + "&ct=" + Buffer.field4885 + "&e=" + var3);
+			URL var4 = new URL(class487.field5015.getCodeBase(), "clienterror.ws?cv=" + class487.field5012 + "&cs=" + class487.field5010 + "&u=" + class487.username + "&v1=" + class172.field1559 + "&v2=" + class172.field1552 + "&ct=" + Buffer.field4885 + "&e=" + var3);
 			DataInputStream var18 = new DataInputStream(var4.openStream());
 			var18.read();
 			var18.close();

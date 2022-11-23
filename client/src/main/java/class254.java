@@ -33,10 +33,10 @@ public class class254 {
 		this.field2932 = var1.readString();
 		this.field2935 = new class295(var1.readInt());
 		this.field2933 = var1.readInt();
-		var1.method8141();
-		this.field2938 = var1.method8141() == 1;
-		this.field2934 = var1.method8141();
-		int var4 = var1.method8141();
+		var1.readUnsignedByte();
+		this.field2938 = var1.readUnsignedByte() == 1;
+		this.field2934 = var1.readUnsignedByte();
+		int var4 = var1.readUnsignedByte();
 		this.field2941 = new LinkedList();
 
 		for (int var5 = 0; var5 < var4; ++var5) {
@@ -47,7 +47,7 @@ public class class254 {
 	}
 
 	class248 method5121(Buffer var1) {
-		int var3 = var1.method8141();
+		int var3 = var1.readUnsignedByte();
 		class252[] var4 = new class252[]{class252.field2916, class252.field2923, class252.field2919, class252.field2917};
 		class252 var5 = (class252)class217.method4362(var4, var3);
 		Object var6 = null;

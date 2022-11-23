@@ -59,20 +59,20 @@ public abstract class class399 extends class259 implements class482 {
 			var5 = var0.readBits(13);
 			boolean var13 = var0.readBits(1) == 1;
 			if (var13) {
-				PlayerManager.field1020[++PlayerManager.field1007 - 1] = var1;
+				PlayerManager.field1020[++PlayerManager.extendedInfoCount - 1] = var1;
 			}
 
 			if (client.players[var1] != null) {
 				throw new RuntimeException();
 			} else {
-				class93 var7 = client.players[var1] = new class93();
+				PlayerEntity var7 = client.players[var1] = new PlayerEntity();
 				var7.field915 = var1;
-				if (null != PlayerManager.field1011[var1]) {
-					var7.method1906(PlayerManager.field1011[var1]);
+				if (null != PlayerManager.cachedAppearanceData[var1]) {
+					var7.decodeAppearance(PlayerManager.cachedAppearanceData[var1]);
 				}
 
 				var7.field860 = PlayerManager.field1014[var1];
-				var7.field835 = PlayerManager.field1018[var1];
+				var7.interacting = PlayerManager.field1018[var1];
 				var8 = PlayerManager.field1016[var1];
 				var9 = var8 >> 28;
 				var10 = var8 >> 14 & 255;

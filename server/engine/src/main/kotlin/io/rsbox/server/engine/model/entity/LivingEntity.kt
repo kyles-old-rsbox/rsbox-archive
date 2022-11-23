@@ -17,6 +17,7 @@
 
 package io.rsbox.server.engine.model.entity
 
+import io.rsbox.server.engine.model.Direction
 import io.rsbox.server.engine.model.coord.Tile
 import io.rsbox.server.engine.queue.PriorityQueueList
 import org.tinylog.kotlin.Logger
@@ -25,6 +26,7 @@ abstract class LivingEntity : Entity() {
 
     var index = -1
 
+    abstract val size: Int
     abstract override var tile: Tile
     abstract var prevTile: Tile
     abstract var followTile: Tile
@@ -34,6 +36,7 @@ abstract class LivingEntity : Entity() {
     var interacting: LivingEntity? = null
     var movementState = MovementState.NONE
     var invisible = false
+    var direction = Direction.SOUTH
 
     internal val queue = PriorityQueueList()
 

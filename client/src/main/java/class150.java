@@ -21,7 +21,7 @@ public class class150 extends class137 {
 
 	void method2441(Buffer var1) {
 		this.field1398 = var1.readUnsignedShort();
-		this.field1397 = var1.method8287();
+		this.field1397 = var1.readByte();
 		this.field1401 = var1.readUnsignedShort();
 		var1.readLong();
 		this.field1400 = var1.readString();
@@ -31,6 +31,6 @@ public class class150 extends class137 {
 		class133 var3 = (class133)var1.field1347.get(this.field1398);
 		var3.field1256 = this.field1397;
 		var3.field1249 = this.field1401;
-		var3.field1254 = new class472(this.field1400);
+		var3.field1254 = new DisplayName(this.field1400);
 	}
 }

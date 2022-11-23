@@ -1,23 +1,23 @@
 public class class400 implements Comparable {
-	class472 field4503;
-	class472 field4504;
+	DisplayName field4503;
+	DisplayName field4504;
 
 	class400() {
 	}
 
-	public class472 method7232() {
+	public DisplayName method7232() {
 		return this.field4503;
 	}
 
 	public String method7249() {
-		return null == this.field4503 ? "" : this.field4503.method8451();
+		return null == this.field4503 ? "" : this.field4503.getName();
 	}
 
 	public String method7234() {
-		return null == this.field4504 ? "" : this.field4504.method8451();
+		return null == this.field4504 ? "" : this.field4504.getName();
 	}
 
-	void method7235(class472 var1, class472 var2) {
+	void method7235(DisplayName var1, DisplayName var2) {
 		if (null == var1) {
 			throw new NullPointerException();
 		} else {

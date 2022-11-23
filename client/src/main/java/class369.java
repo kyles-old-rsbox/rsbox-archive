@@ -1,6 +1,6 @@
 public class class369 extends class423 {
 	static int field4362;
-	public class472 field4359;
+	public DisplayName field4359;
 	public int field4361;
 	public short field4360;
 
@@ -13,7 +13,7 @@ public class class369 extends class423 {
 		}
 	}
 
-	class369(class472 var1, int var2) {
+	class369(DisplayName var1, int var2) {
 		this.field4361 = (int)(class272.method2046() / 1000L);
 		this.field4359 = var1;
 		this.field4360 = (short)var2;

@@ -429,7 +429,7 @@ public class class420 {
 
 			int var9 = (int)Math.ceil((double)((float)var3 / this.field4650));
 			int var10 = (int)Math.ceil((double)((float)var4 / this.field4650));
-			class239.field2817 = client.field1932 >= 209;
+			class239.field2817 = client.buildNumber >= 209;
 			this.field4618.method4894(this.field4634 - var9 / 2, this.field4622 - var10 / 2, var9 / 2 + this.field4634, var10 / 2 + this.field4622, var1, var2, var1 + var3, var4 + var2);
 			if (!this.field4649) {
 				boolean var11 = false;

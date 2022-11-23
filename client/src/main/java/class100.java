@@ -34,7 +34,7 @@ final class class100 implements class301 {
 				return 1;
 			} else if (var0 == CS2Opcodes.CC_SETPLAYERHEAD_SELF) {
 				var4.field3504 = 3;
-				var4.field3505 = class291.field3364.field911.method6029();
+				var4.field3505 = class291.localPlayer.appearance.method6029();
 				return 1;
 			} else {
 				return 2;

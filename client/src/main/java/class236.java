@@ -68,20 +68,20 @@ public class class236 implements class248 {
 	}
 
 	public void method4967(Buffer var1) {
-		this.field2792 = var1.method8141();
-		this.field2788 = var1.method8141();
+		this.field2792 = var1.readUnsignedByte();
+		this.field2788 = var1.readUnsignedByte();
 		this.field2789 = var1.readUnsignedShort();
-		this.field2790 = var1.method8141();
-		this.field2795 = var1.method8141();
+		this.field2790 = var1.readUnsignedByte();
+		this.field2795 = var1.readUnsignedByte();
 		this.field2791 = var1.readUnsignedShort();
-		this.field2794 = var1.method8141();
-		this.field2796 = var1.method8141();
+		this.field2794 = var1.readUnsignedByte();
+		this.field2796 = var1.readUnsignedByte();
 		this.field2798 = var1.readUnsignedShort();
-		this.field2787 = var1.method8141();
-		this.field2799 = var1.method8141();
+		this.field2787 = var1.readUnsignedByte();
+		this.field2799 = var1.readUnsignedByte();
 		this.field2800 = var1.readUnsignedShort();
-		this.field2793 = var1.method8141();
-		this.field2797 = var1.method8141();
+		this.field2793 = var1.readUnsignedByte();
+		this.field2797 = var1.readUnsignedByte();
 		this.method4594();
 	}
 
@@ -227,7 +227,7 @@ public class class236 implements class248 {
 			var16.field874 = var16.field709.field2277;
 			var16.field849 = var16.field709.field2297;
 			var16.field821 = var16.field709.field2294;
-			var16.method1625(var9 + class291.field3364.field861[0], var10 + class291.field3364.field873[0], var8 == 1);
+			var16.method1625(var9 + class291.localPlayer.field861[0], var10 + class291.localPlayer.field873[0], var8 == 1);
 		}
 
 		var1.setByteMode();
@@ -235,10 +235,10 @@ public class class236 implements class248 {
 		for (var3 = 0; var3 < client.field1693; ++var3) {
 			var4 = client.field1694[var3];
 			class81 var5 = client.npcs[var4];
-			int var17 = var1.method8141();
+			int var17 = var1.readUnsignedByte();
 			int var7;
 			if (0 != (var17 & 32)) {
-				var7 = var1.method8141();
+				var7 = var1.readUnsignedByte();
 				var17 += var7 << 8;
 			}
 
@@ -309,7 +309,7 @@ public class class236 implements class248 {
 
 			if ((var17 & 4) != 0) {
 				var7 = var1.readUnsignedShortLE();
-				var8 = var1.method8164();
+				var8 = var1.readUnsignedShortLEADD();
 				var5.field838 = var1.method8153() == 1;
 				var9 = var5.field827 - (var7 - class36.field241 - class36.field241) * 64;
 				var10 = var5.field802 - 64 * (var8 - class169.field1536 - class169.field1536);
@@ -356,10 +356,10 @@ public class class236 implements class248 {
 				var5.field815 = var1.method8335();
 				var5.field855 = var1.method8187();
 				var5.field854 = var1.method8335();
-				var5.field853 = var1.method8287();
+				var5.field853 = var1.readByte();
 				var5.field857 = var1.readUnsignedShort() + client.field1645;
 				var5.field858 = var1.readUnsignedShort() + client.field1645;
-				var5.field859 = var1.method8164();
+				var5.field859 = var1.readUnsignedShortLEADD();
 				var5.field871 = 1;
 				var5.field876 = 0;
 				var5.field815 += var5.field861[0];
@@ -369,25 +369,25 @@ public class class236 implements class248 {
 			}
 
 			if (0 != (var17 & 4096)) {
-				var5.field862 = client.field1645 + var1.method8164();
+				var5.field862 = client.field1645 + var1.readUnsignedShortLEADD();
 				var5.field863 = client.field1645 + var1.readUnsignedShortAdd();
-				var5.field864 = var1.method8287();
+				var5.field864 = var1.readByte();
 				var5.field865 = var1.method8158();
-				var5.field850 = var1.method8287();
-				var5.field867 = (byte)var1.method8141();
+				var5.field850 = var1.readByte();
+				var5.field867 = (byte)var1.readUnsignedByte();
 			}
 
 			if ((var17 & 1) != 0) {
-				var5.field835 = var1.readUnsignedShortLE();
+				var5.interacting = var1.readUnsignedShortLE();
 				if (class227.field2714) {
-					var5.field835 += var1.method8153() << 16;
+					var5.interacting += var1.method8153() << 16;
 					var7 = 16777215;
 				} else {
 					var7 = 65535;
 				}
 
-				if (var7 == var5.field835) {
-					var5.field835 = -1;
+				if (var7 == var5.interacting) {
+					var5.interacting = -1;
 				}
 			}
 

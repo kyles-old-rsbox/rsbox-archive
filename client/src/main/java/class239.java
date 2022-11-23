@@ -61,7 +61,7 @@ public abstract class class239 {
 	}
 
 	void method4656(int var1, int var2, Buffer var3) {
-		int var5 = var3.method8141();
+		int var5 = var3.readUnsignedByte();
 		if (var5 != 0) {
 			if ((var5 & 1) != 0) {
 				this.method4653(var1, var2, var3, var5);
@@ -86,28 +86,28 @@ public abstract class class239 {
 	void method4653(int var1, int var2, Buffer var3, int var4) {
 		boolean var6 = (var4 & 2) != 0;
 		if (var6) {
-			this.field2808[0][var1][var2] = field2817 ? (short)var3.readUnsignedShort() : (short)var3.method8141();
+			this.field2808[0][var1][var2] = field2817 ? (short)var3.readUnsignedShort() : (short)var3.readUnsignedByte();
 		}
 
-		this.field2816[0][var1][var2] = field2817 ? (short)var3.readUnsignedShort() : (short)var3.method8141();
+		this.field2816[0][var1][var2] = field2817 ? (short)var3.readUnsignedShort() : (short)var3.readUnsignedByte();
 	}
 
 	void method4654(int var1, int var2, Buffer var3, int var4) {
 		int var6 = 1 + ((var4 & 24) >> 3);
 		boolean var7 = 0 != (var4 & 2);
 		boolean var8 = 0 != (var4 & 4);
-		this.field2816[0][var1][var2] = field2817 ? (short)var3.readUnsignedShort() : (short)var3.method8141();
+		this.field2816[0][var1][var2] = field2817 ? (short)var3.readUnsignedShort() : (short)var3.readUnsignedByte();
 		int var9;
 		int var10;
 		int var12;
 		if (var7) {
-			var9 = var3.method8141();
+			var9 = var3.readUnsignedByte();
 
 			for (var10 = 0; var10 < var9; ++var10) {
-				int var11 = field2817 ? var3.readUnsignedShort() : var3.method8141();
+				int var11 = field2817 ? var3.readUnsignedShort() : var3.readUnsignedByte();
 				if (var11 != 0) {
 					this.field2808[var10][var1][var2] = (short)var11;
-					var12 = var3.method8141();
+					var12 = var3.readUnsignedByte();
 					this.field2818[var10][var1][var2] = (byte)(var12 >> 2);
 					this.field2819[var10][var1][var2] = (byte)(var12 & 3);
 				}
@@ -116,13 +116,13 @@ public abstract class class239 {
 
 		if (var8) {
 			for (var9 = 0; var9 < var6; ++var9) {
-				var10 = var3.method8141();
+				var10 = var3.readUnsignedByte();
 				if (var10 != 0) {
 					class253[] var15 = this.field2812[var9][var1][var2] = new class253[var10];
 
 					for (var12 = 0; var12 < var10; ++var12) {
 						int var13 = var3.method8140();
-						int var14 = var3.method8141();
+						int var14 = var3.readUnsignedByte();
 						var15[var12] = new class253(var13, var14 >> 2, var14 & 3);
 					}
 				}

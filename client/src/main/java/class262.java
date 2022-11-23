@@ -197,7 +197,7 @@ public class class262 {
 					}
 
 					if (var7 == 8) {
-						var8 = class291.field3364.field905;
+						var8 = class291.localPlayer.combatLevel;
 					}
 
 					if (var7 == 9) {
@@ -255,11 +255,11 @@ public class class262 {
 					}
 
 					if (var7 == 18) {
-						var8 = (class291.field3364.field827 >> 7) + class36.field241;
+						var8 = (class291.localPlayer.field827 >> 7) + class36.field241;
 					}
 
 					if (var7 == 19) {
-						var8 = class169.field1536 + (class291.field3364.field802 >> 7);
+						var8 = class169.field1536 + (class291.localPlayer.field802 >> 7);
 					}
 
 					if (var7 == 20) {

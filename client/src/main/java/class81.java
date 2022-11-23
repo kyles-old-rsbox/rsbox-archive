@@ -43,7 +43,7 @@ public final class class81 extends class90 {
 		}
 	}
 
-	final void method1615(int var1, class197 var2) {
+	final void method1615(int var1, MoveSpeed var2) {
 		int var4 = super.field861[0];
 		int var5 = super.field873[0];
 		if (var1 == 0) {
@@ -122,7 +122,7 @@ public final class class81 extends class90 {
 
 				super.field861[0] = var1;
 				super.field873[0] = var2;
-				super.field803[0] = class197.field2114;
+				super.field803[0] = MoveSpeed.field2114;
 				return;
 			}
 		}

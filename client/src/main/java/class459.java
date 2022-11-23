@@ -32,7 +32,7 @@ public class class459 extends class437 {
 		this.field4875 = new ArrayList(var3);
 
 		for (int var4 = 0; var4 < var3; ++var4) {
-			this.field4876[var4] = (class451)class217.method4362(class451.method7984(), var1.method8141());
+			this.field4876[var4] = (class451)class217.method4362(class451.method7984(), var1.readUnsignedByte());
 			int var5 = var1.method8142();
 			HashMap var6 = new HashMap(var5);
 

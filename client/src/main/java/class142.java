@@ -31,7 +31,7 @@ public class class142 {
 		this.field1311 = var1.readLong();
 		this.field1310 = var1.readInt();
 
-		for (int var3 = var1.method8141(); var3 != 0; var3 = var1.method8141()) {
+		for (int var3 = var1.readUnsignedByte(); var3 != 0; var3 = var1.readUnsignedByte()) {
 			Object var4;
 			if (var3 == 3) {
 				var4 = new class174(this);
@@ -103,13 +103,13 @@ public class class142 {
 			int var76 = PlayerManager.playerCount;
 			int[] var8 = PlayerManager.field1013;
 			byte var9 = 0;
-			if (var1 < var76 && client.field1645 == var0.field872 && class260.method5147((class93)var0)) {
-				class93 var10 = (class93)var0;
+			if (var1 < var76 && client.field1645 == var0.field872 && class260.method5147((PlayerEntity)var0)) {
+				PlayerEntity var10 = (PlayerEntity)var0;
 				if (var1 < var76) {
 					client.method2451(var0, 15 + var0.field809);
 					class384 var11 = (class384)client.field1934.get(class442.field4769);
 					byte var12 = 9;
-					var11.method6955(var10.field910.method8451(), var2 + client.field1809, var3 + client.field1747 - var12, 16777215, 0);
+					var11.method6955(var10.displayName.getName(), var2 + client.field1809, var3 + client.field1747 - var12, 16777215, 0);
 					var9 = 18;
 				}
 			}
@@ -209,22 +209,22 @@ public class class142 {
 
 			var77 += var9;
 			if (var1 < var76) {
-				class93 var89 = (class93)var0;
-				if (var89.field913) {
+				PlayerEntity var89 = (PlayerEntity)var0;
+				if (var89.invisible) {
 					return;
 				}
 
-				if (var89.field894 != -1 || -1 != var89.field893) {
+				if (var89.skullIcon != -1 || -1 != var89.prayerIcon) {
 					client.method2451(var0, var0.field809 + 15);
 					if (client.field1809 > -1) {
-						if (-1 != var89.field894) {
+						if (-1 != var89.skullIcon) {
 							var77 += 25;
-							class212.field2488[var89.field894].method8526(client.field1809 + var2 - 12, var3 + client.field1747 - var77);
+							class212.field2488[var89.skullIcon].method8526(client.field1809 + var2 - 12, var3 + client.field1747 - var77);
 						}
 
-						if (-1 != var89.field893) {
+						if (-1 != var89.prayerIcon) {
 							var77 += 25;
-							class264.field2999[var89.field893].method8526(var2 + client.field1809 - 12, var3 + client.field1747 - var77);
+							class264.field2999[var89.prayerIcon].method8526(var2 + client.field1809 - 12, var3 + client.field1747 - var77);
 						}
 					}
 				}
@@ -257,7 +257,7 @@ public class class142 {
 				}
 			}
 
-			if (var0.field822 != null && (var1 >= var76 || !var0.field820 && (client.field1871 == 4 || !var0.field842 && (0 == client.field1871 || 3 == client.field1871 || client.field1871 == 1 && ((class93)var0).method1907())))) {
+			if (var0.field822 != null && (var1 >= var76 || !var0.field820 && (client.field1871 == 4 || !var0.field842 && (0 == client.field1871 || 3 == client.field1871 || client.field1871 == 1 && ((PlayerEntity)var0).method1907())))) {
 				client.method2451(var0, var0.field809);
 				if (client.field1809 > -1 && client.field1661 < client.field1735) {
 					client.field1659[client.field1661] = class114.field1127.method6894(var0.field822) / 2;

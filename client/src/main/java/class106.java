@@ -71,10 +71,10 @@ public class class106 {
 
 	int method2049(Buffer var1, int var2) {
 		int var4 = var1.readUnsignedShort();
-		class322.method6186(var1.method8141());
-		this.field1058 = class77.method1579(var1.method8141());
-		this.field1057 = class77.method1579(var1.method8141());
-		this.field1049 = var1.method8141() != 0;
+		class322.method6186(var1.readUnsignedByte());
+		this.field1058 = class77.method1579(var1.readUnsignedByte());
+		this.field1057 = class77.method1579(var1.readUnsignedByte());
+		this.field1049 = var1.readUnsignedByte() != 0;
 		this.field1061 = new class119[var4];
 		class119 var5 = null;
 

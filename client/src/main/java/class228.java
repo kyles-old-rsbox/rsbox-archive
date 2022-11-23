@@ -3,12 +3,12 @@ public class class228 extends class239 {
 	}
 
 	void method4518(Buffer var1) {
-		int var3 = var1.method8141();
+		int var3 = var1.readUnsignedByte();
 		if (class256.field2950.field2947 != var3) {
 			throw new IllegalStateException("");
 		} else {
-			super.field2815 = var1.method8141();
-			super.field2813 = var1.method8141();
+			super.field2815 = var1.readUnsignedByte();
+			super.field2813 = var1.readUnsignedByte();
 			super.field2821 = var1.readUnsignedShort();
 			super.field2809 = var1.readUnsignedShort();
 			super.field2810 = var1.readUnsignedShort();
@@ -25,12 +25,12 @@ public class class228 extends class239 {
 		super.field2818 = new byte[super.field2813][64][64];
 		super.field2819 = new byte[super.field2813][64][64];
 		super.field2812 = new class253[super.field2813][64][64][];
-		int var3 = var1.method8141();
+		int var3 = var1.readUnsignedByte();
 		if (var3 != class250.field2900.field2901) {
 			throw new IllegalStateException("");
 		} else {
-			int var4 = var1.method8141();
-			int var5 = var1.method8141();
+			int var4 = var1.readUnsignedByte();
+			int var5 = var1.readUnsignedByte();
 			if (var4 == super.field2810 && var5 == super.field2811) {
 				for (int var6 = 0; var6 < 64; ++var6) {
 					for (int var7 = 0; var7 < 64; ++var7) {
@@ -77,12 +77,12 @@ public class class228 extends class239 {
 			client.players[var1] = null;
 		}
 
-		class291.field3364 = null;
+		class291.localPlayer = null;
 
 		for (var1 = 0; var1 < client.npcs.length; ++var1) {
 			class81 var2 = client.npcs[var1];
 			if (null != var2) {
-				var2.field835 = -1;
+				var2.interacting = -1;
 				var2.field836 = false;
 			}
 		}

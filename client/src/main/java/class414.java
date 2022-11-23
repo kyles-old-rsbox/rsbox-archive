@@ -102,7 +102,7 @@ public class class414 {
 		if (null != var3 && var1 >= 0 && var1 < var3.method2512()) {
 			class133 var4 = (class133)var3.field1347.get(var1);
 			if (var4.field1256 == -1) {
-				String var5 = var4.field1254.method8451();
+				String var5 = var4.field1254.getName();
 				PacketBufferNode var6 = class185.method3435(class274.field3082, client.packetWriter.isaacRandom);
 				var6.buffer.writeByte(3 + Buffer.method1887(var5));
 				var6.buffer.writeByte(var0);

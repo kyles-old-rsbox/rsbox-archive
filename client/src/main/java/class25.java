@@ -72,7 +72,7 @@ public class class25 implements class360 {
 						var0.field860 = 0;
 					}
 
-					class197 var7 = var0.field803[var0.field871 - 1];
+					MoveSpeed var7 = var0.field803[var0.field871 - 1];
 					if (var5 - var12 <= 256 && var5 - var12 >= -256 && var6 - var4 <= 256 && var6 - var4 >= -256) {
 						int var8 = var0.field860 - var0.field826 & 2047;
 						if (var8 > 1024) {
@@ -100,7 +100,7 @@ public class class25 implements class360 {
 						}
 
 						if (var11) {
-							if (var0.field826 != var0.field860 && -1 == var0.field835 && var0.field870 != 0) {
+							if (var0.field826 != var0.field860 && -1 == var0.interacting && var0.field870 != 0) {
 								var10 = 2;
 							}
 
@@ -131,9 +131,9 @@ public class class25 implements class360 {
 							}
 						}
 
-						if (var7 == class197.field2116) {
+						if (var7 == MoveSpeed.field2116) {
 							var10 <<= 1;
-						} else if (class197.field2113 == var7) {
+						} else if (MoveSpeed.field2113 == var7) {
 							var10 >>= 1;
 						}
 
@@ -213,7 +213,7 @@ public class class25 implements class360 {
 			var0.method1868();
 		}
 
-		if (var0 == class291.field3364 && (var0.field827 < 1536 || var0.field802 < 1536 || var0.field827 >= 11776 || var0.field802 >= 11776)) {
+		if (var0 == class291.localPlayer && (var0.field827 < 1536 || var0.field802 < 1536 || var0.field827 >= 11776 || var0.field802 >= 11776)) {
 			var0.field852 = -1;
 			var0.field848 = -1;
 			var0.field857 = 0;
@@ -224,13 +224,13 @@ public class class25 implements class360 {
 		}
 
 		if (0 != var0.field870) {
-			if (var0.field835 != -1) {
+			if (var0.interacting != -1) {
 				Object var14 = null;
-				var4 = class78.field683 ? 65536 : 32768;
-				if (var0.field835 < var4) {
-					var14 = client.npcs[var0.field835];
-				} else if (var0.field835 >= var4) {
-					var14 = client.players[var0.field835 - var4];
+				var4 = class78.isNewPlayerUpdating ? 65536 : 32768;
+				if (var0.interacting < var4) {
+					var14 = client.npcs[var0.interacting];
+				} else if (var0.interacting >= var4) {
+					var14 = client.players[var0.interacting - var4];
 				}
 
 				if (null != var14) {
@@ -240,7 +240,7 @@ public class class25 implements class360 {
 						var0.field860 = (int)(Math.atan2((double)var5, (double)var6) * 325.949D) & 2047;
 					}
 				} else if (var0.field836) {
-					var0.field835 = -1;
+					var0.interacting = -1;
 					var0.field836 = false;
 				}
 			}
@@ -252,7 +252,7 @@ public class class25 implements class360 {
 
 			var12 = var0.field860 - var0.field826 & 2047;
 			if (var12 == 0 && var0.field836) {
-				var0.field835 = -1;
+				var0.interacting = -1;
 				var0.field836 = false;
 			}
 
