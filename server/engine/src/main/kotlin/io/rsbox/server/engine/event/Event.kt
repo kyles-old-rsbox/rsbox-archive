@@ -15,21 +15,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package content.core
+package io.rsbox.server.engine.event
 
-import io.rsbox.server.api.event.on_player_login
-import io.rsbox.server.api.event.on_player_logout
-import io.rsbox.server.engine.coroutine.wait
-import io.rsbox.server.engine.coroutine.waitUntil
+import io.rsbox.server.engine.model.World
 
-println("Hello OSRS test!")
-
-on_player_login {
-    println("Hello player: ${player.displayName}!")
-    wait(ticks = 10)
-    println("Waited 10 ticks.")
-}
-
-on_player_logout {
-    println("Goodbye player: ${player.displayName}")
-}
+interface Event

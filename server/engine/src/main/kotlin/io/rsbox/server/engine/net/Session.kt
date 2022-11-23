@@ -53,8 +53,7 @@ class Session(val ctx: ChannelHandlerContext) {
 
     internal fun onDisconnect() {
         if(protocol.get() is GameProtocol) {
-            player.world.players.removePlayer(player)
-            Logger.info("[${player.username}] has disconnected from the server.")
+            player.onLogout()
         }
     }
 

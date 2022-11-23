@@ -18,6 +18,9 @@
 package io.rsbox.server.engine.model.entity
 
 import io.rsbox.server.config.ServerConfig
+import io.rsbox.server.engine.event.EventBus
+import io.rsbox.server.engine.event.impl.PlayerLoginEvent
+import io.rsbox.server.engine.event.impl.PlayerLogoutEvent
 import io.rsbox.server.engine.model.Privilege
 import io.rsbox.server.engine.model.coord.Tile
 import io.rsbox.server.engine.model.entity.update.PlayerUpdateFlag
@@ -26,6 +29,7 @@ import io.rsbox.server.engine.model.manager.InterfaceManager
 import io.rsbox.server.engine.model.manager.SceneManager
 import io.rsbox.server.engine.model.ui.DisplayMode
 import io.rsbox.server.engine.net.Session
+import org.tinylog.kotlin.Logger
 
 class Player internal constructor(val session: Session) : LivingEntity() {
 
@@ -72,10 +76,14 @@ class Player internal constructor(val session: Session) : LivingEntity() {
     internal fun onLogin() {
         this.init()
         updateFlags.add(PlayerUpdateFlag.APPEARANCE)
+        EventBus.postEvent(PlayerLoginEvent(world, this))
+        Logger.info("[$username] has connected to server.")
     }
 
     internal fun onLogout() {
-
+        world.players.removePlayer(this)
+        EventBus.postEvent(PlayerLogoutEvent(world, this))
+        Logger.info("[$username] has disconnected from server.")
     }
 
     override suspend fun cycle() {

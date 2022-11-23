@@ -15,21 +15,14 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package content.core
+package io.rsbox.server.api.event
 
-import io.rsbox.server.api.event.on_player_login
-import io.rsbox.server.api.event.on_player_logout
-import io.rsbox.server.engine.coroutine.wait
-import io.rsbox.server.engine.coroutine.waitUntil
+import io.rsbox.server.engine.event.EventBus.subscribe
+import io.rsbox.server.engine.event.impl.PlayerLoginEvent
+import io.rsbox.server.engine.event.impl.PlayerLogoutEvent
 
-println("Hello OSRS test!")
+@EventSubscriberMarker
+fun on_player_login(block: suspend PlayerLoginEvent.() -> Unit) = subscribe<PlayerLoginEvent> { world.queue { block() } }
 
-on_player_login {
-    println("Hello player: ${player.displayName}!")
-    wait(ticks = 10)
-    println("Waited 10 ticks.")
-}
-
-on_player_logout {
-    println("Goodbye player: ${player.displayName}")
-}
+@EventSubscriberMarker
+fun on_player_logout(block: suspend PlayerLogoutEvent.() -> Unit) = subscribe<PlayerLogoutEvent> { world.queue { block() } }

@@ -22,9 +22,13 @@ import kotlin.coroutines.intrinsics.COROUTINE_SUSPENDED
 import kotlin.coroutines.intrinsics.suspendCoroutineUninterceptedOrReturn
 import kotlin.coroutines.cancellation.CancellationException
 
+@DslMarker
+annotation class CoroutineDslMarker
+
 private val CoroutineContext.task: EngineCoroutineTask
     get() = get(EngineCoroutineTask) ?: error("Failed to get engine coroutine task.")
 
+@CoroutineDslMarker
 suspend fun wait(ticks: Int = 1) {
     if (ticks <= 0) return
     return suspendCoroutineUninterceptedOrReturn {

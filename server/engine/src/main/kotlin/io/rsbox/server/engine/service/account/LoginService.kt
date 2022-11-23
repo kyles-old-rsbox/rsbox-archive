@@ -88,8 +88,6 @@ class LoginService : Service, Runnable {
         session.protocol.set(GameProtocol(session))
 
         this.onLogin()
-
-        Logger.info("[$username] has connected to the server.")
     }
 
     companion object {

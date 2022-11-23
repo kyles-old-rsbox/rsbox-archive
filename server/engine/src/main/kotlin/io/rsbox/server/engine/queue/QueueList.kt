@@ -26,7 +26,7 @@ class QueueList internal constructor(
     private val pending: Queue<QueueBlock> = LinkedList()
 ) : List<QueueTask> by queues {
 
-    internal fun queue(block: suspend () -> Unit) {
+    fun queue(block: suspend () -> Unit) {
         val queueBlock = QueueBlock(block)
         pending.add(queueBlock)
     }

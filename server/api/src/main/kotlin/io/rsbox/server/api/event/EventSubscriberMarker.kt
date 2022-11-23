@@ -15,7 +15,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.server.api
+package io.rsbox.server.api.event
 
-object Api {
-}
+@DslMarker
+annotation class EventSubscriberMarker
