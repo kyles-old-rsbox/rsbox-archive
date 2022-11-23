@@ -22,6 +22,7 @@ import io.rsbox.server.common.get
 import io.rsbox.server.common.inject
 import io.rsbox.server.config.ServerConfig
 import io.rsbox.server.config.XteaConfig
+import io.rsbox.server.content.ContentManager
 import io.rsbox.server.engine.Engine
 import io.rsbox.server.util.security.RSA
 import org.koin.core.context.startKoin
@@ -55,6 +56,7 @@ object ServerLauncher {
         loadRSA()
         loadGameCache()
         engine.start()
+        ContentManager.load()
 
         Logger.info("RSBox server startup completed successfully.")
     }
@@ -68,7 +70,8 @@ object ServerLauncher {
             "data/configs/",
             "data/logs/",
             "data/saves/",
-            "data/rsa"
+            "data/rsa/",
+            "data/content/",
         ).map { File(it) }.forEach { dir ->
             if(!dir.exists()) {
                 Logger.error("Please run the 'setup server' gradle task before starting the server.")

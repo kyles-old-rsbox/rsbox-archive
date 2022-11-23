@@ -1,3 +1,5 @@
+import groovy.ant.FileNameFinder
+
 /*
  * Copyright (C) 2022 RSBox <Kyle Escobar>
  *
@@ -44,6 +46,21 @@ include(":server:logger")
 include(":server:util")
 include(":server:engine")
 include(":server:api")
-include(":server:content")
 include(":server:cache")
 include(":server:config")
+includeModules(":server:content")
+
+fun includeModules(module: String) {
+    val relativePath = module.substring(1).replace(":", "/")
+    val rootDir = rootProject.projectDir.resolve(relativePath)
+    if(rootDir.exists()) {
+        val buildFiles = FileNameFinder().getFileNames("$rootDir", "**/*.gradle.kts")
+        buildFiles.forEach { fileName ->
+            val buildFile = File(fileName)
+            val moduleDir = buildFile.parentFile
+            val relative = rootDir.toPath().relativize(moduleDir.toPath())
+            val name = "$relative".replace(File.separator, ":")
+            include("$module:$name")
+        }
+    }
+}

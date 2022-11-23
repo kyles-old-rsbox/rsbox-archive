@@ -67,7 +67,7 @@ object ServerSetup {
             "saves/",
             "rsa/",
             "configs/",
-            "modules/"
+            "content/"
         ).map { DATA_DIR.resolve(it) }.forEach { dir ->
             if(!dir.exists()) {
                 Logger.info("Creating missing directory: ${dir.path}.")
