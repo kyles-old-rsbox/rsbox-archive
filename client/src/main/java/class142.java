@@ -42,7 +42,7 @@ public class class142 {
 			} else if (var3 == 4) {
 				var4 = new class155(this);
 			} else if (var3 == 6) {
-				var4 = new class151(this);
+				var4 = new ClientPreferences(this);
 			} else if (var3 == 5) {
 				var4 = new class146(this);
 			} else if (var3 == 2) {

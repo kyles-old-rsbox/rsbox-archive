@@ -226,11 +226,11 @@ public class class43 extends class427 {
 				class349.method6457();
 				class66.method1392();
 				class195.field2056.method5437();
-				PacketBufferNode var17;
+				PacketMessage var17;
 				if (class133.field1257.method562()) {
-					var17 = class185.method3435(class274.field3051, client.packetWriter.isaacRandom);
+					var17 = class185.method3435(ClientPacket.field3051, client.serverConnection.isaacRandom);
 					var17.buffer.writeInt(1057001181);
-					client.packetWriter.add(var17);
+					client.serverConnection.add(var17);
 				}
 
 				if (!client.dynamicRegion) {
@@ -252,8 +252,8 @@ public class class43 extends class427 {
 				class9.method64(30);
 				class349.method6457();
 				class82.method1271();
-				var17 = class185.method3435(class274.field3136, client.packetWriter.isaacRandom);
-				client.packetWriter.add(var17);
+				var17 = class185.method3435(ClientPacket.field3136, client.serverConnection.isaacRandom);
+				client.serverConnection.add(var17);
 				class339.method6315();
 			}
 		}

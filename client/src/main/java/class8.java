@@ -5,7 +5,7 @@ public final class class8 {
 		throw new Error();
 	}
 
-	public static class24 method3967(class25 var0) {
+	public static ProofOfWorkMessage getPowChallengeType(class25 var0) {
 		switch(var0.field126) {
 		case 0:
 			return new class1();

@@ -92,7 +92,7 @@ public class class34 {
 		}
 	}
 
-	static void method649() {
+	static void load() {
 		int var1;
 		if (client.field1793 == 0) {
 			class145.field1333 = new class214(4, 104, 104, class82.field719);
@@ -121,7 +121,7 @@ public class class34 {
 			class155.field1425 = client.method5506(8, false, true, true, false);
 			client.field1665 = client.method5506(9, false, true, true, false);
 			class243.field2846 = client.method5506(10, false, true, true, false);
-			class4.field12 = client.method5506(11, false, true, true, false);
+			ProofOfWorkRequest.field12 = client.method5506(11, false, true, true, false);
 			class202.field2255 = client.method5506(12, false, true, true, false);
 			class136.field1275 = client.method5506(13, true, false, true, false);
 			class71.field578 = client.method5506(14, false, true, true, false);
@@ -147,7 +147,7 @@ public class class34 {
 			var1 += class155.field1425.method6274() * 2 / 100;
 			var1 += client.field1665.method6274() * 2 / 100;
 			var1 += class243.field2846.method6274() * 2 / 100;
-			var1 += class4.field12.method6274() * 2 / 100;
+			var1 += ProofOfWorkRequest.field12.method6274() * 2 / 100;
 			var1 += class202.field2255.method6274() * 2 / 100;
 			var1 += class136.field1275.method6274() * 2 / 100;
 			var1 += class71.field578.method6274() * 2 / 100;
@@ -171,7 +171,7 @@ public class class34 {
 				client.method5128(class43.field311, "Music Tracks");
 				client.method5128(class252.field2922, "Models");
 				client.method5128(class155.field1425, "Sprites");
-				client.method5128(class4.field12, "Music Jingles");
+				client.method5128(ProofOfWorkRequest.field12, "Music Jingles");
 				client.method5128(class71.field578, "Music Samples");
 				client.method5128(class147.field1352, "Music Patches");
 				client.method5128(class304.field3634, "World Map");
@@ -206,7 +206,7 @@ public class class34 {
 				Login.field622 = 40;
 			} else {
 				class346.field4250 = (class376)client.field1934.get(class442.field4779);
-				class353.field4289 = (class376)client.field1934.get(class442.field4769);
+				class353.fontPlain12 = (class376)client.field1934.get(class442.field4769);
 				class114.field1127 = (class376)client.field1934.get(class442.field4780);
 				MoveSpeed.platformInfo = client.field1807.method7886();
 				Login.field623 = class338.field4011;
@@ -393,9 +393,9 @@ public class class34 {
 					if (!class304.field3634.method6110(class242.field2838.field2837)) {
 						Login.field623 = class338.field3926 + class304.field3634.method6111(class242.field2838.field2837) / 10 + "%";
 					} else {
-						if (class4.field10 == null) {
-							class4.field10 = new class420();
-							class4.field10.method7741(class304.field3634, class324.field3783, class145.field1338, class114.field1127, client.field1934, class91.field883);
+						if (ProofOfWorkRequest.field10 == null) {
+							ProofOfWorkRequest.field10 = new class420();
+							ProofOfWorkRequest.field10.method7741(class304.field3634, class324.field3783, class145.field1338, class114.field1127, client.field1934, class91.field883);
 						}
 
 						Login.field623 = class338.field3927;

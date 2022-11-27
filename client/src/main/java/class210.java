@@ -23,8 +23,8 @@ public class class210 {
 		this.field2461 = var3;
 	}
 
-	static PacketBufferNode method4096() {
-		return 0 == PacketBufferNode.field2988 ? new PacketBufferNode() : PacketBufferNode.field2986[--PacketBufferNode.field2988];
+	static PacketMessage method4096() {
+		return 0 == PacketMessage.field2988 ? new PacketMessage() : PacketMessage.field2986[--PacketMessage.field2988];
 	}
 
 	boolean method4098(float var1) {

@@ -1,4 +1,4 @@
-public class class79 extends class427 {
+public class ClientScript extends class427 {
 	boolean field692;
 	class300 field691;
 	class300 field694;
@@ -9,15 +9,15 @@ public class class79 extends class427 {
 	int field693;
 	int field695;
 	int field696;
-	Object[] field686;
+	Object[] args;
 	String field685;
 
-	public class79() {
+	public ClientScript() {
 		this.field696 = 76;
 	}
 
 	public void method1602(Object[] var1) {
-		this.field686 = var1;
+		this.args = var1;
 	}
 
 	public void method1600(int var1) {

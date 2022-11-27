@@ -93,7 +93,7 @@ public class class107 {
 		this.field1077 = 0;
 	}
 
-	final void clear() {
+	final void reset() {
 		this.field1068.method6473();
 		this.field1069 = 0;
 	}
@@ -106,7 +106,7 @@ public class class107 {
 			this.field1078.offset = 0;
 
 			while (true) {
-				PacketBufferNode var2 = (PacketBufferNode)this.field1068.method6465();
+				PacketMessage var2 = (PacketMessage)this.field1068.method6465();
 				if (null == var2 || var2.field2987 > this.field1078.data.length - this.field1078.offset) {
 					this.field1074.write(this.field1078.data, 0, this.field1078.offset);
 					this.field1077 = 0;
@@ -123,7 +123,7 @@ public class class107 {
 
 	}
 
-	public final void add(PacketBufferNode var1) {
+	public final void add(PacketMessage var1) {
 		this.field1068.method6462(var1);
 		var1.field2987 = var1.buffer.offset;
 		var1.buffer.offset = 0;

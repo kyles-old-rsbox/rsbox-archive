@@ -61,7 +61,6 @@ class NetworkServer {
 
     fun stop() {
         Logger.info("Stopping network server.")
-
         bossGroup.shutdownGracefully()
         workerGroup.shutdownGracefully()
     }

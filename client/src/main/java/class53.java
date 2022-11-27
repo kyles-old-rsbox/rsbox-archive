@@ -171,10 +171,10 @@ public class class53 {
 	}
 
 	static final void method959(String var0) {
-		PacketBufferNode var2 = class185.method3435(class274.field3074, client.packetWriter.isaacRandom);
+		PacketMessage var2 = class185.method3435(ClientPacket.field3074, client.serverConnection.isaacRandom);
 		var2.buffer.writeByte(Buffer.method1887(var0));
 		var2.buffer.writeString(var0);
-		client.packetWriter.add(var2);
+		client.serverConnection.add(var2);
 	}
 
 	final boolean method1098() {
@@ -194,10 +194,10 @@ public class class53 {
 				} else if (this.method1071(var3, false)) {
 					method1812(var1);
 				} else {
-					PacketBufferNode var4 = class185.method3435(class274.field3128, client.packetWriter.isaacRandom);
+					PacketMessage var4 = class185.method3435(ClientPacket.field3128, client.serverConnection.isaacRandom);
 					var4.buffer.writeByte(Buffer.method1887(var1));
 					var4.buffer.writeString(var1);
-					client.packetWriter.add(var4);
+					client.serverConnection.add(var4);
 				}
 			}
 		}
@@ -221,10 +221,10 @@ public class class53 {
 			if (var3.method8449()) {
 				if (this.field380.method7292(var3)) {
 					client.field1844 = client.field1878;
-					PacketBufferNode var4 = class185.method3435(class274.field3129, client.packetWriter.isaacRandom);
+					PacketMessage var4 = class185.method3435(ClientPacket.field3129, client.serverConnection.isaacRandom);
 					var4.buffer.writeByte(Buffer.method1887(var1));
 					var4.buffer.writeString(var1);
-					client.packetWriter.add(var4);
+					client.serverConnection.add(var4);
 				}
 
 				for (int var6 = 0; var6 < PlayerManager.playerCount; ++var6) {
@@ -268,10 +268,10 @@ public class class53 {
 			if (var3.method8449()) {
 				if (this.field376.method7292(var3)) {
 					client.field1844 = client.field1878;
-					PacketBufferNode var4 = class185.method3435(class274.field3102, client.packetWriter.isaacRandom);
+					PacketMessage var4 = class185.method3435(ClientPacket.field3102, client.serverConnection.isaacRandom);
 					var4.buffer.writeByte(Buffer.method1887(var1));
 					var4.buffer.writeString(var1);
-					client.packetWriter.add(var4);
+					client.serverConnection.add(var4);
 				}
 
 				class442.method7920();
@@ -280,11 +280,11 @@ public class class53 {
 	}
 
 	static final void method2855(String var0, int var1) {
-		PacketBufferNode var3 = class185.method3435(class274.field3117, client.packetWriter.isaacRandom);
+		PacketMessage var3 = class185.method3435(ClientPacket.field3117, client.serverConnection.isaacRandom);
 		var3.buffer.writeByte(Buffer.method1887(var0) + 1);
 		var3.buffer.method8264(var1);
 		var3.buffer.writeString(var0);
-		client.packetWriter.add(var3);
+		client.serverConnection.add(var3);
 	}
 
 	final boolean method1056(DisplayName var1) {

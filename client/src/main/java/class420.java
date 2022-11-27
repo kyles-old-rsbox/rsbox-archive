@@ -148,12 +148,12 @@ public class class420 {
 
 				Iterator var13;
 				class251 var14;
-				class79 var15;
+				ClientScript var15;
 				class245 var16;
-				for (var13 = var11.iterator(); var13.hasNext(); class57.method5433(var15)) {
+				for (var13 = var11.iterator(); var13.hasNext(); class57.runClientScript(var15)) {
 					var14 = (class251)var13.next();
 					var12.add(var14);
-					var15 = new class79();
+					var15 = new ClientScript();
 					var16 = new class245(var14.method5024(), var14.field2909, var14.field2915);
 					var15.method1602(new Object[]{var16, var1, var2});
 					if (this.field4606.contains(var14)) {
@@ -168,11 +168,11 @@ public class class420 {
 				while (var13.hasNext()) {
 					var14 = (class251)var13.next();
 					if (!var12.contains(var14)) {
-						var15 = new class79();
+						var15 = new ClientScript();
 						var16 = new class245(var14.method5024(), var14.field2909, var14.field2915);
 						var15.method1602(new Object[]{var16, var1, var2});
 						var15.method1600(16);
-						class57.method5433(var15);
+						class57.runClientScript(var15);
 					}
 				}
 
@@ -229,9 +229,9 @@ public class class420 {
 					}
 
 					if (var10) {
-						PacketBufferNode var13 = class185.method3435(class274.field3081, client.packetWriter.isaacRandom);
+						PacketMessage var13 = class185.method3435(ClientPacket.field3081, client.serverConnection.isaacRandom);
 						var13.buffer.writeInt(this.field4654.method5522());
-						client.packetWriter.add(var13);
+						client.serverConnection.add(var13);
 						this.field4640 = 0L;
 					}
 				}
@@ -818,7 +818,7 @@ public class class420 {
 	}
 
 	public void method7630(int var1, int var2, class295 var3, class295 var4) {
-		class79 var6 = new class79();
+		ClientScript var6 = new ClientScript();
 		class245 var7 = new class245(var2, var3, var4);
 		var6.method1602(new Object[]{var7});
 		switch(var1) {
@@ -838,7 +838,7 @@ public class class420 {
 			var6.method1600(14);
 		}
 
-		class57.method5433(var6);
+		class57.runClientScript(var6);
 	}
 
 	public class251 method7631() {

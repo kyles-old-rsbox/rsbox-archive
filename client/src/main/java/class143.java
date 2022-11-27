@@ -87,7 +87,7 @@ public class class143 {
 					int var11 = var9 * var6 - var5 * var8 >> 11;
 					int var12 = var10 + class291.localPlayer.field827 >> 7;
 					int var13 = class291.localPlayer.field802 - var11 >> 7;
-					PacketBufferNode var14 = class185.method3435(class274.field3052, client.packetWriter.isaacRandom);
+					PacketMessage var14 = class185.method3435(ClientPacket.field3052, client.serverConnection.isaacRandom);
 					var14.buffer.writeByte(18);
 					var14.buffer.method8161(var13 + class169.field1536);
 					var14.buffer.method8264(client.field1876.method3895(82) ? (client.field1876.method3895(81) ? 2 : 1) : 0);
@@ -102,7 +102,7 @@ public class class143 {
 					var14.buffer.writeShort(class291.localPlayer.field827);
 					var14.buffer.writeShort(class291.localPlayer.field802);
 					var14.buffer.writeByte(63);
-					client.packetWriter.add(var14);
+					client.serverConnection.add(var14);
 					client.destinationX = var12;
 					client.destinationY = var13;
 				}

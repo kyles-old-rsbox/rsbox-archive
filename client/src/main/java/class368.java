@@ -110,7 +110,7 @@ public class class368 {
 	}
 
 	static final void method6731() {
-		client.packetWriter.method2080();
+		client.serverConnection.method2080();
 		client.method2354();
 		class145.field1333.method4122();
 

@@ -49,9 +49,9 @@ public abstract class class204 {
 			if (null == var4.field3586) {
 				return 0;
 			} else {
-				class79 var5 = new class79();
+				ClientScript var5 = new ClientScript();
 				var5.field694 = var4;
-				var5.field686 = var4.field3586;
+				var5.args = var4.field3586;
 				var5.field695 = 1 + class57.field400;
 				client.field1765.method6355(var5);
 				return 1;

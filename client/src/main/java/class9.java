@@ -318,8 +318,8 @@ public class class9 {
 
 			if (var0 == 20 || var0 == 40 || var0 == 45 || var0 == 50) {
 				class43.setLoginState(0);
-				client.field1668 = 0;
-				client.field1669 = 0;
+				client.loginTicks = 0;
+				client.loginErrorCount = 0;
 				client.timer.method6843(var0);
 				if (var0 != 20) {
 					class49.method996(false);

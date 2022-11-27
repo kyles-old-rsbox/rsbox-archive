@@ -773,7 +773,7 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 			}
 
 			if (var0.equalsIgnoreCase("showcoord")) {
-				class4.field10.field4655 = !class4.field10.field4655;
+				ProofOfWorkRequest.field10.field4655 = !ProofOfWorkRequest.field10.field4655;
 			}
 
 			if (var0.equalsIgnoreCase("fpson")) {
@@ -793,10 +793,10 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 			}
 		}
 
-		PacketBufferNode var2 = class185.method3435(class274.field3063, client.packetWriter.isaacRandom);
+		PacketMessage var2 = class185.method3435(ClientPacket.field3063, client.serverConnection.isaacRandom);
 		var2.buffer.writeByte(var0.length() + 1);
 		var2.buffer.writeString(var0);
-		client.packetWriter.add(var2);
+		client.serverConnection.add(var2);
 	}
 
 	static final void method598() {

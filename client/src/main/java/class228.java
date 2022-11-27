@@ -58,14 +58,14 @@ public class class228 extends class239 {
 	}
 
 	static void resetWorld() {
-		client.packetWriter.clear();
-		client.packetWriter.buffer.offset = 0;
-		client.packetWriter.serverPacket = null;
-		client.packetWriter.field1079 = null;
-		client.packetWriter.field1072 = null;
-		client.packetWriter.field1080 = null;
-		client.packetWriter.serverPacketLength = 0;
-		client.packetWriter.field1070 = 0;
+		client.serverConnection.reset();
+		client.serverConnection.buffer.offset = 0;
+		client.serverConnection.serverPacket = null;
+		client.serverConnection.field1079 = null;
+		client.serverConnection.field1072 = null;
+		client.serverConnection.field1080 = null;
+		client.serverConnection.serverPacketLength = 0;
+		client.serverConnection.field1070 = 0;
 		client.rebootTimer = 0;
 		client.menuOptionsCount = 0;
 		client.isMenuOpen = false;

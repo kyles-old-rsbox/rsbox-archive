@@ -139,7 +139,7 @@ public class class83 {
 
 	void method1703(boolean var1) {
 		this.field730 = var1;
-		class151.savePreferences();
+		ClientPreferences.savePreferences();
 	}
 
 	boolean method1777() {
@@ -148,7 +148,7 @@ public class class83 {
 
 	void method1755(boolean var1) {
 		this.field733 = var1;
-		class151.savePreferences();
+		ClientPreferences.savePreferences();
 	}
 
 	boolean method1706() {
@@ -157,7 +157,7 @@ public class class83 {
 
 	void method1707(boolean var1) {
 		this.field741 = var1;
-		class151.savePreferences();
+		ClientPreferences.savePreferences();
 	}
 
 	boolean method1708() {
@@ -166,7 +166,7 @@ public class class83 {
 
 	void method1709(boolean var1) {
 		this.field735 = var1;
-		class151.savePreferences();
+		ClientPreferences.savePreferences();
 	}
 
 	void method1759() {
@@ -179,7 +179,7 @@ public class class83 {
 
 	void method1712(int var1) {
 		this.field736 = var1;
-		class151.savePreferences();
+		ClientPreferences.savePreferences();
 	}
 
 	int method1766() {
@@ -188,7 +188,7 @@ public class class83 {
 
 	void method1714(double var1) {
 		this.field737 = var1;
-		class151.savePreferences();
+		ClientPreferences.savePreferences();
 	}
 
 	double method1717() {
@@ -197,7 +197,7 @@ public class class83 {
 
 	void method1715(int var1) {
 		this.field731 = var1;
-		class151.savePreferences();
+		ClientPreferences.savePreferences();
 	}
 
 	int method1716() {
@@ -206,7 +206,7 @@ public class class83 {
 
 	void method1704(int var1) {
 		this.field738 = var1;
-		class151.savePreferences();
+		ClientPreferences.savePreferences();
 	}
 
 	int method1752() {
@@ -215,7 +215,7 @@ public class class83 {
 
 	void method1719(int var1) {
 		this.field740 = var1;
-		class151.savePreferences();
+		ClientPreferences.savePreferences();
 	}
 
 	int method1736() {
@@ -224,7 +224,7 @@ public class class83 {
 
 	void setRememberedUsername(String var1) {
 		this.field742 = var1;
-		class151.savePreferences();
+		ClientPreferences.savePreferences();
 	}
 
 	String method1722() {
@@ -233,7 +233,7 @@ public class class83 {
 
 	void method1723(int var1) {
 		this.field739 = var1;
-		class151.savePreferences();
+		ClientPreferences.savePreferences();
 	}
 
 	int method1797() {
@@ -242,7 +242,7 @@ public class class83 {
 
 	void method1778(int var1) {
 		this.field743 = var1;
-		class151.savePreferences();
+		ClientPreferences.savePreferences();
 	}
 
 	int method1726() {
@@ -460,12 +460,12 @@ public class class83 {
 					}
 				}
 
-				class79 var6;
+				ClientScript var6;
 				if (var1 == 0 && var4.field3584 != null) {
-					var6 = new class79();
+					var6 = new ClientScript();
 					var6.field694 = var4;
-					var6.field686 = var4.field3584;
-					class57.method5433(var6);
+					var6.args = var4.field3584;
+					class57.runClientScript(var6);
 				}
 
 				if (var1 == 1 && null != var4.field3479) {
@@ -476,10 +476,10 @@ public class class83 {
 						}
 					}
 
-					var6 = new class79();
+					var6 = new ClientScript();
 					var6.field694 = var4;
-					var6.field686 = var4.field3479;
-					class57.method5433(var6);
+					var6.args = var4.field3479;
+					class57.runClientScript(var6);
 				}
 			}
 		}

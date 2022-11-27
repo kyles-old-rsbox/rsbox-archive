@@ -11,7 +11,7 @@ final class class92 implements class301 {
 
 	public void method5987() {
 		if (null != this.val$cc && this.val$cc.method5880().field3685 != null) {
-			class79 var2 = new class79();
+			ClientScript var2 = new ClientScript();
 			var2.method1599(this.val$cc);
 			var2.method1602(this.val$cc.method5880().field3685);
 			client.method7851().method6355(var2);

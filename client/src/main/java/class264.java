@@ -162,7 +162,7 @@ public final class class264 {
 							if (var11.field3464 == 1336) {
 								if (class413.clientPreferences.method1711()) {
 									var14 += 15;
-									class353.field4289.method6868("Fps:" + class31.field174, var11.field3448 + var13, var14, 16776960, -1);
+									class353.fontPlain12.method6868("Fps:" + class31.field174, var11.field3448 + var13, var14, 16776960, -1);
 									var14 += 15;
 									Runtime var41 = Runtime.getRuntime();
 									var21 = (int)((var41.totalMemory() - var41.freeMemory()) / 1024L);
@@ -171,7 +171,7 @@ public final class class264 {
 										var22 = 16711680;
 									}
 
-									class353.field4289.method6868("Mem:" + var21 + "k", var13 + var11.field3448, var14, var22, -1);
+									class353.fontPlain12.method6868("Mem:" + var21 + "k", var13 + var11.field3448, var14, var22, -1);
 									var14 += 15;
 								}
 								continue;
@@ -199,11 +199,11 @@ public final class class264 {
 							}
 
 							if (var11.field3464 == 1400) {
-								class4.field10.method7663(var13, var14, var11.field3448, var11.field3476, client.field1645);
+								ProofOfWorkRequest.field10.method7663(var13, var14, var11.field3448, var11.field3476, client.field1645);
 							}
 
 							if (1401 == var11.field3464) {
-								class4.field10.method7596(var13, var14, var11.field3448, var11.field3476);
+								ProofOfWorkRequest.field10.method7596(var13, var14, var11.field3448, var11.field3476);
 							}
 
 							if (1402 == var11.field3464) {
@@ -599,7 +599,7 @@ public final class class264 {
 											if (8 == var11.field3462 && var11 == class219.field2617 && client.field1929 == client.field1670) {
 												var31 = 0;
 												var21 = 0;
-												var33 = class353.field4289;
+												var33 = class353.fontPlain12;
 												String var34 = var11.field3522;
 
 												String var47;

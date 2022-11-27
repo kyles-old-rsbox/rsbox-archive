@@ -239,7 +239,7 @@ public class class445 implements class360 {
 					class136.method2438(var4);
 					return 1;
 				} else if (var0 == CS2Opcodes.CC_SETCRM_URL) {
-					var4.method5863(class57.field405[--class126.field1220], class28.urlRequester, client.method2417());
+					var4.method5863(class57.field405[--class126.field1220], class28.urlRequester, client.getPlayerUUID());
 					return 1;
 				} else if (var0 == CS2Opcodes.CC_SETCRM_TEXTFONT) {
 					class387.field4452 -= 2;

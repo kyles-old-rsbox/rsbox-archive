@@ -103,12 +103,12 @@ public class class414 {
 			class133 var4 = (class133)var3.field1347.get(var1);
 			if (var4.field1256 == -1) {
 				String var5 = var4.field1254.getName();
-				PacketBufferNode var6 = class185.method3435(class274.field3082, client.packetWriter.isaacRandom);
+				PacketMessage var6 = class185.method3435(ClientPacket.field3082, client.serverConnection.isaacRandom);
 				var6.buffer.writeByte(3 + Buffer.method1887(var5));
 				var6.buffer.writeByte(var0);
 				var6.buffer.writeShort(var1);
 				var6.buffer.writeString(var5);
-				client.packetWriter.add(var6);
+				client.serverConnection.add(var6);
 			}
 		}
 	}

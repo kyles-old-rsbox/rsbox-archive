@@ -17,6 +17,7 @@
 
 package io.rsbox.server.launcher
 
+import ClientPacket
 import io.rsbox.server.cache.GameCache
 import io.rsbox.server.common.get
 import io.rsbox.server.common.inject
@@ -43,6 +44,8 @@ object ServerLauncher {
             Logger.error("RSBox server has not been setup. Please run the gradle task: 'rsbox > setup server' and try starting server again.")
             exitProcess(0)
         }
+
+        temp()
 
         Logger.info("Initializing...")
 
@@ -98,5 +101,33 @@ object ServerLauncher {
     private fun loadGameCache() {
         Logger.info("Preparing to load game cache files.")
         get<GameCache>().load()
+    }
+
+    private fun temp() {
+        val cls = ClientPacket::class.java
+        val fields = cls.declaredFields.filter { it.type == ClientPacket::class.java }.toList()
+        val results = hashMapOf<Int, Int>()
+        fields.forEach {
+            it.isAccessible = true
+            val inst = it.get(null) as ClientPacket
+            val opcode = cls.getDeclaredField("opcode").let {
+                it.isAccessible = true
+                it.get(inst) as Int
+            }
+            val length = cls.getDeclaredField("length").let {
+                it.isAccessible = true
+                it.get(inst) as Int
+            }
+            results[opcode] = length
+        }
+
+        val str = StringBuilder()
+        str.append("mapOf(\n")
+        results.forEach { (opcode, length) ->
+            str.append("\t$opcode to $length,\n")
+        }
+        str.append(")")
+
+        println(str.toString())
     }
 }

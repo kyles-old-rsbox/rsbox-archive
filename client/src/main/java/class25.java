@@ -1,12 +1,12 @@
 public class class25 implements class360 {
-	public static final class25 field122;
+	public static final class25 SHA256;
 	static class215 field123;
 	static int field120;
 	final int field119;
 	final int field126;
 
 	static {
-		field122 = new class25(0, 0);
+		SHA256 = new class25(0, 0);
 	}
 
 	class25(int var1, int var2) {

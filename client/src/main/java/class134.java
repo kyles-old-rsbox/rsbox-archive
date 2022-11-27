@@ -75,9 +75,9 @@ public class class134 extends class137 {
 				for (int var3 = 0; var3 < var2.length; ++var3) {
 					class300 var4 = var2[var3];
 					if (null != var4.field3553) {
-						class79 var5 = new class79();
+						ClientScript var5 = new ClientScript();
 						var5.field694 = var4;
-						var5.field686 = var4.field3553;
+						var5.args = var4.field3553;
 						class57.method1954(var5, 5000000, 0);
 					}
 				}

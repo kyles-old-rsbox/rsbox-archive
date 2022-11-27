@@ -25,15 +25,15 @@ public class class318 implements class360 {
 
 	static final void method6083(boolean var0) {
 		class349.method6457();
-		++client.packetWriter.field1077;
-		if (client.packetWriter.field1077 >= 50 || var0) {
-			client.packetWriter.field1077 = 0;
-			if (!client.field1697 && client.packetWriter.method2082() != null) {
-				PacketBufferNode var2 = class185.method3435(class274.field3083, client.packetWriter.isaacRandom);
-				client.packetWriter.add(var2);
+		++client.serverConnection.field1077;
+		if (client.serverConnection.field1077 >= 50 || var0) {
+			client.serverConnection.field1077 = 0;
+			if (!client.field1697 && client.serverConnection.method2082() != null) {
+				PacketMessage var2 = class185.method3435(ClientPacket.field3083, client.serverConnection.isaacRandom);
+				client.serverConnection.add(var2);
 
 				try {
-					client.packetWriter.flush();
+					client.serverConnection.flush();
 				} catch (IOException var4) {
 					client.field1697 = true;
 				}

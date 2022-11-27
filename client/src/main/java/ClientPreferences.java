@@ -1,4 +1,4 @@
-public class class151 extends class140 {
+public class ClientPreferences extends class140 {
 	int field1403;
 	// $FF: synthetic field
 	final class142 this$0;
@@ -22,7 +22,7 @@ public class class151 extends class140 {
 
 	}
 
-	class151(class142 var1) {
+	ClientPreferences(class142 var1) {
 		this.this$0 = var1;
 		this.field1403 = -1;
 	}

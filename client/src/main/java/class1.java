@@ -1,4 +1,4 @@
-public class class1 implements class24 {
+public class class1 implements ProofOfWorkMessage {
 	class1() {
 	}
 

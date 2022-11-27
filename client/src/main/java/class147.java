@@ -118,7 +118,7 @@ public class class147 extends class427 {
 	static final void method2521(int var0) {
 		class198.method3654();
 		class72.method1475();
-		int var2 = class274.method5221(var0).field1591;
+		int var2 = ClientPacket.method5221(var0).field1591;
 		if (var2 != 0) {
 			int var3 = class293.field3370[var0];
 			if (var2 == 1) {

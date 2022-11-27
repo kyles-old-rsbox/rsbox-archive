@@ -76,4 +76,18 @@ class GamePackets {
             }
         Logger.info("Registered ${serverPackets.size} server packets.")
     }
+
+    companion object {
+
+        /**
+         * List of ClientPacket opcodes and lengths.
+         *
+         * This is used to be able to skip unimplemented client
+         * packets's incoming buffers.
+         * This can be removed once every client packet gets implemented.
+         */
+        internal val CLIENT_PACKET_LENGTHS = mapOf(
+            0 to 0,
+        )
+    }
 }

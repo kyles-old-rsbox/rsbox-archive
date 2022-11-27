@@ -104,7 +104,7 @@ public class class236 implements class248 {
 		while (true) {
 			var3 = class227.field2714 ? 16 : 15;
 			var4 = 1 << var3;
-			if (var1.method8044(client.packetWriter.serverPacketLength) < var3 + 12) {
+			if (var1.method8044(client.serverConnection.serverPacketLength) < var3 + 12) {
 				break;
 			}
 
@@ -417,8 +417,8 @@ public class class236 implements class248 {
 			}
 		}
 
-		if (var1.offset != client.packetWriter.serverPacketLength) {
-			throw new RuntimeException(var1.offset + class96.field959 + client.packetWriter.serverPacketLength);
+		if (var1.offset != client.serverConnection.serverPacketLength) {
+			throw new RuntimeException(var1.offset + class96.field959 + client.serverConnection.serverPacketLength);
 		} else {
 			for (var3 = 0; var3 < client.npcCount; ++var3) {
 				if (client.npcs[client.field1692[var3]] == null) {

@@ -4,5 +4,5 @@ plugins {
 
 dependencies {
     implementation(project(":server:common"))
-    implementation("com.uchuhimo:konf:_")
+    api("com.uchuhimo:konf:_")
 }

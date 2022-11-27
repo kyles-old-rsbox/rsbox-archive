@@ -64,25 +64,25 @@ public class class271 {
 					var11 = class359.method1905(var4);
 				}
 
-				PacketBufferNode var13 = class185.method3435(class274.field3075, client.packetWriter.isaacRandom);
+				PacketMessage var13 = class185.method3435(ClientPacket.field3075, client.serverConnection.isaacRandom);
 				var13.buffer.writeInt(var11);
-				client.packetWriter.add(var13);
+				client.serverConnection.add(var13);
 				return 1;
 			} else {
-				PacketBufferNode var16;
+				PacketMessage var16;
 				if (var0 == CS2Opcodes.RESUME_NAMEDIALOG) {
 					var4 = class57.field405[--class126.field1220];
-					var16 = class185.method3435(class274.field3105, client.packetWriter.isaacRandom);
+					var16 = class185.method3435(ClientPacket.field3105, client.serverConnection.isaacRandom);
 					var16.buffer.writeByte(var4.length() + 1);
 					var16.buffer.writeString(var4);
-					client.packetWriter.add(var16);
+					client.serverConnection.add(var16);
 					return 1;
 				} else if (var0 == CS2Opcodes.RESUME_STRINGDIALOG) {
 					var4 = class57.field405[--class126.field1220];
-					var16 = class185.method3435(class274.field3137, client.packetWriter.isaacRandom);
+					var16 = class185.method3435(ClientPacket.field3137, client.serverConnection.isaacRandom);
 					var16.buffer.writeByte(var4.length() + 1);
 					var16.buffer.writeString(var4);
-					client.packetWriter.add(var16);
+					client.serverConnection.add(var16);
 					return 1;
 				} else {
 					int var9;
@@ -123,9 +123,9 @@ public class class271 {
 						return 1;
 					} else if (var0 == CS2Opcodes.RESUME_OBJDIALOG) {
 						var9 = class57.field404[--class387.field4452];
-						var16 = class185.method3435(class274.field3124, client.packetWriter.isaacRandom);
+						var16 = class185.method3435(ClientPacket.field3124, client.serverConnection.isaacRandom);
 						var16.buffer.writeShort(var9);
-						client.packetWriter.add(var16);
+						client.serverConnection.add(var16);
 						return 1;
 					} else if (var0 == CS2Opcodes.BUG_REPORT) {
 						var9 = class57.field404[--class387.field4452];
@@ -137,12 +137,12 @@ public class class271 {
 						} else if (var6.length() > 500) {
 							return 1;
 						} else {
-							PacketBufferNode var7 = class185.method3435(class274.field3108, client.packetWriter.isaacRandom);
+							PacketMessage var7 = class185.method3435(ClientPacket.field3108, client.serverConnection.isaacRandom);
 							var7.buffer.writeShort(1 + Buffer.method1887(var15) + Buffer.method1887(var6));
 							var7.buffer.writeString(var6);
 							var7.buffer.method8264(var9);
 							var7.buffer.writeString(var15);
-							client.packetWriter.add(var7);
+							client.serverConnection.add(var7);
 							return 1;
 						}
 					} else if (var0 == CS2Opcodes.SETSHIFTCLICKDROP) {

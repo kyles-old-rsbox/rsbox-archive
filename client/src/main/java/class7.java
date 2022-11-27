@@ -12,10 +12,10 @@ public class class7 implements class27 {
 
 	static final void method46(String var0) {
 		if (null != class73.field603) {
-			PacketBufferNode var2 = class185.method3435(class274.field3073, client.packetWriter.isaacRandom);
+			PacketMessage var2 = class185.method3435(ClientPacket.field3073, client.serverConnection.isaacRandom);
 			var2.buffer.writeByte(Buffer.method1887(var0));
 			var2.buffer.writeString(var0);
-			client.packetWriter.add(var2);
+			client.serverConnection.add(var2);
 		}
 	}
 }

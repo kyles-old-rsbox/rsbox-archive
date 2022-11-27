@@ -32,28 +32,28 @@ public class class179 {
 			}
 
 			client.field1872 = class57.field404[2 + class387.field4452];
-			PacketBufferNode var12 = class185.method3435(class274.field3142, client.packetWriter.isaacRandom);
+			PacketMessage var12 = class185.method3435(ClientPacket.field3142, client.serverConnection.isaacRandom);
 			var12.buffer.writeByte(client.field1871);
 			var12.buffer.writeByte(class297.field3431.field5005);
 			var12.buffer.writeByte(client.field1872);
-			client.packetWriter.add(var12);
+			client.serverConnection.add(var12);
 			return 1;
 		} else {
 			String var4;
 			int var5;
 			int var6;
-			PacketBufferNode var7;
+			PacketMessage var7;
 			if (var0 == CS2Opcodes.CHAT_SENDABUSEREPORT) {
 				var4 = class57.field405[--class126.field1220];
 				class387.field4452 -= 2;
 				var5 = class57.field404[class387.field4452];
 				var6 = class57.field404[class387.field4452 + 1];
-				var7 = class185.method3435(class274.field3112, client.packetWriter.isaacRandom);
+				var7 = class185.method3435(ClientPacket.field3112, client.serverConnection.isaacRandom);
 				var7.buffer.writeByte(Buffer.method1887(var4) + 2);
 				var7.buffer.writeString(var4);
 				var7.buffer.writeByte(var5 - 1);
 				var7.buffer.writeByte(var6);
-				client.packetWriter.add(var7);
+				client.serverConnection.add(var7);
 				return 1;
 			} else {
 				int var8;
@@ -111,24 +111,24 @@ public class class179 {
 
 						return 1;
 					} else {
-						PacketBufferNode var13;
+						PacketMessage var13;
 						if (var0 == CS2Opcodes.CHAT_SENDPUBLIC) {
 							var4 = class57.field405[--class126.field1220];
 							var5 = class57.field404[--class387.field4452];
 							var13 = class307.method6040(var5, var4, class94.field940, -1);
-							client.packetWriter.add(var13);
+							client.serverConnection.add(var13);
 							return 1;
 						} else if (var0 == CS2Opcodes.CHAT_SENDPRIVATE) {
 							class126.field1220 -= 2;
 							var4 = class57.field405[class126.field1220];
 							String var14 = class57.field405[1 + class126.field1220];
-							var13 = class185.method3435(class274.field3120, client.packetWriter.isaacRandom);
+							var13 = class185.method3435(ClientPacket.field3120, client.serverConnection.isaacRandom);
 							var13.buffer.writeShort(0);
 							int var11 = var13.buffer.offset;
 							var13.buffer.writeString(var4);
 							class282.method5406(var13.buffer, var14);
 							var13.buffer.writeLengthShort(var13.buffer.offset - var11);
-							client.packetWriter.add(var13);
+							client.serverConnection.add(var13);
 							return 1;
 						} else if (var0 == CS2Opcodes.CHAT_SENDCLAN) {
 							var4 = class57.field405[--class126.field1220];
@@ -136,7 +136,7 @@ public class class179 {
 							var5 = class57.field404[class387.field4452];
 							var6 = class57.field404[1 + class387.field4452];
 							var7 = class307.method6040(var5, var4, class94.field940, var6);
-							client.packetWriter.add(var7);
+							client.serverConnection.add(var7);
 							return 1;
 						} else if (var0 != CS2Opcodes.CHAT_PLAYERNAME) {
 							if (var0 == CS2Opcodes.CHAT_GETFILTER_TRADE) {

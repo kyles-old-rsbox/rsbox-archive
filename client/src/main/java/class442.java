@@ -32,7 +32,7 @@ public class class442 {
 		this.field4774 = var1;
 	}
 
-	static void method7923(class31 var0, class376 var1) {
+	static void loginScreen(class31 var0, class376 var1) {
 		int var5;
 		int var6;
 		int var35;

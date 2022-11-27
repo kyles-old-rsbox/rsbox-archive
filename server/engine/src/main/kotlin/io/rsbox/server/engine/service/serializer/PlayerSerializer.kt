@@ -15,26 +15,17 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.server.engine.net.login
+package io.rsbox.server.engine.service.serializer
 
-import io.netty.buffer.ByteBuf
-import io.rsbox.server.engine.net.Message
-import io.rsbox.server.engine.net.Session
+import io.rsbox.server.engine.model.entity.Player
+import io.rsbox.server.engine.net.login.LoginRequest
 
-class LoginEncoder(private val session: Session) {
+interface PlayerSerializer {
 
-    fun encode(msg: Message, out: ByteBuf) {
-        if(msg !is LoginResponse) return
+    fun create(request: LoginRequest): Boolean
 
-        out.writeByte(2)
-        out.writeByte(29)
-        out.writeBoolean(false)
-        out.writeInt(0)
-        out.writeByte(msg.player.privilege.id)
-        out.writeBoolean(msg.player.privilege.id > 0)
-        out.writeShort(msg.player.index)
-        out.writeBoolean(msg.player.member)
-        out.writeLong(msg.player.session.seed)
-        out.writeLong(msg.player.uuid)
-    }
+    fun load(request: LoginRequest): Player?
+
+    fun save(player: Player): Boolean
+
 }

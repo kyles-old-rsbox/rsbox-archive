@@ -46,9 +46,9 @@ public final class class235 {
 		}
 
 		if (var3 && null != var0.field3586 && (var0.field3448 != var5 || var0.field3476 != var6)) {
-			class79 var7 = new class79();
+			ClientScript var7 = new ClientScript();
 			var7.field694 = var0;
-			var7.field686 = var0.field3586;
+			var7.args = var0.field3586;
 			client.field1765.method6355(var7);
 		}
 

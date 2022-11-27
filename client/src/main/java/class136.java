@@ -33,11 +33,11 @@ public class class136 extends class137 {
 	}
 
 	public static void method2439(int var0, int var1, int var2, boolean var3) {
-		PacketBufferNode var5 = class185.method3435(class274.field3040, client.packetWriter.isaacRandom);
+		PacketMessage var5 = class185.method3435(ClientPacket.field3040, client.serverConnection.isaacRandom);
 		var5.buffer.method8152(var2);
 		var5.buffer.writeIntAlt(var3 ? client.field1729 : 0);
 		var5.buffer.method8161(var0);
 		var5.buffer.method8159(var1);
-		client.packetWriter.add(var5);
+		client.serverConnection.add(var5);
 	}
 }

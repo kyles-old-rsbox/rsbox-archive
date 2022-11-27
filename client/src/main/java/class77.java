@@ -1,7 +1,7 @@
 public final class class77 extends class212 {
 	static class86 field670;
-	static int field662;
-	static int field669;
+	static int loginAuthWaitLength;
+	static int loginProofOfWorkSize;
 	boolean field667;
 	class189 field664;
 	int field658;

@@ -153,12 +153,12 @@ public class class57 {
 		throw new Error();
 	}
 
-	public static void method5433(class79 var0) {
+	public static void runClientScript(ClientScript var0) {
 		method1954(var0, 500000, 475000);
 	}
 
-	static void method1954(class79 var0, int var1, int var2) {
-		Object[] var4 = var0.field686;
+	static void method1954(ClientScript var0, int var1, int var2) {
+		Object[] var4 = var0.args;
 		class78 var5;
 		int var21;
 		if (class430.method7845(var0.field696)) {

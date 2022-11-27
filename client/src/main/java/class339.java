@@ -23,13 +23,13 @@ public final class class339 {
 	}
 
 	static final void method6316() {
-		PacketBufferNode var1 = class185.method3435(class274.field3140, client.packetWriter.isaacRandom);
-		client.packetWriter.add(var1);
+		PacketMessage var1 = class185.method3435(ClientPacket.field3140, client.serverConnection.isaacRandom);
+		client.serverConnection.add(var1);
 		class57.field411 = true;
 
 		for (InterfaceParent var2 = (InterfaceParent)client.parentInterfaces.first(); var2 != null; var2 = (InterfaceParent)client.parentInterfaces.next()) {
 			if (var2.field797 == 0 || 3 == var2.field797) {
-				class4.closeInterface(var2, true);
+				ProofOfWorkRequest.closeInterface(var2, true);
 			}
 		}
 

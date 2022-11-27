@@ -5,15 +5,15 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class class4 {
+public class ProofOfWorkRequest {
 	static class336 field12;
 	static class420 field10;
 	ExecutorService field5;
 	Future field13;
-	final class24 field8;
+	final ProofOfWorkMessage field8;
 	final Buffer field7;
 
-	public class4(Buffer var1, class24 var2) {
+	public ProofOfWorkRequest(Buffer var1, ProofOfWorkMessage var2) {
 		this.field5 = Executors.newSingleThreadExecutor();
 		this.field7 = var1;
 		this.field8 = var2;
@@ -24,7 +24,7 @@ public class class4 {
 		return this.field13.isDone();
 	}
 
-	public void method18() {
+	public void destroy() {
 		this.field5.shutdown();
 		this.field5 = null;
 	}

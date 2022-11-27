@@ -17,7 +17,7 @@ public class class190 implements class29 {
 			if (null != var3) {
 				var3.field3690.method5560(true);
 				if (var3.field3684 != null) {
-					class79 var4 = new class79();
+					ClientScript var4 = new ClientScript();
 					var4.method1599(var1);
 					var4.method1602(var3.field3684);
 					client.method7851().method6355(var4);
@@ -39,7 +39,7 @@ public class class190 implements class29 {
 			if (null != var2) {
 				var2.field3690.method5560(false);
 				if (null != var2.field3684) {
-					class79 var4 = new class79();
+					ClientScript var4 = new ClientScript();
 					var4.method1599(var3);
 					var4.method1602(var2.field3684);
 					client.method7851().method6355(var4);
@@ -159,7 +159,7 @@ public class class190 implements class29 {
 						var3.method5577(10);
 					} else {
 						class310 var4 = this.field2014.method5880();
-						class79 var5 = new class79();
+						ClientScript var5 = new ClientScript();
 						var5.method1599(this.field2014);
 						var5.method1602(var4.field3687);
 						client.method7851().method6355(var5);
@@ -258,10 +258,10 @@ public class class190 implements class29 {
 
 	static final void method3532(String var0) {
 		if (!var0.equals("")) {
-			PacketBufferNode var2 = class185.method3435(class274.field3049, client.packetWriter.isaacRandom);
+			PacketMessage var2 = class185.method3435(ClientPacket.field3049, client.serverConnection.isaacRandom);
 			var2.buffer.writeByte(Buffer.method1887(var0));
 			var2.buffer.writeString(var0);
-			client.packetWriter.add(var2);
+			client.serverConnection.add(var2);
 		}
 	}
 
@@ -270,12 +270,12 @@ public class class190 implements class29 {
 			if (var1 >= 0 && var1 < client.field1883[var0].method2512()) {
 				class133 var3 = (class133)client.field1883[var0].field1347.get(var1);
 				if (var3.field1256 == -1) {
-					PacketBufferNode var4 = class185.method3435(class274.field3114, client.packetWriter.isaacRandom);
+					PacketMessage var4 = class185.method3435(ClientPacket.field3114, client.serverConnection.isaacRandom);
 					var4.buffer.writeByte(3 + Buffer.method1887(var3.field1254.getName()));
 					var4.buffer.writeByte(var0);
 					var4.buffer.writeShort(var1);
 					var4.buffer.writeString(var3.field1254.getName());
-					client.packetWriter.add(var4);
+					client.serverConnection.add(var4);
 				}
 			}
 		}

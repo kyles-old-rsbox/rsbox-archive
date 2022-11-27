@@ -37,6 +37,10 @@ class HandshakeProtocol(session: Session) : Protocol(session) {
     }
 
     override fun encode(msg: Message, out: ByteBuf) {
+        if(msg !is HandshakeResponse) return
+
+        out.writeByte(msg.status.opcode)
+        out.writeLong(msg.seed)
     }
 
     override fun handle(msg: Message) {
@@ -56,9 +60,7 @@ class HandshakeProtocol(session: Session) : Protocol(session) {
     }
 
     private fun HandshakeRequest.LOGIN.handle() {
-        session.write(StatusResponse.SUCCESSFUL)
-        session.write(session.ctx.alloc().buffer(Long.SIZE_BYTES).writeLong(session.seed))
-        session.flush()
+        session.writeAndFlush(HandshakeResponse(StatusResponse.SUCCESSFUL, session.seed))
         session.protocol.set(LoginProtocol(session))
     }
 }

@@ -1,21 +1,21 @@
-public class PacketBufferNode extends class427 {
-	static PacketBufferNode[] field2986;
+public class PacketMessage extends class427 {
+	static PacketMessage[] field2986;
 	static int field2988;
-	class274 field2989;
+	ClientPacket field2989;
 	int field2985;
 	public PacketBuffer buffer;
 	public int field2987;
 
 	static {
-		field2986 = new PacketBufferNode[300];
+		field2986 = new PacketMessage[300];
 		field2988 = 0;
 	}
 
-	PacketBufferNode() {
+	PacketMessage() {
 	}
 
-	public static PacketBufferNode create() {
-		PacketBufferNode var1 = class210.method4096();
+	public static PacketMessage create() {
+		PacketMessage var1 = class210.method4096();
 		var1.field2989 = null;
 		var1.field2985 = 0;
 		var1.buffer = new PacketBuffer(5000);
@@ -41,7 +41,7 @@ public class PacketBufferNode extends class427 {
 			}
 		}
 
-		PacketBufferNode var12;
+		PacketMessage var12;
 		class81 var15;
 		if (var2 == 1003) {
 			client.field1657 = var7;
@@ -56,23 +56,23 @@ public class PacketBufferNode extends class427 {
 				}
 
 				if (var11 != null) {
-					var12 = class185.method3435(class274.field3060, client.packetWriter.isaacRandom);
+					var12 = class185.method3435(ClientPacket.field3060, client.serverConnection.isaacRandom);
 					var12.buffer.method8161(var11.field2260);
-					client.packetWriter.add(var12);
+					client.serverConnection.add(var12);
 				}
 			}
 		}
 
-		PacketBufferNode var16;
+		PacketMessage var16;
 		if (var2 == 31) {
-			var16 = class185.method3435(class274.field3096, client.packetWriter.isaacRandom);
+			var16 = class185.method3435(ClientPacket.field3096, client.serverConnection.isaacRandom);
 			var16.buffer.method8337(class6.field23);
 			var16.buffer.writeIntLEAlt(class213.field2493);
 			var16.buffer.writeIntLEAlt(var1);
 			var16.buffer.writeShort(var0);
 			var16.buffer.method8159(var4);
 			var16.buffer.writeShort(class54.field385);
-			client.packetWriter.add(var16);
+			client.serverConnection.add(var16);
 			client.field1840 = 0;
 			class132.field1247 = class282.method5426(var1);
 			client.field1888 = var0;
@@ -83,13 +83,13 @@ public class PacketBufferNode extends class427 {
 			client.field1749 = var8;
 			client.field1751 = 2;
 			client.field1904 = 0;
-			var16 = class185.method3435(class274.field3126, client.packetWriter.isaacRandom);
+			var16 = class185.method3435(ClientPacket.field3126, client.serverConnection.isaacRandom);
 			var16.buffer.writeShort(var3);
-			client.packetWriter.add(var16);
+			client.serverConnection.add(var16);
 		}
 
 		PlayerEntity var17;
-		PacketBufferNode var18;
+		PacketMessage var18;
 		if (var2 == 50) {
 			var17 = client.players[var3];
 			if (null != var17) {
@@ -99,10 +99,10 @@ public class PacketBufferNode extends class427 {
 				client.field1904 = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var18 = class185.method3435(class274.field3089, client.packetWriter.isaacRandom);
+				var18 = class185.method3435(ClientPacket.field3089, client.serverConnection.isaacRandom);
 				var18.buffer.writeShort(var3);
 				var18.buffer.writeByte(client.field1876.method3895(82) ? 1 : 0);
-				client.packetWriter.add(var18);
+				client.serverConnection.add(var18);
 			}
 		}
 
@@ -115,13 +115,13 @@ public class PacketBufferNode extends class427 {
 				client.field1904 = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var18 = class185.method3435(class274.field3143, client.packetWriter.isaacRandom);
+				var18 = class185.method3435(ClientPacket.field3143, client.serverConnection.isaacRandom);
 				var18.buffer.writeIntLEAlt(class213.field2493);
 				var18.buffer.method8161(class6.field23);
 				var18.buffer.method8161(class54.field385);
 				var18.buffer.method8337(var3);
 				var18.buffer.writeByte(client.field1876.method3895(82) ? 1 : 0);
-				client.packetWriter.add(var18);
+				client.serverConnection.add(var18);
 			}
 		}
 
@@ -134,10 +134,10 @@ public class PacketBufferNode extends class427 {
 				client.field1904 = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var18 = class185.method3435(class274.field3044, client.packetWriter.isaacRandom);
+				var18 = class185.method3435(ClientPacket.field3044, client.serverConnection.isaacRandom);
 				var18.buffer.method8337(var3);
 				var18.buffer.writeByte(client.field1876.method3895(82) ? 1 : 0);
-				client.packetWriter.add(var18);
+				client.serverConnection.add(var18);
 			}
 		}
 
@@ -150,22 +150,22 @@ public class PacketBufferNode extends class427 {
 				client.field1904 = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var18 = class185.method3435(class274.field3145, client.packetWriter.isaacRandom);
+				var18 = class185.method3435(ClientPacket.field3145, client.serverConnection.isaacRandom);
 				var18.buffer.writeIntAlt(class106.field1066);
 				var18.buffer.method8159(client.field1806);
 				var18.buffer.writeByte(client.field1876.method3895(82) ? 1 : 0);
 				var18.buffer.method8337(client.field1805);
 				var18.buffer.method8161(var3);
-				client.packetWriter.add(var18);
+				client.serverConnection.add(var18);
 			}
 		}
 
 		if (var2 == 41) {
-			var16 = class185.method3435(class274.field3098, client.packetWriter.isaacRandom);
+			var16 = class185.method3435(ClientPacket.field3098, client.serverConnection.isaacRandom);
 			var16.buffer.method8159(var4);
 			var16.buffer.writeInt(var1);
 			var16.buffer.writeShort(var0);
-			client.packetWriter.add(var16);
+			client.serverConnection.add(var16);
 			client.field1840 = 0;
 			class132.field1247 = class282.method5426(var1);
 			client.field1888 = var0;
@@ -180,10 +180,10 @@ public class PacketBufferNode extends class427 {
 				client.field1904 = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var18 = class185.method3435(class274.field3042, client.packetWriter.isaacRandom);
+				var18 = class185.method3435(ClientPacket.field3042, client.serverConnection.isaacRandom);
 				var18.buffer.method8152(client.field1876.method3895(82) ? 1 : 0);
 				var18.buffer.method8159(var3);
-				client.packetWriter.add(var18);
+				client.serverConnection.add(var18);
 			}
 		}
 
@@ -192,41 +192,41 @@ public class PacketBufferNode extends class427 {
 			client.field1749 = var8;
 			client.field1751 = 2;
 			client.field1904 = 0;
-			var16 = class185.method3435(class274.field3138, client.packetWriter.isaacRandom);
+			var16 = class185.method3435(ClientPacket.field3138, client.serverConnection.isaacRandom);
 			var16.buffer.writeShort(var0 + class36.field241);
 			var16.buffer.method8337(var3);
 			var16.buffer.writeShort(class169.field1536 + var1);
-			client.packetWriter.add(var16);
+			client.serverConnection.add(var16);
 		}
 
 		if (var2 == 37) {
-			var16 = class185.method3435(class274.field3125, client.packetWriter.isaacRandom);
+			var16 = class185.method3435(ClientPacket.field3125, client.serverConnection.isaacRandom);
 			var16.buffer.writeShort(var0);
 			var16.buffer.method8161(var4);
 			var16.buffer.writeIntLE(var1);
-			client.packetWriter.add(var16);
+			client.serverConnection.add(var16);
 			client.field1840 = 0;
 			class132.field1247 = class282.method5426(var1);
 			client.field1888 = var0;
 		}
 
 		if (var2 == 42) {
-			var16 = class185.method3435(class274.field3103, client.packetWriter.isaacRandom);
+			var16 = class185.method3435(ClientPacket.field3103, client.serverConnection.isaacRandom);
 			var16.buffer.method8159(var4);
 			var16.buffer.writeIntLEAlt(var1);
 			var16.buffer.method8159(var0);
-			client.packetWriter.add(var16);
+			client.serverConnection.add(var16);
 			client.field1840 = 0;
 			class132.field1247 = class282.method5426(var1);
 			client.field1888 = var0;
 		}
 
 		if (var2 == 40) {
-			var16 = class185.method3435(class274.field3072, client.packetWriter.isaacRandom);
+			var16 = class185.method3435(ClientPacket.field3072, client.serverConnection.isaacRandom);
 			var16.buffer.writeIntLEAlt(var1);
 			var16.buffer.writeShort(var0);
 			var16.buffer.method8161(var4);
-			client.packetWriter.add(var16);
+			client.serverConnection.add(var16);
 			client.field1840 = 0;
 			class132.field1247 = class282.method5426(var1);
 			client.field1888 = var0;
@@ -236,22 +236,22 @@ public class PacketBufferNode extends class427 {
 			var10 = class253.method5043(var1, var0);
 			if (var10 != null) {
 				if (null != var10.field3573) {
-					class79 var19 = new class79();
+					ClientScript var19 = new ClientScript();
 					var19.field694 = var10;
 					var19.field690 = var3;
 					var19.field685 = var6;
-					var19.field686 = var10.field3573;
-					class57.method5433(var19);
+					var19.args = var10.field3573;
+					class57.runClientScript(var19);
 				}
 
-				var18 = class185.method3435(class274.field3131, client.packetWriter.isaacRandom);
+				var18 = class185.method3435(ClientPacket.field3131, client.serverConnection.isaacRandom);
 				var18.buffer.method8161(client.field1806);
 				var18.buffer.method8161(var0);
 				var18.buffer.writeIntAlt(class106.field1066);
 				var18.buffer.writeShort(var4);
 				var18.buffer.writeIntLE(var1);
 				var18.buffer.method8159(client.field1805);
-				client.packetWriter.add(var18);
+				client.serverConnection.add(var18);
 			}
 		}
 
@@ -262,7 +262,7 @@ public class PacketBufferNode extends class427 {
 			client.field1904 = 0;
 			client.destinationX = var0;
 			client.destinationY = var1;
-			var16 = class185.method3435(class274.field3123, client.packetWriter.isaacRandom);
+			var16 = class185.method3435(ClientPacket.field3123, client.serverConnection.isaacRandom);
 			var16.buffer.method8337(class6.field23);
 			var16.buffer.method8337(class54.field385);
 			var16.buffer.writeShort(var1 + class169.field1536);
@@ -270,7 +270,7 @@ public class PacketBufferNode extends class427 {
 			var16.buffer.writeIntAlt(class213.field2493);
 			var16.buffer.writeByte(client.field1876.method3895(82) ? 1 : 0);
 			var16.buffer.method8337(var3);
-			client.packetWriter.add(var16);
+			client.serverConnection.add(var16);
 		}
 
 		if (var2 == 38) {
@@ -294,20 +294,20 @@ public class PacketBufferNode extends class427 {
 				client.field1904 = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(class274.field3054, client.packetWriter.isaacRandom);
+				var16 = class185.method3435(ClientPacket.field3054, client.serverConnection.isaacRandom);
 				var16.buffer.method8152(client.field1876.method3895(82) ? 1 : 0);
 				var16.buffer.method8159(var1 + class169.field1536);
 				var16.buffer.method8159(class36.field241 + var0);
 				var16.buffer.method8161(var3);
-				client.packetWriter.add(var16);
+				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 36) {
-				var16 = class185.method3435(class274.field3107, client.packetWriter.isaacRandom);
+				var16 = class185.method3435(ClientPacket.field3107, client.serverConnection.isaacRandom);
 				var16.buffer.writeInt(var1);
 				var16.buffer.method8337(var0);
 				var16.buffer.method8159(var4);
-				client.packetWriter.add(var16);
+				client.serverConnection.add(var16);
 				client.field1840 = 0;
 				class132.field1247 = class282.method5426(var1);
 				client.field1888 = var0;
@@ -316,9 +316,9 @@ public class PacketBufferNode extends class427 {
 			int var13;
 			class300 var20;
 			if (var2 == 28) {
-				var16 = class185.method3435(class274.field3039, client.packetWriter.isaacRandom);
+				var16 = class185.method3435(ClientPacket.field3039, client.serverConnection.isaacRandom);
 				var16.buffer.writeInt(var1);
-				client.packetWriter.add(var16);
+				client.serverConnection.add(var16);
 				var20 = class282.method5426(var1);
 				if (null != var20 && var20.field3613 != null && 5 == var20.field3613[0][0]) {
 					var13 = var20.field3613[0][1];
@@ -336,30 +336,30 @@ public class PacketBufferNode extends class427 {
 					client.field1904 = 0;
 					client.destinationX = var0;
 					client.destinationY = var1;
-					var18 = class185.method3435(class274.field3110, client.packetWriter.isaacRandom);
+					var18 = class185.method3435(ClientPacket.field3110, client.serverConnection.isaacRandom);
 					var18.buffer.method8152(client.field1876.method3895(82) ? 1 : 0);
 					var18.buffer.method8161(var3);
-					client.packetWriter.add(var18);
+					client.serverConnection.add(var18);
 				}
 			}
 
 			if (var2 == 39) {
-				var16 = class185.method3435(class274.field3086, client.packetWriter.isaacRandom);
+				var16 = class185.method3435(ClientPacket.field3086, client.serverConnection.isaacRandom);
 				var16.buffer.writeIntLE(var1);
 				var16.buffer.method8159(var4);
 				var16.buffer.writeShort(var0);
-				client.packetWriter.add(var16);
+				client.serverConnection.add(var16);
 				client.field1840 = 0;
 				class132.field1247 = class282.method5426(var1);
 				client.field1888 = var0;
 			}
 
 			if (var2 == 35) {
-				var16 = class185.method3435(class274.field3091, client.packetWriter.isaacRandom);
+				var16 = class185.method3435(ClientPacket.field3091, client.serverConnection.isaacRandom);
 				var16.buffer.writeInt(var1);
 				var16.buffer.method8161(var4);
 				var16.buffer.writeShort(var0);
-				client.packetWriter.add(var16);
+				client.serverConnection.add(var16);
 				client.field1840 = 0;
 				class132.field1247 = class282.method5426(var1);
 				client.field1888 = var0;
@@ -372,12 +372,12 @@ public class PacketBufferNode extends class427 {
 				client.field1904 = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(class274.field3106, client.packetWriter.isaacRandom);
+				var16 = class185.method3435(ClientPacket.field3106, client.serverConnection.isaacRandom);
 				var16.buffer.method8161(var1 + class169.field1536);
 				var16.buffer.method8159(var3);
 				var16.buffer.method8348(client.field1876.method3895(82) ? 1 : 0);
 				var16.buffer.writeShort(var0 + class36.field241);
-				client.packetWriter.add(var16);
+				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 22) {
@@ -387,12 +387,12 @@ public class PacketBufferNode extends class427 {
 				client.field1904 = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(class274.field3084, client.packetWriter.isaacRandom);
+				var16 = class185.method3435(ClientPacket.field3084, client.serverConnection.isaacRandom);
 				var16.buffer.method8161(class36.field241 + var0);
 				var16.buffer.method8152(client.field1876.method3895(82) ? 1 : 0);
 				var16.buffer.method8161(var3);
 				var16.buffer.method8161(class169.field1536 + var1);
-				client.packetWriter.add(var16);
+				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 11) {
@@ -404,10 +404,10 @@ public class PacketBufferNode extends class427 {
 					client.field1904 = 0;
 					client.destinationX = var0;
 					client.destinationY = var1;
-					var18 = class185.method3435(class274.field3056, client.packetWriter.isaacRandom);
+					var18 = class185.method3435(ClientPacket.field3056, client.serverConnection.isaacRandom);
 					var18.buffer.method8337(var3);
 					var18.buffer.method8264(client.field1876.method3895(82) ? 1 : 0);
-					client.packetWriter.add(var18);
+					client.serverConnection.add(var18);
 				}
 			}
 
@@ -420,13 +420,13 @@ public class PacketBufferNode extends class427 {
 					client.field1904 = 0;
 					client.destinationX = var0;
 					client.destinationY = var1;
-					var18 = class185.method3435(class274.field3111, client.packetWriter.isaacRandom);
+					var18 = class185.method3435(ClientPacket.field3111, client.serverConnection.isaacRandom);
 					var18.buffer.method8161(class6.field23);
 					var18.buffer.method8159(class54.field385);
 					var18.buffer.method8337(var3);
 					var18.buffer.method8264(client.field1876.method3895(82) ? 1 : 0);
 					var18.buffer.writeInt(class213.field2493);
-					client.packetWriter.add(var18);
+					client.serverConnection.add(var18);
 				}
 			}
 
@@ -437,12 +437,12 @@ public class PacketBufferNode extends class427 {
 				client.field1904 = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(class274.field3053, client.packetWriter.isaacRandom);
+				var16 = class185.method3435(ClientPacket.field3053, client.serverConnection.isaacRandom);
 				var16.buffer.method8161(class36.field241 + var0);
 				var16.buffer.method8348(client.field1876.method3895(82) ? 1 : 0);
 				var16.buffer.method8337(var3);
 				var16.buffer.method8161(var1 + class169.field1536);
-				client.packetWriter.add(var16);
+				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 1005) {
@@ -450,9 +450,9 @@ public class PacketBufferNode extends class427 {
 				if (var10 != null && var10.field3456[var0] >= 100000) {
 					MouseManager.method773(27, "", var10.field3456[var0] + " x " + class278.method5388(var4).field2131);
 				} else {
-					var18 = class185.method3435(class274.field3139, client.packetWriter.isaacRandom);
+					var18 = class185.method3435(ClientPacket.field3139, client.serverConnection.isaacRandom);
 					var18.buffer.method8159(var4);
-					client.packetWriter.add(var18);
+					client.serverConnection.add(var18);
 				}
 
 				client.field1840 = 0;
@@ -469,10 +469,10 @@ public class PacketBufferNode extends class427 {
 					client.field1904 = 0;
 					client.destinationX = var0;
 					client.destinationY = var1;
-					var18 = class185.method3435(class274.field3070, client.packetWriter.isaacRandom);
+					var18 = class185.method3435(ClientPacket.field3070, client.serverConnection.isaacRandom);
 					var18.buffer.method8161(var3);
 					var18.buffer.method8152(client.field1876.method3895(82) ? 1 : 0);
-					client.packetWriter.add(var18);
+					client.serverConnection.add(var18);
 				}
 			}
 
@@ -485,18 +485,18 @@ public class PacketBufferNode extends class427 {
 					client.field1904 = 0;
 					client.destinationX = var0;
 					client.destinationY = var1;
-					var18 = class185.method3435(class274.field3119, client.packetWriter.isaacRandom);
+					var18 = class185.method3435(ClientPacket.field3119, client.serverConnection.isaacRandom);
 					var18.buffer.method8161(var3);
 					var18.buffer.method8337(client.field1805);
 					var18.buffer.method8264(client.field1876.method3895(82) ? 1 : 0);
 					var18.buffer.method8337(client.field1806);
 					var18.buffer.writeIntLEAlt(class106.field1066);
-					client.packetWriter.add(var18);
+					client.serverConnection.add(var18);
 				}
 			}
 
 			if (var2 == 1008 || var2 == 1009 || var2 == 1010 || var2 == 1011 || var2 == 1012) {
-				class4.field10.method7630(var2, var3, new class295(var0), new class295(var1));
+				ProofOfWorkRequest.field10.method7630(var2, var3, new class295(var0), new class295(var1));
 			}
 
 			if (var2 == 1001) {
@@ -506,12 +506,12 @@ public class PacketBufferNode extends class427 {
 				client.field1904 = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(class274.field3064, client.packetWriter.isaacRandom);
+				var16 = class185.method3435(ClientPacket.field3064, client.serverConnection.isaacRandom);
 				var16.buffer.method8161(var1 + class169.field1536);
 				var16.buffer.writeShort(var0 + class36.field241);
 				var16.buffer.method8161(var3);
 				var16.buffer.method8264(client.field1876.method3895(82) ? 1 : 0);
-				client.packetWriter.add(var16);
+				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 45) {
@@ -523,19 +523,19 @@ public class PacketBufferNode extends class427 {
 					client.field1904 = 0;
 					client.destinationX = var0;
 					client.destinationY = var1;
-					var18 = class185.method3435(class274.field3090, client.packetWriter.isaacRandom);
+					var18 = class185.method3435(ClientPacket.field3090, client.serverConnection.isaacRandom);
 					var18.buffer.method8337(var3);
 					var18.buffer.method8264(client.field1876.method3895(82) ? 1 : 0);
-					client.packetWriter.add(var18);
+					client.serverConnection.add(var18);
 				}
 			}
 
 			if (var2 == 43) {
-				var16 = class185.method3435(class274.field3130, client.packetWriter.isaacRandom);
+				var16 = class185.method3435(ClientPacket.field3130, client.serverConnection.isaacRandom);
 				var16.buffer.method8337(var4);
 				var16.buffer.writeIntAlt(var1);
 				var16.buffer.method8159(var0);
-				client.packetWriter.add(var16);
+				client.serverConnection.add(var16);
 				client.field1840 = 0;
 				class132.field1247 = class282.method5426(var1);
 				client.field1888 = var0;
@@ -556,10 +556,10 @@ public class PacketBufferNode extends class427 {
 					client.field1904 = 0;
 					client.destinationX = var0;
 					client.destinationY = var1;
-					var18 = class185.method3435(class274.field3141, client.packetWriter.isaacRandom);
+					var18 = class185.method3435(ClientPacket.field3141, client.serverConnection.isaacRandom);
 					var18.buffer.method8264(client.field1876.method3895(82) ? 1 : 0);
 					var18.buffer.writeShort(var3);
-					client.packetWriter.add(var18);
+					client.serverConnection.add(var18);
 				}
 			}
 
@@ -570,7 +570,7 @@ public class PacketBufferNode extends class427 {
 				client.field1904 = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(class274.field3087, client.packetWriter.isaacRandom);
+				var16 = class185.method3435(ClientPacket.field3087, client.serverConnection.isaacRandom);
 				var16.buffer.method8159(client.field1805);
 				var16.buffer.method8159(class169.field1536 + var1);
 				var16.buffer.writeIntLE(class106.field1066);
@@ -578,7 +578,7 @@ public class PacketBufferNode extends class427 {
 				var16.buffer.method8159(var0 + class36.field241);
 				var16.buffer.method8159(var3);
 				var16.buffer.method8337(client.field1806);
-				client.packetWriter.add(var16);
+				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 20) {
@@ -588,20 +588,20 @@ public class PacketBufferNode extends class427 {
 				client.field1904 = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(class274.field3092, client.packetWriter.isaacRandom);
+				var16 = class185.method3435(ClientPacket.field3092, client.serverConnection.isaacRandom);
 				var16.buffer.writeShort(class36.field241 + var0);
 				var16.buffer.method8161(class169.field1536 + var1);
 				var16.buffer.method8159(var3);
 				var16.buffer.writeByte(client.field1876.method3895(82) ? 1 : 0);
-				client.packetWriter.add(var16);
+				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 34) {
-				var16 = class185.method3435(class274.field3104, client.packetWriter.isaacRandom);
+				var16 = class185.method3435(ClientPacket.field3104, client.serverConnection.isaacRandom);
 				var16.buffer.method8337(var0);
 				var16.buffer.writeShort(var4);
 				var16.buffer.writeIntAlt(var1);
-				client.packetWriter.add(var16);
+				client.serverConnection.add(var16);
 				client.field1840 = 0;
 				class132.field1247 = class282.method5426(var1);
 				client.field1888 = var0;
@@ -616,17 +616,17 @@ public class PacketBufferNode extends class427 {
 					}
 
 					if (var14) {
-						var12 = class185.method3435(class274.field3039, client.packetWriter.isaacRandom);
+						var12 = class185.method3435(ClientPacket.field3039, client.serverConnection.isaacRandom);
 						var12.buffer.writeInt(var1);
-						client.packetWriter.add(var12);
+						client.serverConnection.add(var12);
 					}
 				}
 			}
 
 			if (var2 == 29) {
-				var16 = class185.method3435(class274.field3039, client.packetWriter.isaacRandom);
+				var16 = class185.method3435(ClientPacket.field3039, client.serverConnection.isaacRandom);
 				var16.buffer.writeInt(var1);
-				client.packetWriter.add(var16);
+				client.serverConnection.add(var16);
 				var20 = class282.method5426(var1);
 				if (null != var20 && null != var20.field3613 && 5 == var20.field3613[0][0]) {
 					var13 = var20.field3613[0][1];
@@ -644,12 +644,12 @@ public class PacketBufferNode extends class427 {
 				client.field1904 = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(class274.field3121, client.packetWriter.isaacRandom);
+				var16 = class185.method3435(ClientPacket.field3121, client.serverConnection.isaacRandom);
 				var16.buffer.method8264(client.field1876.method3895(82) ? 1 : 0);
 				var16.buffer.method8337(class36.field241 + var0);
 				var16.buffer.method8161(var1 + class169.field1536);
 				var16.buffer.writeShort(var3);
-				client.packetWriter.add(var16);
+				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 16) {
@@ -659,7 +659,7 @@ public class PacketBufferNode extends class427 {
 				client.field1904 = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(class274.field3057, client.packetWriter.isaacRandom);
+				var16 = class185.method3435(ClientPacket.field3057, client.serverConnection.isaacRandom);
 				var16.buffer.method8152(client.field1876.method3895(82) ? 1 : 0);
 				var16.buffer.method8337(var1 + class169.field1536);
 				var16.buffer.method8159(class54.field385);
@@ -667,7 +667,7 @@ public class PacketBufferNode extends class427 {
 				var16.buffer.writeIntLE(class213.field2493);
 				var16.buffer.method8159(class6.field23);
 				var16.buffer.writeShort(var0 + class36.field241);
-				client.packetWriter.add(var16);
+				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 12) {
@@ -679,10 +679,10 @@ public class PacketBufferNode extends class427 {
 					client.field1904 = 0;
 					client.destinationX = var0;
 					client.destinationY = var1;
-					var18 = class185.method3435(class274.field3078, client.packetWriter.isaacRandom);
+					var18 = class185.method3435(ClientPacket.field3078, client.serverConnection.isaacRandom);
 					var18.buffer.method8159(var3);
 					var18.buffer.method8152(client.field1876.method3895(82) ? 1 : 0);
-					client.packetWriter.add(var18);
+					client.serverConnection.add(var18);
 				}
 			}
 
@@ -693,7 +693,7 @@ public class PacketBufferNode extends class427 {
 				client.field1904 = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(class274.field3093, client.packetWriter.isaacRandom);
+				var16 = class185.method3435(ClientPacket.field3093, client.serverConnection.isaacRandom);
 				var16.buffer.writeIntLEAlt(class106.field1066);
 				var16.buffer.method8337(var3);
 				var16.buffer.method8159(class169.field1536 + var1);
@@ -701,15 +701,15 @@ public class PacketBufferNode extends class427 {
 				var16.buffer.method8161(client.field1805);
 				var16.buffer.method8161(var0 + class36.field241);
 				var16.buffer.method8152(client.field1876.method3895(82) ? 1 : 0);
-				client.packetWriter.add(var16);
+				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 33) {
-				var16 = class185.method3435(class274.field3067, client.packetWriter.isaacRandom);
+				var16 = class185.method3435(ClientPacket.field3067, client.serverConnection.isaacRandom);
 				var16.buffer.writeShort(var4);
 				var16.buffer.writeShort(var0);
 				var16.buffer.writeInt(var1);
-				client.packetWriter.add(var16);
+				client.serverConnection.add(var16);
 				client.field1840 = 0;
 				class132.field1247 = class282.method5426(var1);
 				client.field1888 = var0;
@@ -724,10 +724,10 @@ public class PacketBufferNode extends class427 {
 					client.field1904 = 0;
 					client.destinationX = var0;
 					client.destinationY = var1;
-					var18 = class185.method3435(class274.field3048, client.packetWriter.isaacRandom);
+					var18 = class185.method3435(ClientPacket.field3048, client.serverConnection.isaacRandom);
 					var18.buffer.method8161(var3);
 					var18.buffer.method8264(client.field1876.method3895(82) ? 1 : 0);
-					client.packetWriter.add(var18);
+					client.serverConnection.add(var18);
 				}
 			}
 
@@ -738,12 +738,12 @@ public class PacketBufferNode extends class427 {
 				client.field1904 = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(class274.field3050, client.packetWriter.isaacRandom);
+				var16 = class185.method3435(ClientPacket.field3050, client.serverConnection.isaacRandom);
 				var16.buffer.method8337(var1 + class169.field1536);
 				var16.buffer.method8337(class36.field241 + var0);
 				var16.buffer.writeByte(client.field1876.method3895(82) ? 1 : 0);
 				var16.buffer.method8159(var3);
-				client.packetWriter.add(var16);
+				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 10) {
@@ -755,10 +755,10 @@ public class PacketBufferNode extends class427 {
 					client.field1904 = 0;
 					client.destinationX = var0;
 					client.destinationY = var1;
-					var18 = class185.method3435(class274.field3122, client.packetWriter.isaacRandom);
+					var18 = class185.method3435(ClientPacket.field3122, client.serverConnection.isaacRandom);
 					var18.buffer.method8337(var3);
 					var18.buffer.writeByte(client.field1876.method3895(82) ? 1 : 0);
-					client.packetWriter.add(var18);
+					client.serverConnection.add(var18);
 				}
 			}
 
@@ -777,22 +777,22 @@ public class PacketBufferNode extends class427 {
 				client.field1904 = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(class274.field3080, client.packetWriter.isaacRandom);
+				var16 = class185.method3435(ClientPacket.field3080, client.serverConnection.isaacRandom);
 				var16.buffer.writeShort(var3);
 				var16.buffer.method8161(var0 + class36.field241);
 				var16.buffer.method8348(client.field1876.method3895(82) ? 1 : 0);
 				var16.buffer.method8159(var1 + class169.field1536);
-				client.packetWriter.add(var16);
+				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 32) {
-				var16 = class185.method3435(class274.field3041, client.packetWriter.isaacRandom);
+				var16 = class185.method3435(ClientPacket.field3041, client.serverConnection.isaacRandom);
 				var16.buffer.method8159(client.field1805);
 				var16.buffer.method8161(var0);
 				var16.buffer.writeIntAlt(var1);
 				var16.buffer.writeInt(class106.field1066);
 				var16.buffer.method8159(var4);
-				client.packetWriter.add(var16);
+				client.serverConnection.add(var16);
 				client.field1840 = 0;
 				class132.field1247 = class282.method5426(var1);
 				client.field1888 = var0;
@@ -805,12 +805,12 @@ public class PacketBufferNode extends class427 {
 				client.field1904 = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(class274.field3132, client.packetWriter.isaacRandom);
+				var16 = class185.method3435(ClientPacket.field3132, client.serverConnection.isaacRandom);
 				var16.buffer.method8264(client.field1876.method3895(82) ? 1 : 0);
 				var16.buffer.writeShort(class36.field241 + var0);
 				var16.buffer.method8337(var3);
 				var16.buffer.method8159(var1 + class169.field1536);
-				client.packetWriter.add(var16);
+				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 9) {
@@ -822,10 +822,10 @@ public class PacketBufferNode extends class427 {
 					client.field1904 = 0;
 					client.destinationX = var0;
 					client.destinationY = var1;
-					var18 = class185.method3435(class274.field3069, client.packetWriter.isaacRandom);
+					var18 = class185.method3435(ClientPacket.field3069, client.serverConnection.isaacRandom);
 					var18.buffer.method8264(client.field1876.method3895(82) ? 1 : 0);
 					var18.buffer.writeShort(var3);
-					client.packetWriter.add(var18);
+					client.serverConnection.add(var18);
 				}
 			}
 
@@ -838,10 +838,10 @@ public class PacketBufferNode extends class427 {
 					client.field1904 = 0;
 					client.destinationX = var0;
 					client.destinationY = var1;
-					var18 = class185.method3435(class274.field3095, client.packetWriter.isaacRandom);
+					var18 = class185.method3435(ClientPacket.field3095, client.serverConnection.isaacRandom);
 					var18.buffer.method8337(var3);
 					var18.buffer.method8264(client.field1876.method3895(82) ? 1 : 0);
-					client.packetWriter.add(var18);
+					client.serverConnection.add(var18);
 				}
 			}
 

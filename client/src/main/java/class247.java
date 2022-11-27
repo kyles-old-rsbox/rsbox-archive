@@ -83,10 +83,10 @@ public class class247 implements class248 {
 	static void method4960(int var0, int var1, int var2, int var3) {
 		class300 var5 = class253.method5043(var0, var1);
 		if (var5 != null && var5.field3563 != null) {
-			class79 var6 = new class79();
+			ClientScript var6 = new ClientScript();
 			var6.field694 = var5;
-			var6.field686 = var5.field3563;
-			class57.method5433(var6);
+			var6.args = var5.field3563;
+			class57.runClientScript(var6);
 		}
 
 		client.field1806 = var3;

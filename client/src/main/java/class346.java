@@ -448,14 +448,14 @@ public class class346 implements class360 {
 					if (class242.method4733(class190.method3528(var0.field1984))) {
 						int[] var5 = var0.field1984.method5933();
 						if (var5 != null) {
-							PacketBufferNode var3 = class185.method3435(class274.field3146, client.packetWriter.isaacRandom);
+							PacketMessage var3 = class185.method3435(ClientPacket.field3146, client.serverConnection.isaacRandom);
 							var3.buffer.writeIntAlt(var5[2]);
 							var3.buffer.writeInt(var0.field1984.field3517);
 							var3.buffer.writeIntAlt(var0.field1984.method5871());
 							var3.buffer.writeShort(var0.field1984.field3484);
 							var3.buffer.writeIntLE(var5[1]);
 							var3.buffer.writeIntLE(var5[0]);
-							client.packetWriter.add(var3);
+							client.serverConnection.add(var3);
 						}
 					}
 				}

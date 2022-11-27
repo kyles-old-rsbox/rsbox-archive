@@ -107,9 +107,9 @@ public class class157 extends class175 {
 			}
 
 			if (var2 == 326) {
-				PacketBufferNode var5 = class185.method3435(class274.field3065, client.packetWriter.isaacRandom);
+				PacketMessage var5 = class185.method3435(ClientPacket.field3065, client.serverConnection.isaacRandom);
 				client.playerAppearance.method6016(var5.buffer);
-				client.packetWriter.add(var5);
+				client.serverConnection.add(var5);
 				return true;
 			} else {
 				return false;

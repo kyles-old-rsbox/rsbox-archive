@@ -6,7 +6,7 @@ public class class353 implements class360 {
 	public static final class353 field4292;
 	public static final class353 field4294;
 	public static final class353 field4303;
-	static class376 field4289;
+	static class376 fontPlain12;
 	static final class353 field4288;
 	static final class353 field4290;
 	static final class353 field4291;

@@ -5,8 +5,8 @@ public class class307 {
 		throw new Error();
 	}
 
-	public static PacketBufferNode method6040(int var0, String var1, class353 var2, int var3) {
-		PacketBufferNode var5 = class185.method3435(class274.field3115, client.packetWriter.isaacRandom);
+	public static PacketMessage method6040(int var0, String var1, class353 var2, int var3) {
+		PacketMessage var5 = class185.method3435(ClientPacket.field3115, client.serverConnection.isaacRandom);
 		var5.buffer.writeByte(0);
 		int var6 = var5.buffer.offset;
 		var5.buffer.writeByte(var0);

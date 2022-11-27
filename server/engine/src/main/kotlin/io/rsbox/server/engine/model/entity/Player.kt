@@ -30,6 +30,8 @@ import io.rsbox.server.engine.model.manager.SceneManager
 import io.rsbox.server.engine.model.ui.DisplayMode
 import io.rsbox.server.engine.net.Session
 import org.tinylog.kotlin.Logger
+import kotlin.random.Random
+import kotlin.random.nextLong
 
 class Player internal constructor(val session: Session) : LivingEntity() {
 
@@ -48,10 +50,12 @@ class Player internal constructor(val session: Session) : LivingEntity() {
     lateinit var passwordHash: String
     lateinit var displayName: String
     var pid: Int = -1
+    var uuid: Long = Random.nextLong(0..Long.MAX_VALUE)
+    var member = true
     var skullIcon: Int = -1
     var prayerIcon: Int = -1
     var privilege = Privilege.PLAYER
-    var displayMode = DisplayMode.RESIZABLE_CLASSIC
+    var displayMode = DisplayMode.FIXED
     var appearance = Appearance.DEFAULT
     var stanceAnimations = intArrayOf(808, 823, 819, 820, 821, 822, 824)
     val updateFlags = sortedSetOf<PlayerUpdateFlag>()

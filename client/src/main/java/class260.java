@@ -52,9 +52,9 @@ public class class260 {
 	}
 
 	static void method5145() {
-		if (class4.field10 != null) {
-			class4.field10.method7597(class55.field396, class36.field241 + (class291.localPlayer.field827 >> 7), (class291.localPlayer.field802 >> 7) + class169.field1536, false);
-			class4.field10.method7601();
+		if (ProofOfWorkRequest.field10 != null) {
+			ProofOfWorkRequest.field10.method7597(class55.field396, class36.field241 + (class291.localPlayer.field827 >> 7), (class291.localPlayer.field802 >> 7) + class169.field1536, false);
+			ProofOfWorkRequest.field10.method7601();
 		}
 
 	}

@@ -9,7 +9,7 @@ public class class133 {
 	}
 
 	static final void method2411() {
-		PacketBuffer var1 = client.packetWriter.buffer;
+		PacketBuffer var1 = client.serverConnection.buffer;
 		var1.setBitMode();
 		int var2 = var1.readBits(8);
 		int var3;

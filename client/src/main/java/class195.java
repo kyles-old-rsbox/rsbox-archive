@@ -7,7 +7,7 @@ public class class195 extends class437 {
 	static class284 field2055;
 	static class284 field2058;
 	static class284 field2074;
-	static int field2104;
+	static int loginRetryLength;
 	boolean field2065;
 	boolean field2083;
 	boolean field2085;

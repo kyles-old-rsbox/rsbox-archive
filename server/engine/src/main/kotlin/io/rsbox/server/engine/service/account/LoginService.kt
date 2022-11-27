@@ -27,6 +27,7 @@ import io.rsbox.server.engine.net.game.GameProtocol
 import io.rsbox.server.engine.net.login.LoginRequest
 import io.rsbox.server.engine.net.login.LoginResponse
 import io.rsbox.server.engine.service.Service
+import io.rsbox.server.engine.service.serializer.PlayerSerializer
 import io.rsbox.server.util.security.SHA256
 import kotlinx.coroutines.*
 import org.tinylog.kotlin.Logger
@@ -36,6 +37,7 @@ import java.util.concurrent.LinkedBlockingQueue
 class LoginService : Service, Runnable {
 
     private val world: World by inject()
+    private val serializer: PlayerSerializer by inject()
 
     private val executor = Executors.newFixedThreadPool(
         LOGIN_THREADS,
@@ -65,14 +67,14 @@ class LoginService : Service, Runnable {
     override fun run() {
         while(true) {
             val request = queue.take()
-
             val session = request.session
 
-            val player = Player(session)
-            player.username = request.username
-            player.passwordHash = SHA256.hash(request.password ?: "")
-            player.displayName = request.username
-            player.privilege = Privilege.DEVELOPER
+            val player = serializer.load(request)
+            if(player == null) {
+                session.writeAndClose(StatusResponse.INVALID_CREDENTIALS)
+                return
+            }
+
             session.xteas = request.xteas
             session.reconnectXteas = request.reconnectXteas
             player.login()
@@ -82,15 +84,18 @@ class LoginService : Service, Runnable {
     private fun Player.login() {
         session.encoderIsaac.init(IntArray(4) { session.xteas[it] + 50 })
         session.decoderIsaac.init(session.xteas)
-
         world.players.addPlayer(this)
-        LoginResponse(this).also { session.writeAndFlush(it) }
-        session.protocol.set(GameProtocol(session))
 
-        this.onLogin()
+        val response = LoginResponse(this)
+        session.writeAndFlush(response).addListener {
+            if(it.isSuccess) {
+                session.protocol.set(GameProtocol(session))
+                this.onLogin()
+            }
+        }
     }
 
     companion object {
-        private const val LOGIN_THREADS = 4
+        private const val LOGIN_THREADS = 2
     }
 }

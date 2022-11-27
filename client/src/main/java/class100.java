@@ -9,7 +9,7 @@ final class class100 implements class301 {
 
 	public void method5987() {
 		if (null != this.val$cc && this.val$cc.method5880().field3686 != null) {
-			class79 var2 = new class79();
+			ClientScript var2 = new ClientScript();
 			var2.method1599(this.val$cc);
 			var2.method1602(this.val$cc.method5880().field3686);
 			client.method7851().method6355(var2);
@@ -90,10 +90,10 @@ final class class100 implements class301 {
 		if (client.isSpellSelected) {
 			class300 var1 = class253.method5043(class106.field1066, client.field1805);
 			if (null != var1 && null != var1.field3598) {
-				class79 var2 = new class79();
+				ClientScript var2 = new ClientScript();
 				var2.field694 = var1;
-				var2.field686 = var1.field3598;
-				class57.method5433(var2);
+				var2.args = var1.field3598;
+				class57.runClientScript(var2);
 			}
 
 			client.field1806 = -1;

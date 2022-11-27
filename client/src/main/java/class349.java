@@ -25,13 +25,13 @@ public class class349 {
 		if (null != client.field1883[var0]) {
 			if (var1 >= 0 && var1 < client.field1883[var0].method2512()) {
 				class133 var4 = (class133)client.field1883[var0].field1347.get(var1);
-				PacketBufferNode var5 = class185.method3435(class274.field3133, client.packetWriter.isaacRandom);
+				PacketMessage var5 = class185.method3435(ClientPacket.field3133, client.serverConnection.isaacRandom);
 				var5.buffer.writeByte(4 + Buffer.method1887(var4.field1254.getName()));
 				var5.buffer.writeByte(var0);
 				var5.buffer.writeShort(var1);
 				var5.buffer.method8110(var2);
 				var5.buffer.writeString(var4.field1254.getName());
-				client.packetWriter.add(var5);
+				client.serverConnection.add(var5);
 			}
 		}
 	}

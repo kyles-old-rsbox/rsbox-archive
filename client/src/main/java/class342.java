@@ -185,7 +185,7 @@ public class class342 extends AbstractQueue {
 	}
 
 	static final void method6352(class271 var0) {
-		PacketBuffer var2 = client.packetWriter.buffer;
+		PacketBuffer var2 = client.serverConnection.buffer;
 		int var3;
 		int var4;
 		int var5;

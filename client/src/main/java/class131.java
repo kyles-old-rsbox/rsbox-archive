@@ -134,11 +134,11 @@ public class class131 extends class140 {
 			byte var3 = 4;
 			int var4 = var3 + 6;
 			int var5 = var3 + 6;
-			int var6 = class353.field4289.method6862(var0, 250);
-			int var7 = class353.field4289.method6869(var0, 250) * 13;
+			int var6 = class353.fontPlain12.method6862(var0, 250);
+			int var7 = class353.fontPlain12.method6869(var0, 250) * 13;
 			class481.method8660(var4 - var3, var5 - var3, var3 + var3 + var6, var3 + var7 + var3, 0);
 			class481.method8664(var4 - var3, var5 - var3, var3 + var3 + var6, var3 + var7 + var3, 16777215);
-			class353.field4289.method6870(var0, var4, var5, var6, var7, 16777215, -1, 1, 1, 0);
+			class353.fontPlain12.method6870(var0, var4, var5, var6, var7, 16777215, -1, 1, 1, 0);
 			class319.method6181(var4 - var3, var5 - var3, var3 + var6 + var3, var3 + var3 + var7);
 			if (var1) {
 				class6.field18.method8621(0, 0);
