@@ -7,7 +7,6 @@ dependencies {
     implementation(project(":server:cache"))
     implementation(project(":server:api"))
     implementation(project(":server:content"))
-    implementation(project(":client"))
 
     project(":server:content").dependencyProject.subprojects.forEach { subproject ->
         if(subproject.buildFile.exists() && subproject.name != project.name) {

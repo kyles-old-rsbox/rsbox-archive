@@ -17,6 +17,7 @@
 
 package io.rsbox.server.engine.model.entity.update
 
+import io.rsbox.server.engine.model.Privilege
 import io.rsbox.server.engine.model.entity.Player
 import io.rsbox.server.util.buffer.JagByteBuf
 import io.rsbox.server.util.buffer.NEG
@@ -52,8 +53,8 @@ class PlayerUpdateFlag(order: Int, mask: Int, val encode: JagByteBuf.(Player) ->
                 buf.writeShort(anim)
             }
 
-            val displayName = if(player.privilege.id > 0) "<img=${player.privilege.id - 2}>" else "" + player.displayName
-            buf.writeString(displayName)
+            val displayNamePrefix = if(player.privilege.id > 0) "<img=${player.privilege.id - Privilege.MODERATOR.id}> " else ""
+            buf.writeString(displayNamePrefix + player.displayName)
             buf.writeByte(3)
             buf.writeShort(0)
             buf.writeByte(if(player.invisible) 1 else 0)

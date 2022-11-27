@@ -29,7 +29,7 @@ public class class318 implements class360 {
 		if (client.serverConnection.field1077 >= 50 || var0) {
 			client.serverConnection.field1077 = 0;
 			if (!client.field1697 && client.serverConnection.method2082() != null) {
-				PacketMessage var2 = class185.method3435(ClientPacket.field3083, client.serverConnection.isaacRandom);
+				PacketMessage var2 = class185.method3435(ClientPacket.NO_TIMEOUT, client.serverConnection.isaacRandom);
 				client.serverConnection.add(var2);
 
 				try {

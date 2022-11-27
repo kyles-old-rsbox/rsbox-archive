@@ -3576,7 +3576,7 @@ public final class client extends class31 implements class375, OAuthApi {
 																	class217.friends.method1047();
 																	++serverConnection.field1077;
 																	if (serverConnection.field1077 > 50) {
-																		var27 = class185.method3435(ClientPacket.field3083, serverConnection.isaacRandom);
+																		var27 = class185.method3435(ClientPacket.NO_TIMEOUT, serverConnection.isaacRandom);
 																		serverConnection.add(var27);
 																	}
 

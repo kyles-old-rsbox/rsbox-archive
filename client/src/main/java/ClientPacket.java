@@ -42,7 +42,7 @@ public class ClientPacket implements ClientProt {
 	public static final ClientPacket field3080;
 	public static final ClientPacket field3081;
 	public static final ClientPacket field3082;
-	public static final ClientPacket field3083;
+	public static final ClientPacket NO_TIMEOUT;
 	public static final ClientPacket field3084;
 	public static final ClientPacket field3085;
 	public static final ClientPacket field3086;
@@ -111,7 +111,7 @@ public class ClientPacket implements ClientProt {
 	final int length;
 
 	static {
-		field3083 = new ClientPacket(0, 0);
+		NO_TIMEOUT = new ClientPacket(0, 0);
 		field3040 = new ClientPacket(1, 9);
 		field3041 = new ClientPacket(2, 14);
 		field3082 = new ClientPacket(3, -1);
