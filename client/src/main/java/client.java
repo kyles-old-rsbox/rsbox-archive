@@ -3954,6 +3954,15 @@ public final class client extends class31 implements class375, OAuthApi {
 					scriptArgs[0] = new Integer(packetBuf.readInt());
 					ClientScript script = new ClientScript();
 					script.args = scriptArgs;
+
+					StringBuilder str = new StringBuilder();
+					str.append("[ServerPacket] RUN_CLIENT_SCRIPT(id="+scriptArgs[0]+", args=");
+					for(int idx = 1; idx < scriptArgs.length; idx++) {
+						str.append(scriptArgs[idx].toString()+",");
+					}
+					str.append(")");
+					System.out.println(str.toString());
+
 					class57.runClientScript(script);
 					connection.serverPacket = null;
 					return true;

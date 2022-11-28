@@ -20,7 +20,6 @@ package io.rsbox.server.engine.model.entity
 import io.rsbox.server.config.ServerConfig
 import io.rsbox.server.engine.event.EventBus
 import io.rsbox.server.engine.event.impl.PlayerLoginEvent
-import io.rsbox.server.engine.event.impl.PlayerLogoutEvent
 import io.rsbox.server.engine.model.Privilege
 import io.rsbox.server.engine.model.coord.Tile
 import io.rsbox.server.engine.model.entity.update.PlayerUpdateFlag
@@ -29,6 +28,7 @@ import io.rsbox.server.engine.model.manager.InterfaceManager
 import io.rsbox.server.engine.model.manager.SceneManager
 import io.rsbox.server.engine.model.ui.DisplayMode
 import io.rsbox.server.engine.net.Session
+import io.rsbox.server.engine.net.packet.server.RunClientScriptPacket
 import org.tinylog.kotlin.Logger
 import kotlin.random.Random
 import kotlin.random.nextLong
@@ -80,17 +80,21 @@ class Player internal constructor(val session: Session) : LivingEntity() {
     internal fun onLogin() {
         this.init()
         updateFlags.add(PlayerUpdateFlag.APPEARANCE)
-        EventBus.postEvent(PlayerLoginEvent(world, this))
         Logger.info("[$username] has connected to server. index=$index")
+        EventBus.postEvent(PlayerLoginEvent(this))
     }
 
     internal fun onLogout() {
         world.players.removePlayer(this)
-        EventBus.postEvent(PlayerLogoutEvent(world, this))
         Logger.info("[$username] has disconnected from server. index=$index")
+        EventBus.postEvent(PlayerLoginEvent(this))
     }
 
     override suspend fun cycle() {
         queueCycle()
+    }
+
+    fun runClientScript(id: Int, vararg args: Any) {
+        session.write(RunClientScriptPacket(id, args))
     }
 }

@@ -28,20 +28,14 @@ import io.rsbox.server.util.buffer.JagByteBuf
 class RunClientScriptPacket(val id: Int, vararg val args: Any) : Packet {
     companion object : Codec<RunClientScriptPacket> {
         override fun encode(session: Session, packet: RunClientScriptPacket, out: JagByteBuf) {
-            val str = StringBuilder()
-            packet.args.reversed().forEach { arg ->
-                if(arg is String) {
-                    str.append("s")
-                } else {
-                    str.append("i")
-                }
-            }
-            out.writeString("$str")
-            packet.args.forEach { arg ->
+            val types = CharArray(packet.args.size) { i -> if(packet.args[i] is String) 's' else 'i' }
+            out.writeString(String(types))
+            for(i in packet.args.size - 1 downTo 0) {
+                val arg = packet.args[i]
                 if(arg is String) {
                     out.writeString(arg)
-                } else {
-                    out.writeInt(arg as Int)
+                } else if(arg is Number) {
+                    out.writeInt(arg.toInt())
                 }
             }
             out.writeInt(packet.id)

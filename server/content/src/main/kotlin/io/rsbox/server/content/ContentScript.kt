@@ -21,7 +21,7 @@ import kotlin.script.experimental.annotations.KotlinScript
 
 @KotlinScript(
     displayName = "Content Script",
-    fileExtension = "kts"
+    fileExtension = "content.kts"
 )
 abstract class ContentScript {
 

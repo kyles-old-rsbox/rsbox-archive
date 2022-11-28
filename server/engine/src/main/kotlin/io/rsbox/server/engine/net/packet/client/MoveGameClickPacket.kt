@@ -17,8 +17,6 @@
 
 package io.rsbox.server.engine.net.packet.client
 
-import io.rsbox.server.engine.event.EventBus
-import io.rsbox.server.engine.event.impl.PlayerMoveClickEvent
 import io.rsbox.server.engine.model.coord.Tile
 import io.rsbox.server.engine.net.Session
 import io.rsbox.server.engine.net.game.ClientPacket
@@ -39,8 +37,7 @@ class MoveGameClickPacket(
 
     override fun handle(session: Session) {
         val tile = Tile(tileX, tileY, session.player.tile.level)
-        val event = PlayerMoveClickEvent(session.player, tile, moveType)
-        EventBus.postEvent(event)
+        session.player.teleport(tile)
     }
 
     companion object : Codec<MoveGameClickPacket> {

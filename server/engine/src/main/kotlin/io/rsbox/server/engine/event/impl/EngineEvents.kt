@@ -26,5 +26,3 @@ abstract class EngineEvent : Event
 /**
  * ===== EVENTS =====
  */
-
-class PlayerMoveClickEvent(val player: Player, val tile: Tile, val type: Int) : EngineEvent()

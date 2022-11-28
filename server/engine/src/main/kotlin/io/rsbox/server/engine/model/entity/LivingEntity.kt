@@ -61,4 +61,11 @@ abstract class LivingEntity : Entity() {
 
     abstract suspend fun cycle()
 
+    fun teleport(tile: Tile) {
+        teleportTile = tile
+    }
+
+    fun move(tile: Tile) {
+
+    }
 }

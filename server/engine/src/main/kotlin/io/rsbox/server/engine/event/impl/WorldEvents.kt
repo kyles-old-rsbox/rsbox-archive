@@ -26,6 +26,3 @@ open class WorldEvent(val world: World) : Event
 /**
  * ===== EVENTS =====
  */
-
-class PlayerLoginEvent(world: World, val player: Player) : WorldEvent(world)
-class PlayerLogoutEvent(world: World, val player: Player) : WorldEvent(world)

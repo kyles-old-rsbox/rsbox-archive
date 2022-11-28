@@ -20,8 +20,11 @@ package io.rsbox.server.engine.event.impl
 import io.rsbox.server.engine.event.Event
 import io.rsbox.server.engine.model.entity.Player
 
-open class PlayerEvent(val player: Player) : Event
+abstract class PlayerEvent(val player: Player) : Event
 
 /**
  * ===== EVENTS =====
  */
+
+class PlayerLoginEvent(player: Player) : PlayerEvent(player)
+class PlayerLogoutEvent(player: Player) : PlayerEvent(player)

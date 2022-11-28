@@ -1,5 +1,10 @@
 dependencies {
-    implementation(project(":server:api"))
+    api(project(":server:common"))
+    api(project(":server:util"))
+    api(project(":server:engine"))
+    api(project(":server:config"))
+    api(project(":server:cache"))
+    api(project(":server:logger"))
     implementation(kotlin("scripting-common"))
     api(kotlin("script-runtime"))
     implementation("io.github.classgraph:classgraph:_")
@@ -9,7 +14,6 @@ subprojects {
     val subproject = this
 
     dependencies {
-        implementation(project(":server:api"))
         implementation(project(":server:content"))
         project(":server:content").dependencyProject.subprojects.forEach {
             if(it.buildFile.exists() && it.name != project.name) {

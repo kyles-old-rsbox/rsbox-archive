@@ -36,7 +36,7 @@ object ServerSetup {
     fun main(args: Array<String>) {
         Logger.info("Setting up RSBox server...")
 
-        if(DATA_DIR.exists() && DATA_DIR.listFiles()!!.size > 1) {
+        if(DATA_DIR.exists() && DATA_DIR.listFiles()!!.size > 2) {
             Logger.error("The data/ directory already exists. Please remove it and re-run the setup gradle task.")
             exitProcess(0)
         }
