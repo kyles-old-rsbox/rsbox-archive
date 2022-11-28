@@ -25,6 +25,7 @@ import io.guthix.js5.container.XTEA_ZERO_KEY
 import io.guthix.js5.container.disk.Js5DiskStore
 import io.netty.buffer.ByteBuf
 import io.netty.buffer.Unpooled
+import io.rsbox.server.config.XteaConfig
 import org.tinylog.kotlin.Logger
 import java.io.File
 
@@ -36,6 +37,7 @@ class GameCache : AutoCloseable {
     val archiveCount get() = cache.archiveCount
 
     lateinit var configArchive: ConfigArchive private set
+    lateinit var mapArchive: MapArchive private set
 
     fun read(archive: Int, group: Int) = filestore.read(archive, group).retain()
 
@@ -64,6 +66,7 @@ class GameCache : AutoCloseable {
 
     private fun loadArchives() {
         configArchive = ConfigArchive.load(readArchive(ConfigArchive.id))
+        mapArchive = MapArchive.load(readArchive(MapArchive.id), XteaConfig.xteas.map { MapXtea(it.key, it.value) })
     }
 
     override fun close() {

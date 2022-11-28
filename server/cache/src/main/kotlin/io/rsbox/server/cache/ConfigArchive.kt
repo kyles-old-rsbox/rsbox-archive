@@ -18,17 +18,25 @@
 package io.rsbox.server.cache
 
 import io.guthix.js5.Js5Archive
-import io.rsbox.server.cache.config.EnumConfig
+import io.rsbox.server.cache.config.*
 
 class ConfigArchive(
-    val enumConfigs: Map<Int, EnumConfig<Any, Any>>
+    val enumConfigs: Map<Int, EnumConfig<Any, Any>>,
+    val objectConfigs: Map<Int, ObjectConfig>,
+    val varbitConfigs: Map<Int, VarbitConfig>,
+    val varClientConfigs: Map<Int, VarClientConfig>,
+    val varPlayerConfigs: Map<Int, VarPlayerConfig>
 ) {
     companion object {
 
         const val id = 2
 
         fun load(archive: Js5Archive) = ConfigArchive(
-            EnumConfig.load(archive.readGroup(EnumConfig.id))
+            EnumConfig.load(archive.readGroup(EnumConfig.id)),
+            ObjectConfig.load(archive.readGroup(ObjectConfig.id)),
+            VarbitConfig.load(archive.readGroup(VarbitConfig.id)),
+            VarClientConfig.load(archive.readGroup(VarClientConfig.id)),
+            VarPlayerConfig.load(archive.readGroup(VarPlayerConfig.id))
         )
     }
 }
