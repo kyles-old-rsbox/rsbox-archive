@@ -17,6 +17,4 @@
 
 package io.rsbox.server.engine.event
 
-import io.rsbox.server.engine.model.World
-
 interface Event

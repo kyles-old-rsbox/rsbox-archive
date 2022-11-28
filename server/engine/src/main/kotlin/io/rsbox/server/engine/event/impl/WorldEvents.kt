@@ -18,8 +18,7 @@
 package io.rsbox.server.engine.event.impl
 
 import io.rsbox.server.engine.event.Event
-import io.rsbox.server.engine.model.World
-import io.rsbox.server.engine.model.entity.Player
+import io.rsbox.server.engine.model.world.World
 
 open class WorldEvent(val world: World) : Event
 

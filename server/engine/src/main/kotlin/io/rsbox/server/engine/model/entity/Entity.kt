@@ -19,7 +19,7 @@ package io.rsbox.server.engine.model.entity
 
 import io.rsbox.server.common.inject
 import io.rsbox.server.engine.Engine
-import io.rsbox.server.engine.model.World
+import io.rsbox.server.engine.model.world.World
 import io.rsbox.server.engine.model.coord.Tile
 
 abstract class Entity {

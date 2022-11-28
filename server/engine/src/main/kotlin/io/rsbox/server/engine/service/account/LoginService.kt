@@ -19,8 +19,6 @@ package io.rsbox.server.engine.service.account
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder
 import io.rsbox.server.common.inject
-import io.rsbox.server.engine.model.Privilege
-import io.rsbox.server.engine.model.World
 import io.rsbox.server.engine.model.entity.Player
 import io.rsbox.server.engine.net.StatusResponse
 import io.rsbox.server.engine.net.game.GameProtocol
@@ -28,9 +26,7 @@ import io.rsbox.server.engine.net.login.LoginRequest
 import io.rsbox.server.engine.net.login.LoginResponse
 import io.rsbox.server.engine.service.Service
 import io.rsbox.server.engine.serializer.PlayerSerializer
-import io.rsbox.server.util.security.SHA256
 import kotlinx.coroutines.*
-import org.tinylog.kotlin.Logger
 import java.util.concurrent.Executors
 import java.util.concurrent.LinkedBlockingQueue
 

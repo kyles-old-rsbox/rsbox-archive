@@ -17,7 +17,7 @@
 
 package io.rsbox.server.engine
 
-import io.rsbox.server.engine.model.World
+import io.rsbox.server.engine.model.world.World
 import io.rsbox.server.engine.model.worldlist.WorldList
 import io.rsbox.server.engine.net.NetworkServer
 import io.rsbox.server.engine.net.game.GamePackets

@@ -25,7 +25,7 @@ import io.netty.handler.codec.http.HttpHeaderValues
 import io.netty.handler.codec.http.HttpResponseStatus
 import io.netty.handler.codec.http.HttpVersion
 import io.rsbox.server.common.inject
-import io.rsbox.server.engine.model.World
+import io.rsbox.server.engine.model.world.World
 import io.rsbox.server.engine.model.worldlist.WorldList
 
 object WorldListEndpoint {

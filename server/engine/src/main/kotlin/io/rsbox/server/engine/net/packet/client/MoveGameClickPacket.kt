@@ -37,7 +37,7 @@ class MoveGameClickPacket(
 
     override fun handle(session: Session) {
         val tile = Tile(tileX, tileY, session.player.tile.level)
-        session.player.teleport(tile)
+        session.player.path = session.player.findPath(tile)
     }
 
     companion object : Codec<MoveGameClickPacket> {

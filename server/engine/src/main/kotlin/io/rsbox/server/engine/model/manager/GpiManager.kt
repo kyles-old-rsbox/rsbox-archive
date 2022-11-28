@@ -18,7 +18,7 @@
 package io.rsbox.server.engine.model.manager
 
 import io.rsbox.server.common.inject
-import io.rsbox.server.engine.model.World
+import io.rsbox.server.engine.model.world.World
 import io.rsbox.server.engine.model.entity.Player
 import io.rsbox.server.engine.model.list.PlayerList
 

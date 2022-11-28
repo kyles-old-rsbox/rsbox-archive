@@ -45,6 +45,12 @@ value class Tile(val packed: Int) {
         this.level + level
     )
 
+    fun translate(direction: Direction, amount: Int = 1) = Tile(
+        this.x + (direction.stepX * amount),
+        this.y + (direction.stepY * amount),
+        this.level
+    )
+
     operator fun plus(other: Tile) = translate(other.x, other.y)
     operator fun minus(other: Tile) = translate(-other.x, -other.y)
 

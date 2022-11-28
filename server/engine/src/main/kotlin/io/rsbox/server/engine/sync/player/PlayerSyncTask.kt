@@ -22,7 +22,7 @@ package io.rsbox.server.engine.sync.player
 import io.netty.buffer.ByteBuf
 import io.rsbox.server.common.inject
 import io.rsbox.server.engine.Engine
-import io.rsbox.server.engine.model.World
+import io.rsbox.server.engine.model.world.World
 import io.rsbox.server.engine.model.coord.Scene
 import io.rsbox.server.engine.model.coord.Tile
 import io.rsbox.server.engine.model.entity.MovementState

@@ -18,7 +18,7 @@
 package io.rsbox.server.engine.sync.player
 
 import io.rsbox.server.common.inject
-import io.rsbox.server.engine.model.World
+import io.rsbox.server.engine.model.world.World
 import io.rsbox.server.engine.model.entity.MovementState
 import io.rsbox.server.engine.model.entity.Player
 import io.rsbox.server.engine.model.entity.update.PlayerUpdateFlag

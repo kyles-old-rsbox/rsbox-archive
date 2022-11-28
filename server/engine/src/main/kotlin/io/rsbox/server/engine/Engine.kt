@@ -20,7 +20,7 @@ package io.rsbox.server.engine
 import io.rsbox.server.common.inject
 import io.rsbox.server.config.ServerConfig
 import io.rsbox.server.engine.coroutine.EngineCoroutineScope
-import io.rsbox.server.engine.model.World
+import io.rsbox.server.engine.model.world.World
 import io.rsbox.server.engine.net.NetworkServer
 import io.rsbox.server.engine.net.http.HttpServer
 import io.rsbox.server.engine.service.ServiceManager

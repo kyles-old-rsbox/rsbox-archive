@@ -30,6 +30,9 @@ import io.rsbox.server.engine.model.manager.VarpManager
 import io.rsbox.server.engine.model.ui.DisplayMode
 import io.rsbox.server.engine.net.Session
 import io.rsbox.server.engine.net.packet.server.RunClientScriptPacket
+import org.rsmod.pathfinder.SmartPathFinder
+import org.rsmod.pathfinder.collision.CollisionStrategies
+import org.rsmod.pathfinder.flag.CollisionFlag
 import org.tinylog.kotlin.Logger
 import kotlin.random.Random
 import kotlin.random.nextLong
@@ -47,6 +50,8 @@ class Player internal constructor(val session: Session) : LivingEntity() {
     val scene = SceneManager(this)
     val ui = InterfaceManager(this)
     val varps = VarpManager(this)
+
+    val pathfinder get() = SmartPathFinder(flags = world.zoneFlags.flags, defaultFlag = CollisionFlag.BLOCK_PLAYERS)
 
     lateinit var username: String
     lateinit var passwordHash: String
@@ -103,4 +108,17 @@ class Player internal constructor(val session: Session) : LivingEntity() {
 
     fun isOnline() = index > 0
 
+    fun findPath(dest: Tile): MutableList<Tile> {
+        val result = mutableListOf<Tile>()
+        val route = pathfinder.findPath(tile.x, tile.y, dest.x, dest.y, dest.level)
+        var cur = tile
+        route.forEach { waypoint ->
+            val waypointTile = Tile(waypoint.x, waypoint.y, cur.level)
+            while(!cur.sameAs(waypointTile)) {
+                cur = cur.translate(cur.directionTo(waypointTile))
+                result.add(cur)
+            }
+        }
+        return result
+    }
 }
