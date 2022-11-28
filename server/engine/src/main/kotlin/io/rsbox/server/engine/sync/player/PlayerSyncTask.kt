@@ -29,7 +29,6 @@ import io.rsbox.server.engine.model.entity.MovementState
 import io.rsbox.server.engine.model.entity.Player
 import io.rsbox.server.engine.model.entity.update.PlayerUpdateFlag
 import io.rsbox.server.engine.model.list.PlayerList
-import io.rsbox.server.engine.model.manager.SceneManager
 import io.rsbox.server.engine.net.packet.server.PlayerInfoPacket
 import io.rsbox.server.engine.sync.SyncTask
 import io.rsbox.server.util.buffer.BIT_MODE
@@ -56,11 +55,13 @@ class PlayerSyncTask : SyncTask {
         val mainBuf = session.channel.alloc().buffer().toJagBuf()
         val maskBuf = session.channel.alloc().buffer().toJagBuf()
 
+        var local = 0
         var added = 0
+
         writeLocalPlayers(mainBuf, maskBuf, true)
         writeLocalPlayers(mainBuf, maskBuf, false)
-        added += writeExternalPlayers(mainBuf, maskBuf, false, added)
-        added += writeExternalPlayers(mainBuf, maskBuf, true, added)
+        writeExternalPlayers(mainBuf, maskBuf, true)
+        writeExternalPlayers(mainBuf, maskBuf, false)
 
         val buf = session.channel.alloc().buffer()
 
@@ -83,240 +84,125 @@ class PlayerSyncTask : SyncTask {
         return buf
     }
 
-    private fun Player.writeLocalPlayers(buf: JagByteBuf, maskBuf: JagByteBuf, activeMode: Boolean) {
+    private fun Player.writeLocalPlayers(buf: JagByteBuf, maskBuf: JagByteBuf, active: Boolean) {
         var skipCount = 0
-
-        fun shouldUpdateLocalPlayer(player: Player, other: Player): Boolean {
-            return (other.updateFlags.isNotEmpty()
-                    || !player.tile.isWithinRadius(other.tile, Scene.RENDER_DISTANCE)
-                    || other.movementState != MovementState.NONE)
-        }
-
-        fun updateLocalPlayer(localPlayer: Player, buf: JagByteBuf, maskBuf: JagByteBuf) {
-            val updateRequired = localPlayer.updateFlags.isNotEmpty()
-            buf.writeBoolean(updateRequired)
-
-            if(localPlayer.movementState == MovementState.TELEPORT) {
-                buf.writeBits(3, 2)
-                val dx = localPlayer.tile.x - localPlayer.prevTile.x
-                val dy = localPlayer.tile.y - localPlayer.prevTile.y
-                val dz = localPlayer.tile.level - localPlayer.prevTile.level
-                if(abs(dx) <= Scene.RENDER_DISTANCE && abs(dy) <= Scene.RENDER_DISTANCE) {
-                    buf.writeBoolean(false)
-                    buf.writeBits(dz and 0x3, 2)
-                    buf.writeBits(dx and 0x1F, 5)
-                    buf.writeBits(dy and 0x1F, 5)
-                } else {
-                    buf.writeBoolean(true)
-                    buf.writeBits(dz and 0x3, 2)
-                    buf.writeBits(dx and 0x3FFF, 14)
-                    buf.writeBits(dy and 0x3FFF, 14)
-                }
-            }
-            else if(!this.tile.isWithinRadius(localPlayer.tile, Scene.RENDER_DISTANCE)) {
-                buf.writeBits(0, 2)
-                gpi.localPlayers[localPlayer.index] = null
-            }
-            else if(localPlayer.movementState == MovementState.WALK) {
-                buf.writeBits(1, 2)
-                buf.writeBits(getMovementDir(localPlayer), 3)
-            }
-            else if(localPlayer.movementState == MovementState.RUN) {
-                buf.writeBits(2, 2)
-                buf.writeBits(getMovementDir(localPlayer), 4)
-            }
-            else if(updateRequired) {
-                buf.writeBits(0, 2)
-            }
-
-            if(updateRequired) {
-                maskBuf.writeUpdateFlags(localPlayer, sortedSetOf())
-            }
-        }
-
-        fun skipLocalPlayers(buf: JagByteBuf, currentIndex: Int, activeMode: Boolean) {
-            ((currentIndex + 1) until gpi.localPlayerCount)
-                .asSequence()
-                .map { gpi.localPlayerIndexes[it] }
-                .filter { wasPreviouslySkipped(it, activeMode) }
-                .map { gpi.localPlayers[it] }
-                .map { it != null && shouldUpdateLocalPlayer(this, it) }
-                .takeWhile { !it }
-                .toList()
-                .forEach { _ -> skipCount++ }
-            buf.writeSkip(skipCount)
-        }
-
-        /**
-         * Write the local player gpi and update data.
-         */
 
         buf.switchWriteAccess(BIT_MODE)
         for(i in 0 until gpi.localPlayerCount) {
             val localIndex = gpi.localPlayerIndexes[i]
-            if(wasPreviouslySkipped(localIndex, activeMode)) {
-                if(skipCount > 0) {
-                    skipCount--
-                    skipPlayerIndex(localIndex)
-                } else {
-                    val localPlayer = gpi.localPlayers[localIndex]
-                    val updateRequired = localPlayer != null && shouldUpdateLocalPlayer(this, localPlayer)
+            val localPlayer = gpi.localPlayers[localIndex]
 
-                    /*
-                     * Write true/false if this player needs to be updated.
-                     */
-                    buf.writeBoolean(updateRequired)
+            val skip = when(active) {
+                true -> (gpi.skipFlags[localIndex] and 0x1) != 0
+                false -> (gpi.skipFlags[localIndex] and 0x1) == 0
+            }
 
-                    if(!updateRequired) {
-                        skipLocalPlayers(buf, i, activeMode)
-                        skipPlayerIndex(localIndex)
-                    } else {
-                        updateLocalPlayer(localPlayer!!, buf, maskBuf)
-                    }
+            if(skip) continue
+            if(skipCount > 0) {
+                skipCount--
+                gpi.skipFlags[localIndex] = (gpi.skipFlags[localIndex] or 0x2)
+                continue
+            }
+
+            if(localPlayer != this && (localPlayer == null || this.shouldRemove(localPlayer))) {
+                val prevTile = gpi.tiles[localIndex]
+                val curTile = localPlayer?.tile?.to18BitInteger() ?: 0
+                val updateTileLocation = prevTile != curTile
+
+                buf.writeRemoveLocalPlayer(updateTileLocation)
+                if(updateTileLocation) {
+                    buf.writeUpdateTileLocation(prevTile, curTile)
                 }
+
+                gpi.localPlayers[localIndex] = null
+                gpi.tiles[localIndex] = curTile
+                continue
+            }
+
+            val shouldUpdate = localPlayer.updateFlags.isNotEmpty()
+            if(shouldUpdate) {
+                maskBuf.writeUpdateFlags(localPlayer)
+            }
+
+            if(localPlayer.movementState == MovementState.TELEPORT) {
+                buf.writeMovementTeleport(localPlayer, shouldUpdate)
+            }
+            else if(shouldUpdate) {
+                buf.writeShouldUpdate()
+            }
+            else {
+                for(j in i + 1 until gpi.localPlayerCount) {
+                    val nextIndex = gpi.localPlayerIndexes[j]
+                    val nextPlayer = gpi.localPlayers[nextIndex]
+                    val skipNext = when(active) {
+                        true -> (gpi.skipFlags[nextIndex] and 0x1) != 0
+                        false -> (gpi.skipFlags[nextIndex] and 0x1) == 0
+                    }
+                    if(skipNext) continue
+                    if(nextPlayer == null || nextPlayer.updateFlags.isNotEmpty() || nextPlayer.movementState != MovementState.NONE || nextPlayer != this && this.shouldRemove(nextPlayer)) {
+                        break
+                    }
+                    skipCount++
+                }
+                buf.writeSkipCount(skipCount)
+                gpi.skipFlags[localIndex] = (gpi.skipFlags[localIndex] or 0x2)
             }
         }
+        if(skipCount > 0) throw RuntimeException()
         buf.switchWriteAccess(BYTE_MODE)
     }
 
-    private fun Player.writeExternalPlayers(buf: JagByteBuf, maskBuf: JagByteBuf, activeMode: Boolean, prevAdded: Int): Int {
+    private fun Player.writeExternalPlayers(buf: JagByteBuf, maskBuf: JagByteBuf, active: Boolean) {
         var skipCount = 0
-        var added = prevAdded
-
-        fun shouldUpdateExternalPlayer(player: Player, other: Player): Boolean {
-            return (player.tile.isWithinRadius(other.tile, Scene.RENDER_DISTANCE)
-                    || player.gpi.tiles[other.index] != other.tile.to18BitInteger())
-        }
-
-        fun updateExternalPlayer(externalPlayer: Player, buf: JagByteBuf, maskBuf: JagByteBuf) {
-            if(this.tile.isWithinRadius(externalPlayer.tile, Scene.RENDER_DISTANCE)) {
-                buf.writeBits(0, 2)
-                if(gpi.tiles[externalPlayer.index] != externalPlayer.tile.to18BitInteger()) {
-                    buf.writeBoolean(true)
-                    writeTileUpdate(externalPlayer, buf)
-                } else {
-                    buf.writeBoolean(false)
-                }
-                buf.writeBits(externalPlayer.tile.x, 13)
-                buf.writeBits(externalPlayer.tile.y, 13)
-                buf.writeBoolean(true)
-                maskBuf.writeUpdateFlags(externalPlayer, sortedSetOf(PlayerUpdateFlag.APPEARANCE, PlayerUpdateFlag.MOVEMENT_MODE))
-                gpi.localPlayers[externalPlayer.index] = externalPlayer
-            } else {
-                writeTileUpdate(externalPlayer, buf)
-            }
-        }
-
-        fun skipExternalPlayers(buf: JagByteBuf, currentIndex: Int, activeMode: Boolean) {
-            ((currentIndex + 1) until gpi.externalPlayerCount)
-                .asSequence()
-                .map { gpi.externalPlayerIndexes[it] }
-                .filter { wasPreviouslySkipped(it, activeMode) }
-                .map { world.players[it] }
-                .map { it != null && shouldUpdateExternalPlayer(this, it) }
-                .takeWhile { !it }
-                .toList()
-                .forEach { _ -> skipCount++ }
-            buf.writeSkip(skipCount)
-        }
 
         buf.switchWriteAccess(BIT_MODE)
         for(i in 0 until gpi.externalPlayerCount) {
             val externalIndex = gpi.externalPlayerIndexes[i]
-            if(wasPreviouslySkipped(externalIndex, activeMode)) {
-                if(skipCount > 0) {
-                    skipCount--
-                    skipPlayerIndex(externalIndex)
-                } else {
-                    val externalPlayer = world.players[externalIndex]
-                    val updateRequired = externalPlayer != null && shouldUpdateExternalPlayer(this, externalPlayer)
+            val skip = when(active) {
+                true -> (gpi.skipFlags[externalIndex] and 0x1) == 0
+                false -> (gpi.skipFlags[externalIndex] and 0x1) != 0
+            }
+            if(skip) continue
+            if(skipCount > 0) {
+                skipCount--
+                gpi.skipFlags[externalIndex] = (gpi.skipFlags[externalIndex] or 0x2)
+                continue
+            }
 
-                    buf.writeBoolean(updateRequired)
+            val externalPlayer = world.players[externalIndex]
+            if(externalPlayer != null && shouldAdd(externalPlayer)) {
+                val prevTile = gpi.tiles[externalIndex]
+                val curTile = externalPlayer.tile.to18BitInteger()
+                val updateTileLocation = prevTile != curTile
 
-                    if(!updateRequired) {
-                        skipExternalPlayers(buf, i, activeMode)
-                        skipPlayerIndex(externalIndex)
-                    } else {
-                        updateExternalPlayer(externalPlayer!!, buf, maskBuf)
-                        skipPlayerIndex(externalIndex)
-                    }
+                buf.writeAddLocalPlayer(externalPlayer, updateTileLocation, prevTile, curTile)
+                maskBuf.writeUpdateFlags(externalPlayer, sortedSetOf(PlayerUpdateFlag.APPEARANCE, PlayerUpdateFlag.MOVEMENT_MODE))
+
+                gpi.skipFlags[externalIndex] = (gpi.skipFlags[externalIndex] or 0x2)
+                gpi.tiles[externalIndex] = curTile
+                gpi.localPlayers[externalIndex] = externalPlayer
+                continue
+            }
+
+            for(j in i + 1 until gpi.externalPlayerCount) {
+                val nextIndex = gpi.externalPlayerIndexes[j]
+                val skipNext = when(active) {
+                    true -> (gpi.skipFlags[nextIndex] and 0x1) == 0
+                    false -> (gpi.skipFlags[nextIndex] and 0x1) != 0
                 }
+                if(skipNext) continue
+                val nextPlayer = world.players[nextIndex]
+                if(nextPlayer != null && (shouldAdd(nextPlayer) || nextPlayer.tile.to18BitInteger() != gpi.tiles[nextIndex])) {
+                    break
+                }
+                skipCount++
             }
+            buf.writeSkipCount(skipCount)
+            gpi.skipFlags[externalIndex] = (gpi.skipFlags[externalIndex] or 0x2)
         }
+        if(skipCount > 0) throw RuntimeException()
         buf.switchWriteAccess(BYTE_MODE)
-
-        return added
     }
-
-    private fun Player.wasPreviouslySkipped(index: Int, activeMode: Boolean) = when(activeMode) {
-        true -> gpi.skipFlags[index] and 0x1 == 0
-        false -> gpi.skipFlags[index] and 0x1 != 0
-    }
-
-    private fun JagByteBuf.writeSkip(count: Int) {
-        when {
-            count == 0 -> {
-                writeBits(0, 2)
-            }
-            count < 32 -> {
-                writeBits(1, 2)
-                writeBits(count, 5)
-
-            }
-            count < 256 -> {
-                writeBits(2, 2)
-                writeBits(count, 8)
-            }
-            count < 2048 -> {
-                writeBits(3, 2)
-                writeBits(count, 11)
-            }
-        }
-    }
-
-    private fun Player.skipPlayerIndex(index: Int) {
-        gpi.skipFlags[index] = gpi.skipFlags[index] or 0x2
-    }
-
-    private fun getDirectionType(dx: Int, dy: Int) = MOVEMENT_DIRS[2 - dy][dx + 2]
-
-    private fun getMovementDir(player: Player): Int {
-        val dx = player.tile.x - player.prevTile.x
-        val dy = player.tile.y - player.prevTile.y
-        return getDirectionType(dx, dy)
-    }
-
-    private fun Player.writeTileUpdate(externalPlayer: Player, buf: JagByteBuf) {
-        val last = gpi.tiles[externalPlayer.index]
-        val cur = externalPlayer.tile.to18BitInteger()
-
-        val ly = last and 0xFF
-        val lx = (last shr 8) and 0xFF
-        val lz = last shr 16
-
-        val cy = cur and 0xFF
-        val cx = (cur shr 8) and 0xFF
-        val cz = cur shr 16
-
-        val dx = cx - lx
-        val dy = cy - ly
-        val dz = (cz - lz) and 0x3
-
-        if(dx == 0 && dy == 0) {
-            buf.writeBits(1, 2)
-            buf.writeBits(dz, 2)
-        }
-        else if(abs(dx) <= 1 && abs(dy) <= 1) {
-            buf.writeBits(2, 2)
-            buf.writeBits((dz shl 3) or getDirectionType(dx, dy), 5)
-        }
-        else {
-            buf.writeBits(3, 2)
-            buf.writeBits(Tile(dx, dy, dz).to18BitInteger(), 18)
-        }
-        gpi.tiles[externalPlayer.index] = cur
-    }
-
 
     private fun JagByteBuf.writeUpdateFlags(player: Player, updateFlags: SortedSet<PlayerUpdateFlag> = sortedSetOf()) {
         var mask = 0
@@ -338,8 +224,112 @@ class PlayerSyncTask : SyncTask {
         }
     }
 
-    private fun shouldAdd(player: Player, other: Player) = other != player && !other.invisible && other.tile.isWithinRadius(player.tile, Scene.RENDER_DISTANCE)
-    private fun shouldRemove(player: Player, other: Player) = other.index == -1 || other.invisible || !other.tile.isWithinRadius(player.tile, Scene.RENDER_DISTANCE)
+    private fun JagByteBuf.writeAddLocalPlayer(player: Player, updateTileLocation: Boolean, prevTile: Int = 0, curTile: Int = 0) {
+        writeBits(1, 1)
+        writeBits(0, 2)
+        writeBits(if(updateTileLocation) 1 else 0, 1)
+        if(updateTileLocation) {
+            writeUpdateTileLocation(prevTile, curTile)
+        }
+        writeBits(player.tile.x and 0x1FFF, 13)
+        writeBits(player.tile.y and 0x1FFF, 13)
+        writeBits(1, 1)
+    }
+
+    private fun JagByteBuf.writeRemoveLocalPlayer(updateTileLocation: Boolean) {
+        writeBits(1, 1)
+        writeBits(0, 1)
+        writeBits(0, 2)
+        writeBits(if(updateTileLocation) 1 else 0, 1)
+    }
+
+    private fun JagByteBuf.writeUpdateTileLocation(prev: Int, cur: Int) {
+        val px = (prev shr 8) and 0xFF
+        val py = prev and 0xFF
+        val pz = prev shr 16
+
+        val cx = (cur shr 8) and 0xFF
+        val cy = cur and 0xFF
+        val cz = cur shr 16
+
+        val dx = cx - px
+        val dy = cy - py
+        val dz = (cz - pz) and 0x3
+
+        if(px == cx && py == cy) {
+            writeBits(1, 2)
+            writeBits(dz, 2)
+        }
+        else if(abs(dx) <= 1 && abs(dy) <= 1) {
+            writeBits(2, 2)
+            writeBits(dz, 2)
+            writeBits(getDirectionType(dx, dy), 3)
+        }
+        else {
+            writeBits(3, 2)
+            writeBits(Tile(dx, dy, dz).to18BitInteger(), 18)
+        }
+    }
+
+    private fun JagByteBuf.writeMovementTeleport(player: Player, shouldUpdate: Boolean) {
+        writeBits(1, 1)
+        writeBoolean(shouldUpdate)
+        writeBits(3, 2)
+
+        val dx = player.tile.x - player.prevTile.x
+        val dy = player.tile.y - player.prevTile.y
+        val dz = player.tile.level - player.prevTile.level
+
+        if(abs(dx) <= Scene.RENDER_DISTANCE && abs(dy) <= Scene.RENDER_DISTANCE) {
+            writeBits(0, 1)
+            writeBits(dz and 0x3, 2)
+            writeBits(dx and 0x1F, 5)
+            writeBits(dy and 0x1F, 5)
+        } else {
+            writeBits(1,1)
+            writeBits(dz and 0x3, 2)
+            writeBits(dx and 0x3FFF, 14)
+            writeBits(dy and 0x3FFF, 14)
+        }
+    }
+
+    private fun JagByteBuf.writeShouldUpdate() {
+        writeBits(1, 1)
+        writeBits(1, 1)
+        writeBits(0, 2)
+    }
+
+    private fun JagByteBuf.writeSkipCount(count: Int) {
+        writeBits(0, 1)
+        when {
+            count == 0 -> {
+                writeBits(0, 2)
+            }
+            count < 32 -> {
+                writeBits(1, 2)
+                writeBits(count, 5)
+            }
+            count < 256 -> {
+                writeBits(2, 2)
+                writeBits(count, 8)
+            }
+            count < 2048 -> {
+                writeBits(3, 2)
+                writeBits(count, 11)
+            }
+        }
+    }
+
+    private fun Player.shouldRemove(other: Player) = other.invisible || !other.tile.isWithinRadius(tile, Scene.RENDER_DISTANCE)
+    private fun Player.shouldAdd(other: Player) = other != this && !other.invisible && other.tile.isWithinRadius(tile, Scene.RENDER_DISTANCE)
+
+    private fun getDirectionType(dx: Int, dy: Int) = MOVEMENT_DIRS[2 - dy][dx + 2]
+
+    private fun getMovementDir(player: Player): Int {
+        val dx = player.tile.x - player.prevTile.x
+        val dy = player.tile.y - player.prevTile.y
+        return getDirectionType(dx, dy)
+    }
 
     companion object {
 

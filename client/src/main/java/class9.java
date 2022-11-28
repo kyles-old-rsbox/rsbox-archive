@@ -305,7 +305,7 @@ public class class9 {
 				var0.offset = var11 + var10;
 			}
 
-			if ((mask & 1024) != 0) {
+			if ((mask & 0x400) != 0) {
 				PlayerManager.moveSpeeds[playerIndex] = (MoveSpeed)class217.fromValue(MoveSpeed.values(), var0.readByteSUB());
 			}
 
