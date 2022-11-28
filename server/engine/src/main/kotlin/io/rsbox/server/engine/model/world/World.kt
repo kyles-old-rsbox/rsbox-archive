@@ -22,9 +22,11 @@ import io.rsbox.server.cache.MapTerrainDefinition
 import io.rsbox.server.cache.RegionDefinition
 import io.rsbox.server.common.inject
 import io.rsbox.server.config.XteaConfig
+import io.rsbox.server.engine.model.collision.CollisionMap
 import io.rsbox.server.engine.model.coord.Chunk
 import io.rsbox.server.engine.model.coord.Region
 import io.rsbox.server.engine.model.list.PlayerList
+import io.rsbox.server.engine.model.obj.GameObject
 import io.rsbox.server.engine.queue.QueueList
 import org.rsmod.pathfinder.AbsoluteCoords
 import org.rsmod.pathfinder.ZoneFlags
@@ -37,7 +39,7 @@ class World {
 
     val players = PlayerList()
 
-    internal val zoneFlags = ZoneFlags()
+    val collisionMap = CollisionMap()
 
     internal val queue = QueueList()
     fun queue(block: suspend () -> Unit) = queue.queue(block)
@@ -48,7 +50,15 @@ class World {
         var count = 0
         cache.mapArchive.regions.forEach { (regionId, def) ->
             val region = Region(regionId)
+            for(level in 0 until MAX_LEVEL) {
+                for(x in 0 until Region.SIZE) {
+                    for(y in 0 until Region.SIZE) {
+                        collisionMap.flags.alloc(AbsoluteCoords(x, y, level).toZoneCoords())
+                    }
+                }
+            }
             region.loadTerrainCollision(def)
+            region.loadObjectCollision(def)
             count++
         }
 
@@ -66,11 +76,23 @@ class World {
                         }
                         if(adjustedLevel >= 0) {
                             val translated = this.toTile(adjustedLevel).translate(x, y)
-                            zoneFlags.add(AbsoluteCoords(translated.x, translated.y, translated.level), CollisionFlag.FLOOR)
+                            collisionMap.flags.add(AbsoluteCoords(translated.x, translated.y, translated.level), CollisionFlag.FLOOR)
                         }
                     }
                 }
             }
+        }
+    }
+
+    private fun Region.loadObjectCollision(def: RegionDefinition) {
+        def.objects.forEach { loc ->
+            val translated = this.toTile(loc.plane).translate(loc.localX, loc.localY)
+            val gameObject = GameObject(
+                loc.id,
+                translated,
+                loc.type,
+                loc.orientation
+            )
         }
     }
 
