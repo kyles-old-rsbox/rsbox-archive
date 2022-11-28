@@ -4823,6 +4823,8 @@ public final class client extends class31 implements class375, OAuthApi {
 						field1860[var6] = true;
 					}
 
+					System.out.println("[ServerPacket] IF_OPENTOP(interfaceId="+someVar+")");
+
 					connection.serverPacket = null;
 					return true;
 				}

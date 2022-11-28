@@ -74,7 +74,6 @@ class Player internal constructor(val session: Session) : LivingEntity() {
     internal fun init() {
         gpi.init()
         scene.init()
-        ui.init()
     }
 
     internal fun onLogin() {
@@ -95,6 +94,6 @@ class Player internal constructor(val session: Session) : LivingEntity() {
     }
 
     fun runClientScript(id: Int, vararg args: Any) {
-        session.write(RunClientScriptPacket(id, args))
+        session.write(RunClientScriptPacket(id, *args))
     }
 }

@@ -9,7 +9,7 @@ dependencies {
 
     project(":server:content").dependencyProject.subprojects.forEach { subproject ->
         if(subproject.buildFile.exists() && subproject.name != project.name) {
-            compileOnly(subproject)
+            implementation(subproject)
         }
     }
 }

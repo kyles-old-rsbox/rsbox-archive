@@ -40,13 +40,12 @@ object ClientLauncher {
     const val SERVER_IP = "127.0.0.1"
     const val DEFAULT_WORLD = "1"
     var RSA_MODULUS = "a65afc7b11a18da1a1bd0e144ea1883463fa040a57341006cec6556954e275446d8b0a222076a68fb0cb6d1fcaa9e7969affe6d5c42ccdba314e465d6dcf69a2bce2c6c70abc884349a2e31bf334ba712e4f7cda455562a80f3ceb1134e6459974780798ef38221e2fa1b9bd6560e120258f366e732b75bd7a385f07a5f5330d"
-
     const val CACHE_DIR = "rsbox"
 
     /**
      * === CLIENT PARAMS ===
      */
-    private val params = mapOf(
+    private val params = hashMapOf(
         "title" to CLIENT_TITLE,
         "codebase" to "http://$SERVER_IP/",
         "cachedir" to CACHE_DIR,
@@ -86,6 +85,7 @@ object ClientLauncher {
         "28" to "https://account.jagex.com/",
     )
 
+    private var liveMode = false
     private lateinit var applet: Applet
     private lateinit var frame: JFrame
 
@@ -93,7 +93,16 @@ object ClientLauncher {
 
     @JvmStatic
     fun main(args: Array<String>) {
-        loadRSA()
+        if(args.size == 1 && args[0] == "--live") {
+            liveMode = true
+        }
+
+        if(liveMode) {
+            fetchParams()
+        } else {
+            loadRSA()
+        }
+
         start()
     }
 
@@ -137,6 +146,22 @@ object ClientLauncher {
         override fun getParameter(name: String): String? = params[name]
         override fun appletResize(width: Int, height: Int) {
             this@createStub.setSize(width, height)
+        }
+    }
+
+    private fun fetchParams() {
+        params.clear()
+
+        val lines = URL("http://oldschool1.runescape.com/jav_config.ws").readText().split("\n")
+        lines.forEach {
+            var line = it
+            if(line.startsWith("param=")) {
+                line = line.substring(6)
+            }
+            val idx = line.indexOf("=")
+            if(idx >= 0) {
+                params[line.substring(0, idx)] = line.substring(idx + 1)
+            }
         }
     }
 }

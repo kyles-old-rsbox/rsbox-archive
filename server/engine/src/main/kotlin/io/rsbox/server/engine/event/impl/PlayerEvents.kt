@@ -28,3 +28,4 @@ abstract class PlayerEvent(val player: Player) : Event
 
 class PlayerLoginEvent(player: Player) : PlayerEvent(player)
 class PlayerLogoutEvent(player: Player) : PlayerEvent(player)
+class IfButtonClickEvent(player: Player, val button: Int, val parent: Int, val child: Int, val interfaceId: Int, val slot: Int) : PlayerEvent(player)

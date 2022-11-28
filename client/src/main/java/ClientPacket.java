@@ -15,7 +15,7 @@ public class ClientPacket implements ClientProt {
 	public static final ClientPacket field3052;
 	public static final ClientPacket field3053;
 	public static final ClientPacket field3054;
-	public static final ClientPacket field3055;
+	public static final ClientPacket IF_BUTTON1;
 	public static final ClientPacket field3056;
 	public static final ClientPacket field3057;
 	public static final ClientPacket field3058;
@@ -127,7 +127,7 @@ public class ClientPacket implements ClientProt {
 		field3052 = new ClientPacket(13, -1);
 		field3053 = new ClientPacket(14, 7);
 		field3054 = new ClientPacket(15, 7);
-		field3055 = new ClientPacket(16, 8);
+		IF_BUTTON1 = new ClientPacket(16, 8);
 		field3056 = new ClientPacket(17, 3);
 		field3057 = new ClientPacket(18, 15);
 		field3058 = new ClientPacket(19, 8);

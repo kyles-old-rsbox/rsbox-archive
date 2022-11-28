@@ -31,14 +31,8 @@ class InterfaceManager(private val player: Player) {
     private var modal: Int = -1
     private var currentDisplayMode = DisplayMode.RESIZABLE_CLASSIC
 
-    fun init() {
-        openTopInterface(currentDisplayMode.id)
-
-        GameInterface.values().forEach { gameInterface ->
-            openInterface(gameInterface)
-        }
-
-        updateDisplayMode()
+    fun init(displayMode: DisplayMode) {
+        currentDisplayMode = displayMode
     }
 
     private fun open(parent: Int, child: Int, interfaceId: Int) {
@@ -61,7 +55,7 @@ class InterfaceManager(private val player: Player) {
         player.session.writeAndFlush(IfOpenTopPacket(interfaceId))
     }
 
-    fun openInterface(parent: Int, child: Int, interfaceId: Int, type: InterfaceType) {
+    fun openInterface(parent: Int, child: Int, interfaceId: Int, type: InterfaceType = InterfaceType.OVERLAY) {
         if(type == InterfaceType.MODAL) {
             openModal(parent, child, interfaceId)
         } else {

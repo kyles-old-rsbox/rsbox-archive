@@ -16,13 +16,13 @@ public final class class272 {
 		return field3035 + var1;
 	}
 
-	static void method5220(int var0, int var1, int var2, int var3, String var4) {
-		class300 var6 = class253.method5043(var1, var2);
+	static void method5220(int buttonId, int component, int interfaceId, int child, String var4) {
+		class300 var6 = class253.method5043(component, interfaceId);
 		if (null != var6) {
 			if (var6.field3549 != null) {
 				ClientScript var7 = new ClientScript();
 				var7.field694 = var6;
-				var7.field690 = var0;
+				var7.field690 = buttonId;
 				var7.field685 = var4;
 				var7.args = var6.field3549;
 				class57.runClientScript(var7);
@@ -35,88 +35,88 @@ public final class class272 {
 
 			if (var12) {
 				int var9 = class190.method3528(var6);
-				int var10 = var0 - 1;
+				int var10 = buttonId - 1;
 				boolean var8 = 0 != (var9 >> var10 + 1 & 1);
 				if (var8) {
-					PacketMessage var11;
-					if (var0 == 1) {
-						var11 = class185.create(ClientPacket.field3055, client.serverConnection.isaacRandom);
-						var11.buffer.writeInt(var1);
-						var11.buffer.writeShort(var2);
-						var11.buffer.writeShort(var3);
-						client.serverConnection.add(var11);
+					PacketMessage packetMessage;
+					if (buttonId == 1) {
+						packetMessage = class185.create(ClientPacket.IF_BUTTON1, client.serverConnection.isaacRandom);
+						packetMessage.buffer.writeInt(component);
+						packetMessage.buffer.writeShort(interfaceId);
+						packetMessage.buffer.writeShort(child);
+						client.serverConnection.add(packetMessage);
 					}
 
-					if (var0 == 2) {
-						var11 = class185.create(ClientPacket.field3076, client.serverConnection.isaacRandom);
-						var11.buffer.writeInt(var1);
-						var11.buffer.writeShort(var2);
-						var11.buffer.writeShort(var3);
-						client.serverConnection.add(var11);
+					if (buttonId == 2) {
+						packetMessage = class185.create(ClientPacket.field3076, client.serverConnection.isaacRandom);
+						packetMessage.buffer.writeInt(component);
+						packetMessage.buffer.writeShort(interfaceId);
+						packetMessage.buffer.writeShort(child);
+						client.serverConnection.add(packetMessage);
 					}
 
-					if (var0 == 3) {
-						var11 = class185.create(ClientPacket.field3085, client.serverConnection.isaacRandom);
-						var11.buffer.writeInt(var1);
-						var11.buffer.writeShort(var2);
-						var11.buffer.writeShort(var3);
-						client.serverConnection.add(var11);
+					if (buttonId == 3) {
+						packetMessage = class185.create(ClientPacket.field3085, client.serverConnection.isaacRandom);
+						packetMessage.buffer.writeInt(component);
+						packetMessage.buffer.writeShort(interfaceId);
+						packetMessage.buffer.writeShort(child);
+						client.serverConnection.add(packetMessage);
 					}
 
-					if (var0 == 4) {
-						var11 = class185.create(ClientPacket.field3058, client.serverConnection.isaacRandom);
-						var11.buffer.writeInt(var1);
-						var11.buffer.writeShort(var2);
-						var11.buffer.writeShort(var3);
-						client.serverConnection.add(var11);
+					if (buttonId == 4) {
+						packetMessage = class185.create(ClientPacket.field3058, client.serverConnection.isaacRandom);
+						packetMessage.buffer.writeInt(component);
+						packetMessage.buffer.writeShort(interfaceId);
+						packetMessage.buffer.writeShort(child);
+						client.serverConnection.add(packetMessage);
 					}
 
-					if (var0 == 5) {
-						var11 = class185.create(ClientPacket.field3068, client.serverConnection.isaacRandom);
-						var11.buffer.writeInt(var1);
-						var11.buffer.writeShort(var2);
-						var11.buffer.writeShort(var3);
-						client.serverConnection.add(var11);
+					if (buttonId == 5) {
+						packetMessage = class185.create(ClientPacket.field3068, client.serverConnection.isaacRandom);
+						packetMessage.buffer.writeInt(component);
+						packetMessage.buffer.writeShort(interfaceId);
+						packetMessage.buffer.writeShort(child);
+						client.serverConnection.add(packetMessage);
 					}
 
-					if (var0 == 6) {
-						var11 = class185.create(ClientPacket.field3046, client.serverConnection.isaacRandom);
-						var11.buffer.writeInt(var1);
-						var11.buffer.writeShort(var2);
-						var11.buffer.writeShort(var3);
-						client.serverConnection.add(var11);
+					if (buttonId == 6) {
+						packetMessage = class185.create(ClientPacket.field3046, client.serverConnection.isaacRandom);
+						packetMessage.buffer.writeInt(component);
+						packetMessage.buffer.writeShort(interfaceId);
+						packetMessage.buffer.writeShort(child);
+						client.serverConnection.add(packetMessage);
 					}
 
-					if (var0 == 7) {
-						var11 = class185.create(ClientPacket.field3116, client.serverConnection.isaacRandom);
-						var11.buffer.writeInt(var1);
-						var11.buffer.writeShort(var2);
-						var11.buffer.writeShort(var3);
-						client.serverConnection.add(var11);
+					if (buttonId == 7) {
+						packetMessage = class185.create(ClientPacket.field3116, client.serverConnection.isaacRandom);
+						packetMessage.buffer.writeInt(component);
+						packetMessage.buffer.writeShort(interfaceId);
+						packetMessage.buffer.writeShort(child);
+						client.serverConnection.add(packetMessage);
 					}
 
-					if (var0 == 8) {
-						var11 = class185.create(ClientPacket.field3062, client.serverConnection.isaacRandom);
-						var11.buffer.writeInt(var1);
-						var11.buffer.writeShort(var2);
-						var11.buffer.writeShort(var3);
-						client.serverConnection.add(var11);
+					if (buttonId == 8) {
+						packetMessage = class185.create(ClientPacket.field3062, client.serverConnection.isaacRandom);
+						packetMessage.buffer.writeInt(component);
+						packetMessage.buffer.writeShort(interfaceId);
+						packetMessage.buffer.writeShort(child);
+						client.serverConnection.add(packetMessage);
 					}
 
-					if (var0 == 9) {
-						var11 = class185.create(ClientPacket.field3061, client.serverConnection.isaacRandom);
-						var11.buffer.writeInt(var1);
-						var11.buffer.writeShort(var2);
-						var11.buffer.writeShort(var3);
-						client.serverConnection.add(var11);
+					if (buttonId == 9) {
+						packetMessage = class185.create(ClientPacket.field3061, client.serverConnection.isaacRandom);
+						packetMessage.buffer.writeInt(component);
+						packetMessage.buffer.writeShort(interfaceId);
+						packetMessage.buffer.writeShort(child);
+						client.serverConnection.add(packetMessage);
 					}
 
-					if (var0 == 10) {
-						var11 = class185.create(ClientPacket.field3045, client.serverConnection.isaacRandom);
-						var11.buffer.writeInt(var1);
-						var11.buffer.writeShort(var2);
-						var11.buffer.writeShort(var3);
-						client.serverConnection.add(var11);
+					if (buttonId == 10) {
+						packetMessage = class185.create(ClientPacket.field3045, client.serverConnection.isaacRandom);
+						packetMessage.buffer.writeInt(component);
+						packetMessage.buffer.writeShort(interfaceId);
+						packetMessage.buffer.writeShort(child);
+						client.serverConnection.add(packetMessage);
 					}
 
 				}
