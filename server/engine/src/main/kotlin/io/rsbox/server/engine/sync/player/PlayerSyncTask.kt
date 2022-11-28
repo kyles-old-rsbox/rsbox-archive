@@ -329,7 +329,7 @@ class PlayerSyncTask : SyncTask {
         }
     }
 
-    private fun Player.shouldRemove(other: Player) = other.invisible || !other.tile.isWithinRadius(tile, Scene.RENDER_DISTANCE)
+    private fun Player.shouldRemove(other: Player) = other !in world.players || other.invisible || !other.tile.isWithinRadius(tile, Scene.RENDER_DISTANCE)
     private fun Player.shouldAdd(other: Player) = other != this && !other.invisible && other.tile.isWithinRadius(tile, Scene.RENDER_DISTANCE)
 
     private fun getDirectionType(dx: Int, dy: Int) = MOVEMENT_DIRS[2 - dy][dx + 2]
