@@ -32,7 +32,7 @@ public class class179 {
 			}
 
 			client.field1872 = class57.field404[2 + class387.field4452];
-			PacketMessage var12 = class185.method3435(ClientPacket.field3142, client.serverConnection.isaacRandom);
+			PacketMessage var12 = class185.create(ClientPacket.field3142, client.serverConnection.isaacRandom);
 			var12.buffer.writeByte(client.field1871);
 			var12.buffer.writeByte(class297.field3431.field5005);
 			var12.buffer.writeByte(client.field1872);
@@ -48,7 +48,7 @@ public class class179 {
 				class387.field4452 -= 2;
 				var5 = class57.field404[class387.field4452];
 				var6 = class57.field404[class387.field4452 + 1];
-				var7 = class185.method3435(ClientPacket.field3112, client.serverConnection.isaacRandom);
+				var7 = class185.create(ClientPacket.field3112, client.serverConnection.isaacRandom);
 				var7.buffer.writeByte(Buffer.method1887(var4) + 2);
 				var7.buffer.writeString(var4);
 				var7.buffer.writeByte(var5 - 1);
@@ -122,7 +122,7 @@ public class class179 {
 							class126.field1220 -= 2;
 							var4 = class57.field405[class126.field1220];
 							String var14 = class57.field405[1 + class126.field1220];
-							var13 = class185.method3435(ClientPacket.field3120, client.serverConnection.isaacRandom);
+							var13 = class185.create(ClientPacket.field3120, client.serverConnection.isaacRandom);
 							var13.buffer.writeShort(0);
 							int var11 = var13.buffer.offset;
 							var13.buffer.writeString(var4);
@@ -238,6 +238,6 @@ public class class179 {
 	}
 
 	static boolean method2842() {
-		return client.field1796 || client.field1876.method3895(81);
+		return client.field1796 || client.keyHandler.isKeyDown(81);
 	}
 }

@@ -296,7 +296,7 @@ public class Buffer extends class427 {
 		return Float.intBitsToFloat(this.readInt());
 	}
 
-	public boolean method8129() {
+	public boolean readBoolean() {
 		return (this.readUnsignedByte() & 1) == 1;
 	}
 
@@ -319,7 +319,7 @@ public class Buffer extends class427 {
 		return var3 == 0 ? "" : class126.method2371(this.data, var2, var3);
 	}
 
-	public String method8132() {
+	public String readJagexString() {
 		byte var2 = this.data[++this.offset - 1];
 		if (var2 != 0) {
 			throw new IllegalStateException("");
@@ -591,19 +591,19 @@ public class Buffer extends class427 {
 		return var2 == var3;
 	}
 
-	public void method8348(int var1) {
+	public void writeByteADD(int var1) {
 		this.data[++this.offset - 1] = (byte)(var1 + 128);
 	}
 
-	public void method8264(int var1) {
+	public void writeByteNEG(int var1) {
 		this.data[++this.offset - 1] = (byte)(0 - var1);
 	}
 
-	public void method8152(int var1) {
+	public void writeByteSUB(int var1) {
 		this.data[++this.offset - 1] = (byte)(128 - var1);
 	}
 
-	public int method8153() {
+	public int readUnsignedByteADD() {
 		return this.data[++this.offset - 1] - 128 & 255;
 	}
 
@@ -615,29 +615,29 @@ public class Buffer extends class427 {
 		return 128 - this.data[++this.offset - 1] & 255;
 	}
 
-	public byte method8335() {
+	public byte readByteADD() {
 		return (byte)(this.data[++this.offset - 1] - 128);
 	}
 
-	public byte method8187() {
+	public byte readByteNEG() {
 		return (byte)(0 - this.data[++this.offset - 1]);
 	}
 
-	public byte method8158() {
+	public byte readByteSUB() {
 		return (byte)(128 - this.data[++this.offset - 1]);
 	}
 
-	public void method8159(int var1) {
+	public void writeShortLE(int var1) {
 		this.data[++this.offset - 1] = (byte)var1;
 		this.data[++this.offset - 1] = (byte)(var1 >> 8);
 	}
 
-	public void method8337(int var1) {
+	public void writeShortADD(int var1) {
 		this.data[++this.offset - 1] = (byte)(var1 >> 8);
 		this.data[++this.offset - 1] = (byte)(var1 + 128);
 	}
 
-	public void method8161(int var1) {
+	public void writeShortLEADD(int var1) {
 		this.data[++this.offset - 1] = (byte)(var1 + 128);
 		this.data[++this.offset - 1] = (byte)(var1 >> 8);
 	}
@@ -647,7 +647,7 @@ public class Buffer extends class427 {
 		return (this.data[this.offset - 2] & 255) + ((this.data[this.offset - 1] & 255) << 8);
 	}
 
-	public int readUnsignedShortAdd() {
+	public int readUnsignedShortADD() {
 		this.offset += 2;
 		return ((this.data[this.offset - 2] & 255) << 8) + (this.data[this.offset - 1] - 128 & 255);
 	}
@@ -657,7 +657,7 @@ public class Buffer extends class427 {
 		return (this.data[this.offset - 2] - 128 & 255) + ((this.data[this.offset - 1] & 255) << 8);
 	}
 
-	public int method8183() {
+	public int readShortLEADD() {
 		this.offset += 2;
 		int var2 = (this.data[this.offset - 1] - 128 & 255) + ((this.data[this.offset - 2] & 255) << 8);
 		if (var2 > 32767) {
@@ -667,7 +667,7 @@ public class Buffer extends class427 {
 		return var2;
 	}
 
-	public int method8166() {
+	public int readShortADD() {
 		this.offset += 2;
 		int var2 = ((this.data[this.offset - 1] & 255) << 8) + (this.data[this.offset - 2] - 128 & 255);
 		if (var2 > 32767) {

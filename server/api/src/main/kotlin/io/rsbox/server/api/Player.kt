@@ -17,10 +17,11 @@
 
 package io.rsbox.server.api
 
+import io.rsbox.server.engine.model.coord.Tile
+import io.rsbox.server.engine.model.entity.MovementState
 import io.rsbox.server.engine.model.entity.Player
 import io.rsbox.server.engine.model.entity.update.PlayerUpdateFlag
 
-fun Player.updateAppearance() {
-    updateFlags.add(PlayerUpdateFlag.APPEARANCE)
+fun Player.teleport(destination: Tile) {
+    teleportTile = destination
 }
-

@@ -78,32 +78,32 @@ public class class96 {
 	}
 
 	static void method1959(int var0, String var1) {
-		int var3 = PlayerManager.playerCount;
-		int[] var4 = PlayerManager.field1013;
+		int var3 = PlayerManager.localPlayerCount;
+		int[] var4 = PlayerManager.localPlayerIndexes;
 		boolean var5 = false;
 		DisplayName var6 = new DisplayName(var1, class234.gameEngineMode);
 
 		for (int var7 = 0; var7 < var3; ++var7) {
-			PlayerEntity var8 = client.players[var4[var7]];
+			PlayerEntity var8 = client.localPlayers[var4[var7]];
 			if (null != var8 && class291.localPlayer != var8 && null != var8.displayName && var8.displayName.equals(var6)) {
 				PacketMessage var9;
 				if (var0 == 1) {
-					var9 = class185.method3435(ClientPacket.field3110, client.serverConnection.isaacRandom);
-					var9.buffer.method8152(0);
-					var9.buffer.method8161(var4[var7]);
+					var9 = class185.create(ClientPacket.field3110, client.serverConnection.isaacRandom);
+					var9.buffer.writeByteSUB(0);
+					var9.buffer.writeShortLEADD(var4[var7]);
 					client.serverConnection.add(var9);
 				} else if (var0 == 4) {
-					var9 = class185.method3435(ClientPacket.field3042, client.serverConnection.isaacRandom);
-					var9.buffer.method8152(0);
-					var9.buffer.method8159(var4[var7]);
+					var9 = class185.create(ClientPacket.field3042, client.serverConnection.isaacRandom);
+					var9.buffer.writeByteSUB(0);
+					var9.buffer.writeShortLE(var4[var7]);
 					client.serverConnection.add(var9);
 				} else if (var0 == 6) {
-					var9 = class185.method3435(ClientPacket.field3070, client.serverConnection.isaacRandom);
-					var9.buffer.method8161(var4[var7]);
-					var9.buffer.method8152(0);
+					var9 = class185.create(ClientPacket.field3070, client.serverConnection.isaacRandom);
+					var9.buffer.writeShortLEADD(var4[var7]);
+					var9.buffer.writeByteSUB(0);
 					client.serverConnection.add(var9);
 				} else if (var0 == 7) {
-					var9 = class185.method3435(ClientPacket.field3089, client.serverConnection.isaacRandom);
+					var9 = class185.create(ClientPacket.field3089, client.serverConnection.isaacRandom);
 					var9.buffer.writeShort(var4[var7]);
 					var9.buffer.writeByte(0);
 					client.serverConnection.add(var9);

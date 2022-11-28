@@ -1,5 +1,5 @@
 public class class169 extends class137 {
-	static int field1536;
+	static int sceneBaseY;
 	byte field1532;
 	byte field1535;
 	String field1534;

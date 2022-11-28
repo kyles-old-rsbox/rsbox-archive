@@ -24,7 +24,7 @@ public abstract class class399 extends class259 implements class482 {
 		} else if (var6 == Long.class) {
 			var5.field4963 = var1.readLong();
 		} else if (var6 == String.class) {
-			var5.field4963 = var1.method8132();
+			var5.field4963 = var1.readJagexString();
 		} else {
 			if (!class461.class.isAssignableFrom(var6)) {
 				throw new IllegalStateException();
@@ -42,7 +42,7 @@ public abstract class class399 extends class259 implements class482 {
 		return var5;
 	}
 
-	static boolean method7221(PacketBuffer var0, int var1) {
+	static boolean decodeExternalPlayersGpi(PacketBuffer var0, int var1) {
 		int var3 = var0.readBits(2);
 		int var4;
 		int var5;
@@ -52,7 +52,7 @@ public abstract class class399 extends class259 implements class482 {
 		int var11;
 		if (var3 == 0) {
 			if (var0.readBits(1) != 0) {
-				method7221(var0, var1);
+				decodeExternalPlayersGpi(var0, var1);
 			}
 
 			var4 = var0.readBits(13);
@@ -62,10 +62,10 @@ public abstract class class399 extends class259 implements class482 {
 				PlayerManager.field1020[++PlayerManager.extendedInfoCount - 1] = var1;
 			}
 
-			if (client.players[var1] != null) {
+			if (client.localPlayers[var1] != null) {
 				throw new RuntimeException();
 			} else {
-				PlayerEntity var7 = client.players[var1] = new PlayerEntity();
+				PlayerEntity var7 = client.localPlayers[var1] = new PlayerEntity();
 				var7.field915 = var1;
 				if (null != PlayerManager.cachedAppearanceData[var1]) {
 					var7.decodeAppearance(PlayerManager.cachedAppearanceData[var1]);
@@ -77,10 +77,10 @@ public abstract class class399 extends class259 implements class482 {
 				var9 = var8 >> 28;
 				var10 = var8 >> 14 & 255;
 				var11 = var8 & 255;
-				var7.field803[0] = PlayerManager.field1010[var1];
+				var7.field803[0] = PlayerManager.moveSpeeds[var1];
 				var7.field914 = (byte)var9;
-				var7.method1919(var4 + (var10 << 13) - class36.field241, (var11 << 13) + var5 - class169.field1536);
-				var7.field919 = false;
+				var7.teleport(var4 + (var10 << 13) - class36.sceneBaseX, (var11 << 13) + var5 - class169.sceneBaseY);
+				var7.isTeleporting = false;
 				return true;
 			}
 		} else if (var3 == 1) {

@@ -293,6 +293,6 @@ public class class336 extends class319 {
 			var3[var4] = var7 * var8 >> 16;
 		}
 
-		class214.method4157(var3, 500, 800, var0 * 334 / var1, 334);
+		Scene.method4157(var3, 500, 800, var0 * 334 / var1, 334);
 	}
 }

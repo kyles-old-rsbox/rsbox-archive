@@ -81,13 +81,13 @@ class Player internal constructor(val session: Session) : LivingEntity() {
         this.init()
         updateFlags.add(PlayerUpdateFlag.APPEARANCE)
         EventBus.postEvent(PlayerLoginEvent(world, this))
-        Logger.info("[$username] has connected to server.")
+        Logger.info("[$username] has connected to server. index=$index")
     }
 
     internal fun onLogout() {
         world.players.removePlayer(this)
         EventBus.postEvent(PlayerLogoutEvent(world, this))
-        Logger.info("[$username] has disconnected from server.")
+        Logger.info("[$username] has disconnected from server. index=$index")
     }
 
     override suspend fun cycle() {

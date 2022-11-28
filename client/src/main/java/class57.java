@@ -590,7 +590,7 @@ public class class57 {
 		}
 	}
 
-	static int method1273(PacketBuffer var0) {
+	static int readSkipCount(PacketBuffer var0) {
 		int var2 = var0.readBits(2);
 		int var3;
 		if (var2 == 0) {
@@ -658,13 +658,13 @@ public class class57 {
 	static void method6325(int var0, class295 var1, boolean var2) {
 		class254 var4 = client.method6324().method7603(var0);
 		int var5 = class291.localPlayer.field914;
-		int var6 = (class291.localPlayer.field827 >> 7) + class36.field241;
-		int var7 = class169.field1536 + (class291.localPlayer.field802 >> 7);
+		int var6 = (class291.localPlayer.field827 >> 7) + class36.sceneBaseX;
+		int var7 = class169.sceneBaseY + (class291.localPlayer.field802 >> 7);
 		class295 var8 = new class295(var5, var6, var7);
 		client.method6324().method7591(var4, var8, var1, var2);
 	}
 
 	static Object method1287(int var0) {
-		return class191.method3533((class451)class217.method4362(class451.method7984(), var0));
+		return class191.method3533((class451)class217.fromValue(class451.method7984(), var0));
 	}
 }

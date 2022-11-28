@@ -75,8 +75,8 @@ public class class143 {
 					return;
 				}
 
-				int var5 = MouseManager.field283 - var1;
-				int var6 = MouseManager.field293 - var2;
+				int var5 = MouseManager.lastPressedX - var1;
+				int var6 = MouseManager.lastPressedY - var2;
 				if (var4.method5837(var5, var6)) {
 					var5 -= var4.field3435 / 2;
 					var6 -= var4.field3433 / 2;
@@ -87,11 +87,11 @@ public class class143 {
 					int var11 = var9 * var6 - var5 * var8 >> 11;
 					int var12 = var10 + class291.localPlayer.field827 >> 7;
 					int var13 = class291.localPlayer.field802 - var11 >> 7;
-					PacketMessage var14 = class185.method3435(ClientPacket.field3052, client.serverConnection.isaacRandom);
+					PacketMessage var14 = class185.create(ClientPacket.field3052, client.serverConnection.isaacRandom);
 					var14.buffer.writeByte(18);
-					var14.buffer.method8161(var13 + class169.field1536);
-					var14.buffer.method8264(client.field1876.method3895(82) ? (client.field1876.method3895(81) ? 2 : 1) : 0);
-					var14.buffer.method8337(class36.field241 + var12);
+					var14.buffer.writeShortLEADD(var13 + class169.sceneBaseY);
+					var14.buffer.writeByteNEG(client.keyHandler.isKeyDown(82) ? (client.keyHandler.isKeyDown(81) ? 2 : 1) : 0);
+					var14.buffer.writeShortADD(class36.sceneBaseX + var12);
 					var14.buffer.writeByte(var5);
 					var14.buffer.writeByte(var6);
 					var14.buffer.writeShort(client.field1672);

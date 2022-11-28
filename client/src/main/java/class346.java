@@ -82,8 +82,8 @@ public class class346 implements class360 {
 		int var4;
 		if (var0 == CS2Opcodes._6600) {
 			var4 = class55.field396;
-			int var10 = (class291.localPlayer.field827 >> 7) + class36.field241;
-			int var6 = (class291.localPlayer.field802 >> 7) + class169.field1536;
+			int var10 = (class291.localPlayer.field827 >> 7) + class36.sceneBaseX;
+			int var6 = (class291.localPlayer.field802 >> 7) + class169.sceneBaseY;
 			client.method6324().method7597(var4, var10, var6, true);
 			return 1;
 		} else {
@@ -448,7 +448,7 @@ public class class346 implements class360 {
 					if (class242.method4733(class190.method3528(var0.field1984))) {
 						int[] var5 = var0.field1984.method5933();
 						if (var5 != null) {
-							PacketMessage var3 = class185.method3435(ClientPacket.field3146, client.serverConnection.isaacRandom);
+							PacketMessage var3 = class185.create(ClientPacket.field3146, client.serverConnection.isaacRandom);
 							var3.buffer.writeIntAlt(var5[2]);
 							var3.buffer.writeInt(var0.field1984.field3517);
 							var3.buffer.writeIntAlt(var0.field1984.method5871());
@@ -466,7 +466,7 @@ public class class346 implements class360 {
 					case 0:
 						client.field1877.method3515(var0.field1984);
 						var4.method5560(true);
-						var4.method5599(var0.field1987, var0.field1980, client.field1876.method3895(82), client.field1876.method3895(81));
+						var4.method5599(var0.field1987, var0.field1980, client.keyHandler.isKeyDown(82), client.keyHandler.isKeyDown(81));
 						break;
 					case 1:
 						var4.method5600(var0.field1987, var0.field1980);

@@ -215,8 +215,8 @@ public class class420 {
 			int var7 = (int)((float)this.field4622 - ((float)(var2 - this.field4629) - (float)this.method7612() * this.field4650 / 2.0F) / this.field4650);
 			this.field4654 = this.field4616.method5100(var6 + this.field4616.method5124() * 64, var7 + this.field4616.method5079() * 64);
 			if (this.field4654 != null && var3) {
-				class205 var8 = client.field1876;
-				if (class114.method2218() && var8.method3895(82) && var8.method3895(81)) {
+				class205 var8 = client.keyHandler;
+				if (class114.method2218() && var8.isKeyDown(82) && var8.isKeyDown(81)) {
 					class136.method2439(this.field4654.field3376, this.field4654.field3375, this.field4654.field3374, false);
 				} else {
 					boolean var10 = true;
@@ -229,7 +229,7 @@ public class class420 {
 					}
 
 					if (var10) {
-						PacketMessage var13 = class185.method3435(ClientPacket.field3081, client.serverConnection.isaacRandom);
+						PacketMessage var13 = class185.create(ClientPacket.field3081, client.serverConnection.isaacRandom);
 						var13.buffer.writeInt(this.field4654.method5522());
 						client.serverConnection.add(var13);
 						this.field4640 = 0L;

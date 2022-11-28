@@ -20,7 +20,7 @@ public final class class217 {
 		this.field2583 = 0;
 	}
 
-	public static class360 method4362(class360[] var0, int var1) {
+	public static class360 fromValue(class360[] var0, int var1) {
 		class360[] var3 = var0;
 
 		for (int var4 = 0; var4 < var3.length; ++var4) {

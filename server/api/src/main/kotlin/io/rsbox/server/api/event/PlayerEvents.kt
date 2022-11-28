@@ -15,15 +15,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package content.core
+package io.rsbox.server.api.event
 
-import io.rsbox.server.api.event.on_player_login
-import io.rsbox.server.api.event.on_player_logout
-import io.rsbox.server.api.event.on_player_move_click
-import io.rsbox.server.api.teleport
-import io.rsbox.server.engine.coroutine.wait
-import io.rsbox.server.engine.coroutine.waitUntil
-
-on_player_move_click {
-    player.teleport(tile)
-}
+import io.rsbox.server.engine.event.EventBus.subscribe
+import io.rsbox.server.engine.event.impl.PlayerMoveClickEvent

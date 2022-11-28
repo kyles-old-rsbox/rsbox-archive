@@ -66,7 +66,7 @@ public class class458 extends class437 {
 	void method8081() {
 	}
 
-	static final void method8090(int var0, int var1, int var2, int var3, int var4, int var5, class214 var6, class200 var7) {
+	static final void method8090(int var0, int var1, int var2, int var3, int var4, int var5, Scene var6, class200 var7) {
 		if (!client.isLowDetail || 0 != (class82.field714[0][var1][var2] & 2) || (class82.field714[var0][var1][var2] & 16) == 0) {
 			if (var0 < class82.field724) {
 				class82.field724 = var0;

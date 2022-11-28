@@ -19,25 +19,20 @@ package io.rsbox.server.engine.model.manager
 
 import io.rsbox.server.engine.model.coord.Chunk
 import io.rsbox.server.engine.model.coord.Region
+import io.rsbox.server.engine.model.coord.Scene.Companion.REBUILD_DISTANCE
 import io.rsbox.server.engine.model.coord.Tile
 import io.rsbox.server.engine.model.entity.Player
-import io.rsbox.server.engine.net.packet.server.RebuildRegionPacket
+import io.rsbox.server.engine.net.packet.server.RebuildRegionNormalPacket
+import kotlin.math.abs
 
 class SceneManager(private val player: Player) {
 
     var baseTile: Tile = player.tile
-    val regions = mutableListOf<Region>()
 
-    fun init() {
-        rebuild()
-        player.session.write(RebuildRegionPacket(player, gpi = true))
-    }
-
-    fun rebuild() {
-        baseTile = player.tile
-        regions.clear()
-
+    val regions: List<Region> get() {
+        val results = mutableListOf<Region>()
         val baseChunk = baseTile.toChunk()
+
         val lx = (baseChunk.x - 6) / Chunk.SIZE
         val ly = (baseChunk.y - 6) / Chunk.SIZE
         val rx = (baseChunk.x + 6) / Chunk.SIZE
@@ -45,8 +40,27 @@ class SceneManager(private val player: Player) {
 
         for(x in lx..rx) {
             for(y in ly..ry) {
-                regions.add(Region(x, y))
+                results.add(Region(x, y))
             }
+        }
+
+        return results
+    }
+
+    fun init() {
+        baseTile = player.tile
+        player.session.write(RebuildRegionNormalPacket(player, gpi = true))
+    }
+
+    private fun shouldRebuild(): Boolean {
+       return abs(baseTile.x - player.tile.x) > REBUILD_DISTANCE
+               || abs(baseTile.y - player.tile.y) > REBUILD_DISTANCE
+    }
+
+    suspend fun cycle() {
+        if(shouldRebuild()) {
+            baseTile = player.tile
+            player.session.write(RebuildRegionNormalPacket(player, gpi = false))
         }
     }
 }

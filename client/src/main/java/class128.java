@@ -154,8 +154,8 @@ public class class128 extends class393 {
 					var28 = MouseManager.field284;
 					var19 = MouseManager.field285;
 					if (MouseManager.field277 != 0) {
-						var28 = MouseManager.field283;
-						var19 = MouseManager.field293;
+						var28 = MouseManager.lastPressedX;
+						var19 = MouseManager.lastPressedY;
 					}
 
 					boolean var36 = var28 >= var13 && var19 >= var14 && var28 < var15 && var19 < var16;
@@ -188,7 +188,7 @@ public class class128 extends class393 {
 									for (var24 = 0; var24 < var10.field3541[var21].length; ++var24) {
 										boolean var25 = false;
 										if (null != var10.field3543) {
-											var25 = client.field1876.method3895(var10.field3541[var21][var24]);
+											var25 = client.keyHandler.isKeyDown(var10.field3541[var21][var24]);
 										}
 
 										if (client.method2448(var10.field3541[var21][var24]) || var25) {
@@ -198,7 +198,7 @@ public class class128 extends class393 {
 											}
 
 											byte var26 = var10.field3542[var21][var24];
-											if (var26 == 0 || ((var26 & 8) == 0 || !client.field1876.method3895(86) && !client.field1876.method3895(82) && !client.field1876.method3895(81)) && (0 == (var26 & 2) || client.field1876.method3895(86)) && ((var26 & 1) == 0 || client.field1876.method3895(82)) && ((var26 & 4) == 0 || client.field1876.method3895(81))) {
+											if (var26 == 0 || ((var26 & 8) == 0 || !client.keyHandler.isKeyDown(86) && !client.keyHandler.isKeyDown(82) && !client.keyHandler.isKeyDown(81)) && (0 == (var26 & 2) || client.keyHandler.isKeyDown(86)) && ((var26 & 1) == 0 || client.keyHandler.isKeyDown(82)) && ((var26 & 4) == 0 || client.keyHandler.isKeyDown(81))) {
 												var23 = true;
 												break;
 											}
@@ -259,12 +259,12 @@ public class class128 extends class393 {
 							}
 
 							var22 = false;
-							if ((1 == MouseManager.field277 || !class95.field944 && MouseManager.field277 == 4) && MouseManager.field283 >= var13 && MouseManager.field293 >= var14 && MouseManager.field283 < var15 && MouseManager.field293 < var16) {
+							if ((1 == MouseManager.field277 || !class95.field944 && MouseManager.field277 == 4) && MouseManager.lastPressedX >= var13 && MouseManager.lastPressedY >= var14 && MouseManager.lastPressedX < var15 && MouseManager.lastPressedY < var16) {
 								var22 = true;
 							}
 
 							if (var22) {
-								class311.method6051(var10, MouseManager.field283 - var27, MouseManager.field293 - var12);
+								class311.method6051(var10, MouseManager.lastPressedX - var27, MouseManager.lastPressedY - var12);
 							}
 
 							if (var10.method5862()) {
@@ -314,8 +314,8 @@ public class class128 extends class393 {
 										var29 = new ClientScript();
 										var29.field692 = true;
 										var29.field694 = var10;
-										var29.field693 = MouseManager.field283 - var27;
-										var29.field688 = MouseManager.field293 - var12;
+										var29.field693 = MouseManager.lastPressedX - var27;
+										var29.field688 = MouseManager.lastPressedY - var12;
 										var29.args = var10.field3611;
 										client.field1765.method6355(var29);
 									}
@@ -549,7 +549,7 @@ public class class128 extends class393 {
 								ClientScript var31;
 								int[] var40;
 								if (null != var10.field3577) {
-									var40 = client.field1876.method3915();
+									var40 = client.keyHandler.method3915();
 
 									for (var24 = 0; var24 < var40.length; ++var24) {
 										var31 = new ClientScript();
@@ -561,7 +561,7 @@ public class class128 extends class393 {
 								}
 
 								if (var10.field3578 != null) {
-									var40 = client.field1876.method3896();
+									var40 = client.keyHandler.method3896();
 
 									for (var24 = 0; var24 < var40.length; ++var24) {
 										var31 = new ClientScript();

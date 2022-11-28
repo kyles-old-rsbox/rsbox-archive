@@ -21,6 +21,7 @@ import io.rsbox.server.common.inject
 import io.rsbox.server.engine.model.World
 import io.rsbox.server.engine.model.entity.MovementState
 import io.rsbox.server.engine.model.entity.Player
+import io.rsbox.server.engine.model.entity.update.PlayerUpdateFlag
 import io.rsbox.server.engine.sync.SyncTask
 
 class PlayerPreSyncTask : SyncTask {
@@ -30,6 +31,7 @@ class PlayerPreSyncTask : SyncTask {
     override suspend fun execute() {
         world.players.forEach { player ->
             player.updateMovement()
+            player.scene.cycle()
         }
     }
 
@@ -37,12 +39,19 @@ class PlayerPreSyncTask : SyncTask {
         prevTile = tile
         when {
             teleportTile != null -> teleport()
+            path.isNotEmpty() -> step()
         }
     }
 
     private fun Player.teleport() {
+        path.clear()
         movementState = MovementState.TELEPORT
+        updateFlags.add(PlayerUpdateFlag.MOVEMENT_MODE)
         tile = teleportTile!!
         followTile = teleportTile!!.translate(0, -1)
+    }
+
+    private fun Player.step() {
+
     }
 }

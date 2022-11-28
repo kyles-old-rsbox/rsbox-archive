@@ -26,6 +26,7 @@ import io.rsbox.server.engine.net.http.HttpServer
 import io.rsbox.server.engine.service.ServiceManager
 import io.rsbox.server.engine.sync.SyncTaskList
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.tinylog.kotlin.Logger
@@ -43,6 +44,8 @@ class Engine {
     private val syncTasks = SyncTaskList()
     private var running = false
     private var prevCycleNanos = 0L
+
+    internal val ioCoroutine = CoroutineScope(Dispatchers.IO)
 
     fun start() {
         Logger.info("Starting RSBox engine.")

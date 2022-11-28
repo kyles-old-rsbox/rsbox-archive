@@ -20,6 +20,7 @@ package io.rsbox.server.engine.model.entity
 import io.rsbox.server.engine.model.Direction
 import io.rsbox.server.engine.model.coord.Tile
 import io.rsbox.server.engine.queue.PriorityQueueList
+import io.rsbox.server.engine.queue.QueuePriority
 import org.tinylog.kotlin.Logger
 
 abstract class LivingEntity : Entity() {
@@ -39,6 +40,7 @@ abstract class LivingEntity : Entity() {
     var direction = Direction.SOUTH
 
     internal val queue = PriorityQueueList()
+    fun queue(priority: QueuePriority = QueuePriority.NORMAL, block: suspend () -> Unit) = queue.queue(priority, block)
 
     internal suspend fun queueCycle() {
         val shouldPollPending = queue.paused

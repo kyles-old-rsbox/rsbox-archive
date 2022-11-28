@@ -6,7 +6,7 @@ public class class307 {
 	}
 
 	public static PacketMessage method6040(int var0, String var1, class353 var2, int var3) {
-		PacketMessage var5 = class185.method3435(ClientPacket.field3115, client.serverConnection.isaacRandom);
+		PacketMessage var5 = class185.create(ClientPacket.field3115, client.serverConnection.isaacRandom);
 		var5.buffer.writeByte(0);
 		int var6 = var5.buffer.offset;
 		var5.buffer.writeByte(var0);
@@ -139,7 +139,7 @@ public class class307 {
 		return class34.method644(var0, 32767);
 	}
 
-	static final void method6042(class214 var0, class200[] var1) {
+	static final void method6042(Scene var0, class200[] var1) {
 		int var3;
 		int var4;
 		int var5;
@@ -558,7 +558,7 @@ public class class307 {
 								var61 = 240;
 								var16 = class82.field719[var13][var60][var10] - var61;
 								var17 = class82.field719[var12][var60][var10];
-								class214.method4210(var6, 1, var60 * 128, var60 * 128, var10 * 128, var11 * 128 + 128, var16, var17);
+								Scene.method4210(var6, 1, var60 * 128, var60 * 128, var10 * 128, var11 * 128 + 128, var16, var17);
 
 								for (var18 = var12; var18 <= var13; ++var18) {
 									for (var19 = var10; var19 <= var11; ++var19) {
@@ -608,7 +608,7 @@ public class class307 {
 								var61 = 240;
 								var16 = class82.field719[var13][var10][var59] - var61;
 								var17 = class82.field719[var12][var10][var59];
-								class214.method4210(var6, 2, var10 * 128, var11 * 128 + 128, var59 * 128, var59 * 128, var16, var17);
+								Scene.method4210(var6, 2, var10 * 128, var11 * 128 + 128, var59 * 128, var59 * 128, var16, var17);
 
 								for (var18 = var12; var18 <= var13; ++var18) {
 									for (var19 = var10; var19 <= var11; ++var19) {
@@ -655,7 +655,7 @@ public class class307 {
 
 							if ((1 + (var11 - var10)) * (1 + (var13 - var12)) >= 4) {
 								var14 = class82.field719[var58][var10][var12];
-								class214.method4210(var6, 4, var10 * 128, var11 * 128 + 128, var12 * 128, var13 * 128 + 128, var14, var14);
+								Scene.method4210(var6, 4, var10 * 128, var11 * 128 + 128, var12 * 128, var13 * 128 + 128, var14, var14);
 
 								for (var15 = var10; var15 <= var11; ++var15) {
 									for (var16 = var12; var16 <= var13; ++var16) {

@@ -13,7 +13,7 @@ public class MoveSpeed implements class360 {
 		field2116 = new MoveSpeed((byte)2);
 	}
 
-	public static MoveSpeed[] method7499() {
+	public static MoveSpeed[] values() {
 		return new MoveSpeed[]{NONE, field2114, field2116, field2113};
 	}
 

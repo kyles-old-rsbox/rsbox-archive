@@ -15,15 +15,13 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package content.core
+package io.rsbox.server.engine.event.impl
 
-import io.rsbox.server.api.event.on_player_login
-import io.rsbox.server.api.event.on_player_logout
-import io.rsbox.server.api.event.on_player_move_click
-import io.rsbox.server.api.teleport
-import io.rsbox.server.engine.coroutine.wait
-import io.rsbox.server.engine.coroutine.waitUntil
+import io.rsbox.server.engine.event.Event
+import io.rsbox.server.engine.model.entity.Player
 
-on_player_move_click {
-    player.teleport(tile)
-}
+open class PlayerEvent(val player: Player) : Event
+
+/**
+ * ===== EVENTS =====
+ */

@@ -95,7 +95,7 @@ public class class34 {
 	static void load() {
 		int var1;
 		if (client.field1793 == 0) {
-			class145.field1333 = new class214(4, 104, 104, class82.field719);
+			class145.field1333 = new Scene(4, 104, 104, class82.field719);
 
 			for (var1 = 0; var1 < 4; ++var1) {
 				client.field1884[var1] = new class200(104, 104);

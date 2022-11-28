@@ -282,7 +282,7 @@ public class class236 implements class248 {
 					}
 				}
 
-				var8 = var1.method8153();
+				var8 = var1.readUnsignedByteADD();
 				if (var8 > 0) {
 					for (var9 = 0; var9 < var8; ++var9) {
 						var10 = var1.method8207();
@@ -290,7 +290,7 @@ public class class236 implements class248 {
 						if (var11 != 32767) {
 							var18 = var1.method8207();
 							var13 = var1.readUnsignedByteSub();
-							int var14 = var11 > 0 ? var1.method8153() : var13;
+							int var14 = var11 > 0 ? var1.readUnsignedByteADD() : var13;
 							var5.method1867(var10, client.field1645, var11, var18, var13, var14);
 						} else {
 							var5.method1872(var10);
@@ -310,9 +310,9 @@ public class class236 implements class248 {
 			if ((var17 & 4) != 0) {
 				var7 = var1.readUnsignedShortLE();
 				var8 = var1.readUnsignedShortLEADD();
-				var5.field838 = var1.method8153() == 1;
-				var9 = var5.field827 - (var7 - class36.field241 - class36.field241) * 64;
-				var10 = var5.field802 - 64 * (var8 - class169.field1536 - class169.field1536);
+				var5.field838 = var1.readUnsignedByteADD() == 1;
+				var9 = var5.field827 - (var7 - class36.sceneBaseX - class36.sceneBaseX) * 64;
+				var10 = var5.field802 - 64 * (var8 - class169.sceneBaseY - class169.sceneBaseY);
 				if (var9 != 0 || var10 != 0) {
 					var5.field868 = (int)(Math.atan2((double)var9, (double)var10) * 325.949D) & 2047;
 				}
@@ -353,9 +353,9 @@ public class class236 implements class248 {
 			}
 
 			if ((var17 & 1024) != 0) {
-				var5.field815 = var1.method8335();
-				var5.field855 = var1.method8187();
-				var5.field854 = var1.method8335();
+				var5.field815 = var1.readByteADD();
+				var5.field855 = var1.readByteNEG();
+				var5.field854 = var1.readByteADD();
 				var5.field853 = var1.readByte();
 				var5.field857 = var1.readUnsignedShort() + client.field1645;
 				var5.field858 = var1.readUnsignedShort() + client.field1645;
@@ -370,9 +370,9 @@ public class class236 implements class248 {
 
 			if (0 != (var17 & 4096)) {
 				var5.field862 = client.field1645 + var1.readUnsignedShortLEADD();
-				var5.field863 = client.field1645 + var1.readUnsignedShortAdd();
+				var5.field863 = client.field1645 + var1.readUnsignedShortADD();
 				var5.field864 = var1.readByte();
-				var5.field865 = var1.method8158();
+				var5.field865 = var1.readByteSUB();
 				var5.field850 = var1.readByte();
 				var5.field867 = (byte)var1.readUnsignedByte();
 			}
@@ -380,7 +380,7 @@ public class class236 implements class248 {
 			if ((var17 & 1) != 0) {
 				var5.interacting = var1.readUnsignedShortLE();
 				if (class227.field2714) {
-					var5.interacting += var1.method8153() << 16;
+					var5.interacting += var1.readUnsignedByteADD() << 16;
 					var7 = 16777215;
 				} else {
 					var7 = 65535;
@@ -405,7 +405,7 @@ public class class236 implements class248 {
 			}
 
 			if ((var17 & 256) != 0) {
-				var5.method1617(var1.method8153());
+				var5.method1617(var1.readUnsignedByteADD());
 			}
 		}
 

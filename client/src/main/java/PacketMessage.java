@@ -44,10 +44,10 @@ public class PacketMessage extends class427 {
 		PacketMessage var12;
 		class81 var15;
 		if (var2 == 1003) {
-			client.field1657 = var7;
-			client.field1749 = var8;
-			client.field1751 = 2;
-			client.field1904 = 0;
+			client.mouseCrossX = var7;
+			client.mouseCrossY = var8;
+			client.mouseCrossColor = 2;
+			client.mouseCrossState = 0;
 			var15 = client.npcs[var3];
 			if (var15 != null) {
 				class203 var11 = var15.field709;
@@ -56,8 +56,8 @@ public class PacketMessage extends class427 {
 				}
 
 				if (var11 != null) {
-					var12 = class185.method3435(ClientPacket.field3060, client.serverConnection.isaacRandom);
-					var12.buffer.method8161(var11.field2260);
+					var12 = class185.create(ClientPacket.field3060, client.serverConnection.isaacRandom);
+					var12.buffer.writeShortLEADD(var11.field2260);
 					client.serverConnection.add(var12);
 				}
 			}
@@ -65,12 +65,12 @@ public class PacketMessage extends class427 {
 
 		PacketMessage var16;
 		if (var2 == 31) {
-			var16 = class185.method3435(ClientPacket.field3096, client.serverConnection.isaacRandom);
-			var16.buffer.method8337(class6.field23);
+			var16 = class185.create(ClientPacket.field3096, client.serverConnection.isaacRandom);
+			var16.buffer.writeShortADD(class6.field23);
 			var16.buffer.writeIntLEAlt(class213.field2493);
 			var16.buffer.writeIntLEAlt(var1);
 			var16.buffer.writeShort(var0);
-			var16.buffer.method8159(var4);
+			var16.buffer.writeShortLE(var4);
 			var16.buffer.writeShort(class54.field385);
 			client.serverConnection.add(var16);
 			client.field1840 = 0;
@@ -79,11 +79,11 @@ public class PacketMessage extends class427 {
 		}
 
 		if (var2 == 1002) {
-			client.field1657 = var7;
-			client.field1749 = var8;
-			client.field1751 = 2;
-			client.field1904 = 0;
-			var16 = class185.method3435(ClientPacket.field3126, client.serverConnection.isaacRandom);
+			client.mouseCrossX = var7;
+			client.mouseCrossY = var8;
+			client.mouseCrossColor = 2;
+			client.mouseCrossState = 0;
+			var16 = class185.create(ClientPacket.field3126, client.serverConnection.isaacRandom);
 			var16.buffer.writeShort(var3);
 			client.serverConnection.add(var16);
 		}
@@ -91,78 +91,78 @@ public class PacketMessage extends class427 {
 		PlayerEntity var17;
 		PacketMessage var18;
 		if (var2 == 50) {
-			var17 = client.players[var3];
+			var17 = client.localPlayers[var3];
 			if (null != var17) {
-				client.field1657 = var7;
-				client.field1749 = var8;
-				client.field1751 = 2;
-				client.field1904 = 0;
+				client.mouseCrossX = var7;
+				client.mouseCrossY = var8;
+				client.mouseCrossColor = 2;
+				client.mouseCrossState = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var18 = class185.method3435(ClientPacket.field3089, client.serverConnection.isaacRandom);
+				var18 = class185.create(ClientPacket.field3089, client.serverConnection.isaacRandom);
 				var18.buffer.writeShort(var3);
-				var18.buffer.writeByte(client.field1876.method3895(82) ? 1 : 0);
+				var18.buffer.writeByte(client.keyHandler.isKeyDown(82) ? 1 : 0);
 				client.serverConnection.add(var18);
 			}
 		}
 
 		if (var2 == 14) {
-			var17 = client.players[var3];
+			var17 = client.localPlayers[var3];
 			if (null != var17) {
-				client.field1657 = var7;
-				client.field1749 = var8;
-				client.field1751 = 2;
-				client.field1904 = 0;
+				client.mouseCrossX = var7;
+				client.mouseCrossY = var8;
+				client.mouseCrossColor = 2;
+				client.mouseCrossState = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var18 = class185.method3435(ClientPacket.field3143, client.serverConnection.isaacRandom);
+				var18 = class185.create(ClientPacket.field3143, client.serverConnection.isaacRandom);
 				var18.buffer.writeIntLEAlt(class213.field2493);
-				var18.buffer.method8161(class6.field23);
-				var18.buffer.method8161(class54.field385);
-				var18.buffer.method8337(var3);
-				var18.buffer.writeByte(client.field1876.method3895(82) ? 1 : 0);
+				var18.buffer.writeShortLEADD(class6.field23);
+				var18.buffer.writeShortLEADD(class54.field385);
+				var18.buffer.writeShortADD(var3);
+				var18.buffer.writeByte(client.keyHandler.isKeyDown(82) ? 1 : 0);
 				client.serverConnection.add(var18);
 			}
 		}
 
 		if (var2 == 46) {
-			var17 = client.players[var3];
+			var17 = client.localPlayers[var3];
 			if (null != var17) {
-				client.field1657 = var7;
-				client.field1749 = var8;
-				client.field1751 = 2;
-				client.field1904 = 0;
+				client.mouseCrossX = var7;
+				client.mouseCrossY = var8;
+				client.mouseCrossColor = 2;
+				client.mouseCrossState = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var18 = class185.method3435(ClientPacket.field3044, client.serverConnection.isaacRandom);
-				var18.buffer.method8337(var3);
-				var18.buffer.writeByte(client.field1876.method3895(82) ? 1 : 0);
+				var18 = class185.create(ClientPacket.field3044, client.serverConnection.isaacRandom);
+				var18.buffer.writeShortADD(var3);
+				var18.buffer.writeByte(client.keyHandler.isKeyDown(82) ? 1 : 0);
 				client.serverConnection.add(var18);
 			}
 		}
 
 		if (var2 == 15) {
-			var17 = client.players[var3];
+			var17 = client.localPlayers[var3];
 			if (var17 != null) {
-				client.field1657 = var7;
-				client.field1749 = var8;
-				client.field1751 = 2;
-				client.field1904 = 0;
+				client.mouseCrossX = var7;
+				client.mouseCrossY = var8;
+				client.mouseCrossColor = 2;
+				client.mouseCrossState = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var18 = class185.method3435(ClientPacket.field3145, client.serverConnection.isaacRandom);
+				var18 = class185.create(ClientPacket.field3145, client.serverConnection.isaacRandom);
 				var18.buffer.writeIntAlt(class106.field1066);
-				var18.buffer.method8159(client.field1806);
-				var18.buffer.writeByte(client.field1876.method3895(82) ? 1 : 0);
-				var18.buffer.method8337(client.field1805);
-				var18.buffer.method8161(var3);
+				var18.buffer.writeShortLE(client.field1806);
+				var18.buffer.writeByte(client.keyHandler.isKeyDown(82) ? 1 : 0);
+				var18.buffer.writeShortADD(client.field1805);
+				var18.buffer.writeShortLEADD(var3);
 				client.serverConnection.add(var18);
 			}
 		}
 
 		if (var2 == 41) {
-			var16 = class185.method3435(ClientPacket.field3098, client.serverConnection.isaacRandom);
-			var16.buffer.method8159(var4);
+			var16 = class185.create(ClientPacket.field3098, client.serverConnection.isaacRandom);
+			var16.buffer.writeShortLE(var4);
 			var16.buffer.writeInt(var1);
 			var16.buffer.writeShort(var0);
 			client.serverConnection.add(var16);
@@ -172,37 +172,37 @@ public class PacketMessage extends class427 {
 		}
 
 		if (var2 == 47) {
-			var17 = client.players[var3];
+			var17 = client.localPlayers[var3];
 			if (null != var17) {
-				client.field1657 = var7;
-				client.field1749 = var8;
-				client.field1751 = 2;
-				client.field1904 = 0;
+				client.mouseCrossX = var7;
+				client.mouseCrossY = var8;
+				client.mouseCrossColor = 2;
+				client.mouseCrossState = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var18 = class185.method3435(ClientPacket.field3042, client.serverConnection.isaacRandom);
-				var18.buffer.method8152(client.field1876.method3895(82) ? 1 : 0);
-				var18.buffer.method8159(var3);
+				var18 = class185.create(ClientPacket.field3042, client.serverConnection.isaacRandom);
+				var18.buffer.writeByteSUB(client.keyHandler.isKeyDown(82) ? 1 : 0);
+				var18.buffer.writeShortLE(var3);
 				client.serverConnection.add(var18);
 			}
 		}
 
 		if (var2 == 1004) {
-			client.field1657 = var7;
-			client.field1749 = var8;
-			client.field1751 = 2;
-			client.field1904 = 0;
-			var16 = class185.method3435(ClientPacket.field3138, client.serverConnection.isaacRandom);
-			var16.buffer.writeShort(var0 + class36.field241);
-			var16.buffer.method8337(var3);
-			var16.buffer.writeShort(class169.field1536 + var1);
+			client.mouseCrossX = var7;
+			client.mouseCrossY = var8;
+			client.mouseCrossColor = 2;
+			client.mouseCrossState = 0;
+			var16 = class185.create(ClientPacket.field3138, client.serverConnection.isaacRandom);
+			var16.buffer.writeShort(var0 + class36.sceneBaseX);
+			var16.buffer.writeShortADD(var3);
+			var16.buffer.writeShort(class169.sceneBaseY + var1);
 			client.serverConnection.add(var16);
 		}
 
 		if (var2 == 37) {
-			var16 = class185.method3435(ClientPacket.field3125, client.serverConnection.isaacRandom);
+			var16 = class185.create(ClientPacket.field3125, client.serverConnection.isaacRandom);
 			var16.buffer.writeShort(var0);
-			var16.buffer.method8161(var4);
+			var16.buffer.writeShortLEADD(var4);
 			var16.buffer.writeIntLE(var1);
 			client.serverConnection.add(var16);
 			client.field1840 = 0;
@@ -211,10 +211,10 @@ public class PacketMessage extends class427 {
 		}
 
 		if (var2 == 42) {
-			var16 = class185.method3435(ClientPacket.field3103, client.serverConnection.isaacRandom);
-			var16.buffer.method8159(var4);
+			var16 = class185.create(ClientPacket.field3103, client.serverConnection.isaacRandom);
+			var16.buffer.writeShortLE(var4);
 			var16.buffer.writeIntLEAlt(var1);
-			var16.buffer.method8159(var0);
+			var16.buffer.writeShortLE(var0);
 			client.serverConnection.add(var16);
 			client.field1840 = 0;
 			class132.field1247 = class282.method5426(var1);
@@ -222,10 +222,10 @@ public class PacketMessage extends class427 {
 		}
 
 		if (var2 == 40) {
-			var16 = class185.method3435(ClientPacket.field3072, client.serverConnection.isaacRandom);
+			var16 = class185.create(ClientPacket.field3072, client.serverConnection.isaacRandom);
 			var16.buffer.writeIntLEAlt(var1);
 			var16.buffer.writeShort(var0);
-			var16.buffer.method8161(var4);
+			var16.buffer.writeShortLEADD(var4);
 			client.serverConnection.add(var16);
 			client.field1840 = 0;
 			class132.field1247 = class282.method5426(var1);
@@ -244,32 +244,32 @@ public class PacketMessage extends class427 {
 					class57.runClientScript(var19);
 				}
 
-				var18 = class185.method3435(ClientPacket.field3131, client.serverConnection.isaacRandom);
-				var18.buffer.method8161(client.field1806);
-				var18.buffer.method8161(var0);
+				var18 = class185.create(ClientPacket.field3131, client.serverConnection.isaacRandom);
+				var18.buffer.writeShortLEADD(client.field1806);
+				var18.buffer.writeShortLEADD(var0);
 				var18.buffer.writeIntAlt(class106.field1066);
 				var18.buffer.writeShort(var4);
 				var18.buffer.writeIntLE(var1);
-				var18.buffer.method8159(client.field1805);
+				var18.buffer.writeShortLE(client.field1805);
 				client.serverConnection.add(var18);
 			}
 		}
 
 		if (var2 == 1) {
-			client.field1657 = var7;
-			client.field1749 = var8;
-			client.field1751 = 2;
-			client.field1904 = 0;
+			client.mouseCrossX = var7;
+			client.mouseCrossY = var8;
+			client.mouseCrossColor = 2;
+			client.mouseCrossState = 0;
 			client.destinationX = var0;
 			client.destinationY = var1;
-			var16 = class185.method3435(ClientPacket.field3123, client.serverConnection.isaacRandom);
-			var16.buffer.method8337(class6.field23);
-			var16.buffer.method8337(class54.field385);
-			var16.buffer.writeShort(var1 + class169.field1536);
-			var16.buffer.method8161(class36.field241 + var0);
+			var16 = class185.create(ClientPacket.field3123, client.serverConnection.isaacRandom);
+			var16.buffer.writeShortADD(class6.field23);
+			var16.buffer.writeShortADD(class54.field385);
+			var16.buffer.writeShort(var1 + class169.sceneBaseY);
+			var16.buffer.writeShortLEADD(class36.sceneBaseX + var0);
 			var16.buffer.writeIntAlt(class213.field2493);
-			var16.buffer.writeByte(client.field1876.method3895(82) ? 1 : 0);
-			var16.buffer.method8337(var3);
+			var16.buffer.writeByte(client.keyHandler.isKeyDown(82) ? 1 : 0);
+			var16.buffer.writeShortADD(var3);
 			client.serverConnection.add(var16);
 		}
 
@@ -288,25 +288,25 @@ public class PacketMessage extends class427 {
 
 		} else {
 			if (var2 == 21) {
-				client.field1657 = var7;
-				client.field1749 = var8;
-				client.field1751 = 2;
-				client.field1904 = 0;
+				client.mouseCrossX = var7;
+				client.mouseCrossY = var8;
+				client.mouseCrossColor = 2;
+				client.mouseCrossState = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(ClientPacket.field3054, client.serverConnection.isaacRandom);
-				var16.buffer.method8152(client.field1876.method3895(82) ? 1 : 0);
-				var16.buffer.method8159(var1 + class169.field1536);
-				var16.buffer.method8159(class36.field241 + var0);
-				var16.buffer.method8161(var3);
+				var16 = class185.create(ClientPacket.field3054, client.serverConnection.isaacRandom);
+				var16.buffer.writeByteSUB(client.keyHandler.isKeyDown(82) ? 1 : 0);
+				var16.buffer.writeShortLE(var1 + class169.sceneBaseY);
+				var16.buffer.writeShortLE(class36.sceneBaseX + var0);
+				var16.buffer.writeShortLEADD(var3);
 				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 36) {
-				var16 = class185.method3435(ClientPacket.field3107, client.serverConnection.isaacRandom);
+				var16 = class185.create(ClientPacket.field3107, client.serverConnection.isaacRandom);
 				var16.buffer.writeInt(var1);
-				var16.buffer.method8337(var0);
-				var16.buffer.method8159(var4);
+				var16.buffer.writeShortADD(var0);
+				var16.buffer.writeShortLE(var4);
 				client.serverConnection.add(var16);
 				client.field1840 = 0;
 				class132.field1247 = class282.method5426(var1);
@@ -316,7 +316,7 @@ public class PacketMessage extends class427 {
 			int var13;
 			class300 var20;
 			if (var2 == 28) {
-				var16 = class185.method3435(ClientPacket.field3039, client.serverConnection.isaacRandom);
+				var16 = class185.create(ClientPacket.field3039, client.serverConnection.isaacRandom);
 				var16.buffer.writeInt(var1);
 				client.serverConnection.add(var16);
 				var20 = class282.method5426(var1);
@@ -328,25 +328,25 @@ public class PacketMessage extends class427 {
 			}
 
 			if (var2 == 44) {
-				var17 = client.players[var3];
+				var17 = client.localPlayers[var3];
 				if (null != var17) {
-					client.field1657 = var7;
-					client.field1749 = var8;
-					client.field1751 = 2;
-					client.field1904 = 0;
+					client.mouseCrossX = var7;
+					client.mouseCrossY = var8;
+					client.mouseCrossColor = 2;
+					client.mouseCrossState = 0;
 					client.destinationX = var0;
 					client.destinationY = var1;
-					var18 = class185.method3435(ClientPacket.field3110, client.serverConnection.isaacRandom);
-					var18.buffer.method8152(client.field1876.method3895(82) ? 1 : 0);
-					var18.buffer.method8161(var3);
+					var18 = class185.create(ClientPacket.field3110, client.serverConnection.isaacRandom);
+					var18.buffer.writeByteSUB(client.keyHandler.isKeyDown(82) ? 1 : 0);
+					var18.buffer.writeShortLEADD(var3);
 					client.serverConnection.add(var18);
 				}
 			}
 
 			if (var2 == 39) {
-				var16 = class185.method3435(ClientPacket.field3086, client.serverConnection.isaacRandom);
+				var16 = class185.create(ClientPacket.field3086, client.serverConnection.isaacRandom);
 				var16.buffer.writeIntLE(var1);
-				var16.buffer.method8159(var4);
+				var16.buffer.writeShortLE(var4);
 				var16.buffer.writeShort(var0);
 				client.serverConnection.add(var16);
 				client.field1840 = 0;
@@ -355,9 +355,9 @@ public class PacketMessage extends class427 {
 			}
 
 			if (var2 == 35) {
-				var16 = class185.method3435(ClientPacket.field3091, client.serverConnection.isaacRandom);
+				var16 = class185.create(ClientPacket.field3091, client.serverConnection.isaacRandom);
 				var16.buffer.writeInt(var1);
-				var16.buffer.method8161(var4);
+				var16.buffer.writeShortLEADD(var4);
 				var16.buffer.writeShort(var0);
 				client.serverConnection.add(var16);
 				client.field1840 = 0;
@@ -366,47 +366,47 @@ public class PacketMessage extends class427 {
 			}
 
 			if (var2 == 19) {
-				client.field1657 = var7;
-				client.field1749 = var8;
-				client.field1751 = 2;
-				client.field1904 = 0;
+				client.mouseCrossX = var7;
+				client.mouseCrossY = var8;
+				client.mouseCrossColor = 2;
+				client.mouseCrossState = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(ClientPacket.field3106, client.serverConnection.isaacRandom);
-				var16.buffer.method8161(var1 + class169.field1536);
-				var16.buffer.method8159(var3);
-				var16.buffer.method8348(client.field1876.method3895(82) ? 1 : 0);
-				var16.buffer.writeShort(var0 + class36.field241);
+				var16 = class185.create(ClientPacket.field3106, client.serverConnection.isaacRandom);
+				var16.buffer.writeShortLEADD(var1 + class169.sceneBaseY);
+				var16.buffer.writeShortLE(var3);
+				var16.buffer.writeByteADD(client.keyHandler.isKeyDown(82) ? 1 : 0);
+				var16.buffer.writeShort(var0 + class36.sceneBaseX);
 				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 22) {
-				client.field1657 = var7;
-				client.field1749 = var8;
-				client.field1751 = 2;
-				client.field1904 = 0;
+				client.mouseCrossX = var7;
+				client.mouseCrossY = var8;
+				client.mouseCrossColor = 2;
+				client.mouseCrossState = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(ClientPacket.field3084, client.serverConnection.isaacRandom);
-				var16.buffer.method8161(class36.field241 + var0);
-				var16.buffer.method8152(client.field1876.method3895(82) ? 1 : 0);
-				var16.buffer.method8161(var3);
-				var16.buffer.method8161(class169.field1536 + var1);
+				var16 = class185.create(ClientPacket.field3084, client.serverConnection.isaacRandom);
+				var16.buffer.writeShortLEADD(class36.sceneBaseX + var0);
+				var16.buffer.writeByteSUB(client.keyHandler.isKeyDown(82) ? 1 : 0);
+				var16.buffer.writeShortLEADD(var3);
+				var16.buffer.writeShortLEADD(class169.sceneBaseY + var1);
 				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 11) {
 				var15 = client.npcs[var3];
 				if (var15 != null) {
-					client.field1657 = var7;
-					client.field1749 = var8;
-					client.field1751 = 2;
-					client.field1904 = 0;
+					client.mouseCrossX = var7;
+					client.mouseCrossY = var8;
+					client.mouseCrossColor = 2;
+					client.mouseCrossState = 0;
 					client.destinationX = var0;
 					client.destinationY = var1;
-					var18 = class185.method3435(ClientPacket.field3056, client.serverConnection.isaacRandom);
-					var18.buffer.method8337(var3);
-					var18.buffer.method8264(client.field1876.method3895(82) ? 1 : 0);
+					var18 = class185.create(ClientPacket.field3056, client.serverConnection.isaacRandom);
+					var18.buffer.writeShortADD(var3);
+					var18.buffer.writeByteNEG(client.keyHandler.isKeyDown(82) ? 1 : 0);
 					client.serverConnection.add(var18);
 				}
 			}
@@ -414,34 +414,34 @@ public class PacketMessage extends class427 {
 			if (var2 == 7) {
 				var15 = client.npcs[var3];
 				if (var15 != null) {
-					client.field1657 = var7;
-					client.field1749 = var8;
-					client.field1751 = 2;
-					client.field1904 = 0;
+					client.mouseCrossX = var7;
+					client.mouseCrossY = var8;
+					client.mouseCrossColor = 2;
+					client.mouseCrossState = 0;
 					client.destinationX = var0;
 					client.destinationY = var1;
-					var18 = class185.method3435(ClientPacket.field3111, client.serverConnection.isaacRandom);
-					var18.buffer.method8161(class6.field23);
-					var18.buffer.method8159(class54.field385);
-					var18.buffer.method8337(var3);
-					var18.buffer.method8264(client.field1876.method3895(82) ? 1 : 0);
+					var18 = class185.create(ClientPacket.field3111, client.serverConnection.isaacRandom);
+					var18.buffer.writeShortLEADD(class6.field23);
+					var18.buffer.writeShortLE(class54.field385);
+					var18.buffer.writeShortADD(var3);
+					var18.buffer.writeByteNEG(client.keyHandler.isKeyDown(82) ? 1 : 0);
 					var18.buffer.writeInt(class213.field2493);
 					client.serverConnection.add(var18);
 				}
 			}
 
 			if (var2 == 6) {
-				client.field1657 = var7;
-				client.field1749 = var8;
-				client.field1751 = 2;
-				client.field1904 = 0;
+				client.mouseCrossX = var7;
+				client.mouseCrossY = var8;
+				client.mouseCrossColor = 2;
+				client.mouseCrossState = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(ClientPacket.field3053, client.serverConnection.isaacRandom);
-				var16.buffer.method8161(class36.field241 + var0);
-				var16.buffer.method8348(client.field1876.method3895(82) ? 1 : 0);
-				var16.buffer.method8337(var3);
-				var16.buffer.method8161(var1 + class169.field1536);
+				var16 = class185.create(ClientPacket.field3053, client.serverConnection.isaacRandom);
+				var16.buffer.writeShortLEADD(class36.sceneBaseX + var0);
+				var16.buffer.writeByteADD(client.keyHandler.isKeyDown(82) ? 1 : 0);
+				var16.buffer.writeShortADD(var3);
+				var16.buffer.writeShortLEADD(var1 + class169.sceneBaseY);
 				client.serverConnection.add(var16);
 			}
 
@@ -450,8 +450,8 @@ public class PacketMessage extends class427 {
 				if (var10 != null && var10.field3456[var0] >= 100000) {
 					MouseManager.method773(27, "", var10.field3456[var0] + " x " + class278.method5388(var4).field2131);
 				} else {
-					var18 = class185.method3435(ClientPacket.field3139, client.serverConnection.isaacRandom);
-					var18.buffer.method8159(var4);
+					var18 = class185.create(ClientPacket.field3139, client.serverConnection.isaacRandom);
+					var18.buffer.writeShortLE(var4);
 					client.serverConnection.add(var18);
 				}
 
@@ -461,17 +461,17 @@ public class PacketMessage extends class427 {
 			}
 
 			if (var2 == 49) {
-				var17 = client.players[var3];
+				var17 = client.localPlayers[var3];
 				if (var17 != null) {
-					client.field1657 = var7;
-					client.field1749 = var8;
-					client.field1751 = 2;
-					client.field1904 = 0;
+					client.mouseCrossX = var7;
+					client.mouseCrossY = var8;
+					client.mouseCrossColor = 2;
+					client.mouseCrossState = 0;
 					client.destinationX = var0;
 					client.destinationY = var1;
-					var18 = class185.method3435(ClientPacket.field3070, client.serverConnection.isaacRandom);
-					var18.buffer.method8161(var3);
-					var18.buffer.method8152(client.field1876.method3895(82) ? 1 : 0);
+					var18 = class185.create(ClientPacket.field3070, client.serverConnection.isaacRandom);
+					var18.buffer.writeShortLEADD(var3);
+					var18.buffer.writeByteSUB(client.keyHandler.isKeyDown(82) ? 1 : 0);
 					client.serverConnection.add(var18);
 				}
 			}
@@ -479,17 +479,17 @@ public class PacketMessage extends class427 {
 			if (var2 == 8) {
 				var15 = client.npcs[var3];
 				if (var15 != null) {
-					client.field1657 = var7;
-					client.field1749 = var8;
-					client.field1751 = 2;
-					client.field1904 = 0;
+					client.mouseCrossX = var7;
+					client.mouseCrossY = var8;
+					client.mouseCrossColor = 2;
+					client.mouseCrossState = 0;
 					client.destinationX = var0;
 					client.destinationY = var1;
-					var18 = class185.method3435(ClientPacket.field3119, client.serverConnection.isaacRandom);
-					var18.buffer.method8161(var3);
-					var18.buffer.method8337(client.field1805);
-					var18.buffer.method8264(client.field1876.method3895(82) ? 1 : 0);
-					var18.buffer.method8337(client.field1806);
+					var18 = class185.create(ClientPacket.field3119, client.serverConnection.isaacRandom);
+					var18.buffer.writeShortLEADD(var3);
+					var18.buffer.writeShortADD(client.field1805);
+					var18.buffer.writeByteNEG(client.keyHandler.isKeyDown(82) ? 1 : 0);
+					var18.buffer.writeShortADD(client.field1806);
 					var18.buffer.writeIntLEAlt(class106.field1066);
 					client.serverConnection.add(var18);
 				}
@@ -500,41 +500,41 @@ public class PacketMessage extends class427 {
 			}
 
 			if (var2 == 1001) {
-				client.field1657 = var7;
-				client.field1749 = var8;
-				client.field1751 = 2;
-				client.field1904 = 0;
+				client.mouseCrossX = var7;
+				client.mouseCrossY = var8;
+				client.mouseCrossColor = 2;
+				client.mouseCrossState = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(ClientPacket.field3064, client.serverConnection.isaacRandom);
-				var16.buffer.method8161(var1 + class169.field1536);
-				var16.buffer.writeShort(var0 + class36.field241);
-				var16.buffer.method8161(var3);
-				var16.buffer.method8264(client.field1876.method3895(82) ? 1 : 0);
+				var16 = class185.create(ClientPacket.field3064, client.serverConnection.isaacRandom);
+				var16.buffer.writeShortLEADD(var1 + class169.sceneBaseY);
+				var16.buffer.writeShort(var0 + class36.sceneBaseX);
+				var16.buffer.writeShortLEADD(var3);
+				var16.buffer.writeByteNEG(client.keyHandler.isKeyDown(82) ? 1 : 0);
 				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 45) {
-				var17 = client.players[var3];
+				var17 = client.localPlayers[var3];
 				if (var17 != null) {
-					client.field1657 = var7;
-					client.field1749 = var8;
-					client.field1751 = 2;
-					client.field1904 = 0;
+					client.mouseCrossX = var7;
+					client.mouseCrossY = var8;
+					client.mouseCrossColor = 2;
+					client.mouseCrossState = 0;
 					client.destinationX = var0;
 					client.destinationY = var1;
-					var18 = class185.method3435(ClientPacket.field3090, client.serverConnection.isaacRandom);
-					var18.buffer.method8337(var3);
-					var18.buffer.method8264(client.field1876.method3895(82) ? 1 : 0);
+					var18 = class185.create(ClientPacket.field3090, client.serverConnection.isaacRandom);
+					var18.buffer.writeShortADD(var3);
+					var18.buffer.writeByteNEG(client.keyHandler.isKeyDown(82) ? 1 : 0);
 					client.serverConnection.add(var18);
 				}
 			}
 
 			if (var2 == 43) {
-				var16 = class185.method3435(ClientPacket.field3130, client.serverConnection.isaacRandom);
-				var16.buffer.method8337(var4);
+				var16 = class185.create(ClientPacket.field3130, client.serverConnection.isaacRandom);
+				var16.buffer.writeShortADD(var4);
 				var16.buffer.writeIntAlt(var1);
-				var16.buffer.method8159(var0);
+				var16.buffer.writeShortLE(var0);
 				client.serverConnection.add(var16);
 				client.field1840 = 0;
 				class132.field1247 = class282.method5426(var1);
@@ -548,57 +548,57 @@ public class PacketMessage extends class427 {
 			}
 
 			if (var2 == 48) {
-				var17 = client.players[var3];
+				var17 = client.localPlayers[var3];
 				if (null != var17) {
-					client.field1657 = var7;
-					client.field1749 = var8;
-					client.field1751 = 2;
-					client.field1904 = 0;
+					client.mouseCrossX = var7;
+					client.mouseCrossY = var8;
+					client.mouseCrossColor = 2;
+					client.mouseCrossState = 0;
 					client.destinationX = var0;
 					client.destinationY = var1;
-					var18 = class185.method3435(ClientPacket.field3141, client.serverConnection.isaacRandom);
-					var18.buffer.method8264(client.field1876.method3895(82) ? 1 : 0);
+					var18 = class185.create(ClientPacket.field3141, client.serverConnection.isaacRandom);
+					var18.buffer.writeByteNEG(client.keyHandler.isKeyDown(82) ? 1 : 0);
 					var18.buffer.writeShort(var3);
 					client.serverConnection.add(var18);
 				}
 			}
 
 			if (var2 == 17) {
-				client.field1657 = var7;
-				client.field1749 = var8;
-				client.field1751 = 2;
-				client.field1904 = 0;
+				client.mouseCrossX = var7;
+				client.mouseCrossY = var8;
+				client.mouseCrossColor = 2;
+				client.mouseCrossState = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(ClientPacket.field3087, client.serverConnection.isaacRandom);
-				var16.buffer.method8159(client.field1805);
-				var16.buffer.method8159(class169.field1536 + var1);
+				var16 = class185.create(ClientPacket.field3087, client.serverConnection.isaacRandom);
+				var16.buffer.writeShortLE(client.field1805);
+				var16.buffer.writeShortLE(class169.sceneBaseY + var1);
 				var16.buffer.writeIntLE(class106.field1066);
-				var16.buffer.method8348(client.field1876.method3895(82) ? 1 : 0);
-				var16.buffer.method8159(var0 + class36.field241);
-				var16.buffer.method8159(var3);
-				var16.buffer.method8337(client.field1806);
+				var16.buffer.writeByteADD(client.keyHandler.isKeyDown(82) ? 1 : 0);
+				var16.buffer.writeShortLE(var0 + class36.sceneBaseX);
+				var16.buffer.writeShortLE(var3);
+				var16.buffer.writeShortADD(client.field1806);
 				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 20) {
-				client.field1657 = var7;
-				client.field1749 = var8;
-				client.field1751 = 2;
-				client.field1904 = 0;
+				client.mouseCrossX = var7;
+				client.mouseCrossY = var8;
+				client.mouseCrossColor = 2;
+				client.mouseCrossState = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(ClientPacket.field3092, client.serverConnection.isaacRandom);
-				var16.buffer.writeShort(class36.field241 + var0);
-				var16.buffer.method8161(class169.field1536 + var1);
-				var16.buffer.method8159(var3);
-				var16.buffer.writeByte(client.field1876.method3895(82) ? 1 : 0);
+				var16 = class185.create(ClientPacket.field3092, client.serverConnection.isaacRandom);
+				var16.buffer.writeShort(class36.sceneBaseX + var0);
+				var16.buffer.writeShortLEADD(class169.sceneBaseY + var1);
+				var16.buffer.writeShortLE(var3);
+				var16.buffer.writeByte(client.keyHandler.isKeyDown(82) ? 1 : 0);
 				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 34) {
-				var16 = class185.method3435(ClientPacket.field3104, client.serverConnection.isaacRandom);
-				var16.buffer.method8337(var0);
+				var16 = class185.create(ClientPacket.field3104, client.serverConnection.isaacRandom);
+				var16.buffer.writeShortADD(var0);
 				var16.buffer.writeShort(var4);
 				var16.buffer.writeIntAlt(var1);
 				client.serverConnection.add(var16);
@@ -616,7 +616,7 @@ public class PacketMessage extends class427 {
 					}
 
 					if (var14) {
-						var12 = class185.method3435(ClientPacket.field3039, client.serverConnection.isaacRandom);
+						var12 = class185.create(ClientPacket.field3039, client.serverConnection.isaacRandom);
 						var12.buffer.writeInt(var1);
 						client.serverConnection.add(var12);
 					}
@@ -624,7 +624,7 @@ public class PacketMessage extends class427 {
 			}
 
 			if (var2 == 29) {
-				var16 = class185.method3435(ClientPacket.field3039, client.serverConnection.isaacRandom);
+				var16 = class185.create(ClientPacket.field3039, client.serverConnection.isaacRandom);
 				var16.buffer.writeInt(var1);
 				client.serverConnection.add(var16);
 				var20 = class282.method5426(var1);
@@ -638,74 +638,74 @@ public class PacketMessage extends class427 {
 			}
 
 			if (var2 == 3) {
-				client.field1657 = var7;
-				client.field1749 = var8;
-				client.field1751 = 2;
-				client.field1904 = 0;
+				client.mouseCrossX = var7;
+				client.mouseCrossY = var8;
+				client.mouseCrossColor = 2;
+				client.mouseCrossState = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(ClientPacket.field3121, client.serverConnection.isaacRandom);
-				var16.buffer.method8264(client.field1876.method3895(82) ? 1 : 0);
-				var16.buffer.method8337(class36.field241 + var0);
-				var16.buffer.method8161(var1 + class169.field1536);
+				var16 = class185.create(ClientPacket.field3121, client.serverConnection.isaacRandom);
+				var16.buffer.writeByteNEG(client.keyHandler.isKeyDown(82) ? 1 : 0);
+				var16.buffer.writeShortADD(class36.sceneBaseX + var0);
+				var16.buffer.writeShortLEADD(var1 + class169.sceneBaseY);
 				var16.buffer.writeShort(var3);
 				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 16) {
-				client.field1657 = var7;
-				client.field1749 = var8;
-				client.field1751 = 2;
-				client.field1904 = 0;
+				client.mouseCrossX = var7;
+				client.mouseCrossY = var8;
+				client.mouseCrossColor = 2;
+				client.mouseCrossState = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(ClientPacket.field3057, client.serverConnection.isaacRandom);
-				var16.buffer.method8152(client.field1876.method3895(82) ? 1 : 0);
-				var16.buffer.method8337(var1 + class169.field1536);
-				var16.buffer.method8159(class54.field385);
-				var16.buffer.method8161(var3);
+				var16 = class185.create(ClientPacket.field3057, client.serverConnection.isaacRandom);
+				var16.buffer.writeByteSUB(client.keyHandler.isKeyDown(82) ? 1 : 0);
+				var16.buffer.writeShortADD(var1 + class169.sceneBaseY);
+				var16.buffer.writeShortLE(class54.field385);
+				var16.buffer.writeShortLEADD(var3);
 				var16.buffer.writeIntLE(class213.field2493);
-				var16.buffer.method8159(class6.field23);
-				var16.buffer.writeShort(var0 + class36.field241);
+				var16.buffer.writeShortLE(class6.field23);
+				var16.buffer.writeShort(var0 + class36.sceneBaseX);
 				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 12) {
 				var15 = client.npcs[var3];
 				if (null != var15) {
-					client.field1657 = var7;
-					client.field1749 = var8;
-					client.field1751 = 2;
-					client.field1904 = 0;
+					client.mouseCrossX = var7;
+					client.mouseCrossY = var8;
+					client.mouseCrossColor = 2;
+					client.mouseCrossState = 0;
 					client.destinationX = var0;
 					client.destinationY = var1;
-					var18 = class185.method3435(ClientPacket.field3078, client.serverConnection.isaacRandom);
-					var18.buffer.method8159(var3);
-					var18.buffer.method8152(client.field1876.method3895(82) ? 1 : 0);
+					var18 = class185.create(ClientPacket.field3078, client.serverConnection.isaacRandom);
+					var18.buffer.writeShortLE(var3);
+					var18.buffer.writeByteSUB(client.keyHandler.isKeyDown(82) ? 1 : 0);
 					client.serverConnection.add(var18);
 				}
 			}
 
 			if (var2 == 2) {
-				client.field1657 = var7;
-				client.field1749 = var8;
-				client.field1751 = 2;
-				client.field1904 = 0;
+				client.mouseCrossX = var7;
+				client.mouseCrossY = var8;
+				client.mouseCrossColor = 2;
+				client.mouseCrossState = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(ClientPacket.field3093, client.serverConnection.isaacRandom);
+				var16 = class185.create(ClientPacket.field3093, client.serverConnection.isaacRandom);
 				var16.buffer.writeIntLEAlt(class106.field1066);
-				var16.buffer.method8337(var3);
-				var16.buffer.method8159(class169.field1536 + var1);
-				var16.buffer.method8337(client.field1806);
-				var16.buffer.method8161(client.field1805);
-				var16.buffer.method8161(var0 + class36.field241);
-				var16.buffer.method8152(client.field1876.method3895(82) ? 1 : 0);
+				var16.buffer.writeShortADD(var3);
+				var16.buffer.writeShortLE(class169.sceneBaseY + var1);
+				var16.buffer.writeShortADD(client.field1806);
+				var16.buffer.writeShortLEADD(client.field1805);
+				var16.buffer.writeShortLEADD(var0 + class36.sceneBaseX);
+				var16.buffer.writeByteSUB(client.keyHandler.isKeyDown(82) ? 1 : 0);
 				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 33) {
-				var16 = class185.method3435(ClientPacket.field3067, client.serverConnection.isaacRandom);
+				var16 = class185.create(ClientPacket.field3067, client.serverConnection.isaacRandom);
 				var16.buffer.writeShort(var4);
 				var16.buffer.writeShort(var0);
 				var16.buffer.writeInt(var1);
@@ -718,46 +718,46 @@ public class PacketMessage extends class427 {
 			if (var2 == 13) {
 				var15 = client.npcs[var3];
 				if (var15 != null) {
-					client.field1657 = var7;
-					client.field1749 = var8;
-					client.field1751 = 2;
-					client.field1904 = 0;
+					client.mouseCrossX = var7;
+					client.mouseCrossY = var8;
+					client.mouseCrossColor = 2;
+					client.mouseCrossState = 0;
 					client.destinationX = var0;
 					client.destinationY = var1;
-					var18 = class185.method3435(ClientPacket.field3048, client.serverConnection.isaacRandom);
-					var18.buffer.method8161(var3);
-					var18.buffer.method8264(client.field1876.method3895(82) ? 1 : 0);
+					var18 = class185.create(ClientPacket.field3048, client.serverConnection.isaacRandom);
+					var18.buffer.writeShortLEADD(var3);
+					var18.buffer.writeByteNEG(client.keyHandler.isKeyDown(82) ? 1 : 0);
 					client.serverConnection.add(var18);
 				}
 			}
 
 			if (var2 == 5) {
-				client.field1657 = var7;
-				client.field1749 = var8;
-				client.field1751 = 2;
-				client.field1904 = 0;
+				client.mouseCrossX = var7;
+				client.mouseCrossY = var8;
+				client.mouseCrossColor = 2;
+				client.mouseCrossState = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(ClientPacket.field3050, client.serverConnection.isaacRandom);
-				var16.buffer.method8337(var1 + class169.field1536);
-				var16.buffer.method8337(class36.field241 + var0);
-				var16.buffer.writeByte(client.field1876.method3895(82) ? 1 : 0);
-				var16.buffer.method8159(var3);
+				var16 = class185.create(ClientPacket.field3050, client.serverConnection.isaacRandom);
+				var16.buffer.writeShortADD(var1 + class169.sceneBaseY);
+				var16.buffer.writeShortADD(class36.sceneBaseX + var0);
+				var16.buffer.writeByte(client.keyHandler.isKeyDown(82) ? 1 : 0);
+				var16.buffer.writeShortLE(var3);
 				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 10) {
 				var15 = client.npcs[var3];
 				if (null != var15) {
-					client.field1657 = var7;
-					client.field1749 = var8;
-					client.field1751 = 2;
-					client.field1904 = 0;
+					client.mouseCrossX = var7;
+					client.mouseCrossY = var8;
+					client.mouseCrossColor = 2;
+					client.mouseCrossState = 0;
 					client.destinationX = var0;
 					client.destinationY = var1;
-					var18 = class185.method3435(ClientPacket.field3122, client.serverConnection.isaacRandom);
-					var18.buffer.method8337(var3);
-					var18.buffer.writeByte(client.field1876.method3895(82) ? 1 : 0);
+					var18 = class185.create(ClientPacket.field3122, client.serverConnection.isaacRandom);
+					var18.buffer.writeShortADD(var3);
+					var18.buffer.writeByte(client.keyHandler.isKeyDown(82) ? 1 : 0);
 					client.serverConnection.add(var18);
 				}
 			}
@@ -771,27 +771,27 @@ public class PacketMessage extends class427 {
 			}
 
 			if (var2 == 18) {
-				client.field1657 = var7;
-				client.field1749 = var8;
-				client.field1751 = 2;
-				client.field1904 = 0;
+				client.mouseCrossX = var7;
+				client.mouseCrossY = var8;
+				client.mouseCrossColor = 2;
+				client.mouseCrossState = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(ClientPacket.field3080, client.serverConnection.isaacRandom);
+				var16 = class185.create(ClientPacket.field3080, client.serverConnection.isaacRandom);
 				var16.buffer.writeShort(var3);
-				var16.buffer.method8161(var0 + class36.field241);
-				var16.buffer.method8348(client.field1876.method3895(82) ? 1 : 0);
-				var16.buffer.method8159(var1 + class169.field1536);
+				var16.buffer.writeShortLEADD(var0 + class36.sceneBaseX);
+				var16.buffer.writeByteADD(client.keyHandler.isKeyDown(82) ? 1 : 0);
+				var16.buffer.writeShortLE(var1 + class169.sceneBaseY);
 				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 32) {
-				var16 = class185.method3435(ClientPacket.field3041, client.serverConnection.isaacRandom);
-				var16.buffer.method8159(client.field1805);
-				var16.buffer.method8161(var0);
+				var16 = class185.create(ClientPacket.field3041, client.serverConnection.isaacRandom);
+				var16.buffer.writeShortLE(client.field1805);
+				var16.buffer.writeShortLEADD(var0);
 				var16.buffer.writeIntAlt(var1);
 				var16.buffer.writeInt(class106.field1066);
-				var16.buffer.method8159(var4);
+				var16.buffer.writeShortLE(var4);
 				client.serverConnection.add(var16);
 				client.field1840 = 0;
 				class132.field1247 = class282.method5426(var1);
@@ -799,48 +799,48 @@ public class PacketMessage extends class427 {
 			}
 
 			if (var2 == 4) {
-				client.field1657 = var7;
-				client.field1749 = var8;
-				client.field1751 = 2;
-				client.field1904 = 0;
+				client.mouseCrossX = var7;
+				client.mouseCrossY = var8;
+				client.mouseCrossColor = 2;
+				client.mouseCrossState = 0;
 				client.destinationX = var0;
 				client.destinationY = var1;
-				var16 = class185.method3435(ClientPacket.field3132, client.serverConnection.isaacRandom);
-				var16.buffer.method8264(client.field1876.method3895(82) ? 1 : 0);
-				var16.buffer.writeShort(class36.field241 + var0);
-				var16.buffer.method8337(var3);
-				var16.buffer.method8159(var1 + class169.field1536);
+				var16 = class185.create(ClientPacket.field3132, client.serverConnection.isaacRandom);
+				var16.buffer.writeByteNEG(client.keyHandler.isKeyDown(82) ? 1 : 0);
+				var16.buffer.writeShort(class36.sceneBaseX + var0);
+				var16.buffer.writeShortADD(var3);
+				var16.buffer.writeShortLE(var1 + class169.sceneBaseY);
 				client.serverConnection.add(var16);
 			}
 
 			if (var2 == 9) {
 				var15 = client.npcs[var3];
 				if (null != var15) {
-					client.field1657 = var7;
-					client.field1749 = var8;
-					client.field1751 = 2;
-					client.field1904 = 0;
+					client.mouseCrossX = var7;
+					client.mouseCrossY = var8;
+					client.mouseCrossColor = 2;
+					client.mouseCrossState = 0;
 					client.destinationX = var0;
 					client.destinationY = var1;
-					var18 = class185.method3435(ClientPacket.field3069, client.serverConnection.isaacRandom);
-					var18.buffer.method8264(client.field1876.method3895(82) ? 1 : 0);
+					var18 = class185.create(ClientPacket.field3069, client.serverConnection.isaacRandom);
+					var18.buffer.writeByteNEG(client.keyHandler.isKeyDown(82) ? 1 : 0);
 					var18.buffer.writeShort(var3);
 					client.serverConnection.add(var18);
 				}
 			}
 
 			if (var2 == 51) {
-				var17 = client.players[var3];
+				var17 = client.localPlayers[var3];
 				if (var17 != null) {
-					client.field1657 = var7;
-					client.field1749 = var8;
-					client.field1751 = 2;
-					client.field1904 = 0;
+					client.mouseCrossX = var7;
+					client.mouseCrossY = var8;
+					client.mouseCrossColor = 2;
+					client.mouseCrossState = 0;
 					client.destinationX = var0;
 					client.destinationY = var1;
-					var18 = class185.method3435(ClientPacket.field3095, client.serverConnection.isaacRandom);
-					var18.buffer.method8337(var3);
-					var18.buffer.method8264(client.field1876.method3895(82) ? 1 : 0);
+					var18 = class185.create(ClientPacket.field3095, client.serverConnection.isaacRandom);
+					var18.buffer.writeShortADD(var3);
+					var18.buffer.writeByteNEG(client.keyHandler.isKeyDown(82) ? 1 : 0);
 					client.serverConnection.add(var18);
 				}
 			}

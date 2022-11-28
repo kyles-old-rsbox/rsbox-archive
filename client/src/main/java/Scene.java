@@ -1,7 +1,7 @@
-public class class214 {
+public class Scene {
 	public static boolean field2559;
-	public static int field2508;
-	public static int field2530;
+	public static int selectedSceneX;
+	public static int selectedSceneY;
 	static boolean field2525;
 	static boolean field2531;
 	static boolean[][] field2554;
@@ -66,8 +66,8 @@ public class class214 {
 		field2526 = 0;
 		field2527 = 0;
 		field2528 = 0;
-		field2508 = -1;
-		field2530 = -1;
+		selectedSceneX = -1;
+		selectedSceneY = -1;
 		field2531 = false;
 		field2536 = 4;
 		field2532 = new int[field2536];
@@ -85,7 +85,7 @@ public class class214 {
 		field2553 = new boolean[8][32][51][51];
 	}
 
-	public class214(int var1, int var2, int var3, int[][][] var4) {
+	public Scene(int var1, int var2, int var3, int[][][] var4) {
 		this.field2534 = 0;
 		this.field2501 = 0;
 		this.field2515 = new class227[5000];
@@ -913,14 +913,14 @@ public class class214 {
 	}
 
 	public void method4159(int var1, int var2, int var3, boolean var4) {
-		if (!method4161() || var4) {
+		if (!shouldSendMove() || var4) {
 			field2525 = true;
 			field2531 = var4;
 			field2526 = var1;
 			field2527 = var2;
 			field2528 = var3;
-			field2508 = -1;
-			field2530 = -1;
+			selectedSceneX = -1;
+			selectedSceneY = -1;
 		}
 	}
 
@@ -928,12 +928,12 @@ public class class214 {
 		field2531 = true;
 	}
 
-	public static boolean method4161() {
-		return field2531 && field2508 != -1;
+	public static boolean shouldSendMove() {
+		return field2531 && selectedSceneX != -1;
 	}
 
 	public static void method4162() {
-		field2508 = -1;
+		selectedSceneX = -1;
 		field2531 = false;
 	}
 
@@ -1714,8 +1714,8 @@ public class class214 {
 							}
 
 							if (field2525 && method4213(field2527, field2528, var27, var29, var25, var26, var28, var24)) {
-								field2508 = var7;
-								field2530 = var8;
+								selectedSceneX = var7;
+								selectedSceneY = var8;
 							}
 
 							if (var1.field2704 == -1) {
@@ -1741,8 +1741,8 @@ public class class214 {
 							}
 
 							if (field2525 && method4213(field2527, field2528, var23, var25, var29, var22, var24, var28)) {
-								field2508 = var7;
-								field2530 = var8;
+								selectedSceneX = var7;
+								selectedSceneY = var8;
 							}
 
 							if (var1.field2704 == -1) {
@@ -1814,8 +1814,8 @@ public class class214 {
 				}
 
 				if (field2525 && method4213(field2527, field2528, var16, var17, var18, var13, var14, var15)) {
-					field2508 = var6;
-					field2530 = var7;
+					selectedSceneX = var6;
+					selectedSceneY = var7;
 				}
 
 				if (var1.field2475 != null && var1.field2475[var9] != -1) {

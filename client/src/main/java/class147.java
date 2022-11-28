@@ -86,7 +86,7 @@ public class class147 extends class427 {
 		super.field4681 = var1.readLong();
 		this.field1349 = var1.readLong();
 		this.field1350 = var1.readString();
-		var1.method8129();
+		var1.readBoolean();
 		this.field1351 = var1.readByte();
 		this.field1345 = var1.readByte();
 		int var5 = var1.readUnsignedShort();
@@ -106,7 +106,7 @@ public class class147 extends class427 {
 				var7.field1256 = var1.readByte();
 				var7.field1249 = var1.readUnsignedShort();
 				if (var4 >= 3) {
-					var1.method8129();
+					var1.readBoolean();
 				}
 
 				this.field1347.add(var6, var7);
@@ -222,7 +222,7 @@ public class class147 extends class427 {
 			}
 
 			if (var2 == 18) {
-				client.playerAttackOption = (AttackOption)class217.method4362(AttackOption.method1045(), var3);
+				client.playerAttackOption = (AttackOption)class217.fromValue(AttackOption.method1045(), var3);
 				if (client.playerAttackOption == null) {
 					client.playerAttackOption = AttackOption.field705;
 				}
@@ -237,7 +237,7 @@ public class class147 extends class427 {
 			}
 
 			if (var2 == 22) {
-				client.npcAttackOption = (AttackOption)class217.method4362(AttackOption.method1045(), var3);
+				client.npcAttackOption = (AttackOption)class217.fromValue(AttackOption.method1045(), var3);
 				if (client.npcAttackOption == null) {
 					client.npcAttackOption = AttackOption.field705;
 				}

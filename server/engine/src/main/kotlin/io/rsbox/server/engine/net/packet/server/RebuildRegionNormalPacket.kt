@@ -26,13 +26,13 @@ import io.rsbox.server.engine.net.game.PacketType
 import io.rsbox.server.engine.net.game.ServerPacket
 import io.rsbox.server.util.buffer.*
 
-@ServerPacket(opcode = 56, type = PacketType.VARIABLE_SHORT)
-class RebuildRegionPacket(
+@ServerPacket(opcode = 16, type = PacketType.VARIABLE_SHORT)
+class RebuildRegionNormalPacket(
     val player: Player,
     val gpi: Boolean = false
 ) : Packet {
-    companion object : Codec<RebuildRegionPacket> {
-        override fun encode(session: Session, packet: RebuildRegionPacket, out: JagByteBuf) {
+    companion object : Codec<RebuildRegionNormalPacket> {
+        override fun encode(session: Session, packet: RebuildRegionNormalPacket, out: JagByteBuf) {
             if(packet.gpi) {
                 out.switchWriteAccess(BIT_MODE)
                 out.writeBits(packet.player.tile.to30BitInteger(), 30)

@@ -37,8 +37,8 @@ public class class53 {
 		this.field380.method7018(var1, var2);
 		this.field377 = 2;
 
-		for (int var4 = 0; var4 < PlayerManager.playerCount; ++var4) {
-			PlayerEntity var5 = client.players[PlayerManager.field1013[var4]];
+		for (int var4 = 0; var4 < PlayerManager.localPlayerCount; ++var4) {
+			PlayerEntity var5 = client.localPlayers[PlayerManager.localPlayerIndexes[var4]];
 			var5.method1908();
 		}
 
@@ -171,7 +171,7 @@ public class class53 {
 	}
 
 	static final void method959(String var0) {
-		PacketMessage var2 = class185.method3435(ClientPacket.field3074, client.serverConnection.isaacRandom);
+		PacketMessage var2 = class185.create(ClientPacket.field3074, client.serverConnection.isaacRandom);
 		var2.buffer.writeByte(Buffer.method1887(var0));
 		var2.buffer.writeString(var0);
 		client.serverConnection.add(var2);
@@ -194,7 +194,7 @@ public class class53 {
 				} else if (this.method1071(var3, false)) {
 					method1812(var1);
 				} else {
-					PacketMessage var4 = class185.method3435(ClientPacket.field3128, client.serverConnection.isaacRandom);
+					PacketMessage var4 = class185.create(ClientPacket.field3128, client.serverConnection.isaacRandom);
 					var4.buffer.writeByte(Buffer.method1887(var1));
 					var4.buffer.writeString(var1);
 					client.serverConnection.add(var4);
@@ -221,14 +221,14 @@ public class class53 {
 			if (var3.method8449()) {
 				if (this.field380.method7292(var3)) {
 					client.field1844 = client.field1878;
-					PacketMessage var4 = class185.method3435(ClientPacket.field3129, client.serverConnection.isaacRandom);
+					PacketMessage var4 = class185.create(ClientPacket.field3129, client.serverConnection.isaacRandom);
 					var4.buffer.writeByte(Buffer.method1887(var1));
 					var4.buffer.writeString(var1);
 					client.serverConnection.add(var4);
 				}
 
-				for (int var6 = 0; var6 < PlayerManager.playerCount; ++var6) {
-					PlayerEntity var5 = client.players[PlayerManager.field1013[var6]];
+				for (int var6 = 0; var6 < PlayerManager.localPlayerCount; ++var6) {
+					PlayerEntity var5 = client.localPlayers[PlayerManager.localPlayerIndexes[var6]];
 					var5.method1908();
 				}
 
@@ -268,7 +268,7 @@ public class class53 {
 			if (var3.method8449()) {
 				if (this.field376.method7292(var3)) {
 					client.field1844 = client.field1878;
-					PacketMessage var4 = class185.method3435(ClientPacket.field3102, client.serverConnection.isaacRandom);
+					PacketMessage var4 = class185.create(ClientPacket.field3102, client.serverConnection.isaacRandom);
 					var4.buffer.writeByte(Buffer.method1887(var1));
 					var4.buffer.writeString(var1);
 					client.serverConnection.add(var4);
@@ -280,9 +280,9 @@ public class class53 {
 	}
 
 	static final void method2855(String var0, int var1) {
-		PacketMessage var3 = class185.method3435(ClientPacket.field3117, client.serverConnection.isaacRandom);
+		PacketMessage var3 = class185.create(ClientPacket.field3117, client.serverConnection.isaacRandom);
 		var3.buffer.writeByte(Buffer.method1887(var0) + 1);
-		var3.buffer.method8264(var1);
+		var3.buffer.writeByteNEG(var1);
 		var3.buffer.writeString(var0);
 		client.serverConnection.add(var3);
 	}

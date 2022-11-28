@@ -1,14 +1,14 @@
 public final class PlayerEntity extends class90 {
 	boolean field895;
 	boolean invisible;
-	boolean field919;
+	boolean isTeleporting;
 	class209 field906;
 	PlayerModel appearance;
 	class410 field916;
 	class410 field917;
 	class410 field918;
 	DisplayName displayName;
-	int field892;
+	int tileY;
 	int prayerIcon;
 	int skullIcon;
 	int field898;
@@ -25,7 +25,7 @@ public final class PlayerEntity extends class90 {
 	int totalLevel;
 	int field914;
 	int field915;
-	int field920;
+	int tileX;
 	int team;
 	String[] actions;
 
@@ -48,7 +48,7 @@ public final class PlayerEntity extends class90 {
 		this.field916 = class410.field4554;
 		this.field917 = class410.field4554;
 		this.field918 = class410.field4554;
-		this.field919 = false;
+		this.isTeleporting = false;
 	}
 
 	final void decodeAppearance(Buffer buf) {
@@ -352,7 +352,7 @@ public final class PlayerEntity extends class90 {
 		}
 	}
 
-	final void method1938(int var1, int var2, MoveSpeed var3) {
+	final void addMoveWaypoint(int var1, int var2, MoveSpeed var3) {
 		if (-1 != super.field852 && class160.method2660(super.field852).field1992 == 1) {
 			super.field852 = -1;
 		}
@@ -738,15 +738,15 @@ public final class PlayerEntity extends class90 {
 
 				this.method1914(var1, var2, var3);
 			} else {
-				this.method1919(var1, var2);
+				this.teleport(var1, var2);
 			}
 		} else {
-			this.method1919(var1, var2);
+			this.teleport(var1, var2);
 		}
 
 	}
 
-	void method1919(int var1, int var2) {
+	void teleport(int var1, int var2) {
 		super.field871 = 0;
 		super.field876 = 0;
 		super.field837 = 0;

@@ -73,9 +73,9 @@ public class ProofOfWorkRequest {
 				}
 
 				if (var10 <= 2) {
-					var5 = var9.method8132();
+					var5 = var9.readJagexString();
 					if (var11 == 1) {
-						var6 = var9.method8132();
+						var6 = var9.readJagexString();
 					}
 				} else {
 					var5 = var9.method8133();

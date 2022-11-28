@@ -26,7 +26,7 @@ public class class17 implements Callable {
 	static void method200(PlayerEntity var0, boolean var1) {
 		if (null != var0 && var0.method1869() && !var0.invisible) {
 			var0.field895 = false;
-			if ((client.isLowDetail && PlayerManager.playerCount > 50 || PlayerManager.playerCount > 200) && var1 && var0.field839 == var0.field823) {
+			if ((client.isLowDetail && PlayerManager.localPlayerCount > 50 || PlayerManager.localPlayerCount > 200) && var1 && var0.field839 == var0.field823) {
 				var0.field895 = true;
 			}
 

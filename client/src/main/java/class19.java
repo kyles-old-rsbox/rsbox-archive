@@ -33,7 +33,7 @@ class class19 implements TlsAuthentication {
 						if (client.localPlayerIndex == var3) {
 							var4 = class291.localPlayer;
 						} else {
-							var4 = client.players[var3];
+							var4 = client.localPlayers[var3];
 						}
 
 						if (var4 != null && var4.field827 >= 0 && var4.field827 < 13312 && var4.field802 >= 0 && var4.field802 < 13312) {

@@ -485,14 +485,14 @@ public class class200 {
 			ServerPacket.field3216 = var1;
 			class9.method64(25);
 			class131.method2399(class338.field3902, true);
-			int var4 = class36.field241;
-			int var5 = class169.field1536;
-			class36.field241 = 8 * (var0 - 6);
-			class169.field1536 = (var1 - 6) * 8;
-			int var6 = class36.field241 - var4;
-			int var7 = class169.field1536 - var5;
-			var4 = class36.field241;
-			var5 = class169.field1536;
+			int var4 = class36.sceneBaseX;
+			int var5 = class169.sceneBaseY;
+			class36.sceneBaseX = 8 * (var0 - 6);
+			class169.sceneBaseY = (var1 - 6) * 8;
+			int var6 = class36.sceneBaseX - var4;
+			int var7 = class169.sceneBaseY - var5;
+			var4 = class36.sceneBaseX;
+			var5 = class169.sceneBaseY;
 
 			int var8;
 			int var10;
@@ -513,7 +513,7 @@ public class class200 {
 			}
 
 			for (var8 = 0; var8 < 2048; ++var8) {
-				PlayerEntity var22 = client.players[var8];
+				PlayerEntity var22 = client.localPlayers[var8];
 				if (var22 != null) {
 					for (var10 = 0; var10 < 10; ++var10) {
 						var10000 = var22.field861;

@@ -192,7 +192,7 @@ public class class123 {
 
 							var9 = var15.readUnsignedShort();
 							var10 = var15.readUnsignedByte();
-							class451 var11 = (class451)class217.method4362(class451.method7984(), var10);
+							class451 var11 = (class451)class217.fromValue(class451.method7984(), var10);
 							Object var12 = var11.method7974(var15);
 							if (this.field1190[var9]) {
 								this.field1192.put(var9, var12);
@@ -257,14 +257,14 @@ public class class123 {
 		boolean var5 = false;
 		int var6 = -1;
 		int var7 = -1;
-		int var8 = PlayerManager.playerCount;
-		int[] var9 = PlayerManager.field1013;
+		int var8 = PlayerManager.localPlayerCount;
+		int[] var9 = PlayerManager.localPlayerIndexes;
 
 		int var10;
 		for (var10 = 0; var10 < client.npcCount + var8; ++var10) {
 			Object var11;
 			if (var10 < var8) {
-				var11 = client.players[var9[var10]];
+				var11 = client.localPlayers[var9[var10]];
 				if (var9[var10] == client.combatTargetPlayerIndex) {
 					var5 = true;
 					var6 = var10;
@@ -287,7 +287,7 @@ public class class123 {
 		}
 
 		if (var5) {
-			class142.method2486(client.players[client.combatTargetPlayerIndex], var6, var0, var1, var2, var3);
+			class142.method2486(client.localPlayers[client.combatTargetPlayerIndex], var6, var0, var1, var2, var3);
 		}
 
 		for (var10 = 0; var10 < client.field1661; ++var10) {

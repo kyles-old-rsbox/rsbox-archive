@@ -79,7 +79,7 @@ public class class206 extends class437 {
 		} else if (var2 == 7) {
 			this.field2345 = var1.method8204();
 		} else if (var2 == 8) {
-			this.field2342 = var1.method8132();
+			this.field2342 = var1.readJagexString();
 		} else if (var2 == 9) {
 			this.field2327 = var1.readUnsignedShort();
 		} else if (var2 == 10) {

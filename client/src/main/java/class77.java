@@ -68,7 +68,7 @@ public final class class77 extends class212 {
 	}
 
 	static class118 method1579(int var0) {
-		class118 var2 = (class118)class217.method4362(class118.method4508(), var0);
+		class118 var2 = (class118)class217.fromValue(class118.method4508(), var0);
 		if (null == var2) {
 			var2 = class118.field1141;
 		}

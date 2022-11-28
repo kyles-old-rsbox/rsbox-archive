@@ -23,7 +23,7 @@ public final class class339 {
 	}
 
 	static final void method6316() {
-		PacketMessage var1 = class185.method3435(ClientPacket.field3140, client.serverConnection.isaacRandom);
+		PacketMessage var1 = class185.create(ClientPacket.field3140, client.serverConnection.isaacRandom);
 		client.serverConnection.add(var1);
 		class57.field411 = true;
 

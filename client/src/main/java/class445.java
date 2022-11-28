@@ -217,7 +217,7 @@ public class class445 implements class360 {
 				return 1;
 			} else if (var0 == CS2Opcodes.CC_SETFILLMODE) {
 				var11 = class57.field404[--class387.field4452];
-				class469 var13 = (class469)class217.method4362(class469.method6570(), var11);
+				class469 var13 = (class469)class217.fromValue(class469.method6570(), var11);
 				if (var13 != null) {
 					var4.field3490 = var13;
 					class136.method2438(var4);

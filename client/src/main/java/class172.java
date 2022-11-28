@@ -93,129 +93,129 @@ public class class172 implements Runnable {
 		}
 	}
 
-	static final void updatePlayerInfo(PacketBuffer var0) {
-		int var2 = 0;
-		var0.setBitMode();
+	static final void updatePlayerInfo(PacketBuffer buf) {
+		int skipCount = 0;
+		buf.setBitMode();
 
-		byte[] var10000;
-		int var3;
-		int var4;
+		byte[] skipFlags;
+		int i;
+		int playerIndex;
 		int var5;
-		for (var3 = 0; var3 < PlayerManager.playerCount; ++var3) {
-			var4 = PlayerManager.field1013[var3];
-			if ((PlayerManager.field1019[var4] & 1) == 0) {
-				if (var2 > 0) {
-					--var2;
-					var10000 = PlayerManager.field1019;
-					var10000[var4] = (byte)(var10000[var4] | 2);
+		for (i = 0; i < PlayerManager.localPlayerCount; ++i) {
+			playerIndex = PlayerManager.localPlayerIndexes[i];
+			if ((PlayerManager.skipFlags[playerIndex] & 1) == 0) {
+				if (skipCount > 0) {
+					--skipCount;
+					skipFlags = PlayerManager.skipFlags;
+					skipFlags[playerIndex] = (byte)(skipFlags[playerIndex] | 2);
 				} else {
-					var5 = var0.readBits(1);
+					var5 = buf.readBits(1);
 					if (var5 == 0) {
-						var2 = class57.method1273(var0);
-						var10000 = PlayerManager.field1019;
-						var10000[var4] = (byte)(var10000[var4] | 2);
+						skipCount = class57.readSkipCount(buf);
+						skipFlags = PlayerManager.skipFlags;
+						skipFlags[playerIndex] = (byte)(skipFlags[playerIndex] | 2);
 					} else {
-						class62.method1339(var0, var4);
+						class62.decodeLocalPlayersGpi(buf, playerIndex);
 					}
 				}
 			}
 		}
 
-		var0.setByteMode();
-		if (var2 != 0) {
+		buf.setByteMode();
+		if (skipCount != 0) {
 			throw new RuntimeException();
 		} else {
-			var0.setBitMode();
+			buf.setBitMode();
 
-			for (var3 = 0; var3 < PlayerManager.playerCount; ++var3) {
-				var4 = PlayerManager.field1013[var3];
-				if ((PlayerManager.field1019[var4] & 1) != 0) {
-					if (var2 > 0) {
-						--var2;
-						var10000 = PlayerManager.field1019;
-						var10000[var4] = (byte)(var10000[var4] | 2);
+			for (i = 0; i < PlayerManager.localPlayerCount; ++i) {
+				playerIndex = PlayerManager.localPlayerIndexes[i];
+				if ((PlayerManager.skipFlags[playerIndex] & 1) != 0) {
+					if (skipCount > 0) {
+						--skipCount;
+						skipFlags = PlayerManager.skipFlags;
+						skipFlags[playerIndex] = (byte)(skipFlags[playerIndex] | 2);
 					} else {
-						var5 = var0.readBits(1);
+						var5 = buf.readBits(1);
 						if (var5 == 0) {
-							var2 = class57.method1273(var0);
-							var10000 = PlayerManager.field1019;
-							var10000[var4] = (byte)(var10000[var4] | 2);
+							skipCount = class57.readSkipCount(buf);
+							skipFlags = PlayerManager.skipFlags;
+							skipFlags[playerIndex] = (byte)(skipFlags[playerIndex] | 2);
 						} else {
-							class62.method1339(var0, var4);
+							class62.decodeLocalPlayersGpi(buf, playerIndex);
 						}
 					}
 				}
 			}
 
-			var0.setByteMode();
-			if (var2 != 0) {
+			buf.setByteMode();
+			if (skipCount != 0) {
 				throw new RuntimeException();
 			} else {
-				var0.setBitMode();
+				buf.setBitMode();
 
-				for (var3 = 0; var3 < PlayerManager.field1017; ++var3) {
-					var4 = PlayerManager.field1015[var3];
-					if (0 != (PlayerManager.field1019[var4] & 1)) {
-						if (var2 > 0) {
-							--var2;
-							var10000 = PlayerManager.field1019;
-							var10000[var4] = (byte)(var10000[var4] | 2);
+				for (i = 0; i < PlayerManager.externalPlayerCount; ++i) {
+					playerIndex = PlayerManager.externalPlayerIndexes[i];
+					if (0 != (PlayerManager.skipFlags[playerIndex] & 1)) {
+						if (skipCount > 0) {
+							--skipCount;
+							skipFlags = PlayerManager.skipFlags;
+							skipFlags[playerIndex] = (byte)(skipFlags[playerIndex] | 2);
 						} else {
-							var5 = var0.readBits(1);
+							var5 = buf.readBits(1);
 							if (var5 == 0) {
-								var2 = class57.method1273(var0);
-								var10000 = PlayerManager.field1019;
-								var10000[var4] = (byte)(var10000[var4] | 2);
-							} else if (class399.method7221(var0, var4)) {
-								var10000 = PlayerManager.field1019;
-								var10000[var4] = (byte)(var10000[var4] | 2);
+								skipCount = class57.readSkipCount(buf);
+								skipFlags = PlayerManager.skipFlags;
+								skipFlags[playerIndex] = (byte)(skipFlags[playerIndex] | 2);
+							} else if (class399.decodeExternalPlayersGpi(buf, playerIndex)) {
+								skipFlags = PlayerManager.skipFlags;
+								skipFlags[playerIndex] = (byte)(skipFlags[playerIndex] | 2);
 							}
 						}
 					}
 				}
 
-				var0.setByteMode();
-				if (var2 != 0) {
+				buf.setByteMode();
+				if (skipCount != 0) {
 					throw new RuntimeException();
 				} else {
-					var0.setBitMode();
+					buf.setBitMode();
 
-					for (var3 = 0; var3 < PlayerManager.field1017; ++var3) {
-						var4 = PlayerManager.field1015[var3];
-						if ((PlayerManager.field1019[var4] & 1) == 0) {
-							if (var2 > 0) {
-								--var2;
-								var10000 = PlayerManager.field1019;
-								var10000[var4] = (byte)(var10000[var4] | 2);
+					for (i = 0; i < PlayerManager.externalPlayerCount; ++i) {
+						playerIndex = PlayerManager.externalPlayerIndexes[i];
+						if ((PlayerManager.skipFlags[playerIndex] & 1) == 0) {
+							if (skipCount > 0) {
+								--skipCount;
+								skipFlags = PlayerManager.skipFlags;
+								skipFlags[playerIndex] = (byte)(skipFlags[playerIndex] | 2);
 							} else {
-								var5 = var0.readBits(1);
+								var5 = buf.readBits(1);
 								if (var5 == 0) {
-									var2 = class57.method1273(var0);
-									var10000 = PlayerManager.field1019;
-									var10000[var4] = (byte)(var10000[var4] | 2);
-								} else if (class399.method7221(var0, var4)) {
-									var10000 = PlayerManager.field1019;
-									var10000[var4] = (byte)(var10000[var4] | 2);
+									skipCount = class57.readSkipCount(buf);
+									skipFlags = PlayerManager.skipFlags;
+									skipFlags[playerIndex] = (byte)(skipFlags[playerIndex] | 2);
+								} else if (class399.decodeExternalPlayersGpi(buf, playerIndex)) {
+									skipFlags = PlayerManager.skipFlags;
+									skipFlags[playerIndex] = (byte)(skipFlags[playerIndex] | 2);
 								}
 							}
 						}
 					}
 
-					var0.setByteMode();
-					if (var2 != 0) {
+					buf.setByteMode();
+					if (skipCount != 0) {
 						throw new RuntimeException();
 					} else {
-						PlayerManager.playerCount = 0;
-						PlayerManager.field1017 = 0;
+						PlayerManager.localPlayerCount = 0;
+						PlayerManager.externalPlayerCount = 0;
 
-						for (var3 = 1; var3 < 2048; ++var3) {
-							var10000 = PlayerManager.field1019;
-							var10000[var3] = (byte)(var10000[var3] >> 1);
-							PlayerEntity var6 = client.players[var3];
+						for (i = 1; i < 2048; ++i) {
+							skipFlags = PlayerManager.skipFlags;
+							skipFlags[i] = (byte)(skipFlags[i] >> 1);
+							PlayerEntity var6 = client.localPlayers[i];
 							if (var6 != null) {
-								PlayerManager.field1013[++PlayerManager.playerCount - 1] = var3;
+								PlayerManager.localPlayerIndexes[++PlayerManager.localPlayerCount - 1] = i;
 							} else {
-								PlayerManager.field1015[++PlayerManager.field1017 - 1] = var3;
+								PlayerManager.externalPlayerIndexes[++PlayerManager.externalPlayerCount - 1] = i;
 							}
 						}
 

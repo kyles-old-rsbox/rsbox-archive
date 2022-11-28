@@ -143,11 +143,11 @@ public class class73 {
 					}
 				}
 
-				var9 = PlayerManager.playerCount;
-				int[] var19 = PlayerManager.field1013;
+				var9 = PlayerManager.localPlayerCount;
+				int[] var19 = PlayerManager.localPlayerIndexes;
 
 				for (var11 = 0; var11 < var9; ++var11) {
-					PlayerEntity var17 = client.players[var19[var11]];
+					PlayerEntity var17 = client.localPlayers[var19[var11]];
 					if (var17 != null && var17.method1869() && !var17.invisible && var17 != class291.localPlayer) {
 						var13 = var17.field827 / 32 - class291.localPlayer.field827 / 32;
 						int var14 = var17.field802 / 32 - class291.localPlayer.field802 / 32;
@@ -176,13 +176,13 @@ public class class73 {
 					}
 
 					if (client.hintArrowType == 2) {
-						var11 = 2 + (client.field1655 * 4 - class36.field241 * 4) - class291.localPlayer.field827 / 32;
-						var12 = 2 + (client.field1656 * 4 - class169.field1536 * 4) - class291.localPlayer.field802 / 32;
+						var11 = 2 + (client.field1655 * 4 - class36.sceneBaseX * 4) - class291.localPlayer.field827 / 32;
+						var12 = 2 + (client.field1656 * 4 - class169.sceneBaseY * 4) - class291.localPlayer.field802 / 32;
 						class41.method764(var1, var2, var11, var12, class210.field2462[1], var5);
 					}
 
-					if (10 == client.hintArrowType && client.field1654 >= 0 && client.field1654 < client.players.length) {
-						PlayerEntity var21 = client.players[client.field1654];
+					if (10 == client.hintArrowType && client.field1654 >= 0 && client.field1654 < client.localPlayers.length) {
+						PlayerEntity var21 = client.localPlayers[client.field1654];
 						if (null != var21) {
 							var12 = var21.field827 / 32 - class291.localPlayer.field827 / 32;
 							var13 = var21.field802 / 32 - class291.localPlayer.field802 / 32;

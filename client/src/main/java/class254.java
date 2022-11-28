@@ -49,7 +49,7 @@ public class class254 {
 	class248 method5121(Buffer var1) {
 		int var3 = var1.readUnsignedByte();
 		class252[] var4 = new class252[]{class252.field2916, class252.field2923, class252.field2919, class252.field2917};
-		class252 var5 = (class252)class217.method4362(var4, var3);
+		class252 var5 = (class252)class217.fromValue(var4, var3);
 		Object var6 = null;
 		switch(var5.field2920) {
 		case 0:

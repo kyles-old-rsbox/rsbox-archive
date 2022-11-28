@@ -147,9 +147,9 @@ public class class160 extends class437 {
 				} else if (var2 == 28) {
 					var1.readUnsignedByte();
 				} else if (var2 == 29) {
-					this.field1483 = (class194)class217.method4362(class194.method1991(), var1.readUnsignedByte());
+					this.field1483 = (class194)class217.fromValue(class194.method1991(), var1.readUnsignedByte());
 				} else if (var2 == 30) {
-					this.field1484 = (class183)class217.method4362(class183.method2270(), var1.readUnsignedByte());
+					this.field1484 = (class183)class217.fromValue(class183.method2270(), var1.readUnsignedByte());
 				}
 			}
 		}

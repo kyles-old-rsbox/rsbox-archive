@@ -7,11 +7,11 @@ import java.io.IOException;
 
 public class MouseManager implements MouseListener, MouseMotionListener, FocusListener {
 	public static int field277;
-	public static int field283;
+	public static int lastPressedX;
 	public static int field284;
 	public static int field285;
 	public static int field289;
-	public static int field293;
+	public static int lastPressedY;
 	public static String field296;
 	public static long field279;
 	public static long field286;
@@ -44,8 +44,8 @@ public class MouseManager implements MouseListener, MouseMotionListener, FocusLi
 		field288 = 0;
 		field290 = 0L;
 		field277 = 0;
-		field283 = 0;
-		field293 = 0;
+		lastPressedX = 0;
+		lastPressedY = 0;
 		field279 = 0L;
 	}
 
@@ -83,8 +83,8 @@ public class MouseManager implements MouseListener, MouseMotionListener, FocusLi
 			field285 = field281;
 			field286 = field282;
 			field277 = field287;
-			field283 = field275;
-			field293 = field288;
+			lastPressedX = field275;
+			lastPressedY = field288;
 			field279 = field290;
 			field287 = 0;
 		}
@@ -341,11 +341,11 @@ public class MouseManager implements MouseListener, MouseMotionListener, FocusLi
 							}
 						}
 
-						var28 = PlayerManager.playerCount;
-						var38 = PlayerManager.field1013;
+						var28 = PlayerManager.localPlayerCount;
+						var38 = PlayerManager.localPlayerIndexes;
 
 						for (var24 = 0; var24 < var28; ++var24) {
-							var25 = client.players[var38[var24]];
+							var25 = client.localPlayers[var38[var24]];
 							if (null != var25 && var25.field827 == var32.field827 && var32.field802 == var25.field802) {
 								class117.method2256(var25, var38[var24], var15, var16);
 							}
@@ -356,7 +356,7 @@ public class MouseManager implements MouseListener, MouseMotionListener, FocusLi
 				}
 
 				if (var18 == 0) {
-					PlayerEntity var33 = client.players[var20];
+					PlayerEntity var33 = client.localPlayers[var20];
 					if (null == var33) {
 						continue;
 					}
@@ -369,11 +369,11 @@ public class MouseManager implements MouseListener, MouseMotionListener, FocusLi
 							}
 						}
 
-						var28 = PlayerManager.playerCount;
-						var38 = PlayerManager.field1013;
+						var28 = PlayerManager.localPlayerCount;
+						var38 = PlayerManager.localPlayerIndexes;
 
 						for (var24 = 0; var24 < var28; ++var24) {
-							var25 = client.players[var38[var24]];
+							var25 = client.localPlayers[var38[var24]];
 							if (var25 != null && var33 != var25 && var25.field827 == var33.field827 && var33.field802 == var25.field802) {
 								class117.method2256(var25, var38[var24], var15, var16);
 							}
@@ -443,7 +443,7 @@ public class MouseManager implements MouseListener, MouseMotionListener, FocusLi
 		if (var5 != -1L) {
 			var9 = class234.method7552(var5);
 			int var31 = class234.method3636(var5);
-			PlayerEntity var11 = client.players[client.combatTargetPlayerIndex];
+			PlayerEntity var11 = client.localPlayers[client.combatTargetPlayerIndex];
 			class117.method2256(var11, client.combatTargetPlayerIndex, var9, var31);
 		}
 

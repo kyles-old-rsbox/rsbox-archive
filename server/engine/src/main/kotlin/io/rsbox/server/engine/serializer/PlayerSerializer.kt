@@ -15,15 +15,17 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package content.core
+package io.rsbox.server.engine.serializer
 
-import io.rsbox.server.api.event.on_player_login
-import io.rsbox.server.api.event.on_player_logout
-import io.rsbox.server.api.event.on_player_move_click
-import io.rsbox.server.api.teleport
-import io.rsbox.server.engine.coroutine.wait
-import io.rsbox.server.engine.coroutine.waitUntil
+import io.rsbox.server.engine.model.entity.Player
+import io.rsbox.server.engine.net.login.LoginRequest
 
-on_player_move_click {
-    player.teleport(tile)
+interface PlayerSerializer {
+
+    fun create(request: LoginRequest): Boolean
+
+    fun load(request: LoginRequest): Player?
+
+    fun save(player: Player): Boolean
+
 }

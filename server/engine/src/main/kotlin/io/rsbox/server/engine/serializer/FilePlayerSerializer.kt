@@ -15,7 +15,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.server.engine.service.serializer
+package io.rsbox.server.engine.serializer
 
 import com.uchuhimo.konf.Config
 import com.uchuhimo.konf.ConfigSpec

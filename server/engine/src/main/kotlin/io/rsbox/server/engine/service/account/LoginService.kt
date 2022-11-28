@@ -27,7 +27,7 @@ import io.rsbox.server.engine.net.game.GameProtocol
 import io.rsbox.server.engine.net.login.LoginRequest
 import io.rsbox.server.engine.net.login.LoginResponse
 import io.rsbox.server.engine.service.Service
-import io.rsbox.server.engine.service.serializer.PlayerSerializer
+import io.rsbox.server.engine.serializer.PlayerSerializer
 import io.rsbox.server.util.security.SHA256
 import kotlinx.coroutines.*
 import org.tinylog.kotlin.Logger
@@ -36,7 +36,6 @@ import java.util.concurrent.LinkedBlockingQueue
 
 class LoginService : Service, Runnable {
 
-    private val world: World by inject()
     private val serializer: PlayerSerializer by inject()
 
     private val executor = Executors.newFixedThreadPool(
@@ -77,13 +76,17 @@ class LoginService : Service, Runnable {
 
             session.xteas = request.xteas
             session.reconnectXteas = request.reconnectXteas
+            session.encoderIsaac.init(IntArray(4) { session.xteas[it] + 50 })
+            session.decoderIsaac.init(session.xteas)
+
+            player.prevTile = player.tile
+            player.followTile = player.tile
+
             player.login()
         }
     }
 
     private fun Player.login() {
-        session.encoderIsaac.init(IntArray(4) { session.xteas[it] + 50 })
-        session.decoderIsaac.init(session.xteas)
         world.players.addPlayer(this)
 
         val response = LoginResponse(this)

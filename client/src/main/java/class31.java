@@ -1,5 +1,3 @@
-import io.rsbox.client.ClientLauncher;
-
 import java.applet.Applet;
 import java.awt.Canvas;
 import java.awt.Color;
@@ -793,7 +791,7 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 			}
 		}
 
-		PacketMessage var2 = class185.method3435(ClientPacket.field3063, client.serverConnection.isaacRandom);
+		PacketMessage var2 = class185.create(ClientPacket.field3063, client.serverConnection.isaacRandom);
 		var2.buffer.writeByte(var0.length() + 1);
 		var2.buffer.writeString(var0);
 		client.serverConnection.add(var2);
@@ -801,8 +799,8 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 
 	static final void method598() {
 		client.field1830 = 0;
-		int var1 = class36.field241 + (class291.localPlayer.field827 >> 7);
-		int var2 = class169.field1536 + (class291.localPlayer.field802 >> 7);
+		int var1 = class36.sceneBaseX + (class291.localPlayer.field827 >> 7);
+		int var2 = class169.sceneBaseY + (class291.localPlayer.field802 >> 7);
 		if (var1 >= 3053 && var1 <= 3156 && var2 >= 3056 && var2 <= 3136) {
 			client.field1830 = 1;
 		}

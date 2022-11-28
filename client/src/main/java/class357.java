@@ -7,7 +7,7 @@ public final class class357 {
 		this.field4308 = var2;
 	}
 
-	static final void method6607(byte[] var0, int var1, int var2, class214 var3, class200[] var4) {
+	static final void method6607(byte[] var0, int var1, int var2, Scene var3, class200[] var4) {
 		Buffer var6 = new Buffer(var0);
 		int var7 = -1;
 

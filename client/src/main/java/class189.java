@@ -476,7 +476,7 @@ public class class189 extends class437 {
 					boolean var9 = false;
 					if (var0 == CS2Opcodes.GETDEVICEOPTION) {
 						var7 = class57.field404[--class387.field4452];
-						var4 = (class103)class217.method4362(class103.method2745(), var7);
+						var4 = (class103)class217.fromValue(class103.method2745(), var7);
 						if (var4 == null) {
 							throw new RuntimeException(String.format("Unrecognized device option %d", var7));
 						}
@@ -484,7 +484,7 @@ public class class189 extends class437 {
 
 					if (var0 == CS2Opcodes.GETGAMEOPTION) {
 						var7 = class57.field404[--class387.field4452];
-						var5 = (class88)class217.method4362(class88.method1283(), var7);
+						var5 = (class88)class217.fromValue(class88.method1283(), var7);
 						if (var5 == null) {
 							throw new RuntimeException(String.format("Unrecognized game option %d", var7));
 						}
@@ -492,9 +492,9 @@ public class class189 extends class437 {
 
 					if (var0 == CS2Opcodes.GETCLIENTOPTION) {
 						var7 = class57.field404[--class387.field4452];
-						var4 = (class103)class217.method4362(class103.method2745(), var7);
+						var4 = (class103)class217.fromValue(class103.method2745(), var7);
 						if (var4 == null) {
-							var5 = (class88)class217.method4362(class88.method1283(), var7);
+							var5 = (class88)class217.fromValue(class88.method1283(), var7);
 							if (null == var5) {
 								throw new RuntimeException(String.format("Unrecognized client option %d", var7));
 							}
@@ -562,7 +562,7 @@ public class class189 extends class437 {
 				var6 = class57.field404[--class387.field4452];
 				if (var0 == CS2Opcodes.SETDEVICEOPTION) {
 					var7 = class57.field404[--class387.field4452];
-					var4 = (class103)class217.method4362(class103.method2745(), var7);
+					var4 = (class103)class217.fromValue(class103.method2745(), var7);
 					if (null == var4) {
 						throw new RuntimeException(String.format("Unrecognized device option %d", var7));
 					}
@@ -570,7 +570,7 @@ public class class189 extends class437 {
 
 				if (var0 == CS2Opcodes.SETGAMEOPTION) {
 					var7 = class57.field404[--class387.field4452];
-					var5 = (class88)class217.method4362(class88.method1283(), var7);
+					var5 = (class88)class217.fromValue(class88.method1283(), var7);
 					if (var5 == null) {
 						throw new RuntimeException(String.format("Unrecognized game option %d", var7));
 					}
@@ -578,9 +578,9 @@ public class class189 extends class437 {
 
 				if (var0 == CS2Opcodes.SETCLIENTOPTION) {
 					var7 = class57.field404[--class387.field4452];
-					var4 = (class103)class217.method4362(class103.method2745(), var7);
+					var4 = (class103)class217.fromValue(class103.method2745(), var7);
 					if (null == var4) {
-						var5 = (class88)class217.method4362(class88.method1283(), var7);
+						var5 = (class88)class217.fromValue(class88.method1283(), var7);
 						if (null == var5) {
 							throw new RuntimeException(String.format("Unrecognized client option %d", var7));
 						}

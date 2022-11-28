@@ -23,8 +23,8 @@ import io.rsbox.server.engine.net.NetworkServer
 import io.rsbox.server.engine.net.game.GamePackets
 import io.rsbox.server.engine.net.http.HttpServer
 import io.rsbox.server.engine.service.ServiceManager
-import io.rsbox.server.engine.service.serializer.FilePlayerSerializer
-import io.rsbox.server.engine.service.serializer.PlayerSerializer
+import io.rsbox.server.engine.serializer.FilePlayerSerializer
+import io.rsbox.server.engine.serializer.PlayerSerializer
 import io.rsbox.server.util.security.RSA
 import org.koin.dsl.module
 

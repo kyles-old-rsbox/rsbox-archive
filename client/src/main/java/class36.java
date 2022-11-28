@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class class36 implements KeyListener, FocusListener {
-	static int field241;
+	static int sceneBaseX;
 	static int[][] xteaKeys;
 	boolean[] field237;
 	class29[] field234;

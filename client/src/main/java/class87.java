@@ -22,7 +22,7 @@ public class class87 extends class427 {
 	}
 
 	static class121 method1855(int var0) {
-		class121 var2 = (class121)class217.method4362(class121.method135(), var0);
+		class121 var2 = (class121)class217.fromValue(class121.method135(), var0);
 		if (var2 == null) {
 			var2 = class121.field1170;
 		}

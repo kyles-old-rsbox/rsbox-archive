@@ -91,7 +91,7 @@ public class ClientPacket implements ClientProt {
 	public static final ClientPacket field3131;
 	public static final ClientPacket field3132;
 	public static final ClientPacket field3133;
-	public static final ClientPacket field3134;
+	public static final ClientPacket MOVE_GAMECLICK;
 	public static final ClientPacket field3136;
 	public static final ClientPacket field3137;
 	public static final ClientPacket field3138;
@@ -206,7 +206,7 @@ public class ClientPacket implements ClientProt {
 		field3042 = new ClientPacket(92, 3);
 		field3132 = new ClientPacket(93, 7);
 		field3133 = new ClientPacket(94, -1);
-		field3134 = new ClientPacket(95, -1);
+		MOVE_GAMECLICK = new ClientPacket(95, -1);
 		field3135 = new ClientPacket(96, -1);
 		field3136 = new ClientPacket(97, 0);
 		field3137 = new ClientPacket(98, -1);

@@ -38,7 +38,7 @@ public class class442 {
 		int var35;
 		int var36;
 		if (Login.field643) {
-			class205 var33 = client.field1876;
+			class205 var33 = client.keyHandler;
 			class205 var4 = var33;
 
 			while (true) {
@@ -48,50 +48,50 @@ public class class442 {
 					}
 
 					var5 = 280 + Login.field618;
-					if (MouseManager.field283 >= var5 && MouseManager.field283 <= var5 + 14 && MouseManager.field293 >= 4 && MouseManager.field293 <= 18) {
+					if (MouseManager.lastPressedX >= var5 && MouseManager.lastPressedX <= var5 + 14 && MouseManager.lastPressedY >= 4 && MouseManager.lastPressedY <= 18) {
 						class264.method5168(0, 0);
 						break;
 					}
 
-					if (MouseManager.field283 >= var5 + 15 && MouseManager.field283 <= var5 + 80 && MouseManager.field293 >= 4 && MouseManager.field293 <= 18) {
+					if (MouseManager.lastPressedX >= var5 + 15 && MouseManager.lastPressedX <= var5 + 80 && MouseManager.lastPressedY >= 4 && MouseManager.lastPressedY <= 18) {
 						class264.method5168(0, 1);
 						break;
 					}
 
 					var6 = Login.field618 + 390;
-					if (MouseManager.field283 >= var6 && MouseManager.field283 <= var6 + 14 && MouseManager.field293 >= 4 && MouseManager.field293 <= 18) {
+					if (MouseManager.lastPressedX >= var6 && MouseManager.lastPressedX <= var6 + 14 && MouseManager.lastPressedY >= 4 && MouseManager.lastPressedY <= 18) {
 						class264.method5168(1, 0);
 						break;
 					}
 
-					if (MouseManager.field283 >= var6 + 15 && MouseManager.field283 <= var6 + 80 && MouseManager.field293 >= 4 && MouseManager.field293 <= 18) {
+					if (MouseManager.lastPressedX >= var6 + 15 && MouseManager.lastPressedX <= var6 + 80 && MouseManager.lastPressedY >= 4 && MouseManager.lastPressedY <= 18) {
 						class264.method5168(1, 1);
 						break;
 					}
 
 					var35 = Login.field618 + 500;
-					if (MouseManager.field283 >= var35 && MouseManager.field283 <= var35 + 14 && MouseManager.field293 >= 4 && MouseManager.field293 <= 18) {
+					if (MouseManager.lastPressedX >= var35 && MouseManager.lastPressedX <= var35 + 14 && MouseManager.lastPressedY >= 4 && MouseManager.lastPressedY <= 18) {
 						class264.method5168(2, 0);
 						break;
 					}
 
-					if (MouseManager.field283 >= var35 + 15 && MouseManager.field283 <= var35 + 80 && MouseManager.field293 >= 4 && MouseManager.field293 <= 18) {
+					if (MouseManager.lastPressedX >= var35 + 15 && MouseManager.lastPressedX <= var35 + 80 && MouseManager.lastPressedY >= 4 && MouseManager.lastPressedY <= 18) {
 						class264.method5168(2, 1);
 						break;
 					}
 
 					var36 = Login.field618 + 610;
-					if (MouseManager.field283 >= var36 && MouseManager.field283 <= var36 + 14 && MouseManager.field293 >= 4 && MouseManager.field293 <= 18) {
+					if (MouseManager.lastPressedX >= var36 && MouseManager.lastPressedX <= var36 + 14 && MouseManager.lastPressedY >= 4 && MouseManager.lastPressedY <= 18) {
 						class264.method5168(3, 0);
 						break;
 					}
 
-					if (MouseManager.field283 >= var36 + 15 && MouseManager.field283 <= var36 + 80 && MouseManager.field293 >= 4 && MouseManager.field293 <= 18) {
+					if (MouseManager.lastPressedX >= var36 + 15 && MouseManager.lastPressedX <= var36 + 80 && MouseManager.lastPressedY >= 4 && MouseManager.lastPressedY <= 18) {
 						class264.method5168(3, 1);
 						break;
 					}
 
-					if (MouseManager.field283 >= Login.field618 + 708 && MouseManager.field293 >= 4 && MouseManager.field283 <= 50 + Login.field618 + 708 && MouseManager.field293 <= 20) {
+					if (MouseManager.lastPressedX >= Login.field618 + 708 && MouseManager.lastPressedY >= 4 && MouseManager.lastPressedX <= 50 + Login.field618 + 708 && MouseManager.lastPressedY <= 20) {
 						Login.method199();
 						break;
 					}
@@ -101,11 +101,11 @@ public class class442 {
 						client.method3066(var37);
 						Login.method199();
 					} else {
-						if (Login.field645 > 0 && null != class227.field2723 && MouseManager.field283 >= 0 && MouseManager.field283 <= class227.field2723.field5017 && MouseManager.field293 >= class12.canvasHeight / 2 - 50 && MouseManager.field293 <= class12.canvasHeight / 2 + 50) {
+						if (Login.field645 > 0 && null != class227.field2723 && MouseManager.lastPressedX >= 0 && MouseManager.lastPressedX <= class227.field2723.field5017 && MouseManager.lastPressedY >= class12.canvasHeight / 2 - 50 && MouseManager.lastPressedY <= class12.canvasHeight / 2 + 50) {
 							--Login.field645;
 						}
 
-						if (Login.field645 < Login.field616 && class7.field24 != null && MouseManager.field283 >= class31.canvasWidth - class7.field24.field5017 - 5 && MouseManager.field283 <= class31.canvasWidth && MouseManager.field293 >= class12.canvasHeight / 2 - 50 && MouseManager.field293 <= class12.canvasHeight / 2 + 50) {
+						if (Login.field645 < Login.field616 && class7.field24 != null && MouseManager.lastPressedX >= class31.canvasWidth - class7.field24.field5017 - 5 && MouseManager.lastPressedX <= class31.canvasWidth && MouseManager.lastPressedY >= class12.canvasHeight / 2 - 50 && MouseManager.lastPressedY <= class12.canvasHeight / 2 + 50) {
 							++Login.field645;
 						}
 					}
@@ -127,7 +127,7 @@ public class class442 {
 			}
 
 		} else {
-			if ((MouseManager.field277 == 1 || !class95.field944 && 4 == MouseManager.field277) && MouseManager.field283 >= 765 + Login.field618 - 50 && MouseManager.field293 >= 453) {
+			if ((MouseManager.field277 == 1 || !class95.field944 && 4 == MouseManager.field277) && MouseManager.lastPressedX >= 765 + Login.field618 - 50 && MouseManager.lastPressedY >= 453) {
 				class413.clientPreferences.method1707(!class413.clientPreferences.method1708());
 				if (!class413.clientPreferences.method1708()) {
 					class336 var3 = class43.field311;
@@ -181,7 +181,7 @@ public class class442 {
 							short var7 = 463;
 							byte var8 = 100;
 							byte var24 = 35;
-							if (MouseManager.field283 >= var6 && MouseManager.field283 <= var6 + var8 && MouseManager.field293 >= var7 && MouseManager.field293 <= var24 + var7) {
+							if (MouseManager.lastPressedX >= var6 && MouseManager.lastPressedX <= var6 + var8 && MouseManager.lastPressedY >= var7 && MouseManager.lastPressedY <= var24 + var7) {
 								if (class328.method6247()) {
 									Login.field643 = true;
 									Login.field645 = 0;
@@ -200,8 +200,8 @@ public class class442 {
 					}
 
 					var6 = MouseManager.field277;
-					var35 = MouseManager.field283;
-					var36 = MouseManager.field293;
+					var35 = MouseManager.lastPressedX;
+					var36 = MouseManager.lastPressedY;
 					if (var6 == 0) {
 						var35 = MouseManager.field284;
 						var36 = MouseManager.field285;
@@ -211,7 +211,7 @@ public class class442 {
 						var6 = 1;
 					}
 
-					class205 var9 = client.field1876;
+					class205 var9 = client.keyHandler;
 					class205 var10 = var9;
 					int var39;
 					short var40;
@@ -434,7 +434,7 @@ public class class442 {
 												}
 											}
 
-											if ((var10.method3895(82) || var10.method3895(87)) && 67 == var10.field2317) {
+											if ((var10.isKeyDown(82) || var10.isKeyDown(87)) && 67 == var10.field2317) {
 												Clipboard var41 = Toolkit.getDefaultToolkit().getSystemClipboard();
 												var42 = var41.getContents(class133.field1257);
 												var43 = 20 - Login.password.length();

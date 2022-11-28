@@ -107,7 +107,7 @@ public class class157 extends class175 {
 			}
 
 			if (var2 == 326) {
-				PacketMessage var5 = class185.method3435(ClientPacket.field3065, client.serverConnection.isaacRandom);
+				PacketMessage var5 = class185.create(ClientPacket.field3065, client.serverConnection.isaacRandom);
 				client.playerAppearance.method6016(var5.buffer);
 				client.serverConnection.add(var5);
 				return true;

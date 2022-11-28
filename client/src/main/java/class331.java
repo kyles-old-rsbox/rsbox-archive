@@ -94,7 +94,7 @@ public class class331 {
 					var13 = var0 + 1;
 				}
 
-				class214 var43 = class145.field1333;
+				Scene var43 = class145.field1333;
 				class200 var15 = client.field1884[var0];
 				class195 var16 = InterfaceParent.method1866(var4);
 				int var17;

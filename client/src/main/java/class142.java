@@ -100,8 +100,8 @@ public class class142 {
 				}
 			}
 
-			int var76 = PlayerManager.playerCount;
-			int[] var8 = PlayerManager.field1013;
+			int var76 = PlayerManager.localPlayerCount;
+			int[] var8 = PlayerManager.localPlayerIndexes;
 			byte var9 = 0;
 			if (var1 < var76 && client.field1645 == var0.field872 && class260.method5147((PlayerEntity)var0)) {
 				PlayerEntity var10 = (PlayerEntity)var0;

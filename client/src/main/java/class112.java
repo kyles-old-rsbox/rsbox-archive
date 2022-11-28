@@ -37,7 +37,7 @@ public class class112 extends class437 {
 		for (int var5 = 0; var5 < var4; ++var5) {
 			int var7 = var1.readUnsignedByte();
 			class126[] var8 = new class126[]{class126.field1219, class126.field1212, class126.field1210, class126.field1211, class126.field1208, class126.field1213};
-			class126 var9 = (class126)class217.method4362(var8, var7);
+			class126 var9 = (class126)class217.fromValue(var8, var7);
 			if (var9 == null) {
 				var9 = class126.field1219;
 			}

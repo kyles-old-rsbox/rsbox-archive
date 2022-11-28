@@ -258,7 +258,7 @@ public class class190 implements class29 {
 
 	static final void method3532(String var0) {
 		if (!var0.equals("")) {
-			PacketMessage var2 = class185.method3435(ClientPacket.field3049, client.serverConnection.isaacRandom);
+			PacketMessage var2 = class185.create(ClientPacket.field3049, client.serverConnection.isaacRandom);
 			var2.buffer.writeByte(Buffer.method1887(var0));
 			var2.buffer.writeString(var0);
 			client.serverConnection.add(var2);
@@ -270,7 +270,7 @@ public class class190 implements class29 {
 			if (var1 >= 0 && var1 < client.field1883[var0].method2512()) {
 				class133 var3 = (class133)client.field1883[var0].field1347.get(var1);
 				if (var3.field1256 == -1) {
-					PacketMessage var4 = class185.method3435(ClientPacket.field3114, client.serverConnection.isaacRandom);
+					PacketMessage var4 = class185.create(ClientPacket.field3114, client.serverConnection.isaacRandom);
 					var4.buffer.writeByte(3 + Buffer.method1887(var3.field1254.getName()));
 					var4.buffer.writeByte(var0);
 					var4.buffer.writeShort(var1);

@@ -1,7 +1,7 @@
 public class class145 extends class140 {
 	public static class376 field1336;
 	static boolean field1335;
-	static class214 field1333;
+	static Scene field1333;
 	static class336 field1338;
 	byte field1330;
 	int field1331;

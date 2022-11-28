@@ -50,8 +50,8 @@ public class class43 extends class427 {
 			for (var2 = 0; var2 < class74.regionLandArchives.length; ++var2) {
 				byte[] var3 = class18.regionMapArchives[var2];
 				if (var3 != null) {
-					var4 = 64 * (class204.regions[var2] >> 8) - class36.field241;
-					var5 = 64 * (class204.regions[var2] & 255) - class169.field1536;
+					var4 = 64 * (class204.regions[var2] >> 8) - class36.sceneBaseX;
+					var5 = 64 * (class204.regions[var2] & 255) - class169.sceneBaseY;
 					if (client.dynamicRegion) {
 						var4 = 10;
 						var5 = 10;
@@ -93,8 +93,8 @@ public class class43 extends class427 {
 				if (!client.dynamicRegion) {
 					byte[] var6;
 					for (var14 = 0; var14 < var2; ++var14) {
-						var4 = 64 * (class204.regions[var14] >> 8) - class36.field241;
-						var5 = 64 * (class204.regions[var14] & 255) - class169.field1536;
+						var4 = 64 * (class204.regions[var14] >> 8) - class36.sceneBaseX;
+						var5 = 64 * (class204.regions[var14] & 255) - class169.sceneBaseY;
 						var6 = class74.regionLandArchives[var14];
 						if (null != var6) {
 							class349.method6457();
@@ -103,8 +103,8 @@ public class class43 extends class427 {
 					}
 
 					for (var14 = 0; var14 < var2; ++var14) {
-						var4 = (class204.regions[var14] >> 8) * 64 - class36.field241;
-						var5 = (class204.regions[var14] & 255) * 64 - class169.field1536;
+						var4 = (class204.regions[var14] >> 8) * 64 - class36.sceneBaseX;
+						var5 = (class204.regions[var14] & 255) * 64 - class169.sceneBaseY;
 						var6 = class74.regionLandArchives[var14];
 						if (null == var6 && ServerPacket.field3216 < 800) {
 							class349.method6457();
@@ -117,8 +117,8 @@ public class class43 extends class427 {
 					for (var14 = 0; var14 < var2; ++var14) {
 						byte[] var15 = class18.regionMapArchives[var14];
 						if (var15 != null) {
-							var5 = 64 * (class204.regions[var14] >> 8) - class36.field241;
-							var16 = 64 * (class204.regions[var14] & 255) - class169.field1536;
+							var5 = 64 * (class204.regions[var14] >> 8) - class36.sceneBaseX;
+							var16 = 64 * (class204.regions[var14] & 255) - class169.sceneBaseY;
 							class349.method6457();
 							class357.method6607(var15, var5, var16, class145.field1333, client.field1884);
 						}
@@ -228,7 +228,7 @@ public class class43 extends class427 {
 				class195.field2056.method5437();
 				PacketMessage var17;
 				if (class133.field1257.method562()) {
-					var17 = class185.method3435(ClientPacket.field3051, client.serverConnection.isaacRandom);
+					var17 = class185.create(ClientPacket.field3051, client.serverConnection.isaacRandom);
 					var17.buffer.writeInt(1057001181);
 					client.serverConnection.add(var17);
 				}
@@ -252,7 +252,7 @@ public class class43 extends class427 {
 				class9.method64(30);
 				class349.method6457();
 				class82.method1271();
-				var17 = class185.method3435(ClientPacket.field3136, client.serverConnection.isaacRandom);
+				var17 = class185.create(ClientPacket.field3136, client.serverConnection.isaacRandom);
 				client.serverConnection.add(var17);
 				class339.method6315();
 			}

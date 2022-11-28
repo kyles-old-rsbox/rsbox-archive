@@ -72,14 +72,20 @@ public class class9 {
 	static final void updatePlayerExtendedInfo(PacketBuffer var0) {
 		for (int i = 0; i < PlayerManager.extendedInfoCount; ++i) {
 			int playerIndex = PlayerManager.field1020[i];
-			PlayerEntity player = client.players[playerIndex];
+			PlayerEntity player = client.localPlayers[playerIndex];
 			int mask = var0.readUnsignedByte();
-			if (0 != (mask & 4)) {
+			if (0 != (mask & 0x4)) {
 				mask += var0.readUnsignedByte() << 8;
 			}
 
 			byte moveSpeed = MoveSpeed.NONE.speed;
 			int appBufLength;
+
+			/*
+			 * name: Interacting
+			 * mask: 0x10
+			 * order: 1
+			 */
 			if (0 != (mask & 0x10)) {
 				player.interacting = var0.readUnsignedShortLEADD();
 				if (class78.isNewPlayerUpdating) {
@@ -94,7 +100,12 @@ public class class9 {
 				}
 			}
 
-			if (0 != (mask & 2)) {
+			/*
+			 * name:
+			 * mask: 0x2
+			 * order: 2
+			 */
+			if (0 != (mask & 0x2)) {
 				player.field822 = var0.readString();
 				if (player.field822.charAt(0) == '~') {
 					player.field822 = player.field822.substring(1);
@@ -109,7 +120,12 @@ public class class9 {
 				player.field843 = 150;
 			}
 
-			if ((mask & 64) != 0) {
+			/*
+			 * Appearance
+			 * mask: 0x40
+			 * order: 3
+			 */
+			if ((mask & 0x40) != 0) {
 				appBufLength = var0.readUnsignedByteNeg();
 				byte[] appBytes = new byte[appBufLength];
 				Buffer appBuf = new Buffer(appBytes);
@@ -118,18 +134,23 @@ public class class9 {
 				player.decodeAppearance(appBuf);
 			}
 
-			if ((mask & 4096) != 0) {
+			/*
+			 * MOVEMENT_MODE
+			 * mask: 0x1000
+			 * order: 4
+			 */
+			if ((mask & 0x1000) != 0) {
 				moveSpeed = var0.readByte();
 			}
 
 			int var15;
 			if (0 != (mask & 8)) {
-				appBufLength = var0.readUnsignedShortAdd();
+				appBufLength = var0.readUnsignedShortADD();
 				if (appBufLength == 65535) {
 					appBufLength = -1;
 				}
 
-				var15 = var0.method8153();
+				var15 = var0.readUnsignedByteADD();
 				class442.method7921(player, appBufLength, var15);
 			}
 
@@ -137,7 +158,7 @@ public class class9 {
 				player.field862 = client.field1645 + var0.readUnsignedShortLE();
 				player.field863 = client.field1645 + var0.readUnsignedShortLEADD();
 				player.field864 = var0.readByte();
-				player.field865 = var0.method8335();
+				player.field865 = var0.readByteADD();
 				player.field850 = var0.readByte();
 				player.field867 = (byte)var0.readUnsignedByteSub();
 			}
@@ -151,18 +172,18 @@ public class class9 {
 			}
 
 			if (0 != (mask & 16384)) {
-				player.field815 = var0.method8187();
-				player.field855 = var0.method8335();
-				player.field854 = var0.method8335();
-				player.field853 = var0.method8187();
+				player.field815 = var0.readByteNEG();
+				player.field855 = var0.readByteADD();
+				player.field854 = var0.readByteADD();
+				player.field853 = var0.readByteNEG();
 				player.field857 = var0.readUnsignedShortLEADD() + client.field1645;
 				player.field858 = var0.readUnsignedShortLE() + client.field1645;
 				player.field859 = var0.readUnsignedShort();
-				if (player.field919) {
-					player.field815 += player.field920;
-					player.field855 += player.field892;
-					player.field854 += player.field920;
-					player.field853 += player.field892;
+				if (player.isTeleporting) {
+					player.field815 += player.tileX;
+					player.field855 += player.tileY;
+					player.field854 += player.tileX;
+					player.field853 += player.tileY;
 					player.field871 = 0;
 				} else {
 					player.field815 += player.field861[0];
@@ -245,8 +266,8 @@ public class class9 {
 			}
 
 			if (0 != (mask & 128)) {
-				appBufLength = var0.readUnsignedShortAdd();
-				class333 var19 = (class333)class217.method4362(class333.method5480(), var0.method8153());
+				appBufLength = var0.readUnsignedShortADD();
+				class333 var19 = (class333)class217.fromValue(class333.method5480(), var0.readUnsignedByteADD());
 				boolean var21 = var0.readUnsignedByteSub() == 1;
 				var10 = var0.readUnsignedByteNeg();
 				var11 = var0.offset;
@@ -285,21 +306,21 @@ public class class9 {
 			}
 
 			if ((mask & 1024) != 0) {
-				PlayerManager.field1010[playerIndex] = (MoveSpeed)class217.method4362(MoveSpeed.method7499(), var0.method8158());
+				PlayerManager.moveSpeeds[playerIndex] = (MoveSpeed)class217.fromValue(MoveSpeed.values(), var0.readByteSUB());
 			}
 
-			if (player.field919) {
+			if (player.isTeleporting) {
 				if (moveSpeed == 127) {
-					player.method1919(player.field920, player.field892);
+					player.teleport(player.tileX, player.tileY);
 				} else {
-					MoveSpeed var18;
+					MoveSpeed moveSpeedValue;
 					if (moveSpeed != MoveSpeed.NONE.speed) {
-						var18 = (MoveSpeed)class217.method4362(MoveSpeed.method7499(), moveSpeed);
+						moveSpeedValue = (MoveSpeed)class217.fromValue(MoveSpeed.values(), moveSpeed);
 					} else {
-						var18 = PlayerManager.field1010[playerIndex];
+						moveSpeedValue = PlayerManager.moveSpeeds[playerIndex];
 					}
 
-					player.method1938(player.field920, player.field892, var18);
+					player.addMoveWaypoint(player.tileX, player.tileY, moveSpeedValue);
 				}
 			}
 		}
@@ -368,18 +389,18 @@ public class class9 {
 		}
 
 		class353.method6566();
-		if (client.combatTargetPlayerIndex >= 0 && null != client.players[client.combatTargetPlayerIndex]) {
-			class17.method200(client.players[client.combatTargetPlayerIndex], false);
+		if (client.combatTargetPlayerIndex >= 0 && null != client.localPlayers[client.combatTargetPlayerIndex]) {
+			class17.method200(client.localPlayers[client.combatTargetPlayerIndex], false);
 		}
 
 		class315.method6071(true);
-		int var5 = PlayerManager.playerCount;
-		int[] var6 = PlayerManager.field1013;
+		int var5 = PlayerManager.localPlayerCount;
+		int[] var6 = PlayerManager.localPlayerIndexes;
 
 		int var7;
 		for (var7 = 0; var7 < var5; ++var7) {
 			if (client.combatTargetPlayerIndex != var6[var7] && var6[var7] != client.localPlayerIndex) {
-				class17.method200(client.players[var6[var7]], true);
+				class17.method200(client.localPlayers[var6[var7]], true);
 			}
 		}
 
@@ -453,8 +474,8 @@ public class class9 {
 		var13 = MouseManager.field284;
 		var14 = MouseManager.field285;
 		if (0 != MouseManager.field277) {
-			var13 = MouseManager.field283;
-			var14 = MouseManager.field293;
+			var13 = MouseManager.lastPressedX;
+			var14 = MouseManager.lastPressedY;
 		}
 
 		int var15;
@@ -482,7 +503,7 @@ public class class9 {
 		class145.field1333.method4136();
 		class123.method2326(var0, var1, var2, var3);
 		if (2 == client.hintArrowType) {
-			class230.method4536((client.field1655 - class36.field241 << 7) + client.field1866, client.field1684 + (client.field1656 - class169.field1536 << 7), client.field1913 * 2);
+			class230.method4536((client.field1655 - class36.sceneBaseX << 7) + client.field1866, client.field1684 + (client.field1656 - class169.sceneBaseY << 7), client.field1913 * 2);
 			if (client.field1809 > -1 && client.field1645 % 20 < 10) {
 				class176.field1585[0].method8526(var0 + client.field1809 - 12, var1 + client.field1747 - 28);
 			}

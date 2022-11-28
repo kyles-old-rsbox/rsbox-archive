@@ -74,7 +74,7 @@ public class class228 extends class239 {
 
 		int var1;
 		for (var1 = 0; var1 < 2048; ++var1) {
-			client.players[var1] = null;
+			client.localPlayers[var1] = null;
 		}
 
 		class291.localPlayer = null;

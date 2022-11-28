@@ -80,7 +80,7 @@ public class class322 implements Runnable {
 
 	static class149 method6186(int var0) {
 		class149[] var2 = new class149[]{class149.field1391, class149.field1390, class149.field1386, class149.field1384, class149.field1385, class149.field1388, class149.field1389, class149.field1387, class149.field1392};
-		class149 var3 = (class149)class217.method4362(var2, var0);
+		class149 var3 = (class149)class217.fromValue(var2, var0);
 		if (var3 == null) {
 			var3 = class149.field1392;
 		}

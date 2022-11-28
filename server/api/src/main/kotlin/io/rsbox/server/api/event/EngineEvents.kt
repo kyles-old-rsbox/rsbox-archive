@@ -15,17 +15,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.server.engine.service.serializer
+package io.rsbox.server.api.event
 
-import io.rsbox.server.engine.model.entity.Player
-import io.rsbox.server.engine.net.login.LoginRequest
+import io.rsbox.server.engine.event.EventBus.subscribe
+import io.rsbox.server.engine.event.impl.PlayerMoveClickEvent
 
-interface PlayerSerializer {
-
-    fun create(request: LoginRequest): Boolean
-
-    fun load(request: LoginRequest): Player?
-
-    fun save(player: Player): Boolean
-
-}
+@EventSubscriberMarker
+fun on_player_move_click(block: PlayerMoveClickEvent.() -> Unit) = subscribe(block)

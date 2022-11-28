@@ -230,7 +230,7 @@ public class class25 implements class360 {
 				if (var0.interacting < var4) {
 					var14 = client.npcs[var0.interacting];
 				} else if (var0.interacting >= var4) {
-					var14 = client.players[var0.interacting - var4];
+					var14 = client.localPlayers[var0.interacting - var4];
 				}
 
 				if (null != var14) {
@@ -309,7 +309,7 @@ public class class25 implements class360 {
 		int y;
 		int regionId;
 		if (!client.dynamicRegion) {
-			int chunkX = buf.readUnsignedShortAdd();
+			int chunkX = buf.readUnsignedShortADD();
 			chunkY = buf.readUnsignedShortLE();
 			regionCount = buf.readUnsignedShort();
 			class36.xteaKeys = new int[regionCount][4];

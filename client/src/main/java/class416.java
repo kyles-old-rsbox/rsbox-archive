@@ -12,18 +12,18 @@ public abstract class class416 implements class238 {
 			}
 
 			class406[] var4 = new class406[]{class406.field4524, class406.field4523, class406.field4525, class406.field4522};
-			class406 var5 = (class406)class217.method4362(var4, var3);
+			class406 var5 = (class406)class217.fromValue(var4, var3);
 			if (var5 != null) {
 				switch(var5.field4521) {
 				case 0:
 					class318[] var6 = new class318[]{class318.field3728, class318.field3729, class318.field3731, class318.field3727};
-					class217.method4362(var6, var1.readUnsignedByte());
+					class217.fromValue(var6, var1.readUnsignedByte());
 					break;
 				case 1:
 				default:
 					throw new IllegalStateException("Unrecognised VarTypeEncodingKey - " + var5);
 				case 2:
-					var1.method8132();
+					var1.readJagexString();
 					break;
 				case 3:
 					int var7 = var1.readUnsignedByte();

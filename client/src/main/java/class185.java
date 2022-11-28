@@ -27,7 +27,7 @@ public class class185 extends class437 {
 		this.method3431(this.field1955);
 	}
 
-	public static PacketMessage method3435(ClientPacket var0, IsaacRandom var1) {
+	public static PacketMessage create(ClientPacket var0, IsaacRandom var1) {
 		PacketMessage var3 = class210.method4096();
 		var3.field2989 = var0;
 		var3.field2985 = var0.length;

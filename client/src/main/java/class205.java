@@ -98,7 +98,7 @@ public class class205 implements class29 {
 		return var1 >= 0 && var1 < 112 ? this.field2319[var1] : false;
 	}
 
-	public boolean method3895(int var1) {
+	public boolean isKeyDown(int var1) {
 		return var1 >= 0 && var1 < 112 ? this.field2316[var1] : false;
 	}
 

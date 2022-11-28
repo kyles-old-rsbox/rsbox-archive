@@ -9,11 +9,17 @@ dependencies {
     implementation("com.formdev:flatlaf-intellij-themes:_")
 }
 
+sourceSets {
+    main.get().java {
+        srcDirs.addAll(arrayOf(file("src/main/kotlin/")))
+    }
+}
+
 tasks {
     val run = register<JavaExec>("run client") {
         dependsOn(build.get())
         group = "rsbox"
-        mainClass.set("io.rsbox.client.ClientLauncher")
+        mainClass.set("ClientLauncher")
         classpath = sourceSets["main"].runtimeClasspath
     }
 

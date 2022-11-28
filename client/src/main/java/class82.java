@@ -64,7 +64,7 @@ public final class class82 {
 		class406.field4527 = null;
 	}
 
-	static final void method1668(byte[] var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, class214 var8, class200[] var9) {
+	static final void method1668(byte[] var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, Scene var8, class200[] var9) {
 		Buffer var10 = new Buffer(var0);
 		int var11 = -1;
 

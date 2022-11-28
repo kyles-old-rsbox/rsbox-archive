@@ -77,7 +77,7 @@ public class class83 {
 				}
 
 				if (var2 > 5) {
-					this.field733 = var1.method8129();
+					this.field733 = var1.readBoolean();
 				}
 
 				if (var2 > 6) {
@@ -438,8 +438,8 @@ public class class83 {
 
 		if (1 == client.field1722 && client.privilegeLevel >= 2 && 0 == client.field1645 % 50 && (class291.localPlayer.field827 >> 7 != class32.field203 >> 7 || class101.field1004 >> 7 != class291.localPlayer.field802 >> 7)) {
 			var14 = class291.localPlayer.field914;
-			var15 = (class32.field203 >> 7) + class36.field241;
-			var16 = class169.field1536 + (class101.field1004 >> 7);
+			var15 = (class32.field203 >> 7) + class36.sceneBaseX;
+			var16 = class169.sceneBaseY + (class101.field1004 >> 7);
 			class136.method2439(var15, var16, var14, true);
 		}
 

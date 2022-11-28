@@ -107,10 +107,10 @@ public class class113 {
 
 	static final void method2211() {
 		if (!class234.field2774) {
-			int var1 = class214.field2556;
-			int var2 = class214.field2521;
-			int var3 = class214.field2522;
-			int var4 = class214.field2523;
+			int var1 = Scene.field2556;
+			int var2 = Scene.field2521;
+			int var3 = Scene.field2522;
+			int var4 = Scene.field2523;
 			byte var5 = 50;
 			short var6 = 3500;
 			int var7 = (class234.field2767 - class221.field2634) * var5 / class221.field2630;

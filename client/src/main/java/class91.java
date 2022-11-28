@@ -64,8 +64,8 @@ public class class91 extends class427 {
 	}
 
 	static final void method1892() {
-		for (int var1 = 0; var1 < PlayerManager.playerCount; ++var1) {
-			PlayerEntity var2 = client.players[PlayerManager.field1013[var1]];
+		for (int var1 = 0; var1 < PlayerManager.localPlayerCount; ++var1) {
+			PlayerEntity var2 = client.localPlayers[PlayerManager.localPlayerIndexes[var1]];
 			var2.method1913();
 		}
 

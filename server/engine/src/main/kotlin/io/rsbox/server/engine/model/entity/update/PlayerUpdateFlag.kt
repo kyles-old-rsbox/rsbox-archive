@@ -67,6 +67,10 @@ class PlayerUpdateFlag(order: Int, mask: Int, val encode: JagByteBuf.(Player) ->
             buf.release()
         }
 
+        val MOVEMENT_MODE = PlayerUpdateFlag(order = 4, mask = 0x1000) { player ->
+            this.writeByte(player.movementState.id)
+        }
+
         private val STYLE_OFFSETS = intArrayOf(-1, -1, -1, -1, 2, -1, 3, 5, 0, 4, 6, 1)
     }
 }

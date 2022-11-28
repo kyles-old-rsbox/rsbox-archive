@@ -40,7 +40,7 @@ public final class class272 {
 				if (var8) {
 					PacketMessage var11;
 					if (var0 == 1) {
-						var11 = class185.method3435(ClientPacket.field3055, client.serverConnection.isaacRandom);
+						var11 = class185.create(ClientPacket.field3055, client.serverConnection.isaacRandom);
 						var11.buffer.writeInt(var1);
 						var11.buffer.writeShort(var2);
 						var11.buffer.writeShort(var3);
@@ -48,7 +48,7 @@ public final class class272 {
 					}
 
 					if (var0 == 2) {
-						var11 = class185.method3435(ClientPacket.field3076, client.serverConnection.isaacRandom);
+						var11 = class185.create(ClientPacket.field3076, client.serverConnection.isaacRandom);
 						var11.buffer.writeInt(var1);
 						var11.buffer.writeShort(var2);
 						var11.buffer.writeShort(var3);
@@ -56,7 +56,7 @@ public final class class272 {
 					}
 
 					if (var0 == 3) {
-						var11 = class185.method3435(ClientPacket.field3085, client.serverConnection.isaacRandom);
+						var11 = class185.create(ClientPacket.field3085, client.serverConnection.isaacRandom);
 						var11.buffer.writeInt(var1);
 						var11.buffer.writeShort(var2);
 						var11.buffer.writeShort(var3);
@@ -64,7 +64,7 @@ public final class class272 {
 					}
 
 					if (var0 == 4) {
-						var11 = class185.method3435(ClientPacket.field3058, client.serverConnection.isaacRandom);
+						var11 = class185.create(ClientPacket.field3058, client.serverConnection.isaacRandom);
 						var11.buffer.writeInt(var1);
 						var11.buffer.writeShort(var2);
 						var11.buffer.writeShort(var3);
@@ -72,7 +72,7 @@ public final class class272 {
 					}
 
 					if (var0 == 5) {
-						var11 = class185.method3435(ClientPacket.field3068, client.serverConnection.isaacRandom);
+						var11 = class185.create(ClientPacket.field3068, client.serverConnection.isaacRandom);
 						var11.buffer.writeInt(var1);
 						var11.buffer.writeShort(var2);
 						var11.buffer.writeShort(var3);
@@ -80,7 +80,7 @@ public final class class272 {
 					}
 
 					if (var0 == 6) {
-						var11 = class185.method3435(ClientPacket.field3046, client.serverConnection.isaacRandom);
+						var11 = class185.create(ClientPacket.field3046, client.serverConnection.isaacRandom);
 						var11.buffer.writeInt(var1);
 						var11.buffer.writeShort(var2);
 						var11.buffer.writeShort(var3);
@@ -88,7 +88,7 @@ public final class class272 {
 					}
 
 					if (var0 == 7) {
-						var11 = class185.method3435(ClientPacket.field3116, client.serverConnection.isaacRandom);
+						var11 = class185.create(ClientPacket.field3116, client.serverConnection.isaacRandom);
 						var11.buffer.writeInt(var1);
 						var11.buffer.writeShort(var2);
 						var11.buffer.writeShort(var3);
@@ -96,7 +96,7 @@ public final class class272 {
 					}
 
 					if (var0 == 8) {
-						var11 = class185.method3435(ClientPacket.field3062, client.serverConnection.isaacRandom);
+						var11 = class185.create(ClientPacket.field3062, client.serverConnection.isaacRandom);
 						var11.buffer.writeInt(var1);
 						var11.buffer.writeShort(var2);
 						var11.buffer.writeShort(var3);
@@ -104,7 +104,7 @@ public final class class272 {
 					}
 
 					if (var0 == 9) {
-						var11 = class185.method3435(ClientPacket.field3061, client.serverConnection.isaacRandom);
+						var11 = class185.create(ClientPacket.field3061, client.serverConnection.isaacRandom);
 						var11.buffer.writeInt(var1);
 						var11.buffer.writeShort(var2);
 						var11.buffer.writeShort(var3);
@@ -112,7 +112,7 @@ public final class class272 {
 					}
 
 					if (var0 == 10) {
-						var11 = class185.method3435(ClientPacket.field3045, client.serverConnection.isaacRandom);
+						var11 = class185.create(ClientPacket.field3045, client.serverConnection.isaacRandom);
 						var11.buffer.writeInt(var1);
 						var11.buffer.writeShort(var2);
 						var11.buffer.writeShort(var3);
