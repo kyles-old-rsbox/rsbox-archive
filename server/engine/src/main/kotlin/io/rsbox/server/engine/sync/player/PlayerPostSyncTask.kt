@@ -20,6 +20,9 @@ package io.rsbox.server.engine.sync.player
 import io.rsbox.server.common.inject
 import io.rsbox.server.engine.model.World
 import io.rsbox.server.engine.model.entity.MovementState
+import io.rsbox.server.engine.model.entity.Player
+import io.rsbox.server.engine.net.packet.server.SyncVarpLarge
+import io.rsbox.server.engine.net.packet.server.SyncVarpSmall
 import io.rsbox.server.engine.sync.SyncTask
 
 class PlayerPostSyncTask : SyncTask {
@@ -28,13 +31,29 @@ class PlayerPostSyncTask : SyncTask {
 
     override suspend fun execute() {
         world.players.forEach { player ->
+            player.syncVarps()
             player.updateFlags.clear()
-
-            /*
-             * Clear movement
-             */
-            player.teleportTile = null
-            player.movementState = MovementState.NONE
+            player.clearMovement()
         }
+    }
+
+    private fun Player.syncVarps() {
+        varps.changed.forEach { id ->
+            writeVarp(id, varps.getVarp(id))
+        }
+        varps.changed.clear()
+    }
+
+    private fun Player.writeVarp(id: Int, value: Int) {
+        val packet = when(value) {
+            in Byte.MIN_VALUE..Byte.MAX_VALUE -> SyncVarpSmall(id, value)
+            else -> SyncVarpLarge(id, value)
+        }
+        session.write(packet)
+    }
+
+    private fun Player.clearMovement() {
+        teleportTile = null
+        movementState = MovementState.NONE
     }
 }

@@ -279,10 +279,10 @@ public class class57 {
 									field404[++class387.field4452 - 1] = var8[var21];
 								} else if (var34 == CS2Opcodes.PUSH_VAR) {
 									var14 = var8[var21];
-									field404[++class387.field4452 - 1] = class293.field3370[var14];
+									field404[++class387.field4452 - 1] = class293.varps[var14];
 								} else if (var34 == CS2Opcodes.POP_VAR) {
 									var14 = var8[var21];
-									class293.field3370[var14] = field404[--class387.field4452];
+									class293.varps[var14] = field404[--class387.field4452];
 									class147.method2521(var14);
 								} else if (var34 == CS2Opcodes.PUSH_CONSTANT_STRING) {
 									field405[++class126.field1220 - 1] = var5.field676[var21];

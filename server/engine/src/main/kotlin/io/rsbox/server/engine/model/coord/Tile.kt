@@ -17,6 +17,7 @@
 
 package io.rsbox.server.engine.model.coord
 
+import io.rsbox.server.engine.model.Direction
 import kotlin.math.abs
 import kotlin.math.ceil
 import kotlin.math.sqrt
@@ -70,6 +71,10 @@ value class Tile(val packed: Int) {
     fun deltaTo(x: Int, y: Int) = abs(this.x - x) + abs(this.y - y)
 
     fun deltaTo(other: Tile) = deltaTo(other.x, other.y)
+
+    fun directionTo(other: Tile) = Direction.between(this, other)
+
+    fun directionTo(x: Int, y: Int) = directionTo(Tile(x, y, this.level))
 
     fun sameAs(x: Int, y: Int) = this.x == x && this.y == y
 

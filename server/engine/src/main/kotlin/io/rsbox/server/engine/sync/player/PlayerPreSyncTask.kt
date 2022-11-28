@@ -38,20 +38,45 @@ class PlayerPreSyncTask : SyncTask {
     private fun Player.updateMovement() {
         prevTile = tile
         when {
-            teleportTile != null -> teleport()
-            path.isNotEmpty() -> step()
+            teleportTile != null -> doTeleport()
+            path.isNotEmpty() -> doStep()
         }
     }
 
-    private fun Player.teleport() {
+    private fun Player.doTeleport() {
         path.clear()
         movementState = MovementState.TELEPORT
-        updateFlags.add(PlayerUpdateFlag.MOVEMENT_MODE)
+        updateFlags.add(PlayerUpdateFlag.MOVEMENT)
         tile = teleportTile!!
         followTile = teleportTile!!.translate(0, -1)
     }
 
-    private fun Player.step() {
-
+    private fun Player.doStep() {
+        when {
+            running -> when {
+                path.size == 1 -> {
+                    movementState = MovementState.WALK
+                    updateFlags.add(PlayerUpdateFlag.MOVEMENT)
+                    followTile = tile
+                    tile = path.removeAt(0)
+                }
+                path.size > 1 && tile.isWithinRadius(path[1], 1) -> {
+                    movementState = MovementState.WALK
+                    followTile = path.removeAt(0)
+                    tile = path.removeAt(0)
+                }
+                else -> {
+                    movementState = MovementState.RUN
+                    followTile = path.removeAt(0)
+                    tile = path.removeAt(0)
+                }
+            }
+            else -> {
+                movementState = MovementState.WALK
+                followTile = tile
+                tile = path.removeAt(0)
+            }
+        }
+        direction = followTile.directionTo(tile)
     }
 }

@@ -1,6 +1,6 @@
 public class class293 {
-	public static int[] field3368;
-	public static int[] field3370;
+	public static int[] cachedVarps;
+	public static int[] varps;
 	static int[] field3372;
 
 	static {
@@ -12,8 +12,8 @@ public class class293 {
 			var0 += var0;
 		}
 
-		field3368 = new int[4000];
-		field3370 = new int[4000];
+		cachedVarps = new int[4000];
+		varps = new int[4000];
 	}
 
 	class293() throws Throwable {
@@ -26,7 +26,7 @@ public class class293 {
 		int var4 = var2.field1946;
 		int var5 = var2.field1948;
 		int var6 = field3372[var5 - var4];
-		return field3370[var3] >> var4 & var6;
+		return varps[var3] >> var4 & var6;
 	}
 
 	static final int method5502(int var0, int var1) {

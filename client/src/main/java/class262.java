@@ -185,7 +185,7 @@ public class class262 {
 					}
 
 					if (var7 == 5) {
-						var8 = class293.field3370[var3[var5++]];
+						var8 = class293.varps[var3[var5++]];
 					}
 
 					if (var7 == 6) {
@@ -193,7 +193,7 @@ public class class262 {
 					}
 
 					if (var7 == 7) {
-						var8 = class293.field3370[var3[var5++]] * 100 / 46875;
+						var8 = class293.varps[var3[var5++]] * 100 / 46875;
 					}
 
 					if (var7 == 8) {
@@ -232,7 +232,7 @@ public class class262 {
 					}
 
 					if (var7 == 13) {
-						var10 = class293.field3370[var3[var5++]];
+						var10 = class293.varps[var3[var5++]];
 						int var14 = var3[var5++];
 						var8 = (var10 & 1 << var14) != 0 ? 1 : 0;
 					}

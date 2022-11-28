@@ -185,7 +185,7 @@ class PlayerSyncTask : SyncTask {
                 val updateTileLocation = prevTile != curTile
 
                 buf.writeAddLocalPlayer(externalPlayer, updateTileLocation, prevTile, curTile)
-                maskBuf.writeUpdateFlags(externalPlayer, sortedSetOf(PlayerUpdateFlag.APPEARANCE, PlayerUpdateFlag.MOVEMENT_MODE))
+                maskBuf.writeUpdateFlags(externalPlayer, sortedSetOf(PlayerUpdateFlag.APPEARANCE, PlayerUpdateFlag.MOVEMENT))
 
                 gpi.skipFlags[externalIndex] = (gpi.skipFlags[externalIndex] or 0x2)
                 gpi.tiles[externalIndex] = curTile

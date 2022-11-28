@@ -322,7 +322,7 @@ public class PacketMessage extends class427 {
 				var20 = class282.method5426(var1);
 				if (null != var20 && var20.field3613 != null && 5 == var20.field3613[0][0]) {
 					var13 = var20.field3613[0][1];
-					class293.field3370[var13] = 1 - class293.field3370[var13];
+					class293.varps[var13] = 1 - class293.varps[var13];
 					class147.method2521(var13);
 				}
 			}
@@ -630,8 +630,8 @@ public class PacketMessage extends class427 {
 				var20 = class282.method5426(var1);
 				if (null != var20 && null != var20.field3613 && 5 == var20.field3613[0][0]) {
 					var13 = var20.field3613[0][1];
-					if (class293.field3370[var13] != var20.field3592[0]) {
-						class293.field3370[var13] = var20.field3592[0];
+					if (class293.varps[var13] != var20.field3592[0]) {
+						class293.varps[var13] = var20.field3592[0];
 						class147.method2521(var13);
 					}
 				}

@@ -23,6 +23,6 @@ public class class410 {
 		}
 
 		var7 <<= var5;
-		class293.field3370[var4] = class293.field3370[var4] & ~var7 | var1 << var5 & var7;
+		class293.varps[var4] = class293.varps[var4] & ~var7 | var1 << var5 & var7;
 	}
 }

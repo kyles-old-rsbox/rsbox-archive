@@ -3,9 +3,9 @@ package io.rsbox.server.cache.config
 import io.netty.buffer.ByteBuf
 
 data class VarbitConfig(override val id: Int) : Config(id) {
-    var varpId: Int = 0
-    var lsb: Short = 0
-    var msb: Short = 0
+    var varp: Int = 0
+    var lsb: Int = 0
+    var msb: Int = 0
 
     companion object : ConfigCompanion<VarbitConfig>() {
         override val id: Int = 14
@@ -16,9 +16,9 @@ data class VarbitConfig(override val id: Int) : Config(id) {
                 when(val opcode = data.readUnsignedByte().toInt()) {
                     0 -> break@decoder
                     1 -> {
-                        varbitConfig.varpId = data.readUnsignedShort()
-                        varbitConfig.lsb = data.readUnsignedByte()
-                        varbitConfig.msb = data.readUnsignedByte()
+                        varbitConfig.varp = data.readUnsignedShort()
+                        varbitConfig.lsb = data.readUnsignedByte().toInt()
+                        varbitConfig.msb = data.readUnsignedByte().toInt()
                     }
                     else -> throw IllegalStateException("Unknown opcode: $opcode.")
                 }

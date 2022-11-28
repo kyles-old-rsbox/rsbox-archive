@@ -356,7 +356,7 @@ public class class203 extends class437 {
 		if (this.field2295 != -1) {
 			var2 = class293.method1557(this.field2295);
 		} else if (-1 != this.field2296) {
-			var2 = class293.field3370[this.field2296];
+			var2 = class293.varps[this.field2296];
 		}
 
 		int var3;
@@ -377,7 +377,7 @@ public class class203 extends class437 {
 			if (this.field2295 != -1) {
 				var2 = class293.method1557(this.field2295);
 			} else if (-1 != this.field2296) {
-				var2 = class293.field3370[this.field2296];
+				var2 = class293.varps[this.field2296];
 			}
 
 			if (var2 >= 0 && var2 < this.field2278.length) {

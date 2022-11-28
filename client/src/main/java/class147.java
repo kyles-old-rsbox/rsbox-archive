@@ -120,7 +120,7 @@ public class class147 extends class427 {
 		class72.method1475();
 		int var2 = ClientPacket.method5221(var0).field1591;
 		if (var2 != 0) {
-			int var3 = class293.field3370[var0];
+			int var3 = class293.varps[var0];
 			if (var2 == 1) {
 				if (var3 == 1) {
 					client.method3634(0.9D);

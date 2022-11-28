@@ -131,7 +131,7 @@ public class class206 extends class437 {
 		if (this.field2349 != -1) {
 			var2 = class293.method1557(this.field2349);
 		} else if (-1 != this.field2340) {
-			var2 = class293.field3370[this.field2340];
+			var2 = class293.varps[this.field2340];
 		}
 
 		int var3;

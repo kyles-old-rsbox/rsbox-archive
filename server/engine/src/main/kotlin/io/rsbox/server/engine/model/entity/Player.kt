@@ -26,6 +26,7 @@ import io.rsbox.server.engine.model.entity.update.PlayerUpdateFlag
 import io.rsbox.server.engine.model.manager.GpiManager
 import io.rsbox.server.engine.model.manager.InterfaceManager
 import io.rsbox.server.engine.model.manager.SceneManager
+import io.rsbox.server.engine.model.manager.VarpManager
 import io.rsbox.server.engine.model.ui.DisplayMode
 import io.rsbox.server.engine.net.Session
 import io.rsbox.server.engine.net.packet.server.RunClientScriptPacket
@@ -45,6 +46,7 @@ class Player internal constructor(val session: Session) : LivingEntity() {
     val gpi = GpiManager(this)
     val scene = SceneManager(this)
     val ui = InterfaceManager(this)
+    val varps = VarpManager(this)
 
     lateinit var username: String
     lateinit var passwordHash: String
@@ -71,6 +73,8 @@ class Player internal constructor(val session: Session) : LivingEntity() {
     override var prevTile = tile
     override var followTile = tile
 
+    var running = false
+
     internal fun init() {
         gpi.init()
         scene.init()
@@ -96,4 +100,7 @@ class Player internal constructor(val session: Session) : LivingEntity() {
     fun runClientScript(id: Int, vararg args: Any) {
         session.write(RunClientScriptPacket(id, *args))
     }
+
+    fun isOnline() = index > 0
+
 }

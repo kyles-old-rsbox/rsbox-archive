@@ -11,13 +11,15 @@ import io.rsbox.server.engine.model.ui.InterfaceType
 on_login {
     player.setDisplayName()
     player.openWelcomeInterface()
-    //player.openGameInterface()
 }
 
 fun Player.setDisplayName() {
     val hasDisplayName = displayName.isNotBlank()
     runClientScript(1105, if(hasDisplayName) 1 else 0)
     runClientScript(423, displayName)
+    if(hasDisplayName) {
+        varps.setVarbit(8119, 1)
+    }
 }
 
 on_button_click(button = 1, parent = 378, child = 78) {
