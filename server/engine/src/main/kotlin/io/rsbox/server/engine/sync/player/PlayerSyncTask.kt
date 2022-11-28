@@ -127,6 +127,15 @@ class PlayerSyncTask : SyncTask {
             if(localPlayer.movementState == MovementState.TELEPORT) {
                 buf.writeMovementTeleport(localPlayer, shouldUpdate)
             }
+            else if(localPlayer.movementState == MovementState.WALK || localPlayer.movementState == MovementState.RUN) {
+                buf.writeBits(1, 1)
+                buf.writeBoolean(shouldUpdate)
+                buf.writeBits(if(movementState == MovementState.RUN) 2 else 1, 2)
+                buf.writeBits(getMovementDir(localPlayer), if(movementState == MovementState.RUN) 4 else 3)
+                if(!shouldUpdate && localPlayer.movementState == MovementState.RUN) {
+                    maskBuf.writeUpdateFlags(localPlayer)
+                }
+            }
             else if(shouldUpdate) {
                 buf.writeShouldUpdate()
             }
