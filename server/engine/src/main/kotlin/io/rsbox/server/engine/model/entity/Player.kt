@@ -19,7 +19,7 @@ package io.rsbox.server.engine.model.entity
 
 import io.rsbox.server.config.ServerConfig
 import io.rsbox.server.engine.event.EventBus
-import io.rsbox.server.engine.event.impl.PlayerLoginEvent
+import io.rsbox.server.engine.event.impl.LoginEvent
 import io.rsbox.server.engine.model.Privilege
 import io.rsbox.server.engine.model.coord.Tile
 import io.rsbox.server.engine.model.entity.update.PlayerUpdateFlag
@@ -31,8 +31,6 @@ import io.rsbox.server.engine.model.ui.DisplayMode
 import io.rsbox.server.engine.net.Session
 import io.rsbox.server.engine.net.packet.server.RunClientScriptPacket
 import org.rsmod.pathfinder.SmartPathFinder
-import org.rsmod.pathfinder.collision.CollisionStrategies
-import org.rsmod.pathfinder.flag.CollisionFlag
 import org.tinylog.kotlin.Logger
 import kotlin.random.Random
 import kotlin.random.nextLong
@@ -51,7 +49,7 @@ class Player internal constructor(val session: Session) : LivingEntity() {
     val ui = InterfaceManager(this)
     val varps = VarpManager(this)
 
-    val pathfinder get() = SmartPathFinder(flags = world.zoneFlags.flags, defaultFlag = CollisionFlag.BLOCK_PLAYERS)
+    val pathfinder get() = SmartPathFinder(flags = world.collisionMap.flags, defaultFlag = 0)
 
     lateinit var username: String
     lateinit var passwordHash: String
@@ -78,7 +76,7 @@ class Player internal constructor(val session: Session) : LivingEntity() {
     override var prevTile = tile
     override var followTile = tile
 
-    var running = false
+    var running = true
 
     internal fun init() {
         gpi.init()
@@ -88,14 +86,15 @@ class Player internal constructor(val session: Session) : LivingEntity() {
     internal fun onLogin() {
         this.init()
         updateFlags.add(PlayerUpdateFlag.APPEARANCE)
+        updateFlags.add(PlayerUpdateFlag.MOVEMENT)
         Logger.info("[$username] has connected to server. index=$index")
-        EventBus.postEvent(PlayerLoginEvent(this))
+        EventBus.postEvent(LoginEvent(this))
     }
 
     internal fun onLogout() {
         world.players.removePlayer(this)
         Logger.info("[$username] has disconnected from server. index=$index")
-        EventBus.postEvent(PlayerLoginEvent(this))
+        EventBus.postEvent(LoginEvent(this))
     }
 
     override suspend fun cycle() {

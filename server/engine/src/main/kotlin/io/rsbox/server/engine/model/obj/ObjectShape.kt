@@ -1,6 +1,7 @@
 package io.rsbox.server.engine.model.obj
 
 object ObjectShape {
+
     const val WALL = 0
     const val WALL_CORNER_DIAG = 1
     const val UNFINISHED_WALL = 2

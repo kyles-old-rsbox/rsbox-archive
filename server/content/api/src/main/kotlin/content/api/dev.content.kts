@@ -15,18 +15,17 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.rsbox.server.engine.event.impl
+package content.api
 
-import io.rsbox.server.engine.event.Event
-import io.rsbox.server.engine.model.entity.Player
+import content.api.ext.on_command
+import io.rsbox.server.common.inject
+import io.rsbox.server.engine.model.world.World
+import org.tinylog.kotlin.Logger
 
-abstract class PlayerEvent(val player: Player) : Event
+private val world: World by inject()
 
-/**
- * ===== EVENTS =====
- */
-
-class LoginEvent(player: Player) : PlayerEvent(player)
-class LogoutEvent(player: Player) : PlayerEvent(player)
-class IfButtonClickEvent(player: Player, val button: Int, val parent: Int, val child: Int, val interfaceId: Int, val slot: Int) : PlayerEvent(player)
-class CheatCommandEvent(player: Player, val command: String, val args: Array<String>) : PlayerEvent(player)
+on_command("addcollision") {
+    Logger.info("Adding collision to current tile.")
+    val tile = player.tile
+    world.collisionMap.setFloor(tile, true)
+}

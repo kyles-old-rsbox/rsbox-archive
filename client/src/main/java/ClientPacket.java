@@ -23,7 +23,7 @@ public class ClientPacket implements ClientProt {
 	public static final ClientPacket field3060;
 	public static final ClientPacket field3061;
 	public static final ClientPacket field3062;
-	public static final ClientPacket field3063;
+	public static final ClientPacket CLIENT_CHEAT;
 	public static final ClientPacket field3064;
 	public static final ClientPacket field3065;
 	public static final ClientPacket field3066;
@@ -152,7 +152,7 @@ public class ClientPacket implements ClientProt {
 		field3120 = new ClientPacket(38, -2);
 		field3059 = new ClientPacket(39, 1);
 		field3074 = new ClientPacket(40, -1);
-		field3063 = new ClientPacket(41, -1);
+		CLIENT_CHEAT = new ClientPacket(41, -1);
 		field3070 = new ClientPacket(42, 3);
 		field3126 = new ClientPacket(43, 2);
 		field3138 = new ClientPacket(44, 6);

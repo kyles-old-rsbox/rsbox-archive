@@ -62,17 +62,20 @@ class PlayerPreSyncTask : SyncTask {
                 }
                 path.size > 1 && tile.isWithinRadius(path[1], 1) -> {
                     movementState = MovementState.WALK
+                    updateFlags.add(PlayerUpdateFlag.MOVEMENT)
                     followTile = path.removeAt(0)
                     tile = path.removeAt(0)
                 }
                 else -> {
                     movementState = MovementState.RUN
+                    updateFlags.add(PlayerUpdateFlag.MOVEMENT)
                     followTile = path.removeAt(0)
                     tile = path.removeAt(0)
                 }
             }
             else -> {
                 movementState = MovementState.WALK
+                updateFlags.add(PlayerUpdateFlag.MOVEMENT)
                 followTile = tile
                 tile = path.removeAt(0)
             }

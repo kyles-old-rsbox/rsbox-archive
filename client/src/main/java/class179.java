@@ -156,7 +156,7 @@ public class class179 {
 								return 1;
 							} else if (var0 == CS2Opcodes.DOCHEAT) {
 								var4 = class57.field405[--class126.field1220];
-								class31.method506(var4);
+								class31.sendClientCheat(var4);
 								return 1;
 							} else if (var0 == CS2Opcodes.CHAT_SETMESSAGEFILTER) {
 								client.field1873 = class57.field405[--class126.field1220].toLowerCase().trim();

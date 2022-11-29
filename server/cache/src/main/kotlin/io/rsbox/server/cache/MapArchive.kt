@@ -2,9 +2,9 @@ package io.rsbox.server.cache
 
 import io.guthix.buffer.readIncrShortSmart
 import io.guthix.buffer.readUnsignedShortSmart
-import io.guthix.buffer.readUnsignedSmallLong
 import io.guthix.js5.Js5Archive
 import io.netty.buffer.ByteBuf
+import io.rsbox.server.cache.MapTerrainDefinition.Companion.LINK_BELOW_TILE_MASK
 import java.io.FileNotFoundException
 import kotlin.experimental.and
 import kotlin.math.cos
@@ -14,7 +14,7 @@ class MapArchive(val regions: Map<Int, RegionDefinition>) {
         const val id: Int = 5
 
         fun load(archive: Js5Archive, xteas: List<MapXtea>): MapArchive {
-            val mapSquares = mutableMapOf<Int, RegionDefinition>()
+            val regions = mutableMapOf<Int, RegionDefinition>()
             xteas.forEach {
                 val mapFile = archive.readGroup("m${it.x}_${it.y}")[0] ?: throw FileNotFoundException(
                     "Map file not found for map m${it.x}_${it.y}."
@@ -22,9 +22,9 @@ class MapArchive(val regions: Map<Int, RegionDefinition>) {
                 val locFile = archive.readGroup("l${it.x}_${it.y}", it.key)[0] ?: throw FileNotFoundException(
                     "Loc file not found for loc l${it.x}_${it.y}."
                 )
-                mapSquares[it.id] = RegionDefinition.decode(mapFile.data, locFile.data, it.x, it.y)
+                regions[it.id] = RegionDefinition.decode(mapFile.data, locFile.data, it.x, it.y)
             }
-            return MapArchive(mapSquares)
+            return MapArchive(regions)
         }
     }
 }
@@ -42,7 +42,7 @@ class RegionDefinition(
 
         fun decode(landData: ByteBuf, mapData: ByteBuf, x: Int, y: Int): RegionDefinition {
             val mapTerrainDefinitions = MapTerrainDefinition.decode(landData, x, y)
-            val mapObjectDefinitions = MapObjectDefinition.decode(mapData, mapTerrainDefinitions.renderRules)
+            val mapObjectDefinitions = MapObjectDefinition.decode(mapData, mapTerrainDefinitions.tileFlags)
             return RegionDefinition(x, y, mapTerrainDefinitions, mapObjectDefinitions)
         }
     }
@@ -50,7 +50,7 @@ class RegionDefinition(
 
 class MapTerrainDefinition(
     val tileHeights: Array<Array<IntArray>>,
-    val renderRules: Array<Array<ShortArray>>,
+    val tileFlags: Array<Array<ShortArray>>,
     val overlayIds: Array<Array<ByteArray>>,
     val overlayPaths: Array<Array<ShortArray>>,
     val overlayRotations: Array<Array<ShortArray>>,
@@ -112,33 +112,25 @@ class MapTerrainDefinition(
                 for (x in 0 until RegionDefinition.SIZE) {
                     for (y in 0 until RegionDefinition.SIZE) {
                         loop@ while (true) {
-                            val opcode = data.readUnsignedByte().toInt()
+                            val opcode = data.readUnsignedShort()
                             when {
-                                opcode == 0 -> {
-                                    if (z == 0) {
-                                        tileHeights[0][x][y] = calcZ0Height(baseX, baseY, x, y)
-                                    } else {
-                                        tileHeights[z][x][y] = tileHeights[z - 1][x][y] - 240
-                                    }
-                                    break@loop
-                                }
+                                opcode == 0 -> break@loop
                                 opcode == 1 -> {
-                                    var height = data.readUnsignedByte().toInt()
-                                    if (height == 1) height = 0
-                                    if (z == 0) {
-                                        tileHeights[0][x][y] = -height * 8
-                                    } else {
-                                        tileHeights[z][x][y] = tileHeights[z - 1][x][y] - height * 8
-                                    }
+                                    val height = data.readUnsignedByte().toInt()
+                                    tileHeights[z][x][y] = height
                                     break@loop
                                 }
                                 opcode <= 49 -> {
-                                    overlayIds[z][x][y] = (data.readByte() - 1).toByte()
-                                    overlayPaths[z][x][y] = ((opcode - 2) shr 2).toShort()
+                                    overlayIds[z][x][y] = data.readShort().toByte()
+                                    overlayPaths[z][x][y] = ((opcode - 2) / 4).toShort()
                                     overlayRotations[z][x][y] = ((opcode - 2) and 0x3).toShort()
                                 }
-                                opcode <= 89 -> renderRules[z][x][y] = (opcode - 49).toShort()
-                                else -> underlayIds[z][x][y] = (opcode - 81).toShort()
+                                opcode <= 81 -> {
+                                    renderRules[z][x][y] = (opcode - 49).toShort()
+                                }
+                                else -> {
+                                    underlayIds[z][x][y] = (opcode - 81).toShort()
+                                }
                             }
                         }
                     }
@@ -198,46 +190,47 @@ data class MapObjectDefinition(
     val plane: Int,
     val localX: Int,
     val localY: Int,
-    val type: Int,
-    val orientation: Int
+    val shape: Int,
+    val rotation: Int
 ) {
     companion object {
         fun decode(data: ByteBuf, renderRules: Array<Array<ShortArray>>): List<MapObjectDefinition> {
+            val objects = mutableListOf<MapObjectDefinition>()
             var id = -1
             var offset = data.readIncrShortSmart()
-            val locations = mutableListOf<MapObjectDefinition>()
-            while (offset != 0) {
+            while(offset != 0) {
                 id += offset
-                var positionHash = 0
+                var position = 0
                 var positionOffset = data.readUnsignedShortSmart().toInt()
-                while (positionOffset != 0) {
-                    positionHash += positionOffset - 1
-                    val localY = positionHash and 0x3F
-                    val localX = (positionHash shr 6) and 0x3F
-                    var z = (positionHash shr 12) and 0x3
-                    if ((renderRules[1][localX][localY] and MapTerrainDefinition.LINK_BELOW_TILE_MASK) ==
-                        MapTerrainDefinition.LINK_BELOW_TILE_MASK
-                    ) z--
-                    if (z < 0) {
-                        data.readByte()
+                while(positionOffset != 0) {
+                    position += positionOffset - 1
+                    val localY = position and 0x3F
+                    val localX = (position shr 6) and 0x3F
+                    var level = (position shr 12) and 0x3
+
+                    if ((renderRules[1][localX][localY] and LINK_BELOW_TILE_MASK) == LINK_BELOW_TILE_MASK) {
+                        level--
+                    }
+                    if (level < 0) {
+                        data.readUnsignedByte()
                     } else {
                         val attributes = data.readUnsignedByte().toInt()
-                        val orientation = attributes and 0x3
-                        val type = attributes shr 2
-                        locations.add(MapObjectDefinition(id, z, localX, localY, type, orientation))
+                        val shape = attributes shr 2
+                        val rotation = attributes and 0x3
+                        objects.add(MapObjectDefinition(id, level, localX, localY, shape, rotation))
                     }
                     positionOffset = data.readUnsignedShortSmart().toInt()
                 }
-                offset = data.readIncrShortSmart().toInt()
+                offset = data.readIncrShortSmart()
             }
-            return locations
+            return objects
         }
     }
 }
 
 data class MapXtea(val id: Int, val key: IntArray) {
-    val x: Int get() = id shr 8
 
+    val x: Int get() = id shr 8
     val y: Int get() = id and 0xFF
 
     override fun equals(other: Any?): Boolean {

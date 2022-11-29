@@ -743,8 +743,8 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 		return this.field187 != null;
 	}
 
-	static final void method506(String var0) {
-		if (var0.equalsIgnoreCase("toggleroof")) {
+	static final void sendClientCheat(String message) {
+		if (message.equalsIgnoreCase("toggleroof")) {
 			class413.clientPreferences.method1703(!class413.clientPreferences.method1777());
 			if (class413.clientPreferences.method1777()) {
 				MouseManager.method773(99, "", "Roofs are now all hidden");
@@ -753,48 +753,48 @@ public abstract class class31 extends Applet implements Runnable, FocusListener,
 			}
 		}
 
-		if (var0.equalsIgnoreCase("displayfps")) {
+		if (message.equalsIgnoreCase("displayfps")) {
 			class413.clientPreferences.method1759();
 		}
 
-		if (var0.equalsIgnoreCase("renderself")) {
+		if (message.equalsIgnoreCase("renderself")) {
 			client.field1739 = !client.field1739;
 		}
 
-		if (var0.equalsIgnoreCase("mouseovertext")) {
+		if (message.equalsIgnoreCase("mouseovertext")) {
 			client.field1797 = !client.field1797;
 		}
 
 		if (client.privilegeLevel >= 2) {
-			if (var0.equalsIgnoreCase("errortest")) {
+			if (message.equalsIgnoreCase("errortest")) {
 				throw new RuntimeException();
 			}
 
-			if (var0.equalsIgnoreCase("showcoord")) {
+			if (message.equalsIgnoreCase("showcoord")) {
 				ProofOfWorkRequest.field10.field4655 = !ProofOfWorkRequest.field10.field4655;
 			}
 
-			if (var0.equalsIgnoreCase("fpson")) {
+			if (message.equalsIgnoreCase("fpson")) {
 				class413.clientPreferences.method1709(true);
 			}
 
-			if (var0.equalsIgnoreCase("fpsoff")) {
+			if (message.equalsIgnoreCase("fpsoff")) {
 				class413.clientPreferences.method1709(false);
 			}
 
-			if (var0.equalsIgnoreCase("gc")) {
+			if (message.equalsIgnoreCase("gc")) {
 				System.gc();
 			}
 
-			if (var0.equalsIgnoreCase("clientdrop")) {
+			if (message.equalsIgnoreCase("clientdrop")) {
 				client.method4611();
 			}
 		}
 
-		PacketMessage var2 = class185.create(ClientPacket.field3063, client.serverConnection.isaacRandom);
-		var2.buffer.writeByte(var0.length() + 1);
-		var2.buffer.writeString(var0);
-		client.serverConnection.add(var2);
+		PacketMessage packet = class185.create(ClientPacket.CLIENT_CHEAT, client.serverConnection.isaacRandom);
+		packet.buffer.writeByte(message.length() + 1);
+		packet.buffer.writeString(message);
+		client.serverConnection.add(packet);
 	}
 
 	static final void method598() {

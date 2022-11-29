@@ -28,13 +28,13 @@ import kotlin.reflect.full.createInstance
 class ContentModule(val name: String) {
 
     private val file = File("data/content/$name.jar")
-    private lateinit var classloader: URLClassLoader
+    internal lateinit var classloader: URLClassLoader
     private val scripts = hashSetOf<ContentScript>()
 
     @Suppress("UNCHECKED_CAST")
     fun load() {
         if(!file.exists()) throw FileNotFoundException()
-        classloader = URLClassLoader(arrayOf(file.toURI().toURL()))
+        classloader = URLClassLoader(arrayOf(file.toURI().toURL()), ClassLoader.getSystemClassLoader())
         ClassGraph()
             .enableClassInfo()
             .addClassLoader(classloader)

@@ -21,6 +21,7 @@ import io.rsbox.server.engine.model.Privilege
 import io.rsbox.server.engine.model.entity.Player
 import io.rsbox.server.util.buffer.JagByteBuf
 import io.rsbox.server.util.buffer.NEG
+import io.rsbox.server.util.buffer.SUB
 import io.rsbox.server.util.buffer.toJagBuf
 import java.lang.Integer.max
 
@@ -67,8 +68,8 @@ class PlayerUpdateFlag(order: Int, mask: Int, val encode: JagByteBuf.(Player) ->
             buf.release()
         }
 
-        val MOVEMENT = PlayerUpdateFlag(order = 4, mask = 0x1000) { player ->
-            this.writeByte(player.movementState.id)
+        val MOVEMENT = PlayerUpdateFlag(order = 4, mask = 0x400) { player ->
+            this.writeByte(player.movementState.id, transform = SUB)
         }
 
         private val STYLE_OFFSETS = intArrayOf(-1, -1, -1, -1, 2, -1, 3, 5, 0, 4, 6, 1)

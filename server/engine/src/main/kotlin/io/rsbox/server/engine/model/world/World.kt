@@ -18,19 +18,14 @@
 package io.rsbox.server.engine.model.world
 
 import io.rsbox.server.cache.GameCache
+import io.rsbox.server.cache.MapObjectDefinition
 import io.rsbox.server.cache.MapTerrainDefinition
-import io.rsbox.server.cache.RegionDefinition
 import io.rsbox.server.common.inject
-import io.rsbox.server.config.XteaConfig
 import io.rsbox.server.engine.model.collision.CollisionMap
-import io.rsbox.server.engine.model.coord.Chunk
 import io.rsbox.server.engine.model.coord.Region
 import io.rsbox.server.engine.model.list.PlayerList
 import io.rsbox.server.engine.model.obj.GameObject
 import io.rsbox.server.engine.queue.QueueList
-import org.rsmod.pathfinder.AbsoluteCoords
-import org.rsmod.pathfinder.ZoneFlags
-import org.rsmod.pathfinder.flag.CollisionFlag
 import org.tinylog.kotlin.Logger
 
 class World {
@@ -47,36 +42,28 @@ class World {
     fun load() {
         Logger.info("Loading game world.")
 
-        var count = 0
+        /*
+         * Load the world map from cache.
+         */
         cache.mapArchive.regions.forEach { (regionId, def) ->
             val region = Region(regionId)
-            for(level in 0 until MAX_LEVEL) {
-                for(x in 0 until Region.SIZE) {
-                    for(y in 0 until Region.SIZE) {
-                        collisionMap.flags.alloc(AbsoluteCoords(x, y, level).toZoneCoords())
-                    }
-                }
-            }
-            region.loadTerrainCollision(def)
-            region.loadObjectCollision(def)
-            count++
+            loadMapTerrain(region, def.terrain)
+            loadMapObjects(region, def.objects)
         }
-
-        Logger.info("Loaded $count region collision maps.")
     }
 
-    private fun Region.loadTerrainCollision(def: RegionDefinition) {
-        def.terrain.renderRules.forEachIndexed { level, levelRenderRules ->
-            levelRenderRules.forEachIndexed { x, xRenderRules ->
-                xRenderRules.forEachIndexed { y, yRenderRules ->
-                    var adjustedLevel = level
-                    if(yRenderRules.toInt() and MapTerrainDefinition.BLOCKED_TILE_MASK.toInt() == 1) {
-                        if(def.terrain.renderRules[1][x][y].toInt() and MapTerrainDefinition.LINK_BELOW_TILE_MASK.toInt() == 2) {
-                            adjustedLevel--
+    private fun loadMapTerrain(region: Region, terrain: MapTerrainDefinition) {
+        terrain.tileFlags.forEachIndexed { level, levelFlags ->
+            levelFlags.forEachIndexed { x, xFlags ->
+                xFlags.forEachIndexed { y, flag ->
+                    var z = level
+                    if(flag.toInt() and 0x1 == 0x1) {
+                        if(terrain.tileFlags[1][x][y].toInt() and 0x2 == 0x2) {
+                            z--
                         }
-                        if(adjustedLevel >= 0) {
-                            val translated = this.toTile(adjustedLevel).translate(x, y)
-                            collisionMap.flags.add(AbsoluteCoords(translated.x, translated.y, translated.level), CollisionFlag.FLOOR)
+                        if(z >= 0) {
+                            val tile = region.toTile(level).translate(x, y)
+                            collisionMap.setFloor(tile, true)
                         }
                     }
                 }
@@ -84,15 +71,16 @@ class World {
         }
     }
 
-    private fun Region.loadObjectCollision(def: RegionDefinition) {
-        def.objects.forEach { loc ->
-            val translated = this.toTile(loc.plane).translate(loc.localX, loc.localY)
+    private fun loadMapObjects(region: Region, objs: List<MapObjectDefinition>) {
+        objs.forEach { obj ->
+            val tile = region.toTile(obj.plane).translate(obj.localX, obj.localY)
             val gameObject = GameObject(
-                loc.id,
-                translated,
-                loc.type,
-                loc.orientation
+                obj.id,
+                tile,
+                obj.shape,
+                obj.rotation
             )
+            collisionMap.setObject(gameObject, true)
         }
     }
 

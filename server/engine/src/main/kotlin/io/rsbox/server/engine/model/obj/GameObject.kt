@@ -18,8 +18,7 @@ class GameObject(
 
     val clipType = data.clipType
     val impenetrable = data.impenetrable
-    val width = data.width.toInt()
-    val length = data.length.toInt()
 
-    val blocks
+    fun blocksPath() = clipType != 0
+    fun blocksProjectile() = impenetrable
 }

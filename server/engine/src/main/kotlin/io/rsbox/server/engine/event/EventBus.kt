@@ -21,18 +21,18 @@ import kotlin.reflect.KClass
 
 object EventBus {
 
-    val events = mutableMapOf<KClass<out Event>, MutableList<EventSubscriber<*>>>()
+    val events = mutableMapOf<String, MutableList<EventSubscriber<*>>>()
 
     @Suppress("UNCHECKED_CAST")
     inline fun <reified T : Event> postEvent(event: T) {
-        val events = (EventBus.events[event::class] as? List<EventSubscriber<T>>) ?: return
+        val events = (EventBus.events[event::class.simpleName] as? List<EventSubscriber<T>>) ?: return
         events.forEach { subscriber ->
             subscriber.action(event)
         }
     }
 
     inline fun <reified T : Event> subscribe(noinline block: T.() -> Unit) {
-        events.computeIfAbsent(T::class) { mutableListOf() }.add(EventSubscriber(block))
+        events.computeIfAbsent(T::class.simpleName!!) { mutableListOf() }.add(EventSubscriber(block))
     }
 
     fun unsubscribe(listener: EventSubscriber<out Event>) {

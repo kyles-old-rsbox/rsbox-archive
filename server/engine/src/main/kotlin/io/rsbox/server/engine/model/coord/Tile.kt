@@ -102,6 +102,10 @@ value class Tile(val packed: Int) {
         y / Scene.SIZE
     )
 
+    override fun toString(): String {
+        return "Tile[x=$x, y=$y, level=$level]"
+    }
+
     companion object {
         const val SIZE = 1
     }
