@@ -65,6 +65,7 @@ class RSA {
         private val PRIVATE_KEY_FILE = File("data/rsa/private.pem")
         private val PUBLIC_MODULUS_FILE = File("data/rsa/modulus.txt")
         private val CLIENT_PUBLIC_MODULUS_FILE = File("client/src/main/resources/modulus.txt")
+        private val NATIVE_CLIENT_PUBLIC_MODULUS_FILE = File("native-client/src/main/resources/modulus.txt")
 
         fun generateNewKeyPair() {
             Logger.info("Generating new RSA private/public key-pair...")
@@ -97,8 +98,11 @@ class RSA {
                 it.write(publicKey.modulus.toString(16))
             }
 
-            Logger.info("Setting up development client with generated RSA keys.")
+            Logger.info("Setting up development clients with generated RSA keys.")
             Files.newBufferedWriter(CLIENT_PUBLIC_MODULUS_FILE.toPath()).use {
+                it.write(publicKey.modulus.toString(16))
+            }
+            Files.newBufferedWriter(NATIVE_CLIENT_PUBLIC_MODULUS_FILE.toPath()).use {
                 it.write(publicKey.modulus.toString(16))
             }
 

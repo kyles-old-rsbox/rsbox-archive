@@ -6,3 +6,4 @@ out/
 !gradle-wrapper.jar
 data/
 modulus.txt
+osclient.exe

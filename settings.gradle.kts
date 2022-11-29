@@ -35,6 +35,7 @@ include(":toolbox:updater")
  * ===== CLIENT =====
  */
 include(":client")
+include(":native-client")
 
 /**
  * ===== SERVER =====
